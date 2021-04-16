@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['WebAppAuthSettingsArgs', 'WebAppAuthSettings']
@@ -823,9 +823,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
                  twitter_consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
                  unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
                  validate_issuer: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
         API Version: 2020-12-01.
@@ -992,15 +990,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
                  twitter_consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
                  unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
                  validate_issuer: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1010,54 +1000,54 @@ class WebAppAuthSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppAuthSettingsArgs.__new__(WebAppAuthSettingsArgs)
 
-            __props__['aad_claims_authorization'] = aad_claims_authorization
-            __props__['additional_login_params'] = additional_login_params
-            __props__['allowed_audiences'] = allowed_audiences
-            __props__['allowed_external_redirect_urls'] = allowed_external_redirect_urls
-            __props__['auth_file_path'] = auth_file_path
-            __props__['client_id'] = client_id
-            __props__['client_secret'] = client_secret
-            __props__['client_secret_certificate_thumbprint'] = client_secret_certificate_thumbprint
-            __props__['client_secret_setting_name'] = client_secret_setting_name
-            __props__['config_version'] = config_version
-            __props__['default_provider'] = default_provider
-            __props__['enabled'] = enabled
-            __props__['facebook_app_id'] = facebook_app_id
-            __props__['facebook_app_secret'] = facebook_app_secret
-            __props__['facebook_app_secret_setting_name'] = facebook_app_secret_setting_name
-            __props__['facebook_o_auth_scopes'] = facebook_o_auth_scopes
-            __props__['git_hub_client_id'] = git_hub_client_id
-            __props__['git_hub_client_secret'] = git_hub_client_secret
-            __props__['git_hub_client_secret_setting_name'] = git_hub_client_secret_setting_name
-            __props__['git_hub_o_auth_scopes'] = git_hub_o_auth_scopes
-            __props__['google_client_id'] = google_client_id
-            __props__['google_client_secret'] = google_client_secret
-            __props__['google_client_secret_setting_name'] = google_client_secret_setting_name
-            __props__['google_o_auth_scopes'] = google_o_auth_scopes
-            __props__['is_auth_from_file'] = is_auth_from_file
-            __props__['issuer'] = issuer
-            __props__['kind'] = kind
-            __props__['microsoft_account_client_id'] = microsoft_account_client_id
-            __props__['microsoft_account_client_secret'] = microsoft_account_client_secret
-            __props__['microsoft_account_client_secret_setting_name'] = microsoft_account_client_secret_setting_name
-            __props__['microsoft_account_o_auth_scopes'] = microsoft_account_o_auth_scopes
+            __props__.__dict__["aad_claims_authorization"] = aad_claims_authorization
+            __props__.__dict__["additional_login_params"] = additional_login_params
+            __props__.__dict__["allowed_audiences"] = allowed_audiences
+            __props__.__dict__["allowed_external_redirect_urls"] = allowed_external_redirect_urls
+            __props__.__dict__["auth_file_path"] = auth_file_path
+            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret_certificate_thumbprint"] = client_secret_certificate_thumbprint
+            __props__.__dict__["client_secret_setting_name"] = client_secret_setting_name
+            __props__.__dict__["config_version"] = config_version
+            __props__.__dict__["default_provider"] = default_provider
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["facebook_app_id"] = facebook_app_id
+            __props__.__dict__["facebook_app_secret"] = facebook_app_secret
+            __props__.__dict__["facebook_app_secret_setting_name"] = facebook_app_secret_setting_name
+            __props__.__dict__["facebook_o_auth_scopes"] = facebook_o_auth_scopes
+            __props__.__dict__["git_hub_client_id"] = git_hub_client_id
+            __props__.__dict__["git_hub_client_secret"] = git_hub_client_secret
+            __props__.__dict__["git_hub_client_secret_setting_name"] = git_hub_client_secret_setting_name
+            __props__.__dict__["git_hub_o_auth_scopes"] = git_hub_o_auth_scopes
+            __props__.__dict__["google_client_id"] = google_client_id
+            __props__.__dict__["google_client_secret"] = google_client_secret
+            __props__.__dict__["google_client_secret_setting_name"] = google_client_secret_setting_name
+            __props__.__dict__["google_o_auth_scopes"] = google_o_auth_scopes
+            __props__.__dict__["is_auth_from_file"] = is_auth_from_file
+            __props__.__dict__["issuer"] = issuer
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["microsoft_account_client_id"] = microsoft_account_client_id
+            __props__.__dict__["microsoft_account_client_secret"] = microsoft_account_client_secret
+            __props__.__dict__["microsoft_account_client_secret_setting_name"] = microsoft_account_client_secret_setting_name
+            __props__.__dict__["microsoft_account_o_auth_scopes"] = microsoft_account_o_auth_scopes
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['runtime_version'] = runtime_version
-            __props__['token_refresh_extension_hours'] = token_refresh_extension_hours
-            __props__['token_store_enabled'] = token_store_enabled
-            __props__['twitter_consumer_key'] = twitter_consumer_key
-            __props__['twitter_consumer_secret'] = twitter_consumer_secret
-            __props__['twitter_consumer_secret_setting_name'] = twitter_consumer_secret_setting_name
-            __props__['unauthenticated_client_action'] = unauthenticated_client_action
-            __props__['validate_issuer'] = validate_issuer
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["runtime_version"] = runtime_version
+            __props__.__dict__["token_refresh_extension_hours"] = token_refresh_extension_hours
+            __props__.__dict__["token_store_enabled"] = token_store_enabled
+            __props__.__dict__["twitter_consumer_key"] = twitter_consumer_key
+            __props__.__dict__["twitter_consumer_secret"] = twitter_consumer_secret
+            __props__.__dict__["twitter_consumer_secret_setting_name"] = twitter_consumer_secret_setting_name
+            __props__.__dict__["unauthenticated_client_action"] = unauthenticated_client_action
+            __props__.__dict__["validate_issuer"] = validate_issuer
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettings"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppAuthSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettings, __self__).__init__(
@@ -1080,49 +1070,49 @@ class WebAppAuthSettings(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppAuthSettingsArgs.__new__(WebAppAuthSettingsArgs)
 
-        __props__["aad_claims_authorization"] = None
-        __props__["additional_login_params"] = None
-        __props__["allowed_audiences"] = None
-        __props__["allowed_external_redirect_urls"] = None
-        __props__["auth_file_path"] = None
-        __props__["client_id"] = None
-        __props__["client_secret"] = None
-        __props__["client_secret_certificate_thumbprint"] = None
-        __props__["client_secret_setting_name"] = None
-        __props__["config_version"] = None
-        __props__["default_provider"] = None
-        __props__["enabled"] = None
-        __props__["facebook_app_id"] = None
-        __props__["facebook_app_secret"] = None
-        __props__["facebook_app_secret_setting_name"] = None
-        __props__["facebook_o_auth_scopes"] = None
-        __props__["git_hub_client_id"] = None
-        __props__["git_hub_client_secret"] = None
-        __props__["git_hub_client_secret_setting_name"] = None
-        __props__["git_hub_o_auth_scopes"] = None
-        __props__["google_client_id"] = None
-        __props__["google_client_secret"] = None
-        __props__["google_client_secret_setting_name"] = None
-        __props__["google_o_auth_scopes"] = None
-        __props__["is_auth_from_file"] = None
-        __props__["issuer"] = None
-        __props__["kind"] = None
-        __props__["microsoft_account_client_id"] = None
-        __props__["microsoft_account_client_secret"] = None
-        __props__["microsoft_account_client_secret_setting_name"] = None
-        __props__["microsoft_account_o_auth_scopes"] = None
-        __props__["name"] = None
-        __props__["runtime_version"] = None
-        __props__["token_refresh_extension_hours"] = None
-        __props__["token_store_enabled"] = None
-        __props__["twitter_consumer_key"] = None
-        __props__["twitter_consumer_secret"] = None
-        __props__["twitter_consumer_secret_setting_name"] = None
-        __props__["type"] = None
-        __props__["unauthenticated_client_action"] = None
-        __props__["validate_issuer"] = None
+        __props__.__dict__["aad_claims_authorization"] = None
+        __props__.__dict__["additional_login_params"] = None
+        __props__.__dict__["allowed_audiences"] = None
+        __props__.__dict__["allowed_external_redirect_urls"] = None
+        __props__.__dict__["auth_file_path"] = None
+        __props__.__dict__["client_id"] = None
+        __props__.__dict__["client_secret"] = None
+        __props__.__dict__["client_secret_certificate_thumbprint"] = None
+        __props__.__dict__["client_secret_setting_name"] = None
+        __props__.__dict__["config_version"] = None
+        __props__.__dict__["default_provider"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["facebook_app_id"] = None
+        __props__.__dict__["facebook_app_secret"] = None
+        __props__.__dict__["facebook_app_secret_setting_name"] = None
+        __props__.__dict__["facebook_o_auth_scopes"] = None
+        __props__.__dict__["git_hub_client_id"] = None
+        __props__.__dict__["git_hub_client_secret"] = None
+        __props__.__dict__["git_hub_client_secret_setting_name"] = None
+        __props__.__dict__["git_hub_o_auth_scopes"] = None
+        __props__.__dict__["google_client_id"] = None
+        __props__.__dict__["google_client_secret"] = None
+        __props__.__dict__["google_client_secret_setting_name"] = None
+        __props__.__dict__["google_o_auth_scopes"] = None
+        __props__.__dict__["is_auth_from_file"] = None
+        __props__.__dict__["issuer"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["microsoft_account_client_id"] = None
+        __props__.__dict__["microsoft_account_client_secret"] = None
+        __props__.__dict__["microsoft_account_client_secret_setting_name"] = None
+        __props__.__dict__["microsoft_account_o_auth_scopes"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["runtime_version"] = None
+        __props__.__dict__["token_refresh_extension_hours"] = None
+        __props__.__dict__["token_store_enabled"] = None
+        __props__.__dict__["twitter_consumer_key"] = None
+        __props__.__dict__["twitter_consumer_secret"] = None
+        __props__.__dict__["twitter_consumer_secret_setting_name"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unauthenticated_client_action"] = None
+        __props__.__dict__["validate_issuer"] = None
         return WebAppAuthSettings(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1504,10 +1494,4 @@ class WebAppAuthSettings(pulumi.CustomResource):
         Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
         """
         return pulumi.get(self, "validate_issuer")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

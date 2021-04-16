@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -125,9 +125,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                  default_service_version: Optional[pulumi.Input[str]] = None,
                  delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The properties of a storage account’s Blob service.
 
@@ -170,15 +168,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                  default_service_version: Optional[pulumi.Input[str]] = None,
                  delete_retention_policy: Optional[pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,20 +178,20 @@ class BlobServiceProperties(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BlobServicePropertiesArgs.__new__(BlobServicePropertiesArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['blob_services_name'] = blob_services_name
-            __props__['cors'] = cors
-            __props__['default_service_version'] = default_service_version
-            __props__['delete_retention_policy'] = delete_retention_policy
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["blob_services_name"] = blob_services_name
+            __props__.__dict__["cors"] = cors
+            __props__.__dict__["default_service_version"] = default_service_version
+            __props__.__dict__["delete_retention_policy"] = delete_retention_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:BlobServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobServiceProperties, __self__).__init__(
@@ -224,13 +214,13 @@ class BlobServiceProperties(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BlobServicePropertiesArgs.__new__(BlobServicePropertiesArgs)
 
-        __props__["cors"] = None
-        __props__["default_service_version"] = None
-        __props__["delete_retention_policy"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["cors"] = None
+        __props__.__dict__["default_service_version"] = None
+        __props__.__dict__["delete_retention_policy"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return BlobServiceProperties(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -272,10 +262,4 @@ class BlobServiceProperties(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

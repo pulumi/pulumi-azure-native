@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = [
     'PermissionResponse',
@@ -18,6 +18,23 @@ class PermissionResponse(dict):
     """
     Role definition permissions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notActions":
+            suggest = "not_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions: Optional[Sequence[str]] = None,
                  not_actions: Optional[Sequence[str]] = None):
@@ -47,15 +64,31 @@ class PermissionResponse(dict):
         """
         return pulumi.get(self, "not_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoleAssignmentPropertiesWithScopeResponse(dict):
     """
     Role assignment properties with scope.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleAssignmentPropertiesWithScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleAssignmentPropertiesWithScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleAssignmentPropertiesWithScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  role_definition_id: Optional[str] = None,
@@ -96,8 +129,5 @@ class RoleAssignmentPropertiesWithScopeResponse(dict):
         The role assignment scope.
         """
         return pulumi.get(self, "scope")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

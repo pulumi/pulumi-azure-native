@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['AssessmentArgs', 'Assessment']
@@ -282,9 +282,7 @@ class Assessment(pulumi.CustomResource):
                  scaling_factor: Optional[pulumi.Input[float]] = None,
                  stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
                  time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An assessment created for a group in the Migration project.
 
@@ -347,15 +345,7 @@ class Assessment(pulumi.CustomResource):
                  scaling_factor: Optional[pulumi.Input[float]] = None,
                  stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
                  time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -365,62 +355,62 @@ class Assessment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-            __props__['assessment_name'] = assessment_name
+            __props__.__dict__["assessment_name"] = assessment_name
             if azure_hybrid_use_benefit is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_hybrid_use_benefit'")
-            __props__['azure_hybrid_use_benefit'] = azure_hybrid_use_benefit
+            __props__.__dict__["azure_hybrid_use_benefit"] = azure_hybrid_use_benefit
             if azure_location is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_location'")
-            __props__['azure_location'] = azure_location
+            __props__.__dict__["azure_location"] = azure_location
             if azure_offer_code is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_offer_code'")
-            __props__['azure_offer_code'] = azure_offer_code
+            __props__.__dict__["azure_offer_code"] = azure_offer_code
             if azure_pricing_tier is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_pricing_tier'")
-            __props__['azure_pricing_tier'] = azure_pricing_tier
+            __props__.__dict__["azure_pricing_tier"] = azure_pricing_tier
             if azure_storage_redundancy is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_storage_redundancy'")
-            __props__['azure_storage_redundancy'] = azure_storage_redundancy
+            __props__.__dict__["azure_storage_redundancy"] = azure_storage_redundancy
             if currency is None and not opts.urn:
                 raise TypeError("Missing required property 'currency'")
-            __props__['currency'] = currency
+            __props__.__dict__["currency"] = currency
             if discount_percentage is None and not opts.urn:
                 raise TypeError("Missing required property 'discount_percentage'")
-            __props__['discount_percentage'] = discount_percentage
-            __props__['e_tag'] = e_tag
+            __props__.__dict__["discount_percentage"] = discount_percentage
+            __props__.__dict__["e_tag"] = e_tag
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
-            __props__['group_name'] = group_name
+            __props__.__dict__["group_name"] = group_name
             if percentile is None and not opts.urn:
                 raise TypeError("Missing required property 'percentile'")
-            __props__['percentile'] = percentile
+            __props__.__dict__["percentile"] = percentile
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
-            __props__['project_name'] = project_name
+            __props__.__dict__["project_name"] = project_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if scaling_factor is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_factor'")
-            __props__['scaling_factor'] = scaling_factor
+            __props__.__dict__["scaling_factor"] = scaling_factor
             if stage is None and not opts.urn:
                 raise TypeError("Missing required property 'stage'")
-            __props__['stage'] = stage
+            __props__.__dict__["stage"] = stage
             if time_range is None and not opts.urn:
                 raise TypeError("Missing required property 'time_range'")
-            __props__['time_range'] = time_range
-            __props__['created_timestamp'] = None
-            __props__['monthly_bandwidth_cost'] = None
-            __props__['monthly_compute_cost'] = None
-            __props__['monthly_storage_cost'] = None
-            __props__['name'] = None
-            __props__['number_of_machines'] = None
-            __props__['prices_timestamp'] = None
-            __props__['status'] = None
-            __props__['type'] = None
-            __props__['updated_timestamp'] = None
+            __props__.__dict__["time_range"] = time_range
+            __props__.__dict__["created_timestamp"] = None
+            __props__.__dict__["monthly_bandwidth_cost"] = None
+            __props__.__dict__["monthly_compute_cost"] = None
+            __props__.__dict__["monthly_storage_cost"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["number_of_machines"] = None
+            __props__.__dict__["prices_timestamp"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_timestamp"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20171111preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20180202:Assessment"), pulumi.Alias(type_="azure-nextgen:migrate/v20180202:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
@@ -443,30 +433,30 @@ class Assessment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-        __props__["azure_hybrid_use_benefit"] = None
-        __props__["azure_location"] = None
-        __props__["azure_offer_code"] = None
-        __props__["azure_pricing_tier"] = None
-        __props__["azure_storage_redundancy"] = None
-        __props__["created_timestamp"] = None
-        __props__["currency"] = None
-        __props__["discount_percentage"] = None
-        __props__["e_tag"] = None
-        __props__["monthly_bandwidth_cost"] = None
-        __props__["monthly_compute_cost"] = None
-        __props__["monthly_storage_cost"] = None
-        __props__["name"] = None
-        __props__["number_of_machines"] = None
-        __props__["percentile"] = None
-        __props__["prices_timestamp"] = None
-        __props__["scaling_factor"] = None
-        __props__["stage"] = None
-        __props__["status"] = None
-        __props__["time_range"] = None
-        __props__["type"] = None
-        __props__["updated_timestamp"] = None
+        __props__.__dict__["azure_hybrid_use_benefit"] = None
+        __props__.__dict__["azure_location"] = None
+        __props__.__dict__["azure_offer_code"] = None
+        __props__.__dict__["azure_pricing_tier"] = None
+        __props__.__dict__["azure_storage_redundancy"] = None
+        __props__.__dict__["created_timestamp"] = None
+        __props__.__dict__["currency"] = None
+        __props__.__dict__["discount_percentage"] = None
+        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["monthly_bandwidth_cost"] = None
+        __props__.__dict__["monthly_compute_cost"] = None
+        __props__.__dict__["monthly_storage_cost"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["number_of_machines"] = None
+        __props__.__dict__["percentile"] = None
+        __props__.__dict__["prices_timestamp"] = None
+        __props__.__dict__["scaling_factor"] = None
+        __props__.__dict__["stage"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["time_range"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_timestamp"] = None
         return Assessment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -644,10 +634,4 @@ class Assessment(pulumi.CustomResource):
         Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
         return pulumi.get(self, "updated_timestamp")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

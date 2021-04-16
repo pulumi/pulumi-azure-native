@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,27 @@ class AdditionalRegionResponse(dict):
     """
     Description of an additional API Management resource location.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skuType":
+            suggest = "sku_type"
+        elif key == "staticIPs":
+            suggest = "static_ips"
+        elif key == "skuUnitCount":
+            suggest = "sku_unit_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdditionalRegionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdditionalRegionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdditionalRegionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  sku_type: str,
@@ -35,7 +56,7 @@ class AdditionalRegionResponse(dict):
         :param str sku_type: The SKU type in the location.
         :param Sequence[str] static_ips: Static IP addresses of the location's virtual machines.
         :param int sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
-        :param 'VirtualNetworkConfigurationResponseArgs' vpnconfiguration: Virtual network configuration for the location.
+        :param 'VirtualNetworkConfigurationResponse' vpnconfiguration: Virtual network configuration for the location.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "sku_type", sku_type)
@@ -87,9 +108,6 @@ class AdditionalRegionResponse(dict):
         """
         return pulumi.get(self, "vpnconfiguration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApiManagementServiceSkuPropertiesResponse(dict):
@@ -125,9 +143,6 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
         Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         return pulumi.get(self, "capacity")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -173,9 +188,6 @@ class CertificateInformationResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HostnameConfigurationResponse(dict):
@@ -188,7 +200,7 @@ class HostnameConfigurationResponse(dict):
                  type: str):
         """
         Custom hostname configuration.
-        :param 'CertificateInformationResponseArgs' certificate: Certificate information.
+        :param 'CertificateInformationResponse' certificate: Certificate information.
         :param str hostname: Hostname.
         :param str type: Hostname type.
         """
@@ -220,15 +232,29 @@ class HostnameConfigurationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkConfigurationResponse(dict):
     """
     Configuration of a virtual network to which API Management service is deployed.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetResourceId":
+            suggest = "subnet_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnetname: str,
                  vnetid: str,
@@ -279,8 +305,5 @@ class VirtualNetworkConfigurationResponse(dict):
         The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
         """
         return pulumi.get(self, "subnet_resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

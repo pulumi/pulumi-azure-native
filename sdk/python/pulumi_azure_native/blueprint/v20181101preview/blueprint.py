@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -177,9 +177,7 @@ class Blueprint(pulumi.CustomResource):
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  versions: Optional[Any] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a Blueprint definition.
 
@@ -228,15 +226,7 @@ class Blueprint(pulumi.CustomResource):
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  versions: Optional[Any] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,24 +236,24 @@ class Blueprint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BlueprintArgs.__new__(BlueprintArgs)
 
-            __props__['blueprint_name'] = blueprint_name
-            __props__['description'] = description
-            __props__['display_name'] = display_name
-            __props__['layout'] = layout
-            __props__['parameters'] = parameters
-            __props__['resource_groups'] = resource_groups
+            __props__.__dict__["blueprint_name"] = blueprint_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["layout"] = layout
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["resource_groups"] = resource_groups
             if resource_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_scope'")
-            __props__['resource_scope'] = resource_scope
+            __props__.__dict__["resource_scope"] = resource_scope
             if target_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'target_scope'")
-            __props__['target_scope'] = target_scope
-            __props__['versions'] = versions
-            __props__['name'] = None
-            __props__['status'] = None
-            __props__['type'] = None
+            __props__.__dict__["target_scope"] = target_scope
+            __props__.__dict__["versions"] = versions
+            __props__.__dict__["name"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blueprint/v20181101preview:Blueprint"), pulumi.Alias(type_="azure-native:blueprint:Blueprint"), pulumi.Alias(type_="azure-nextgen:blueprint:Blueprint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Blueprint, __self__).__init__(
@@ -286,18 +276,18 @@ class Blueprint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BlueprintArgs.__new__(BlueprintArgs)
 
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["layout"] = None
-        __props__["name"] = None
-        __props__["parameters"] = None
-        __props__["resource_groups"] = None
-        __props__["status"] = None
-        __props__["target_scope"] = None
-        __props__["type"] = None
-        __props__["versions"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["layout"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["parameters"] = None
+        __props__.__dict__["resource_groups"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["target_scope"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["versions"] = None
         return Blueprint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -379,10 +369,4 @@ class Blueprint(pulumi.CustomResource):
         Published versions of this blueprint definition.
         """
         return pulumi.get(self, "versions")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

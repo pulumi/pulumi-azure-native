@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['ExportConfigurationArgs', 'ExportConfiguration']
 
@@ -225,9 +225,7 @@ class ExportConfiguration(pulumi.CustomResource):
                  record_types: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Properties that define a Continuous Export configuration.
 
@@ -282,15 +280,7 @@ class ExportConfiguration(pulumi.CustomResource):
                  record_types: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -300,36 +290,36 @@ class ExportConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExportConfigurationArgs.__new__(ExportConfigurationArgs)
 
-            __props__['destination_account_id'] = destination_account_id
-            __props__['destination_address'] = destination_address
-            __props__['destination_storage_location_id'] = destination_storage_location_id
-            __props__['destination_storage_subscription_id'] = destination_storage_subscription_id
-            __props__['destination_type'] = destination_type
-            __props__['export_id'] = export_id
-            __props__['is_enabled'] = is_enabled
-            __props__['notification_queue_enabled'] = notification_queue_enabled
-            __props__['notification_queue_uri'] = notification_queue_uri
-            __props__['record_types'] = record_types
+            __props__.__dict__["destination_account_id"] = destination_account_id
+            __props__.__dict__["destination_address"] = destination_address
+            __props__.__dict__["destination_storage_location_id"] = destination_storage_location_id
+            __props__.__dict__["destination_storage_subscription_id"] = destination_storage_subscription_id
+            __props__.__dict__["destination_type"] = destination_type
+            __props__.__dict__["export_id"] = export_id
+            __props__.__dict__["is_enabled"] = is_enabled
+            __props__.__dict__["notification_queue_enabled"] = notification_queue_enabled
+            __props__.__dict__["notification_queue_uri"] = notification_queue_uri
+            __props__.__dict__["record_types"] = record_types
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
-            __props__['resource_name'] = resource_name_
-            __props__['application_name'] = None
-            __props__['container_name'] = None
-            __props__['export_status'] = None
-            __props__['instrumentation_key'] = None
-            __props__['is_user_enabled'] = None
-            __props__['last_gap_time'] = None
-            __props__['last_success_time'] = None
-            __props__['last_user_update'] = None
-            __props__['permanent_error_reason'] = None
-            __props__['resource_group'] = None
-            __props__['storage_name'] = None
-            __props__['subscription_id'] = None
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["application_name"] = None
+            __props__.__dict__["container_name"] = None
+            __props__.__dict__["export_status"] = None
+            __props__.__dict__["instrumentation_key"] = None
+            __props__.__dict__["is_user_enabled"] = None
+            __props__.__dict__["last_gap_time"] = None
+            __props__.__dict__["last_success_time"] = None
+            __props__.__dict__["last_user_update"] = None
+            __props__.__dict__["permanent_error_reason"] = None
+            __props__.__dict__["resource_group"] = None
+            __props__.__dict__["storage_name"] = None
+            __props__.__dict__["subscription_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:ExportConfiguration"), pulumi.Alias(type_="azure-native:insights:ExportConfiguration"), pulumi.Alias(type_="azure-nextgen:insights:ExportConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExportConfiguration, __self__).__init__(
@@ -352,27 +342,27 @@ class ExportConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ExportConfigurationArgs.__new__(ExportConfigurationArgs)
 
-        __props__["application_name"] = None
-        __props__["container_name"] = None
-        __props__["destination_account_id"] = None
-        __props__["destination_storage_location_id"] = None
-        __props__["destination_storage_subscription_id"] = None
-        __props__["destination_type"] = None
-        __props__["export_id"] = None
-        __props__["export_status"] = None
-        __props__["instrumentation_key"] = None
-        __props__["is_user_enabled"] = None
-        __props__["last_gap_time"] = None
-        __props__["last_success_time"] = None
-        __props__["last_user_update"] = None
-        __props__["notification_queue_enabled"] = None
-        __props__["permanent_error_reason"] = None
-        __props__["record_types"] = None
-        __props__["resource_group"] = None
-        __props__["storage_name"] = None
-        __props__["subscription_id"] = None
+        __props__.__dict__["application_name"] = None
+        __props__.__dict__["container_name"] = None
+        __props__.__dict__["destination_account_id"] = None
+        __props__.__dict__["destination_storage_location_id"] = None
+        __props__.__dict__["destination_storage_subscription_id"] = None
+        __props__.__dict__["destination_type"] = None
+        __props__.__dict__["export_id"] = None
+        __props__.__dict__["export_status"] = None
+        __props__.__dict__["instrumentation_key"] = None
+        __props__.__dict__["is_user_enabled"] = None
+        __props__.__dict__["last_gap_time"] = None
+        __props__.__dict__["last_success_time"] = None
+        __props__.__dict__["last_user_update"] = None
+        __props__.__dict__["notification_queue_enabled"] = None
+        __props__.__dict__["permanent_error_reason"] = None
+        __props__.__dict__["record_types"] = None
+        __props__.__dict__["resource_group"] = None
+        __props__.__dict__["storage_name"] = None
+        __props__.__dict__["subscription_id"] = None
         return ExportConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -526,10 +516,4 @@ class ExportConfiguration(pulumi.CustomResource):
         The subscription of the Application Insights component.
         """
         return pulumi.get(self, "subscription_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

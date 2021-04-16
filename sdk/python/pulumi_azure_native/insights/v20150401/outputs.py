@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -37,8 +37,8 @@ class AutoscaleNotificationResponse(dict):
         """
         Autoscale notification.
         :param str operation: the operation associated with the notification and its value must be "scale"
-        :param 'EmailNotificationResponseArgs' email: the email notification.
-        :param Sequence['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
+        :param 'EmailNotificationResponse' email: the email notification.
+        :param Sequence['WebhookNotificationResponse'] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -70,15 +70,29 @@ class AutoscaleNotificationResponse(dict):
         """
         return pulumi.get(self, "webhooks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleProfileResponse(dict):
     """
     Autoscale profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedDate":
+            suggest = "fixed_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capacity: 'outputs.ScaleCapacityResponse',
                  name: str,
@@ -87,11 +101,11 @@ class AutoscaleProfileResponse(dict):
                  recurrence: Optional['outputs.RecurrenceResponse'] = None):
         """
         Autoscale profile.
-        :param 'ScaleCapacityResponseArgs' capacity: the number of instances that can be used during this profile.
+        :param 'ScaleCapacityResponse' capacity: the number of instances that can be used during this profile.
         :param str name: the name of the profile.
-        :param Sequence['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-        :param 'TimeWindowResponseArgs' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
-        :param 'RecurrenceResponseArgs' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+        :param Sequence['ScaleRuleResponse'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param 'TimeWindowResponse' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
+        :param 'RecurrenceResponse' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -141,15 +155,33 @@ class AutoscaleProfileResponse(dict):
         """
         return pulumi.get(self, "recurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EmailNotificationResponse(dict):
     """
     Email notification of an autoscale event.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customEmails":
+            suggest = "custom_emails"
+        elif key == "sendToSubscriptionAdministrator":
+            suggest = "send_to_subscription_administrator"
+        elif key == "sendToSubscriptionCoAdministrators":
+            suggest = "send_to_subscription_co_administrators"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailNotificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailNotificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailNotificationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_emails: Optional[Sequence[str]] = None,
                  send_to_subscription_administrator: Optional[bool] = None,
@@ -191,15 +223,39 @@ class EmailNotificationResponse(dict):
         """
         return pulumi.get(self, "send_to_subscription_co_administrators")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricTriggerResponse(dict):
     """
     The trigger that results in a scaling action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricResourceUri":
+            suggest = "metric_resource_uri"
+        elif key == "timeAggregation":
+            suggest = "time_aggregation"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+        elif key == "timeWindow":
+            suggest = "time_window"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  metric_resource_uri: str,
@@ -221,7 +277,7 @@ class MetricTriggerResponse(dict):
         :param str time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param str time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param str time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param Sequence['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param Sequence['ScaleRuleMetricDimensionResponse'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -317,9 +373,6 @@ class MetricTriggerResponse(dict):
         """
         return pulumi.get(self, "metric_namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecurrenceResponse(dict):
@@ -332,7 +385,7 @@ class RecurrenceResponse(dict):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         :param str frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-        :param 'RecurrentScheduleResponseArgs' schedule: the scheduling constraints for when the profile begins.
+        :param 'RecurrentScheduleResponse' schedule: the scheduling constraints for when the profile begins.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "schedule", schedule)
@@ -353,15 +406,29 @@ class RecurrenceResponse(dict):
         """
         return pulumi.get(self, "schedule")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecurrentScheduleResponse(dict):
     """
     The scheduling constraints for when the profile begins.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecurrentScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecurrentScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecurrentScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days: Sequence[str],
                  hours: Sequence[int],
@@ -410,9 +477,6 @@ class RecurrentScheduleResponse(dict):
         the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         return pulumi.get(self, "time_zone")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -472,9 +536,6 @@ class ScaleActionResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleCapacityResponse(dict):
@@ -519,15 +580,29 @@ class ScaleCapacityResponse(dict):
         """
         return pulumi.get(self, "minimum")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleRuleMetricDimensionResponse(dict):
     """
     Specifies an auto scale rule metric dimension.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionName":
+            suggest = "dimension_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleRuleMetricDimensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleRuleMetricDimensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleRuleMetricDimensionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dimension_name: str,
                  operator: str,
@@ -566,22 +641,38 @@ class ScaleRuleMetricDimensionResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleRuleResponse(dict):
     """
     A rule that provide the triggers and parameters for the scaling action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricTrigger":
+            suggest = "metric_trigger"
+        elif key == "scaleAction":
+            suggest = "scale_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_trigger: 'outputs.MetricTriggerResponse',
                  scale_action: 'outputs.ScaleActionResponse'):
         """
         A rule that provide the triggers and parameters for the scaling action.
-        :param 'MetricTriggerResponseArgs' metric_trigger: the trigger that results in a scaling action.
-        :param 'ScaleActionResponseArgs' scale_action: the parameters for the scaling action.
+        :param 'MetricTriggerResponse' metric_trigger: the trigger that results in a scaling action.
+        :param 'ScaleActionResponse' scale_action: the parameters for the scaling action.
         """
         pulumi.set(__self__, "metric_trigger", metric_trigger)
         pulumi.set(__self__, "scale_action", scale_action)
@@ -602,15 +693,29 @@ class ScaleRuleResponse(dict):
         """
         return pulumi.get(self, "scale_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeWindowResponse(dict):
     """
     A specific date-time for the profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeWindowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeWindowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeWindowResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end: str,
                  start: str,
@@ -650,15 +755,29 @@ class TimeWindowResponse(dict):
         """
         return pulumi.get(self, "time_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookNotificationResponse(dict):
     """
     Webhook notification of an autoscale event.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookNotificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookNotificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookNotificationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  properties: Optional[Mapping[str, str]] = None,
                  service_uri: Optional[str] = None):
@@ -687,8 +806,5 @@ class WebhookNotificationResponse(dict):
         the service address to receive the notification.
         """
         return pulumi.get(self, "service_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

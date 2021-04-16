@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -59,6 +59,39 @@ class CreationDataResponse(dict):
     """
     Data used when creating a disk.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "sourceUniqueId":
+            suggest = "source_unique_id"
+        elif key == "galleryImageReference":
+            suggest = "gallery_image_reference"
+        elif key == "imageReference":
+            suggest = "image_reference"
+        elif key == "logicalSectorSize":
+            suggest = "logical_sector_size"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "sourceUri":
+            suggest = "source_uri"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "uploadSizeBytes":
+            suggest = "upload_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreationDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  source_unique_id: str,
@@ -73,8 +106,8 @@ class CreationDataResponse(dict):
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
         :param str source_unique_id: If this field is set, this is the unique id identifying the source of this resource.
-        :param 'ImageDiskReferenceResponseArgs' gallery_image_reference: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
-        :param 'ImageDiskReferenceResponseArgs' image_reference: Disk source information.
+        :param 'ImageDiskReferenceResponse' gallery_image_reference: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+        :param 'ImageDiskReferenceResponse' image_reference: Disk source information.
         :param int logical_sector_size: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
@@ -170,15 +203,29 @@ class CreationDataResponse(dict):
         """
         return pulumi.get(self, "upload_size_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataDiskImageEncryptionResponse(dict):
     """
     Contains encryption settings for a data disk image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDiskImageEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDiskImageEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDiskImageEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lun: int,
                  disk_encryption_set_id: Optional[str] = None):
@@ -207,15 +254,29 @@ class DataDiskImageEncryptionResponse(dict):
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DisallowedResponse(dict):
     """
     Describes the disallowed disk types.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskTypes":
+            suggest = "disk_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DisallowedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DisallowedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DisallowedResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_types: Optional[Sequence[str]] = None):
         """
@@ -232,9 +293,6 @@ class DisallowedResponse(dict):
         A list of disk types.
         """
         return pulumi.get(self, "disk_types")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -270,22 +328,38 @@ class DiskSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionImagesResponse(dict):
     """
     Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDiskImages":
+            suggest = "data_disk_images"
+        elif key == "osDiskImage":
+            suggest = "os_disk_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionImagesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionImagesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionImagesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_disk_images: Optional[Sequence['outputs.DataDiskImageEncryptionResponse']] = None,
                  os_disk_image: Optional['outputs.OSDiskImageEncryptionResponse'] = None):
         """
         Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param Sequence['DataDiskImageEncryptionResponseArgs'] data_disk_images: A list of encryption specifications for data disk images.
-        :param 'OSDiskImageEncryptionResponseArgs' os_disk_image: Contains encryption settings for an OS disk image.
+        :param Sequence['DataDiskImageEncryptionResponse'] data_disk_images: A list of encryption specifications for data disk images.
+        :param 'OSDiskImageEncryptionResponse' os_disk_image: Contains encryption settings for an OS disk image.
         """
         if data_disk_images is not None:
             pulumi.set(__self__, "data_disk_images", data_disk_images)
@@ -308,15 +382,29 @@ class EncryptionImagesResponse(dict):
         """
         return pulumi.get(self, "os_disk_image")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionResponse(dict):
     """
     Encryption at rest settings for disk or snapshot
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[str] = None,
                  type: Optional[str] = None):
@@ -346,15 +434,31 @@ class EncryptionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionSetIdentityResponse(dict):
     """
     The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionSetIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionSetIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionSetIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -394,15 +498,31 @@ class EncryptionSetIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionSettingsCollectionResponse(dict):
     """
     Encryption settings for disk or snapshot
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionSettings":
+            suggest = "encryption_settings"
+        elif key == "encryptionSettingsVersion":
+            suggest = "encryption_settings_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionSettingsCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionSettingsCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionSettingsCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  encryption_settings: Optional[Sequence['outputs.EncryptionSettingsElementResponse']] = None,
@@ -410,7 +530,7 @@ class EncryptionSettingsCollectionResponse(dict):
         """
         Encryption settings for disk or snapshot
         :param bool enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param Sequence['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param Sequence['EncryptionSettingsElementResponse'] encryption_settings: A collection of encryption settings, one for each disk volume.
         :param str encryption_settings_version: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -443,22 +563,38 @@ class EncryptionSettingsCollectionResponse(dict):
         """
         return pulumi.get(self, "encryption_settings_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionSettingsElementResponse(dict):
     """
     Encryption settings for one disk volume.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionKey":
+            suggest = "disk_encryption_key"
+        elif key == "keyEncryptionKey":
+            suggest = "key_encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionSettingsElementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionSettingsElementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionSettingsElementResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_encryption_key: Optional['outputs.KeyVaultAndSecretReferenceResponse'] = None,
                  key_encryption_key: Optional['outputs.KeyVaultAndKeyReferenceResponse'] = None):
         """
         Encryption settings for one disk volume.
-        :param 'KeyVaultAndSecretReferenceResponseArgs' disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
-        :param 'KeyVaultAndKeyReferenceResponseArgs' key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+        :param 'KeyVaultAndSecretReferenceResponse' disk_encryption_key: Key Vault Secret Url and vault id of the disk encryption key
+        :param 'KeyVaultAndKeyReferenceResponse' key_encryption_key: Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -480,9 +616,6 @@ class EncryptionSettingsElementResponse(dict):
         Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
         """
         return pulumi.get(self, "key_encryption_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -519,15 +652,43 @@ class ExtendedLocationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryApplicationVersionPublishingProfileResponse(dict):
     """
     The publishing profile of a gallery image version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishedDate":
+            suggest = "published_date"
+        elif key == "enableHealthCheck":
+            suggest = "enable_health_check"
+        elif key == "endOfLifeDate":
+            suggest = "end_of_life_date"
+        elif key == "excludeFromLatest":
+            suggest = "exclude_from_latest"
+        elif key == "manageActions":
+            suggest = "manage_actions"
+        elif key == "replicaCount":
+            suggest = "replica_count"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "targetRegions":
+            suggest = "target_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryApplicationVersionPublishingProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryApplicationVersionPublishingProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryApplicationVersionPublishingProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  published_date: str,
                  source: 'outputs.UserArtifactSourceResponse',
@@ -541,13 +702,13 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         """
         The publishing profile of a gallery image version.
         :param str published_date: The timestamp for when the gallery image version is published.
-        :param 'UserArtifactSourceResponseArgs' source: The source image from which the Image Version is going to be created.
+        :param 'UserArtifactSourceResponse' source: The source image from which the Image Version is going to be created.
         :param bool enable_health_check: Optional. Whether or not this application reports health.
         :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         pulumi.set(__self__, "source", source)
@@ -635,9 +796,6 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         """
         return pulumi.get(self, "target_regions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryArtifactVersionSourceResponse(dict):
@@ -673,15 +831,31 @@ class GalleryArtifactVersionSourceResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryDataDiskImageResponse(dict):
     """
     This is the data disk image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGB":
+            suggest = "size_in_gb"
+        elif key == "hostCaching":
+            suggest = "host_caching"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryDataDiskImageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryDataDiskImageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryDataDiskImageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lun: int,
                  size_in_gb: int,
@@ -692,7 +866,7 @@ class GalleryDataDiskImageResponse(dict):
         :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-        :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
+        :param 'GalleryArtifactVersionSourceResponse' source: The gallery artifact version source.
         """
         pulumi.set(__self__, "lun", lun)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
@@ -733,15 +907,29 @@ class GalleryDataDiskImageResponse(dict):
         """
         return pulumi.get(self, "source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryIdentifierResponse(dict):
     """
     Describes the gallery unique name.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uniqueName":
+            suggest = "unique_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryIdentifierResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryIdentifierResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryIdentifierResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  unique_name: str):
         """
@@ -757,9 +945,6 @@ class GalleryIdentifierResponse(dict):
         The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
         """
         return pulumi.get(self, "unique_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -795,9 +980,6 @@ class GalleryImageFeatureResponse(dict):
         The value of the gallery image feature.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -843,15 +1025,39 @@ class GalleryImageIdentifierResponse(dict):
         """
         return pulumi.get(self, "sku")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryImageVersionPublishingProfileResponse(dict):
     """
     The publishing profile of a gallery image Version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishedDate":
+            suggest = "published_date"
+        elif key == "endOfLifeDate":
+            suggest = "end_of_life_date"
+        elif key == "excludeFromLatest":
+            suggest = "exclude_from_latest"
+        elif key == "replicaCount":
+            suggest = "replica_count"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "targetRegions":
+            suggest = "target_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryImageVersionPublishingProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryImageVersionPublishingProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryImageVersionPublishingProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  published_date: str,
                  end_of_life_date: Optional[str] = None,
@@ -866,7 +1072,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponse'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         if end_of_life_date is not None:
@@ -928,24 +1134,40 @@ class GalleryImageVersionPublishingProfileResponse(dict):
         """
         return pulumi.get(self, "target_regions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryImageVersionStorageProfileResponse(dict):
     """
     This is the storage profile of a Gallery Image Version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDiskImages":
+            suggest = "data_disk_images"
+        elif key == "osDiskImage":
+            suggest = "os_disk_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryImageVersionStorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryImageVersionStorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryImageVersionStorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_disk_images: Optional[Sequence['outputs.GalleryDataDiskImageResponse']] = None,
                  os_disk_image: Optional['outputs.GalleryOSDiskImageResponse'] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the storage profile of a Gallery Image Version.
-        :param Sequence['GalleryDataDiskImageResponseArgs'] data_disk_images: A list of data disk images.
-        :param 'GalleryOSDiskImageResponseArgs' os_disk_image: This is the OS disk image.
-        :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
+        :param Sequence['GalleryDataDiskImageResponse'] data_disk_images: A list of data disk images.
+        :param 'GalleryOSDiskImageResponse' os_disk_image: This is the OS disk image.
+        :param 'GalleryArtifactVersionSourceResponse' source: The gallery artifact version source.
         """
         if data_disk_images is not None:
             pulumi.set(__self__, "data_disk_images", data_disk_images)
@@ -978,15 +1200,31 @@ class GalleryImageVersionStorageProfileResponse(dict):
         """
         return pulumi.get(self, "source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryOSDiskImageResponse(dict):
     """
     This is the OS disk image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGB":
+            suggest = "size_in_gb"
+        elif key == "hostCaching":
+            suggest = "host_caching"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryOSDiskImageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryOSDiskImageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryOSDiskImageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size_in_gb: int,
                  host_caching: Optional[str] = None,
@@ -995,7 +1233,7 @@ class GalleryOSDiskImageResponse(dict):
         This is the OS disk image.
         :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-        :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
+        :param 'GalleryArtifactVersionSourceResponse' source: The gallery artifact version source.
         """
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         if host_caching is not None:
@@ -1026,9 +1264,6 @@ class GalleryOSDiskImageResponse(dict):
         The gallery artifact version source.
         """
         return pulumi.get(self, "source")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1063,9 +1298,6 @@ class ImageDiskReferenceResponse(dict):
         If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         return pulumi.get(self, "lun")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1114,22 +1346,38 @@ class ImagePurchasePlanResponse(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyForDiskEncryptionSetResponse(dict):
     """
     Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+        elif key == "sourceVault":
+            suggest = "source_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyForDiskEncryptionSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyForDiskEncryptionSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyForDiskEncryptionSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_url: str,
                  source_vault: Optional['outputs.SourceVaultResponse'] = None):
         """
         Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
         :param str key_url: Fully versioned Key Url pointing to a key in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
         """
         pulumi.set(__self__, "key_url", key_url)
         if source_vault is not None:
@@ -1151,22 +1399,38 @@ class KeyForDiskEncryptionSetResponse(dict):
         """
         return pulumi.get(self, "source_vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultAndKeyReferenceResponse(dict):
     """
     Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+        elif key == "sourceVault":
+            suggest = "source_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultAndKeyReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultAndKeyReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultAndKeyReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_url: str,
                  source_vault: 'outputs.SourceVaultResponse'):
         """
         Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
         :param str key_url: Url pointing to a key or secret in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1187,22 +1451,38 @@ class KeyVaultAndKeyReferenceResponse(dict):
         """
         return pulumi.get(self, "source_vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultAndSecretReferenceResponse(dict):
     """
     Key Vault Secret Url and vault id of the encryption key 
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVault":
+            suggest = "source_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultAndSecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultAndSecretReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultAndSecretReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault: 'outputs.SourceVaultResponse'):
         """
         Key Vault Secret Url and vault id of the encryption key 
         :param str secret_url: Url pointing to a key or secret in KeyVault
-        :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret
+        :param 'SourceVaultResponse' source_vault: Resource id of the KeyVault containing the key or secret
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1223,15 +1503,29 @@ class KeyVaultAndSecretReferenceResponse(dict):
         """
         return pulumi.get(self, "source_vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OSDiskImageEncryptionResponse(dict):
     """
     Contains encryption settings for an OS disk image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSDiskImageEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSDiskImageEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSDiskImageEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[str] = None):
         """
@@ -1249,15 +1543,33 @@ class OSDiskImageEncryptionResponse(dict):
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -1269,10 +1581,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: private endpoint connection Id
         :param str name: private endpoint connection name
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: private endpoint connection type
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1330,9 +1642,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -1355,15 +1664,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1405,15 +1728,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PurchasePlanResponse(dict):
     """
     Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PurchasePlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PurchasePlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PurchasePlanResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -1464,22 +1801,36 @@ class PurchasePlanResponse(dict):
         """
         return pulumi.get(self, "promotion_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecommendedMachineConfigurationResponse(dict):
     """
     The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vCPUs":
+            suggest = "v_cpus"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedMachineConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedMachineConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedMachineConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  memory: Optional['outputs.ResourceRangeResponse'] = None,
                  v_cpus: Optional['outputs.ResourceRangeResponse'] = None):
         """
         The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-        :param 'ResourceRangeResponseArgs' memory: Describes the resource range.
-        :param 'ResourceRangeResponseArgs' v_cpus: Describes the resource range.
+        :param 'ResourceRangeResponse' memory: Describes the resource range.
+        :param 'ResourceRangeResponse' v_cpus: Describes the resource range.
         """
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
@@ -1501,9 +1852,6 @@ class RecommendedMachineConfigurationResponse(dict):
         Describes the resource range.
         """
         return pulumi.get(self, "v_cpus")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1560,22 +1908,36 @@ class RegionalReplicationStatusResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReplicationStatusResponse(dict):
     """
     This is the replication status of the gallery image version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregatedState":
+            suggest = "aggregated_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregated_state: str,
                  summary: Sequence['outputs.RegionalReplicationStatusResponse']):
         """
         This is the replication status of the gallery image version.
         :param str aggregated_state: This is the aggregated replication status based on all the regional replication status flags.
-        :param Sequence['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
+        :param Sequence['RegionalReplicationStatusResponse'] summary: This is a summary of replication status for each region.
         """
         pulumi.set(__self__, "aggregated_state", aggregated_state)
         pulumi.set(__self__, "summary", summary)
@@ -1595,9 +1957,6 @@ class ReplicationStatusResponse(dict):
         This is a summary of replication status for each region.
         """
         return pulumi.get(self, "summary")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1634,12 +1993,26 @@ class ResourceRangeResponse(dict):
         """
         return pulumi.get(self, "min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ShareInfoElementResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmUri":
+            suggest = "vm_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShareInfoElementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShareInfoElementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShareInfoElementResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vm_uri: str):
         """
@@ -1654,9 +2027,6 @@ class ShareInfoElementResponse(dict):
         A relative URI containing the ID of the VM that has the disk attached.
         """
         return pulumi.get(self, "vm_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1693,9 +2063,6 @@ class SharingProfileGroupResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharingProfileResponse(dict):
@@ -1707,7 +2074,7 @@ class SharingProfileResponse(dict):
                  permissions: Optional[str] = None):
         """
         Profile for gallery sharing to subscription or tenant
-        :param Sequence['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
+        :param Sequence['SharingProfileGroupResponse'] groups: A list of sharing profile groups.
         :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         pulumi.set(__self__, "groups", groups)
@@ -1729,9 +2096,6 @@ class SharingProfileResponse(dict):
         This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         return pulumi.get(self, "permissions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1767,9 +2131,6 @@ class SnapshotSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceVaultResponse(dict):
@@ -1793,15 +2154,31 @@ class SourceVaultResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetRegionResponse(dict):
     """
     Describes the target region information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionalReplicaCount":
+            suggest = "regional_replica_count"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetRegionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetRegionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetRegionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  encryption: Optional['outputs.EncryptionImagesResponse'] = None,
@@ -1810,7 +2187,7 @@ class TargetRegionResponse(dict):
         """
         Describes the target region information.
         :param str name: The name of the region.
-        :param 'EncryptionImagesResponseArgs' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+        :param 'EncryptionImagesResponse' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         :param int regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
@@ -1854,9 +2231,6 @@ class TargetRegionResponse(dict):
         """
         return pulumi.get(self, "storage_account_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserArtifactManageResponse(dict):
@@ -1898,15 +2272,31 @@ class UserArtifactManageResponse(dict):
         """
         return pulumi.get(self, "update")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserArtifactSourceResponse(dict):
     """
     The source image from which the Image Version is going to be created.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaLink":
+            suggest = "media_link"
+        elif key == "defaultConfigurationLink":
+            suggest = "default_configuration_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserArtifactSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserArtifactSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserArtifactSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  media_link: str,
                  default_configuration_link: Optional[str] = None):
@@ -1934,8 +2324,5 @@ class UserArtifactSourceResponse(dict):
         Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
         """
         return pulumi.get(self, "default_configuration_link")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

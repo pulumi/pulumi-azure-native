@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = [
@@ -48,15 +48,31 @@ class B2CResourceSKUResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class B2CTenantResourcePropertiesResponseBillingConfig(dict):
     """
     The billing configuration for the tenant.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveStartDateUtc":
+            suggest = "effective_start_date_utc"
+        elif key == "billingType":
+            suggest = "billing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in B2CTenantResourcePropertiesResponseBillingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        B2CTenantResourcePropertiesResponseBillingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        B2CTenantResourcePropertiesResponseBillingConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  effective_start_date_utc: str,
                  billing_type: Optional[str] = None):
@@ -84,8 +100,5 @@ class B2CTenantResourcePropertiesResponseBillingConfig(dict):
         The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
         """
         return pulumi.get(self, "billing_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

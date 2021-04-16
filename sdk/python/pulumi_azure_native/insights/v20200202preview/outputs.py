@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -18,6 +18,25 @@ class PrivateLinkScopedResourceResponse(dict):
     """
     The private link scope resource reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "scopeId":
+            suggest = "scope_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkScopedResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkScopedResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkScopedResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
                  scope_id: Optional[str] = None):
@@ -46,8 +65,5 @@ class PrivateLinkScopedResourceResponse(dict):
         The private link scope unique Identifier.
         """
         return pulumi.get(self, "scope_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

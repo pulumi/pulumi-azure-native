@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -220,9 +220,7 @@ class Service(pulumi.CustomResource):
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes an Azure Cognitive Search service and its current state.
 
@@ -275,15 +273,7 @@ class Service(pulumi.CustomResource):
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,36 +283,36 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceArgs.__new__(ServiceArgs)
 
             if hosting_mode is None:
                 hosting_mode = 'default'
-            __props__['hosting_mode'] = hosting_mode
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['network_rule_set'] = network_rule_set
+            __props__.__dict__["hosting_mode"] = hosting_mode
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_rule_set"] = network_rule_set
             if partition_count is None:
                 partition_count = 1
-            __props__['partition_count'] = partition_count
+            __props__.__dict__["partition_count"] = partition_count
             if public_network_access is None:
                 public_network_access = 'enabled'
-            __props__['public_network_access'] = public_network_access
+            __props__.__dict__["public_network_access"] = public_network_access
             if replica_count is None:
                 replica_count = 1
-            __props__['replica_count'] = replica_count
+            __props__.__dict__["replica_count"] = replica_count
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['search_service_name'] = search_service_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['provisioning_state'] = None
-            __props__['shared_private_link_resources'] = None
-            __props__['status'] = None
-            __props__['status_details'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["search_service_name"] = search_service_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["shared_private_link_resources"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["status_details"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:search/v20200801:Service"), pulumi.Alias(type_="azure-native:search:Service"), pulumi.Alias(type_="azure-nextgen:search:Service"), pulumi.Alias(type_="azure-native:search/v20150819:Service"), pulumi.Alias(type_="azure-nextgen:search/v20150819:Service"), pulumi.Alias(type_="azure-native:search/v20191001preview:Service"), pulumi.Alias(type_="azure-nextgen:search/v20191001preview:Service"), pulumi.Alias(type_="azure-native:search/v20200313:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200313:Service"), pulumi.Alias(type_="azure-native:search/v20200801preview:Service"), pulumi.Alias(type_="azure-nextgen:search/v20200801preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
@@ -345,24 +335,24 @@ class Service(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServiceArgs.__new__(ServiceArgs)
 
-        __props__["hosting_mode"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["network_rule_set"] = None
-        __props__["partition_count"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_network_access"] = None
-        __props__["replica_count"] = None
-        __props__["shared_private_link_resources"] = None
-        __props__["sku"] = None
-        __props__["status"] = None
-        __props__["status_details"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["hosting_mode"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_rule_set"] = None
+        __props__.__dict__["partition_count"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["replica_count"] = None
+        __props__.__dict__["shared_private_link_resources"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["status_details"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -492,10 +482,4 @@ class Service(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

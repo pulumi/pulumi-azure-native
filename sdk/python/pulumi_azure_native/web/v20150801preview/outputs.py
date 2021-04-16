@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -20,7 +20,7 @@ __all__ = [
     'ConnectionErrorResponse',
     'ConnectionParameterResponse',
     'ConnectionStatusResponse',
-    'ConsentLinkResponseResult',
+    'ConsentLinkResponse',
     'CustomLoginSettingValueResponse',
     'ExpandedParentApiEntityResponse',
     'GeneralApiInformationResponse',
@@ -35,6 +35,35 @@ class ApiEntityResponse(dict):
     """
     API Management
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiDefinitionUrl":
+            suggest = "api_definition_url"
+        elif key == "backendService":
+            suggest = "backend_service"
+        elif key == "changedTime":
+            suggest = "changed_time"
+        elif key == "connectionParameters":
+            suggest = "connection_parameters"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "generalInformation":
+            suggest = "general_information"
+        elif key == "runtimeUrls":
+            suggest = "runtime_urls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  api_definition_url: Optional[str] = None,
@@ -58,18 +87,18 @@ class ApiEntityResponse(dict):
         API Management
         :param str location: Resource Location
         :param str api_definition_url: API definition Url - url where the swagger can be downloaded from
-        :param 'BackendServiceDefinitionResponseArgs' backend_service: Backend service definition
+        :param 'BackendServiceDefinitionResponse' backend_service: Backend service definition
         :param Sequence[str] capabilities: Capabilities
         :param str changed_time: Timestamp of last connection change.
-        :param Mapping[str, 'ConnectionParameterResponseArgs'] connection_parameters: Connection parameters
+        :param Mapping[str, 'ConnectionParameterResponse'] connection_parameters: Connection parameters
         :param str created_time: Timestamp of the connection creation
-        :param 'GeneralApiInformationResponseArgs' general_information: the URL path of this API when exposed via APIM
+        :param 'GeneralApiInformationResponse' general_information: the URL path of this API when exposed via APIM
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param Any metadata: Free form object for the data caller wants to store
         :param str name: Resource Name
         :param str path: the URL path of this API when exposed via APIM
-        :param 'ApiPoliciesResponseArgs' policies: API policies
+        :param 'ApiPoliciesResponse' policies: API policies
         :param Sequence[str] protocols: Protocols supported by the front end - http/https
         :param Sequence[str] runtime_urls: Read only property returning the runtime endpoints where the API can be called
         :param Mapping[str, str] tags: Resource tags
@@ -255,15 +284,29 @@ class ApiEntityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApiOAuthSettingsParameterResponse(dict):
     """
     OAuth Settings Parameter
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uiDefinition":
+            suggest = "ui_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiOAuthSettingsParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiOAuthSettingsParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiOAuthSettingsParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  options: Optional[Any] = None,
                  ui_definition: Optional[Any] = None,
@@ -305,15 +348,37 @@ class ApiOAuthSettingsParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApiOAuthSettingsResponse(dict):
     """
     OAuth settings for the connection provider
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "customParameters":
+            suggest = "custom_parameters"
+        elif key == "identityProvider":
+            suggest = "identity_provider"
+        elif key == "redirectUrl":
+            suggest = "redirect_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiOAuthSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiOAuthSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiOAuthSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
@@ -326,7 +391,7 @@ class ApiOAuthSettingsResponse(dict):
         OAuth settings for the connection provider
         :param str client_id: Resource provider client id
         :param str client_secret: Client Secret needed for OAuth
-        :param Mapping[str, 'ApiOAuthSettingsParameterResponseArgs'] custom_parameters: OAuth parameters key is the name of parameter
+        :param Mapping[str, 'ApiOAuthSettingsParameterResponse'] custom_parameters: OAuth parameters key is the name of parameter
         :param str identity_provider: Identity provider
         :param Any properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
@@ -402,9 +467,6 @@ class ApiOAuthSettingsResponse(dict):
         OAuth scopes
         """
         return pulumi.get(self, "scopes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -500,15 +562,29 @@ class ApiPoliciesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArmPlanResponse(dict):
     """
     The plan object in an ARM, represents a marketplace plan
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmPlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmPlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmPlanResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  product: Optional[str] = None,
@@ -574,15 +650,31 @@ class ArmPlanResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackendServiceDefinitionResponse(dict):
     """
     API definitions with backend urls
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostingEnvironmentServiceUrls":
+            suggest = "hosting_environment_service_urls"
+        elif key == "serviceUrl":
+            suggest = "service_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendServiceDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendServiceDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendServiceDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  hosting_environment_service_urls: Optional[Sequence['outputs.HostingEnvironmentServiceDescriptionsResponse']] = None,
@@ -595,7 +687,7 @@ class BackendServiceDefinitionResponse(dict):
         """
         API definitions with backend urls
         :param str location: Resource Location
-        :param Sequence['HostingEnvironmentServiceDescriptionsResponseArgs'] hosting_environment_service_urls: Service Urls per Hosting environment
+        :param Sequence['HostingEnvironmentServiceDescriptionsResponse'] hosting_environment_service_urls: Service Urls per Hosting environment
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -682,9 +774,6 @@ class BackendServiceDefinitionResponse(dict):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -792,15 +881,33 @@ class ConnectionErrorResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionParameterResponse(dict):
     """
     connection provider parameters
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "oAuthSettings":
+            suggest = "o_auth_settings"
+        elif key == "uiDefinition":
+            suggest = "ui_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: Optional[Any] = None,
                  o_auth_settings: Optional['outputs.ApiOAuthSettingsResponse'] = None,
@@ -809,7 +916,7 @@ class ConnectionParameterResponse(dict):
         """
         connection provider parameters
         :param Any default_value: Default parameter value
-        :param 'ApiOAuthSettingsResponseArgs' o_auth_settings: Settings defining OAuth flow for the back end provider
+        :param 'ApiOAuthSettingsResponse' o_auth_settings: Settings defining OAuth flow for the back end provider
         :param str type: Type of the parameter
         :param Any ui_definition: UI definitions
         """
@@ -854,9 +961,6 @@ class ConnectionParameterResponse(dict):
         """
         return pulumi.get(self, "ui_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionStatusResponse(dict):
@@ -876,7 +980,7 @@ class ConnectionStatusResponse(dict):
         """
         Connection status
         :param str location: Resource Location
-        :param 'ConnectionErrorResponseArgs' error: Error details
+        :param 'ConnectionErrorResponse' error: Error details
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -975,12 +1079,9 @@ class ConnectionStatusResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ConsentLinkResponseResult(dict):
+class ConsentLinkResponse(dict):
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  first_party_login_uri: Optional[str] = None,
@@ -1127,9 +1228,6 @@ class CustomLoginSettingValueResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpandedParentApiEntityResponse(dict):
@@ -1147,7 +1245,7 @@ class ExpandedParentApiEntityResponse(dict):
         """
         expanded parent object for expansion
         :param str location: Resource Location
-        :param 'ResponseMessageEnvelopeApiEntityResponseArgs' entity: Id of connection provider
+        :param 'ResponseMessageEnvelopeApiEntityResponse' entity: Id of connection provider
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -1224,15 +1322,37 @@ class ExpandedParentApiEntityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GeneralApiInformationResponse(dict):
     """
     General API information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionDisplayName":
+            suggest = "connection_display_name"
+        elif key == "connectionPortalUrl":
+            suggest = "connection_portal_url"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "iconUrl":
+            suggest = "icon_url"
+        elif key == "termsOfUseUrl":
+            suggest = "terms_of_use_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeneralApiInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeneralApiInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeneralApiInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  connection_display_name: Optional[str] = None,
@@ -1381,15 +1501,35 @@ class GeneralApiInformationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HostingEnvironmentServiceDescriptionsResponse(dict):
     """
     Back end service per ASE
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostId":
+            suggest = "host_id"
+        elif key == "hostingEnvironmentId":
+            suggest = "hosting_environment_id"
+        elif key == "serviceUrl":
+            suggest = "service_url"
+        elif key == "useInternalRouting":
+            suggest = "use_internal_routing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostingEnvironmentServiceDescriptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostingEnvironmentServiceDescriptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostingEnvironmentServiceDescriptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_id: Optional[str] = None,
                  hosting_environment_id: Optional[str] = None,
@@ -1449,15 +1589,29 @@ class HostingEnvironmentServiceDescriptionsResponse(dict):
         """
         return pulumi.get(self, "use_internal_routing")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterCustomLoginSettingValuesResponse(dict):
     """
     Custom logging setting values
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customParameters":
+            suggest = "custom_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterCustomLoginSettingValuesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterCustomLoginSettingValuesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterCustomLoginSettingValuesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  custom_parameters: Optional[Mapping[str, 'outputs.CustomLoginSettingValueResponse']] = None,
@@ -1469,7 +1623,7 @@ class ParameterCustomLoginSettingValuesResponse(dict):
         """
         Custom logging setting values
         :param str location: Resource Location
-        :param Mapping[str, 'CustomLoginSettingValueResponseArgs'] custom_parameters: Custom parameters.
+        :param Mapping[str, 'CustomLoginSettingValueResponse'] custom_parameters: Custom parameters.
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -1546,9 +1700,6 @@ class ParameterCustomLoginSettingValuesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponseMessageEnvelopeApiEntityResponse(dict):
@@ -1571,9 +1722,9 @@ class ResponseMessageEnvelopeApiEntityResponse(dict):
                            For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
         :param str location: Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
         :param str name: Name of resource
-        :param 'ArmPlanResponseArgs' plan: Azure resource manager plan
-        :param 'ApiEntityResponseArgs' properties: Resource specific properties
-        :param 'SkuDescriptionResponseArgs' sku: Sku description of the resource
+        :param 'ArmPlanResponse' plan: Azure resource manager plan
+        :param 'ApiEntityResponse' properties: Resource specific properties
+        :param 'SkuDescriptionResponse' sku: Sku description of the resource
         :param Mapping[str, str] tags: Tags associated with resource
         :param str type: Type of resource e.g Microsoft.Web/sites
         """
@@ -1660,9 +1811,6 @@ class ResponseMessageEnvelopeApiEntityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuDescriptionResponse(dict):
@@ -1733,8 +1881,5 @@ class SkuDescriptionResponse(dict):
         Service Tier of the resource sku
         """
         return pulumi.get(self, "tier")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

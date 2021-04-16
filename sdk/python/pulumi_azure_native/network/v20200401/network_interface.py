@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -195,9 +195,7 @@ class NetworkInterface(pulumi.CustomResource):
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A network interface in a resource group.
 
@@ -248,15 +246,7 @@ class NetworkInterface(pulumi.CustomResource):
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,31 +256,31 @@ class NetworkInterface(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
-            __props__['dns_settings'] = dns_settings
-            __props__['enable_accelerated_networking'] = enable_accelerated_networking
-            __props__['enable_ip_forwarding'] = enable_ip_forwarding
-            __props__['id'] = id
-            __props__['ip_configurations'] = ip_configurations
-            __props__['location'] = location
-            __props__['network_interface_name'] = network_interface_name
-            __props__['network_security_group'] = network_security_group
+            __props__.__dict__["dns_settings"] = dns_settings
+            __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
+            __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ip_configurations"] = ip_configurations
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_interface_name"] = network_interface_name
+            __props__.__dict__["network_security_group"] = network_security_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['etag'] = None
-            __props__['hosted_workloads'] = None
-            __props__['mac_address'] = None
-            __props__['name'] = None
-            __props__['primary'] = None
-            __props__['private_endpoint'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_guid'] = None
-            __props__['tap_configurations'] = None
-            __props__['type'] = None
-            __props__['virtual_machine'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["hosted_workloads"] = None
+            __props__.__dict__["mac_address"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["primary"] = None
+            __props__.__dict__["private_endpoint"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
+            __props__.__dict__["tap_configurations"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_machine"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:NetworkInterface"), pulumi.Alias(type_="azure-native:network:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20150615:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160330:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20160901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20161201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20170901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20171101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20180801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181001:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20181201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190401:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20190901:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191101:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20191201:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200301:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200501:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200601:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200701:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NetworkInterface"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkInterface"), pulumi.Alias(type_="azure-nextgen:network/v20201101:NetworkInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkInterface, __self__).__init__(
@@ -313,26 +303,26 @@ class NetworkInterface(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
-        __props__["dns_settings"] = None
-        __props__["enable_accelerated_networking"] = None
-        __props__["enable_ip_forwarding"] = None
-        __props__["etag"] = None
-        __props__["hosted_workloads"] = None
-        __props__["ip_configurations"] = None
-        __props__["location"] = None
-        __props__["mac_address"] = None
-        __props__["name"] = None
-        __props__["network_security_group"] = None
-        __props__["primary"] = None
-        __props__["private_endpoint"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_guid"] = None
-        __props__["tags"] = None
-        __props__["tap_configurations"] = None
-        __props__["type"] = None
-        __props__["virtual_machine"] = None
+        __props__.__dict__["dns_settings"] = None
+        __props__.__dict__["enable_accelerated_networking"] = None
+        __props__.__dict__["enable_ip_forwarding"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["hosted_workloads"] = None
+        __props__.__dict__["ip_configurations"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["mac_address"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_security_group"] = None
+        __props__.__dict__["primary"] = None
+        __props__.__dict__["private_endpoint"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tap_configurations"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_machine"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -478,10 +468,4 @@ class NetworkInterface(pulumi.CustomResource):
         The reference to a virtual machine.
         """
         return pulumi.get(self, "virtual_machine")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

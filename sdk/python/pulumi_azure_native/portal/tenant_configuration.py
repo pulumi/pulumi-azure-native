@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
 
@@ -57,9 +57,7 @@ class TenantConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Tenant configuration.
         API Version: 2020-09-01-preview.
@@ -96,15 +94,7 @@ class TenantConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -114,12 +104,12 @@ class TenantConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TenantConfigurationArgs.__new__(TenantConfigurationArgs)
 
-            __props__['configuration_name'] = configuration_name
-            __props__['enforce_private_markdown_storage'] = enforce_private_markdown_storage
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["configuration_name"] = configuration_name
+            __props__.__dict__["enforce_private_markdown_storage"] = enforce_private_markdown_storage
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:TenantConfiguration"), pulumi.Alias(type_="azure-native:portal/v20190101preview:TenantConfiguration"), pulumi.Alias(type_="azure-nextgen:portal/v20190101preview:TenantConfiguration"), pulumi.Alias(type_="azure-native:portal/v20200901preview:TenantConfiguration"), pulumi.Alias(type_="azure-nextgen:portal/v20200901preview:TenantConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TenantConfiguration, __self__).__init__(
@@ -142,11 +132,11 @@ class TenantConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TenantConfigurationArgs.__new__(TenantConfigurationArgs)
 
-        __props__["enforce_private_markdown_storage"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["enforce_private_markdown_storage"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return TenantConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -172,10 +162,4 @@ class TenantConfiguration(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

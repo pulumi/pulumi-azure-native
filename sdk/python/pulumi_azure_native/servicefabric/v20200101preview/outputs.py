@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -29,6 +29,27 @@ class AzureActiveDirectoryResponse(dict):
     """
     The settings to enable AAD authentication on the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientApplication":
+            suggest = "client_application"
+        elif key == "clusterApplication":
+            suggest = "cluster_application"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureActiveDirectoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureActiveDirectoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureActiveDirectoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_application: Optional[str] = None,
                  cluster_application: Optional[str] = None,
@@ -70,15 +91,33 @@ class AzureActiveDirectoryResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClientCertificateResponse(dict):
     """
     Client Certificate definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isAdmin":
+            suggest = "is_admin"
+        elif key == "commonName":
+            suggest = "common_name"
+        elif key == "issuerThumbprint":
+            suggest = "issuer_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_admin: bool,
                  common_name: Optional[str] = None,
@@ -131,15 +170,31 @@ class ClientCertificateResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointRangeDescriptionResponse(dict):
     """
     Port range details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPort":
+            suggest = "end_port"
+        elif key == "startPort":
+            suggest = "start_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRangeDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRangeDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRangeDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_port: int,
                  start_port: int):
@@ -167,15 +222,35 @@ class EndpointRangeDescriptionResponse(dict):
         """
         return pulumi.get(self, "start_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancingRuleResponse(dict):
     """
     Describes a load balancing rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "probeProtocol":
+            suggest = "probe_protocol"
+        elif key == "probeRequestPath":
+            suggest = "probe_request_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: int,
                  frontend_port: int,
@@ -237,9 +312,6 @@ class LoadBalancingRuleResponse(dict):
         """
         return pulumi.get(self, "probe_request_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SettingsParameterDescriptionResponse(dict):
@@ -273,9 +345,6 @@ class SettingsParameterDescriptionResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SettingsSectionDescriptionResponse(dict):
@@ -288,7 +357,7 @@ class SettingsSectionDescriptionResponse(dict):
         """
         Describes a section in the fabric settings of the cluster.
         :param str name: The section name of the fabric settings.
-        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
+        :param Sequence['SettingsParameterDescriptionResponse'] parameters: The collection of parameters in the section.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -308,9 +377,6 @@ class SettingsSectionDescriptionResponse(dict):
         The collection of parameters in the section.
         """
         return pulumi.get(self, "parameters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -333,9 +399,6 @@ class SkuResponse(dict):
         Sku Name.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -360,15 +423,39 @@ class SubResourceResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VMSSExtensionResponse(dict):
     """
     Specifies set of extensions that should be installed onto the virtual machines.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "provisionAfterExtensions":
+            suggest = "provision_after_extensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VMSSExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VMSSExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VMSSExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  provisioning_state: str,
@@ -489,15 +576,31 @@ class VMSSExtensionResponse(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VaultCertificateResponse(dict):
     """
     Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateStore":
+            suggest = "certificate_store"
+        elif key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_store: str,
                  certificate_url: str):
@@ -525,22 +628,38 @@ class VaultCertificateResponse(dict):
         """
         return pulumi.get(self, "certificate_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VaultSecretGroupResponse(dict):
     """
     Specifies set of certificates that should be installed onto the virtual machines.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceVault":
+            suggest = "source_vault"
+        elif key == "vaultCertificates":
+            suggest = "vault_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultSecretGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultSecretGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultSecretGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_vault: 'outputs.SubResourceResponse',
                  vault_certificates: Sequence['outputs.VaultCertificateResponse']):
         """
         Specifies set of certificates that should be installed onto the virtual machines.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         pulumi.set(__self__, "source_vault", source_vault)
         pulumi.set(__self__, "vault_certificates", vault_certificates)
@@ -560,8 +679,5 @@ class VaultSecretGroupResponse(dict):
         The list of key vault references in SourceVault which contain certificates.
         """
         return pulumi.get(self, "vault_certificates")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

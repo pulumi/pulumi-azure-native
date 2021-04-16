@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -38,7 +38,7 @@ class ListWorkspaceKeysResult:
 
     @property
     @pulumi.getter(name="containerRegistryCredentials")
-    def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponseResult':
+    def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponse':
         return pulumi.get(self, "container_registry_credentials")
 
     @property

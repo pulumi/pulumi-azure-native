@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -176,9 +176,7 @@ class Gateway(pulumi.CustomResource):
                  source_network: Optional[pulumi.Input[pulumi.InputType['NetworkRefArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tcp: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TcpConfigArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         This type describes a gateway resource.
 
@@ -227,15 +225,7 @@ class Gateway(pulumi.CustomResource):
                  source_network: Optional[pulumi.Input[pulumi.InputType['NetworkRefArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tcp: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TcpConfigArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,29 +235,29 @@ class Gateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GatewayArgs.__new__(GatewayArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if destination_network is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_network'")
-            __props__['destination_network'] = destination_network
-            __props__['gateway_resource_name'] = gateway_resource_name
-            __props__['http'] = http
-            __props__['location'] = location
+            __props__.__dict__["destination_network"] = destination_network
+            __props__.__dict__["gateway_resource_name"] = gateway_resource_name
+            __props__.__dict__["http"] = http
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source_network is None and not opts.urn:
                 raise TypeError("Missing required property 'source_network'")
-            __props__['source_network'] = source_network
-            __props__['tags'] = tags
-            __props__['tcp'] = tcp
-            __props__['ip_address'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['status'] = None
-            __props__['status_details'] = None
-            __props__['type'] = None
+            __props__.__dict__["source_network"] = source_network
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tcp"] = tcp
+            __props__.__dict__["ip_address"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["status_details"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabricmesh/v20180901preview:Gateway"), pulumi.Alias(type_="azure-native:servicefabricmesh:Gateway"), pulumi.Alias(type_="azure-nextgen:servicefabricmesh:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
@@ -290,21 +280,21 @@ class Gateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = GatewayArgs.__new__(GatewayArgs)
 
-        __props__["description"] = None
-        __props__["destination_network"] = None
-        __props__["http"] = None
-        __props__["ip_address"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["source_network"] = None
-        __props__["status"] = None
-        __props__["status_details"] = None
-        __props__["tags"] = None
-        __props__["tcp"] = None
-        __props__["type"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["destination_network"] = None
+        __props__.__dict__["http"] = None
+        __props__.__dict__["ip_address"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source_network"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["status_details"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tcp"] = None
+        __props__.__dict__["type"] = None
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -410,10 +400,4 @@ class Gateway(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

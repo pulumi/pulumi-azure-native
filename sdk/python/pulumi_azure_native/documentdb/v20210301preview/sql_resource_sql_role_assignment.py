@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['SqlResourceSqlRoleAssignmentArgs', 'SqlResourceSqlRoleAssignment']
 
@@ -123,9 +123,7 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  role_assignment_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Azure Cosmos DB Role Assignment
 
@@ -168,15 +166,7 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  role_assignment_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,20 +176,20 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SqlResourceSqlRoleAssignmentArgs.__new__(SqlResourceSqlRoleAssignmentArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['principal_id'] = principal_id
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["principal_id"] = principal_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['role_assignment_id'] = role_assignment_id
-            __props__['role_definition_id'] = role_definition_id
-            __props__['scope'] = scope
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["role_assignment_id"] = role_assignment_id
+            __props__.__dict__["role_definition_id"] = role_definition_id
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-nextgen:documentdb:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlRoleAssignment, __self__).__init__(
@@ -222,13 +212,13 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SqlResourceSqlRoleAssignmentArgs.__new__(SqlResourceSqlRoleAssignmentArgs)
 
-        __props__["name"] = None
-        __props__["principal_id"] = None
-        __props__["role_definition_id"] = None
-        __props__["scope"] = None
-        __props__["type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["principal_id"] = None
+        __props__.__dict__["role_definition_id"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["type"] = None
         return SqlResourceSqlRoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -270,10 +260,4 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
         The type of Azure resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

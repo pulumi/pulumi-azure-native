@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['OuContainerArgs', 'OuContainer']
@@ -124,9 +124,7 @@ class OuContainer(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Resource for OuContainer.
 
@@ -169,15 +167,7 @@ class OuContainer(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spn: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,32 +177,32 @@ class OuContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OuContainerArgs.__new__(OuContainerArgs)
 
-            __props__['account_name'] = account_name
+            __props__.__dict__["account_name"] = account_name
             if domain_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_service_name'")
-            __props__['domain_service_name'] = domain_service_name
-            __props__['ou_container_name'] = ou_container_name
-            __props__['password'] = password
+            __props__.__dict__["domain_service_name"] = domain_service_name
+            __props__.__dict__["ou_container_name"] = ou_container_name
+            __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['spn'] = spn
-            __props__['accounts'] = None
-            __props__['container_id'] = None
-            __props__['deployment_id'] = None
-            __props__['distinguished_name'] = None
-            __props__['domain_name'] = None
-            __props__['etag'] = None
-            __props__['location'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['service_status'] = None
-            __props__['system_data'] = None
-            __props__['tags'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["spn"] = spn
+            __props__.__dict__["accounts"] = None
+            __props__.__dict__["container_id"] = None
+            __props__.__dict__["deployment_id"] = None
+            __props__.__dict__["distinguished_name"] = None
+            __props__.__dict__["domain_name"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["location"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["service_status"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["tags"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/v20210301:OuContainer"), pulumi.Alias(type_="azure-native:aad:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20200101:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:OuContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OuContainer, __self__).__init__(
@@ -235,22 +225,22 @@ class OuContainer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OuContainerArgs.__new__(OuContainerArgs)
 
-        __props__["accounts"] = None
-        __props__["container_id"] = None
-        __props__["deployment_id"] = None
-        __props__["distinguished_name"] = None
-        __props__["domain_name"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["service_status"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["accounts"] = None
+        __props__.__dict__["container_id"] = None
+        __props__.__dict__["deployment_id"] = None
+        __props__.__dict__["distinguished_name"] = None
+        __props__.__dict__["domain_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["service_status"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
         return OuContainer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -364,10 +354,4 @@ class OuContainer(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

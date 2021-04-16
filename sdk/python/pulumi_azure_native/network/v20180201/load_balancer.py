@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -297,9 +297,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         LoadBalancer resource
 
@@ -362,15 +360,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_guid: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,28 +370,28 @@ class LoadBalancer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
-            __props__['backend_address_pools'] = backend_address_pools
-            __props__['etag'] = etag
-            __props__['frontend_ip_configurations'] = frontend_ip_configurations
-            __props__['id'] = id
-            __props__['inbound_nat_pools'] = inbound_nat_pools
-            __props__['inbound_nat_rules'] = inbound_nat_rules
-            __props__['load_balancer_name'] = load_balancer_name
-            __props__['load_balancing_rules'] = load_balancing_rules
-            __props__['location'] = location
-            __props__['outbound_nat_rules'] = outbound_nat_rules
-            __props__['probes'] = probes
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["backend_address_pools"] = backend_address_pools
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
+            __props__.__dict__["id"] = id
+            __props__.__dict__["inbound_nat_pools"] = inbound_nat_pools
+            __props__.__dict__["inbound_nat_rules"] = inbound_nat_rules
+            __props__.__dict__["load_balancer_name"] = load_balancer_name
+            __props__.__dict__["load_balancing_rules"] = load_balancing_rules
+            __props__.__dict__["location"] = location
+            __props__.__dict__["outbound_nat_rules"] = outbound_nat_rules
+            __props__.__dict__["probes"] = probes
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_guid'] = resource_guid
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_guid"] = resource_guid
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180201:LoadBalancer"), pulumi.Alias(type_="azure-native:network:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20150501preview:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20150615:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20150615:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20160330:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160330:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20160601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160601:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20160901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20160901:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20161201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20161201:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20170301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170301:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20170601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170601:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20170801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170801:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20170901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20170901:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20171001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171001:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20171101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20171101:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20180101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180101:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20180401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180401:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20180601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180601:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20180701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180701:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20180801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20180801:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20181001:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181001:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20181101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181101:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20181201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20181201:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20190201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190201:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20190401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190401:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20190601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190601:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20190701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190701:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20190801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190801:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20190901:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20190901:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20191101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191101:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20191201:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20191201:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20200301:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200301:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20200401:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200401:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20200501:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200501:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20200601:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200601:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20200701:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200701:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20200801:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20200801:LoadBalancer"), pulumi.Alias(type_="azure-native:network/v20201101:LoadBalancer"), pulumi.Alias(type_="azure-nextgen:network/v20201101:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancer, __self__).__init__(
@@ -424,23 +414,23 @@ class LoadBalancer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
-        __props__["backend_address_pools"] = None
-        __props__["etag"] = None
-        __props__["frontend_ip_configurations"] = None
-        __props__["inbound_nat_pools"] = None
-        __props__["inbound_nat_rules"] = None
-        __props__["load_balancing_rules"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["outbound_nat_rules"] = None
-        __props__["probes"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_guid"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["backend_address_pools"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["frontend_ip_configurations"] = None
+        __props__.__dict__["inbound_nat_pools"] = None
+        __props__.__dict__["inbound_nat_rules"] = None
+        __props__.__dict__["load_balancing_rules"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["outbound_nat_rules"] = None
+        __props__.__dict__["probes"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -562,10 +552,4 @@ class LoadBalancer(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

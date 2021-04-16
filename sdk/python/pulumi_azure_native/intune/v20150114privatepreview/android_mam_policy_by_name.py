@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['AndroidMAMPolicyByNameArgs', 'AndroidMAMPolicyByName']
 
@@ -332,9 +332,7 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  screen_capture: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Android Policy entity for Intune MAM.
 
@@ -390,15 +388,7 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  screen_capture: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -408,60 +398,60 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AndroidMAMPolicyByNameArgs.__new__(AndroidMAMPolicyByNameArgs)
 
-            __props__['access_recheck_offline_timeout'] = access_recheck_offline_timeout
-            __props__['access_recheck_online_timeout'] = access_recheck_online_timeout
+            __props__.__dict__["access_recheck_offline_timeout"] = access_recheck_offline_timeout
+            __props__.__dict__["access_recheck_online_timeout"] = access_recheck_online_timeout
             if app_sharing_from_level is None:
                 app_sharing_from_level = 'none'
-            __props__['app_sharing_from_level'] = app_sharing_from_level
+            __props__.__dict__["app_sharing_from_level"] = app_sharing_from_level
             if app_sharing_to_level is None:
                 app_sharing_to_level = 'none'
-            __props__['app_sharing_to_level'] = app_sharing_to_level
+            __props__.__dict__["app_sharing_to_level"] = app_sharing_to_level
             if authentication is None:
                 authentication = 'required'
-            __props__['authentication'] = authentication
+            __props__.__dict__["authentication"] = authentication
             if clipboard_sharing_level is None:
                 clipboard_sharing_level = 'blocked'
-            __props__['clipboard_sharing_level'] = clipboard_sharing_level
+            __props__.__dict__["clipboard_sharing_level"] = clipboard_sharing_level
             if data_backup is None:
                 data_backup = 'allow'
-            __props__['data_backup'] = data_backup
-            __props__['description'] = description
+            __props__.__dict__["data_backup"] = data_backup
+            __props__.__dict__["description"] = description
             if device_compliance is None:
                 device_compliance = 'enable'
-            __props__['device_compliance'] = device_compliance
+            __props__.__dict__["device_compliance"] = device_compliance
             if file_encryption is None:
                 file_encryption = 'required'
-            __props__['file_encryption'] = file_encryption
+            __props__.__dict__["file_encryption"] = file_encryption
             if file_sharing_save_as is None:
                 file_sharing_save_as = 'allow'
-            __props__['file_sharing_save_as'] = file_sharing_save_as
+            __props__.__dict__["file_sharing_save_as"] = file_sharing_save_as
             if friendly_name is None and not opts.urn:
                 raise TypeError("Missing required property 'friendly_name'")
-            __props__['friendly_name'] = friendly_name
+            __props__.__dict__["friendly_name"] = friendly_name
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
-            __props__['host_name'] = host_name
-            __props__['location'] = location
+            __props__.__dict__["host_name"] = host_name
+            __props__.__dict__["location"] = location
             if managed_browser is None:
                 managed_browser = 'required'
-            __props__['managed_browser'] = managed_browser
-            __props__['offline_wipe_timeout'] = offline_wipe_timeout
+            __props__.__dict__["managed_browser"] = managed_browser
+            __props__.__dict__["offline_wipe_timeout"] = offline_wipe_timeout
             if pin is None:
                 pin = 'required'
-            __props__['pin'] = pin
-            __props__['pin_num_retry'] = pin_num_retry
-            __props__['policy_name'] = policy_name
+            __props__.__dict__["pin"] = pin
+            __props__.__dict__["pin_num_retry"] = pin_num_retry
+            __props__.__dict__["policy_name"] = policy_name
             if screen_capture is None:
                 screen_capture = 'allow'
-            __props__['screen_capture'] = screen_capture
-            __props__['tags'] = tags
-            __props__['group_status'] = None
-            __props__['last_modified_time'] = None
-            __props__['name'] = None
-            __props__['num_of_apps'] = None
-            __props__['type'] = None
+            __props__.__dict__["screen_capture"] = screen_capture
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["group_status"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["num_of_apps"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-nextgen:intune:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune/v20150114preview:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AndroidMAMPolicyByName, __self__).__init__(
@@ -484,32 +474,32 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AndroidMAMPolicyByNameArgs.__new__(AndroidMAMPolicyByNameArgs)
 
-        __props__["access_recheck_offline_timeout"] = None
-        __props__["access_recheck_online_timeout"] = None
-        __props__["app_sharing_from_level"] = None
-        __props__["app_sharing_to_level"] = None
-        __props__["authentication"] = None
-        __props__["clipboard_sharing_level"] = None
-        __props__["data_backup"] = None
-        __props__["description"] = None
-        __props__["device_compliance"] = None
-        __props__["file_encryption"] = None
-        __props__["file_sharing_save_as"] = None
-        __props__["friendly_name"] = None
-        __props__["group_status"] = None
-        __props__["last_modified_time"] = None
-        __props__["location"] = None
-        __props__["managed_browser"] = None
-        __props__["name"] = None
-        __props__["num_of_apps"] = None
-        __props__["offline_wipe_timeout"] = None
-        __props__["pin"] = None
-        __props__["pin_num_retry"] = None
-        __props__["screen_capture"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["access_recheck_offline_timeout"] = None
+        __props__.__dict__["access_recheck_online_timeout"] = None
+        __props__.__dict__["app_sharing_from_level"] = None
+        __props__.__dict__["app_sharing_to_level"] = None
+        __props__.__dict__["authentication"] = None
+        __props__.__dict__["clipboard_sharing_level"] = None
+        __props__.__dict__["data_backup"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["device_compliance"] = None
+        __props__.__dict__["file_encryption"] = None
+        __props__.__dict__["file_sharing_save_as"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["group_status"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_browser"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["num_of_apps"] = None
+        __props__.__dict__["offline_wipe_timeout"] = None
+        __props__.__dict__["pin"] = None
+        __props__.__dict__["pin_num_retry"] = None
+        __props__.__dict__["screen_capture"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return AndroidMAMPolicyByName(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -643,10 +633,4 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

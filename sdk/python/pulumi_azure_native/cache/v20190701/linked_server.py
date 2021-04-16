@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['LinkedServerArgs', 'LinkedServer']
@@ -121,9 +121,7 @@ class LinkedServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input['ReplicationRole']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
@@ -166,15 +164,7 @@ class LinkedServer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input['ReplicationRole']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -184,26 +174,26 @@ class LinkedServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LinkedServerArgs.__new__(LinkedServerArgs)
 
             if linked_redis_cache_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_redis_cache_id'")
-            __props__['linked_redis_cache_id'] = linked_redis_cache_id
+            __props__.__dict__["linked_redis_cache_id"] = linked_redis_cache_id
             if linked_redis_cache_location is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_redis_cache_location'")
-            __props__['linked_redis_cache_location'] = linked_redis_cache_location
-            __props__['linked_server_name'] = linked_server_name
+            __props__.__dict__["linked_redis_cache_location"] = linked_redis_cache_location
+            __props__.__dict__["linked_server_name"] = linked_server_name
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_role is None and not opts.urn:
                 raise TypeError("Missing required property 'server_role'")
-            __props__['server_role'] = server_role
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["server_role"] = server_role
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:cache:LinkedServer"), pulumi.Alias(type_="azure-nextgen:cache:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20171001:LinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20171001:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20180301:LinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20180301:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20200601:LinkedServer"), pulumi.Alias(type_="azure-nextgen:cache/v20200601:LinkedServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedServer, __self__).__init__(
@@ -226,14 +216,14 @@ class LinkedServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = LinkedServerArgs.__new__(LinkedServerArgs)
 
-        __props__["linked_redis_cache_id"] = None
-        __props__["linked_redis_cache_location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["server_role"] = None
-        __props__["type"] = None
+        __props__.__dict__["linked_redis_cache_id"] = None
+        __props__.__dict__["linked_redis_cache_location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["server_role"] = None
+        __props__.__dict__["type"] = None
         return LinkedServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -283,10 +273,4 @@ class LinkedServer(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

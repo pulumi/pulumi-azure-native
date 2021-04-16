@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -39,7 +39,7 @@ class ListIntegrationAccountKeyVaultKeysResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.KeyVaultKeyResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.KeyVaultKeyResponse']]:
         """
         The key vault keys.
         """
@@ -57,7 +57,7 @@ class AwaitableListIntegrationAccountKeyVaultKeysResult(ListIntegrationAccountKe
 
 
 def list_integration_account_key_vault_keys(integration_account_name: Optional[str] = None,
-                                            key_vault: Optional[pulumi.InputType['KeyVaultReferenceArgs']] = None,
+                                            key_vault: Optional[pulumi.InputType['KeyVaultReference']] = None,
                                             resource_group_name: Optional[str] = None,
                                             skip_token: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountKeyVaultKeysResult:
@@ -66,7 +66,7 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
 
 
     :param str integration_account_name: The integration account name.
-    :param pulumi.InputType['KeyVaultReferenceArgs'] key_vault: The key vault reference.
+    :param pulumi.InputType['KeyVaultReference'] key_vault: The key vault reference.
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """

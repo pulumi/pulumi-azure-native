@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -209,9 +209,7 @@ class VNetPeering(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Peerings in a VirtualNetwork resource
         API Version: 2018-04-01.
@@ -266,15 +264,7 @@ class VNetPeering(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,29 +274,29 @@ class VNetPeering(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VNetPeeringArgs.__new__(VNetPeeringArgs)
 
-            __props__['allow_forwarded_traffic'] = allow_forwarded_traffic
-            __props__['allow_gateway_transit'] = allow_gateway_transit
-            __props__['allow_virtual_network_access'] = allow_virtual_network_access
-            __props__['databricks_address_space'] = databricks_address_space
-            __props__['databricks_virtual_network'] = databricks_virtual_network
-            __props__['peering_name'] = peering_name
-            __props__['remote_address_space'] = remote_address_space
+            __props__.__dict__["allow_forwarded_traffic"] = allow_forwarded_traffic
+            __props__.__dict__["allow_gateway_transit"] = allow_gateway_transit
+            __props__.__dict__["allow_virtual_network_access"] = allow_virtual_network_access
+            __props__.__dict__["databricks_address_space"] = databricks_address_space
+            __props__.__dict__["databricks_virtual_network"] = databricks_virtual_network
+            __props__.__dict__["peering_name"] = peering_name
+            __props__.__dict__["remote_address_space"] = remote_address_space
             if remote_virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network'")
-            __props__['remote_virtual_network'] = remote_virtual_network
+            __props__.__dict__["remote_virtual_network"] = remote_virtual_network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['use_remote_gateways'] = use_remote_gateways
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["use_remote_gateways"] = use_remote_gateways
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['name'] = None
-            __props__['peering_state'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["peering_state"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databricks:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20180401:vNetPeering"), pulumi.Alias(type_="azure-nextgen:databricks/v20180401:vNetPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VNetPeering, __self__).__init__(
@@ -329,20 +319,20 @@ class VNetPeering(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VNetPeeringArgs.__new__(VNetPeeringArgs)
 
-        __props__["allow_forwarded_traffic"] = None
-        __props__["allow_gateway_transit"] = None
-        __props__["allow_virtual_network_access"] = None
-        __props__["databricks_address_space"] = None
-        __props__["databricks_virtual_network"] = None
-        __props__["name"] = None
-        __props__["peering_state"] = None
-        __props__["provisioning_state"] = None
-        __props__["remote_address_space"] = None
-        __props__["remote_virtual_network"] = None
-        __props__["type"] = None
-        __props__["use_remote_gateways"] = None
+        __props__.__dict__["allow_forwarded_traffic"] = None
+        __props__.__dict__["allow_gateway_transit"] = None
+        __props__.__dict__["allow_virtual_network_access"] = None
+        __props__.__dict__["databricks_address_space"] = None
+        __props__.__dict__["databricks_virtual_network"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peering_state"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["remote_address_space"] = None
+        __props__.__dict__["remote_virtual_network"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["use_remote_gateways"] = None
         return VNetPeering(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -440,10 +430,4 @@ class VNetPeering(pulumi.CustomResource):
         If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         return pulumi.get(self, "use_remote_gateways")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

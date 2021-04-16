@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -109,9 +109,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         maintenance configuration.
 
@@ -152,15 +150,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,20 +160,20 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
-            __props__['config_name'] = config_name
-            __props__['not_allowed_time'] = not_allowed_time
+            __props__.__dict__["config_name"] = config_name
+            __props__.__dict__["not_allowed_time"] = not_allowed_time
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
-            __props__['resource_name'] = resource_name_
-            __props__['time_in_week'] = time_in_week
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["time_in_week"] = time_in_week
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:containerservice:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:containerservice:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:containerservice/v20210201:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:containerservice/v20210301:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210301:MaintenanceConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MaintenanceConfiguration, __self__).__init__(
@@ -206,13 +196,13 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
-        __props__["name"] = None
-        __props__["not_allowed_time"] = None
-        __props__["system_data"] = None
-        __props__["time_in_week"] = None
-        __props__["type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["not_allowed_time"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["time_in_week"] = None
+        __props__.__dict__["type"] = None
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -254,10 +244,4 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

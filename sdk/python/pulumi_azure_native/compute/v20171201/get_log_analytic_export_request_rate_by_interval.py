@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -51,7 +51,7 @@ class GetLogAnalyticExportRequestRateByIntervalResult:
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ApiErrorResponseResult':
+    def error(self) -> 'outputs.ApiErrorResponse':
         """
         Api error
         """
@@ -67,7 +67,7 @@ class GetLogAnalyticExportRequestRateByIntervalResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.LogAnalyticsOutputResponseResult':
+    def properties(self) -> 'outputs.LogAnalyticsOutputResponse':
         """
         LogAnalyticsOutput
         """

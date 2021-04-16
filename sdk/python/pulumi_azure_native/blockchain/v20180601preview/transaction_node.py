@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -125,9 +125,7 @@ class TransactionNode(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transaction_node_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Payload of the transaction node which is the request/response of the resource provider.
 
@@ -170,15 +168,7 @@ class TransactionNode(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transaction_node_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,24 +178,24 @@ class TransactionNode(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TransactionNodeArgs.__new__(TransactionNodeArgs)
 
             if blockchain_member_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blockchain_member_name'")
-            __props__['blockchain_member_name'] = blockchain_member_name
-            __props__['firewall_rules'] = firewall_rules
-            __props__['location'] = location
-            __props__['password'] = password
+            __props__.__dict__["blockchain_member_name"] = blockchain_member_name
+            __props__.__dict__["firewall_rules"] = firewall_rules
+            __props__.__dict__["location"] = location
+            __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['transaction_node_name'] = transaction_node_name
-            __props__['dns'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['public_key'] = None
-            __props__['type'] = None
-            __props__['user_name'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["transaction_node_name"] = transaction_node_name
+            __props__.__dict__["dns"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_key"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blockchain/v20180601preview:TransactionNode"), pulumi.Alias(type_="azure-native:blockchain:TransactionNode"), pulumi.Alias(type_="azure-nextgen:blockchain:TransactionNode")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TransactionNode, __self__).__init__(
@@ -228,17 +218,17 @@ class TransactionNode(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TransactionNodeArgs.__new__(TransactionNodeArgs)
 
-        __props__["dns"] = None
-        __props__["firewall_rules"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["password"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_key"] = None
-        __props__["type"] = None
-        __props__["user_name"] = None
+        __props__.__dict__["dns"] = None
+        __props__.__dict__["firewall_rules"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["password"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_key"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_name"] = None
         return TransactionNode(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -312,10 +302,4 @@ class TransactionNode(pulumi.CustomResource):
         Gets or sets the transaction node dns endpoint basic auth user name.
         """
         return pulumi.get(self, "user_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -431,9 +431,7 @@ class Cluster(pulumi.CustomResource):
                  upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The cluster resource
 
@@ -523,15 +521,7 @@ class Cluster(pulumi.CustomResource):
                  upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -541,45 +531,45 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['add_on_features'] = add_on_features
-            __props__['application_type_versions_cleanup_policy'] = application_type_versions_cleanup_policy
-            __props__['azure_active_directory'] = azure_active_directory
-            __props__['certificate'] = certificate
-            __props__['certificate_common_names'] = certificate_common_names
-            __props__['client_certificate_common_names'] = client_certificate_common_names
-            __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
-            __props__['cluster_code_version'] = cluster_code_version
-            __props__['cluster_name'] = cluster_name
-            __props__['diagnostics_storage_account_config'] = diagnostics_storage_account_config
-            __props__['event_store_service_enabled'] = event_store_service_enabled
-            __props__['fabric_settings'] = fabric_settings
-            __props__['location'] = location
+            __props__.__dict__["add_on_features"] = add_on_features
+            __props__.__dict__["application_type_versions_cleanup_policy"] = application_type_versions_cleanup_policy
+            __props__.__dict__["azure_active_directory"] = azure_active_directory
+            __props__.__dict__["certificate"] = certificate
+            __props__.__dict__["certificate_common_names"] = certificate_common_names
+            __props__.__dict__["client_certificate_common_names"] = client_certificate_common_names
+            __props__.__dict__["client_certificate_thumbprints"] = client_certificate_thumbprints
+            __props__.__dict__["cluster_code_version"] = cluster_code_version
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["diagnostics_storage_account_config"] = diagnostics_storage_account_config
+            __props__.__dict__["event_store_service_enabled"] = event_store_service_enabled
+            __props__.__dict__["fabric_settings"] = fabric_settings
+            __props__.__dict__["location"] = location
             if management_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'management_endpoint'")
-            __props__['management_endpoint'] = management_endpoint
+            __props__.__dict__["management_endpoint"] = management_endpoint
             if node_types is None and not opts.urn:
                 raise TypeError("Missing required property 'node_types'")
-            __props__['node_types'] = node_types
-            __props__['reliability_level'] = reliability_level
+            __props__.__dict__["node_types"] = node_types
+            __props__.__dict__["reliability_level"] = reliability_level
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
-            __props__['reverse_proxy_certificate_common_names'] = reverse_proxy_certificate_common_names
-            __props__['tags'] = tags
-            __props__['upgrade_description'] = upgrade_description
-            __props__['upgrade_mode'] = upgrade_mode
-            __props__['vm_image'] = vm_image
-            __props__['available_cluster_versions'] = None
-            __props__['cluster_endpoint'] = None
-            __props__['cluster_id'] = None
-            __props__['cluster_state'] = None
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["reverse_proxy_certificate"] = reverse_proxy_certificate
+            __props__.__dict__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_description"] = upgrade_description
+            __props__.__dict__["upgrade_mode"] = upgrade_mode
+            __props__.__dict__["vm_image"] = vm_image
+            __props__.__dict__["available_cluster_versions"] = None
+            __props__.__dict__["cluster_endpoint"] = None
+            __props__.__dict__["cluster_id"] = None
+            __props__.__dict__["cluster_state"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20201201preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
@@ -602,37 +592,37 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ClusterArgs.__new__(ClusterArgs)
 
-        __props__["add_on_features"] = None
-        __props__["application_type_versions_cleanup_policy"] = None
-        __props__["available_cluster_versions"] = None
-        __props__["azure_active_directory"] = None
-        __props__["certificate"] = None
-        __props__["certificate_common_names"] = None
-        __props__["client_certificate_common_names"] = None
-        __props__["client_certificate_thumbprints"] = None
-        __props__["cluster_code_version"] = None
-        __props__["cluster_endpoint"] = None
-        __props__["cluster_id"] = None
-        __props__["cluster_state"] = None
-        __props__["diagnostics_storage_account_config"] = None
-        __props__["etag"] = None
-        __props__["event_store_service_enabled"] = None
-        __props__["fabric_settings"] = None
-        __props__["location"] = None
-        __props__["management_endpoint"] = None
-        __props__["name"] = None
-        __props__["node_types"] = None
-        __props__["provisioning_state"] = None
-        __props__["reliability_level"] = None
-        __props__["reverse_proxy_certificate"] = None
-        __props__["reverse_proxy_certificate_common_names"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["upgrade_description"] = None
-        __props__["upgrade_mode"] = None
-        __props__["vm_image"] = None
+        __props__.__dict__["add_on_features"] = None
+        __props__.__dict__["application_type_versions_cleanup_policy"] = None
+        __props__.__dict__["available_cluster_versions"] = None
+        __props__.__dict__["azure_active_directory"] = None
+        __props__.__dict__["certificate"] = None
+        __props__.__dict__["certificate_common_names"] = None
+        __props__.__dict__["client_certificate_common_names"] = None
+        __props__.__dict__["client_certificate_thumbprints"] = None
+        __props__.__dict__["cluster_code_version"] = None
+        __props__.__dict__["cluster_endpoint"] = None
+        __props__.__dict__["cluster_id"] = None
+        __props__.__dict__["cluster_state"] = None
+        __props__.__dict__["diagnostics_storage_account_config"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["event_store_service_enabled"] = None
+        __props__.__dict__["fabric_settings"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["management_endpoint"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["node_types"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["reliability_level"] = None
+        __props__.__dict__["reverse_proxy_certificate"] = None
+        __props__.__dict__["reverse_proxy_certificate_common_names"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_description"] = None
+        __props__.__dict__["upgrade_mode"] = None
+        __props__.__dict__["vm_image"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -886,10 +876,4 @@ class Cluster(pulumi.CustomResource):
         The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
         return pulumi.get(self, "vm_image")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

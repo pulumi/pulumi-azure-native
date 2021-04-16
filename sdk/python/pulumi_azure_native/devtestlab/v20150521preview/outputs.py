@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -20,7 +20,7 @@ __all__ = [
     'FormulaPropertiesFromVmResponse',
     'GalleryImageReferenceResponse',
     'HourDetailsResponse',
-    'LabVhdResponseResult',
+    'LabVhdResponse',
     'LabVirtualMachineResponse',
     'LinuxOsInfoResponse',
     'SubnetOverrideResponse',
@@ -34,6 +34,27 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
     """
     Properties of an artifact deployment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactsApplied":
+            suggest = "artifacts_applied"
+        elif key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "totalArtifacts":
+            suggest = "total_artifacts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactDeploymentStatusPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactDeploymentStatusPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactDeploymentStatusPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifacts_applied: Optional[int] = None,
                  deployment_status: Optional[str] = None,
@@ -75,22 +96,36 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
         """
         return pulumi.get(self, "total_artifacts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArtifactInstallPropertiesResponse(dict):
     """
     Properties of an artifact.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactId":
+            suggest = "artifact_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactInstallPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactInstallPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactInstallPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifact_id: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.ArtifactParameterPropertiesResponse']] = None):
         """
         Properties of an artifact.
         :param str artifact_id: The artifact's identifier.
-        :param Sequence['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
+        :param Sequence['ArtifactParameterPropertiesResponse'] parameters: The parameters of the artifact.
         """
         if artifact_id is not None:
             pulumi.set(__self__, "artifact_id", artifact_id)
@@ -112,9 +147,6 @@ class ArtifactInstallPropertiesResponse(dict):
         The parameters of the artifact.
         """
         return pulumi.get(self, "parameters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -151,15 +183,31 @@ class ArtifactParameterPropertiesResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomImagePropertiesCustomResponse(dict):
     """
     Properties for creating a custom image from a VHD.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+        elif key == "sysPrep":
+            suggest = "sys_prep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomImagePropertiesCustomResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomImagePropertiesCustomResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomImagePropertiesCustomResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_name: Optional[str] = None,
                  sys_prep: Optional[bool] = None):
@@ -189,15 +237,35 @@ class CustomImagePropertiesCustomResponse(dict):
         """
         return pulumi.get(self, "sys_prep")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomImagePropertiesFromVmResponse(dict):
     """
     Properties for creating a custom image from a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linuxOsInfo":
+            suggest = "linux_os_info"
+        elif key == "sourceVmId":
+            suggest = "source_vm_id"
+        elif key == "sysPrep":
+            suggest = "sys_prep"
+        elif key == "windowsOsInfo":
+            suggest = "windows_os_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomImagePropertiesFromVmResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomImagePropertiesFromVmResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomImagePropertiesFromVmResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linux_os_info: Optional['outputs.LinuxOsInfoResponse'] = None,
                  source_vm_id: Optional[str] = None,
@@ -205,10 +273,10 @@ class CustomImagePropertiesFromVmResponse(dict):
                  windows_os_info: Optional['outputs.WindowsOsInfoResponse'] = None):
         """
         Properties for creating a custom image from a virtual machine.
-        :param 'LinuxOsInfoResponseArgs' linux_os_info: The Linux OS information of the VM.
+        :param 'LinuxOsInfoResponse' linux_os_info: The Linux OS information of the VM.
         :param str source_vm_id: The source vm identifier.
         :param bool sys_prep: Indicates whether sysprep has been run on the VHD.
-        :param 'WindowsOsInfoResponseArgs' windows_os_info: The Windows OS information of the VM.
+        :param 'WindowsOsInfoResponse' windows_os_info: The Windows OS information of the VM.
         """
         if linux_os_info is not None:
             pulumi.set(__self__, "linux_os_info", linux_os_info)
@@ -251,9 +319,6 @@ class CustomImagePropertiesFromVmResponse(dict):
         """
         return pulumi.get(self, "windows_os_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DayDetailsResponse(dict):
@@ -273,15 +338,29 @@ class DayDetailsResponse(dict):
     def time(self) -> Optional[str]:
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FormulaPropertiesFromVmResponse(dict):
     """
     Information about a VM from which a formula is to be created.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labVmId":
+            suggest = "lab_vm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FormulaPropertiesFromVmResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FormulaPropertiesFromVmResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FormulaPropertiesFromVmResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lab_vm_id: Optional[str] = None):
         """
@@ -299,15 +378,29 @@ class FormulaPropertiesFromVmResponse(dict):
         """
         return pulumi.get(self, "lab_vm_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryImageReferenceResponse(dict):
     """
     The reference information for an Azure Marketplace image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryImageReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryImageReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryImageReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  offer: Optional[str] = None,
                  os_type: Optional[str] = None,
@@ -373,9 +466,6 @@ class GalleryImageReferenceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HourDetailsResponse(dict):
@@ -399,12 +489,9 @@ class HourDetailsResponse(dict):
         """
         return pulumi.get(self, "minute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class LabVhdResponseResult(dict):
+class LabVhdResponse(dict):
     """
     Properties of a VHD in the lab.
     """
@@ -431,6 +518,51 @@ class LabVirtualMachineResponse(dict):
     """
     A virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactDeploymentStatus":
+            suggest = "artifact_deployment_status"
+        elif key == "computeId":
+            suggest = "compute_id"
+        elif key == "createdByUser":
+            suggest = "created_by_user"
+        elif key == "createdByUserId":
+            suggest = "created_by_user_id"
+        elif key == "customImageId":
+            suggest = "custom_image_id"
+        elif key == "disallowPublicIpAddress":
+            suggest = "disallow_public_ip_address"
+        elif key == "galleryImageReference":
+            suggest = "gallery_image_reference"
+        elif key == "isAuthenticationWithSshKey":
+            suggest = "is_authentication_with_ssh_key"
+        elif key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "labVirtualNetworkId":
+            suggest = "lab_virtual_network_id"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "ownerObjectId":
+            suggest = "owner_object_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sshKey":
+            suggest = "ssh_key"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabVirtualMachineResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabVirtualMachineResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabVirtualMachineResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifact_deployment_status: Optional['outputs.ArtifactDeploymentStatusPropertiesResponse'] = None,
                  artifacts: Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']] = None,
@@ -459,15 +591,15 @@ class LabVirtualMachineResponse(dict):
                  user_name: Optional[str] = None):
         """
         A virtual machine.
-        :param 'ArtifactDeploymentStatusPropertiesResponseArgs' artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param Sequence['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
+        :param 'ArtifactDeploymentStatusPropertiesResponse' artifact_deployment_status: The artifact deployment status for the virtual machine.
+        :param Sequence['ArtifactInstallPropertiesResponse'] artifacts: The artifacts to be installed on the virtual machine.
         :param str compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param str created_by_user: The email address of creator of the virtual machine.
         :param str created_by_user_id: The object identifier of the creator of the virtual machine.
         :param str custom_image_id: The custom image identifier of the virtual machine.
         :param bool disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param str fqdn: The fully-qualified domain name of the virtual machine.
-        :param 'GalleryImageReferenceResponseArgs' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param 'GalleryImageReferenceResponse' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
         :param str id: The identifier of the resource.
         :param bool is_authentication_with_ssh_key: A value indicating whether this virtual machine uses an SSH key for authentication.
         :param str lab_subnet_name: The lab subnet name of the virtual machine.
@@ -736,15 +868,29 @@ class LabVirtualMachineResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxOsInfoResponse(dict):
     """
     Information about a Linux OS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linuxOsState":
+            suggest = "linux_os_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxOsInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxOsInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxOsInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linux_os_state: Optional[str] = None):
         """
@@ -762,15 +908,35 @@ class LinuxOsInfoResponse(dict):
         """
         return pulumi.get(self, "linux_os_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetOverrideResponse(dict):
     """
     Property overrides on a subnet of a virtual network.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "useInVmCreationPermission":
+            suggest = "use_in_vm_creation_permission"
+        elif key == "usePublicIpAddressPermission":
+            suggest = "use_public_ip_address_permission"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lab_subnet_name: Optional[str] = None,
                  resource_id: Optional[str] = None,
@@ -824,12 +990,30 @@ class SubnetOverrideResponse(dict):
         """
         return pulumi.get(self, "use_public_ip_address_permission")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPublicIp":
+            suggest = "allow_public_ip"
+        elif key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_public_ip: Optional[str] = None,
                  lab_subnet_name: Optional[str] = None,
@@ -855,9 +1039,6 @@ class SubnetResponse(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         return pulumi.get(self, "resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -894,15 +1075,29 @@ class WeekDetailsResponse(dict):
         """
         return pulumi.get(self, "weekdays")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsOsInfoResponse(dict):
     """
     Information about a Windows OS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowsOsState":
+            suggest = "windows_os_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsOsInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsOsInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsOsInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  windows_os_state: Optional[str] = None):
         """
@@ -919,8 +1114,5 @@ class WindowsOsInfoResponse(dict):
         The state of the Windows OS.
         """
         return pulumi.get(self, "windows_os_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

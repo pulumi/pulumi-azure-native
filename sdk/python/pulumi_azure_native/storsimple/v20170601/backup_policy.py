@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['BackupPolicyArgs', 'BackupPolicy']
@@ -122,9 +122,7 @@ class BackupPolicy(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The backup policy.
 
@@ -167,15 +165,7 @@ class BackupPolicy(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -185,30 +175,30 @@ class BackupPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-            __props__['backup_policy_name'] = backup_policy_name
+            __props__.__dict__["backup_policy_name"] = backup_policy_name
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['kind'] = kind
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if volume_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_ids'")
-            __props__['volume_ids'] = volume_ids
-            __props__['backup_policy_creation_type'] = None
-            __props__['last_backup_time'] = None
-            __props__['name'] = None
-            __props__['next_backup_time'] = None
-            __props__['scheduled_backup_status'] = None
-            __props__['schedules_count'] = None
-            __props__['ssm_host_name'] = None
-            __props__['type'] = None
+            __props__.__dict__["volume_ids"] = volume_ids
+            __props__.__dict__["backup_policy_creation_type"] = None
+            __props__.__dict__["last_backup_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["next_backup_time"] = None
+            __props__.__dict__["scheduled_backup_status"] = None
+            __props__.__dict__["schedules_count"] = None
+            __props__.__dict__["ssm_host_name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupPolicy"), pulumi.Alias(type_="azure-native:storsimple:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:storsimple:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
@@ -231,18 +221,18 @@ class BackupPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-        __props__["backup_policy_creation_type"] = None
-        __props__["kind"] = None
-        __props__["last_backup_time"] = None
-        __props__["name"] = None
-        __props__["next_backup_time"] = None
-        __props__["scheduled_backup_status"] = None
-        __props__["schedules_count"] = None
-        __props__["ssm_host_name"] = None
-        __props__["type"] = None
-        __props__["volume_ids"] = None
+        __props__.__dict__["backup_policy_creation_type"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_backup_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["next_backup_time"] = None
+        __props__.__dict__["scheduled_backup_status"] = None
+        __props__.__dict__["schedules_count"] = None
+        __props__.__dict__["ssm_host_name"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["volume_ids"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -324,10 +314,4 @@ class BackupPolicy(pulumi.CustomResource):
         The path IDs of the volumes which are part of the backup policy.
         """
         return pulumi.get(self, "volume_ids")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

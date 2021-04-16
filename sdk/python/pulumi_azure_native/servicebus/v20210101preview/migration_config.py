@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['MigrationConfigArgs', 'MigrationConfig']
@@ -105,9 +105,7 @@ class MigrationConfig(pulumi.CustomResource):
                  post_migration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Single item in List or Get Migration Config operation
 
@@ -148,15 +146,7 @@ class MigrationConfig(pulumi.CustomResource):
                  post_migration_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,27 +156,27 @@ class MigrationConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MigrationConfigArgs.__new__(MigrationConfigArgs)
 
-            __props__['config_name'] = config_name
+            __props__.__dict__["config_name"] = config_name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
+            __props__.__dict__["namespace_name"] = namespace_name
             if post_migration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'post_migration_name'")
-            __props__['post_migration_name'] = post_migration_name
+            __props__.__dict__["post_migration_name"] = post_migration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if target_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'target_namespace'")
-            __props__['target_namespace'] = target_namespace
-            __props__['migration_state'] = None
-            __props__['name'] = None
-            __props__['pending_replication_operations_count'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["target_namespace"] = target_namespace
+            __props__.__dict__["migration_state"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["pending_replication_operations_count"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20210101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:MigrationConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MigrationConfig, __self__).__init__(
@@ -209,16 +199,16 @@ class MigrationConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MigrationConfigArgs.__new__(MigrationConfigArgs)
 
-        __props__["migration_state"] = None
-        __props__["name"] = None
-        __props__["pending_replication_operations_count"] = None
-        __props__["post_migration_name"] = None
-        __props__["provisioning_state"] = None
-        __props__["system_data"] = None
-        __props__["target_namespace"] = None
-        __props__["type"] = None
+        __props__.__dict__["migration_state"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["pending_replication_operations_count"] = None
+        __props__.__dict__["post_migration_name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["target_namespace"] = None
+        __props__.__dict__["type"] = None
         return MigrationConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -284,10 +274,4 @@ class MigrationConfig(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

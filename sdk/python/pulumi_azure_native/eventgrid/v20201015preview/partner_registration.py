@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -312,9 +312,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  setup_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_state: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Information about a partner registration.
 
@@ -385,15 +383,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  setup_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_state: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,30 +393,30 @@ class PartnerRegistration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PartnerRegistrationArgs.__new__(PartnerRegistrationArgs)
 
-            __props__['authorized_azure_subscription_ids'] = authorized_azure_subscription_ids
-            __props__['customer_service_uri'] = customer_service_uri
-            __props__['location'] = location
-            __props__['logo_uri'] = logo_uri
-            __props__['long_description'] = long_description
-            __props__['partner_customer_service_extension'] = partner_customer_service_extension
-            __props__['partner_customer_service_number'] = partner_customer_service_number
-            __props__['partner_name'] = partner_name
-            __props__['partner_registration_name'] = partner_registration_name
-            __props__['partner_resource_type_description'] = partner_resource_type_description
-            __props__['partner_resource_type_display_name'] = partner_resource_type_display_name
-            __props__['partner_resource_type_name'] = partner_resource_type_name
+            __props__.__dict__["authorized_azure_subscription_ids"] = authorized_azure_subscription_ids
+            __props__.__dict__["customer_service_uri"] = customer_service_uri
+            __props__.__dict__["location"] = location
+            __props__.__dict__["logo_uri"] = logo_uri
+            __props__.__dict__["long_description"] = long_description
+            __props__.__dict__["partner_customer_service_extension"] = partner_customer_service_extension
+            __props__.__dict__["partner_customer_service_number"] = partner_customer_service_number
+            __props__.__dict__["partner_name"] = partner_name
+            __props__.__dict__["partner_registration_name"] = partner_registration_name
+            __props__.__dict__["partner_resource_type_description"] = partner_resource_type_description
+            __props__.__dict__["partner_resource_type_display_name"] = partner_resource_type_display_name
+            __props__.__dict__["partner_resource_type_name"] = partner_resource_type_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['setup_uri'] = setup_uri
-            __props__['tags'] = tags
-            __props__['visibility_state'] = visibility_state
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["setup_uri"] = setup_uri
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["visibility_state"] = visibility_state
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:PartnerRegistration"), pulumi.Alias(type_="azure-native:eventgrid:PartnerRegistration"), pulumi.Alias(type_="azure-nextgen:eventgrid:PartnerRegistration"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PartnerRegistration"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:PartnerRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerRegistration, __self__).__init__(
@@ -449,26 +439,26 @@ class PartnerRegistration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PartnerRegistrationArgs.__new__(PartnerRegistrationArgs)
 
-        __props__["authorized_azure_subscription_ids"] = None
-        __props__["customer_service_uri"] = None
-        __props__["location"] = None
-        __props__["logo_uri"] = None
-        __props__["long_description"] = None
-        __props__["name"] = None
-        __props__["partner_customer_service_extension"] = None
-        __props__["partner_customer_service_number"] = None
-        __props__["partner_name"] = None
-        __props__["partner_resource_type_description"] = None
-        __props__["partner_resource_type_display_name"] = None
-        __props__["partner_resource_type_name"] = None
-        __props__["provisioning_state"] = None
-        __props__["setup_uri"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["visibility_state"] = None
+        __props__.__dict__["authorized_azure_subscription_ids"] = None
+        __props__.__dict__["customer_service_uri"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["logo_uri"] = None
+        __props__.__dict__["long_description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["partner_customer_service_extension"] = None
+        __props__.__dict__["partner_customer_service_number"] = None
+        __props__.__dict__["partner_name"] = None
+        __props__.__dict__["partner_resource_type_description"] = None
+        __props__.__dict__["partner_resource_type_display_name"] = None
+        __props__.__dict__["partner_resource_type_name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["setup_uri"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["visibility_state"] = None
         return PartnerRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -622,10 +612,4 @@ class PartnerRegistration(pulumi.CustomResource):
         Visibility state of the partner registration.
         """
         return pulumi.get(self, "visibility_state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

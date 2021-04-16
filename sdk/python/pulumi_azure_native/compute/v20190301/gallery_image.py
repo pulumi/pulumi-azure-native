@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -293,9 +293,7 @@ class GalleryImage(pulumi.CustomResource):
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Specifies information about the gallery Image Definition that you want to create or update.
 
@@ -358,15 +356,7 @@ class GalleryImage(pulumi.CustomResource):
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,37 +366,37 @@ class GalleryImage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
-            __props__['description'] = description
-            __props__['disallowed'] = disallowed
-            __props__['end_of_life_date'] = end_of_life_date
-            __props__['eula'] = eula
-            __props__['gallery_image_name'] = gallery_image_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["disallowed"] = disallowed
+            __props__.__dict__["end_of_life_date"] = end_of_life_date
+            __props__.__dict__["eula"] = eula
+            __props__.__dict__["gallery_image_name"] = gallery_image_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
-            __props__['gallery_name'] = gallery_name
+            __props__.__dict__["gallery_name"] = gallery_name
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
-            __props__['identifier'] = identifier
-            __props__['location'] = location
+            __props__.__dict__["identifier"] = identifier
+            __props__.__dict__["location"] = location
             if os_state is None and not opts.urn:
                 raise TypeError("Missing required property 'os_state'")
-            __props__['os_state'] = os_state
+            __props__.__dict__["os_state"] = os_state
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
-            __props__['os_type'] = os_type
-            __props__['privacy_statement_uri'] = privacy_statement_uri
-            __props__['purchase_plan'] = purchase_plan
-            __props__['recommended'] = recommended
-            __props__['release_note_uri'] = release_note_uri
+            __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["privacy_statement_uri"] = privacy_statement_uri
+            __props__.__dict__["purchase_plan"] = purchase_plan
+            __props__.__dict__["recommended"] = recommended
+            __props__.__dict__["release_note_uri"] = release_note_uri
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20190301:GalleryImage"), pulumi.Alias(type_="azure-native:compute:GalleryImage"), pulumi.Alias(type_="azure-nextgen:compute:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImage"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
@@ -429,24 +419,24 @@ class GalleryImage(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
-        __props__["description"] = None
-        __props__["disallowed"] = None
-        __props__["end_of_life_date"] = None
-        __props__["eula"] = None
-        __props__["identifier"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["os_state"] = None
-        __props__["os_type"] = None
-        __props__["privacy_statement_uri"] = None
-        __props__["provisioning_state"] = None
-        __props__["purchase_plan"] = None
-        __props__["recommended"] = None
-        __props__["release_note_uri"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["disallowed"] = None
+        __props__.__dict__["end_of_life_date"] = None
+        __props__.__dict__["eula"] = None
+        __props__.__dict__["identifier"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["os_state"] = None
+        __props__.__dict__["os_type"] = None
+        __props__.__dict__["privacy_statement_uri"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["purchase_plan"] = None
+        __props__.__dict__["recommended"] = None
+        __props__.__dict__["release_note_uri"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -576,10 +566,4 @@ class GalleryImage(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

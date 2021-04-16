@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 
@@ -103,9 +103,7 @@ class StorageSyncService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Storage Sync Service object.
 
@@ -145,15 +143,7 @@ class StorageSyncService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -163,19 +153,19 @@ class StorageSyncService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StorageSyncServiceArgs.__new__(StorageSyncServiceArgs)
 
-            __props__['location'] = location
-            __props__['properties'] = properties
+            __props__.__dict__["location"] = location
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_sync_service_name'] = storage_sync_service_name
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['storage_sync_service_status'] = None
-            __props__['storage_sync_service_uid'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["storage_sync_service_status"] = None
+            __props__.__dict__["storage_sync_service_uid"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20170605preview:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20180402:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20181001:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190201:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190301:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190601:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20191001:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20200301:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20200901:StorageSyncService"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:StorageSyncService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageSyncService, __self__).__init__(
@@ -198,14 +188,14 @@ class StorageSyncService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StorageSyncServiceArgs.__new__(StorageSyncServiceArgs)
 
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["storage_sync_service_status"] = None
-        __props__["storage_sync_service_uid"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["storage_sync_service_status"] = None
+        __props__.__dict__["storage_sync_service_uid"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return StorageSyncService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -255,10 +245,4 @@ class StorageSyncService(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ExtendedDatabaseBlobAuditingPolicyArgs', 'ExtendedDatabaseBlobAuditingPolicy']
@@ -402,9 +402,7 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An extended database blob auditing policy.
 
@@ -535,15 +533,7 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -553,32 +543,32 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExtendedDatabaseBlobAuditingPolicyArgs.__new__(ExtendedDatabaseBlobAuditingPolicyArgs)
 
-            __props__['audit_actions_and_groups'] = audit_actions_and_groups
-            __props__['blob_auditing_policy_name'] = blob_auditing_policy_name
+            __props__.__dict__["audit_actions_and_groups"] = audit_actions_and_groups
+            __props__.__dict__["blob_auditing_policy_name"] = blob_auditing_policy_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
-            __props__['database_name'] = database_name
-            __props__['is_azure_monitor_target_enabled'] = is_azure_monitor_target_enabled
-            __props__['is_storage_secondary_key_in_use'] = is_storage_secondary_key_in_use
-            __props__['predicate_expression'] = predicate_expression
-            __props__['queue_delay_ms'] = queue_delay_ms
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["is_azure_monitor_target_enabled"] = is_azure_monitor_target_enabled
+            __props__.__dict__["is_storage_secondary_key_in_use"] = is_storage_secondary_key_in_use
+            __props__.__dict__["predicate_expression"] = predicate_expression
+            __props__.__dict__["queue_delay_ms"] = queue_delay_ms
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retention_days'] = retention_days
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_days"] = retention_days
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
+            __props__.__dict__["server_name"] = server_name
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
-            __props__['state'] = state
-            __props__['storage_account_access_key'] = storage_account_access_key
-            __props__['storage_account_subscription_id'] = storage_account_subscription_id
-            __props__['storage_endpoint'] = storage_endpoint
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["state"] = state
+            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
+            __props__.__dict__["storage_endpoint"] = storage_endpoint
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-nextgen:sql:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ExtendedDatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ExtendedDatabaseBlobAuditingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExtendedDatabaseBlobAuditingPolicy, __self__).__init__(
@@ -601,19 +591,19 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ExtendedDatabaseBlobAuditingPolicyArgs.__new__(ExtendedDatabaseBlobAuditingPolicyArgs)
 
-        __props__["audit_actions_and_groups"] = None
-        __props__["is_azure_monitor_target_enabled"] = None
-        __props__["is_storage_secondary_key_in_use"] = None
-        __props__["name"] = None
-        __props__["predicate_expression"] = None
-        __props__["queue_delay_ms"] = None
-        __props__["retention_days"] = None
-        __props__["state"] = None
-        __props__["storage_account_subscription_id"] = None
-        __props__["storage_endpoint"] = None
-        __props__["type"] = None
+        __props__.__dict__["audit_actions_and_groups"] = None
+        __props__.__dict__["is_azure_monitor_target_enabled"] = None
+        __props__.__dict__["is_storage_secondary_key_in_use"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["predicate_expression"] = None
+        __props__.__dict__["queue_delay_ms"] = None
+        __props__.__dict__["retention_days"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["storage_account_subscription_id"] = None
+        __props__.__dict__["storage_endpoint"] = None
+        __props__.__dict__["type"] = None
         return ExtendedDatabaseBlobAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -770,10 +760,4 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

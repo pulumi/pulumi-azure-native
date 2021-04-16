@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -173,9 +173,7 @@ class SavedSearch(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Value object for saved search results.
 
@@ -224,15 +222,7 @@ class SavedSearch(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagArgs']]]]] = None,
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,29 +232,29 @@ class SavedSearch(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SavedSearchArgs.__new__(SavedSearchArgs)
 
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")
-            __props__['category'] = category
+            __props__.__dict__["category"] = category
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['e_tag'] = e_tag
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["e_tag"] = e_tag
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
-            __props__['query'] = query
+            __props__.__dict__["query"] = query
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['saved_search_id'] = saved_search_id
-            __props__['tags'] = tags
-            __props__['version'] = version
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["saved_search_id"] = saved_search_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20150320:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:SavedSearch"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:SavedSearch"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:SavedSearch")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SavedSearch, __self__).__init__(
@@ -287,16 +277,16 @@ class SavedSearch(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SavedSearchArgs.__new__(SavedSearchArgs)
 
-        __props__["category"] = None
-        __props__["display_name"] = None
-        __props__["e_tag"] = None
-        __props__["name"] = None
-        __props__["query"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["category"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["query"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +352,4 @@ class SavedSearch(pulumi.CustomResource):
         The version number of the query language. The current version is 2 and is the default.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

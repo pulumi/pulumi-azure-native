@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -32,13 +32,13 @@ __all__ = [
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
-    'LinkedIntegrationRuntimeResponseResult',
+    'LinkedIntegrationRuntimeResponse',
     'ManagedIdentityResponse',
-    'ManagedIntegrationRuntimeErrorResponseResult',
-    'ManagedIntegrationRuntimeNodeResponseResult',
-    'ManagedIntegrationRuntimeOperationResultResponseResult',
+    'ManagedIntegrationRuntimeErrorResponse',
+    'ManagedIntegrationRuntimeNodeResponse',
+    'ManagedIntegrationRuntimeOperationResultResponse',
     'ManagedIntegrationRuntimeResponse',
-    'ManagedIntegrationRuntimeStatusResponseResult',
+    'ManagedIntegrationRuntimeStatusResponse',
     'ManagedVirtualNetworkSettingsResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
@@ -46,18 +46,18 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'PurviewConfigurationResponse',
     'SecureStringResponse',
-    'SelfHostedIntegrationRuntimeNodeResponseResult',
+    'SelfHostedIntegrationRuntimeNodeResponse',
     'SelfHostedIntegrationRuntimeResponse',
-    'SelfHostedIntegrationRuntimeStatusResponseResult',
+    'SelfHostedIntegrationRuntimeStatusResponse',
     'SkuResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
-    'SsisEnvironmentReferenceResponseResult',
-    'SsisEnvironmentResponseResult',
-    'SsisFolderResponseResult',
-    'SsisPackageResponseResult',
-    'SsisParameterResponseResult',
-    'SsisProjectResponseResult',
-    'SsisVariableResponseResult',
+    'SsisEnvironmentReferenceResponse',
+    'SsisEnvironmentResponse',
+    'SsisFolderResponse',
+    'SsisPackageResponse',
+    'SsisParameterResponse',
+    'SsisProjectResponse',
+    'SsisVariableResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
     'WorkspaceKeyDetailsResponse',
@@ -69,6 +69,23 @@ class AutoPausePropertiesResponse(dict):
     """
     Auto-pausing properties of a Big Data pool powered by Apache Spark
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delayInMinutes":
+            suggest = "delay_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoPausePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoPausePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoPausePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delay_in_minutes: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -98,15 +115,31 @@ class AutoPausePropertiesResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoScalePropertiesResponse(dict):
     """
     Auto-scaling properties of a Big Data pool powered by Apache Spark
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxNodeCount":
+            suggest = "max_node_count"
+        elif key == "minNodeCount":
+            suggest = "min_node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  max_node_count: Optional[int] = None,
@@ -148,15 +181,31 @@ class AutoScalePropertiesResponse(dict):
         """
         return pulumi.get(self, "min_node_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CmdkeySetupResponse(dict):
     """
     The custom setup of running cmdkey commands.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CmdkeySetupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CmdkeySetupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CmdkeySetupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: 'outputs.SecureStringResponse',
                  target_name: Any,
@@ -164,7 +213,7 @@ class CmdkeySetupResponse(dict):
                  user_name: Any):
         """
         The custom setup of running cmdkey commands.
-        :param 'SecureStringResponseArgs' password: The password of data source access.
+        :param 'SecureStringResponse' password: The password of data source access.
         :param Any target_name: The server name of data source access.
         :param str type: The type of custom setup.
                Expected value is 'CmdkeySetup'.
@@ -208,15 +257,31 @@ class CmdkeySetupResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComponentSetupResponse(dict):
     """
     The custom setup of installing 3rd party components.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentName":
+            suggest = "component_name"
+        elif key == "licenseKey":
+            suggest = "license_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComponentSetupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComponentSetupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComponentSetupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_name: str,
                  type: str,
@@ -226,7 +291,7 @@ class ComponentSetupResponse(dict):
         :param str component_name: The name of the 3rd party component.
         :param str type: The type of custom setup.
                Expected value is 'ComponentSetup'.
-        :param 'SecureStringResponseArgs' license_key: The license key to activate the component.
+        :param 'SecureStringResponse' license_key: The license key to activate the component.
         """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "type", 'ComponentSetup')
@@ -258,9 +323,6 @@ class ComponentSetupResponse(dict):
         """
         return pulumi.get(self, "license_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomerManagedKeyDetailsResponse(dict):
@@ -273,7 +335,7 @@ class CustomerManagedKeyDetailsResponse(dict):
         """
         Details of the customer managed key associated with the workspace
         :param str status: The customer managed key status on the workspace
-        :param 'WorkspaceKeyDetailsResponseArgs' key: The key object of the workspace
+        :param 'WorkspaceKeyDetailsResponse' key: The key object of the workspace
         """
         pulumi.set(__self__, "status", status)
         if key is not None:
@@ -295,15 +357,29 @@ class CustomerManagedKeyDetailsResponse(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataLakeStorageAccountDetailsResponse(dict):
     """
     Details of the data lake storage account associated with the workspace
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountUrl":
+            suggest = "account_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataLakeStorageAccountDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataLakeStorageAccountDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataLakeStorageAccountDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_url: Optional[str] = None,
                  filesystem: Optional[str] = None):
@@ -333,9 +409,6 @@ class DataLakeStorageAccountDetailsResponse(dict):
         """
         return pulumi.get(self, "filesystem")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DynamicExecutorAllocationResponse(dict):
@@ -359,22 +432,36 @@ class DynamicExecutorAllocationResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionDetailsResponse(dict):
     """
     Details of the encryption associated with the workspace
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "doubleEncryptionEnabled":
+            suggest = "double_encryption_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  double_encryption_enabled: bool,
                  cmk: Optional['outputs.CustomerManagedKeyDetailsResponse'] = None):
         """
         Details of the encryption associated with the workspace
         :param bool double_encryption_enabled: Double Encryption enabled
-        :param 'CustomerManagedKeyDetailsResponseArgs' cmk: Customer Managed Key Details
+        :param 'CustomerManagedKeyDetailsResponse' cmk: Customer Managed Key Details
         """
         pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if cmk is not None:
@@ -396,15 +483,29 @@ class EncryptionDetailsResponse(dict):
         """
         return pulumi.get(self, "cmk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EntityReferenceResponse(dict):
     """
     The entity reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntityReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntityReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntityReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -434,15 +535,31 @@ class EntityReferenceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentVariableSetupResponse(dict):
     """
     The custom setup of setting environment variable.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableName":
+            suggest = "variable_name"
+        elif key == "variableValue":
+            suggest = "variable_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableSetupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentVariableSetupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentVariableSetupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  variable_name: str,
@@ -483,15 +600,37 @@ class EnvironmentVariableSetupResponse(dict):
         """
         return pulumi.get(self, "variable_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeComputePropertiesResponse(dict):
     """
     The compute resource properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataFlowProperties":
+            suggest = "data_flow_properties"
+        elif key == "maxParallelExecutionsPerNode":
+            suggest = "max_parallel_executions_per_node"
+        elif key == "nodeSize":
+            suggest = "node_size"
+        elif key == "numberOfNodes":
+            suggest = "number_of_nodes"
+        elif key == "vNetProperties":
+            suggest = "v_net_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeComputePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeComputePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeComputePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_flow_properties: Optional['outputs.IntegrationRuntimeDataFlowPropertiesResponse'] = None,
                  location: Optional[str] = None,
@@ -501,12 +640,12 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
-        :param 'IntegrationRuntimeDataFlowPropertiesResponseArgs' data_flow_properties: Data flow properties for managed integration runtime.
+        :param 'IntegrationRuntimeDataFlowPropertiesResponse' data_flow_properties: Data flow properties for managed integration runtime.
         :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
         :param int number_of_nodes: The required number of nodes for managed integration runtime.
-        :param 'IntegrationRuntimeVNetPropertiesResponseArgs' v_net_properties: VNet properties for managed integration runtime.
+        :param 'IntegrationRuntimeVNetPropertiesResponse' v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
             pulumi.set(__self__, "data_flow_properties", data_flow_properties)
@@ -569,22 +708,38 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
         """
         return pulumi.get(self, "v_net_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
     """
     Custom setup script properties for a managed dedicated integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobContainerUri":
+            suggest = "blob_container_uri"
+        elif key == "sasToken":
+            suggest = "sas_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeCustomSetupScriptPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeCustomSetupScriptPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeCustomSetupScriptPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_container_uri: Optional[str] = None,
                  sas_token: Optional['outputs.SecureStringResponse'] = None):
         """
         Custom setup script properties for a managed dedicated integration runtime.
         :param str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
-        :param 'SecureStringResponseArgs' sas_token: The SAS token of the Azure blob container.
+        :param 'SecureStringResponse' sas_token: The SAS token of the Azure blob container.
         """
         if blob_container_uri is not None:
             pulumi.set(__self__, "blob_container_uri", blob_container_uri)
@@ -607,15 +762,33 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         """
         return pulumi.get(self, "sas_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeDataFlowPropertiesResponse(dict):
     """
     Data flow properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "coreCount":
+            suggest = "core_count"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeDataFlowPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeDataFlowPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeDataFlowPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: Optional[str] = None,
                  core_count: Optional[int] = None,
@@ -657,24 +830,40 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
         """
         return pulumi.get(self, "time_to_live")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeDataProxyPropertiesResponse(dict):
     """
     Data proxy properties for a managed dedicated integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "stagingLinkedService":
+            suggest = "staging_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeDataProxyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeDataProxyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeDataProxyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connect_via: Optional['outputs.EntityReferenceResponse'] = None,
                  path: Optional[str] = None,
                  staging_linked_service: Optional['outputs.EntityReferenceResponse'] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
-        :param 'EntityReferenceResponseArgs' connect_via: The self-hosted integration runtime reference.
+        :param 'EntityReferenceResponse' connect_via: The self-hosted integration runtime reference.
         :param str path: The path to contain the staged data in the Blob storage.
-        :param 'EntityReferenceResponseArgs' staging_linked_service: The staging linked service reference.
+        :param 'EntityReferenceResponse' staging_linked_service: The staging linked service reference.
         """
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
@@ -707,15 +896,35 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
         """
         return pulumi.get(self, "staging_linked_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisCatalogInfoResponse(dict):
     """
     Catalog information for managed dedicated integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogAdminPassword":
+            suggest = "catalog_admin_password"
+        elif key == "catalogAdminUserName":
+            suggest = "catalog_admin_user_name"
+        elif key == "catalogPricingTier":
+            suggest = "catalog_pricing_tier"
+        elif key == "catalogServerEndpoint":
+            suggest = "catalog_server_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisCatalogInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisCatalogInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisCatalogInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_admin_password: Optional['outputs.SecureStringResponse'] = None,
                  catalog_admin_user_name: Optional[str] = None,
@@ -723,7 +932,7 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  catalog_server_endpoint: Optional[str] = None):
         """
         Catalog information for managed dedicated integration runtime.
-        :param 'SecureStringResponseArgs' catalog_admin_password: The password of the administrator user account of the catalog database.
+        :param 'SecureStringResponse' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param str catalog_admin_user_name: The administrator user name of catalog database.
         :param str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param str catalog_server_endpoint: The catalog database server URL.
@@ -769,15 +978,37 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
         """
         return pulumi.get(self, "catalog_server_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisPropertiesResponse(dict):
     """
     SSIS properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogInfo":
+            suggest = "catalog_info"
+        elif key == "customSetupScriptProperties":
+            suggest = "custom_setup_script_properties"
+        elif key == "dataProxyProperties":
+            suggest = "data_proxy_properties"
+        elif key == "expressCustomSetupProperties":
+            suggest = "express_custom_setup_properties"
+        elif key == "licenseType":
+            suggest = "license_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_info: Optional['outputs.IntegrationRuntimeSsisCatalogInfoResponse'] = None,
                  custom_setup_script_properties: Optional['outputs.IntegrationRuntimeCustomSetupScriptPropertiesResponse'] = None,
@@ -787,11 +1018,11 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  license_type: Optional[str] = None):
         """
         SSIS properties for managed integration runtime.
-        :param 'IntegrationRuntimeSsisCatalogInfoResponseArgs' catalog_info: Catalog information for managed dedicated integration runtime.
-        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
-        :param 'IntegrationRuntimeDataProxyPropertiesResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeSsisCatalogInfoResponse' catalog_info: Catalog information for managed dedicated integration runtime.
+        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponse' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeDataProxyPropertiesResponse' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param str edition: The edition for the SSIS Integration Runtime
-        :param Sequence[Union['CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param Sequence[Union['CmdkeySetupResponse', 'ComponentSetupResponse', 'EnvironmentVariableSetupResponse']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param str license_type: License type for bringing your own license scenario.
         """
         if catalog_info is not None:
@@ -855,15 +1086,31 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
         """
         return pulumi.get(self, "license_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeVNetPropertiesResponse(dict):
     """
     VNet properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIPs":
+            suggest = "public_ips"
+        elif key == "vNetId":
+            suggest = "v_net_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeVNetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeVNetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeVNetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ips: Optional[Sequence[str]] = None,
                  subnet: Optional[str] = None,
@@ -905,15 +1152,35 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         """
         return pulumi.get(self, "v_net_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LibraryInfoResponse(dict):
     """
     Library/package information of a Big Data pool powered by Apache Spark
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creatorId":
+            suggest = "creator_id"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+        elif key == "uploadedTimestamp":
+            suggest = "uploaded_timestamp"
+        elif key == "containerName":
+            suggest = "container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LibraryInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LibraryInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LibraryInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creator_id: str,
                  provisioning_status: str,
@@ -1000,9 +1267,6 @@ class LibraryInfoResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LibraryRequirementsResponse(dict):
@@ -1049,15 +1313,29 @@ class LibraryRequirementsResponse(dict):
         """
         return pulumi.get(self, "filename")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
     """
     The key authorization type integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedIntegrationRuntimeKeyAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedIntegrationRuntimeKeyAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedIntegrationRuntimeKeyAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_type: str,
                  key: 'outputs.SecureStringResponse'):
@@ -1065,7 +1343,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
         The key authorization type integration runtime.
         :param str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'Key'.
-        :param 'SecureStringResponseArgs' key: The key used for authorization.
+        :param 'SecureStringResponse' key: The key used for authorization.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
         pulumi.set(__self__, "key", key)
@@ -1087,15 +1365,31 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
     """
     The role based access control (RBAC) authorization type integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedIntegrationRuntimeRbacAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedIntegrationRuntimeRbacAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedIntegrationRuntimeRbacAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_type: str,
                  resource_id: str):
@@ -1125,12 +1419,9 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class LinkedIntegrationRuntimeResponseResult(dict):
+class LinkedIntegrationRuntimeResponse(dict):
     """
     The linked integration runtime information.
     """
@@ -1200,6 +1491,25 @@ class ManagedIdentityResponse(dict):
     """
     The workspace managed identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -1239,12 +1549,9 @@ class ManagedIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeErrorResponseResult(dict):
+class ManagedIntegrationRuntimeErrorResponse(dict):
     """
     Error definition for managed integration runtime.
     """
@@ -1299,19 +1606,19 @@ class ManagedIntegrationRuntimeErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeNodeResponseResult(dict):
+class ManagedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of integration runtime node.
     """
     def __init__(__self__, *,
                  node_id: str,
                  status: str,
-                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']] = None):
         """
         Properties of integration runtime node.
         :param str node_id: The managed integration runtime node id.
         :param str status: The managed integration runtime node status.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] errors: The errors that occurred on this integration runtime node.
         """
         pulumi.set(__self__, "node_id", node_id)
         pulumi.set(__self__, "status", status)
@@ -1336,7 +1643,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']]:
         """
         The errors that occurred on this integration runtime node.
         """
@@ -1344,7 +1651,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+class ManagedIntegrationRuntimeOperationResultResponse(dict):
     """
     Properties of managed integration runtime operation result.
     """
@@ -1425,6 +1732,25 @@ class ManagedIntegrationRuntimeResponse(dict):
     """
     Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeProperties":
+            suggest = "compute_properties"
+        elif key == "ssisProperties":
+            suggest = "ssis_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIntegrationRuntimeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIntegrationRuntimeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIntegrationRuntimeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  state: str,
                  type: str,
@@ -1436,9 +1762,9 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
-        :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
-        :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
+        :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", 'Managed')
@@ -1490,30 +1816,27 @@ class ManagedIntegrationRuntimeResponse(dict):
         """
         return pulumi.get(self, "ssis_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeStatusResponseResult(dict):
+class ManagedIntegrationRuntimeStatusResponse(dict):
     """
     Managed integration runtime status.
     """
     def __init__(__self__, *,
                  create_time: str,
                  data_factory_name: str,
-                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
-                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
-                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponse',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponse'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponse'],
                  state: str,
                  type: str):
         """
         Managed integration runtime status.
         :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param str data_factory_name: The workspace name which the integration runtime belong to.
-        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
@@ -1544,7 +1867,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="lastOperation")
-    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponse':
         """
         The last operation result that occurred on this integration runtime.
         """
@@ -1552,7 +1875,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponse']:
         """
         The list of nodes for managed integration runtime.
         """
@@ -1560,7 +1883,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="otherErrors")
-    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']:
         """
         The errors that occurred on this integration runtime.
         """
@@ -1589,6 +1912,27 @@ class ManagedVirtualNetworkSettingsResponse(dict):
     """
     Managed Virtual Network Settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAadTenantIdsForLinking":
+            suggest = "allowed_aad_tenant_ids_for_linking"
+        elif key == "linkedAccessCheckOnTargetResource":
+            suggest = "linked_access_check_on_target_resource"
+        elif key == "preventDataExfiltration":
+            suggest = "prevent_data_exfiltration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedVirtualNetworkSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedVirtualNetworkSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedVirtualNetworkSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_aad_tenant_ids_for_linking: Optional[Sequence[str]] = None,
                  linked_access_check_on_target_resource: Optional[bool] = None,
@@ -1630,15 +1974,33 @@ class ManagedVirtualNetworkSettingsResponse(dict):
         """
         return pulumi.get(self, "prevent_data_exfiltration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
     """
     Private Endpoint Connection For Private Link Hub - Basic
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionForPrivateLinkHubBasicResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionForPrivateLinkHubBasicResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionForPrivateLinkHubBasicResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  provisioning_state: str,
@@ -1648,8 +2010,8 @@ class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
         Private Endpoint Connection For Private Link Hub - Basic
         :param str id: identifier
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1690,15 +2052,33 @@ class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -1712,8 +2092,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param str provisioning_state: Provisioning state of the private endpoint connection.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1772,9 +2152,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -1797,15 +2174,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     Connection state details of the private endpoint
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: str,
                  description: Optional[str] = None,
@@ -1846,15 +2237,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PurviewConfigurationResponse(dict):
     """
     Purview Configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "purviewResourceId":
+            suggest = "purview_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PurviewConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PurviewConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PurviewConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  purview_resource_id: Optional[str] = None):
         """
@@ -1871,9 +2276,6 @@ class PurviewConfigurationResponse(dict):
         Purview Resource ID
         """
         return pulumi.get(self, "purview_resource_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1910,12 +2312,9 @@ class SecureStringResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+class SelfHostedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of Self-hosted integration runtime node.
     """
@@ -2128,6 +2527,23 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     """
     Self-hosted integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedInfo":
+            suggest = "linked_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelfHostedIntegrationRuntimeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelfHostedIntegrationRuntimeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelfHostedIntegrationRuntimeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
@@ -2137,7 +2553,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         :param str type: Type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
-        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponseArgs', 'LinkedIntegrationRuntimeRbacAuthorizationResponseArgs'] linked_info: Linked integration runtime type from data factory
+        :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponse', 'LinkedIntegrationRuntimeRbacAuthorizationResponse'] linked_info: Linked integration runtime type from data factory
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -2170,12 +2586,9 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         """
         return pulumi.get(self, "linked_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+class SelfHostedIntegrationRuntimeStatusResponse(dict):
     """
     Self-hosted integration runtime status.
     """
@@ -2198,8 +2611,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  update_delay_offset: str,
                  version: str,
                  version_status: str,
-                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
-                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None):
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None):
         """
         Self-hosted integration runtime status.
         :param str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
@@ -2221,8 +2634,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
-        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
-        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        :param Sequence['LinkedIntegrationRuntimeResponse'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for this integration runtime.
         """
         pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "auto_update_eta", auto_update_eta)
@@ -2394,7 +2807,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']]:
         """
         The list of linked integration runtimes that are created to share with this integration runtime.
         """
@@ -2402,7 +2815,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']]:
         """
         The list of nodes for this integration runtime.
         """
@@ -2455,9 +2868,6 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
@@ -2480,12 +2890,9 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
         """
         return pulumi.get(self, "result")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SsisEnvironmentReferenceResponseResult(dict):
+class SsisEnvironmentReferenceResponse(dict):
     """
     Ssis environment reference.
     """
@@ -2544,7 +2951,7 @@ class SsisEnvironmentReferenceResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisEnvironmentResponseResult(dict):
+class SsisEnvironmentResponse(dict):
     """
     Ssis environment.
     """
@@ -2554,7 +2961,7 @@ class SsisEnvironmentResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 variables: Optional[Sequence['outputs.SsisVariableResponseResult']] = None):
+                 variables: Optional[Sequence['outputs.SsisVariableResponse']] = None):
         """
         Ssis environment.
         :param str type: Type of metadata.
@@ -2563,7 +2970,7 @@ class SsisEnvironmentResponseResult(dict):
         :param float folder_id: Folder id which contains environment.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisVariableResponseArgs'] variables: Variable in environment
+        :param Sequence['SsisVariableResponse'] variables: Variable in environment
         """
         pulumi.set(__self__, "type", 'Environment')
         if description is not None:
@@ -2620,7 +3027,7 @@ class SsisEnvironmentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponseResult']]:
+    def variables(self) -> Optional[Sequence['outputs.SsisVariableResponse']]:
         """
         Variable in environment
         """
@@ -2628,7 +3035,7 @@ class SsisEnvironmentResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisFolderResponseResult(dict):
+class SsisFolderResponse(dict):
     """
     Ssis folder.
     """
@@ -2688,7 +3095,7 @@ class SsisFolderResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisPackageResponseResult(dict):
+class SsisPackageResponse(dict):
     """
     Ssis Package.
     """
@@ -2698,7 +3105,7 @@ class SsisPackageResponseResult(dict):
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponse']] = None,
                  project_id: Optional[float] = None,
                  project_version: Optional[float] = None):
         """
@@ -2709,7 +3116,7 @@ class SsisPackageResponseResult(dict):
         :param float folder_id: Folder id which contains package.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in package
+        :param Sequence['SsisParameterResponse'] parameters: Parameters in package
         :param float project_id: Project id which contains package.
         :param float project_version: Project version which contains package.
         """
@@ -2772,7 +3179,7 @@ class SsisPackageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponse']]:
         """
         Parameters in package
         """
@@ -2796,7 +3203,7 @@ class SsisPackageResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisParameterResponseResult(dict):
+class SsisParameterResponse(dict):
     """
     Ssis parameter.
     """
@@ -2951,29 +3358,29 @@ class SsisParameterResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisProjectResponseResult(dict):
+class SsisProjectResponse(dict):
     """
     Ssis project.
     """
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']] = None,
+                 environment_refs: Optional[Sequence['outputs.SsisEnvironmentReferenceResponse']] = None,
                  folder_id: Optional[float] = None,
                  id: Optional[float] = None,
                  name: Optional[str] = None,
-                 parameters: Optional[Sequence['outputs.SsisParameterResponseResult']] = None,
+                 parameters: Optional[Sequence['outputs.SsisParameterResponse']] = None,
                  version: Optional[float] = None):
         """
         Ssis project.
         :param str type: Type of metadata.
                Expected value is 'Project'.
         :param str description: Metadata description.
-        :param Sequence['SsisEnvironmentReferenceResponseArgs'] environment_refs: Environment reference in project
+        :param Sequence['SsisEnvironmentReferenceResponse'] environment_refs: Environment reference in project
         :param float folder_id: Folder id which contains project.
         :param float id: Metadata id.
         :param str name: Metadata name.
-        :param Sequence['SsisParameterResponseArgs'] parameters: Parameters in project
+        :param Sequence['SsisParameterResponse'] parameters: Parameters in project
         :param float version: Project version.
         """
         pulumi.set(__self__, "type", 'Project')
@@ -3011,7 +3418,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter(name="environmentRefs")
-    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponseResult']]:
+    def environment_refs(self) -> Optional[Sequence['outputs.SsisEnvironmentReferenceResponse']]:
         """
         Environment reference in project
         """
@@ -3043,7 +3450,7 @@ class SsisProjectResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.SsisParameterResponse']]:
         """
         Parameters in project
         """
@@ -3059,7 +3466,7 @@ class SsisProjectResponseResult(dict):
 
 
 @pulumi.output_type
-class SsisVariableResponseResult(dict):
+class SsisVariableResponse(dict):
     """
     Ssis variable.
     """
@@ -3158,6 +3565,23 @@ class VirtualNetworkProfileResponse(dict):
     """
     Virtual Network Profile
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeSubnetId":
+            suggest = "compute_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_subnet_id: Optional[str] = None):
         """
@@ -3175,15 +3599,31 @@ class VirtualNetworkProfileResponse(dict):
         """
         return pulumi.get(self, "compute_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
     """
     Properties of a Vulnerability Assessment recurring scans.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubscriptionAdmins":
+            suggest = "email_subscription_admins"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VulnerabilityAssessmentRecurringScansPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VulnerabilityAssessmentRecurringScansPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VulnerabilityAssessmentRecurringScansPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_subscription_admins: Optional[bool] = None,
                  emails: Optional[Sequence[str]] = None,
@@ -3227,15 +3667,29 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
         """
         return pulumi.get(self, "is_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceKeyDetailsResponse(dict):
     """
     Details of the customer managed key associated with the workspace
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultUrl":
+            suggest = "key_vault_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceKeyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceKeyDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceKeyDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_url: Optional[str] = None,
                  name: Optional[str] = None):
@@ -3265,15 +3719,43 @@ class WorkspaceKeyDetailsResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceRepositoryConfigurationResponse(dict):
     """
     Git integration settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "collaborationBranch":
+            suggest = "collaboration_branch"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "lastCommitId":
+            suggest = "last_commit_id"
+        elif key == "projectName":
+            suggest = "project_name"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "rootFolder":
+            suggest = "root_folder"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceRepositoryConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceRepositoryConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceRepositoryConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: Optional[str] = None,
                  collaboration_branch: Optional[str] = None,
@@ -3386,8 +3868,5 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         Type of workspace repositoryID configuration. Example WorkspaceVSTSConfiguration, WorkspaceGitHubConfiguration
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

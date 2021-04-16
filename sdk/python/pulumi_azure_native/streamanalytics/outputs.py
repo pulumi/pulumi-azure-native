@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,7 +22,7 @@ __all__ = [
     'BlobOutputDataSourceResponse',
     'BlobReferenceInputDataSourceResponse',
     'BlobStreamInputDataSourceResponse',
-    'ClusterJobResponseResult',
+    'ClusterJobResponse',
     'ClusterPropertiesResponse',
     'ClusterSkuResponse',
     'CsvSerializationResponse',
@@ -77,15 +77,43 @@ class AvroSerializationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeStoreOutputDataSourceResponse(dict):
     """
     Describes an Azure Data Lake Store output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "filePathPrefix":
+            suggest = "file_path_prefix"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "tokenUserDisplayName":
+            suggest = "token_user_display_name"
+        elif key == "tokenUserPrincipalName":
+            suggest = "token_user_principal_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeStoreOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeStoreOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeStoreOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: Optional[str] = None,
                  date_format: Optional[str] = None,
@@ -201,15 +229,31 @@ class AzureDataLakeStoreOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
     """
     The binding to an Azure Machine Learning web service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "batchSize":
+            suggest = "batch_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMachineLearningWebServiceFunctionBindingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMachineLearningWebServiceFunctionBindingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMachineLearningWebServiceFunctionBindingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: Optional[str] = None,
                  batch_size: Optional[int] = None,
@@ -222,8 +266,8 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
         :param str api_key: The API key used to authenticate with Request-Response endpoint.
         :param int batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param str endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
-        :param 'AzureMachineLearningWebServiceInputsResponseArgs' inputs: The inputs for the Azure Machine Learning web service endpoint.
-        :param Sequence['AzureMachineLearningWebServiceOutputColumnResponseArgs'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
+        :param 'AzureMachineLearningWebServiceInputsResponse' inputs: The inputs for the Azure Machine Learning web service endpoint.
+        :param Sequence['AzureMachineLearningWebServiceOutputColumnResponse'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         :param str type: Indicates the function binding type.
                Expected value is 'Microsoft.MachineLearning/WebService'.
         """
@@ -289,15 +333,31 @@ class AzureMachineLearningWebServiceFunctionBindingResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMachineLearningWebServiceInputColumnResponse(dict):
     """
     Describes an input column for the Azure Machine Learning web service endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "mapTo":
+            suggest = "map_to"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMachineLearningWebServiceInputColumnResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMachineLearningWebServiceInputColumnResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMachineLearningWebServiceInputColumnResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
                  map_to: Optional[int] = None,
@@ -339,21 +399,35 @@ class AzureMachineLearningWebServiceInputColumnResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMachineLearningWebServiceInputsResponse(dict):
     """
     The inputs for the Azure Machine Learning web service endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnNames":
+            suggest = "column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMachineLearningWebServiceInputsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMachineLearningWebServiceInputsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMachineLearningWebServiceInputsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column_names: Optional[Sequence['outputs.AzureMachineLearningWebServiceInputColumnResponse']] = None,
                  name: Optional[str] = None):
         """
         The inputs for the Azure Machine Learning web service endpoint.
-        :param Sequence['AzureMachineLearningWebServiceInputColumnResponseArgs'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
+        :param Sequence['AzureMachineLearningWebServiceInputColumnResponse'] column_names: A list of input columns for the Azure Machine Learning web service endpoint.
         :param str name: The name of the input. This is the name provided while authoring the endpoint.
         """
         if column_names is not None:
@@ -377,15 +451,29 @@ class AzureMachineLearningWebServiceInputsResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMachineLearningWebServiceOutputColumnResponse(dict):
     """
     Describes an output column for the Azure Machine Learning web service endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMachineLearningWebServiceOutputColumnResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMachineLearningWebServiceOutputColumnResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMachineLearningWebServiceOutputColumnResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
                  name: Optional[str] = None):
@@ -414,9 +502,6 @@ class AzureMachineLearningWebServiceOutputColumnResponse(dict):
         The name of the output column.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -503,15 +588,39 @@ class AzureSqlDatabaseOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureTableOutputDataSourceResponse(dict):
     """
     Describes an Azure Table output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "batchSize":
+            suggest = "batch_size"
+        elif key == "columnsToRemove":
+            suggest = "columns_to_remove"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+        elif key == "rowKey":
+            suggest = "row_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureTableOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureTableOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureTableOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_key: Optional[str] = None,
                  account_name: Optional[str] = None,
@@ -615,15 +724,35 @@ class AzureTableOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobOutputDataSourceResponse(dict):
     """
     Describes a blob output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateFormat":
+            suggest = "date_format"
+        elif key == "pathPattern":
+            suggest = "path_pattern"
+        elif key == "storageAccounts":
+            suggest = "storage_accounts"
+        elif key == "timeFormat":
+            suggest = "time_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
@@ -636,7 +765,7 @@ class BlobOutputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
@@ -703,15 +832,35 @@ class BlobOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobReferenceInputDataSourceResponse(dict):
     """
     Describes a blob input data source that contains reference data.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateFormat":
+            suggest = "date_format"
+        elif key == "pathPattern":
+            suggest = "path_pattern"
+        elif key == "storageAccounts":
+            suggest = "storage_accounts"
+        elif key == "timeFormat":
+            suggest = "time_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobReferenceInputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobReferenceInputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobReferenceInputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
@@ -724,7 +873,7 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
@@ -791,15 +940,37 @@ class BlobReferenceInputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobStreamInputDataSourceResponse(dict):
     """
     Describes a blob input data source that contains stream data.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateFormat":
+            suggest = "date_format"
+        elif key == "pathPattern":
+            suggest = "path_pattern"
+        elif key == "sourcePartitionCount":
+            suggest = "source_partition_count"
+        elif key == "storageAccounts":
+            suggest = "storage_accounts"
+        elif key == "timeFormat":
+            suggest = "time_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobStreamInputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobStreamInputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobStreamInputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
@@ -814,7 +985,7 @@ class BlobStreamInputDataSourceResponse(dict):
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
         :param int source_partition_count: The partition count of the blob input data source. Range 1 - 256.
-        :param Sequence['StorageAccountResponseArgs'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
@@ -891,12 +1062,9 @@ class BlobStreamInputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ClusterJobResponseResult(dict):
+class ClusterJobResponse(dict):
     """
     A streaming job.
     """
@@ -944,6 +1112,31 @@ class ClusterPropertiesResponse(dict):
     """
     The properties associated with a Stream Analytics cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityAllocated":
+            suggest = "capacity_allocated"
+        elif key == "capacityAssigned":
+            suggest = "capacity_assigned"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "createdDate":
+            suggest = "created_date"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capacity_allocated: int,
                  capacity_assigned: int,
@@ -1004,9 +1197,6 @@ class ClusterPropertiesResponse(dict):
         """
         return pulumi.get(self, "provisioning_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterSkuResponse(dict):
@@ -1042,15 +1232,29 @@ class ClusterSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CsvSerializationResponse(dict):
     """
     Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CsvSerializationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CsvSerializationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CsvSerializationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encoding: Optional[str] = None,
                  field_delimiter: Optional[str] = None,
@@ -1093,9 +1297,6 @@ class CsvSerializationResponse(dict):
         Expected value is 'Csv'.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1141,9 +1342,6 @@ class DiagnosticConditionResponse(dict):
         """
         return pulumi.get(self, "since")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticsResponse(dict):
@@ -1154,7 +1352,7 @@ class DiagnosticsResponse(dict):
                  conditions: Sequence['outputs.DiagnosticConditionResponse']):
         """
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-        :param Sequence['DiagnosticConditionResponseArgs'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+        :param Sequence['DiagnosticConditionResponse'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -1166,15 +1364,37 @@ class DiagnosticsResponse(dict):
         """
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DocumentDbOutputDataSourceResponse(dict):
     """
     Describes a DocumentDB output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "accountKey":
+            suggest = "account_key"
+        elif key == "collectionNamePattern":
+            suggest = "collection_name_pattern"
+        elif key == "documentId":
+            suggest = "document_id"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DocumentDbOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DocumentDbOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DocumentDbOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: Optional[str] = None,
                  account_key: Optional[str] = None,
@@ -1266,15 +1486,37 @@ class DocumentDbOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventHubOutputDataSourceResponse(dict):
     """
     Describes an Event Hub output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+        elif key == "serviceBusNamespace":
+            suggest = "service_bus_namespace"
+        elif key == "sharedAccessPolicyKey":
+            suggest = "shared_access_policy_key"
+        elif key == "sharedAccessPolicyName":
+            suggest = "shared_access_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_hub_name: Optional[str] = None,
                  partition_key: Optional[str] = None,
@@ -1354,15 +1596,37 @@ class EventHubOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventHubStreamInputDataSourceResponse(dict):
     """
     Describes an Event Hub input data source that contains stream data.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupName":
+            suggest = "consumer_group_name"
+        elif key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "serviceBusNamespace":
+            suggest = "service_bus_namespace"
+        elif key == "sharedAccessPolicyKey":
+            suggest = "shared_access_policy_key"
+        elif key == "sharedAccessPolicyName":
+            suggest = "shared_access_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubStreamInputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubStreamInputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubStreamInputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consumer_group_name: Optional[str] = None,
                  event_hub_name: Optional[str] = None,
@@ -1442,15 +1706,31 @@ class EventHubStreamInputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionInputResponse(dict):
     """
     Describes one input parameter of a function.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "isConfigurationParameter":
+            suggest = "is_configuration_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_type: Optional[str] = None,
                  is_configuration_parameter: Optional[bool] = None):
@@ -1480,15 +1760,29 @@ class FunctionInputResponse(dict):
         """
         return pulumi.get(self, "is_configuration_parameter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionOutputResponse(dict):
     """
     Describes the output of a function.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_type: Optional[str] = None):
         """
@@ -1506,9 +1800,6 @@ class FunctionOutputResponse(dict):
         """
         return pulumi.get(self, "data_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionResponse(dict):
@@ -1525,7 +1816,7 @@ class FunctionResponse(dict):
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param 'ScalarFunctionPropertiesResponseArgs' properties: The properties that are associated with a function.
+        :param 'ScalarFunctionPropertiesResponse' properties: The properties that are associated with a function.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -1566,9 +1857,6 @@ class FunctionResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InputResponse(dict):
@@ -1585,7 +1873,7 @@ class InputResponse(dict):
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param Union['ReferenceInputPropertiesResponseArgs', 'StreamInputPropertiesResponseArgs'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+        :param Union['ReferenceInputPropertiesResponse', 'StreamInputPropertiesResponse'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -1626,15 +1914,35 @@ class InputResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubStreamInputDataSourceResponse(dict):
     """
     Describes an IoT Hub input data source that contains stream data.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupName":
+            suggest = "consumer_group_name"
+        elif key == "iotHubNamespace":
+            suggest = "iot_hub_namespace"
+        elif key == "sharedAccessPolicyKey":
+            suggest = "shared_access_policy_key"
+        elif key == "sharedAccessPolicyName":
+            suggest = "shared_access_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubStreamInputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubStreamInputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubStreamInputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consumer_group_name: Optional[str] = None,
                  endpoint: Optional[str] = None,
@@ -1714,9 +2022,6 @@ class IoTHubStreamInputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JavaScriptFunctionBindingResponse(dict):
@@ -1753,9 +2058,6 @@ class JavaScriptFunctionBindingResponse(dict):
         Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1806,9 +2108,6 @@ class JsonSerializationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OutputResponse(dict):
@@ -1825,13 +2124,13 @@ class OutputResponse(dict):
                  serialization: Optional[Any] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str id: Resource Id
         :param str type: Resource type
-        :param Union['AzureDataLakeStoreOutputDataSourceResponseArgs', 'AzureSqlDatabaseOutputDataSourceResponseArgs', 'AzureTableOutputDataSourceResponseArgs', 'BlobOutputDataSourceResponseArgs', 'DocumentDbOutputDataSourceResponseArgs', 'EventHubOutputDataSourceResponseArgs', 'PowerBIOutputDataSourceResponseArgs', 'ServiceBusQueueOutputDataSourceResponseArgs', 'ServiceBusTopicOutputDataSourceResponseArgs'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "diagnostics", diagnostics)
         pulumi.set(__self__, "etag", etag)
@@ -1900,15 +2199,37 @@ class OutputResponse(dict):
         """
         return pulumi.get(self, "serialization")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PowerBIOutputDataSourceResponse(dict):
     """
     Describes a Power BI output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "groupName":
+            suggest = "group_name"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "tokenUserDisplayName":
+            suggest = "token_user_display_name"
+        elif key == "tokenUserPrincipalName":
+            suggest = "token_user_principal_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerBIOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerBIOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerBIOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dataset: Optional[str] = None,
                  group_id: Optional[str] = None,
@@ -2012,22 +2333,38 @@ class PowerBIOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointPropertiesResponse(dict):
     """
     The properties associated with a private endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "manualPrivateLinkServiceConnections":
+            suggest = "manual_private_link_service_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_date: str,
                  manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None):
         """
         The properties associated with a private endpoint.
         :param str created_date: The date when this private endpoint was created.
-        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         """
         pulumi.set(__self__, "created_date", created_date)
         if manual_private_link_service_connections is not None:
@@ -2049,15 +2386,29 @@ class PrivateEndpointPropertiesResponse(dict):
         """
         return pulumi.get(self, "manual_private_link_service_connections")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkConnectionStateResponse(dict):
     """
     A collection of read-only information about the state of the connection to the private remote resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: str,
                  description: str,
@@ -2096,15 +2447,35 @@ class PrivateLinkConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionResponse(dict):
     """
     A grouping of information about the connection to the remote resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "privateLinkServiceId":
+            suggest = "private_link_service_id"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_ids: Optional[Sequence[str]] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None,
@@ -2113,7 +2484,7 @@ class PrivateLinkServiceConnectionResponse(dict):
         """
         A grouping of information about the connection to the remote resource.
         :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
-        :param 'PrivateLinkConnectionStateResponseArgs' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
+        :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
         :param str private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
         :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
@@ -2158,9 +2529,6 @@ class PrivateLinkServiceConnectionResponse(dict):
         """
         return pulumi.get(self, "request_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReferenceInputPropertiesResponse(dict):
@@ -2175,10 +2543,10 @@ class ReferenceInputPropertiesResponse(dict):
                  type: Optional[str] = None):
         """
         The properties that are associated with an input containing reference data.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-        :param 'BlobReferenceInputDataSourceResponseArgs' datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param 'BlobReferenceInputDataSourceResponse' datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Reference'.
         """
@@ -2232,9 +2600,6 @@ class ReferenceInputPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalarFunctionPropertiesResponse(dict):
@@ -2250,9 +2615,9 @@ class ScalarFunctionPropertiesResponse(dict):
         """
         The properties that are associated with a scalar function.
         :param str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-        :param Union['AzureMachineLearningWebServiceFunctionBindingResponseArgs', 'JavaScriptFunctionBindingResponseArgs'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param Sequence['FunctionInputResponseArgs'] inputs: A list of inputs describing the parameters of the function.
-        :param 'FunctionOutputResponseArgs' output: The output of the function.
+        :param Union['AzureMachineLearningWebServiceFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        :param Sequence['FunctionInputResponse'] inputs: A list of inputs describing the parameters of the function.
+        :param 'FunctionOutputResponse' output: The output of the function.
         :param str type: Indicates the type of function.
                Expected value is 'Scalar'.
         """
@@ -2307,15 +2672,37 @@ class ScalarFunctionPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusQueueOutputDataSourceResponse(dict):
     """
     Describes a Service Bus Queue output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyColumns":
+            suggest = "property_columns"
+        elif key == "queueName":
+            suggest = "queue_name"
+        elif key == "serviceBusNamespace":
+            suggest = "service_bus_namespace"
+        elif key == "sharedAccessPolicyKey":
+            suggest = "shared_access_policy_key"
+        elif key == "sharedAccessPolicyName":
+            suggest = "shared_access_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusQueueOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusQueueOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusQueueOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  property_columns: Optional[Sequence[str]] = None,
                  queue_name: Optional[str] = None,
@@ -2395,15 +2782,37 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusTopicOutputDataSourceResponse(dict):
     """
     Describes a Service Bus Topic output data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyColumns":
+            suggest = "property_columns"
+        elif key == "serviceBusNamespace":
+            suggest = "service_bus_namespace"
+        elif key == "sharedAccessPolicyKey":
+            suggest = "shared_access_policy_key"
+        elif key == "sharedAccessPolicyName":
+            suggest = "shared_access_policy_name"
+        elif key == "topicName":
+            suggest = "topic_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusTopicOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusTopicOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusTopicOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  property_columns: Optional[Sequence[str]] = None,
                  service_bus_namespace: Optional[str] = None,
@@ -2483,9 +2892,6 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -2509,15 +2915,31 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageAccountResponse(dict):
     """
     The properties that are associated with an Azure Storage account
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "accountName":
+            suggest = "account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_key: Optional[str] = None,
                  account_name: Optional[str] = None):
@@ -2547,9 +2969,6 @@ class StorageAccountResponse(dict):
         """
         return pulumi.get(self, "account_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamInputPropertiesResponse(dict):
@@ -2564,10 +2983,10 @@ class StreamInputPropertiesResponse(dict):
                  type: Optional[str] = None):
         """
         The properties that are associated with an input containing stream data.
-        :param 'DiagnosticsResponseArgs' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        :param 'DiagnosticsResponse' diagnostics: Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param str etag: The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-        :param Union['BlobStreamInputDataSourceResponseArgs', 'EventHubStreamInputDataSourceResponseArgs', 'IoTHubStreamInputDataSourceResponseArgs'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
-        :param Union['AvroSerializationResponseArgs', 'CsvSerializationResponseArgs', 'JsonSerializationResponseArgs'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param Union['BlobStreamInputDataSourceResponse', 'EventHubStreamInputDataSourceResponse', 'IoTHubStreamInputDataSourceResponse'] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+        :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param str type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Stream'.
         """
@@ -2621,15 +3040,29 @@ class StreamInputPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformationResponse(dict):
     """
     A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamingUnits":
+            suggest = "streaming_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  id: str,
@@ -2703,8 +3136,5 @@ class TransformationResponse(dict):
         Specifies the number of streaming units that the streaming job uses.
         """
         return pulumi.get(self, "streaming_units")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

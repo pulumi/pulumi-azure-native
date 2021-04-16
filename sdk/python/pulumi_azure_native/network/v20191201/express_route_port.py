@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -195,9 +195,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ExpressRoutePort resource definition.
 
@@ -248,15 +246,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,30 +256,30 @@ class ExpressRoutePort(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExpressRoutePortArgs.__new__(ExpressRoutePortArgs)
 
-            __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
-            __props__['encapsulation'] = encapsulation
-            __props__['express_route_port_name'] = express_route_port_name
-            __props__['id'] = id
-            __props__['identity'] = identity
-            __props__['links'] = links
-            __props__['location'] = location
-            __props__['peering_location'] = peering_location
+            __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
+            __props__.__dict__["encapsulation"] = encapsulation
+            __props__.__dict__["express_route_port_name"] = express_route_port_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["links"] = links
+            __props__.__dict__["location"] = location
+            __props__.__dict__["peering_location"] = peering_location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['allocation_date'] = None
-            __props__['circuits'] = None
-            __props__['etag'] = None
-            __props__['ether_type'] = None
-            __props__['mtu'] = None
-            __props__['name'] = None
-            __props__['provisioned_bandwidth_in_gbps'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_guid'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["allocation_date"] = None
+            __props__.__dict__["circuits"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["ether_type"] = None
+            __props__.__dict__["mtu"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioned_bandwidth_in_gbps"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20180801:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRoutePort"), pulumi.Alias(type_="azure-nextgen:network/v20201101:ExpressRoutePort")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRoutePort, __self__).__init__(
@@ -312,25 +302,25 @@ class ExpressRoutePort(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ExpressRoutePortArgs.__new__(ExpressRoutePortArgs)
 
-        __props__["allocation_date"] = None
-        __props__["bandwidth_in_gbps"] = None
-        __props__["circuits"] = None
-        __props__["encapsulation"] = None
-        __props__["etag"] = None
-        __props__["ether_type"] = None
-        __props__["identity"] = None
-        __props__["links"] = None
-        __props__["location"] = None
-        __props__["mtu"] = None
-        __props__["name"] = None
-        __props__["peering_location"] = None
-        __props__["provisioned_bandwidth_in_gbps"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_guid"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["allocation_date"] = None
+        __props__.__dict__["bandwidth_in_gbps"] = None
+        __props__.__dict__["circuits"] = None
+        __props__.__dict__["encapsulation"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["ether_type"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["links"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["mtu"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peering_location"] = None
+        __props__.__dict__["provisioned_bandwidth_in_gbps"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ExpressRoutePort(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -468,10 +458,4 @@ class ExpressRoutePort(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

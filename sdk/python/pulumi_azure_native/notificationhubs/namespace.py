@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -331,9 +331,7 @@ class Namespace(pulumi.CustomResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  updated_at: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of a Namespace resource.
         API Version: 2017-04-01.
@@ -402,15 +400,7 @@ class Namespace(pulumi.CustomResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  updated_at: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -420,30 +410,30 @@ class Namespace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
-            __props__['created_at'] = created_at
-            __props__['critical'] = critical
-            __props__['data_center'] = data_center
-            __props__['enabled'] = enabled
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['namespace_name'] = namespace_name
-            __props__['namespace_type'] = namespace_type
-            __props__['provisioning_state'] = provisioning_state
-            __props__['region'] = region
+            __props__.__dict__["created_at"] = created_at
+            __props__.__dict__["critical"] = critical
+            __props__.__dict__["data_center"] = data_center
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["namespace_type"] = namespace_type
+            __props__.__dict__["provisioning_state"] = provisioning_state
+            __props__.__dict__["region"] = region
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scale_unit'] = scale_unit
-            __props__['service_bus_endpoint'] = service_bus_endpoint
-            __props__['sku'] = sku
-            __props__['status'] = status
-            __props__['subscription_id'] = subscription_id
-            __props__['tags'] = tags
-            __props__['updated_at'] = updated_at
-            __props__['metric_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scale_unit"] = scale_unit
+            __props__.__dict__["service_bus_endpoint"] = service_bus_endpoint
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["status"] = status
+            __props__.__dict__["subscription_id"] = subscription_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["updated_at"] = updated_at
+            __props__.__dict__["metric_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notificationhubs:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20160301:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:Namespace"), pulumi.Alias(type_="azure-nextgen:notificationhubs/v20170401:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
@@ -466,26 +456,26 @@ class Namespace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
-        __props__["created_at"] = None
-        __props__["critical"] = None
-        __props__["data_center"] = None
-        __props__["enabled"] = None
-        __props__["location"] = None
-        __props__["metric_id"] = None
-        __props__["name"] = None
-        __props__["namespace_type"] = None
-        __props__["provisioning_state"] = None
-        __props__["region"] = None
-        __props__["scale_unit"] = None
-        __props__["service_bus_endpoint"] = None
-        __props__["sku"] = None
-        __props__["status"] = None
-        __props__["subscription_id"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["updated_at"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["critical"] = None
+        __props__.__dict__["data_center"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["metric_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["namespace_type"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["region"] = None
+        __props__.__dict__["scale_unit"] = None
+        __props__.__dict__["service_bus_endpoint"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_at"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -631,10 +621,4 @@ class Namespace(pulumi.CustomResource):
         The time the namespace was updated.
         """
         return pulumi.get(self, "updated_at")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

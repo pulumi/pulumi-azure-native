@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['SubscriptionArgs', 'Subscription']
@@ -228,9 +228,7 @@ class Subscription(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['SubscriptionState']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Subscription details.
 
@@ -287,15 +285,7 @@ class Subscription(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['SubscriptionState']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -305,36 +295,36 @@ class Subscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
-            __props__['allow_tracing'] = allow_tracing
-            __props__['app_type'] = app_type
+            __props__.__dict__["allow_tracing"] = allow_tracing
+            __props__.__dict__["app_type"] = app_type
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['notify'] = notify
-            __props__['owner_id'] = owner_id
-            __props__['primary_key'] = primary_key
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["notify"] = notify
+            __props__.__dict__["owner_id"] = owner_id
+            __props__.__dict__["primary_key"] = primary_key
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['secondary_key'] = secondary_key
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["secondary_key"] = secondary_key
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['sid'] = sid
-            __props__['state'] = state
-            __props__['created_date'] = None
-            __props__['end_date'] = None
-            __props__['expiration_date'] = None
-            __props__['name'] = None
-            __props__['notification_date'] = None
-            __props__['start_date'] = None
-            __props__['state_comment'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["sid"] = sid
+            __props__.__dict__["state"] = state
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["end_date"] = None
+            __props__.__dict__["expiration_date"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["notification_date"] = None
+            __props__.__dict__["start_date"] = None
+            __props__.__dict__["state_comment"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:Subscription"), pulumi.Alias(type_="azure-native:apimanagement:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Subscription"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Subscription"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:Subscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subscription, __self__).__init__(
@@ -357,23 +347,23 @@ class Subscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
-        __props__["allow_tracing"] = None
-        __props__["created_date"] = None
-        __props__["display_name"] = None
-        __props__["end_date"] = None
-        __props__["expiration_date"] = None
-        __props__["name"] = None
-        __props__["notification_date"] = None
-        __props__["owner_id"] = None
-        __props__["primary_key"] = None
-        __props__["scope"] = None
-        __props__["secondary_key"] = None
-        __props__["start_date"] = None
-        __props__["state"] = None
-        __props__["state_comment"] = None
-        __props__["type"] = None
+        __props__.__dict__["allow_tracing"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["end_date"] = None
+        __props__.__dict__["expiration_date"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["notification_date"] = None
+        __props__.__dict__["owner_id"] = None
+        __props__.__dict__["primary_key"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["secondary_key"] = None
+        __props__.__dict__["start_date"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["state_comment"] = None
+        __props__.__dict__["type"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -495,10 +485,4 @@ class Subscription(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

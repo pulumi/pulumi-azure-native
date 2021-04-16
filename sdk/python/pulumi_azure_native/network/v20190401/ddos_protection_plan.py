@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['DdosProtectionPlanArgs', 'DdosProtectionPlan']
@@ -91,9 +91,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A DDoS protection plan in a resource group.
 
@@ -132,15 +130,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -150,20 +140,20 @@ class DdosProtectionPlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DdosProtectionPlanArgs.__new__(DdosProtectionPlanArgs)
 
-            __props__['ddos_protection_plan_name'] = ddos_protection_plan_name
-            __props__['location'] = location
+            __props__.__dict__["ddos_protection_plan_name"] = ddos_protection_plan_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_guid'] = None
-            __props__['type'] = None
-            __props__['virtual_networks'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_networks"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190401:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20180201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180201:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20180401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180401:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20180601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180601:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20180701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180701:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20180801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20180801:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20181001:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181001:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20181101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181101:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20181201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20181201:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20190201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190201:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20190601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190601:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20190701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190701:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20190801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190801:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20190901:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20190901:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20191101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20191101:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20191201:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20191201:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20200301:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200301:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20200401:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200401:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20200501:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200501:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20200601:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20200701:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20200801:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DdosProtectionPlan"), pulumi.Alias(type_="azure-native:network/v20201101:DdosProtectionPlan"), pulumi.Alias(type_="azure-nextgen:network/v20201101:DdosProtectionPlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DdosProtectionPlan, __self__).__init__(
@@ -186,16 +176,16 @@ class DdosProtectionPlan(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DdosProtectionPlanArgs.__new__(DdosProtectionPlanArgs)
 
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_guid"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_networks"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_networks"] = None
         return DdosProtectionPlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -261,10 +251,4 @@ class DdosProtectionPlan(pulumi.CustomResource):
         The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
         """
         return pulumi.get(self, "virtual_networks")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

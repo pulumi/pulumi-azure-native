@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -143,9 +143,7 @@ class EventHub(pulumi.CustomResource):
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Single item in List or Get Event Hub operation
 
@@ -190,15 +188,7 @@ class EventHub(pulumi.CustomResource):
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,24 +198,24 @@ class EventHub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventHubArgs.__new__(EventHubArgs)
 
-            __props__['capture_description'] = capture_description
-            __props__['event_hub_name'] = event_hub_name
-            __props__['message_retention_in_days'] = message_retention_in_days
+            __props__.__dict__["capture_description"] = capture_description
+            __props__.__dict__["event_hub_name"] = event_hub_name
+            __props__.__dict__["message_retention_in_days"] = message_retention_in_days
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
-            __props__['partition_count'] = partition_count
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["partition_count"] = partition_count
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['status'] = status
-            __props__['created_at'] = None
-            __props__['name'] = None
-            __props__['partition_ids'] = None
-            __props__['type'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["status"] = status
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["partition_ids"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20170401:EventHub"), pulumi.Alias(type_="azure-native:eventhub:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20140901:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20140901:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:EventHub"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:EventHub"), pulumi.Alias(type_="azure-nextgen:eventhub/v20210101preview:EventHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHub, __self__).__init__(
@@ -248,17 +238,17 @@ class EventHub(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EventHubArgs.__new__(EventHubArgs)
 
-        __props__["capture_description"] = None
-        __props__["created_at"] = None
-        __props__["message_retention_in_days"] = None
-        __props__["name"] = None
-        __props__["partition_count"] = None
-        __props__["partition_ids"] = None
-        __props__["status"] = None
-        __props__["type"] = None
-        __props__["updated_at"] = None
+        __props__.__dict__["capture_description"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["message_retention_in_days"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["partition_count"] = None
+        __props__.__dict__["partition_ids"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_at"] = None
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -332,10 +322,4 @@ class EventHub(pulumi.CustomResource):
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

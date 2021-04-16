@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -50,22 +50,36 @@ class ContentHashResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentLinkResponse(dict):
     """
     Definition of the content link.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentHash":
+            suggest = "content_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
                  uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Definition of the content link.
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the hash.
         :param str uri: Gets or sets the uri of the runbook content.
         :param str version: Gets or sets the version of the content.
         """
@@ -99,9 +113,6 @@ class ContentLinkResponse(dict):
         Gets or sets the version of the content.
         """
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -138,12 +149,34 @@ class ModuleErrorInfoResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunbookDraftResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "draftContentLink":
+            suggest = "draft_content_link"
+        elif key == "inEdit":
+            suggest = "in_edit"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "outputTypes":
+            suggest = "output_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunbookDraftResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunbookDraftResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunbookDraftResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_time: Optional[str] = None,
                  draft_content_link: Optional['outputs.ContentLinkResponse'] = None,
@@ -153,11 +186,11 @@ class RunbookDraftResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
-        :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
+        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[str] output_types: Gets or sets the runbook output types.
-        :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
+        :param Mapping[str, 'RunbookParameterResponse'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -220,15 +253,31 @@ class RunbookDraftResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunbookParameterResponse(dict):
     """
     Definition of the runbook parameter type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "isMandatory":
+            suggest = "is_mandatory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunbookParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunbookParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunbookParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  is_mandatory: Optional[bool] = None,
@@ -281,8 +330,5 @@ class RunbookParameterResponse(dict):
         Gets or sets the type of the parameter.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

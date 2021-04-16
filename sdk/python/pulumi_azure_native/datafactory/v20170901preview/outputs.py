@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -154,17 +154,17 @@ __all__ = [
     'JsonFormatResponse',
     'LinkedIntegrationRuntimeKeyResponse',
     'LinkedIntegrationRuntimeRbacResponse',
-    'LinkedIntegrationRuntimeResponseResult',
+    'LinkedIntegrationRuntimeResponse',
     'LinkedServiceReferenceResponse',
     'LookupActivityResponse',
     'MagentoLinkedServiceResponse',
     'MagentoObjectDatasetResponse',
     'MagentoSourceResponse',
-    'ManagedIntegrationRuntimeErrorResponseResult',
-    'ManagedIntegrationRuntimeNodeResponseResult',
-    'ManagedIntegrationRuntimeOperationResultResponseResult',
+    'ManagedIntegrationRuntimeErrorResponse',
+    'ManagedIntegrationRuntimeNodeResponse',
+    'ManagedIntegrationRuntimeOperationResultResponse',
     'ManagedIntegrationRuntimeResponse',
-    'ManagedIntegrationRuntimeStatusResponseResult',
+    'ManagedIntegrationRuntimeStatusResponse',
     'MariaDBLinkedServiceResponse',
     'MariaDBSourceResponse',
     'MariaDBTableDatasetResponse',
@@ -240,9 +240,9 @@ __all__ = [
     'ScheduleTriggerRecurrenceResponse',
     'ScheduleTriggerResponse',
     'SecureStringResponse',
-    'SelfHostedIntegrationRuntimeNodeResponseResult',
+    'SelfHostedIntegrationRuntimeNodeResponse',
     'SelfHostedIntegrationRuntimeResponse',
-    'SelfHostedIntegrationRuntimeStatusResponseResult',
+    'SelfHostedIntegrationRuntimeStatusResponse',
     'ServiceNowLinkedServiceResponse',
     'ServiceNowObjectDatasetResponse',
     'ServiceNowSourceResponse',
@@ -296,6 +296,23 @@ class ActivityDependencyResponse(dict):
     """
     Activity dependency information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependencyConditions":
+            suggest = "dependency_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityDependencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityDependencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityDependencyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  activity: str,
                  dependency_conditions: Sequence[str]):
@@ -323,15 +340,31 @@ class ActivityDependencyResponse(dict):
         """
         return pulumi.get(self, "dependency_conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActivityPolicyResponse(dict):
     """
     Execution policy for an activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryIntervalInSeconds":
+            suggest = "retry_interval_in_seconds"
+        elif key == "secureOutput":
+            suggest = "secure_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retry: Optional[Any] = None,
                  retry_interval_in_seconds: Optional[int] = None,
@@ -385,15 +418,47 @@ class ActivityPolicyResponse(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonMWSLinkedServiceResponse(dict):
     """
     Amazon Marketplace Web Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "marketplaceID":
+            suggest = "marketplace_id"
+        elif key == "sellerID":
+            suggest = "seller_id"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "mwsAuthToken":
+            suggest = "mws_auth_token"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonMWSLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonMWSLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonMWSLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key_id: Any,
                  endpoint: Any,
@@ -419,12 +484,12 @@ class AmazonMWSLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AmazonMWS'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] mws_auth_token: The Amazon MWS authentication token.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_key: The secret key used to access data.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] mws_auth_token: The Amazon MWS authentication token.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_key: The secret key used to access data.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -576,15 +641,29 @@ class AmazonMWSLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonMWSObjectDatasetResponse(dict):
     """
     Amazon Marketplace Web Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonMWSObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonMWSObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonMWSObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -594,12 +673,12 @@ class AmazonMWSObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Amazon Marketplace Web Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AmazonMWSObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -662,15 +741,31 @@ class AmazonMWSObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonMWSSourceResponse(dict):
     """
     A copy activity Amazon Marketplace Web Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonMWSSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonMWSSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonMWSSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -725,15 +820,31 @@ class AmazonMWSSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonRedshiftLinkedServiceResponse(dict):
     """
     Linked service for Amazon Redshift.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonRedshiftLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonRedshiftLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonRedshiftLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database: Any,
                  server: Any,
@@ -753,11 +864,11 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AmazonRedshift'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password of the Amazon Redshift source.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Amazon Redshift source.
         :param Any port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
         :param Any username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
@@ -870,15 +981,33 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonRedshiftSourceResponse(dict):
     """
     A copy activity source for Amazon Redshift Source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redshiftUnloadSettings":
+            suggest = "redshift_unload_settings"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonRedshiftSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonRedshiftSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonRedshiftSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -890,7 +1019,7 @@ class AmazonRedshiftSourceResponse(dict):
         :param str type: Copy source type.
                Expected value is 'AmazonRedshiftSource'.
         :param Any query: Database query. Type: string (or Expression with resultType string).
-        :param 'RedshiftUnloadSettingsResponseArgs' redshift_unload_settings: The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
+        :param 'RedshiftUnloadSettingsResponse' redshift_unload_settings: The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -945,15 +1074,31 @@ class AmazonRedshiftSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonS3DatasetResponse(dict):
     """
     A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonS3DatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonS3DatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonS3DatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
@@ -970,15 +1115,15 @@ class AmazonS3DatasetResponse(dict):
         """
         A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
         :param Any bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AmazonS3Object'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the Amazon S3 object.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the Amazon S3 object.
         :param str description: Dataset description.
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of files.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
         :param Any key: The key of the Amazon S3 object. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any prefix: The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any version: The version for the S3 object. Type: string (or Expression with resultType string).
@@ -1102,15 +1247,35 @@ class AmazonS3DatasetResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmazonS3LinkedServiceResponse(dict):
     """
     Linked service for Amazon S3.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "secretAccessKey":
+            suggest = "secret_access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonS3LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonS3LinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonS3LinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  access_key_id: Optional[Any] = None,
@@ -1126,11 +1291,11 @@ class AmazonS3LinkedServiceResponse(dict):
                Expected value is 'AmazonS3'.
         :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         """
         pulumi.set(__self__, "type", 'AmazonS3')
         if access_key_id is not None:
@@ -1213,9 +1378,6 @@ class AmazonS3LinkedServiceResponse(dict):
         """
         return pulumi.get(self, "secret_access_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AvroFormatResponse(dict):
@@ -1264,15 +1426,41 @@ class AvroFormatResponse(dict):
         """
         return pulumi.get(self, "serializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureBatchLinkedServiceResponse(dict):
     """
     Azure Batch linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "batchUri":
+            suggest = "batch_uri"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "poolName":
+            suggest = "pool_name"
+        elif key == "accessKey":
+            suggest = "access_key"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBatchLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBatchLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBatchLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: Any,
                  batch_uri: Any,
@@ -1289,16 +1477,16 @@ class AzureBatchLinkedServiceResponse(dict):
         Azure Batch linked service.
         :param Any account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
         :param Any batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: The Azure Storage linked service reference.
         :param Any pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureBatch'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_key: The Azure Batch account access key.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_key: The Azure Batch account access key.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "batch_uri", batch_uri)
@@ -1407,15 +1595,35 @@ class AzureBatchLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureBlobDatasetResponse(dict):
     """
     The Azure Blob storage.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "tableRootLocation":
+            suggest = "table_root_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBlobDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBlobDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBlobDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -1430,16 +1638,16 @@ class AzureBlobDatasetResponse(dict):
                  table_root_location: Optional[Any] = None):
         """
         The Azure Blob storage.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureBlob'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Any file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
         :param Any folder_path: The path of the Azure Blob storage. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Azure Blob storage.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Azure Blob storage.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_root_location: The root of blob path. Type: string (or Expression with resultType string).
         """
@@ -1553,15 +1761,43 @@ class AzureBlobDatasetResponse(dict):
         """
         return pulumi.get(self, "table_root_location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
     """
     Azure Data Lake Analytics linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "dataLakeAnalyticsUri":
+            suggest = "data_lake_analytics_uri"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeAnalyticsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeAnalyticsLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeAnalyticsLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: Any,
                  tenant: Any,
@@ -1583,14 +1819,14 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureDataLakeAnalytics'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
         :param Any subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -1722,15 +1958,33 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeStoreDatasetResponse(dict):
     """
     Azure Data Lake Store dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "folderPath":
+            suggest = "folder_path"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "fileName":
+            suggest = "file_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeStoreDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeStoreDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeStoreDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  folder_path: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
@@ -1745,15 +1999,15 @@ class AzureDataLakeStoreDatasetResponse(dict):
         """
         Azure Data Lake Store dataset.
         :param Any folder_path: Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureDataLakeStoreFile'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param str description: Dataset description.
         :param Any file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the Data Lake Store.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the Data Lake Store.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "folder_path", folder_path)
@@ -1855,15 +2109,43 @@ class AzureDataLakeStoreDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeStoreLinkedServiceResponse(dict):
     """
     Azure Data Lake Store linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakeStoreUri":
+            suggest = "data_lake_store_uri"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeStoreLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeStoreLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeStoreLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_lake_store_uri: Any,
                  type: str,
@@ -1885,13 +2167,13 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
                Expected value is 'AzureDataLakeStore'.
         :param Any account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
         :param Any subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -2025,15 +2307,37 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "tenant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeStoreSinkResponse(dict):
     """
     A copy activity Azure Data Lake Store sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyBehavior":
+            suggest = "copy_behavior"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeStoreSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeStoreSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeStoreSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  copy_behavior: Optional[Any] = None,
@@ -2112,15 +2416,31 @@ class AzureDataLakeStoreSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeStoreSourceResponse(dict):
     """
     A copy activity Azure Data Lake source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeStoreSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeStoreSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeStoreSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  recursive: Optional[Any] = None,
@@ -2175,15 +2495,43 @@ class AzureDataLakeStoreSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDatabricksLinkedServiceResponse(dict):
     """
     Azure Databricks linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "existingClusterId":
+            suggest = "existing_cluster_id"
+        elif key == "newClusterNodeType":
+            suggest = "new_cluster_node_type"
+        elif key == "newClusterNumOfWorker":
+            suggest = "new_cluster_num_of_worker"
+        elif key == "newClusterSparkConf":
+            suggest = "new_cluster_spark_conf"
+        elif key == "newClusterVersion":
+            suggest = "new_cluster_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDatabricksLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDatabricksLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDatabricksLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_token: Any,
                  domain: Any,
@@ -2200,12 +2548,12 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure Databricks linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureDatabricks'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any existing_cluster_id: The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
@@ -2213,7 +2561,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Any new_cluster_num_of_worker: Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] new_cluster_spark_conf: a set of optional, user-specified Spark configuration key-value pairs.
         :param Any new_cluster_version: The Spark version of new cluster. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "domain", domain)
@@ -2344,15 +2692,31 @@ class AzureDatabricksLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureKeyVaultLinkedServiceResponse(dict):
     """
     Azure Key Vault linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseUrl":
+            suggest = "base_url"
+        elif key == "connectVia":
+            suggest = "connect_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureKeyVaultLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureKeyVaultLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureKeyVaultLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_url: Any,
                  type: str,
@@ -2366,9 +2730,9 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureKeyVault'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "base_url", base_url)
         pulumi.set(__self__, "type", 'AzureKeyVault')
@@ -2430,15 +2794,31 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureKeyVaultSecretReferenceResponse(dict):
     """
     Azure Key Vault secret reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureKeyVaultSecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureKeyVaultSecretReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureKeyVaultSecretReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_name: Any,
                  store: 'outputs.LinkedServiceReferenceResponse',
@@ -2447,7 +2827,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
         """
         Azure Key Vault secret reference.
         :param Any secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' store: The Azure Key Vault linked service reference.
+        :param 'LinkedServiceReferenceResponse' store: The Azure Key Vault linked service reference.
         :param str type: Type of the secret.
                Expected value is 'AzureKeyVaultSecret'.
         :param Any secret_version: The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
@@ -2491,15 +2871,37 @@ class AzureKeyVaultSecretReferenceResponse(dict):
         """
         return pulumi.get(self, "secret_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMLBatchExecutionActivityResponse(dict):
     """
     Azure ML Batch Execution activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "globalParameters":
+            suggest = "global_parameters"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "webServiceInputs":
+            suggest = "web_service_inputs"
+        elif key == "webServiceOutputs":
+            suggest = "web_service_outputs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMLBatchExecutionActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMLBatchExecutionActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMLBatchExecutionActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -2515,13 +2917,13 @@ class AzureMLBatchExecutionActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Mapping[str, 'AzureMLWebServiceFileResponseArgs'] web_service_inputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
-        :param Mapping[str, 'AzureMLWebServiceFileResponseArgs'] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_inputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
+        :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -2613,15 +3015,41 @@ class AzureMLBatchExecutionActivityResponse(dict):
         """
         return pulumi.get(self, "web_service_outputs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMLLinkedServiceResponse(dict):
     """
     Azure ML Web Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "mlEndpoint":
+            suggest = "ml_endpoint"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+        elif key == "updateResourceEndpoint":
+            suggest = "update_resource_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMLLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMLLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMLLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: Any,
                  ml_endpoint: Any,
@@ -2637,17 +3065,17 @@ class AzureMLLinkedServiceResponse(dict):
                  update_resource_endpoint: Optional[Any] = None):
         """
         Azure ML Web Service linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] api_key: The API key for accessing the Azure ML model endpoint.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_key: The API key for accessing the Azure ML model endpoint.
         :param Any ml_endpoint: The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureML'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any update_resource_endpoint: The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
         """
@@ -2770,15 +3198,37 @@ class AzureMLLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "update_resource_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMLUpdateResourceActivityResponse(dict):
     """
     Azure ML Update Resource management activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trainedModelFilePath":
+            suggest = "trained_model_file_path"
+        elif key == "trainedModelLinkedServiceName":
+            suggest = "trained_model_linked_service_name"
+        elif key == "trainedModelName":
+            suggest = "trained_model_name"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMLUpdateResourceActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMLUpdateResourceActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMLUpdateResourceActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  trained_model_file_path: Any,
@@ -2793,14 +3243,14 @@ class AzureMLUpdateResourceActivityResponse(dict):
         Azure ML Update Resource management activity.
         :param str name: Activity name.
         :param Any trained_model_file_path: The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
+        :param 'LinkedServiceReferenceResponse' trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
         :param Any trained_model_name: Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "trained_model_file_path", trained_model_file_path)
@@ -2889,22 +3339,38 @@ class AzureMLUpdateResourceActivityResponse(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMLWebServiceFileResponse(dict):
     """
     Azure ML WebService Input/Output file
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePath":
+            suggest = "file_path"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMLWebServiceFileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMLWebServiceFileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMLWebServiceFileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_path: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse'):
         """
         Azure ML WebService Input/Output file
         :param Any file_path: The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
         """
         pulumi.set(__self__, "file_path", file_path)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -2925,15 +3391,33 @@ class AzureMLWebServiceFileResponse(dict):
         """
         return pulumi.get(self, "linked_service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMySqlLinkedServiceResponse(dict):
     """
     Azure MySQL database linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMySqlLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMySqlLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMySqlLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -2948,10 +3432,10 @@ class AzureMySqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureMySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureMySql')
@@ -3023,15 +3507,31 @@ class AzureMySqlLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMySqlSourceResponse(dict):
     """
     A copy activity Azure MySQL source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMySqlSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMySqlSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMySqlSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -3086,15 +3586,31 @@ class AzureMySqlSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMySqlTableDatasetResponse(dict):
     """
     The Azure MySQL database dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMySqlTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMySqlTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMySqlTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -3105,12 +3621,12 @@ class AzureMySqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure MySQL database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureMySqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The Azure MySQL database table name. Type: string (or Expression with resultType string).
         """
@@ -3184,15 +3700,33 @@ class AzureMySqlTableDatasetResponse(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzurePostgreSqlLinkedServiceResponse(dict):
     """
     Azure PostgreSQL linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzurePostgreSqlLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzurePostgreSqlLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -3206,11 +3740,11 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzurePostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSql')
         if annotations is not None:
@@ -3283,15 +3817,31 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzurePostgreSqlSourceResponse(dict):
     """
     A copy activity Azure PostgreSQL source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzurePostgreSqlSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzurePostgreSqlSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -3346,15 +3896,29 @@ class AzurePostgreSqlSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzurePostgreSqlTableDatasetResponse(dict):
     """
     Azure PostgreSQL dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzurePostgreSqlTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzurePostgreSqlTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -3364,12 +3928,12 @@ class AzurePostgreSqlTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Azure PostgreSQL dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzurePostgreSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -3432,15 +3996,35 @@ class AzurePostgreSqlTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureQueueSinkResponse(dict):
     """
     A copy activity Azure Queue sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureQueueSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureQueueSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureQueueSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  sink_retry_count: Optional[Any] = None,
@@ -3507,15 +4091,31 @@ class AzureQueueSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSearchIndexDatasetResponse(dict):
     """
     The Azure Search Index.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSearchIndexDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSearchIndexDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSearchIndexDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
@@ -3527,12 +4127,12 @@ class AzureSearchIndexDatasetResponse(dict):
         """
         The Azure Search Index.
         :param Any index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'AzureSearchIndex'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "index_name", index_name)
@@ -3604,15 +4204,37 @@ class AzureSearchIndexDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSearchIndexSinkResponse(dict):
     """
     A copy activity Azure Search Index sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+        elif key == "writeBehavior":
+            suggest = "write_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSearchIndexSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSearchIndexSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSearchIndexSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  sink_retry_count: Optional[Any] = None,
@@ -3691,15 +4313,31 @@ class AzureSearchIndexSinkResponse(dict):
         """
         return pulumi.get(self, "write_behavior")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSearchLinkedServiceResponse(dict):
     """
     Linked service for Windows Azure Search Service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSearchLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSearchLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSearchLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: Any,
@@ -3715,11 +4353,11 @@ class AzureSearchLinkedServiceResponse(dict):
                Expected value is 'AzureSearch'.
         :param Any url: URL for Azure Search service. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] key: Admin Key for Azure Search service
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] key: Admin Key for Azure Search service
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'AzureSearch')
         pulumi.set(__self__, "url", url)
@@ -3801,15 +4439,37 @@ class AzureSearchLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlDWLinkedServiceResponse(dict):
     """
     Azure SQL Data Warehouse linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlDWLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlDWLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlDWLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -3827,12 +4487,12 @@ class AzureSqlDWLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureSqlDW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -3935,15 +4595,31 @@ class AzureSqlDWLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "tenant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlDWTableDatasetResponse(dict):
     """
     The Azure SQL Data Warehouse dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlDWTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlDWTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlDWTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Any,
@@ -3954,13 +4630,13 @@ class AzureSqlDWTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure SQL Data Warehouse dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'AzureSqlDWTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -4032,15 +4708,37 @@ class AzureSqlDWTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlDatabaseLinkedServiceResponse(dict):
     """
     Microsoft Azure SQL Database linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlDatabaseLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlDatabaseLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlDatabaseLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -4058,12 +4756,12 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureSqlDatabase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -4166,15 +4864,31 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "tenant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlTableDatasetResponse(dict):
     """
     The Azure SQL Server database dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Any,
@@ -4185,13 +4899,13 @@ class AzureSqlTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure SQL Server database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure SQL database. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'AzureSqlTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -4263,15 +4977,35 @@ class AzureSqlTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureStorageLinkedServiceResponse(dict):
     """
     The storage account linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "sasUri":
+            suggest = "sas_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureStorageLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureStorageLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureStorageLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -4286,12 +5020,12 @@ class AzureStorageLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureStorage'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
         """
         pulumi.set(__self__, "type", 'AzureStorage')
         if annotations is not None:
@@ -4374,15 +5108,31 @@ class AzureStorageLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "sas_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureTableDatasetResponse(dict):
     """
     The Azure Table storage dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Any,
@@ -4393,13 +5143,13 @@ class AzureTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure Table storage dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'AzureTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -4471,15 +5221,43 @@ class AzureTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureTableSinkResponse(dict):
     """
     A copy activity Azure Table sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureTableDefaultPartitionKeyValue":
+            suggest = "azure_table_default_partition_key_value"
+        elif key == "azureTableInsertType":
+            suggest = "azure_table_insert_type"
+        elif key == "azureTablePartitionKeyName":
+            suggest = "azure_table_partition_key_name"
+        elif key == "azureTableRowKeyName":
+            suggest = "azure_table_row_key_name"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureTableSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureTableSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureTableSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  azure_table_default_partition_key_value: Optional[Any] = None,
@@ -4594,15 +5372,35 @@ class AzureTableSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureTableSourceResponse(dict):
     """
     A copy activity Azure Table source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureTableSourceIgnoreTableNotFound":
+            suggest = "azure_table_source_ignore_table_not_found"
+        elif key == "azureTableSourceQuery":
+            suggest = "azure_table_source_query"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureTableSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureTableSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureTableSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  azure_table_source_ignore_table_not_found: Optional[Any] = None,
@@ -4669,15 +5467,35 @@ class AzureTableSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobEventsTriggerResponse(dict):
     """
     Trigger that runs every time a Blob event occurs.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeState":
+            suggest = "runtime_state"
+        elif key == "blobPathBeginsWith":
+            suggest = "blob_path_begins_with"
+        elif key == "blobPathEndsWith":
+            suggest = "blob_path_ends_with"
+        elif key == "ignoreEmptyBlobs":
+            suggest = "ignore_empty_blobs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobEventsTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobEventsTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobEventsTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  events: Sequence[str],
                  runtime_state: str,
@@ -4699,7 +5517,7 @@ class BlobEventsTriggerResponse(dict):
         :param str blob_path_ends_with: The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
         :param str description: Trigger description.
         :param bool ignore_empty_blobs: If set to true, blobs with zero bytes will be ignored.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "runtime_state", runtime_state)
@@ -4789,15 +5607,43 @@ class BlobEventsTriggerResponse(dict):
         """
         return pulumi.get(self, "pipelines")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobSinkResponse(dict):
     """
     A copy activity Azure Blob sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobWriterAddHeader":
+            suggest = "blob_writer_add_header"
+        elif key == "blobWriterDateTimeFormat":
+            suggest = "blob_writer_date_time_format"
+        elif key == "blobWriterOverwriteFiles":
+            suggest = "blob_writer_overwrite_files"
+        elif key == "copyBehavior":
+            suggest = "copy_behavior"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  blob_writer_add_header: Optional[Any] = None,
@@ -4912,15 +5758,35 @@ class BlobSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobSourceResponse(dict):
     """
     A copy activity Azure Blob source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skipHeaderLineCount":
+            suggest = "skip_header_line_count"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+        elif key == "treatEmptyAsNull":
+            suggest = "treat_empty_as_null"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  recursive: Optional[Any] = None,
@@ -4999,15 +5865,35 @@ class BlobSourceResponse(dict):
         """
         return pulumi.get(self, "treat_empty_as_null")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobTriggerResponse(dict):
     """
     Trigger that runs every time the selected Blob container changes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "folderPath":
+            suggest = "folder_path"
+        elif key == "linkedService":
+            suggest = "linked_service"
+        elif key == "maxConcurrency":
+            suggest = "max_concurrency"
+        elif key == "runtimeState":
+            suggest = "runtime_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  folder_path: str,
                  linked_service: 'outputs.LinkedServiceReferenceResponse',
@@ -5019,13 +5905,13 @@ class BlobTriggerResponse(dict):
         """
         Trigger that runs every time the selected Blob container changes.
         :param str folder_path: The path of the container/folder that will trigger the pipeline.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service: The Azure Storage linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service: The Azure Storage linked service reference.
         :param int max_concurrency: The max number of parallel files to handle when it is triggered.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
                Expected value is 'MultiplePipelineTrigger'.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "linked_service", linked_service)
@@ -5094,15 +5980,33 @@ class BlobTriggerResponse(dict):
         """
         return pulumi.get(self, "pipelines")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraLinkedServiceResponse(dict):
     """
     Linked service for Cassandra data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -5122,11 +6026,11 @@ class CassandraLinkedServiceResponse(dict):
                Expected value is 'Cassandra'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The port for the connection. Type: integer (or Expression with resultType integer).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -5240,15 +6144,33 @@ class CassandraLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraSourceResponse(dict):
     """
     A copy activity source for a Cassandra database.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consistencyLevel":
+            suggest = "consistency_level"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  consistency_level: Optional[str] = None,
@@ -5315,15 +6237,31 @@ class CassandraSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraTableDatasetResponse(dict):
     """
     The Cassandra database dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -5335,13 +6273,13 @@ class CassandraTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Cassandra database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CassandraTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name of the Cassandra database. Type: string (or Expression with resultType string).
         """
@@ -5425,15 +6363,39 @@ class CassandraTableDatasetResponse(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConcurLinkedServiceResponse(dict):
     """
     Concur Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConcurLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConcurLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConcurLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  type: str,
@@ -5454,11 +6416,11 @@ class ConcurLinkedServiceResponse(dict):
                Expected value is 'Concur'.
         :param Any username: The user name that you use to access Concur Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username field.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username field.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -5582,15 +6544,29 @@ class ConcurLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConcurObjectDatasetResponse(dict):
     """
     Concur Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConcurObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConcurObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConcurObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -5600,12 +6576,12 @@ class ConcurObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Concur Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ConcurObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -5668,15 +6644,31 @@ class ConcurObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConcurSourceResponse(dict):
     """
     A copy activity Concur Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConcurSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConcurSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConcurSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -5731,15 +6723,29 @@ class ConcurSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ControlActivityResponse(dict):
     """
     Base class for all control activities like IfCondition, ForEach , Until.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ControlActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ControlActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ControlActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -5750,7 +6756,7 @@ class ControlActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         """
         pulumi.set(__self__, "name", name)
@@ -5793,15 +6799,43 @@ class ControlActivityResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CopyActivityResponse(dict):
     """
     Copy activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudDataMovementUnits":
+            suggest = "cloud_data_movement_units"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "enableSkipIncompatibleRow":
+            suggest = "enable_skip_incompatible_row"
+        elif key == "enableStaging":
+            suggest = "enable_staging"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "parallelCopies":
+            suggest = "parallel_copies"
+        elif key == "redirectIncompatibleRowSettings":
+            suggest = "redirect_incompatible_row_settings"
+        elif key == "stagingSettings":
+            suggest = "staging_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sink: Any,
@@ -5823,22 +6857,22 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AzureDataLakeStoreSinkResponseArgs', 'AzureQueueSinkResponseArgs', 'AzureSearchIndexSinkResponseArgs', 'AzureTableSinkResponseArgs', 'BlobSinkResponseArgs', 'DocumentDbCollectionSinkResponseArgs', 'DynamicsSinkResponseArgs', 'FileSystemSinkResponseArgs', 'OdbcSinkResponseArgs', 'OracleSinkResponseArgs', 'SalesforceSinkResponseArgs', 'SapCloudForCustomerSinkResponseArgs', 'SqlDWSinkResponseArgs', 'SqlSinkResponseArgs'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponseArgs', 'AmazonRedshiftSourceResponseArgs', 'AzureDataLakeStoreSourceResponseArgs', 'AzureMySqlSourceResponseArgs', 'AzurePostgreSqlSourceResponseArgs', 'AzureTableSourceResponseArgs', 'BlobSourceResponseArgs', 'CassandraSourceResponseArgs', 'ConcurSourceResponseArgs', 'CouchbaseSourceResponseArgs', 'DocumentDbCollectionSourceResponseArgs', 'DrillSourceResponseArgs', 'DynamicsSourceResponseArgs', 'EloquaSourceResponseArgs', 'FileSystemSourceResponseArgs', 'GoogleBigQuerySourceResponseArgs', 'GreenplumSourceResponseArgs', 'HBaseSourceResponseArgs', 'HdfsSourceResponseArgs', 'HiveSourceResponseArgs', 'HttpSourceResponseArgs', 'HubspotSourceResponseArgs', 'ImpalaSourceResponseArgs', 'JiraSourceResponseArgs', 'MagentoSourceResponseArgs', 'MariaDBSourceResponseArgs', 'MarketoSourceResponseArgs', 'MongoDbSourceResponseArgs', 'NetezzaSourceResponseArgs', 'OracleSourceResponseArgs', 'PaypalSourceResponseArgs', 'PhoenixSourceResponseArgs', 'PrestoSourceResponseArgs', 'QuickBooksSourceResponseArgs', 'RelationalSourceResponseArgs', 'ResponsysSourceResponseArgs', 'SalesforceMarketingCloudSourceResponseArgs', 'SalesforceSourceResponseArgs', 'SapCloudForCustomerSourceResponseArgs', 'SapEccSourceResponseArgs', 'ServiceNowSourceResponseArgs', 'ShopifySourceResponseArgs', 'SparkSourceResponseArgs', 'SqlDWSourceResponseArgs', 'SqlSourceResponseArgs', 'SquareSourceResponseArgs', 'VerticaSourceResponseArgs', 'WebSourceResponseArgs', 'XeroSourceResponseArgs', 'ZohoSourceResponseArgs'] source: Copy activity source.
+        :param Union['AzureDataLakeStoreSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureTableSinkResponse', 'BlobSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SqlDWSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRedshiftSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureTableSourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'ConcurSourceResponse', 'CouchbaseSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'FileSystemSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'JiraSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MongoDbSourceResponse', 'NetezzaSourceResponse', 'OracleSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'ServiceNowSourceResponse', 'ShopifySourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any cloud_data_movement_units: Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any enable_skip_incompatible_row: Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any enable_staging: Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Sequence['DatasetReferenceResponseArgs'] inputs: List of inputs for the activity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Sequence['DatasetReferenceResponseArgs'] outputs: List of outputs for the activity.
+        :param Sequence['DatasetReferenceResponse'] inputs: List of inputs for the activity.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Sequence['DatasetReferenceResponse'] outputs: List of outputs for the activity.
         :param Any parallel_copies: Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param 'RedirectIncompatibleRowSettingsResponseArgs' redirect_incompatible_row_settings: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
-        :param 'StagingSettingsResponseArgs' staging_settings: Specifies interim staging settings when EnableStaging is true.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'RedirectIncompatibleRowSettingsResponse' redirect_incompatible_row_settings: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
+        :param 'StagingSettingsResponse' staging_settings: Specifies interim staging settings when EnableStaging is true.
         :param Any translator: Copy activity translator. If not specified, tabular translator is used.
         """
         pulumi.set(__self__, "name", name)
@@ -6009,15 +7043,33 @@ class CopyActivityResponse(dict):
         """
         return pulumi.get(self, "translator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CosmosDbLinkedServiceResponse(dict):
     """
     Microsoft Azure Cosmos Database (CosmosDB) linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CosmosDbLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CosmosDbLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CosmosDbLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -6032,10 +7084,10 @@ class CosmosDbLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'CosmosDb'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'CosmosDb')
@@ -6107,15 +7159,33 @@ class CosmosDbLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CouchbaseLinkedServiceResponse(dict):
     """
     Couchbase server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CouchbaseLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CouchbaseLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CouchbaseLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -6129,11 +7199,11 @@ class CouchbaseLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Couchbase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Couchbase')
         if annotations is not None:
@@ -6206,15 +7276,31 @@ class CouchbaseLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CouchbaseSourceResponse(dict):
     """
     A copy activity Couchbase server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CouchbaseSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CouchbaseSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CouchbaseSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -6269,15 +7355,29 @@ class CouchbaseSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CouchbaseTableDatasetResponse(dict):
     """
     Couchbase server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CouchbaseTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CouchbaseTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CouchbaseTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -6287,12 +7387,12 @@ class CouchbaseTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Couchbase server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CouchbaseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -6355,22 +7455,36 @@ class CouchbaseTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomActivityReferenceObjectResponse(dict):
     """
     Reference objects for custom activity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServices":
+            suggest = "linked_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomActivityReferenceObjectResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomActivityReferenceObjectResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomActivityReferenceObjectResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datasets: Optional[Sequence['outputs.DatasetReferenceResponse']] = None,
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None):
         """
         Reference objects for custom activity
-        :param Sequence['DatasetReferenceResponseArgs'] datasets: Dataset references.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] linked_services: Linked service references.
+        :param Sequence['DatasetReferenceResponse'] datasets: Dataset references.
+        :param Sequence['LinkedServiceReferenceResponse'] linked_services: Linked service references.
         """
         if datasets is not None:
             pulumi.set(__self__, "datasets", datasets)
@@ -6393,15 +7507,39 @@ class CustomActivityReferenceObjectResponse(dict):
         """
         return pulumi.get(self, "linked_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomActivityResponse(dict):
     """
     Custom activity type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "referenceObjects":
+            suggest = "reference_objects"
+        elif key == "resourceLinkedService":
+            suggest = "resource_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  command: Any,
                  name: str,
@@ -6420,14 +7558,14 @@ class CustomActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         :param Any folder_path: Folder path for resource files Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param 'CustomActivityReferenceObjectResponseArgs' reference_objects: Reference objects
-        :param 'LinkedServiceReferenceResponseArgs' resource_linked_service: Resource linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'CustomActivityReferenceObjectResponse' reference_objects: Reference objects
+        :param 'LinkedServiceReferenceResponse' resource_linked_service: Resource linked service reference.
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
@@ -6538,15 +7676,29 @@ class CustomActivityResponse(dict):
         """
         return pulumi.get(self, "resource_linked_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomDataSourceLinkedServiceResponse(dict):
     """
     Custom linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDataSourceLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDataSourceLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDataSourceLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -6558,9 +7710,9 @@ class CustomDataSourceLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'CustomDataSource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'CustomDataSource')
         if annotations is not None:
@@ -6613,15 +7765,29 @@ class CustomDataSourceLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomDatasetResponse(dict):
     """
     The custom dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -6631,12 +7797,12 @@ class CustomDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The custom dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'CustomDataset'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -6699,15 +7865,41 @@ class CustomDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataLakeAnalyticsUSQLActivityResponse(dict):
     """
     Data Lake Analytics U-SQL activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptLinkedService":
+            suggest = "script_linked_service"
+        elif key == "scriptPath":
+            suggest = "script_path"
+        elif key == "compilationMode":
+            suggest = "compilation_mode"
+        elif key == "degreeOfParallelism":
+            suggest = "degree_of_parallelism"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataLakeAnalyticsUSQLActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataLakeAnalyticsUSQLActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataLakeAnalyticsUSQLActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  script_linked_service: 'outputs.LinkedServiceReferenceResponse',
@@ -6725,17 +7917,17 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         """
         Data Lake Analytics U-SQL activity.
         :param str name: Activity name.
-        :param 'LinkedServiceReferenceResponseArgs' script_linked_service: Script linked service reference.
+        :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any compilation_mode: Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
         :param Any degree_of_parallelism: The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Mapping[str, Any] parameters: Parameters for U-SQL job request.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any priority: Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
         :param Any runtime_version: Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
         """
@@ -6867,15 +8059,35 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         """
         return pulumi.get(self, "runtime_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabricksNotebookActivityResponse(dict):
     """
     DatabricksNotebook activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notebookPath":
+            suggest = "notebook_path"
+        elif key == "baseParameters":
+            suggest = "base_parameters"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabricksNotebookActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabricksNotebookActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabricksNotebookActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  notebook_path: Any,
@@ -6892,10 +8104,10 @@ class DatabricksNotebookActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Mapping[str, Any] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "notebook_path", notebook_path)
@@ -6976,9 +8188,6 @@ class DatabricksNotebookActivityResponse(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetBZip2CompressionResponse(dict):
@@ -7002,9 +8211,6 @@ class DatasetBZip2CompressionResponse(dict):
         Expected value is 'BZip2'.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7042,9 +8248,6 @@ class DatasetDeflateCompressionResponse(dict):
         """
         return pulumi.get(self, "level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetGZipCompressionResponse(dict):
@@ -7081,15 +8284,29 @@ class DatasetGZipCompressionResponse(dict):
         """
         return pulumi.get(self, "level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetReferenceResponse(dict):
     """
     Dataset reference type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
@@ -7129,9 +8346,6 @@ class DatasetReferenceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetZipDeflateCompressionResponse(dict):
@@ -7168,15 +8382,33 @@ class DatasetZipDeflateCompressionResponse(dict):
         """
         return pulumi.get(self, "level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class Db2LinkedServiceResponse(dict):
     """
     Linked service for DB2 data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Db2LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Db2LinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Db2LinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database: Any,
                  server: Any,
@@ -7197,11 +8429,11 @@ class Db2LinkedServiceResponse(dict):
                Expected value is 'Db2'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
@@ -7313,15 +8545,33 @@ class Db2LinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistcpSettingsResponse(dict):
     """
     Distcp settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceManagerEndpoint":
+            suggest = "resource_manager_endpoint"
+        elif key == "tempScriptPath":
+            suggest = "temp_script_path"
+        elif key == "distcpOptions":
+            suggest = "distcp_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistcpSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistcpSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistcpSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_manager_endpoint: Any,
                  temp_script_path: Any,
@@ -7361,15 +8611,31 @@ class DistcpSettingsResponse(dict):
         """
         return pulumi.get(self, "distcp_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DocumentDbCollectionDatasetResponse(dict):
     """
     Microsoft Azure Document Database Collection dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionName":
+            suggest = "collection_name"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DocumentDbCollectionDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DocumentDbCollectionDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DocumentDbCollectionDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  collection_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
@@ -7381,12 +8647,12 @@ class DocumentDbCollectionDatasetResponse(dict):
         """
         Microsoft Azure Document Database Collection dataset.
         :param Any collection_name: Document Database collection name. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DocumentDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "collection_name", collection_name)
@@ -7458,15 +8724,37 @@ class DocumentDbCollectionDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DocumentDbCollectionSinkResponse(dict):
     """
     A copy activity Document Database Collection sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nestingSeparator":
+            suggest = "nesting_separator"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DocumentDbCollectionSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DocumentDbCollectionSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DocumentDbCollectionSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  nesting_separator: Optional[Any] = None,
@@ -7545,15 +8833,33 @@ class DocumentDbCollectionSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DocumentDbCollectionSourceResponse(dict):
     """
     A copy activity Document Database Collection source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nestingSeparator":
+            suggest = "nesting_separator"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DocumentDbCollectionSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DocumentDbCollectionSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DocumentDbCollectionSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  nesting_separator: Optional[Any] = None,
@@ -7620,15 +8926,33 @@ class DocumentDbCollectionSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DrillLinkedServiceResponse(dict):
     """
     Drill server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DrillLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DrillLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DrillLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -7642,11 +8966,11 @@ class DrillLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Drill'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Drill')
         if annotations is not None:
@@ -7719,15 +9043,31 @@ class DrillLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DrillSourceResponse(dict):
     """
     A copy activity Drill server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DrillSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DrillSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DrillSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -7782,15 +9122,29 @@ class DrillSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DrillTableDatasetResponse(dict):
     """
     Drill server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DrillTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DrillTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DrillTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -7800,12 +9154,12 @@ class DrillTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Drill server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DrillTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -7868,15 +9222,31 @@ class DrillTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DynamicsEntityDatasetResponse(dict):
     """
     The Dynamics entity dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "entityName":
+            suggest = "entity_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicsEntityDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicsEntityDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicsEntityDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -7887,13 +9257,13 @@ class DynamicsEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Dynamics entity dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'DynamicsEntity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -7966,15 +9336,41 @@ class DynamicsEntityDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DynamicsLinkedServiceResponse(dict):
     """
     Dynamics linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "organizationName":
+            suggest = "organization_name"
+        elif key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicsLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicsLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  deployment_type: str,
@@ -7998,13 +9394,13 @@ class DynamicsLinkedServiceResponse(dict):
                Expected value is 'Dynamics'.
         :param Any username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the Dynamics instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the Dynamics instance.
         :param Any port: The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         """
@@ -8146,15 +9542,39 @@ class DynamicsLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "service_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DynamicsSinkResponse(dict):
     """
     A copy activity Dynamics sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "writeBehavior":
+            suggest = "write_behavior"
+        elif key == "ignoreNullValues":
+            suggest = "ignore_null_values"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicsSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicsSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicsSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  write_behavior: str,
@@ -8244,15 +9664,31 @@ class DynamicsSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DynamicsSourceResponse(dict):
     """
     A copy activity Dynamics source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicsSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicsSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicsSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -8307,15 +9743,37 @@ class DynamicsSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EloquaLinkedServiceResponse(dict):
     """
     Eloqua server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EloquaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EloquaLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EloquaLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: Any,
                  type: str,
@@ -8336,11 +9794,11 @@ class EloquaLinkedServiceResponse(dict):
                Expected value is 'Eloqua'.
         :param Any username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -8464,15 +9922,29 @@ class EloquaLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EloquaObjectDatasetResponse(dict):
     """
     Eloqua server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EloquaObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EloquaObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EloquaObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -8482,12 +9954,12 @@ class EloquaObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Eloqua server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'EloquaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -8550,15 +10022,31 @@ class EloquaObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EloquaSourceResponse(dict):
     """
     A copy activity Eloqua server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EloquaSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EloquaSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EloquaSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -8613,15 +10101,29 @@ class EloquaSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EntityReferenceResponse(dict):
     """
     The entity reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntityReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntityReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntityReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -8651,15 +10153,31 @@ class EntityReferenceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExecutePipelineActivityResponse(dict):
     """
     Execute pipeline activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "waitOnCompletion":
+            suggest = "wait_on_completion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecutePipelineActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecutePipelineActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecutePipelineActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  pipeline: 'outputs.PipelineReferenceResponse',
@@ -8671,10 +10189,10 @@ class ExecutePipelineActivityResponse(dict):
         """
         Execute pipeline activity.
         :param str name: Activity name.
-        :param 'PipelineReferenceResponseArgs' pipeline: Pipeline reference.
+        :param 'PipelineReferenceResponse' pipeline: Pipeline reference.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] parameters: Pipeline parameters.
         :param bool wait_on_completion: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
@@ -8748,15 +10266,53 @@ class ExecutePipelineActivityResponse(dict):
         """
         return pulumi.get(self, "wait_on_completion")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExecuteSSISPackageActivityResponse(dict):
     """
     Execute SSIS package activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "packageLocation":
+            suggest = "package_location"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "environmentPath":
+            suggest = "environment_path"
+        elif key == "executionCredential":
+            suggest = "execution_credential"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "logLocation":
+            suggest = "log_location"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "packageConnectionManagers":
+            suggest = "package_connection_managers"
+        elif key == "packageParameters":
+            suggest = "package_parameters"
+        elif key == "projectConnectionManagers":
+            suggest = "project_connection_managers"
+        elif key == "projectParameters":
+            suggest = "project_parameters"
+        elif key == "propertyOverrides":
+            suggest = "property_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecuteSSISPackageActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecuteSSISPackageActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecuteSSISPackageActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connect_via: 'outputs.IntegrationRuntimeReferenceResponse',
                  name: str,
@@ -8778,24 +10334,24 @@ class ExecuteSSISPackageActivityResponse(dict):
                  runtime: Optional[Any] = None):
         """
         Execute SSIS package activity.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str name: Activity name.
-        :param 'SSISPackageLocationResponseArgs' package_location: SSIS package location.
+        :param 'SSISPackageLocationResponse' package_location: SSIS package location.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any environment_path: The environment path to execute the SSIS package. Type: string (or Expression with resultType string).
-        :param 'SSISExecutionCredentialResponseArgs' execution_credential: The package execution credential.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'SSISLogLocationResponseArgs' log_location: SSIS package execution log location.
+        :param 'SSISExecutionCredentialResponse' execution_credential: The package execution credential.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'SSISLogLocationResponse' log_location: SSIS package execution log location.
         :param Any logging_level: The logging level of SSIS package execution. Type: string (or Expression with resultType string).
-        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponseArgs']] package_connection_managers: The package level connection managers to execute the SSIS package.
-        :param Mapping[str, 'SSISExecutionParameterResponseArgs'] package_parameters: The package level parameters to execute the SSIS package.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponseArgs']] project_connection_managers: The project level connection managers to execute the SSIS package.
-        :param Mapping[str, 'SSISExecutionParameterResponseArgs'] project_parameters: The project level parameters to execute the SSIS package.
-        :param Mapping[str, 'SSISPropertyOverrideResponseArgs'] property_overrides: The property overrides to execute the SSIS package.
+        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponse']] package_connection_managers: The package level connection managers to execute the SSIS package.
+        :param Mapping[str, 'SSISExecutionParameterResponse'] package_parameters: The package level parameters to execute the SSIS package.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponse']] project_connection_managers: The project level connection managers to execute the SSIS package.
+        :param Mapping[str, 'SSISExecutionParameterResponse'] project_parameters: The project level parameters to execute the SSIS package.
+        :param Mapping[str, 'SSISPropertyOverrideResponse'] property_overrides: The property overrides to execute the SSIS package.
         :param Any runtime: Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connect_via", connect_via)
@@ -8976,15 +10532,31 @@ class ExecuteSSISPackageActivityResponse(dict):
         """
         return pulumi.get(self, "runtime")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExecutionActivityResponse(dict):
     """
     Base class for all execution activities.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecutionActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecutionActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecutionActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -8997,10 +10569,10 @@ class ExecutionActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -9062,9 +10634,6 @@ class ExecutionActivityResponse(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressionResponse(dict):
@@ -9098,15 +10667,31 @@ class ExpressionResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FactoryIdentityResponse(dict):
     """
     Identity properties of the factory resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FactoryIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FactoryIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FactoryIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -9145,15 +10730,41 @@ class FactoryIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FactoryVSTSConfigurationResponse(dict):
     """
     Factory's VSTS repo information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "collaborationBranch":
+            suggest = "collaboration_branch"
+        elif key == "lastCommitId":
+            suggest = "last_commit_id"
+        elif key == "projectName":
+            suggest = "project_name"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "rootFolder":
+            suggest = "root_folder"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FactoryVSTSConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FactoryVSTSConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FactoryVSTSConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: Optional[str] = None,
                  collaboration_branch: Optional[str] = None,
@@ -9243,15 +10854,33 @@ class FactoryVSTSConfigurationResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileServerLinkedServiceResponse(dict):
     """
     File system linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileServerLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileServerLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileServerLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -9268,11 +10897,11 @@ class FileServerLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'FileServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the server.
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "host", host)
@@ -9365,15 +10994,35 @@ class FileServerLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileShareDatasetResponse(dict):
     """
     An on-premises file system dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "fileFilter":
+            suggest = "file_filter"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileShareDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileShareDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileShareDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -9388,17 +11037,17 @@ class FileShareDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         An on-premises file system dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'FileShare'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the file system.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used for the file system.
         :param str description: Dataset description.
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_name: The name of the on-premises file system. Type: string (or Expression with resultType string).
         :param Any folder_path: The path of the on-premises file system. Type: string (or Expression with resultType string).
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of the files.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of the files.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -9511,15 +11160,37 @@ class FileShareDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileSystemSinkResponse(dict):
     """
     A copy activity file system sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyBehavior":
+            suggest = "copy_behavior"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  copy_behavior: Optional[Any] = None,
@@ -9598,15 +11269,31 @@ class FileSystemSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileSystemSourceResponse(dict):
     """
     A copy activity file system source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  recursive: Optional[Any] = None,
@@ -9661,15 +11348,29 @@ class FileSystemSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FilterActivityResponse(dict):
     """
     Filter and return results from input array based on the conditions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilterActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilterActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilterActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  condition: 'outputs.ExpressionResponse',
                  items: 'outputs.ExpressionResponse',
@@ -9679,12 +11380,12 @@ class FilterActivityResponse(dict):
                  description: Optional[str] = None):
         """
         Filter and return results from input array based on the conditions.
-        :param 'ExpressionResponseArgs' condition: Condition to be used for filtering the input.
-        :param 'ExpressionResponseArgs' items: Input array on which filter should be applied.
+        :param 'ExpressionResponse' condition: Condition to be used for filtering the input.
+        :param 'ExpressionResponse' items: Input array on which filter should be applied.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         """
         pulumi.set(__self__, "condition", condition)
@@ -9745,15 +11446,33 @@ class FilterActivityResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ForEachActivityResponse(dict):
     """
     This activity is used for iterating over a collection and execute given activities.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchCount":
+            suggest = "batch_count"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "isSequential":
+            suggest = "is_sequential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ForEachActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ForEachActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ForEachActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  activities: Sequence[Any],
                  items: 'outputs.ExpressionResponse',
@@ -9765,13 +11484,13 @@ class ForEachActivityResponse(dict):
                  is_sequential: Optional[bool] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param Sequence[Union['AzureMLBatchExecutionActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'UntilActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs']] activities: List of activities to execute .
-        :param 'ExpressionResponseArgs' items: Collection to iterate.
+        :param Sequence[Union['AzureMLBatchExecutionActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'UntilActivityResponse', 'WaitActivityResponse', 'WebActivityResponse']] activities: List of activities to execute .
+        :param 'ExpressionResponse' items: Collection to iterate.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
         :param int batch_count: Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param bool is_sequential: Should the loop be executed in sequence or in parallel (max 50)
         """
@@ -9853,15 +11572,39 @@ class ForEachActivityResponse(dict):
         """
         return pulumi.get(self, "is_sequential")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FtpServerLinkedServiceResponse(dict):
     """
     A FTP server Linked Service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableServerCertificateValidation":
+            suggest = "enable_server_certificate_validation"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FtpServerLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FtpServerLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FtpServerLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -9883,13 +11626,13 @@ class FtpServerLinkedServiceResponse(dict):
                Expected value is 'FtpServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the FTP server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the FTP server.
         :param Any port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
@@ -10023,15 +11766,33 @@ class FtpServerLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GetMetadataActivityResponse(dict):
     """
     Activity to get metadata of dataset
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "fieldList":
+            suggest = "field_list"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GetMetadataActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GetMetadataActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GetMetadataActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dataset: 'outputs.DatasetReferenceResponse',
                  name: str,
@@ -10043,15 +11804,15 @@ class GetMetadataActivityResponse(dict):
                  policy: Optional['outputs.ActivityPolicyResponse'] = None):
         """
         Activity to get metadata of dataset
-        :param 'DatasetReferenceResponseArgs' dataset: GetMetadata activity dataset reference.
+        :param 'DatasetReferenceResponse' dataset: GetMetadata activity dataset reference.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Any] field_list: Fields of metadata to get from dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
@@ -10132,15 +11893,49 @@ class GetMetadataActivityResponse(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GoogleBigQueryLinkedServiceResponse(dict):
     """
     Google BigQuery service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "additionalProjects":
+            suggest = "additional_projects"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "keyFilePath":
+            suggest = "key_file_path"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "requestGoogleDriveScope":
+            suggest = "request_google_drive_scope"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GoogleBigQueryLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GoogleBigQueryLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GoogleBigQueryLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  project: Any,
@@ -10167,15 +11962,15 @@ class GoogleBigQueryLinkedServiceResponse(dict):
                Expected value is 'GoogleBigQuery'.
         :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_id: The client id of the google application used to acquire the refresh token.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of the google application used to acquire the refresh token.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_id: The client id of the google application used to acquire the refresh token.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of the google application used to acquire the refresh token.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
         :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -10349,15 +12144,29 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_system_trust_store")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GoogleBigQueryObjectDatasetResponse(dict):
     """
     Google BigQuery service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GoogleBigQueryObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GoogleBigQueryObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GoogleBigQueryObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -10367,12 +12176,12 @@ class GoogleBigQueryObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Google BigQuery service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'GoogleBigQueryObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -10435,15 +12244,31 @@ class GoogleBigQueryObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GoogleBigQuerySourceResponse(dict):
     """
     A copy activity Google BigQuery service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GoogleBigQuerySourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GoogleBigQuerySourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GoogleBigQuerySourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -10498,15 +12323,33 @@ class GoogleBigQuerySourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GreenplumLinkedServiceResponse(dict):
     """
     Greenplum Database linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GreenplumLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GreenplumLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GreenplumLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -10520,11 +12363,11 @@ class GreenplumLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Greenplum'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Greenplum')
         if annotations is not None:
@@ -10597,15 +12440,31 @@ class GreenplumLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GreenplumSourceResponse(dict):
     """
     A copy activity Greenplum Database source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GreenplumSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GreenplumSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GreenplumSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -10660,15 +12519,29 @@ class GreenplumSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GreenplumTableDatasetResponse(dict):
     """
     Greenplum Database dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GreenplumTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GreenplumTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GreenplumTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -10678,12 +12551,12 @@ class GreenplumTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Greenplum Database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'GreenplumTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -10746,15 +12619,43 @@ class GreenplumTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseLinkedServiceResponse(dict):
     """
     HBase server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "allowHostNameCNMismatch":
+            suggest = "allow_host_name_cn_mismatch"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "httpPath":
+            suggest = "http_path"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  host: Any,
@@ -10781,13 +12682,13 @@ class HBaseLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any username: The user name used to connect to the HBase instance.
@@ -10951,15 +12852,29 @@ class HBaseLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseObjectDatasetResponse(dict):
     """
     HBase server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -10969,12 +12884,12 @@ class HBaseObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         HBase server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HBaseObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -11037,15 +12952,31 @@ class HBaseObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseSourceResponse(dict):
     """
     A copy activity HBase server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -11100,15 +13031,39 @@ class HBaseSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightHiveActivityResponse(dict):
     """
     HDInsight Hive activity type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "getDebugInfo":
+            suggest = "get_debug_info"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "scriptLinkedService":
+            suggest = "script_linked_service"
+        elif key == "scriptPath":
+            suggest = "script_path"
+        elif key == "storageLinkedServices":
+            suggest = "storage_linked_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightHiveActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightHiveActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightHiveActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -11129,14 +13084,14 @@ class HDInsightHiveActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for Hive job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param 'LinkedServiceReferenceResponseArgs' script_linked_service: Script linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -11258,15 +13213,39 @@ class HDInsightHiveActivityResponse(dict):
         """
         return pulumi.get(self, "storage_linked_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightLinkedServiceResponse(dict):
     """
     HDInsight linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterUri":
+            suggest = "cluster_uri"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "hcatalogLinkedServiceName":
+            suggest = "hcatalog_linked_service_name"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_uri: Any,
                  type: str,
@@ -11285,13 +13264,13 @@ class HDInsightLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'HDInsight'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: The Azure Storage linked service reference.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: HDInsight cluster password.
+        :param 'LinkedServiceReferenceResponse' hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: The Azure Storage linked service reference.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: HDInsight cluster password.
         :param Any user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "cluster_uri", cluster_uri)
@@ -11404,15 +13383,43 @@ class HDInsightLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightMapReduceActivityResponse(dict):
     """
     HDInsight MapReduce activity type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "className":
+            suggest = "class_name"
+        elif key == "jarFilePath":
+            suggest = "jar_file_path"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "getDebugInfo":
+            suggest = "get_debug_info"
+        elif key == "jarLibs":
+            suggest = "jar_libs"
+        elif key == "jarLinkedService":
+            suggest = "jar_linked_service"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "storageLinkedServices":
+            suggest = "storage_linked_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightMapReduceActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightMapReduceActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightMapReduceActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  class_name: Any,
                  jar_file_path: Any,
@@ -11437,14 +13444,14 @@ class HDInsightMapReduceActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for the MapReduce job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
         :param Sequence[Any] jar_libs: Jar libs.
-        :param 'LinkedServiceReferenceResponseArgs' jar_linked_service: Jar linked service reference.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
+        :param 'LinkedServiceReferenceResponse' jar_linked_service: Jar linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         """
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "jar_file_path", jar_file_path)
@@ -11584,15 +13591,85 @@ class HDInsightMapReduceActivityResponse(dict):
         """
         return pulumi.get(self, "storage_linked_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightOnDemandLinkedServiceResponse(dict):
     """
     HDInsight ondemand linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterResourceGroup":
+            suggest = "cluster_resource_group"
+        elif key == "clusterSize":
+            suggest = "cluster_size"
+        elif key == "hostSubscriptionId":
+            suggest = "host_subscription_id"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+        elif key == "additionalLinkedServiceNames":
+            suggest = "additional_linked_service_names"
+        elif key == "clusterNamePrefix":
+            suggest = "cluster_name_prefix"
+        elif key == "clusterPassword":
+            suggest = "cluster_password"
+        elif key == "clusterSshPassword":
+            suggest = "cluster_ssh_password"
+        elif key == "clusterSshUserName":
+            suggest = "cluster_ssh_user_name"
+        elif key == "clusterType":
+            suggest = "cluster_type"
+        elif key == "clusterUserName":
+            suggest = "cluster_user_name"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "coreConfiguration":
+            suggest = "core_configuration"
+        elif key == "dataNodeSize":
+            suggest = "data_node_size"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "hBaseConfiguration":
+            suggest = "h_base_configuration"
+        elif key == "hcatalogLinkedServiceName":
+            suggest = "hcatalog_linked_service_name"
+        elif key == "hdfsConfiguration":
+            suggest = "hdfs_configuration"
+        elif key == "headNodeSize":
+            suggest = "head_node_size"
+        elif key == "hiveConfiguration":
+            suggest = "hive_configuration"
+        elif key == "mapReduceConfiguration":
+            suggest = "map_reduce_configuration"
+        elif key == "oozieConfiguration":
+            suggest = "oozie_configuration"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+        elif key == "sparkVersion":
+            suggest = "spark_version"
+        elif key == "stormConfiguration":
+            suggest = "storm_configuration"
+        elif key == "yarnConfiguration":
+            suggest = "yarn_configuration"
+        elif key == "zookeeperNodeSize":
+            suggest = "zookeeper_node_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightOnDemandLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightOnDemandLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightOnDemandLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_resource_group: Any,
                  cluster_size: Any,
@@ -11634,35 +13711,35 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Any cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
         :param Any host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
         :param Any tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'HDInsightOnDemand'.
         :param Any version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
-        :param Sequence['LinkedServiceReferenceResponseArgs'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
+        :param Sequence['LinkedServiceReferenceResponse'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_password: The password to access the cluster.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_password: The password to access the cluster.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
         :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
         :param Any cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
         :param Any data_node_size: Specifies the size of the data node for the HDInsight cluster.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
-        :param 'LinkedServiceReferenceResponseArgs' hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
+        :param 'LinkedServiceReferenceResponse' hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
         :param Any hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
         :param Any head_node_size: Specifies the size of the head node for the HDInsight cluster.
         :param Any hive_configuration: Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
         :param Any map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         :param Any oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key for the service principal id.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key for the service principal id.
         :param Any spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
         :param Any storm_configuration: Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
         :param Any yarn_configuration: Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
@@ -12012,15 +14089,39 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "zookeeper_node_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightPigActivityResponse(dict):
     """
     HDInsight Pig activity type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "getDebugInfo":
+            suggest = "get_debug_info"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "scriptLinkedService":
+            suggest = "script_linked_service"
+        elif key == "scriptPath":
+            suggest = "script_path"
+        elif key == "storageLinkedServices":
+            suggest = "storage_linked_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightPigActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightPigActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightPigActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -12041,14 +14142,14 @@ class HDInsightPigActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for Pig job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param 'LinkedServiceReferenceResponseArgs' script_linked_service: Script linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -12170,15 +14271,45 @@ class HDInsightPigActivityResponse(dict):
         """
         return pulumi.get(self, "storage_linked_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightSparkActivityResponse(dict):
     """
     HDInsight Spark activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entryFilePath":
+            suggest = "entry_file_path"
+        elif key == "rootPath":
+            suggest = "root_path"
+        elif key == "className":
+            suggest = "class_name"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "getDebugInfo":
+            suggest = "get_debug_info"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "proxyUser":
+            suggest = "proxy_user"
+        elif key == "sparkConfig":
+            suggest = "spark_config"
+        elif key == "sparkJobLinkedService":
+            suggest = "spark_job_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightSparkActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightSparkActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightSparkActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  entry_file_path: Any,
                  name: str,
@@ -12203,14 +14334,14 @@ class HDInsightSparkActivityResponse(dict):
                Expected value is 'Execution'.
         :param Sequence[Any] arguments: The user-specified arguments to HDInsightSparkActivity.
         :param str class_name: The application's Java/Spark main class.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any proxy_user: The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] spark_config: Spark configuration property.
-        :param 'LinkedServiceReferenceResponseArgs' spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
+        :param 'LinkedServiceReferenceResponse' spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
         """
         pulumi.set(__self__, "entry_file_path", entry_file_path)
         pulumi.set(__self__, "name", name)
@@ -12350,15 +14481,41 @@ class HDInsightSparkActivityResponse(dict):
         """
         return pulumi.get(self, "spark_job_linked_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightStreamingActivityResponse(dict):
     """
     HDInsight streaming activity type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePaths":
+            suggest = "file_paths"
+        elif key == "commandEnvironment":
+            suggest = "command_environment"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "fileLinkedService":
+            suggest = "file_linked_service"
+        elif key == "getDebugInfo":
+            suggest = "get_debug_info"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "storageLinkedServices":
+            suggest = "storage_linked_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightStreamingActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightStreamingActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightStreamingActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_paths: Sequence[Any],
                  input: Any,
@@ -12392,13 +14549,13 @@ class HDInsightStreamingActivityResponse(dict):
         :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
         :param Sequence[Any] command_environment: Command line environment values.
         :param Mapping[str, Any] defines: Allows user to specify defines for streaming job request.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'LinkedServiceReferenceResponseArgs' file_linked_service: Linked service reference where the files are located.
+        :param 'LinkedServiceReferenceResponse' file_linked_service: Linked service reference where the files are located.
         :param str get_debug_info: Debug info option.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] storage_linked_services: Storage linked service references.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         """
         pulumi.set(__self__, "file_paths", file_paths)
         pulumi.set(__self__, "input", input)
@@ -12575,15 +14732,35 @@ class HDInsightStreamingActivityResponse(dict):
         """
         return pulumi.get(self, "storage_linked_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HdfsLinkedServiceResponse(dict):
     """
     Hadoop Distributed File System (HDFS) linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HdfsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HdfsLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HdfsLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: Any,
@@ -12602,11 +14779,11 @@ class HdfsLinkedServiceResponse(dict):
         :param Any url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Windows authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Windows authentication.
         :param Any user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Hdfs')
@@ -12709,15 +14886,33 @@ class HdfsLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HdfsSourceResponse(dict):
     """
     A copy activity HDFS source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distcpSettings":
+            suggest = "distcp_settings"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HdfsSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HdfsSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HdfsSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  distcp_settings: Optional['outputs.DistcpSettingsResponse'] = None,
@@ -12728,7 +14923,7 @@ class HdfsSourceResponse(dict):
         A copy activity HDFS source.
         :param str type: Copy source type.
                Expected value is 'HdfsSource'.
-        :param 'DistcpSettingsResponseArgs' distcp_settings: Specifies Distcp-related settings.
+        :param 'DistcpSettingsResponse' distcp_settings: Specifies Distcp-related settings.
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -12784,15 +14979,55 @@ class HdfsSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HiveLinkedServiceResponse(dict):
     """
     Hive Server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "allowHostNameCNMismatch":
+            suggest = "allow_host_name_cn_mismatch"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "httpPath":
+            suggest = "http_path"
+        elif key == "serverType":
+            suggest = "server_type"
+        elif key == "serviceDiscoveryMode":
+            suggest = "service_discovery_mode"
+        elif key == "thriftTransportProtocol":
+            suggest = "thrift_transport_protocol"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useNativeQuery":
+            suggest = "use_native_query"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
+        elif key == "zooKeeperNameSpace":
+            suggest = "zoo_keeper_name_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HiveLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HiveLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HiveLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  host: Any,
@@ -12825,13 +15060,13 @@ class HiveLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the Hive server.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the Username field
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the Username field
         :param Any port: The TCP port that the Hive server uses to listen for client connections.
         :param str server_type: The type of Hive server.
         :param Any service_discovery_mode: true to indicate using the ZooKeeper service, false not.
@@ -13061,15 +15296,29 @@ class HiveLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "zoo_keeper_name_space")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HiveObjectDatasetResponse(dict):
     """
     Hive Server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HiveObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HiveObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HiveObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -13079,12 +15328,12 @@ class HiveObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Hive Server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HiveObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -13147,15 +15396,31 @@ class HiveObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HiveSourceResponse(dict):
     """
     A copy activity Hive Server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HiveSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HiveSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HiveSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -13210,15 +15475,37 @@ class HiveSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpDatasetResponse(dict):
     """
     A file in an HTTP web server.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "additionalHeaders":
+            suggest = "additional_headers"
+        elif key == "relativeUrl":
+            suggest = "relative_url"
+        elif key == "requestBody":
+            suggest = "request_body"
+        elif key == "requestMethod":
+            suggest = "request_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -13234,17 +15521,17 @@ class HttpDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         A file in an HTTP web server.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HttpFile'.
         :param Any additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used on files.
+        :param Union['DatasetBZip2CompressionResponse', 'DatasetDeflateCompressionResponse', 'DatasetGZipCompressionResponse', 'DatasetZipDeflateCompressionResponse'] compression: The data compression method used on files.
         :param str description: Dataset description.
-        :param Union['AvroFormatResponseArgs', 'JsonFormatResponseArgs', 'OrcFormatResponseArgs', 'ParquetFormatResponseArgs', 'TextFormatResponseArgs'] format: The format of files.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Union['AvroFormatResponse', 'JsonFormatResponse', 'OrcFormatResponse', 'ParquetFormatResponse', 'TextFormatResponse'] format: The format of files.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
         :param Any request_body: The body for the HTTP request. Type: string (or Expression with resultType string).
         :param Any request_method: The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
@@ -13372,15 +15659,41 @@ class HttpDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpLinkedServiceResponse(dict):
     """
     Linked service for an HTTP source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "certThumbprint":
+            suggest = "cert_thumbprint"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "embeddedCertData":
+            suggest = "embedded_cert_data"
+        elif key == "enableServerCertificateValidation":
+            suggest = "enable_server_certificate_validation"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: Any,
@@ -13403,13 +15716,13 @@ class HttpLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
         :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param Any enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
         :param Any user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'HttpServer')
@@ -13542,15 +15855,33 @@ class HttpLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpSourceResponse(dict):
     """
     A copy activity source for an HTTP file.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpRequestTimeout":
+            suggest = "http_request_timeout"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  http_request_timeout: Optional[Any] = None,
@@ -13605,15 +15936,45 @@ class HttpSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubspotLinkedServiceResponse(dict):
     """
     Hubspot Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubspotLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubspotLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubspotLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  type: str,
@@ -13633,14 +15994,14 @@ class HubspotLinkedServiceResponse(dict):
         :param Any client_id: The client ID associated with your Hubspot application.
         :param str type: Type of linked service.
                Expected value is 'Hubspot'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token obtained when initially authenticating your OAuth integration.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token obtained when initially authenticating your OAuth integration.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Hubspot application.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your Hubspot application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -13775,15 +16136,29 @@ class HubspotLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubspotObjectDatasetResponse(dict):
     """
     Hubspot Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubspotObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubspotObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubspotObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -13793,12 +16168,12 @@ class HubspotObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Hubspot Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'HubspotObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -13861,15 +16236,31 @@ class HubspotObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubspotSourceResponse(dict):
     """
     A copy activity Hubspot Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubspotSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubspotSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubspotSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -13924,15 +16315,33 @@ class HubspotSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IfConditionActivityResponse(dict):
     """
     This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "ifFalseActivities":
+            suggest = "if_false_activities"
+        elif key == "ifTrueActivities":
+            suggest = "if_true_activities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IfConditionActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IfConditionActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IfConditionActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: 'outputs.ExpressionResponse',
                  name: str,
@@ -13943,14 +16352,14 @@ class IfConditionActivityResponse(dict):
                  if_true_activities: Optional[Sequence[Any]] = None):
         """
         This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
-        :param 'ExpressionResponseArgs' expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
+        :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence[Union['AzureMLBatchExecutionActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'UntilActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence[Union['AzureMLBatchExecutionActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'UntilActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AzureMLBatchExecutionActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'UntilActivityResponse', 'WaitActivityResponse', 'WebActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AzureMLBatchExecutionActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'UntilActivityResponse', 'WaitActivityResponse', 'WebActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -14021,15 +16430,43 @@ class IfConditionActivityResponse(dict):
         """
         return pulumi.get(self, "if_true_activities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImpalaLinkedServiceResponse(dict):
     """
     Impala server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "allowHostNameCNMismatch":
+            suggest = "allow_host_name_cn_mismatch"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImpalaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImpalaLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImpalaLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  host: Any,
@@ -14056,12 +16493,12 @@ class ImpalaLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name when using UsernameAndPassword.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name when using UsernameAndPassword.
         :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -14226,15 +16663,29 @@ class ImpalaLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImpalaObjectDatasetResponse(dict):
     """
     Impala server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImpalaObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImpalaObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImpalaObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -14244,12 +16695,12 @@ class ImpalaObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Impala server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ImpalaObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -14312,15 +16763,31 @@ class ImpalaObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImpalaSourceResponse(dict):
     """
     A copy activity Impala server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImpalaSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImpalaSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImpalaSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -14375,15 +16842,35 @@ class ImpalaSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeComputePropertiesResponse(dict):
     """
     The compute resource properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxParallelExecutionsPerNode":
+            suggest = "max_parallel_executions_per_node"
+        elif key == "nodeSize":
+            suggest = "node_size"
+        elif key == "numberOfNodes":
+            suggest = "number_of_nodes"
+        elif key == "vNetProperties":
+            suggest = "v_net_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeComputePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeComputePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeComputePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: Optional[str] = None,
                  max_parallel_executions_per_node: Optional[int] = None,
@@ -14396,7 +16883,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
         :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
         :param int number_of_nodes: The required number of nodes for managed integration runtime.
-        :param 'IntegrationRuntimeVNetPropertiesResponseArgs' v_net_properties: VNet properties for managed integration runtime.
+        :param 'IntegrationRuntimeVNetPropertiesResponse' v_net_properties: VNet properties for managed integration runtime.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -14449,22 +16936,38 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
         """
         return pulumi.get(self, "v_net_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
     """
     Custom setup script properties for a managed dedicated integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobContainerUri":
+            suggest = "blob_container_uri"
+        elif key == "sasToken":
+            suggest = "sas_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeCustomSetupScriptPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeCustomSetupScriptPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeCustomSetupScriptPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_container_uri: Optional[str] = None,
                  sas_token: Optional['outputs.SecureStringResponse'] = None):
         """
         Custom setup script properties for a managed dedicated integration runtime.
         :param str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
-        :param 'SecureStringResponseArgs' sas_token: The SAS token of the Azure blob container.
+        :param 'SecureStringResponse' sas_token: The SAS token of the Azure blob container.
         """
         if blob_container_uri is not None:
             pulumi.set(__self__, "blob_container_uri", blob_container_uri)
@@ -14487,24 +16990,40 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         """
         return pulumi.get(self, "sas_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeDataProxyPropertiesResponse(dict):
     """
     Data proxy properties for a managed dedicated integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "stagingLinkedService":
+            suggest = "staging_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeDataProxyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeDataProxyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeDataProxyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connect_via: Optional['outputs.EntityReferenceResponse'] = None,
                  path: Optional[str] = None,
                  staging_linked_service: Optional['outputs.EntityReferenceResponse'] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
-        :param 'EntityReferenceResponseArgs' connect_via: The self-hosted integration runtime reference.
+        :param 'EntityReferenceResponse' connect_via: The self-hosted integration runtime reference.
         :param str path: The path to contain the staged data in the Blob storage.
-        :param 'EntityReferenceResponseArgs' staging_linked_service: The staging linked service reference.
+        :param 'EntityReferenceResponse' staging_linked_service: The staging linked service reference.
         """
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
@@ -14537,15 +17056,29 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
         """
         return pulumi.get(self, "staging_linked_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeReferenceResponse(dict):
     """
     Integration runtime reference type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
@@ -14585,15 +17118,35 @@ class IntegrationRuntimeReferenceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisCatalogInfoResponse(dict):
     """
     Catalog information for managed dedicated integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogAdminPassword":
+            suggest = "catalog_admin_password"
+        elif key == "catalogAdminUserName":
+            suggest = "catalog_admin_user_name"
+        elif key == "catalogPricingTier":
+            suggest = "catalog_pricing_tier"
+        elif key == "catalogServerEndpoint":
+            suggest = "catalog_server_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisCatalogInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisCatalogInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisCatalogInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_admin_password: Optional['outputs.SecureStringResponse'] = None,
                  catalog_admin_user_name: Optional[str] = None,
@@ -14601,7 +17154,7 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  catalog_server_endpoint: Optional[str] = None):
         """
         Catalog information for managed dedicated integration runtime.
-        :param 'SecureStringResponseArgs' catalog_admin_password: The password of the administrator user account of the catalog database.
+        :param 'SecureStringResponse' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param str catalog_admin_user_name: The administrator user name of catalog database.
         :param str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param str catalog_server_endpoint: The catalog database server URL.
@@ -14647,15 +17200,35 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
         """
         return pulumi.get(self, "catalog_server_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisPropertiesResponse(dict):
     """
     SSIS properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogInfo":
+            suggest = "catalog_info"
+        elif key == "customSetupScriptProperties":
+            suggest = "custom_setup_script_properties"
+        elif key == "dataProxyProperties":
+            suggest = "data_proxy_properties"
+        elif key == "licenseType":
+            suggest = "license_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_info: Optional['outputs.IntegrationRuntimeSsisCatalogInfoResponse'] = None,
                  custom_setup_script_properties: Optional['outputs.IntegrationRuntimeCustomSetupScriptPropertiesResponse'] = None,
@@ -14664,9 +17237,9 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  license_type: Optional[str] = None):
         """
         SSIS properties for managed integration runtime.
-        :param 'IntegrationRuntimeSsisCatalogInfoResponseArgs' catalog_info: Catalog information for managed dedicated integration runtime.
-        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
-        :param 'IntegrationRuntimeDataProxyPropertiesResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeSsisCatalogInfoResponse' catalog_info: Catalog information for managed dedicated integration runtime.
+        :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponse' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
+        :param 'IntegrationRuntimeDataProxyPropertiesResponse' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param str edition: The edition for the SSIS Integration Runtime
         :param str license_type: License type for bringing your own license scenario.
         """
@@ -14721,15 +17294,29 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
         """
         return pulumi.get(self, "license_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeVNetPropertiesResponse(dict):
     """
     VNet properties for managed integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vNetId":
+            suggest = "v_net_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeVNetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeVNetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeVNetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet: Optional[str] = None,
                  v_net_id: Optional[str] = None):
@@ -14759,15 +17346,37 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         """
         return pulumi.get(self, "v_net_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JiraLinkedServiceResponse(dict):
     """
     Jira Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JiraLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JiraLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JiraLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -14789,11 +17398,11 @@ class JiraLinkedServiceResponse(dict):
                Expected value is 'Jira'.
         :param Any username: The user name that you use to access Jira Service.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username field.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username field.
         :param Any port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -14928,15 +17537,29 @@ class JiraLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JiraObjectDatasetResponse(dict):
     """
     Jira Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JiraObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JiraObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JiraObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -14946,12 +17569,12 @@ class JiraObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Jira Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'JiraObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -15014,15 +17637,31 @@ class JiraObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JiraSourceResponse(dict):
     """
     A copy activity Jira Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JiraSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JiraSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JiraSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -15077,15 +17716,37 @@ class JiraSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JsonFormatResponse(dict):
     """
     The data stored in JSON format.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodingName":
+            suggest = "encoding_name"
+        elif key == "filePattern":
+            suggest = "file_pattern"
+        elif key == "jsonNodeReference":
+            suggest = "json_node_reference"
+        elif key == "jsonPathDefinition":
+            suggest = "json_path_definition"
+        elif key == "nestingSeparator":
+            suggest = "nesting_separator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  deserializer: Optional[Any] = None,
@@ -15188,15 +17849,29 @@ class JsonFormatResponse(dict):
         """
         return pulumi.get(self, "serializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedIntegrationRuntimeKeyResponse(dict):
     """
     The base definition of a secret type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedIntegrationRuntimeKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedIntegrationRuntimeKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedIntegrationRuntimeKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_type: str,
                  key: 'outputs.SecureStringResponse'):
@@ -15204,7 +17879,7 @@ class LinkedIntegrationRuntimeKeyResponse(dict):
         The base definition of a secret type.
         :param str authorization_type: Type of the secret.
                Expected value is 'Key'.
-        :param 'SecureStringResponseArgs' key: Type of the secret.
+        :param 'SecureStringResponse' key: Type of the secret.
         """
         pulumi.set(__self__, "authorization_type", 'Key')
         pulumi.set(__self__, "key", key)
@@ -15226,15 +17901,31 @@ class LinkedIntegrationRuntimeKeyResponse(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedIntegrationRuntimeRbacResponse(dict):
     """
     The base definition of a secret type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedIntegrationRuntimeRbacResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedIntegrationRuntimeRbacResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedIntegrationRuntimeRbacResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_type: str,
                  resource_id: str):
@@ -15264,12 +17955,9 @@ class LinkedIntegrationRuntimeRbacResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class LinkedIntegrationRuntimeResponseResult(dict):
+class LinkedIntegrationRuntimeResponse(dict):
     """
     The linked integration runtime information.
     """
@@ -15339,6 +18027,23 @@ class LinkedServiceReferenceResponse(dict):
     """
     Linked service reference type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
@@ -15378,15 +18083,33 @@ class LinkedServiceReferenceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LookupActivityResponse(dict):
     """
     Lookup activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "firstRowOnly":
+            suggest = "first_row_only"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LookupActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LookupActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LookupActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dataset: 'outputs.DatasetReferenceResponse',
                  name: str,
@@ -15399,16 +18122,16 @@ class LookupActivityResponse(dict):
                  policy: Optional['outputs.ActivityPolicyResponse'] = None):
         """
         Lookup activity.
-        :param 'DatasetReferenceResponseArgs' dataset: Lookup activity dataset reference.
+        :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponseArgs', 'AmazonRedshiftSourceResponseArgs', 'AzureDataLakeStoreSourceResponseArgs', 'AzureMySqlSourceResponseArgs', 'AzurePostgreSqlSourceResponseArgs', 'AzureTableSourceResponseArgs', 'BlobSourceResponseArgs', 'CassandraSourceResponseArgs', 'ConcurSourceResponseArgs', 'CouchbaseSourceResponseArgs', 'DocumentDbCollectionSourceResponseArgs', 'DrillSourceResponseArgs', 'DynamicsSourceResponseArgs', 'EloquaSourceResponseArgs', 'FileSystemSourceResponseArgs', 'GoogleBigQuerySourceResponseArgs', 'GreenplumSourceResponseArgs', 'HBaseSourceResponseArgs', 'HdfsSourceResponseArgs', 'HiveSourceResponseArgs', 'HttpSourceResponseArgs', 'HubspotSourceResponseArgs', 'ImpalaSourceResponseArgs', 'JiraSourceResponseArgs', 'MagentoSourceResponseArgs', 'MariaDBSourceResponseArgs', 'MarketoSourceResponseArgs', 'MongoDbSourceResponseArgs', 'NetezzaSourceResponseArgs', 'OracleSourceResponseArgs', 'PaypalSourceResponseArgs', 'PhoenixSourceResponseArgs', 'PrestoSourceResponseArgs', 'QuickBooksSourceResponseArgs', 'RelationalSourceResponseArgs', 'ResponsysSourceResponseArgs', 'SalesforceMarketingCloudSourceResponseArgs', 'SalesforceSourceResponseArgs', 'SapCloudForCustomerSourceResponseArgs', 'SapEccSourceResponseArgs', 'ServiceNowSourceResponseArgs', 'ShopifySourceResponseArgs', 'SparkSourceResponseArgs', 'SqlDWSourceResponseArgs', 'SqlSourceResponseArgs', 'SquareSourceResponseArgs', 'VerticaSourceResponseArgs', 'WebSourceResponseArgs', 'XeroSourceResponseArgs', 'ZohoSourceResponseArgs'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRedshiftSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureTableSourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'ConcurSourceResponse', 'CouchbaseSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'FileSystemSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'JiraSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MongoDbSourceResponse', 'NetezzaSourceResponse', 'OracleSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'ServiceNowSourceResponse', 'ShopifySourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any first_row_only: Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
@@ -15498,15 +18221,39 @@ class LookupActivityResponse(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MagentoLinkedServiceResponse(dict):
     """
     Magento server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MagentoLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MagentoLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MagentoLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -15524,12 +18271,12 @@ class MagentoLinkedServiceResponse(dict):
         :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param str type: Type of linked service.
                Expected value is 'Magento'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token from Magento.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token from Magento.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -15644,15 +18391,29 @@ class MagentoLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MagentoObjectDatasetResponse(dict):
     """
     Magento server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MagentoObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MagentoObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MagentoObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -15662,12 +18423,12 @@ class MagentoObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Magento server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MagentoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -15730,15 +18491,31 @@ class MagentoObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MagentoSourceResponse(dict):
     """
     A copy activity Magento server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MagentoSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MagentoSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MagentoSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -15793,12 +18570,9 @@ class MagentoSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeErrorResponseResult(dict):
+class ManagedIntegrationRuntimeErrorResponse(dict):
     """
     Error definition for managed integration runtime.
     """
@@ -15853,19 +18627,19 @@ class ManagedIntegrationRuntimeErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeNodeResponseResult(dict):
+class ManagedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of integration runtime node.
     """
     def __init__(__self__, *,
                  node_id: str,
                  status: str,
-                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']] = None):
         """
         Properties of integration runtime node.
         :param str node_id: The managed integration runtime node id.
         :param str status: The managed integration runtime node status.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] errors: The errors that occurred on this integration runtime node.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] errors: The errors that occurred on this integration runtime node.
         """
         pulumi.set(__self__, "node_id", node_id)
         pulumi.set(__self__, "status", status)
@@ -15890,7 +18664,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']]:
         """
         The errors that occurred on this integration runtime node.
         """
@@ -15898,7 +18672,7 @@ class ManagedIntegrationRuntimeNodeResponseResult(dict):
 
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeOperationResultResponseResult(dict):
+class ManagedIntegrationRuntimeOperationResultResponse(dict):
     """
     Properties of managed integration runtime operation result.
     """
@@ -15979,6 +18753,25 @@ class ManagedIntegrationRuntimeResponse(dict):
     """
     Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeProperties":
+            suggest = "compute_properties"
+        elif key == "ssisProperties":
+            suggest = "ssis_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIntegrationRuntimeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIntegrationRuntimeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIntegrationRuntimeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  state: str,
                  type: str,
@@ -15990,9 +18783,9 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
-        :param 'IntegrationRuntimeComputePropertiesResponseArgs' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
-        :param 'IntegrationRuntimeSsisPropertiesResponseArgs' ssis_properties: SSIS properties for managed integration runtime.
+        :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "type", 'Managed')
@@ -16044,30 +18837,27 @@ class ManagedIntegrationRuntimeResponse(dict):
         """
         return pulumi.get(self, "ssis_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ManagedIntegrationRuntimeStatusResponseResult(dict):
+class ManagedIntegrationRuntimeStatusResponse(dict):
     """
     Managed integration runtime status.
     """
     def __init__(__self__, *,
                  create_time: str,
                  data_factory_name: str,
-                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult',
-                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult'],
-                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult'],
+                 last_operation: 'outputs.ManagedIntegrationRuntimeOperationResultResponse',
+                 nodes: Sequence['outputs.ManagedIntegrationRuntimeNodeResponse'],
+                 other_errors: Sequence['outputs.ManagedIntegrationRuntimeErrorResponse'],
                  state: str,
                  type: Optional[str] = None):
         """
         Managed integration runtime status.
         :param str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param str data_factory_name: The data factory name which the integration runtime belong to.
-        :param 'ManagedIntegrationRuntimeOperationResultResponseArgs' last_operation: The last operation result that occurred on this integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for managed integration runtime.
-        :param Sequence['ManagedIntegrationRuntimeErrorResponseArgs'] other_errors: The errors that occurred on this integration runtime.
+        :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
+        :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'Managed'.
@@ -16099,7 +18889,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="lastOperation")
-    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponseResult':
+    def last_operation(self) -> 'outputs.ManagedIntegrationRuntimeOperationResultResponse':
         """
         The last operation result that occurred on this integration runtime.
         """
@@ -16107,7 +18897,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponseResult']:
+    def nodes(self) -> Sequence['outputs.ManagedIntegrationRuntimeNodeResponse']:
         """
         The list of nodes for managed integration runtime.
         """
@@ -16115,7 +18905,7 @@ class ManagedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter(name="otherErrors")
-    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponseResult']:
+    def other_errors(self) -> Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']:
         """
         The errors that occurred on this integration runtime.
         """
@@ -16144,6 +18934,27 @@ class MariaDBLinkedServiceResponse(dict):
     """
     MariaDB server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MariaDBLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MariaDBLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MariaDBLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -16157,11 +18968,11 @@ class MariaDBLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'MariaDB'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'MariaDB')
         if annotations is not None:
@@ -16234,15 +19045,31 @@ class MariaDBLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MariaDBSourceResponse(dict):
     """
     A copy activity MariaDB server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MariaDBSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MariaDBSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MariaDBSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -16297,15 +19124,29 @@ class MariaDBSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MariaDBTableDatasetResponse(dict):
     """
     MariaDB server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MariaDBTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MariaDBTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MariaDBTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -16315,12 +19156,12 @@ class MariaDBTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         MariaDB server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MariaDBTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -16383,15 +19224,41 @@ class MariaDBTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MarketoLinkedServiceResponse(dict):
     """
     Marketo server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketoLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketoLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketoLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  endpoint: Any,
@@ -16412,11 +19279,11 @@ class MarketoLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Marketo'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of your Marketo service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of your Marketo service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -16540,15 +19407,29 @@ class MarketoLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MarketoObjectDatasetResponse(dict):
     """
     Marketo server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketoObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketoObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketoObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -16558,12 +19439,12 @@ class MarketoObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Marketo server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MarketoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -16626,15 +19507,31 @@ class MarketoObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MarketoSourceResponse(dict):
     """
     A copy activity Marketo server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketoSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketoSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketoSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -16689,15 +19586,31 @@ class MarketoSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MongoDbCollectionDatasetResponse(dict):
     """
     The MongoDB database dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionName":
+            suggest = "collection_name"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoDbCollectionDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoDbCollectionDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoDbCollectionDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  collection_name: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
@@ -16709,12 +19622,12 @@ class MongoDbCollectionDatasetResponse(dict):
         """
         The MongoDB database dataset.
         :param Any collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'MongoDbCollection'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "collection_name", collection_name)
@@ -16786,15 +19699,41 @@ class MongoDbCollectionDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MongoDbLinkedServiceResponse(dict):
     """
     Linked service for MongoDb data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "authSource":
+            suggest = "auth_source"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoDbLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoDbLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoDbLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: Any,
                  server: Any,
@@ -16821,12 +19760,12 @@ class MongoDbLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
         :param str authentication_type: The authentication type to be used to connect to the MongoDB database.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -16979,15 +19918,31 @@ class MongoDbLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MongoDbSourceResponse(dict):
     """
     A copy activity source for a MongoDB database.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoDbSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoDbSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoDbSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -17042,15 +19997,29 @@ class MongoDbSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MultiplePipelineTriggerResponse(dict):
     """
     Base class for all triggers that support one to many model for trigger to pipeline.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeState":
+            suggest = "runtime_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiplePipelineTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiplePipelineTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiplePipelineTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  runtime_state: str,
                  type: str,
@@ -17062,7 +20031,7 @@ class MultiplePipelineTriggerResponse(dict):
         :param str type: Trigger type.
                Expected value is 'MultiplePipelineTrigger'.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "runtime_state", runtime_state)
         pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
@@ -17104,15 +20073,33 @@ class MultiplePipelineTriggerResponse(dict):
         """
         return pulumi.get(self, "pipelines")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MySqlLinkedServiceResponse(dict):
     """
     Linked service for MySQL data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MySqlLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MySqlLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MySqlLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -17123,14 +20110,14 @@ class MySqlLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for MySQL data source.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] connection_string: The connection string.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] connection_string: The connection string.
         :param str type: Type of linked service.
                Expected value is 'MySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'MySql')
@@ -17202,15 +20189,33 @@ class MySqlLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetezzaLinkedServiceResponse(dict):
     """
     Netezza linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetezzaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetezzaLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetezzaLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -17224,11 +20229,11 @@ class NetezzaLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Netezza'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Netezza')
         if annotations is not None:
@@ -17301,15 +20306,31 @@ class NetezzaLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetezzaSourceResponse(dict):
     """
     A copy activity Netezza source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetezzaSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetezzaSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetezzaSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -17364,15 +20385,29 @@ class NetezzaSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetezzaTableDatasetResponse(dict):
     """
     Netezza dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetezzaTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetezzaTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetezzaTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -17382,12 +20417,12 @@ class NetezzaTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Netezza dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'NetezzaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -17450,15 +20485,35 @@ class NetezzaTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ODataLinkedServiceResponse(dict):
     """
     Open Data Protocol (OData) linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ODataLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ODataLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ODataLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: Any,
@@ -17477,11 +20532,11 @@ class ODataLinkedServiceResponse(dict):
         :param Any url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: Type of authentication used to connect to the OData service.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password of the OData service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password of the OData service.
         :param Any user_name: User name of the OData service. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'OData')
@@ -17584,15 +20639,29 @@ class ODataLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ODataResourceDatasetResponse(dict):
     """
     The Open Data Protocol (OData) resource dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ODataResourceDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ODataResourceDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ODataResourceDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -17603,12 +20672,12 @@ class ODataResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Open Data Protocol (OData) resource dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ODataResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any path: The OData resource path. Type: string (or Expression with resultType string).
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -17682,15 +20751,37 @@ class ODataResourceDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OdbcLinkedServiceResponse(dict):
     """
     Open Database Connectivity (ODBC) linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OdbcLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OdbcLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OdbcLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -17710,12 +20801,12 @@ class OdbcLinkedServiceResponse(dict):
                Expected value is 'Odbc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -17828,15 +20919,37 @@ class OdbcLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OdbcSinkResponse(dict):
     """
     A copy activity ODBC sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preCopyScript":
+            suggest = "pre_copy_script"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OdbcSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OdbcSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OdbcSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  pre_copy_script: Optional[Any] = None,
@@ -17915,15 +21028,33 @@ class OdbcSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OracleLinkedServiceResponse(dict):
     """
     Oracle database.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OracleLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OracleLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OracleLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -17938,10 +21069,10 @@ class OracleLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Oracle')
@@ -18013,15 +21144,37 @@ class OracleLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OracleSinkResponse(dict):
     """
     A copy activity Oracle sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preCopyScript":
+            suggest = "pre_copy_script"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OracleSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OracleSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OracleSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  pre_copy_script: Optional[Any] = None,
@@ -18100,15 +21253,35 @@ class OracleSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OracleSourceResponse(dict):
     """
     A copy activity Oracle source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oracleReaderQuery":
+            suggest = "oracle_reader_query"
+        elif key == "queryTimeout":
+            suggest = "query_timeout"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OracleSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OracleSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OracleSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  oracle_reader_query: Optional[Any] = None,
@@ -18175,15 +21348,31 @@ class OracleSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OracleTableDatasetResponse(dict):
     """
     The on-premises Oracle database dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OracleTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OracleTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OracleTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Any,
@@ -18194,13 +21383,13 @@ class OracleTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The on-premises Oracle database dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'OracleTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -18272,9 +21461,6 @@ class OracleTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrcFormatResponse(dict):
@@ -18323,15 +21509,29 @@ class OrcFormatResponse(dict):
         """
         return pulumi.get(self, "serializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterSpecificationResponse(dict):
     """
     Definition of a single parameter for an entity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterSpecificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterSpecificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterSpecificationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  default_value: Optional[Any] = None):
@@ -18359,9 +21559,6 @@ class ParameterSpecificationResponse(dict):
         Default value of parameter.
         """
         return pulumi.get(self, "default_value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18411,15 +21608,41 @@ class ParquetFormatResponse(dict):
         """
         return pulumi.get(self, "serializer")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PaypalLinkedServiceResponse(dict):
     """
     Paypal Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaypalLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaypalLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaypalLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  host: Any,
@@ -18440,11 +21663,11 @@ class PaypalLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Paypal'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your PayPal application.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your PayPal application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -18568,15 +21791,29 @@ class PaypalLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PaypalObjectDatasetResponse(dict):
     """
     Paypal Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaypalObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaypalObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaypalObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -18586,12 +21823,12 @@ class PaypalObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Paypal Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PaypalObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -18654,15 +21891,31 @@ class PaypalObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PaypalSourceResponse(dict):
     """
     A copy activity Paypal Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PaypalSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PaypalSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PaypalSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -18717,15 +21970,45 @@ class PaypalSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PhoenixLinkedServiceResponse(dict):
     """
     Phoenix server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "allowHostNameCNMismatch":
+            suggest = "allow_host_name_cn_mismatch"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "httpPath":
+            suggest = "http_path"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhoenixLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhoenixLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhoenixLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  host: Any,
@@ -18753,13 +22036,13 @@ class PhoenixLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -18934,15 +22217,29 @@ class PhoenixLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PhoenixObjectDatasetResponse(dict):
     """
     Phoenix server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhoenixObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhoenixObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhoenixObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -18952,12 +22249,12 @@ class PhoenixObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Phoenix server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PhoenixObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -19020,15 +22317,31 @@ class PhoenixObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PhoenixSourceResponse(dict):
     """
     A copy activity Phoenix server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhoenixSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhoenixSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhoenixSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -19083,15 +22396,29 @@ class PhoenixSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineReferenceResponse(dict):
     """
     Pipeline reference type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceName":
+            suggest = "reference_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
@@ -19131,15 +22458,35 @@ class PipelineReferenceResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolybaseSettingsResponse(dict):
     """
     PolyBase settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rejectSampleValue":
+            suggest = "reject_sample_value"
+        elif key == "rejectType":
+            suggest = "reject_type"
+        elif key == "rejectValue":
+            suggest = "reject_value"
+        elif key == "useTypeDefault":
+            suggest = "use_type_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolybaseSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolybaseSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolybaseSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  reject_sample_value: Optional[Any] = None,
                  reject_type: Optional[str] = None,
@@ -19193,15 +22540,33 @@ class PolybaseSettingsResponse(dict):
         """
         return pulumi.get(self, "use_type_default")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PostgreSqlLinkedServiceResponse(dict):
     """
     Linked service for PostgreSQL data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PostgreSqlLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PostgreSqlLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PostgreSqlLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -19212,14 +22577,14 @@ class PostgreSqlLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for PostgreSQL data source.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] connection_string: The connection string.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] connection_string: The connection string.
         :param str type: Type of linked service.
                Expected value is 'PostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'PostgreSql')
@@ -19291,15 +22656,47 @@ class PostgreSqlLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrestoLinkedServiceResponse(dict):
     """
     Presto server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "serverVersion":
+            suggest = "server_version"
+        elif key == "allowHostNameCNMismatch":
+            suggest = "allow_host_name_cn_mismatch"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "timeZoneID":
+            suggest = "time_zone_id"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrestoLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrestoLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrestoLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  catalog: Any,
@@ -19331,12 +22728,12 @@ class PrestoLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
         :param Any time_zone_id: The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
@@ -19530,15 +22927,29 @@ class PrestoLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrestoObjectDatasetResponse(dict):
     """
     Presto server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrestoObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrestoObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrestoObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -19548,12 +22959,12 @@ class PrestoObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Presto server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'PrestoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -19616,15 +23027,31 @@ class PrestoObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrestoSourceResponse(dict):
     """
     A copy activity Presto server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrestoSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrestoSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrestoSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -19679,15 +23106,43 @@ class PrestoSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class QuickBooksLinkedServiceResponse(dict):
     """
     QuickBooks server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "accessTokenSecret":
+            suggest = "access_token_secret"
+        elif key == "companyId":
+            suggest = "company_id"
+        elif key == "consumerKey":
+            suggest = "consumer_key"
+        elif key == "consumerSecret":
+            suggest = "consumer_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickBooksLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickBooksLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickBooksLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_token: Any,
                  access_token_secret: Any,
@@ -19704,19 +23159,19 @@ class QuickBooksLinkedServiceResponse(dict):
                  use_encrypted_endpoints: Optional[Any] = None):
         """
         QuickBooks server linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for OAuth 1.0 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token_secret: The access token secret for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token_secret: The access token secret for OAuth 1.0 authentication.
         :param Any company_id: The company ID of the QuickBooks company to authorize.
         :param Any consumer_key: The consumer key for OAuth 1.0 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
         :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param str type: Type of linked service.
                Expected value is 'QuickBooks'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         pulumi.set(__self__, "access_token", access_token)
@@ -19844,15 +23299,29 @@ class QuickBooksLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_encrypted_endpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class QuickBooksObjectDatasetResponse(dict):
     """
     QuickBooks server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickBooksObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickBooksObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickBooksObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -19862,12 +23331,12 @@ class QuickBooksObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         QuickBooks server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'QuickBooksObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -19930,15 +23399,31 @@ class QuickBooksObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class QuickBooksSourceResponse(dict):
     """
     A copy activity QuickBooks server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickBooksSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickBooksSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickBooksSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -19993,9 +23478,6 @@ class QuickBooksSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecurrenceScheduleOccurrenceResponse(dict):
@@ -20031,15 +23513,33 @@ class RecurrenceScheduleOccurrenceResponse(dict):
         """
         return pulumi.get(self, "occurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecurrenceScheduleResponse(dict):
     """
     The recurrence schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthDays":
+            suggest = "month_days"
+        elif key == "monthlyOccurrences":
+            suggest = "monthly_occurrences"
+        elif key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecurrenceScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecurrenceScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecurrenceScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hours: Optional[Sequence[int]] = None,
                  minutes: Optional[Sequence[int]] = None,
@@ -20051,7 +23551,7 @@ class RecurrenceScheduleResponse(dict):
         :param Sequence[int] hours: The hours.
         :param Sequence[int] minutes: The minutes.
         :param Sequence[int] month_days: The month days.
-        :param Sequence['RecurrenceScheduleOccurrenceResponseArgs'] monthly_occurrences: The monthly occurrences.
+        :param Sequence['RecurrenceScheduleOccurrenceResponse'] monthly_occurrences: The monthly occurrences.
         :param Sequence[str] week_days: The days of the week.
         """
         if hours is not None:
@@ -20105,15 +23605,29 @@ class RecurrenceScheduleResponse(dict):
         """
         return pulumi.get(self, "week_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RedirectIncompatibleRowSettingsResponse(dict):
     """
     Redirect incompatible row settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedirectIncompatibleRowSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedirectIncompatibleRowSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedirectIncompatibleRowSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: Any,
                  path: Optional[Any] = None):
@@ -20142,22 +23656,38 @@ class RedirectIncompatibleRowSettingsResponse(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RedshiftUnloadSettingsResponse(dict):
     """
     The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "s3LinkedServiceName":
+            suggest = "s3_linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedshiftUnloadSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedshiftUnloadSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedshiftUnloadSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket_name: Any,
                  s3_linked_service_name: 'outputs.LinkedServiceReferenceResponse'):
         """
         The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
         :param Any bucket_name: The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' s3_linked_service_name: The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
+        :param 'LinkedServiceReferenceResponse' s3_linked_service_name: The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "s3_linked_service_name", s3_linked_service_name)
@@ -20178,15 +23708,31 @@ class RedshiftUnloadSettingsResponse(dict):
         """
         return pulumi.get(self, "s3_linked_service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RelationalSourceResponse(dict):
     """
     A copy activity source for various relational databases.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelationalSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelationalSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelationalSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -20241,15 +23787,31 @@ class RelationalSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RelationalTableDatasetResponse(dict):
     """
     The relational table dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelationalTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelationalTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelationalTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -20260,12 +23822,12 @@ class RelationalTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The relational table dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'RelationalTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The relational table name. Type: string (or Expression with resultType string).
         """
@@ -20339,15 +23901,41 @@ class RelationalTableDatasetResponse(dict):
         """
         return pulumi.get(self, "table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsysLinkedServiceResponse(dict):
     """
     Responsys linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsysLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsysLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsysLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  endpoint: Any,
@@ -20368,11 +23956,11 @@ class ResponsysLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Responsys'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -20496,15 +24084,29 @@ class ResponsysLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsysObjectDatasetResponse(dict):
     """
     Responsys dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsysObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsysObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsysObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -20514,12 +24116,12 @@ class ResponsysObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Responsys dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ResponsysObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -20582,15 +24184,31 @@ class ResponsysObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsysSourceResponse(dict):
     """
     A copy activity Responsys source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsysSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsysSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsysSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -20645,15 +24263,29 @@ class ResponsysSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RetryPolicyResponse(dict):
     """
     Execution policy for an activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetryPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetryPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetryPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: Optional[Any] = None,
                  interval_in_seconds: Optional[int] = None):
@@ -20683,15 +24315,29 @@ class RetryPolicyResponse(dict):
         """
         return pulumi.get(self, "interval_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SSISAccessCredentialResponse(dict):
     """
     SSIS access credential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SSISAccessCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SSISAccessCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SSISAccessCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain: Any,
                  password: Any,
@@ -20699,7 +24345,7 @@ class SSISAccessCredentialResponse(dict):
         """
         SSIS access credential.
         :param Any domain: Domain for windows authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for windows authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for windows authentication.
         :param Any user_name: UseName for windows authentication.
         """
         pulumi.set(__self__, "domain", domain)
@@ -20730,15 +24376,29 @@ class SSISAccessCredentialResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SSISExecutionCredentialResponse(dict):
     """
     SSIS package execution credential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SSISExecutionCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SSISExecutionCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SSISExecutionCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain: Any,
                  password: 'outputs.SecureStringResponse',
@@ -20746,7 +24406,7 @@ class SSISExecutionCredentialResponse(dict):
         """
         SSIS package execution credential.
         :param Any domain: Domain for windows authentication.
-        :param 'SecureStringResponseArgs' password: Password for windows authentication.
+        :param 'SecureStringResponse' password: Password for windows authentication.
         :param Any user_name: UseName for windows authentication.
         """
         pulumi.set(__self__, "domain", domain)
@@ -20777,9 +24437,6 @@ class SSISExecutionCredentialResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SSISExecutionParameterResponse(dict):
@@ -20802,15 +24459,33 @@ class SSISExecutionParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SSISLogLocationResponse(dict):
     """
     SSIS package execution log location
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logPath":
+            suggest = "log_path"
+        elif key == "accessCredential":
+            suggest = "access_credential"
+        elif key == "logRefreshInterval":
+            suggest = "log_refresh_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SSISLogLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SSISLogLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SSISLogLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_path: Any,
                  type: str,
@@ -20820,7 +24495,7 @@ class SSISLogLocationResponse(dict):
         SSIS package execution log location
         :param Any log_path: The SSIS package execution log path. Type: string (or Expression with resultType string).
         :param str type: The type of SSIS log location.
-        :param 'SSISAccessCredentialResponseArgs' access_credential: The package execution log access credential.
+        :param 'SSISAccessCredentialResponse' access_credential: The package execution log access credential.
         :param Any log_refresh_interval: Specifies the interval to refresh log. The default interval is 5 minutes. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         pulumi.set(__self__, "log_path", log_path)
@@ -20862,15 +24537,35 @@ class SSISLogLocationResponse(dict):
         """
         return pulumi.get(self, "log_refresh_interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SSISPackageLocationResponse(dict):
     """
     SSIS package location.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packagePath":
+            suggest = "package_path"
+        elif key == "accessCredential":
+            suggest = "access_credential"
+        elif key == "configurationPath":
+            suggest = "configuration_path"
+        elif key == "packagePassword":
+            suggest = "package_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SSISPackageLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SSISPackageLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SSISPackageLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  package_path: Any,
                  access_credential: Optional['outputs.SSISAccessCredentialResponse'] = None,
@@ -20880,9 +24575,9 @@ class SSISPackageLocationResponse(dict):
         """
         SSIS package location.
         :param Any package_path: The SSIS package path. Type: string (or Expression with resultType string).
-        :param 'SSISAccessCredentialResponseArgs' access_credential: The package access credential.
+        :param 'SSISAccessCredentialResponse' access_credential: The package access credential.
         :param Any configuration_path: The configuration file of the package execution. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] package_password: Password of the package.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] package_password: Password of the package.
         :param str type: The type of SSIS package location.
         """
         pulumi.set(__self__, "package_path", package_path)
@@ -20935,15 +24630,29 @@ class SSISPackageLocationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SSISPropertyOverrideResponse(dict):
     """
     SSIS property override.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isSensitive":
+            suggest = "is_sensitive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SSISPropertyOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SSISPropertyOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SSISPropertyOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value: Any,
                  is_sensitive: Optional[bool] = None):
@@ -20972,15 +24681,35 @@ class SSISPropertyOverrideResponse(dict):
         """
         return pulumi.get(self, "is_sensitive")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceLinkedServiceResponse(dict):
     """
     Linked service for Salesforce.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "environmentUrl":
+            suggest = "environment_url"
+        elif key == "securityToken":
+            suggest = "security_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -20997,13 +24726,13 @@ class SalesforceLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Salesforce'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication of the Salesforce instance.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] security_token: The security token is required to remotely access Salesforce instance.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication of the Salesforce instance.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] security_token: The security token is required to remotely access Salesforce instance.
         :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'Salesforce')
@@ -21107,15 +24836,41 @@ class SalesforceLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceMarketingCloudLinkedServiceResponse(dict):
     """
     Salesforce Marketing Cloud linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceMarketingCloudLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceMarketingCloudLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceMarketingCloudLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  type: str,
@@ -21134,11 +24889,11 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'SalesforceMarketingCloud'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -21253,15 +25008,29 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceMarketingCloudObjectDatasetResponse(dict):
     """
     Salesforce Marketing Cloud dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceMarketingCloudObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceMarketingCloudObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceMarketingCloudObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -21271,12 +25040,12 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Salesforce Marketing Cloud dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SalesforceMarketingCloudObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -21339,15 +25108,31 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceMarketingCloudSourceResponse(dict):
     """
     A copy activity Salesforce Marketing Cloud source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceMarketingCloudSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceMarketingCloudSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceMarketingCloudSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -21402,15 +25187,31 @@ class SalesforceMarketingCloudSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceObjectDatasetResponse(dict):
     """
     The Salesforce object dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "objectApiName":
+            suggest = "object_api_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -21421,13 +25222,13 @@ class SalesforceObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce object dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SalesforceObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Any object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -21500,15 +25301,41 @@ class SalesforceObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceSinkResponse(dict):
     """
     A copy activity Salesforce sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalIdFieldName":
+            suggest = "external_id_field_name"
+        elif key == "ignoreNullValues":
+            suggest = "ignore_null_values"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+        elif key == "writeBehavior":
+            suggest = "write_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  external_id_field_name: Optional[Any] = None,
@@ -21611,15 +25438,33 @@ class SalesforceSinkResponse(dict):
         """
         return pulumi.get(self, "write_behavior")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SalesforceSourceResponse(dict):
     """
     A copy activity Salesforce source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readBehavior":
+            suggest = "read_behavior"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -21686,15 +25531,37 @@ class SalesforceSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapBWLinkedServiceResponse(dict):
     """
     SAP Business Warehouse Linked Service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "systemNumber":
+            suggest = "system_number"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapBWLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapBWLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapBWLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  server: Any,
@@ -21715,11 +25582,11 @@ class SapBWLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'SapBW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP BW server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP BW server.
         :param Any user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -21830,15 +25697,31 @@ class SapBWLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapCloudForCustomerLinkedServiceResponse(dict):
     """
     Linked service for SAP Cloud for Customer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapCloudForCustomerLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapCloudForCustomerLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapCloudForCustomerLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: Any,
@@ -21855,11 +25738,11 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
                Expected value is 'SapCloudForCustomer'.
         :param Any url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapCloudForCustomer')
@@ -21952,15 +25835,29 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapCloudForCustomerResourceDatasetResponse(dict):
     """
     The path of the SAP Cloud for Customer OData entity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapCloudForCustomerResourceDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapCloudForCustomerResourceDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapCloudForCustomerResourceDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  path: Any,
@@ -21971,13 +25868,13 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the SAP Cloud for Customer OData entity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SapCloudForCustomerResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -22049,15 +25946,37 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapCloudForCustomerSinkResponse(dict):
     """
     A copy activity SAP Cloud for Customer sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+        elif key == "writeBehavior":
+            suggest = "write_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapCloudForCustomerSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapCloudForCustomerSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapCloudForCustomerSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  sink_retry_count: Optional[Any] = None,
@@ -22136,15 +26055,31 @@ class SapCloudForCustomerSinkResponse(dict):
         """
         return pulumi.get(self, "write_behavior")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapCloudForCustomerSourceResponse(dict):
     """
     A copy activity source for SAP Cloud for Customer source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapCloudForCustomerSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapCloudForCustomerSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapCloudForCustomerSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -22199,15 +26134,31 @@ class SapCloudForCustomerSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapEccLinkedServiceResponse(dict):
     """
     Linked service for SAP ERP Central Component(SAP ECC).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapEccLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapEccLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapEccLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  url: str,
@@ -22224,11 +26175,11 @@ class SapEccLinkedServiceResponse(dict):
                Expected value is 'SapEcc'.
         :param str url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param str username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapEcc')
@@ -22321,15 +26272,29 @@ class SapEccLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapEccResourceDatasetResponse(dict):
     """
     The path of the SAP ECC OData entity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapEccResourceDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapEccResourceDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapEccResourceDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  path: Any,
@@ -22340,13 +26305,13 @@ class SapEccResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the SAP ECC OData entity.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SapEccResource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -22418,15 +26383,31 @@ class SapEccResourceDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapEccSourceResponse(dict):
     """
     A copy activity source for SAP ECC source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapEccSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapEccSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapEccSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -22481,15 +26462,35 @@ class SapEccSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SapHanaLinkedServiceResponse(dict):
     """
     SAP HANA Linked Service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapHanaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapHanaLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapHanaLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server: Any,
                  type: str,
@@ -22508,11 +26509,11 @@ class SapHanaLinkedServiceResponse(dict):
                Expected value is 'SapHana'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the SAP HANA server.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to access the SAP HANA server.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP HANA server.
         :param Any user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "server", server)
@@ -22615,15 +26616,33 @@ class SapHanaLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleTriggerRecurrenceResponse(dict):
     """
     The workflow trigger recurrence.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleTriggerRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleTriggerRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleTriggerRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_time: Optional[str] = None,
                  frequency: Optional[str] = None,
@@ -22636,7 +26655,7 @@ class ScheduleTriggerRecurrenceResponse(dict):
         :param str end_time: The end time.
         :param str frequency: The frequency.
         :param int interval: The interval.
-        :param 'RecurrenceScheduleResponseArgs' schedule: The recurrence schedule.
+        :param 'RecurrenceScheduleResponse' schedule: The recurrence schedule.
         :param str start_time: The start time.
         :param str time_zone: The time zone.
         """
@@ -22701,15 +26720,29 @@ class ScheduleTriggerRecurrenceResponse(dict):
         """
         return pulumi.get(self, "time_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleTriggerResponse(dict):
     """
     Trigger that creates pipeline runs periodically, on schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeState":
+            suggest = "runtime_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recurrence: 'outputs.ScheduleTriggerRecurrenceResponse',
                  runtime_state: str,
@@ -22718,12 +26751,12 @@ class ScheduleTriggerResponse(dict):
                  pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Trigger that creates pipeline runs periodically, on schedule.
-        :param 'ScheduleTriggerRecurrenceResponseArgs' recurrence: Recurrence schedule configuration.
+        :param 'ScheduleTriggerRecurrenceResponse' recurrence: Recurrence schedule configuration.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
                Expected value is 'MultiplePipelineTrigger'.
         :param str description: Trigger description.
-        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "recurrence", recurrence)
         pulumi.set(__self__, "runtime_state", runtime_state)
@@ -22774,9 +26807,6 @@ class ScheduleTriggerResponse(dict):
         """
         return pulumi.get(self, "pipelines")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecureStringResponse(dict):
@@ -22812,12 +26842,9 @@ class SecureStringResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeNodeResponseResult(dict):
+class SelfHostedIntegrationRuntimeNodeResponse(dict):
     """
     Properties of Self-hosted integration runtime node.
     """
@@ -23030,6 +27057,23 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     """
     Self-hosted integration runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedInfo":
+            suggest = "linked_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelfHostedIntegrationRuntimeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelfHostedIntegrationRuntimeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelfHostedIntegrationRuntimeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
@@ -23039,7 +27083,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         :param str type: Type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
-        :param Union['LinkedIntegrationRuntimeKeyResponseArgs', 'LinkedIntegrationRuntimeRbacResponseArgs'] linked_info: The base definition of a secret type.
+        :param Union['LinkedIntegrationRuntimeKeyResponse', 'LinkedIntegrationRuntimeRbacResponse'] linked_info: The base definition of a secret type.
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
@@ -23072,12 +27116,9 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         """
         return pulumi.get(self, "linked_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
+class SelfHostedIntegrationRuntimeStatusResponse(dict):
     """
     Self-hosted integration runtime status.
     """
@@ -23095,8 +27136,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
                  update_delay_offset: str,
                  version: str,
                  version_status: str,
-                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']] = None,
-                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']] = None,
+                 links: Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']] = None,
+                 nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None,
                  type: Optional[str] = None):
         """
         Self-hosted integration runtime status.
@@ -23113,8 +27154,8 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
         :param str version_status: Status of the integration runtime version.
-        :param Sequence['LinkedIntegrationRuntimeResponseArgs'] links: The list of linked integration runtimes that are created to share with this integration runtime.
-        :param Sequence['SelfHostedIntegrationRuntimeNodeResponseArgs'] nodes: The list of nodes for this integration runtime.
+        :param Sequence['LinkedIntegrationRuntimeResponse'] links: The list of linked integration runtimes that are created to share with this integration runtime.
+        :param Sequence['SelfHostedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for this integration runtime.
         :param str type: Type of integration runtime.
                Expected value is 'SelfHosted'.
         """
@@ -23244,7 +27285,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.LinkedIntegrationRuntimeResponse']]:
         """
         The list of linked integration runtimes that are created to share with this integration runtime.
         """
@@ -23252,7 +27293,7 @@ class SelfHostedIntegrationRuntimeStatusResponseResult(dict):
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponseResult']]:
+    def nodes(self) -> Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']]:
         """
         The list of nodes for this integration runtime.
         """
@@ -23273,6 +27314,37 @@ class ServiceNowLinkedServiceResponse(dict):
     """
     ServiceNow server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNowLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNowLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNowLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  endpoint: Any,
@@ -23297,12 +27369,12 @@ class ServiceNowLinkedServiceResponse(dict):
                Expected value is 'ServiceNow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param Any client_id: The client id for OAuth2 authentication.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret for OAuth2 authentication.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret for OAuth2 authentication.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -23457,15 +27529,29 @@ class ServiceNowLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceNowObjectDatasetResponse(dict):
     """
     ServiceNow server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNowObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNowObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNowObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -23475,12 +27561,12 @@ class ServiceNowObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         ServiceNow server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ServiceNowObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -23543,15 +27629,31 @@ class ServiceNowObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceNowSourceResponse(dict):
     """
     A copy activity ServiceNow server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNowSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNowSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNowSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -23606,15 +27708,45 @@ class ServiceNowSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SftpServerLinkedServiceResponse(dict):
     """
     A linked service for an SSH File Transfer Protocol (SFTP) server. 
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "hostKeyFingerprint":
+            suggest = "host_key_fingerprint"
+        elif key == "passPhrase":
+            suggest = "pass_phrase"
+        elif key == "privateKeyContent":
+            suggest = "private_key_content"
+        elif key == "privateKeyPath":
+            suggest = "private_key_path"
+        elif key == "skipHostKeyValidation":
+            suggest = "skip_host_key_validation"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SftpServerLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SftpServerLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SftpServerLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -23639,15 +27771,15 @@ class SftpServerLinkedServiceResponse(dict):
                Expected value is 'Sftp'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password to logon the SFTP server for Basic authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the SFTP server for Basic authentication.
         :param Any port: The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] private_key_content: Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key_content: Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
         :param Any private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
         :param Any skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
@@ -23812,15 +27944,39 @@ class SftpServerLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ShopifyLinkedServiceResponse(dict):
     """
     Shopify Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShopifyLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShopifyLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShopifyLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -23838,12 +27994,12 @@ class ShopifyLinkedServiceResponse(dict):
         :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param str type: Type of linked service.
                Expected value is 'Shopify'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -23958,15 +28114,29 @@ class ShopifyLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ShopifyObjectDatasetResponse(dict):
     """
     Shopify Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShopifyObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShopifyObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShopifyObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -23976,12 +28146,12 @@ class ShopifyObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Shopify Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ShopifyObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -24044,15 +28214,31 @@ class ShopifyObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ShopifySourceResponse(dict):
     """
     A copy activity Shopify Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShopifySourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShopifySourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShopifySourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -24107,15 +28293,49 @@ class ShopifySourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkLinkedServiceResponse(dict):
     """
     Spark Server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "allowHostNameCNMismatch":
+            suggest = "allow_host_name_cn_mismatch"
+        elif key == "allowSelfSignedServerCert":
+            suggest = "allow_self_signed_server_cert"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "httpPath":
+            suggest = "http_path"
+        elif key == "serverType":
+            suggest = "server_type"
+        elif key == "thriftTransportProtocol":
+            suggest = "thrift_transport_protocol"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  host: Any,
@@ -24146,13 +28366,13 @@ class SparkLinkedServiceResponse(dict):
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any http_path: The partial URL corresponding to the Spark server.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the Username field
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the Username field
         :param str server_type: The type of Spark server.
         :param str thrift_transport_protocol: The transport protocol to use in the Thrift layer.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
@@ -24347,15 +28567,29 @@ class SparkLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkObjectDatasetResponse(dict):
     """
     Spark Server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -24365,12 +28599,12 @@ class SparkObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Spark Server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SparkObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -24433,15 +28667,31 @@ class SparkObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkSourceResponse(dict):
     """
     A copy activity Spark Server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -24496,15 +28746,41 @@ class SparkSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlDWSinkResponse(dict):
     """
     A copy activity SQL Data Warehouse sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPolyBase":
+            suggest = "allow_poly_base"
+        elif key == "polyBaseSettings":
+            suggest = "poly_base_settings"
+        elif key == "preCopyScript":
+            suggest = "pre_copy_script"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDWSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDWSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDWSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  allow_poly_base: Optional[Any] = None,
@@ -24519,7 +28795,7 @@ class SqlDWSinkResponse(dict):
         :param str type: Copy sink type.
                Expected value is 'SqlDWSink'.
         :param Any allow_poly_base: Indicates to use PolyBase to copy data into SQL Data Warehouse when applicable. Type: boolean (or Expression with resultType boolean).
-        :param 'PolybaseSettingsResponseArgs' poly_base_settings: Specifies PolyBase-related settings when allowPolyBase is true.
+        :param 'PolybaseSettingsResponse' poly_base_settings: Specifies PolyBase-related settings when allowPolyBase is true.
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -24607,15 +28883,37 @@ class SqlDWSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlDWSourceResponse(dict):
     """
     A copy activity SQL Data Warehouse source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+        elif key == "sqlReaderQuery":
+            suggest = "sql_reader_query"
+        elif key == "sqlReaderStoredProcedureName":
+            suggest = "sql_reader_stored_procedure_name"
+        elif key == "storedProcedureParameters":
+            suggest = "stored_procedure_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDWSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDWSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDWSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  source_retry_count: Optional[Any] = None,
@@ -24694,15 +28992,35 @@ class SqlDWSourceResponse(dict):
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlServerLinkedServiceResponse(dict):
     """
     SQL Server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
@@ -24719,11 +29037,11 @@ class SqlServerLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'SqlServer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The on-premises Windows authentication password.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The on-premises Windows authentication password.
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -24816,15 +29134,35 @@ class SqlServerLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlServerStoredProcedureActivityResponse(dict):
     """
     SQL stored procedure activity type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "storedProcedureName":
+            suggest = "stored_procedure_name"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "storedProcedureParameters":
+            suggest = "stored_procedure_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerStoredProcedureActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerStoredProcedureActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerStoredProcedureActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  name: str,
@@ -24836,15 +29174,15 @@ class SqlServerStoredProcedureActivityResponse(dict):
                  stored_procedure_parameters: Optional[Mapping[str, 'outputs.StoredProcedureParameterResponse']] = None):
         """
         SQL stored procedure activity type.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
                Expected value is 'Execution'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
@@ -24924,15 +29262,31 @@ class SqlServerStoredProcedureActivityResponse(dict):
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlServerTableDatasetResponse(dict):
     """
     The on-premises SQL Server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Any,
@@ -24943,13 +29297,13 @@ class SqlServerTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The on-premises SQL Server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'SqlServerTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -25021,15 +29375,43 @@ class SqlServerTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlSinkResponse(dict):
     """
     A copy activity SQL sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preCopyScript":
+            suggest = "pre_copy_script"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "sqlWriterStoredProcedureName":
+            suggest = "sql_writer_stored_procedure_name"
+        elif key == "sqlWriterTableType":
+            suggest = "sql_writer_table_type"
+        elif key == "storedProcedureParameters":
+            suggest = "stored_procedure_parameters"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  pre_copy_script: Optional[Any] = None,
@@ -25049,7 +29431,7 @@ class SqlSinkResponse(dict):
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: SQL stored procedure parameters.
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -25144,15 +29526,37 @@ class SqlSinkResponse(dict):
         """
         return pulumi.get(self, "write_batch_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlSourceResponse(dict):
     """
     A copy activity SQL source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+        elif key == "sqlReaderQuery":
+            suggest = "sql_reader_query"
+        elif key == "sqlReaderStoredProcedureName":
+            suggest = "sql_reader_stored_procedure_name"
+        elif key == "storedProcedureParameters":
+            suggest = "stored_procedure_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  source_retry_count: Optional[Any] = None,
@@ -25168,7 +29572,7 @@ class SqlSourceResponse(dict):
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'StoredProcedureParameterResponseArgs'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         pulumi.set(__self__, "type", 'SqlSource')
         if source_retry_count is not None:
@@ -25231,15 +29635,43 @@ class SqlSourceResponse(dict):
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SquareLinkedServiceResponse(dict):
     """
     Square Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "redirectUri":
+            suggest = "redirect_uri"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SquareLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SquareLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SquareLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Any,
                  host: Any,
@@ -25262,11 +29694,11 @@ class SquareLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Square'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Square application.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your Square application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -25399,15 +29831,29 @@ class SquareLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SquareObjectDatasetResponse(dict):
     """
     Square Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SquareObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SquareObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SquareObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -25417,12 +29863,12 @@ class SquareObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Square Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'SquareObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -25485,15 +29931,31 @@ class SquareObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SquareSourceResponse(dict):
     """
     A copy activity Square Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SquareSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SquareSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SquareSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -25548,22 +30010,38 @@ class SquareSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StagingSettingsResponse(dict):
     """
     Staging settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "enableCompression":
+            suggest = "enable_compression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StagingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StagingSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StagingSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  enable_compression: Optional[Any] = None,
                  path: Optional[Any] = None):
         """
         Staging settings.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Staging linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Staging linked service reference.
         :param Any enable_compression: Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any path: The path to storage for storing the interim data. Type: string (or Expression with resultType string).
         """
@@ -25596,9 +30074,6 @@ class StagingSettingsResponse(dict):
         The path to storage for storing the interim data. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25634,15 +30109,33 @@ class StoredProcedureParameterResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SybaseLinkedServiceResponse(dict):
     """
     Linked service for Sybase data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SybaseLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SybaseLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SybaseLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database: Any,
                  server: Any,
@@ -25664,11 +30157,11 @@ class SybaseLinkedServiceResponse(dict):
                Expected value is 'Sybase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
@@ -25791,15 +30284,33 @@ class SybaseLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TeradataLinkedServiceResponse(dict):
     """
     Linked service for Teradata data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeradataLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeradataLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeradataLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server: Any,
                  type: str,
@@ -25818,11 +30329,11 @@ class TeradataLinkedServiceResponse(dict):
                Expected value is 'Teradata'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str authentication_type: AuthenticationType to be used for connection.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for authentication.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "server", server)
@@ -25925,15 +30436,45 @@ class TeradataLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TextFormatResponse(dict):
     """
     The data stored in text format.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnDelimiter":
+            suggest = "column_delimiter"
+        elif key == "encodingName":
+            suggest = "encoding_name"
+        elif key == "escapeChar":
+            suggest = "escape_char"
+        elif key == "firstRowAsHeader":
+            suggest = "first_row_as_header"
+        elif key == "nullValue":
+            suggest = "null_value"
+        elif key == "quoteChar":
+            suggest = "quote_char"
+        elif key == "rowDelimiter":
+            suggest = "row_delimiter"
+        elif key == "skipLineCount":
+            suggest = "skip_line_count"
+        elif key == "treatEmptyAsNull":
+            suggest = "treat_empty_as_null"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TextFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TextFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TextFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  column_delimiter: Optional[Any] = None,
@@ -26084,22 +30625,36 @@ class TextFormatResponse(dict):
         """
         return pulumi.get(self, "treat_empty_as_null")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TriggerPipelineReferenceResponse(dict):
     """
     Pipeline that needs to be triggered with the given parameters.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineReference":
+            suggest = "pipeline_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerPipelineReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerPipelineReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerPipelineReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameters: Optional[Mapping[str, Any]] = None,
                  pipeline_reference: Optional['outputs.PipelineReferenceResponse'] = None):
         """
         Pipeline that needs to be triggered with the given parameters.
         :param Mapping[str, Any] parameters: Pipeline parameters.
-        :param 'PipelineReferenceResponseArgs' pipeline_reference: Pipeline reference.
+        :param 'PipelineReferenceResponse' pipeline_reference: Pipeline reference.
         """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -26122,15 +30677,37 @@ class TriggerPipelineReferenceResponse(dict):
         """
         return pulumi.get(self, "pipeline_reference")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TumblingWindowTriggerResponse(dict):
     """
     Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrency":
+            suggest = "max_concurrency"
+        elif key == "runtimeState":
+            suggest = "runtime_state"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "retryPolicy":
+            suggest = "retry_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TumblingWindowTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TumblingWindowTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TumblingWindowTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  frequency: str,
                  interval: int,
@@ -26148,7 +30725,7 @@ class TumblingWindowTriggerResponse(dict):
         :param str frequency: The frequency of the time windows.
         :param int interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
         :param int max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
-        :param 'TriggerPipelineReferenceResponseArgs' pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
+        :param 'TriggerPipelineReferenceResponse' pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param str type: Trigger type.
@@ -26156,7 +30733,7 @@ class TumblingWindowTriggerResponse(dict):
         :param Any delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param str description: Trigger description.
         :param str end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
-        :param 'RetryPolicyResponseArgs' retry_policy: Retry policy that will be applied for failed pipeline runs.
+        :param 'RetryPolicyResponse' retry_policy: Retry policy that will be applied for failed pipeline runs.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "interval", interval)
@@ -26263,15 +30840,29 @@ class TumblingWindowTriggerResponse(dict):
         """
         return pulumi.get(self, "retry_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UntilActivityResponse(dict):
     """
     This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UntilActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UntilActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UntilActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  activities: Sequence[Any],
                  expression: 'outputs.ExpressionResponse',
@@ -26282,12 +30873,12 @@ class UntilActivityResponse(dict):
                  timeout: Optional[Any] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param Sequence[Union['AzureMLBatchExecutionActivityResponseArgs', 'AzureMLUpdateResourceActivityResponseArgs', 'ControlActivityResponseArgs', 'CopyActivityResponseArgs', 'CustomActivityResponseArgs', 'DataLakeAnalyticsUSQLActivityResponseArgs', 'DatabricksNotebookActivityResponseArgs', 'ExecutePipelineActivityResponseArgs', 'ExecuteSSISPackageActivityResponseArgs', 'ExecutionActivityResponseArgs', 'FilterActivityResponseArgs', 'ForEachActivityResponseArgs', 'GetMetadataActivityResponseArgs', 'HDInsightHiveActivityResponseArgs', 'HDInsightMapReduceActivityResponseArgs', 'HDInsightPigActivityResponseArgs', 'HDInsightSparkActivityResponseArgs', 'HDInsightStreamingActivityResponseArgs', 'IfConditionActivityResponseArgs', 'LookupActivityResponseArgs', 'SqlServerStoredProcedureActivityResponseArgs', 'UntilActivityResponseArgs', 'WaitActivityResponseArgs', 'WebActivityResponseArgs']] activities: List of activities to execute.
-        :param 'ExpressionResponseArgs' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
+        :param Sequence[Union['AzureMLBatchExecutionActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'UntilActivityResponse', 'WaitActivityResponse', 'WebActivityResponse']] activities: List of activities to execute.
+        :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Container'.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -26359,15 +30950,33 @@ class UntilActivityResponse(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VerticaLinkedServiceResponse(dict):
     """
     Vertica linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerticaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerticaLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerticaLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
@@ -26381,11 +30990,11 @@ class VerticaLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Vertica'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Vertica')
         if annotations is not None:
@@ -26458,15 +31067,31 @@ class VerticaLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VerticaSourceResponse(dict):
     """
     A copy activity Vertica source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerticaSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerticaSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerticaSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -26521,15 +31146,29 @@ class VerticaSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VerticaTableDatasetResponse(dict):
     """
     Vertica dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerticaTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerticaTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerticaTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -26539,12 +31178,12 @@ class VerticaTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Vertica dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'VerticaTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -26607,15 +31246,31 @@ class VerticaTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WaitActivityResponse(dict):
     """
     This activity suspends pipeline execution for the specified interval.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitTimeInSeconds":
+            suggest = "wait_time_in_seconds"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WaitActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WaitActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WaitActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -26628,7 +31283,7 @@ class WaitActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Container'.
         :param int wait_time_in_seconds: Duration in seconds.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         """
         pulumi.set(__self__, "name", name)
@@ -26680,9 +31335,6 @@ class WaitActivityResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebActivityAuthenticationResponse(dict):
@@ -26698,8 +31350,8 @@ class WebActivityAuthenticationResponse(dict):
         """
         Web activity authentication properties.
         :param str type: Web activity authentication (Basic/ClientCertificate/MSI)
-        :param 'SecureStringResponseArgs' password: Password for the PFX file or basic authentication.
-        :param 'SecureStringResponseArgs' pfx: Base64-encoded contents of a PFX file.
+        :param 'SecureStringResponse' password: Password for the PFX file or basic authentication.
+        :param 'SecureStringResponse' pfx: Base64-encoded contents of a PFX file.
         :param str resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
         :param str username: Web activity authentication user name for basic authentication.
         """
@@ -26753,15 +31405,33 @@ class WebActivityAuthenticationResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebActivityResponse(dict):
     """
     Web activity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "linkedServices":
+            suggest = "linked_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  method: str,
                  name: str,
@@ -26783,15 +31453,15 @@ class WebActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Execution'.
         :param Any url: Web activity target endpoint and path. Type: string (or Expression with resultType string).
-        :param 'WebActivityAuthenticationResponseArgs' authentication: Authentication method used for calling the endpoint.
+        :param 'WebActivityAuthenticationResponse' authentication: Authentication method used for calling the endpoint.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
-        :param Sequence['DatasetReferenceResponseArgs'] datasets: List of datasets passed to web endpoint.
-        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['DatasetReferenceResponse'] datasets: List of datasets passed to web endpoint.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Sequence['LinkedServiceReferenceResponseArgs'] linked_services: List of linked services passed to web endpoint.
-        :param 'ActivityPolicyResponseArgs' policy: Activity policy.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
@@ -26921,15 +31591,29 @@ class WebActivityResponse(dict):
         """
         return pulumi.get(self, "policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebAnonymousAuthenticationResponse(dict):
     """
     A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAnonymousAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAnonymousAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAnonymousAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  url: Any):
@@ -26959,15 +31643,29 @@ class WebAnonymousAuthenticationResponse(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebBasicAuthenticationResponse(dict):
     """
     A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebBasicAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebBasicAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebBasicAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  password: Any,
@@ -26977,7 +31675,7 @@ class WebBasicAuthenticationResponse(dict):
         A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
         :param str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'Basic'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password for Basic authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         :param Any username: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
@@ -27019,15 +31717,29 @@ class WebBasicAuthenticationResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebClientCertificateAuthenticationResponse(dict):
     """
     A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebClientCertificateAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebClientCertificateAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebClientCertificateAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication_type: str,
                  password: Any,
@@ -27037,8 +31749,8 @@ class WebClientCertificateAuthenticationResponse(dict):
         A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
         :param str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'ClientCertificate'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: Password for the PFX file.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] pfx: Base64-encoded contents of a PFX file.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for the PFX file.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pfx: Base64-encoded contents of a PFX file.
         :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'ClientCertificate')
@@ -27079,15 +31791,31 @@ class WebClientCertificateAuthenticationResponse(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebLinkedServiceResponse(dict):
     """
     Web linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeProperties":
+            suggest = "type_properties"
+        elif key == "connectVia":
+            suggest = "connect_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  type_properties: Any,
@@ -27099,11 +31827,11 @@ class WebLinkedServiceResponse(dict):
         Web linked service.
         :param str type: Type of linked service.
                Expected value is 'Web'.
-        :param Union['WebAnonymousAuthenticationResponseArgs', 'WebBasicAuthenticationResponseArgs', 'WebClientCertificateAuthenticationResponseArgs'] type_properties: Web linked service properties.
+        :param Union['WebAnonymousAuthenticationResponse', 'WebBasicAuthenticationResponse', 'WebClientCertificateAuthenticationResponse'] type_properties: Web linked service properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Web')
         pulumi.set(__self__, "type_properties", type_properties)
@@ -27165,15 +31893,31 @@ class WebLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebSourceResponse(dict):
     """
     A copy activity source for web page table.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  source_retry_count: Optional[Any] = None,
@@ -27216,15 +31960,29 @@ class WebSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTableDatasetResponse(dict):
     """
     The dataset points to a HTML table in the web page.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: Any,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
@@ -27237,12 +31995,12 @@ class WebTableDatasetResponse(dict):
         """
         The dataset points to a HTML table in the web page.
         :param Any index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'WebTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any path: The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
@@ -27325,15 +32083,41 @@ class WebTableDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class XeroLinkedServiceResponse(dict):
     """
     Xero Service linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectVia":
+            suggest = "connect_via"
+        elif key == "consumerKey":
+            suggest = "consumer_key"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in XeroLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        XeroLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        XeroLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host: Any,
                  type: str,
@@ -27353,12 +32137,12 @@ class XeroLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'Xero'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_key: The consumer key associated with the Xero application.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_key: The consumer key associated with the Xero application.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
                ).
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -27485,15 +32269,29 @@ class XeroLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class XeroObjectDatasetResponse(dict):
     """
     Xero Service dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in XeroObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        XeroObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        XeroObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -27503,12 +32301,12 @@ class XeroObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Xero Service dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'XeroObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -27571,15 +32369,31 @@ class XeroObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class XeroSourceResponse(dict):
     """
     A copy activity Xero Service source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in XeroSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        XeroSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        XeroSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -27634,15 +32448,39 @@ class XeroSourceResponse(dict):
         """
         return pulumi.get(self, "source_retry_wait")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ZohoLinkedServiceResponse(dict):
     """
     Zoho server linked service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "useEncryptedEndpoints":
+            suggest = "use_encrypted_endpoints"
+        elif key == "useHostVerification":
+            suggest = "use_host_verification"
+        elif key == "usePeerVerification":
+            suggest = "use_peer_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZohoLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZohoLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZohoLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: Any,
                  type: str,
@@ -27660,12 +32498,12 @@ class ZohoLinkedServiceResponse(dict):
         :param Any endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         :param str type: Type of linked service.
                Expected value is 'Zoho'.
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for Zoho authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for Zoho authentication.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
-        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
@@ -27780,15 +32618,29 @@ class ZohoLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "use_peer_verification")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ZohoObjectDatasetResponse(dict):
     """
     Zoho server dataset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZohoObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZohoObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZohoObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
@@ -27798,12 +32650,12 @@ class ZohoObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Zoho server dataset.
-        :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'ZohoObject'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
-        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -27866,15 +32718,31 @@ class ZohoObjectDatasetResponse(dict):
         """
         return pulumi.get(self, "structure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ZohoSourceResponse(dict):
     """
     A copy activity Zoho server source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZohoSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZohoSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZohoSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  query: Optional[Any] = None,
@@ -27928,8 +32796,5 @@ class ZohoSourceResponse(dict):
         Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         return pulumi.get(self, "source_retry_wait")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

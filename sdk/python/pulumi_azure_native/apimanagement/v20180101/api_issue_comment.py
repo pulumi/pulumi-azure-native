@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['ApiIssueCommentArgs', 'ApiIssueComment']
 
@@ -153,9 +153,7 @@ class ApiIssueComment(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Issue Comment Contract details.
 
@@ -202,15 +200,7 @@ class ApiIssueComment(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  text: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,30 +210,30 @@ class ApiIssueComment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiIssueCommentArgs.__new__(ApiIssueCommentArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
-            __props__['comment_id'] = comment_id
-            __props__['created_date'] = created_date
+            __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["comment_id"] = comment_id
+            __props__.__dict__["created_date"] = created_date
             if issue_id is None and not opts.urn:
                 raise TypeError("Missing required property 'issue_id'")
-            __props__['issue_id'] = issue_id
+            __props__.__dict__["issue_id"] = issue_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
+            __props__.__dict__["service_name"] = service_name
             if text is None and not opts.urn:
                 raise TypeError("Missing required property 'text'")
-            __props__['text'] = text
+            __props__.__dict__["text"] = text
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["user_id"] = user_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:ApiIssueComment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueComment"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:ApiIssueComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueComment, __self__).__init__(
@@ -266,13 +256,13 @@ class ApiIssueComment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApiIssueCommentArgs.__new__(ApiIssueCommentArgs)
 
-        __props__["created_date"] = None
-        __props__["name"] = None
-        __props__["text"] = None
-        __props__["type"] = None
-        __props__["user_id"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["text"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_id"] = None
         return ApiIssueComment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -314,10 +304,4 @@ class ApiIssueComment(pulumi.CustomResource):
         A resource identifier for the user who left the comment.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

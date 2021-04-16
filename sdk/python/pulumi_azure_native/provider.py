@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -249,9 +249,7 @@ class Provider(pulumi.ProviderResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The provider type for the native Azure package.
 
@@ -306,15 +304,7 @@ class Provider(pulumi.ProviderResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,42 +314,42 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__['auxiliary_tenant_ids'] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
+            __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             if client_certificate_password is None:
                 client_certificate_password = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD')
-            __props__['client_certificate_password'] = client_certificate_password
+            __props__.__dict__["client_certificate_password"] = client_certificate_password
             if client_certificate_path is None:
                 client_certificate_path = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PATH')
-            __props__['client_certificate_path'] = client_certificate_path
+            __props__.__dict__["client_certificate_path"] = client_certificate_path
             if client_id is None:
                 client_id = _utilities.get_env('ARM_CLIENT_ID')
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None:
                 client_secret = _utilities.get_env('ARM_CLIENT_SECRET')
-            __props__['client_secret'] = client_secret
+            __props__.__dict__["client_secret"] = client_secret
             if disable_pulumi_partner_id is None:
                 disable_pulumi_partner_id = _utilities.get_env_bool('ARM_DISABLE_PULUMI_PARTNER_ID')
-            __props__['disable_pulumi_partner_id'] = pulumi.Output.from_input(disable_pulumi_partner_id).apply(pulumi.runtime.to_json) if disable_pulumi_partner_id is not None else None
+            __props__.__dict__["disable_pulumi_partner_id"] = pulumi.Output.from_input(disable_pulumi_partner_id).apply(pulumi.runtime.to_json) if disable_pulumi_partner_id is not None else None
             if environment is None:
                 environment = (_utilities.get_env('ARM_ENVIRONMENT') or 'public')
-            __props__['environment'] = environment
+            __props__.__dict__["environment"] = environment
             if msi_endpoint is None:
                 msi_endpoint = _utilities.get_env('ARM_MSI_ENDPOINT')
-            __props__['msi_endpoint'] = msi_endpoint
+            __props__.__dict__["msi_endpoint"] = msi_endpoint
             if partner_id is None:
                 partner_id = _utilities.get_env('ARM_PARTNER_ID')
-            __props__['partner_id'] = partner_id
+            __props__.__dict__["partner_id"] = partner_id
             if subscription_id is None:
                 subscription_id = _utilities.get_env('ARM_SUBSCRIPTION_ID')
-            __props__['subscription_id'] = subscription_id
+            __props__.__dict__["subscription_id"] = subscription_id
             if tenant_id is None:
                 tenant_id = _utilities.get_env('ARM_TENANT_ID')
-            __props__['tenant_id'] = tenant_id
+            __props__.__dict__["tenant_id"] = tenant_id
             if use_msi is None:
                 use_msi = (_utilities.get_env_bool('ARM_USE_MSI') or False)
-            __props__['use_msi'] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
+            __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="pulumi:providers:azure-nextgen")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Provider, __self__).__init__(
@@ -367,10 +357,4 @@ class Provider(pulumi.ProviderResource):
             resource_name,
             __props__,
             opts)
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

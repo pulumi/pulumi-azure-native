@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -18,6 +18,25 @@ class RegistrationInfoResponse(dict):
     """
     Represents a RegistrationInfo definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expirationTime":
+            suggest = "expiration_time"
+        elif key == "resetToken":
+            suggest = "reset_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistrationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistrationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistrationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expiration_time: Optional[str] = None,
                  reset_token: Optional[bool] = None,
@@ -58,8 +77,5 @@ class RegistrationInfoResponse(dict):
         The registration token base64 encoded string.
         """
         return pulumi.get(self, "token")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

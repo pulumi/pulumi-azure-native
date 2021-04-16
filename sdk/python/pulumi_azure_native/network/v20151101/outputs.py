@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = [
     'DnsConfigResponse',
@@ -19,6 +19,23 @@ class DnsConfigResponse(dict):
     """
     Class containing DNS settings in a Traffic Manager profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeName":
+            suggest = "relative_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DnsConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DnsConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DnsConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  relative_name: Optional[str] = None,
@@ -60,15 +77,37 @@ class DnsConfigResponse(dict):
         """
         return pulumi.get(self, "ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointResponse(dict):
     """
     Class representing a Traffic Manager endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointLocation":
+            suggest = "endpoint_location"
+        elif key == "endpointMonitorStatus":
+            suggest = "endpoint_monitor_status"
+        elif key == "endpointStatus":
+            suggest = "endpoint_status"
+        elif key == "minChildEndpoints":
+            suggest = "min_child_endpoints"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_location: Optional[str] = None,
                  endpoint_monitor_status: Optional[str] = None,
@@ -206,15 +245,29 @@ class EndpointResponse(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitorConfigResponse(dict):
     """
     Class containing endpoint monitoring settings in a Traffic Manager profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileMonitorStatus":
+            suggest = "profile_monitor_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: Optional[str] = None,
                  port: Optional[float] = None,
@@ -267,8 +320,5 @@ class MonitorConfigResponse(dict):
         Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
         """
         return pulumi.get(self, "protocol")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

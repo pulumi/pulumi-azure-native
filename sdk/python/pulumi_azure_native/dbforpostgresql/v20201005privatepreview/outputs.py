@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,29 @@ class MaintenanceWindowResponse(dict):
     """
     Maintenance window of a server group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customWindow":
+            suggest = "custom_window"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMinute":
+            suggest = "start_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_window: Optional[str] = None,
                  day_of_week: Optional[int] = None,
@@ -76,15 +99,29 @@ class MaintenanceWindowResponse(dict):
         """
         return pulumi.get(self, "start_minute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerGroupPropertiesResponseDelegatedSubnetArguments(dict):
     """
     The delegated subnet arguments for a server group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetArmResourceId":
+            suggest = "subnet_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerGroupPropertiesResponseDelegatedSubnetArguments. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerGroupPropertiesResponseDelegatedSubnetArguments.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerGroupPropertiesResponseDelegatedSubnetArguments.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_arm_resource_id: Optional[str] = None):
         """
@@ -102,15 +139,29 @@ class ServerGroupPropertiesResponseDelegatedSubnetArguments(dict):
         """
         return pulumi.get(self, "subnet_arm_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerNameItemResponse(dict):
     """
     The name object for a server.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fullyQualifiedDomainName":
+            suggest = "fully_qualified_domain_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerNameItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerNameItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerNameItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fully_qualified_domain_name: str,
                  name: Optional[str] = None):
@@ -139,15 +190,41 @@ class ServerNameItemResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerRoleGroupResponse(dict):
     """
     Represents a server role group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enablePublicIp":
+            suggest = "enable_public_ip"
+        elif key == "serverNames":
+            suggest = "server_names"
+        elif key == "enableHa":
+            suggest = "enable_ha"
+        elif key == "serverCount":
+            suggest = "server_count"
+        elif key == "serverEdition":
+            suggest = "server_edition"
+        elif key == "storageQuotaInMb":
+            suggest = "storage_quota_in_mb"
+        elif key == "vCores":
+            suggest = "v_cores"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerRoleGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerRoleGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerRoleGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_public_ip: bool,
                  server_names: Sequence['outputs.ServerNameItemResponse'],
@@ -161,7 +238,7 @@ class ServerRoleGroupResponse(dict):
         """
         Represents a server role group.
         :param bool enable_public_ip: If public IP is requested or not for a server.
-        :param Sequence['ServerNameItemResponseArgs'] server_names: The list of server names in the server role group.
+        :param Sequence['ServerNameItemResponse'] server_names: The list of server names in the server role group.
         :param bool enable_ha: If high availability is enabled or not for the server.
         :param str name: The name of the server role group.
         :param str role: The role of servers in the server role group.
@@ -259,15 +336,39 @@ class ServerRoleGroupResponse(dict):
         """
         return pulumi.get(self, "v_cores")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -344,8 +445,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

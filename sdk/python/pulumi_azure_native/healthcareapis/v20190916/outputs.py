@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -25,6 +25,25 @@ class ResourceResponseIdentity(dict):
     """
     Setting indicating whether the service has a managed identity associated with it.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceResponseIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceResponseIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -64,15 +83,29 @@ class ResourceResponseIdentity(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAccessPolicyEntryResponse(dict):
     """
     An access policy entry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAccessPolicyEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAccessPolicyEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAccessPolicyEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_id: str):
         """
@@ -89,15 +122,29 @@ class ServiceAccessPolicyEntryResponse(dict):
         """
         return pulumi.get(self, "object_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAuthenticationConfigurationInfoResponse(dict):
     """
     Authentication configuration information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smartProxyEnabled":
+            suggest = "smart_proxy_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAuthenticationConfigurationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAuthenticationConfigurationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAuthenticationConfigurationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audience: Optional[str] = None,
                  authority: Optional[str] = None,
@@ -139,15 +186,31 @@ class ServiceAuthenticationConfigurationInfoResponse(dict):
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceCorsConfigurationInfoResponse(dict):
     """
     The settings for the CORS configuration of the service instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCredentials":
+            suggest = "allow_credentials"
+        elif key == "maxAge":
+            suggest = "max_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCorsConfigurationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCorsConfigurationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCorsConfigurationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_credentials: Optional[bool] = None,
                  headers: Optional[Sequence[str]] = None,
@@ -213,15 +276,29 @@ class ServiceCorsConfigurationInfoResponse(dict):
         """
         return pulumi.get(self, "origins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceCosmosDbConfigurationInfoResponse(dict):
     """
     The settings for the Cosmos DB database backing the service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerThroughput":
+            suggest = "offer_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCosmosDbConfigurationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCosmosDbConfigurationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCosmosDbConfigurationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  offer_throughput: Optional[int] = None):
         """
@@ -239,15 +316,29 @@ class ServiceCosmosDbConfigurationInfoResponse(dict):
         """
         return pulumi.get(self, "offer_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceExportConfigurationInfoResponse(dict):
     """
     Export operation configuration information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountName":
+            suggest = "storage_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceExportConfigurationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceExportConfigurationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceExportConfigurationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_name: Optional[str] = None):
         """
@@ -265,15 +356,39 @@ class ServiceExportConfigurationInfoResponse(dict):
         """
         return pulumi.get(self, "storage_account_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServicesPropertiesResponse(dict):
     """
     The properties of a service instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "accessPolicies":
+            suggest = "access_policies"
+        elif key == "authenticationConfiguration":
+            suggest = "authentication_configuration"
+        elif key == "corsConfiguration":
+            suggest = "cors_configuration"
+        elif key == "cosmosDbConfiguration":
+            suggest = "cosmos_db_configuration"
+        elif key == "exportConfiguration":
+            suggest = "export_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  access_policies: Optional[Sequence['outputs.ServiceAccessPolicyEntryResponse']] = None,
@@ -284,11 +399,11 @@ class ServicesPropertiesResponse(dict):
         """
         The properties of a service instance.
         :param str provisioning_state: The provisioning state.
-        :param Sequence['ServiceAccessPolicyEntryResponseArgs'] access_policies: The access policies of the service instance.
-        :param 'ServiceAuthenticationConfigurationInfoResponseArgs' authentication_configuration: The authentication configuration for the service instance.
-        :param 'ServiceCorsConfigurationInfoResponseArgs' cors_configuration: The settings for the CORS configuration of the service instance.
-        :param 'ServiceCosmosDbConfigurationInfoResponseArgs' cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
-        :param 'ServiceExportConfigurationInfoResponseArgs' export_configuration: The settings for the export operation of the service instance.
+        :param Sequence['ServiceAccessPolicyEntryResponse'] access_policies: The access policies of the service instance.
+        :param 'ServiceAuthenticationConfigurationInfoResponse' authentication_configuration: The authentication configuration for the service instance.
+        :param 'ServiceCorsConfigurationInfoResponse' cors_configuration: The settings for the CORS configuration of the service instance.
+        :param 'ServiceCosmosDbConfigurationInfoResponse' cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
+        :param 'ServiceExportConfigurationInfoResponse' export_configuration: The settings for the export operation of the service instance.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if access_policies is not None:
@@ -349,8 +464,5 @@ class ServicesPropertiesResponse(dict):
         The settings for the export operation of the service instance.
         """
         return pulumi.get(self, "export_configuration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

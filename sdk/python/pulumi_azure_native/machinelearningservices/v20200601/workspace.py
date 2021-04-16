@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -335,9 +335,7 @@ class Workspace(pulumi.CustomResource):
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An object that represents a machine learning workspace.
 
@@ -404,15 +402,7 @@ class Workspace(pulumi.CustomResource):
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -422,41 +412,41 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             if allow_public_access_when_behind_vnet is None:
                 allow_public_access_when_behind_vnet = False
-            __props__['allow_public_access_when_behind_vnet'] = allow_public_access_when_behind_vnet
-            __props__['application_insights'] = application_insights
-            __props__['container_registry'] = container_registry
-            __props__['description'] = description
-            __props__['discovery_url'] = discovery_url
-            __props__['encryption'] = encryption
-            __props__['friendly_name'] = friendly_name
+            __props__.__dict__["allow_public_access_when_behind_vnet"] = allow_public_access_when_behind_vnet
+            __props__.__dict__["application_insights"] = application_insights
+            __props__.__dict__["container_registry"] = container_registry
+            __props__.__dict__["description"] = description
+            __props__.__dict__["discovery_url"] = discovery_url
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["friendly_name"] = friendly_name
             if hbi_workspace is None:
                 hbi_workspace = False
-            __props__['hbi_workspace'] = hbi_workspace
-            __props__['identity'] = identity
-            __props__['image_build_compute'] = image_build_compute
-            __props__['key_vault'] = key_vault
-            __props__['location'] = location
+            __props__.__dict__["hbi_workspace"] = hbi_workspace
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["image_build_compute"] = image_build_compute
+            __props__.__dict__["key_vault"] = key_vault
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['shared_private_link_resources'] = shared_private_link_resources
-            __props__['sku'] = sku
-            __props__['storage_account'] = storage_account
-            __props__['tags'] = tags
-            __props__['workspace_name'] = workspace_name
-            __props__['creation_time'] = None
-            __props__['name'] = None
-            __props__['notebook_info'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['private_link_count'] = None
-            __props__['provisioning_state'] = None
-            __props__['service_provisioned_resource_group'] = None
-            __props__['type'] = None
-            __props__['workspace_id'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["shared_private_link_resources"] = shared_private_link_resources
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["storage_account"] = storage_account
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["notebook_info"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["private_link_count"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["service_provisioned_resource_group"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["workspace_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20180301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20180301preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20181119:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20181119:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200218preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210401:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
@@ -479,33 +469,33 @@ class Workspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-        __props__["allow_public_access_when_behind_vnet"] = None
-        __props__["application_insights"] = None
-        __props__["container_registry"] = None
-        __props__["creation_time"] = None
-        __props__["description"] = None
-        __props__["discovery_url"] = None
-        __props__["encryption"] = None
-        __props__["friendly_name"] = None
-        __props__["hbi_workspace"] = None
-        __props__["identity"] = None
-        __props__["image_build_compute"] = None
-        __props__["key_vault"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["notebook_info"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["private_link_count"] = None
-        __props__["provisioning_state"] = None
-        __props__["service_provisioned_resource_group"] = None
-        __props__["shared_private_link_resources"] = None
-        __props__["sku"] = None
-        __props__["storage_account"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["workspace_id"] = None
+        __props__.__dict__["allow_public_access_when_behind_vnet"] = None
+        __props__.__dict__["application_insights"] = None
+        __props__.__dict__["container_registry"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["discovery_url"] = None
+        __props__.__dict__["encryption"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["hbi_workspace"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["image_build_compute"] = None
+        __props__.__dict__["key_vault"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["notebook_info"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["private_link_count"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["service_provisioned_resource_group"] = None
+        __props__.__dict__["shared_private_link_resources"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["storage_account"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["workspace_id"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -707,10 +697,4 @@ class Workspace(pulumi.CustomResource):
         The immutable id associated with this workspace.
         """
         return pulumi.get(self, "workspace_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

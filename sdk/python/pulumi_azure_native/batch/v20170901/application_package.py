@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['ApplicationPackageArgs', 'ApplicationPackage']
 
@@ -88,9 +88,7 @@ class ApplicationPackage(pulumi.CustomResource):
                  application_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An application package which represents a particular version of an application.
 
@@ -129,15 +127,7 @@ class ApplicationPackage(pulumi.CustomResource):
                  application_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -147,23 +137,23 @@ class ApplicationPackage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationPackageArgs.__new__(ApplicationPackageArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
+            __props__.__dict__["account_name"] = account_name
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
-            __props__['application_id'] = application_id
+            __props__.__dict__["application_id"] = application_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['version'] = version
-            __props__['format'] = None
-            __props__['last_activation_time'] = None
-            __props__['state'] = None
-            __props__['storage_url'] = None
-            __props__['storage_url_expiry'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["version"] = version
+            __props__.__dict__["format"] = None
+            __props__.__dict__["last_activation_time"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["storage_url"] = None
+            __props__.__dict__["storage_url_expiry"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20151201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170101:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20170501:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20170501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20181201:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20190401:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20190801:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200301:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200501:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20200901:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:ApplicationPackage"), pulumi.Alias(type_="azure-native:batch/v20210101:ApplicationPackage"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:ApplicationPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationPackage, __self__).__init__(
@@ -186,14 +176,14 @@ class ApplicationPackage(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApplicationPackageArgs.__new__(ApplicationPackageArgs)
 
-        __props__["format"] = None
-        __props__["last_activation_time"] = None
-        __props__["state"] = None
-        __props__["storage_url"] = None
-        __props__["storage_url_expiry"] = None
-        __props__["version"] = None
+        __props__.__dict__["format"] = None
+        __props__.__dict__["last_activation_time"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["storage_url"] = None
+        __props__.__dict__["storage_url_expiry"] = None
+        __props__.__dict__["version"] = None
         return ApplicationPackage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,10 +233,4 @@ class ApplicationPackage(pulumi.CustomResource):
         The version of the application package.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

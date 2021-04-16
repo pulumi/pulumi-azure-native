@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -30,7 +30,7 @@ class GetAssetEncryptionKeyResult:
 
     @property
     @pulumi.getter(name="assetFileEncryptionMetadata")
-    def asset_file_encryption_metadata(self) -> Optional[Sequence['outputs.AssetFileEncryptionMetadataResponseResult']]:
+    def asset_file_encryption_metadata(self) -> Optional[Sequence['outputs.AssetFileEncryptionMetadataResponse']]:
         """
         Asset File encryption metadata.
         """

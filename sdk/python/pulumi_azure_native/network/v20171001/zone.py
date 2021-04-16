@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ZoneArgs', 'Zone']
@@ -127,9 +127,7 @@ class Zone(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  zone_type: Optional[pulumi.Input['ZoneType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a DNS zone.
 
@@ -172,15 +170,7 @@ class Zone(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  zone_type: Optional[pulumi.Input['ZoneType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -190,24 +180,24 @@ class Zone(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ZoneArgs.__new__(ZoneArgs)
 
-            __props__['etag'] = etag
-            __props__['location'] = location
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['zone_name'] = zone_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zone_name"] = zone_name
             if zone_type is None:
                 zone_type = 'Public'
-            __props__['zone_type'] = zone_type
-            __props__['max_number_of_record_sets'] = None
-            __props__['max_number_of_records_per_record_set'] = None
-            __props__['name'] = None
-            __props__['name_servers'] = None
-            __props__['number_of_record_sets'] = None
-            __props__['type'] = None
+            __props__.__dict__["zone_type"] = zone_type
+            __props__.__dict__["max_number_of_record_sets"] = None
+            __props__.__dict__["max_number_of_records_per_record_set"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["name_servers"] = None
+            __props__.__dict__["number_of_record_sets"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20171001:Zone"), pulumi.Alias(type_="azure-native:network:Zone"), pulumi.Alias(type_="azure-nextgen:network:Zone"), pulumi.Alias(type_="azure-native:network/v20150504preview:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20150504preview:Zone"), pulumi.Alias(type_="azure-native:network/v20160401:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20160401:Zone"), pulumi.Alias(type_="azure-native:network/v20170901:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Zone"), pulumi.Alias(type_="azure-native:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-native:network/v20180501:Zone"), pulumi.Alias(type_="azure-nextgen:network/v20180501:Zone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Zone, __self__).__init__(
@@ -230,18 +220,18 @@ class Zone(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ZoneArgs.__new__(ZoneArgs)
 
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["max_number_of_record_sets"] = None
-        __props__["max_number_of_records_per_record_set"] = None
-        __props__["name"] = None
-        __props__["name_servers"] = None
-        __props__["number_of_record_sets"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["zone_type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["max_number_of_record_sets"] = None
+        __props__.__dict__["max_number_of_records_per_record_set"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["name_servers"] = None
+        __props__.__dict__["number_of_record_sets"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["zone_type"] = None
         return Zone(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -323,10 +313,4 @@ class Zone(pulumi.CustomResource):
         The type of this DNS zone (Public or Private).
         """
         return pulumi.get(self, "zone_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

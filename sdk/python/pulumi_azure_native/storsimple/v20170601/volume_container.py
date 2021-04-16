@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -175,9 +175,7 @@ class VolumeContainer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_id: Optional[pulumi.Input[str]] = None,
                  volume_container_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The volume container.
 
@@ -226,15 +224,7 @@ class VolumeContainer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_id: Optional[pulumi.Input[str]] = None,
                  volume_container_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,31 +234,31 @@ class VolumeContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeContainerArgs.__new__(VolumeContainerArgs)
 
-            __props__['band_width_rate_in_mbps'] = band_width_rate_in_mbps
-            __props__['bandwidth_setting_id'] = bandwidth_setting_id
+            __props__.__dict__["band_width_rate_in_mbps"] = band_width_rate_in_mbps
+            __props__.__dict__["bandwidth_setting_id"] = bandwidth_setting_id
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['encryption_key'] = encryption_key
-            __props__['kind'] = kind
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["encryption_key"] = encryption_key
+            __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_account_credential_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_credential_id'")
-            __props__['storage_account_credential_id'] = storage_account_credential_id
-            __props__['volume_container_name'] = volume_container_name
-            __props__['encryption_status'] = None
-            __props__['name'] = None
-            __props__['owner_ship_status'] = None
-            __props__['total_cloud_storage_usage_in_bytes'] = None
-            __props__['type'] = None
-            __props__['volume_count'] = None
+            __props__.__dict__["storage_account_credential_id"] = storage_account_credential_id
+            __props__.__dict__["volume_container_name"] = volume_container_name
+            __props__.__dict__["encryption_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["owner_ship_status"] = None
+            __props__.__dict__["total_cloud_storage_usage_in_bytes"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["volume_count"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:VolumeContainer"), pulumi.Alias(type_="azure-native:storsimple:VolumeContainer"), pulumi.Alias(type_="azure-nextgen:storsimple:VolumeContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeContainer, __self__).__init__(
@@ -291,19 +281,19 @@ class VolumeContainer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VolumeContainerArgs.__new__(VolumeContainerArgs)
 
-        __props__["band_width_rate_in_mbps"] = None
-        __props__["bandwidth_setting_id"] = None
-        __props__["encryption_key"] = None
-        __props__["encryption_status"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["owner_ship_status"] = None
-        __props__["storage_account_credential_id"] = None
-        __props__["total_cloud_storage_usage_in_bytes"] = None
-        __props__["type"] = None
-        __props__["volume_count"] = None
+        __props__.__dict__["band_width_rate_in_mbps"] = None
+        __props__.__dict__["bandwidth_setting_id"] = None
+        __props__.__dict__["encryption_key"] = None
+        __props__.__dict__["encryption_status"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["owner_ship_status"] = None
+        __props__.__dict__["storage_account_credential_id"] = None
+        __props__.__dict__["total_cloud_storage_usage_in_bytes"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["volume_count"] = None
         return VolumeContainer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -393,10 +383,4 @@ class VolumeContainer(pulumi.CustomResource):
         The number of volumes in the volume Container.
         """
         return pulumi.get(self, "volume_count")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

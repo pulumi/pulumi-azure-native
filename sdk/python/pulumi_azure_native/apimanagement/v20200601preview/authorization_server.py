@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -342,9 +342,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  support_state: Optional[pulumi.Input[bool]] = None,
                  token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         External OAuth authorization server settings.
 
@@ -413,15 +411,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  support_state: Optional[pulumi.Input[bool]] = None,
                  token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -431,43 +421,43 @@ class AuthorizationServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AuthorizationServerArgs.__new__(AuthorizationServerArgs)
 
             if authorization_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_endpoint'")
-            __props__['authorization_endpoint'] = authorization_endpoint
-            __props__['authorization_methods'] = authorization_methods
-            __props__['authsid'] = authsid
-            __props__['bearer_token_sending_methods'] = bearer_token_sending_methods
-            __props__['client_authentication_method'] = client_authentication_method
+            __props__.__dict__["authorization_endpoint"] = authorization_endpoint
+            __props__.__dict__["authorization_methods"] = authorization_methods
+            __props__.__dict__["authsid"] = authsid
+            __props__.__dict__["bearer_token_sending_methods"] = bearer_token_sending_methods
+            __props__.__dict__["client_authentication_method"] = client_authentication_method
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_registration_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'client_registration_endpoint'")
-            __props__['client_registration_endpoint'] = client_registration_endpoint
-            __props__['client_secret'] = client_secret
-            __props__['default_scope'] = default_scope
-            __props__['description'] = description
+            __props__.__dict__["client_registration_endpoint"] = client_registration_endpoint
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["default_scope"] = default_scope
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
+            __props__.__dict__["display_name"] = display_name
             if grant_types is None and not opts.urn:
                 raise TypeError("Missing required property 'grant_types'")
-            __props__['grant_types'] = grant_types
+            __props__.__dict__["grant_types"] = grant_types
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_owner_password'] = resource_owner_password
-            __props__['resource_owner_username'] = resource_owner_username
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_owner_password"] = resource_owner_password
+            __props__.__dict__["resource_owner_username"] = resource_owner_username
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['support_state'] = support_state
-            __props__['token_body_parameters'] = token_body_parameters
-            __props__['token_endpoint'] = token_endpoint
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["support_state"] = support_state
+            __props__.__dict__["token_body_parameters"] = token_body_parameters
+            __props__.__dict__["token_endpoint"] = token_endpoint
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:AuthorizationServer"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:AuthorizationServer"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:AuthorizationServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationServer, __self__).__init__(
@@ -490,26 +480,26 @@ class AuthorizationServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AuthorizationServerArgs.__new__(AuthorizationServerArgs)
 
-        __props__["authorization_endpoint"] = None
-        __props__["authorization_methods"] = None
-        __props__["bearer_token_sending_methods"] = None
-        __props__["client_authentication_method"] = None
-        __props__["client_id"] = None
-        __props__["client_registration_endpoint"] = None
-        __props__["client_secret"] = None
-        __props__["default_scope"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["grant_types"] = None
-        __props__["name"] = None
-        __props__["resource_owner_password"] = None
-        __props__["resource_owner_username"] = None
-        __props__["support_state"] = None
-        __props__["token_body_parameters"] = None
-        __props__["token_endpoint"] = None
-        __props__["type"] = None
+        __props__.__dict__["authorization_endpoint"] = None
+        __props__.__dict__["authorization_methods"] = None
+        __props__.__dict__["bearer_token_sending_methods"] = None
+        __props__.__dict__["client_authentication_method"] = None
+        __props__.__dict__["client_id"] = None
+        __props__.__dict__["client_registration_endpoint"] = None
+        __props__.__dict__["client_secret"] = None
+        __props__.__dict__["default_scope"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["grant_types"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["resource_owner_password"] = None
+        __props__.__dict__["resource_owner_username"] = None
+        __props__.__dict__["support_state"] = None
+        __props__.__dict__["token_body_parameters"] = None
+        __props__.__dict__["token_endpoint"] = None
+        __props__.__dict__["type"] = None
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -655,10 +645,4 @@ class AuthorizationServer(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

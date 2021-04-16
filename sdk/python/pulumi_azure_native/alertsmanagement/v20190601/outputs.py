@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -20,6 +20,27 @@ class ActionGroupsInformationResponse(dict):
     """
     The Action Groups information, used by the alert rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "customEmailSubject":
+            suggest = "custom_email_subject"
+        elif key == "customWebhookPayload":
+            suggest = "custom_webhook_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupsInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupsInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupsInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_ids: Sequence[str],
                  custom_email_subject: Optional[str] = None,
@@ -60,15 +81,31 @@ class ActionGroupsInformationResponse(dict):
         """
         return pulumi.get(self, "custom_webhook_payload")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DetectorResponse(dict):
     """
     The detector information. By default this is not populated, unless it's specified in expandDetector
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imagePaths":
+            suggest = "image_paths"
+        elif key == "supportedResourceTypes":
+            suggest = "supported_resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  description: Optional[str] = None,
@@ -145,9 +182,6 @@ class DetectorResponse(dict):
         """
         return pulumi.get(self, "supported_resource_types")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ThrottlingInformationResponse(dict):
@@ -170,8 +204,5 @@ class ThrottlingInformationResponse(dict):
         The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
         return pulumi.get(self, "duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['FileServerArgs', 'FileServer']
 
@@ -153,9 +153,7 @@ class FileServer(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_domain_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The file server.
 
@@ -202,15 +200,7 @@ class FileServer(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_domain_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,30 +210,30 @@ class FileServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FileServerArgs.__new__(FileServerArgs)
 
             if backup_schedule_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_schedule_group_id'")
-            __props__['backup_schedule_group_id'] = backup_schedule_group_id
-            __props__['description'] = description
+            __props__.__dict__["backup_schedule_group_id"] = backup_schedule_group_id
+            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
+            __props__.__dict__["device_name"] = device_name
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
-            __props__['file_server_name'] = file_server_name
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["file_server_name"] = file_server_name
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_domain_id'")
-            __props__['storage_domain_id'] = storage_domain_id
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["storage_domain_id"] = storage_domain_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:FileServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServer, __self__).__init__(
@@ -266,14 +256,14 @@ class FileServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FileServerArgs.__new__(FileServerArgs)
 
-        __props__["backup_schedule_group_id"] = None
-        __props__["description"] = None
-        __props__["domain_name"] = None
-        __props__["name"] = None
-        __props__["storage_domain_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["backup_schedule_group_id"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["domain_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["storage_domain_id"] = None
+        __props__.__dict__["type"] = None
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -323,10 +313,4 @@ class FileServer(pulumi.CustomResource):
         The type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

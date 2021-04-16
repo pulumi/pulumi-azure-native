@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -416,9 +416,7 @@ class ServerGroup(pulumi.CustomResource):
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
                  standby_availability_zone: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a server group for create.
 
@@ -495,15 +493,7 @@ class ServerGroup(pulumi.CustomResource):
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
                  standby_availability_zone: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -513,41 +503,41 @@ class ServerGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerGroupArgs.__new__(ServerGroupArgs)
 
-            __props__['administrator_login'] = administrator_login
-            __props__['administrator_login_password'] = administrator_login_password
-            __props__['availability_zone'] = availability_zone
-            __props__['backup_retention_days'] = backup_retention_days
-            __props__['citus_version'] = citus_version
-            __props__['create_mode'] = create_mode
-            __props__['delegated_subnet_arguments'] = delegated_subnet_arguments
-            __props__['enable_mx'] = enable_mx
-            __props__['enable_shards_on_coordinator'] = enable_shards_on_coordinator
-            __props__['enable_zfs'] = enable_zfs
-            __props__['location'] = location
-            __props__['maintenance_window'] = maintenance_window
-            __props__['point_in_time_utc'] = point_in_time_utc
-            __props__['postgresql_version'] = postgresql_version
+            __props__.__dict__["administrator_login"] = administrator_login
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["backup_retention_days"] = backup_retention_days
+            __props__.__dict__["citus_version"] = citus_version
+            __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["delegated_subnet_arguments"] = delegated_subnet_arguments
+            __props__.__dict__["enable_mx"] = enable_mx
+            __props__.__dict__["enable_shards_on_coordinator"] = enable_shards_on_coordinator
+            __props__.__dict__["enable_zfs"] = enable_zfs
+            __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["point_in_time_utc"] = point_in_time_utc
+            __props__.__dict__["postgresql_version"] = postgresql_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['server_group_name'] = server_group_name
-            __props__['server_role_groups'] = server_role_groups
-            __props__['source_location'] = source_location
-            __props__['source_resource_group_name'] = source_resource_group_name
-            __props__['source_server_group_name'] = source_server_group_name
-            __props__['source_subscription_id'] = source_subscription_id
-            __props__['standby_availability_zone'] = standby_availability_zone
-            __props__['tags'] = tags
-            __props__['earliest_restore_time'] = None
-            __props__['name'] = None
-            __props__['read_replicas'] = None
-            __props__['resource_provider_type'] = None
-            __props__['source_server_group'] = None
-            __props__['state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["server_group_name"] = server_group_name
+            __props__.__dict__["server_role_groups"] = server_role_groups
+            __props__.__dict__["source_location"] = source_location
+            __props__.__dict__["source_resource_group_name"] = source_resource_group_name
+            __props__.__dict__["source_server_group_name"] = source_server_group_name
+            __props__.__dict__["source_subscription_id"] = source_subscription_id
+            __props__.__dict__["standby_availability_zone"] = standby_availability_zone
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["earliest_restore_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["read_replicas"] = None
+            __props__.__dict__["resource_provider_type"] = None
+            __props__.__dict__["source_server_group"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20201005privatepreview:ServerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerGroup, __self__).__init__(
@@ -570,30 +560,30 @@ class ServerGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServerGroupArgs.__new__(ServerGroupArgs)
 
-        __props__["administrator_login"] = None
-        __props__["availability_zone"] = None
-        __props__["backup_retention_days"] = None
-        __props__["citus_version"] = None
-        __props__["delegated_subnet_arguments"] = None
-        __props__["earliest_restore_time"] = None
-        __props__["enable_mx"] = None
-        __props__["enable_shards_on_coordinator"] = None
-        __props__["enable_zfs"] = None
-        __props__["location"] = None
-        __props__["maintenance_window"] = None
-        __props__["name"] = None
-        __props__["postgresql_version"] = None
-        __props__["read_replicas"] = None
-        __props__["resource_provider_type"] = None
-        __props__["server_role_groups"] = None
-        __props__["source_server_group"] = None
-        __props__["standby_availability_zone"] = None
-        __props__["state"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["administrator_login"] = None
+        __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["backup_retention_days"] = None
+        __props__.__dict__["citus_version"] = None
+        __props__.__dict__["delegated_subnet_arguments"] = None
+        __props__.__dict__["earliest_restore_time"] = None
+        __props__.__dict__["enable_mx"] = None
+        __props__.__dict__["enable_shards_on_coordinator"] = None
+        __props__.__dict__["enable_zfs"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maintenance_window"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["postgresql_version"] = None
+        __props__.__dict__["read_replicas"] = None
+        __props__.__dict__["resource_provider_type"] = None
+        __props__.__dict__["server_role_groups"] = None
+        __props__.__dict__["source_server_group"] = None
+        __props__.__dict__["standby_availability_zone"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ServerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -771,10 +761,4 @@ class ServerGroup(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -110,9 +110,7 @@ class MediaService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Media Services account.
 
@@ -153,15 +151,7 @@ class MediaService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,18 +161,18 @@ class MediaService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MediaServiceArgs.__new__(MediaServiceArgs)
 
-            __props__['account_name'] = account_name
-            __props__['location'] = location
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_accounts'] = storage_accounts
-            __props__['tags'] = tags
-            __props__['media_service_id'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_accounts"] = storage_accounts
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["media_service_id"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:MediaService"), pulumi.Alias(type_="azure-native:media:MediaService"), pulumi.Alias(type_="azure-nextgen:media:MediaService"), pulumi.Alias(type_="azure-native:media/v20151001:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20151001:MediaService"), pulumi.Alias(type_="azure-native:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-native:media/v20180701:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20180701:MediaService"), pulumi.Alias(type_="azure-native:media/v20200501:MediaService"), pulumi.Alias(type_="azure-nextgen:media/v20200501:MediaService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MediaService, __self__).__init__(
@@ -205,14 +195,14 @@ class MediaService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MediaServiceArgs.__new__(MediaServiceArgs)
 
-        __props__["location"] = None
-        __props__["media_service_id"] = None
-        __props__["name"] = None
-        __props__["storage_accounts"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["media_service_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["storage_accounts"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return MediaService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -262,10 +252,4 @@ class MediaService(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

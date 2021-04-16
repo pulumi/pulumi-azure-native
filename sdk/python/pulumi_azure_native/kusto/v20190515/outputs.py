@@ -6,12 +6,12 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AzureSkuResponse',
-    'DatabasePrincipalResponseResult',
+    'DatabasePrincipalResponse',
     'DatabaseStatisticsResponse',
     'OptimizedAutoscaleResponse',
     'TrustedExternalTenantResponse',
@@ -62,12 +62,9 @@ class AzureSkuResponse(dict):
         """
         return pulumi.get(self, "capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class DatabasePrincipalResponseResult(dict):
+class DatabasePrincipalResponse(dict):
     """
     A class representing database principal entity.
     """
@@ -179,15 +176,29 @@ class DatabaseStatisticsResponse(dict):
         """
         return pulumi.get(self, "size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OptimizedAutoscaleResponse(dict):
     """
     A class that contains the optimized auto scale definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptimizedAutoscaleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptimizedAutoscaleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptimizedAutoscaleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_enabled: bool,
                  maximum: int,
@@ -237,9 +248,6 @@ class OptimizedAutoscaleResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrustedExternalTenantResponse(dict):
@@ -263,15 +271,33 @@ class TrustedExternalTenantResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkConfigurationResponse(dict):
     """
     A class that contains virtual network definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataManagementPublicIpId":
+            suggest = "data_management_public_ip_id"
+        elif key == "enginePublicIpId":
+            suggest = "engine_public_ip_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_management_public_ip_id: str,
                  engine_public_ip_id: str,
@@ -309,8 +335,5 @@ class VirtualNetworkConfigurationResponse(dict):
         The subnet resource id.
         """
         return pulumi.get(self, "subnet_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

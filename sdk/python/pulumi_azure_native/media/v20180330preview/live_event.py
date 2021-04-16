@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -244,9 +244,7 @@ class LiveEvent(pulumi.CustomResource):
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOptionsFlag']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vanity_url: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The Live Event.
 
@@ -303,15 +301,7 @@ class LiveEvent(pulumi.CustomResource):
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOptionsFlag']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vanity_url: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,33 +311,33 @@ class LiveEvent(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LiveEventArgs.__new__(LiveEventArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['auto_start'] = auto_start
-            __props__['cross_site_access_policies'] = cross_site_access_policies
-            __props__['description'] = description
-            __props__['encoding'] = encoding
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["auto_start"] = auto_start
+            __props__.__dict__["cross_site_access_policies"] = cross_site_access_policies
+            __props__.__dict__["description"] = description
+            __props__.__dict__["encoding"] = encoding
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
-            __props__['input'] = input
-            __props__['live_event_name'] = live_event_name
-            __props__['location'] = location
-            __props__['preview'] = preview
+            __props__.__dict__["input"] = input
+            __props__.__dict__["live_event_name"] = live_event_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["preview"] = preview
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['stream_options'] = stream_options
-            __props__['tags'] = tags
-            __props__['vanity_url'] = vanity_url
-            __props__['created'] = None
-            __props__['last_modified'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["stream_options"] = stream_options
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vanity_url"] = vanity_url
+            __props__.__dict__["created"] = None
+            __props__.__dict__["last_modified"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180330preview:LiveEvent"), pulumi.Alias(type_="azure-native:media:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20180701:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:LiveEvent"), pulumi.Alias(type_="azure-native:media/v20200501:LiveEvent"), pulumi.Alias(type_="azure-nextgen:media/v20200501:LiveEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveEvent, __self__).__init__(
@@ -370,23 +360,23 @@ class LiveEvent(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = LiveEventArgs.__new__(LiveEventArgs)
 
-        __props__["created"] = None
-        __props__["cross_site_access_policies"] = None
-        __props__["description"] = None
-        __props__["encoding"] = None
-        __props__["input"] = None
-        __props__["last_modified"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["preview"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_state"] = None
-        __props__["stream_options"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vanity_url"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["cross_site_access_policies"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["encoding"] = None
+        __props__.__dict__["input"] = None
+        __props__.__dict__["last_modified"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["preview"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_state"] = None
+        __props__.__dict__["stream_options"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vanity_url"] = None
         return LiveEvent(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -508,10 +498,4 @@ class LiveEvent(pulumi.CustomResource):
         The Live Event vanity URL flag.
         """
         return pulumi.get(self, "vanity_url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

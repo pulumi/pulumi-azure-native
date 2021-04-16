@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['ApiDiagnosticLoggerArgs', 'ApiDiagnosticLogger']
@@ -105,9 +105,7 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
                  loggerid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Logger details.
 
@@ -148,15 +146,7 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
                  loggerid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,28 +156,28 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiDiagnosticLoggerArgs.__new__(ApiDiagnosticLoggerArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
+            __props__.__dict__["api_id"] = api_id
             if diagnostic_id is None and not opts.urn:
                 raise TypeError("Missing required property 'diagnostic_id'")
-            __props__['diagnostic_id'] = diagnostic_id
-            __props__['loggerid'] = loggerid
+            __props__.__dict__["diagnostic_id"] = diagnostic_id
+            __props__.__dict__["loggerid"] = loggerid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['credentials'] = None
-            __props__['description'] = None
-            __props__['is_buffered'] = None
-            __props__['logger_type'] = None
-            __props__['name'] = None
-            __props__['sampling'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["credentials"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["is_buffered"] = None
+            __props__.__dict__["logger_type"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["sampling"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-native:apimanagement:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiDiagnosticLogger"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiDiagnosticLogger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiDiagnosticLogger, __self__).__init__(
@@ -210,15 +200,15 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApiDiagnosticLoggerArgs.__new__(ApiDiagnosticLoggerArgs)
 
-        __props__["credentials"] = None
-        __props__["description"] = None
-        __props__["is_buffered"] = None
-        __props__["logger_type"] = None
-        __props__["name"] = None
-        __props__["sampling"] = None
-        __props__["type"] = None
+        __props__.__dict__["credentials"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["is_buffered"] = None
+        __props__.__dict__["logger_type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["sampling"] = None
+        __props__.__dict__["type"] = None
         return ApiDiagnosticLogger(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -277,10 +267,4 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

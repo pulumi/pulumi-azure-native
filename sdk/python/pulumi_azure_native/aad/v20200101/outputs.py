@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -29,6 +29,23 @@ class ContainerAccountResponse(dict):
     """
     Container Account Description
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerAccountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerAccountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerAccountResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: Optional[str] = None,
                  password: Optional[str] = None,
@@ -70,15 +87,37 @@ class ContainerAccountResponse(dict):
         """
         return pulumi.get(self, "spn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainSecuritySettingsResponse(dict):
     """
     Domain Security Settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ntlmV1":
+            suggest = "ntlm_v1"
+        elif key == "syncKerberosPasswords":
+            suggest = "sync_kerberos_passwords"
+        elif key == "syncNtlmPasswords":
+            suggest = "sync_ntlm_passwords"
+        elif key == "syncOnPremPasswords":
+            suggest = "sync_on_prem_passwords"
+        elif key == "tlsV1":
+            suggest = "tls_v1"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSecuritySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSecuritySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSecuritySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ntlm_v1: Optional[str] = None,
                  sync_kerberos_passwords: Optional[str] = None,
@@ -154,15 +193,37 @@ class DomainSecuritySettingsResponse(dict):
         """
         return pulumi.get(self, "tls_v1")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ForestTrustResponse(dict):
     """
     Forest Trust Setting
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "remoteDnsIps":
+            suggest = "remote_dns_ips"
+        elif key == "trustDirection":
+            suggest = "trust_direction"
+        elif key == "trustPassword":
+            suggest = "trust_password"
+        elif key == "trustedDomainFqdn":
+            suggest = "trusted_domain_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ForestTrustResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ForestTrustResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ForestTrustResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  friendly_name: Optional[str] = None,
                  remote_dns_ips: Optional[str] = None,
@@ -228,15 +289,31 @@ class ForestTrustResponse(dict):
         """
         return pulumi.get(self, "trusted_domain_fqdn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthAlertResponse(dict):
     """
     Health Alert Description
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastDetected":
+            suggest = "last_detected"
+        elif key == "resolutionUri":
+            suggest = "resolution_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthAlertResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthAlertResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthAlertResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  issue: str,
@@ -319,9 +396,6 @@ class HealthAlertResponse(dict):
         """
         return pulumi.get(self, "severity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthMonitorResponse(dict):
@@ -366,15 +440,39 @@ class HealthMonitorResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LdapsSettingsResponse(dict):
     """
     Secure LDAP Settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateNotAfter":
+            suggest = "certificate_not_after"
+        elif key == "certificateThumbprint":
+            suggest = "certificate_thumbprint"
+        elif key == "publicCertificate":
+            suggest = "public_certificate"
+        elif key == "externalAccess":
+            suggest = "external_access"
+        elif key == "pfxCertificate":
+            suggest = "pfx_certificate"
+        elif key == "pfxCertificatePassword":
+            suggest = "pfx_certificate_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LdapsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LdapsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LdapsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_not_after: str,
                  certificate_thumbprint: str,
@@ -465,15 +563,31 @@ class LdapsSettingsResponse(dict):
         """
         return pulumi.get(self, "pfx_certificate_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrationProgressResponse(dict):
     """
     Migration Progress
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completionPercentage":
+            suggest = "completion_percentage"
+        elif key == "progressMessage":
+            suggest = "progress_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationProgressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationProgressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationProgressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  completion_percentage: Optional[float] = None,
                  progress_message: Optional[str] = None):
@@ -503,22 +617,40 @@ class MigrationProgressResponse(dict):
         """
         return pulumi.get(self, "progress_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrationPropertiesResponse(dict):
     """
     Migration Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "migrationProgress":
+            suggest = "migration_progress"
+        elif key == "oldSubnetId":
+            suggest = "old_subnet_id"
+        elif key == "oldVnetSiteId":
+            suggest = "old_vnet_site_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  migration_progress: 'outputs.MigrationProgressResponse',
                  old_subnet_id: str,
                  old_vnet_site_id: str):
         """
         Migration Properties
-        :param 'MigrationProgressResponseArgs' migration_progress: Migration Progress
+        :param 'MigrationProgressResponse' migration_progress: Migration Progress
         :param str old_subnet_id: Old Subnet Id
         :param str old_vnet_site_id: Old Vnet Site Id
         """
@@ -550,15 +682,33 @@ class MigrationPropertiesResponse(dict):
         """
         return pulumi.get(self, "old_vnet_site_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationSettingsResponse(dict):
     """
     Settings for notification
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalRecipients":
+            suggest = "additional_recipients"
+        elif key == "notifyDcAdmins":
+            suggest = "notify_dc_admins"
+        elif key == "notifyGlobalAdmins":
+            suggest = "notify_global_admins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_recipients: Optional[Sequence[str]] = None,
                  notify_dc_admins: Optional[str] = None,
@@ -600,15 +750,45 @@ class NotificationSettingsResponse(dict):
         """
         return pulumi.get(self, "notify_global_admins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReplicaSetResponse(dict):
     """
     Replica Set Definition
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainControllerIpAddress":
+            suggest = "domain_controller_ip_address"
+        elif key == "externalAccessIpAddress":
+            suggest = "external_access_ip_address"
+        elif key == "healthAlerts":
+            suggest = "health_alerts"
+        elif key == "healthLastEvaluated":
+            suggest = "health_last_evaluated"
+        elif key == "healthMonitors":
+            suggest = "health_monitors"
+        elif key == "replicaSetId":
+            suggest = "replica_set_id"
+        elif key == "serviceStatus":
+            suggest = "service_status"
+        elif key == "vnetSiteId":
+            suggest = "vnet_site_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicaSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicaSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicaSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain_controller_ip_address: Sequence[str],
                  external_access_ip_address: str,
@@ -624,9 +804,9 @@ class ReplicaSetResponse(dict):
         Replica Set Definition
         :param Sequence[str] domain_controller_ip_address: List of Domain Controller IP Address
         :param str external_access_ip_address: External access ip address.
-        :param Sequence['HealthAlertResponseArgs'] health_alerts: List of Domain Health Alerts
+        :param Sequence['HealthAlertResponse'] health_alerts: List of Domain Health Alerts
         :param str health_last_evaluated: Last domain evaluation run DateTime
-        :param Sequence['HealthMonitorResponseArgs'] health_monitors: List of Domain Health Monitors
+        :param Sequence['HealthMonitorResponse'] health_monitors: List of Domain Health Monitors
         :param str replica_set_id: ReplicaSet Id
         :param str service_status: Status of Domain Service instance
         :param str vnet_site_id: Virtual network site id
@@ -726,22 +906,36 @@ class ReplicaSetResponse(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceForestSettingsResponse(dict):
     """
     Settings for Resource Forest
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceForest":
+            suggest = "resource_forest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceForestSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceForestSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceForestSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_forest: Optional[str] = None,
                  settings: Optional[Sequence['outputs.ForestTrustResponse']] = None):
         """
         Settings for Resource Forest
         :param str resource_forest: Resource Forest
-        :param Sequence['ForestTrustResponseArgs'] settings: List of settings for Resource Forest
+        :param Sequence['ForestTrustResponse'] settings: List of settings for Resource Forest
         """
         if resource_forest is not None:
             pulumi.set(__self__, "resource_forest", resource_forest)
@@ -763,8 +957,5 @@ class ResourceForestSettingsResponse(dict):
         List of settings for Resource Forest
         """
         return pulumi.get(self, "settings")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

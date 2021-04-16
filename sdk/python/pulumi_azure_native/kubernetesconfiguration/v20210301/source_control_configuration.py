@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -279,9 +279,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_configuration_name: Optional[pulumi.Input[str]] = None,
                  ssh_known_hosts_contents: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The SourceControl Configuration object returned in Get & Put response.
 
@@ -342,15 +340,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_configuration_name: Optional[pulumi.Input[str]] = None,
                  ssh_known_hosts_contents: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,39 +350,39 @@ class SourceControlConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SourceControlConfigurationArgs.__new__(SourceControlConfigurationArgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
+            __props__.__dict__["cluster_name"] = cluster_name
             if cluster_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_resource_name'")
-            __props__['cluster_resource_name'] = cluster_resource_name
+            __props__.__dict__["cluster_resource_name"] = cluster_resource_name
             if cluster_rp is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_rp'")
-            __props__['cluster_rp'] = cluster_rp
-            __props__['configuration_protected_settings'] = configuration_protected_settings
-            __props__['enable_helm_operator'] = enable_helm_operator
-            __props__['helm_operator_properties'] = helm_operator_properties
-            __props__['operator_instance_name'] = operator_instance_name
+            __props__.__dict__["cluster_rp"] = cluster_rp
+            __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
+            __props__.__dict__["enable_helm_operator"] = enable_helm_operator
+            __props__.__dict__["helm_operator_properties"] = helm_operator_properties
+            __props__.__dict__["operator_instance_name"] = operator_instance_name
             if operator_namespace is None:
                 operator_namespace = 'default'
-            __props__['operator_namespace'] = operator_namespace
-            __props__['operator_params'] = operator_params
-            __props__['operator_scope'] = operator_scope
-            __props__['operator_type'] = operator_type
-            __props__['repository_url'] = repository_url
+            __props__.__dict__["operator_namespace"] = operator_namespace
+            __props__.__dict__["operator_params"] = operator_params
+            __props__.__dict__["operator_scope"] = operator_scope
+            __props__.__dict__["operator_type"] = operator_type
+            __props__.__dict__["repository_url"] = repository_url
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['source_control_configuration_name'] = source_control_configuration_name
-            __props__['ssh_known_hosts_contents'] = ssh_known_hosts_contents
-            __props__['compliance_status'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['repository_public_key'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["source_control_configuration_name"] = source_control_configuration_name
+            __props__.__dict__["ssh_known_hosts_contents"] = ssh_known_hosts_contents
+            __props__.__dict__["compliance_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["repository_public_key"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SourceControlConfiguration, __self__).__init__(
@@ -415,24 +405,24 @@ class SourceControlConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SourceControlConfigurationArgs.__new__(SourceControlConfigurationArgs)
 
-        __props__["compliance_status"] = None
-        __props__["configuration_protected_settings"] = None
-        __props__["enable_helm_operator"] = None
-        __props__["helm_operator_properties"] = None
-        __props__["name"] = None
-        __props__["operator_instance_name"] = None
-        __props__["operator_namespace"] = None
-        __props__["operator_params"] = None
-        __props__["operator_scope"] = None
-        __props__["operator_type"] = None
-        __props__["provisioning_state"] = None
-        __props__["repository_public_key"] = None
-        __props__["repository_url"] = None
-        __props__["ssh_known_hosts_contents"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["compliance_status"] = None
+        __props__.__dict__["configuration_protected_settings"] = None
+        __props__.__dict__["enable_helm_operator"] = None
+        __props__.__dict__["helm_operator_properties"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["operator_instance_name"] = None
+        __props__.__dict__["operator_namespace"] = None
+        __props__.__dict__["operator_params"] = None
+        __props__.__dict__["operator_scope"] = None
+        __props__.__dict__["operator_type"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["repository_public_key"] = None
+        __props__.__dict__["repository_url"] = None
+        __props__.__dict__["ssh_known_hosts_contents"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return SourceControlConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -562,10 +552,4 @@ class SourceControlConfiguration(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

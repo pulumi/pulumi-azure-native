@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = [
     'OrganizationResourcePropertiesResponseOfferDetail',
@@ -18,6 +18,29 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
     """
     Confluent offer detail
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "planId":
+            suggest = "plan_id"
+        elif key == "planName":
+            suggest = "plan_name"
+        elif key == "publisherId":
+            suggest = "publisher_id"
+        elif key == "termUnit":
+            suggest = "term_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationResourcePropertiesResponseOfferDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationResourcePropertiesResponseOfferDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationResourcePropertiesResponseOfferDetail.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: str,
                  id: Optional[str] = None,
@@ -94,15 +117,33 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
         """
         return pulumi.get(self, "term_unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrganizationResourcePropertiesResponseUserDetail(dict):
     """
     Subscriber detail
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationResourcePropertiesResponseUserDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationResourcePropertiesResponseUserDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationResourcePropertiesResponseUserDetail.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: Optional[str] = None,
                  first_name: Optional[str] = None,
@@ -143,8 +184,5 @@ class OrganizationResourcePropertiesResponseUserDetail(dict):
         Last name
         """
         return pulumi.get(self, "last_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

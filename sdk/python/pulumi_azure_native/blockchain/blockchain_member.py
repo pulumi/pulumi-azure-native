@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -246,9 +246,7 @@ class BlockchainMember(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validator_nodes_sku: Optional[pulumi.Input[pulumi.InputType['BlockchainMemberNodesSkuArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Payload of the blockchain member which is exposed in the request/response of the resource provider.
         API Version: 2018-06-01-preview.
@@ -307,15 +305,7 @@ class BlockchainMember(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validator_nodes_sku: Optional[pulumi.Input[pulumi.InputType['BlockchainMemberNodesSkuArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,31 +315,31 @@ class BlockchainMember(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BlockchainMemberArgs.__new__(BlockchainMemberArgs)
 
-            __props__['blockchain_member_name'] = blockchain_member_name
-            __props__['consortium'] = consortium
-            __props__['consortium_management_account_password'] = consortium_management_account_password
-            __props__['consortium_member_display_name'] = consortium_member_display_name
-            __props__['consortium_role'] = consortium_role
-            __props__['firewall_rules'] = firewall_rules
-            __props__['location'] = location
-            __props__['password'] = password
-            __props__['protocol'] = protocol
+            __props__.__dict__["blockchain_member_name"] = blockchain_member_name
+            __props__.__dict__["consortium"] = consortium
+            __props__.__dict__["consortium_management_account_password"] = consortium_management_account_password
+            __props__.__dict__["consortium_member_display_name"] = consortium_member_display_name
+            __props__.__dict__["consortium_role"] = consortium_role
+            __props__.__dict__["firewall_rules"] = firewall_rules
+            __props__.__dict__["location"] = location
+            __props__.__dict__["password"] = password
+            __props__.__dict__["protocol"] = protocol
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['validator_nodes_sku'] = validator_nodes_sku
-            __props__['consortium_management_account_address'] = None
-            __props__['dns'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['public_key'] = None
-            __props__['root_contract_address'] = None
-            __props__['type'] = None
-            __props__['user_name'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["validator_nodes_sku"] = validator_nodes_sku
+            __props__.__dict__["consortium_management_account_address"] = None
+            __props__.__dict__["dns"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_key"] = None
+            __props__.__dict__["root_contract_address"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blockchain:BlockchainMember"), pulumi.Alias(type_="azure-native:blockchain/v20180601preview:BlockchainMember"), pulumi.Alias(type_="azure-nextgen:blockchain/v20180601preview:BlockchainMember")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlockchainMember, __self__).__init__(
@@ -372,27 +362,27 @@ class BlockchainMember(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BlockchainMemberArgs.__new__(BlockchainMemberArgs)
 
-        __props__["consortium"] = None
-        __props__["consortium_management_account_address"] = None
-        __props__["consortium_management_account_password"] = None
-        __props__["consortium_member_display_name"] = None
-        __props__["consortium_role"] = None
-        __props__["dns"] = None
-        __props__["firewall_rules"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["password"] = None
-        __props__["protocol"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_key"] = None
-        __props__["root_contract_address"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["user_name"] = None
-        __props__["validator_nodes_sku"] = None
+        __props__.__dict__["consortium"] = None
+        __props__.__dict__["consortium_management_account_address"] = None
+        __props__.__dict__["consortium_management_account_password"] = None
+        __props__.__dict__["consortium_member_display_name"] = None
+        __props__.__dict__["consortium_role"] = None
+        __props__.__dict__["dns"] = None
+        __props__.__dict__["firewall_rules"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["password"] = None
+        __props__.__dict__["protocol"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_key"] = None
+        __props__.__dict__["root_contract_address"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_name"] = None
+        __props__.__dict__["validator_nodes_sku"] = None
         return BlockchainMember(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -546,10 +536,4 @@ class BlockchainMember(pulumi.CustomResource):
         Gets or sets the blockchain validator nodes Sku.
         """
         return pulumi.get(self, "validator_nodes_sku")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

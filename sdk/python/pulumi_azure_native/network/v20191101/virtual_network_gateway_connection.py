@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -346,9 +346,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A common class for general resource information.
 
@@ -417,15 +415,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  virtual_network_gateway1: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -435,42 +425,42 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkGatewayConnectionArgs.__new__(VirtualNetworkGatewayConnectionArgs)
 
-            __props__['authorization_key'] = authorization_key
-            __props__['connection_protocol'] = connection_protocol
+            __props__.__dict__["authorization_key"] = authorization_key
+            __props__.__dict__["connection_protocol"] = connection_protocol
             if connection_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_type'")
-            __props__['connection_type'] = connection_type
-            __props__['enable_bgp'] = enable_bgp
-            __props__['express_route_gateway_bypass'] = express_route_gateway_bypass
-            __props__['id'] = id
-            __props__['ipsec_policies'] = ipsec_policies
-            __props__['local_network_gateway2'] = local_network_gateway2
-            __props__['location'] = location
-            __props__['peer'] = peer
+            __props__.__dict__["connection_type"] = connection_type
+            __props__.__dict__["enable_bgp"] = enable_bgp
+            __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ipsec_policies"] = ipsec_policies
+            __props__.__dict__["local_network_gateway2"] = local_network_gateway2
+            __props__.__dict__["location"] = location
+            __props__.__dict__["peer"] = peer
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['routing_weight'] = routing_weight
-            __props__['shared_key'] = shared_key
-            __props__['tags'] = tags
-            __props__['traffic_selector_policies'] = traffic_selector_policies
-            __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routing_weight"] = routing_weight
+            __props__.__dict__["shared_key"] = shared_key
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["traffic_selector_policies"] = traffic_selector_policies
+            __props__.__dict__["use_policy_based_traffic_selectors"] = use_policy_based_traffic_selectors
             if virtual_network_gateway1 is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway1'")
-            __props__['virtual_network_gateway1'] = virtual_network_gateway1
-            __props__['virtual_network_gateway2'] = virtual_network_gateway2
-            __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
-            __props__['connection_status'] = None
-            __props__['egress_bytes_transferred'] = None
-            __props__['etag'] = None
-            __props__['ingress_bytes_transferred'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_guid'] = None
-            __props__['tunnel_connection_status'] = None
-            __props__['type'] = None
+            __props__.__dict__["virtual_network_gateway1"] = virtual_network_gateway1
+            __props__.__dict__["virtual_network_gateway2"] = virtual_network_gateway2
+            __props__.__dict__["virtual_network_gateway_connection_name"] = virtual_network_gateway_connection_name
+            __props__.__dict__["connection_status"] = None
+            __props__.__dict__["egress_bytes_transferred"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["ingress_bytes_transferred"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
+            __props__.__dict__["tunnel_connection_status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20150615:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20160901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20161201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20170901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20171001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20171101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkGatewayConnection"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualNetworkGatewayConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGatewayConnection, __self__).__init__(
@@ -493,33 +483,33 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualNetworkGatewayConnectionArgs.__new__(VirtualNetworkGatewayConnectionArgs)
 
-        __props__["authorization_key"] = None
-        __props__["connection_protocol"] = None
-        __props__["connection_status"] = None
-        __props__["connection_type"] = None
-        __props__["egress_bytes_transferred"] = None
-        __props__["enable_bgp"] = None
-        __props__["etag"] = None
-        __props__["express_route_gateway_bypass"] = None
-        __props__["ingress_bytes_transferred"] = None
-        __props__["ipsec_policies"] = None
-        __props__["local_network_gateway2"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["peer"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_guid"] = None
-        __props__["routing_weight"] = None
-        __props__["shared_key"] = None
-        __props__["tags"] = None
-        __props__["traffic_selector_policies"] = None
-        __props__["tunnel_connection_status"] = None
-        __props__["type"] = None
-        __props__["use_policy_based_traffic_selectors"] = None
-        __props__["virtual_network_gateway1"] = None
-        __props__["virtual_network_gateway2"] = None
+        __props__.__dict__["authorization_key"] = None
+        __props__.__dict__["connection_protocol"] = None
+        __props__.__dict__["connection_status"] = None
+        __props__.__dict__["connection_type"] = None
+        __props__.__dict__["egress_bytes_transferred"] = None
+        __props__.__dict__["enable_bgp"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["express_route_gateway_bypass"] = None
+        __props__.__dict__["ingress_bytes_transferred"] = None
+        __props__.__dict__["ipsec_policies"] = None
+        __props__.__dict__["local_network_gateway2"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peer"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["routing_weight"] = None
+        __props__.__dict__["shared_key"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["traffic_selector_policies"] = None
+        __props__.__dict__["tunnel_connection_status"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["use_policy_based_traffic_selectors"] = None
+        __props__.__dict__["virtual_network_gateway1"] = None
+        __props__.__dict__["virtual_network_gateway2"] = None
         return VirtualNetworkGatewayConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -721,10 +711,4 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         The reference to virtual network gateway resource.
         """
         return pulumi.get(self, "virtual_network_gateway2")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

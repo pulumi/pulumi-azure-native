@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -51,15 +51,39 @@ class ConfigurationParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConfigurationSettingResponse(dict):
     """
     Configuration setting of LCM (Local Configuration Manager).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionAfterReboot":
+            suggest = "action_after_reboot"
+        elif key == "allowModuleOverwrite":
+            suggest = "allow_module_overwrite"
+        elif key == "configurationMode":
+            suggest = "configuration_mode"
+        elif key == "configurationModeFrequencyMins":
+            suggest = "configuration_mode_frequency_mins"
+        elif key == "rebootIfNeeded":
+            suggest = "reboot_if_needed"
+        elif key == "refreshFrequencyMins":
+            suggest = "refresh_frequency_mins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_after_reboot: Optional[str] = None,
                  allow_module_overwrite: Optional[bool] = None,
@@ -141,15 +165,39 @@ class ConfigurationSettingResponse(dict):
         """
         return pulumi.get(self, "refresh_frequency_mins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GuestConfigurationAssignmentPropertiesResponse(dict):
     """
     Guest configuration assignment properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignmentHash":
+            suggest = "assignment_hash"
+        elif key == "complianceStatus":
+            suggest = "compliance_status"
+        elif key == "lastComplianceStatusChecked":
+            suggest = "last_compliance_status_checked"
+        elif key == "latestReportId":
+            suggest = "latest_report_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "guestConfiguration":
+            suggest = "guest_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestConfigurationAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestConfigurationAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestConfigurationAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assignment_hash: str,
                  compliance_status: str,
@@ -166,7 +214,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param str latest_report_id: Id of the latest report for the guest configuration assignment. 
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str context: The source which initiated the guest configuration assignment. Ex: Azure Policy
-        :param 'GuestConfigurationNavigationResponseArgs' guest_configuration: The guest configuration to assign.
+        :param 'GuestConfigurationNavigationResponse' guest_configuration: The guest configuration to assign.
         """
         pulumi.set(__self__, "assignment_hash", assignment_hash)
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -234,15 +282,35 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         """
         return pulumi.get(self, "guest_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GuestConfigurationNavigationResponse(dict):
     """
     Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentHash":
+            suggest = "content_hash"
+        elif key == "contentUri":
+            suggest = "content_uri"
+        elif key == "configurationParameter":
+            suggest = "configuration_parameter"
+        elif key == "configurationSetting":
+            suggest = "configuration_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestConfigurationNavigationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestConfigurationNavigationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestConfigurationNavigationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_hash: str,
                  content_uri: str,
@@ -255,8 +323,8 @@ class GuestConfigurationNavigationResponse(dict):
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
-        :param Sequence['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
-        :param 'ConfigurationSettingResponseArgs' configuration_setting: The configuration setting for the guest configuration.
+        :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
@@ -329,8 +397,5 @@ class GuestConfigurationNavigationResponse(dict):
         Version of the guest configuration.
         """
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

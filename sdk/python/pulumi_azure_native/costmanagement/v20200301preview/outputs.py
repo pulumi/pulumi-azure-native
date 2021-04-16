@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -50,22 +50,38 @@ class CostAllocationProportionResponse(dict):
         """
         return pulumi.get(self, "percentage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CostAllocationRuleDetailsResponse(dict):
     """
     Resource details of the cost allocation rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceResources":
+            suggest = "source_resources"
+        elif key == "targetResources":
+            suggest = "target_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostAllocationRuleDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostAllocationRuleDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostAllocationRuleDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_resources: Optional[Sequence['outputs.SourceCostAllocationResourceResponse']] = None,
                  target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None):
         """
         Resource details of the cost allocation rule
-        :param Sequence['SourceCostAllocationResourceResponseArgs'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
-        :param Sequence['TargetCostAllocationResourceResponseArgs'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
         if source_resources is not None:
             pulumi.set(__self__, "source_resources", source_resources)
@@ -88,15 +104,31 @@ class CostAllocationRuleDetailsResponse(dict):
         """
         return pulumi.get(self, "target_resources")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CostAllocationRulePropertiesResponse(dict):
     """
     The properties of a cost allocation rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "updatedDate":
+            suggest = "updated_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CostAllocationRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CostAllocationRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CostAllocationRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_date: str,
                  details: 'outputs.CostAllocationRuleDetailsResponse',
@@ -106,7 +138,7 @@ class CostAllocationRulePropertiesResponse(dict):
         """
         The properties of a cost allocation rule
         :param str created_date: Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
-        :param 'CostAllocationRuleDetailsResponseArgs' details: Resource information for the cost allocation rule
+        :param 'CostAllocationRuleDetailsResponse' details: Resource information for the cost allocation rule
         :param str status: Status of the rule
         :param str updated_date: Time at which the rule was last updated.
         :param str description: Description of a cost allocation rule.
@@ -158,15 +190,29 @@ class CostAllocationRulePropertiesResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceCostAllocationResourceResponse(dict):
     """
     Source resources for cost allocation
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceCostAllocationResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceCostAllocationResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceCostAllocationResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  resource_type: str,
@@ -205,15 +251,31 @@ class SourceCostAllocationResourceResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetCostAllocationResourceResponse(dict):
     """
     Target resources for cost allocation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyType":
+            suggest = "policy_type"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetCostAllocationResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetCostAllocationResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetCostAllocationResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  policy_type: str,
@@ -224,7 +286,7 @@ class TargetCostAllocationResourceResponse(dict):
         :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param str policy_type: Method of cost allocation for the rule
         :param str resource_type: Type of resources contained in this cost allocation rule
-        :param Sequence['CostAllocationProportionResponseArgs'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
+        :param Sequence['CostAllocationProportionResponse'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy_type", policy_type)
@@ -262,8 +324,5 @@ class TargetCostAllocationResourceResponse(dict):
         Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

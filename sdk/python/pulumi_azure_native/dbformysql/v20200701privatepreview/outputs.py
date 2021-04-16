@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -22,6 +22,23 @@ class DelegatedSubnetArgumentsResponse(dict):
     """
     Delegated subnet arguments of a server
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetArmResourceId":
+            suggest = "subnet_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DelegatedSubnetArgumentsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DelegatedSubnetArgumentsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DelegatedSubnetArgumentsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_arm_resource_id: Optional[str] = None):
         """
@@ -39,15 +56,31 @@ class DelegatedSubnetArgumentsResponse(dict):
         """
         return pulumi.get(self, "subnet_arm_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -87,15 +120,35 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MaintenanceWindowResponse(dict):
     """
     Maintenance window of a server.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customWindow":
+            suggest = "custom_window"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMinute":
+            suggest = "start_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_window: Optional[str] = None,
                  day_of_week: Optional[int] = None,
@@ -149,9 +202,6 @@ class MaintenanceWindowResponse(dict):
         """
         return pulumi.get(self, "start_minute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -185,15 +235,37 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageProfileResponse(dict):
     """
     Storage Profile properties of a server
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileStorageSkuName":
+            suggest = "file_storage_sku_name"
+        elif key == "backupRetentionDays":
+            suggest = "backup_retention_days"
+        elif key == "storageAutogrow":
+            suggest = "storage_autogrow"
+        elif key == "storageIops":
+            suggest = "storage_iops"
+        elif key == "storageMB":
+            suggest = "storage_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_storage_sku_name: str,
                  backup_retention_days: Optional[int] = None,
@@ -257,8 +329,5 @@ class StorageProfileResponse(dict):
         Max storage allowed for a server.
         """
         return pulumi.get(self, "storage_mb")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

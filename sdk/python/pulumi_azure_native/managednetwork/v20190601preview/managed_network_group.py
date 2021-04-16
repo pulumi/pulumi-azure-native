@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -177,9 +177,7 @@ class ManagedNetworkGroup(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
                  virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The Managed Network Group resource
 
@@ -228,15 +226,7 @@ class ManagedNetworkGroup(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
                  virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceIdArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,25 +236,25 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagedNetworkGroupArgs.__new__(ManagedNetworkGroupArgs)
 
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['managed_network_group_name'] = managed_network_group_name
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_network_group_name"] = managed_network_group_name
             if managed_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_network_name'")
-            __props__['managed_network_name'] = managed_network_name
-            __props__['management_groups'] = management_groups
+            __props__.__dict__["managed_network_name"] = managed_network_name
+            __props__.__dict__["management_groups"] = management_groups
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['subnets'] = subnets
-            __props__['subscriptions'] = subscriptions
-            __props__['virtual_networks'] = virtual_networks
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subnets"] = subnets
+            __props__.__dict__["subscriptions"] = subscriptions
+            __props__.__dict__["virtual_networks"] = virtual_networks
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup"), pulumi.Alias(type_="azure-native:managednetwork:ManagedNetworkGroup"), pulumi.Alias(type_="azure-nextgen:managednetwork:ManagedNetworkGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedNetworkGroup, __self__).__init__(
@@ -287,18 +277,18 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ManagedNetworkGroupArgs.__new__(ManagedNetworkGroupArgs)
 
-        __props__["etag"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["management_groups"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["subnets"] = None
-        __props__["subscriptions"] = None
-        __props__["type"] = None
-        __props__["virtual_networks"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["management_groups"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["subnets"] = None
+        __props__.__dict__["subscriptions"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_networks"] = None
         return ManagedNetworkGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -380,10 +370,4 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         The collection of virtual nets covered by the Managed Network
         """
         return pulumi.get(self, "virtual_networks")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

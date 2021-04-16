@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['SqlPoolTransparentDataEncryptionArgs', 'SqlPoolTransparentDataEncryption']
@@ -106,9 +106,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                  status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
                  transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a Sql pool transparent data encryption configuration.
 
@@ -149,15 +147,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                  status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
                  transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,22 +157,22 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SqlPoolTransparentDataEncryptionArgs.__new__(SqlPoolTransparentDataEncryptionArgs)
 
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
-            __props__['sql_pool_name'] = sql_pool_name
-            __props__['status'] = status
-            __props__['transparent_data_encryption_name'] = transparent_data_encryption_name
+            __props__.__dict__["sql_pool_name"] = sql_pool_name
+            __props__.__dict__["status"] = status
+            __props__.__dict__["transparent_data_encryption_name"] = transparent_data_encryption_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['location'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["location"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-native:synapse:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolTransparentDataEncryption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolTransparentDataEncryption, __self__).__init__(
@@ -205,12 +195,12 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SqlPoolTransparentDataEncryptionArgs.__new__(SqlPoolTransparentDataEncryptionArgs)
 
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["status"] = None
-        __props__["type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["type"] = None
         return SqlPoolTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -244,10 +234,4 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

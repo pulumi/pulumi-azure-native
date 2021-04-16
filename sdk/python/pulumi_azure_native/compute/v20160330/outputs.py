@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -65,6 +65,27 @@ class AdditionalUnattendContentResponse(dict):
     """
     Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentName":
+            suggest = "component_name"
+        elif key == "passName":
+            suggest = "pass_name"
+        elif key == "settingName":
+            suggest = "setting_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdditionalUnattendContentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdditionalUnattendContentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdditionalUnattendContentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_name: Optional[str] = None,
                  content: Optional[str] = None,
@@ -118,9 +139,6 @@ class AdditionalUnattendContentResponse(dict):
         """
         return pulumi.get(self, "setting_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApiEntityReferenceResponse(dict):
@@ -144,15 +162,31 @@ class ApiEntityReferenceResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BootDiagnosticsInstanceViewResponse(dict):
     """
     The instance view of a virtual machine boot diagnostics.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consoleScreenshotBlobUri":
+            suggest = "console_screenshot_blob_uri"
+        elif key == "serialConsoleLogBlobUri":
+            suggest = "serial_console_log_blob_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BootDiagnosticsInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BootDiagnosticsInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BootDiagnosticsInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  console_screenshot_blob_uri: str,
                  serial_console_log_blob_uri: str):
@@ -180,15 +214,29 @@ class BootDiagnosticsInstanceViewResponse(dict):
         """
         return pulumi.get(self, "serial_console_log_blob_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BootDiagnosticsResponse(dict):
     """
     Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageUri":
+            suggest = "storage_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BootDiagnosticsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BootDiagnosticsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BootDiagnosticsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  storage_uri: Optional[str] = None):
@@ -218,15 +266,31 @@ class BootDiagnosticsResponse(dict):
         """
         return pulumi.get(self, "storage_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataDiskResponse(dict):
     """
     Describes a data disk.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "diskSizeGB":
+            suggest = "disk_size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  lun: int,
@@ -240,10 +304,10 @@ class DataDiskResponse(dict):
         :param str create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str name: The disk name.
-        :param 'VirtualHardDiskResponseArgs' vhd: The virtual hard disk.
+        :param 'VirtualHardDiskResponse' vhd: The virtual hard disk.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        :param 'VirtualHardDiskResponse' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "lun", lun)
@@ -312,20 +376,34 @@ class DataDiskResponse(dict):
         """
         return pulumi.get(self, "image")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticsProfileResponse(dict):
     """
     Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bootDiagnostics":
+            suggest = "boot_diagnostics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  boot_diagnostics: Optional['outputs.BootDiagnosticsResponse'] = None):
         """
         Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-        :param 'BootDiagnosticsResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+        :param 'BootDiagnosticsResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
         """
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
@@ -338,24 +416,40 @@ class DiagnosticsProfileResponse(dict):
         """
         return pulumi.get(self, "boot_diagnostics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskEncryptionSettingsResponse(dict):
     """
     Describes a Encryption Settings for a Disk
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionKey":
+            suggest = "disk_encryption_key"
+        elif key == "keyEncryptionKey":
+            suggest = "key_encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskEncryptionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskEncryptionSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskEncryptionSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_encryption_key: Optional['outputs.KeyVaultSecretReferenceResponse'] = None,
                  enabled: Optional[bool] = None,
                  key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
         """
         Describes a Encryption Settings for a Disk
-        :param 'KeyVaultSecretReferenceResponseArgs' disk_encryption_key: Specifies the location of the disk encryption key, which is a Key Vault Secret.
+        :param 'KeyVaultSecretReferenceResponse' disk_encryption_key: Specifies the location of the disk encryption key, which is a Key Vault Secret.
         :param bool enabled: Specifies whether disk encryption should be enabled on the virtual machine.
-        :param 'KeyVaultKeyReferenceResponseArgs' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -388,9 +482,6 @@ class DiskEncryptionSettingsResponse(dict):
         """
         return pulumi.get(self, "key_encryption_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskInstanceViewResponse(dict):
@@ -403,7 +494,7 @@ class DiskInstanceViewResponse(dict):
         """
         The instance view of the disk.
         :param str name: The disk name.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -426,15 +517,29 @@ class DiskInstanceViewResponse(dict):
         """
         return pulumi.get(self, "statuses")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HardwareProfileResponse(dict):
     """
     Specifies the hardware settings for the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HardwareProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HardwareProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HardwareProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vm_size: Optional[str] = None):
         """
@@ -451,9 +556,6 @@ class HardwareProfileResponse(dict):
         Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
         """
         return pulumi.get(self, "vm_size")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -514,15 +616,29 @@ class ImageReferenceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceViewStatusResponse(dict):
     """
     Instance view status.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceViewStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceViewStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceViewStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  display_status: Optional[str] = None,
@@ -588,22 +704,38 @@ class InstanceViewStatusResponse(dict):
         """
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultKeyReferenceResponse(dict):
     """
     Describes a reference to Key Vault Key
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+        elif key == "sourceVault":
+            suggest = "source_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultKeyReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultKeyReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultKeyReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_url: str,
                  source_vault: 'outputs.SubResourceResponse'):
         """
         Describes a reference to Key Vault Key
         :param str key_url: The URL referencing a key encryption key in Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing the key.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the key.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -624,22 +756,38 @@ class KeyVaultKeyReferenceResponse(dict):
         """
         return pulumi.get(self, "source_vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultSecretReferenceResponse(dict):
     """
     Describes a reference to Key Vault Secret
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVault":
+            suggest = "source_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultSecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultSecretReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultSecretReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault: 'outputs.SubResourceResponse'):
         """
         Describes a reference to Key Vault Secret
         :param str secret_url: The URL referencing a secret in a Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing the secret.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the secret.
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -660,22 +808,36 @@ class KeyVaultSecretReferenceResponse(dict):
         """
         return pulumi.get(self, "source_vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxConfigurationResponse(dict):
     """
     Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disablePasswordAuthentication":
+            suggest = "disable_password_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_password_authentication: Optional[bool] = None,
                  ssh: Optional['outputs.SshConfigurationResponse'] = None):
         """
         Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled.
-        :param 'SshConfigurationResponseArgs' ssh: Specifies the ssh key configuration for a Linux OS.
+        :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
@@ -697,9 +859,6 @@ class LinuxConfigurationResponse(dict):
         Specifies the ssh key configuration for a Linux OS.
         """
         return pulumi.get(self, "ssh")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -736,20 +895,34 @@ class NetworkInterfaceReferenceResponse(dict):
         """
         return pulumi.get(self, "primary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkProfileResponse(dict):
     """
     Specifies the network interfaces of the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceReferenceResponse']] = None):
         """
         Specifies the network interfaces of the virtual machine.
-        :param Sequence['NetworkInterfaceReferenceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
+        :param Sequence['NetworkInterfaceReferenceResponse'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
@@ -762,15 +935,35 @@ class NetworkProfileResponse(dict):
         """
         return pulumi.get(self, "network_interfaces")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OSDiskResponse(dict):
     """
     Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "diskSizeGB":
+            suggest = "disk_size_gb"
+        elif key == "encryptionSettings":
+            suggest = "encryption_settings"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  name: str,
@@ -784,11 +977,11 @@ class OSDiskResponse(dict):
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param str create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param str name: The disk name.
-        :param 'VirtualHardDiskResponseArgs' vhd: The virtual hard disk.
+        :param 'VirtualHardDiskResponse' vhd: The virtual hard disk.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-        :param 'DiskEncryptionSettingsResponseArgs' encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
-        :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+        :param 'DiskEncryptionSettingsResponse' encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
+        :param 'VirtualHardDiskResponse' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -869,15 +1062,39 @@ class OSDiskResponse(dict):
         """
         return pulumi.get(self, "os_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "computerName":
+            suggest = "computer_name"
+        elif key == "customData":
+            suggest = "custom_data"
+        elif key == "linuxConfiguration":
+            suggest = "linux_configuration"
+        elif key == "windowsConfiguration":
+            suggest = "windows_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_password: Optional[str] = None,
                  admin_username: Optional[str] = None,
@@ -892,9 +1109,9 @@ class OSProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param str computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param Sequence['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machine.
-        :param 'WindowsConfigurationResponseArgs' windows_configuration: Specifies Windows operating system settings on the virtual machine.
+        :param 'LinuxConfigurationResponse' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param Sequence['VaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the virtual machine.
+        :param 'WindowsConfigurationResponse' windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
@@ -967,15 +1184,29 @@ class OSProfileResponse(dict):
         """
         return pulumi.get(self, "windows_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanResponse(dict):
     """
     Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  product: Optional[str] = None,
@@ -1029,9 +1260,6 @@ class PlanResponse(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -1079,20 +1307,34 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SshConfigurationResponse(dict):
     """
     SSH configuration for Linux based VMs running on Azure
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKeys":
+            suggest = "public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
@@ -1105,15 +1347,29 @@ class SshConfigurationResponse(dict):
         """
         return pulumi.get(self, "public_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SshPublicKeyResponse(dict):
     """
     Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshPublicKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_data: Optional[str] = None,
                  path: Optional[str] = None):
@@ -1143,24 +1399,42 @@ class SshPublicKeyResponse(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageProfileResponse(dict):
     """
     Specifies the storage settings for the virtual machine disks.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDisks":
+            suggest = "data_disks"
+        elif key == "imageReference":
+            suggest = "image_reference"
+        elif key == "osDisk":
+            suggest = "os_disk"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_disks: Optional[Sequence['outputs.DataDiskResponse']] = None,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
                  os_disk: Optional['outputs.OSDiskResponse'] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param Sequence['DataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        :param 'ImageReferenceResponseArgs' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-        :param 'OSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['DataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param 'ImageReferenceResponse' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+        :param 'OSDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -1193,9 +1467,6 @@ class StorageProfileResponse(dict):
         """
         return pulumi.get(self, "os_disk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubResourceResponse(dict):
@@ -1214,9 +1485,6 @@ class SubResourceResponse(dict):
         Resource Id
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1241,15 +1509,31 @@ class UpgradePolicyResponse(dict):
         """
         return pulumi.get(self, "mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VaultCertificateResponse(dict):
     """
     Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateStore":
+            suggest = "certificate_store"
+        elif key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_store: Optional[str] = None,
                  certificate_url: Optional[str] = None):
@@ -1279,22 +1563,38 @@ class VaultCertificateResponse(dict):
         """
         return pulumi.get(self, "certificate_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VaultSecretGroupResponse(dict):
     """
     Describes a set of certificates which are all in the same Key Vault.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceVault":
+            suggest = "source_vault"
+        elif key == "vaultCertificates":
+            suggest = "vault_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultSecretGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultSecretGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultSecretGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_vault: Optional['outputs.SubResourceResponse'] = None,
                  vault_certificates: Optional[Sequence['outputs.VaultCertificateResponse']] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         if source_vault is not None:
             pulumi.set(__self__, "source_vault", source_vault)
@@ -1316,9 +1616,6 @@ class VaultSecretGroupResponse(dict):
         The list of key vault references in SourceVault which contain certificates.
         """
         return pulumi.get(self, "vault_certificates")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1343,23 +1640,39 @@ class VirtualHardDiskResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineAgentInstanceViewResponse(dict):
     """
     The instance view of the VM Agent running on the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionHandlers":
+            suggest = "extension_handlers"
+        elif key == "vmAgentVersion":
+            suggest = "vm_agent_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineAgentInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineAgentInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineAgentInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  extension_handlers: Optional[Sequence['outputs.VirtualMachineExtensionHandlerInstanceViewResponse']] = None,
                  statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
                  vm_agent_version: Optional[str] = None):
         """
         The instance view of the VM Agent running on the virtual machine.
-        :param Sequence['VirtualMachineExtensionHandlerInstanceViewResponseArgs'] extension_handlers: The virtual machine extension handler instance view.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['VirtualMachineExtensionHandlerInstanceViewResponse'] extension_handlers: The virtual machine extension handler instance view.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
         :param str vm_agent_version: The VM Agent full version.
         """
         if extension_handlers is not None:
@@ -1393,22 +1706,36 @@ class VirtualMachineAgentInstanceViewResponse(dict):
         """
         return pulumi.get(self, "vm_agent_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineExtensionHandlerInstanceViewResponse(dict):
     """
     The instance view of a virtual machine extension handler.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineExtensionHandlerInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineExtensionHandlerInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineExtensionHandlerInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: Optional['outputs.InstanceViewStatusResponse'] = None,
                  type: Optional[str] = None,
                  type_handler_version: Optional[str] = None):
         """
         The instance view of a virtual machine extension handler.
-        :param 'InstanceViewStatusResponseArgs' status: The extension handler status.
+        :param 'InstanceViewStatusResponse' status: The extension handler status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -1443,15 +1770,29 @@ class VirtualMachineExtensionHandlerInstanceViewResponse(dict):
         """
         return pulumi.get(self, "type_handler_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineExtensionInstanceViewResponse(dict):
     """
     The instance view of a virtual machine extension.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineExtensionInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineExtensionInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineExtensionInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
@@ -1461,8 +1802,8 @@ class VirtualMachineExtensionInstanceViewResponse(dict):
         """
         The instance view of a virtual machine extension.
         :param str name: The virtual machine extension name.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
-        :param Sequence['InstanceViewStatusResponseArgs'] substatuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponse'] substatuses: The resource status information.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -1517,15 +1858,39 @@ class VirtualMachineExtensionInstanceViewResponse(dict):
         """
         return pulumi.get(self, "type_handler_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineExtensionResponse(dict):
     """
     Describes a Virtual Machine Extension.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "instanceView":
+            suggest = "instance_view"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  location: str,
@@ -1549,7 +1914,7 @@ class VirtualMachineExtensionResponse(dict):
         :param str type: Resource type
         :param bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param str force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
-        :param 'VirtualMachineExtensionInstanceViewResponseArgs' instance_view: The virtual machine extension instance view.
+        :param 'VirtualMachineExtensionInstanceViewResponse' instance_view: The virtual machine extension instance view.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param str publisher: The name of the extension handler publisher.
         :param Any settings: Json formatted public settings for the extension.
@@ -1682,15 +2047,31 @@ class VirtualMachineExtensionResponse(dict):
         """
         return pulumi.get(self, "type_handler_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineIdentityResponse(dict):
     """
     Identity for the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -1730,15 +2111,37 @@ class VirtualMachineIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineInstanceViewResponse(dict):
     """
     The instance view of a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bootDiagnostics":
+            suggest = "boot_diagnostics"
+        elif key == "platformFaultDomain":
+            suggest = "platform_fault_domain"
+        elif key == "platformUpdateDomain":
+            suggest = "platform_update_domain"
+        elif key == "rdpThumbPrint":
+            suggest = "rdp_thumb_print"
+        elif key == "vmAgent":
+            suggest = "vm_agent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  boot_diagnostics: Optional['outputs.BootDiagnosticsInstanceViewResponse'] = None,
                  disks: Optional[Sequence['outputs.DiskInstanceViewResponse']] = None,
@@ -1750,14 +2153,14 @@ class VirtualMachineInstanceViewResponse(dict):
                  vm_agent: Optional['outputs.VirtualMachineAgentInstanceViewResponse'] = None):
         """
         The instance view of a virtual machine.
-        :param 'BootDiagnosticsInstanceViewResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-        :param Sequence['DiskInstanceViewResponseArgs'] disks: The virtual machine disk information.
-        :param Sequence['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
+        :param 'BootDiagnosticsInstanceViewResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+        :param Sequence['DiskInstanceViewResponse'] disks: The virtual machine disk information.
+        :param Sequence['VirtualMachineExtensionInstanceViewResponse'] extensions: The extensions information.
         :param int platform_fault_domain: Specifies the fault domain of the virtual machine.
         :param int platform_update_domain: Specifies the update domain of the virtual machine.
         :param str rdp_thumb_print: The Remote desktop certificate thumbprint.
-        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
-        :param 'VirtualMachineAgentInstanceViewResponseArgs' vm_agent: The VM Agent running on the virtual machine.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param 'VirtualMachineAgentInstanceViewResponse' vm_agent: The VM Agent running on the virtual machine.
         """
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
@@ -1840,9 +2243,6 @@ class VirtualMachineInstanceViewResponse(dict):
         """
         return pulumi.get(self, "vm_agent")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetExtensionProfileResponse(dict):
@@ -1853,7 +2253,7 @@ class VirtualMachineScaleSetExtensionProfileResponse(dict):
                  extensions: Optional[Sequence['outputs.VirtualMachineScaleSetExtensionResponse']] = None):
         """
         Describes a virtual machine scale set extension profile.
-        :param Sequence['VirtualMachineScaleSetExtensionResponseArgs'] extensions: The virtual machine scale set child extension resources.
+        :param Sequence['VirtualMachineScaleSetExtensionResponse'] extensions: The virtual machine scale set child extension resources.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -1866,15 +2266,35 @@ class VirtualMachineScaleSetExtensionProfileResponse(dict):
         """
         return pulumi.get(self, "extensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetExtensionResponse(dict):
     """
     Describes a Virtual Machine Scale Set Extension.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  auto_upgrade_minor_version: Optional[bool] = None,
@@ -1987,15 +2407,33 @@ class VirtualMachineScaleSetExtensionResponse(dict):
         """
         return pulumi.get(self, "type_handler_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetIPConfigurationResponse(dict):
     """
     Describes a virtual machine scale set network profile's IP configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGatewayBackendAddressPools":
+            suggest = "application_gateway_backend_address_pools"
+        elif key == "loadBalancerBackendAddressPools":
+            suggest = "load_balancer_backend_address_pools"
+        elif key == "loadBalancerInboundNatPools":
+            suggest = "load_balancer_inbound_nat_pools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  subnet: 'outputs.ApiEntityReferenceResponse',
@@ -2006,11 +2444,11 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
         """
         Describes a virtual machine scale set network profile's IP configuration.
         :param str name: The IP configuration name.
-        :param 'ApiEntityReferenceResponseArgs' subnet: The subnet.
-        :param Sequence['SubResourceResponseArgs'] application_gateway_backend_address_pools: The application gateway backend address pools.
+        :param 'ApiEntityReferenceResponse' subnet: The subnet.
+        :param Sequence['SubResourceResponse'] application_gateway_backend_address_pools: The application gateway backend address pools.
         :param str id: Resource Id
-        :param Sequence['SubResourceResponseArgs'] load_balancer_backend_address_pools: The load balancer backend address pools.
-        :param Sequence['SubResourceResponseArgs'] load_balancer_inbound_nat_pools: The load balancer inbound nat pools.
+        :param Sequence['SubResourceResponse'] load_balancer_backend_address_pools: The load balancer backend address pools.
+        :param Sequence['SubResourceResponse'] load_balancer_inbound_nat_pools: The load balancer inbound nat pools.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subnet", subnet)
@@ -2071,15 +2509,31 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "load_balancer_inbound_nat_pools")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetIdentityResponse(dict):
     """
     Identity for the virtual machine scale set.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -2119,15 +2573,29 @@ class VirtualMachineScaleSetIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
     """
     Describes a virtual machine scale set network profile's network configurations.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetNetworkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetNetworkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetNetworkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.VirtualMachineScaleSetIPConfigurationResponse'],
                  name: str,
@@ -2135,7 +2603,7 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
                  primary: Optional[bool] = None):
         """
         Describes a virtual machine scale set network profile's network configurations.
-        :param Sequence['VirtualMachineScaleSetIPConfigurationResponseArgs'] ip_configurations: The virtual machine scale set IP Configuration.
+        :param Sequence['VirtualMachineScaleSetIPConfigurationResponse'] ip_configurations: The virtual machine scale set IP Configuration.
         :param str name: The network configuration name.
         :param str id: Resource Id
         :param bool primary: Whether this is a primary NIC on a virtual machine.
@@ -2179,20 +2647,34 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
         """
         return pulumi.get(self, "primary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetNetworkProfileResponse(dict):
     """
     Describes a virtual machine scale set network profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceConfigurations":
+            suggest = "network_interface_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetNetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetNetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_interface_configurations: Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
         """
         Describes a virtual machine scale set network profile.
-        :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponseArgs'] network_interface_configurations: The list of network configurations.
+        :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponse'] network_interface_configurations: The list of network configurations.
         """
         if network_interface_configurations is not None:
             pulumi.set(__self__, "network_interface_configurations", network_interface_configurations)
@@ -2205,15 +2687,33 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
         """
         return pulumi.get(self, "network_interface_configurations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetOSDiskResponse(dict):
     """
     Describes a virtual machine scale set operating system disk.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "vhdContainers":
+            suggest = "vhd_containers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetOSDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetOSDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetOSDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  name: str,
@@ -2226,7 +2726,7 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
         :param str create_option: Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param str name: The disk name.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param 'VirtualHardDiskResponseArgs' image: The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
+        :param 'VirtualHardDiskResponse' image: The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
         :param str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param Sequence[str] vhd_containers: The list of virtual hard disk container uris.
         """
@@ -2289,15 +2789,39 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
         """
         return pulumi.get(self, "vhd_containers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetOSProfileResponse(dict):
     """
     Describes a virtual machine scale set OS profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "computerNamePrefix":
+            suggest = "computer_name_prefix"
+        elif key == "customData":
+            suggest = "custom_data"
+        elif key == "linuxConfiguration":
+            suggest = "linux_configuration"
+        elif key == "windowsConfiguration":
+            suggest = "windows_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetOSProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetOSProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetOSProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_password: Optional[str] = None,
                  admin_username: Optional[str] = None,
@@ -2312,9 +2836,9 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param str computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         :param str custom_data: A base-64 encoded string of custom data.
-        :param 'LinuxConfigurationResponseArgs' linux_configuration: The Linux Configuration of the OS profile.
-        :param Sequence['VaultSecretGroupResponseArgs'] secrets: The List of certificates for addition to the VM.
-        :param 'WindowsConfigurationResponseArgs' windows_configuration: The Windows Configuration of the OS profile.
+        :param 'LinuxConfigurationResponse' linux_configuration: The Linux Configuration of the OS profile.
+        :param Sequence['VaultSecretGroupResponse'] secrets: The List of certificates for addition to the VM.
+        :param 'WindowsConfigurationResponse' windows_configuration: The Windows Configuration of the OS profile.
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
@@ -2387,22 +2911,38 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
         """
         return pulumi.get(self, "windows_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetStorageProfileResponse(dict):
     """
     Describes a virtual machine scale set storage profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageReference":
+            suggest = "image_reference"
+        elif key == "osDisk":
+            suggest = "os_disk"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetStorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetStorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetStorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
                  os_disk: Optional['outputs.VirtualMachineScaleSetOSDiskResponse'] = None):
         """
         Describes a virtual machine scale set storage profile.
-        :param 'ImageReferenceResponseArgs' image_reference: The image reference.
-        :param 'VirtualMachineScaleSetOSDiskResponseArgs' os_disk: The OS disk.
+        :param 'ImageReferenceResponse' image_reference: The image reference.
+        :param 'VirtualMachineScaleSetOSDiskResponse' os_disk: The OS disk.
         """
         if image_reference is not None:
             pulumi.set(__self__, "image_reference", image_reference)
@@ -2425,15 +2965,35 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
         """
         return pulumi.get(self, "os_disk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineScaleSetVMProfileResponse(dict):
     """
     Describes a virtual machine scale set virtual machine profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionProfile":
+            suggest = "extension_profile"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineScaleSetVMProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineScaleSetVMProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineScaleSetVMProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  extension_profile: Optional['outputs.VirtualMachineScaleSetExtensionProfileResponse'] = None,
                  network_profile: Optional['outputs.VirtualMachineScaleSetNetworkProfileResponse'] = None,
@@ -2441,10 +3001,10 @@ class VirtualMachineScaleSetVMProfileResponse(dict):
                  storage_profile: Optional['outputs.VirtualMachineScaleSetStorageProfileResponse'] = None):
         """
         Describes a virtual machine scale set virtual machine profile.
-        :param 'VirtualMachineScaleSetExtensionProfileResponseArgs' extension_profile: The virtual machine scale set extension profile.
-        :param 'VirtualMachineScaleSetNetworkProfileResponseArgs' network_profile: The virtual machine scale set network profile.
-        :param 'VirtualMachineScaleSetOSProfileResponseArgs' os_profile: The virtual machine scale set OS profile.
-        :param 'VirtualMachineScaleSetStorageProfileResponseArgs' storage_profile: The virtual machine scale set storage profile.
+        :param 'VirtualMachineScaleSetExtensionProfileResponse' extension_profile: The virtual machine scale set extension profile.
+        :param 'VirtualMachineScaleSetNetworkProfileResponse' network_profile: The virtual machine scale set network profile.
+        :param 'VirtualMachineScaleSetOSProfileResponse' os_profile: The virtual machine scale set OS profile.
+        :param 'VirtualMachineScaleSetStorageProfileResponse' storage_profile: The virtual machine scale set storage profile.
         """
         if extension_profile is not None:
             pulumi.set(__self__, "extension_profile", extension_profile)
@@ -2487,9 +3047,6 @@ class VirtualMachineScaleSetVMProfileResponse(dict):
         """
         return pulumi.get(self, "storage_profile")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WinRMConfigurationResponse(dict):
@@ -2500,7 +3057,7 @@ class WinRMConfigurationResponse(dict):
                  listeners: Optional[Sequence['outputs.WinRMListenerResponse']] = None):
         """
         Describes Windows Remote Management configuration of the VM
-        :param Sequence['WinRMListenerResponseArgs'] listeners: The list of Windows Remote Management listeners
+        :param Sequence['WinRMListenerResponse'] listeners: The list of Windows Remote Management listeners
         """
         if listeners is not None:
             pulumi.set(__self__, "listeners", listeners)
@@ -2513,15 +3070,29 @@ class WinRMConfigurationResponse(dict):
         """
         return pulumi.get(self, "listeners")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WinRMListenerResponse(dict):
     """
     Describes Protocol and thumbprint of Windows Remote Management listener
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WinRMListenerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WinRMListenerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WinRMListenerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_url: Optional[str] = None,
                  protocol: Optional[str] = None):
@@ -2551,15 +3122,37 @@ class WinRMListenerResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsConfigurationResponse(dict):
     """
     Specifies Windows operating system settings on the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalUnattendContent":
+            suggest = "additional_unattend_content"
+        elif key == "enableAutomaticUpdates":
+            suggest = "enable_automatic_updates"
+        elif key == "provisionVMAgent":
+            suggest = "provision_vm_agent"
+        elif key == "timeZone":
+            suggest = "time_zone"
+        elif key == "winRM":
+            suggest = "win_rm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_unattend_content: Optional[Sequence['outputs.AdditionalUnattendContentResponse']] = None,
                  enable_automatic_updates: Optional[bool] = None,
@@ -2568,11 +3161,11 @@ class WindowsConfigurationResponse(dict):
                  win_rm: Optional['outputs.WinRMConfigurationResponse'] = None):
         """
         Specifies Windows operating system settings on the virtual machine.
-        :param Sequence['AdditionalUnattendContentResponseArgs'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+        :param Sequence['AdditionalUnattendContentResponse'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         :param bool enable_automatic_updates: Indicates whether virtual machine is enabled for automatic updates.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         :param str time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
-        :param 'WinRMConfigurationResponseArgs' win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+        :param 'WinRMConfigurationResponse' win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
         """
         if additional_unattend_content is not None:
             pulumi.set(__self__, "additional_unattend_content", additional_unattend_content)
@@ -2624,8 +3217,5 @@ class WindowsConfigurationResponse(dict):
         Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
         """
         return pulumi.get(self, "win_rm")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

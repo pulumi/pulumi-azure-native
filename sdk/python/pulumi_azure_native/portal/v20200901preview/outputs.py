@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -16,7 +16,7 @@ __all__ = [
     'MarkdownPartMetadataResponse',
     'MarkdownPartMetadataResponseContent',
     'MarkdownPartMetadataResponseSettings',
-    'ViolationResponseResult',
+    'ViolationResponse',
 ]
 
 @pulumi.output_type
@@ -31,7 +31,7 @@ class DashboardLensResponse(dict):
         """
         A dashboard lens.
         :param int order: The lens order.
-        :param Sequence['DashboardPartsResponseArgs'] parts: The dashboard parts.
+        :param Sequence['DashboardPartsResponse'] parts: The dashboard parts.
         :param Mapping[str, Any] metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
@@ -63,9 +63,6 @@ class DashboardLensResponse(dict):
         """
         return pulumi.get(self, "metadata")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardPartsResponse(dict):
@@ -77,8 +74,8 @@ class DashboardPartsResponse(dict):
                  metadata: Optional['outputs.MarkdownPartMetadataResponse'] = None):
         """
         A dashboard part.
-        :param 'DashboardPartsResponsePositionArgs' position: The dashboard's part position.
-        :param 'MarkdownPartMetadataResponseArgs' metadata: The dashboard part's metadata.
+        :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
+        :param 'MarkdownPartMetadataResponse' metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "position", position)
         if metadata is not None:
@@ -100,15 +97,31 @@ class DashboardPartsResponse(dict):
         """
         return pulumi.get(self, "metadata")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardPartsResponsePosition(dict):
     """
     The dashboard's part position.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colSpan":
+            suggest = "col_span"
+        elif key == "rowSpan":
+            suggest = "row_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardPartsResponsePosition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardPartsResponsePosition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardPartsResponsePosition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  col_span: int,
                  row_span: int,
@@ -170,9 +183,6 @@ class DashboardPartsResponsePosition(dict):
         """
         return pulumi.get(self, "metadata")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MarkdownPartMetadataResponse(dict):
@@ -188,7 +198,7 @@ class MarkdownPartMetadataResponse(dict):
         :param str type: The type of dashboard part.
                Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         :param Sequence[Any] inputs: Input to dashboard part.
-        :param 'MarkdownPartMetadataResponseSettingsArgs' settings: Markdown part settings.
+        :param 'MarkdownPartMetadataResponseSettings' settings: Markdown part settings.
         """
         pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
         if inputs is not None:
@@ -221,9 +231,6 @@ class MarkdownPartMetadataResponse(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MarkdownPartMetadataResponseContent(dict):
@@ -234,7 +241,7 @@ class MarkdownPartMetadataResponseContent(dict):
                  settings: Optional['outputs.MarkdownPartMetadataResponseSettings'] = None):
         """
         The content of markdown part.
-        :param 'MarkdownPartMetadataResponseSettingsArgs' settings: The setting of the content of markdown part.
+        :param 'MarkdownPartMetadataResponseSettings' settings: The setting of the content of markdown part.
         """
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
@@ -247,9 +254,6 @@ class MarkdownPartMetadataResponseContent(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MarkdownPartMetadataResponseSettings(dict):
@@ -260,7 +264,7 @@ class MarkdownPartMetadataResponseSettings(dict):
                  content: Optional['outputs.MarkdownPartMetadataResponseContent'] = None):
         """
         Markdown part settings.
-        :param 'MarkdownPartMetadataResponseContentArgs' content: The content of markdown part.
+        :param 'MarkdownPartMetadataResponseContent' content: The content of markdown part.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -273,12 +277,9 @@ class MarkdownPartMetadataResponseSettings(dict):
         """
         return pulumi.get(self, "content")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ViolationResponseResult(dict):
+class ViolationResponse(dict):
     """
     Violation information.
     """

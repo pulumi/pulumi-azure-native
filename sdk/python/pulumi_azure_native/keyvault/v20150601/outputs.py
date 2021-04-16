@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,6 +22,27 @@ class AccessPolicyEntryResponse(dict):
     """
     An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_id: str,
                  permissions: 'outputs.PermissionsResponse',
@@ -30,7 +51,7 @@ class AccessPolicyEntryResponse(dict):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        :param 'PermissionsResponseArgs' permissions: Permissions the identity has for keys, secrets and certificates.
+        :param 'PermissionsResponse' permissions: Permissions the identity has for keys, secrets and certificates.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param str application_id:  Application ID of the client making request on behalf of a principal
         """
@@ -71,9 +92,6 @@ class AccessPolicyEntryResponse(dict):
          Application ID of the client making request on behalf of a principal
         """
         return pulumi.get(self, "application_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -122,9 +140,6 @@ class PermissionsResponse(dict):
         """
         return pulumi.get(self, "secrets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -158,15 +173,41 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VaultPropertiesResponse(dict):
     """
     Properties of the vault
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPolicies":
+            suggest = "access_policies"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "enableSoftDelete":
+            suggest = "enable_soft_delete"
+        elif key == "enabledForDeployment":
+            suggest = "enabled_for_deployment"
+        elif key == "enabledForDiskEncryption":
+            suggest = "enabled_for_disk_encryption"
+        elif key == "enabledForTemplateDeployment":
+            suggest = "enabled_for_template_deployment"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_policies: Sequence['outputs.AccessPolicyEntryResponse'],
                  sku: 'outputs.SkuResponse',
@@ -178,8 +219,8 @@ class VaultPropertiesResponse(dict):
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
-        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
-        :param 'SkuResponseArgs' sku: SKU details
+        :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+        :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault.
         :param bool enabled_for_deployment: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
@@ -264,8 +305,5 @@ class VaultPropertiesResponse(dict):
         The URI of the vault for performing operations on keys and secrets.
         """
         return pulumi.get(self, "vault_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -35,6 +35,29 @@ class CloudTieringCachePerformanceResponse(dict):
     """
     Server endpoint cloud tiering status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheHitBytes":
+            suggest = "cache_hit_bytes"
+        elif key == "cacheHitBytesPercent":
+            suggest = "cache_hit_bytes_percent"
+        elif key == "cacheMissBytes":
+            suggest = "cache_miss_bytes"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudTieringCachePerformanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudTieringCachePerformanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudTieringCachePerformanceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_hit_bytes: float,
                  cache_hit_bytes_percent: int,
@@ -84,15 +107,31 @@ class CloudTieringCachePerformanceResponse(dict):
         """
         return pulumi.get(self, "last_updated_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudTieringDatePolicyStatusResponse(dict):
     """
     Status of the date policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "tieredFilesMostRecentAccessTimestamp":
+            suggest = "tiered_files_most_recent_access_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudTieringDatePolicyStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudTieringDatePolicyStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudTieringDatePolicyStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_updated_timestamp: str,
                  tiered_files_most_recent_access_timestamp: str):
@@ -120,22 +159,38 @@ class CloudTieringDatePolicyStatusResponse(dict):
         """
         return pulumi.get(self, "tiered_files_most_recent_access_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudTieringFilesNotTieringResponse(dict):
     """
     Server endpoint cloud tiering status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "totalFileCount":
+            suggest = "total_file_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudTieringFilesNotTieringResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudTieringFilesNotTieringResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudTieringFilesNotTieringResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.FilesNotTieringErrorResponse'],
                  last_updated_timestamp: str,
                  total_file_count: float):
         """
         Server endpoint cloud tiering status object.
-        :param Sequence['FilesNotTieringErrorResponseArgs'] errors: Array of tiering errors
+        :param Sequence['FilesNotTieringErrorResponse'] errors: Array of tiering errors
         :param str last_updated_timestamp: Last updated timestamp
         :param float total_file_count: Last cloud tiering result (HResult)
         """
@@ -167,15 +222,39 @@ class CloudTieringFilesNotTieringResponse(dict):
         """
         return pulumi.get(self, "total_file_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudTieringSpaceSavingsResponse(dict):
     """
     Server endpoint cloud tiering status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachedSizeBytes":
+            suggest = "cached_size_bytes"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "spaceSavingsBytes":
+            suggest = "space_savings_bytes"
+        elif key == "spaceSavingsPercent":
+            suggest = "space_savings_percent"
+        elif key == "totalSizeCloudBytes":
+            suggest = "total_size_cloud_bytes"
+        elif key == "volumeSizeBytes":
+            suggest = "volume_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudTieringSpaceSavingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudTieringSpaceSavingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudTieringSpaceSavingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cached_size_bytes: float,
                  last_updated_timestamp: str,
@@ -247,15 +326,33 @@ class CloudTieringSpaceSavingsResponse(dict):
         """
         return pulumi.get(self, "volume_size_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
     """
     Status of the volume free space policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentVolumeFreeSpacePercent":
+            suggest = "current_volume_free_space_percent"
+        elif key == "effectiveVolumeFreeSpacePolicy":
+            suggest = "effective_volume_free_space_policy"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudTieringVolumeFreeSpacePolicyStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudTieringVolumeFreeSpacePolicyStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudTieringVolumeFreeSpacePolicyStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  current_volume_free_space_percent: int,
                  effective_volume_free_space_policy: int,
@@ -294,15 +391,31 @@ class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
         """
         return pulumi.get(self, "last_updated_timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FilesNotTieringErrorResponse(dict):
     """
     Files not tiering error object
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "fileCount":
+            suggest = "file_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilesNotTieringErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilesNotTieringErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilesNotTieringErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: int,
                  file_count: float):
@@ -330,15 +443,33 @@ class FilesNotTieringErrorResponse(dict):
         """
         return pulumi.get(self, "file_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -350,10 +481,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -411,9 +542,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -436,15 +564,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -486,15 +628,31 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointBackgroundDataDownloadActivityResponse(dict):
     """
     Background data download activity object
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "downloadedBytes":
+            suggest = "downloaded_bytes"
+        elif key == "percentProgress":
+            suggest = "percent_progress"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointBackgroundDataDownloadActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointBackgroundDataDownloadActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointBackgroundDataDownloadActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  downloaded_bytes: float,
                  percent_progress: int,
@@ -533,15 +691,45 @@ class ServerEndpointBackgroundDataDownloadActivityResponse(dict):
         """
         return pulumi.get(self, "timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointCloudTieringStatusResponse(dict):
     """
     Server endpoint cloud tiering status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cachePerformance":
+            suggest = "cache_performance"
+        elif key == "datePolicyStatus":
+            suggest = "date_policy_status"
+        elif key == "filesNotTiering":
+            suggest = "files_not_tiering"
+        elif key == "healthLastUpdatedTimestamp":
+            suggest = "health_last_updated_timestamp"
+        elif key == "lastCloudTieringResult":
+            suggest = "last_cloud_tiering_result"
+        elif key == "lastSuccessTimestamp":
+            suggest = "last_success_timestamp"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "spaceSavings":
+            suggest = "space_savings"
+        elif key == "volumeFreeSpacePolicyStatus":
+            suggest = "volume_free_space_policy_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointCloudTieringStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointCloudTieringStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointCloudTieringStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_performance: 'outputs.CloudTieringCachePerformanceResponse',
                  date_policy_status: 'outputs.CloudTieringDatePolicyStatusResponse',
@@ -555,16 +743,16 @@ class ServerEndpointCloudTieringStatusResponse(dict):
                  volume_free_space_policy_status: 'outputs.CloudTieringVolumeFreeSpacePolicyStatusResponse'):
         """
         Server endpoint cloud tiering status object.
-        :param 'CloudTieringCachePerformanceResponseArgs' cache_performance: Information regarding how well the local cache on the server is performing.
-        :param 'CloudTieringDatePolicyStatusResponseArgs' date_policy_status: Status of the date policy
-        :param 'CloudTieringFilesNotTieringResponseArgs' files_not_tiering: Information regarding files that failed to be tiered
+        :param 'CloudTieringCachePerformanceResponse' cache_performance: Information regarding how well the local cache on the server is performing.
+        :param 'CloudTieringDatePolicyStatusResponse' date_policy_status: Status of the date policy
+        :param 'CloudTieringFilesNotTieringResponse' files_not_tiering: Information regarding files that failed to be tiered
         :param str health: Cloud tiering health state.
         :param str health_last_updated_timestamp: The last updated timestamp of health state
         :param int last_cloud_tiering_result: Last cloud tiering result (HResult)
         :param str last_success_timestamp: Last cloud tiering success timestamp
         :param str last_updated_timestamp: Last updated timestamp
-        :param 'CloudTieringSpaceSavingsResponseArgs' space_savings: Information regarding how much local space cloud tiering is saving.
-        :param 'CloudTieringVolumeFreeSpacePolicyStatusResponseArgs' volume_free_space_policy_status: Status of the volume free space policy
+        :param 'CloudTieringSpaceSavingsResponse' space_savings: Information regarding how much local space cloud tiering is saving.
+        :param 'CloudTieringVolumeFreeSpacePolicyStatusResponse' volume_free_space_policy_status: Status of the volume free space policy
         """
         pulumi.set(__self__, "cache_performance", cache_performance)
         pulumi.set(__self__, "date_policy_status", date_policy_status)
@@ -657,15 +845,33 @@ class ServerEndpointCloudTieringStatusResponse(dict):
         """
         return pulumi.get(self, "volume_free_space_policy_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointFilesNotSyncingErrorResponse(dict):
     """
     Files not syncing error object
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "persistentCount":
+            suggest = "persistent_count"
+        elif key == "transientCount":
+            suggest = "transient_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointFilesNotSyncingErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointFilesNotSyncingErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointFilesNotSyncingErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: int,
                  persistent_count: float,
@@ -704,15 +910,29 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
         """
         return pulumi.get(self, "transient_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointRecallErrorResponse(dict):
     """
     Server endpoint recall error object
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointRecallErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointRecallErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointRecallErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: float,
                  error_code: int):
@@ -740,15 +960,33 @@ class ServerEndpointRecallErrorResponse(dict):
         """
         return pulumi.get(self, "error_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointRecallStatusResponse(dict):
     """
     Server endpoint recall status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "recallErrors":
+            suggest = "recall_errors"
+        elif key == "totalRecallErrorsCount":
+            suggest = "total_recall_errors_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointRecallStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointRecallStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointRecallStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_updated_timestamp: str,
                  recall_errors: Sequence['outputs.ServerEndpointRecallErrorResponse'],
@@ -756,7 +994,7 @@ class ServerEndpointRecallStatusResponse(dict):
         """
         Server endpoint recall status object.
         :param str last_updated_timestamp: Last updated timestamp
-        :param Sequence['ServerEndpointRecallErrorResponseArgs'] recall_errors: Array of recall errors
+        :param Sequence['ServerEndpointRecallErrorResponse'] recall_errors: Array of recall errors
         :param float total_recall_errors_count: Total count of recall errors.
         """
         pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
@@ -787,15 +1025,39 @@ class ServerEndpointRecallStatusResponse(dict):
         """
         return pulumi.get(self, "total_recall_errors_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointSyncActivityStatusResponse(dict):
     """
     Sync Session status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appliedBytes":
+            suggest = "applied_bytes"
+        elif key == "appliedItemCount":
+            suggest = "applied_item_count"
+        elif key == "perItemErrorCount":
+            suggest = "per_item_error_count"
+        elif key == "syncMode":
+            suggest = "sync_mode"
+        elif key == "totalBytes":
+            suggest = "total_bytes"
+        elif key == "totalItemCount":
+            suggest = "total_item_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointSyncActivityStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointSyncActivityStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointSyncActivityStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  applied_bytes: float,
                  applied_item_count: float,
@@ -878,15 +1140,43 @@ class ServerEndpointSyncActivityStatusResponse(dict):
         """
         return pulumi.get(self, "total_item_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointSyncSessionStatusResponse(dict):
     """
     Sync Session status object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesNotSyncingErrors":
+            suggest = "files_not_syncing_errors"
+        elif key == "lastSyncMode":
+            suggest = "last_sync_mode"
+        elif key == "lastSyncPerItemErrorCount":
+            suggest = "last_sync_per_item_error_count"
+        elif key == "lastSyncResult":
+            suggest = "last_sync_result"
+        elif key == "lastSyncSuccessTimestamp":
+            suggest = "last_sync_success_timestamp"
+        elif key == "lastSyncTimestamp":
+            suggest = "last_sync_timestamp"
+        elif key == "persistentFilesNotSyncingCount":
+            suggest = "persistent_files_not_syncing_count"
+        elif key == "transientFilesNotSyncingCount":
+            suggest = "transient_files_not_syncing_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointSyncSessionStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointSyncSessionStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointSyncSessionStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  files_not_syncing_errors: Sequence['outputs.ServerEndpointFilesNotSyncingErrorResponse'],
                  last_sync_mode: str,
@@ -898,7 +1188,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
                  transient_files_not_syncing_count: float):
         """
         Sync Session status object.
-        :param Sequence['ServerEndpointFilesNotSyncingErrorResponseArgs'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
+        :param Sequence['ServerEndpointFilesNotSyncingErrorResponse'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
         :param str last_sync_mode: Sync mode
         :param float last_sync_per_item_error_count: Last sync per item error count.
         :param int last_sync_result: Last sync result (HResult)
@@ -980,15 +1270,51 @@ class ServerEndpointSyncSessionStatusResponse(dict):
         """
         return pulumi.get(self, "transient_files_not_syncing_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerEndpointSyncStatusResponse(dict):
     """
     Server Endpoint sync status
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundDataDownloadActivity":
+            suggest = "background_data_download_activity"
+        elif key == "combinedHealth":
+            suggest = "combined_health"
+        elif key == "downloadActivity":
+            suggest = "download_activity"
+        elif key == "downloadHealth":
+            suggest = "download_health"
+        elif key == "downloadStatus":
+            suggest = "download_status"
+        elif key == "lastUpdatedTimestamp":
+            suggest = "last_updated_timestamp"
+        elif key == "offlineDataTransferStatus":
+            suggest = "offline_data_transfer_status"
+        elif key == "syncActivity":
+            suggest = "sync_activity"
+        elif key == "totalPersistentFilesNotSyncingCount":
+            suggest = "total_persistent_files_not_syncing_count"
+        elif key == "uploadActivity":
+            suggest = "upload_activity"
+        elif key == "uploadHealth":
+            suggest = "upload_health"
+        elif key == "uploadStatus":
+            suggest = "upload_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointSyncStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointSyncStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointSyncStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  background_data_download_activity: 'outputs.ServerEndpointBackgroundDataDownloadActivityResponse',
                  combined_health: str,
@@ -1004,18 +1330,18 @@ class ServerEndpointSyncStatusResponse(dict):
                  upload_status: 'outputs.ServerEndpointSyncSessionStatusResponse'):
         """
         Server Endpoint sync status
-        :param 'ServerEndpointBackgroundDataDownloadActivityResponseArgs' background_data_download_activity: Background data download activity
+        :param 'ServerEndpointBackgroundDataDownloadActivityResponse' background_data_download_activity: Background data download activity
         :param str combined_health: Combined Health Status.
-        :param 'ServerEndpointSyncActivityStatusResponseArgs' download_activity: Download sync activity
+        :param 'ServerEndpointSyncActivityStatusResponse' download_activity: Download sync activity
         :param str download_health: Download Health Status.
-        :param 'ServerEndpointSyncSessionStatusResponseArgs' download_status: Download Status
+        :param 'ServerEndpointSyncSessionStatusResponse' download_status: Download Status
         :param str last_updated_timestamp: Last Updated Timestamp
         :param str offline_data_transfer_status: Offline Data Transfer State
         :param str sync_activity: Sync activity
         :param float total_persistent_files_not_syncing_count: Total count of persistent files not syncing (combined upload + download).
-        :param 'ServerEndpointSyncActivityStatusResponseArgs' upload_activity: Upload sync activity
+        :param 'ServerEndpointSyncActivityStatusResponse' upload_activity: Upload sync activity
         :param str upload_health: Upload Health Status.
-        :param 'ServerEndpointSyncSessionStatusResponseArgs' upload_status: Upload Status
+        :param 'ServerEndpointSyncSessionStatusResponse' upload_status: Upload Status
         """
         pulumi.set(__self__, "background_data_download_activity", background_data_download_activity)
         pulumi.set(__self__, "combined_health", combined_health)
@@ -1125,8 +1451,5 @@ class ServerEndpointSyncStatusResponse(dict):
         Upload Status
         """
         return pulumi.get(self, "upload_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

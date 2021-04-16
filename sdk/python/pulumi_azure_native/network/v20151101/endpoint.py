@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['EndpointArgs', 'Endpoint']
 
@@ -275,9 +275,7 @@ class Endpoint(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[float]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Class representing a Traffic Manager endpoint.
 
@@ -338,15 +336,7 @@ class Endpoint(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[float]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -356,29 +346,29 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointArgs.__new__(EndpointArgs)
 
-            __props__['endpoint_location'] = endpoint_location
-            __props__['endpoint_monitor_status'] = endpoint_monitor_status
-            __props__['endpoint_name'] = endpoint_name
-            __props__['endpoint_status'] = endpoint_status
+            __props__.__dict__["endpoint_location"] = endpoint_location
+            __props__.__dict__["endpoint_monitor_status"] = endpoint_monitor_status
+            __props__.__dict__["endpoint_name"] = endpoint_name
+            __props__.__dict__["endpoint_status"] = endpoint_status
             if endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_type'")
-            __props__['endpoint_type'] = endpoint_type
-            __props__['id'] = id
-            __props__['min_child_endpoints'] = min_child_endpoints
-            __props__['name'] = name
-            __props__['priority'] = priority
+            __props__.__dict__["endpoint_type"] = endpoint_type
+            __props__.__dict__["id"] = id
+            __props__.__dict__["min_child_endpoints"] = min_child_endpoints
+            __props__.__dict__["name"] = name
+            __props__.__dict__["priority"] = priority
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
+            __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['target'] = target
-            __props__['target_resource_id'] = target_resource_id
-            __props__['type'] = type
-            __props__['weight'] = weight
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["target"] = target
+            __props__.__dict__["target_resource_id"] = target_resource_id
+            __props__.__dict__["type"] = type
+            __props__.__dict__["weight"] = weight
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-native:network:Endpoint"), pulumi.Alias(type_="azure-nextgen:network:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180801:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
@@ -401,18 +391,18 @@ class Endpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EndpointArgs.__new__(EndpointArgs)
 
-        __props__["endpoint_location"] = None
-        __props__["endpoint_monitor_status"] = None
-        __props__["endpoint_status"] = None
-        __props__["min_child_endpoints"] = None
-        __props__["name"] = None
-        __props__["priority"] = None
-        __props__["target"] = None
-        __props__["target_resource_id"] = None
-        __props__["type"] = None
-        __props__["weight"] = None
+        __props__.__dict__["endpoint_location"] = None
+        __props__.__dict__["endpoint_monitor_status"] = None
+        __props__.__dict__["endpoint_status"] = None
+        __props__.__dict__["min_child_endpoints"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["priority"] = None
+        __props__.__dict__["target"] = None
+        __props__.__dict__["target_resource_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["weight"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -494,10 +484,4 @@ class Endpoint(pulumi.CustomResource):
         Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         return pulumi.get(self, "weight")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

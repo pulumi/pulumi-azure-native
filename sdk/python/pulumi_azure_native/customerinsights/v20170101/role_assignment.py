@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -362,9 +362,7 @@ class RoleAssignment(pulumi.CustomResource):
                  segments: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  views: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  widget_types: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The Role Assignment resource format.
 
@@ -435,15 +433,7 @@ class RoleAssignment(pulumi.CustomResource):
                  segments: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  views: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  widget_types: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,40 +443,40 @@ class RoleAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
-            __props__['assignment_name'] = assignment_name
-            __props__['conflation_policies'] = conflation_policies
-            __props__['connectors'] = connectors
-            __props__['description'] = description
-            __props__['display_name'] = display_name
+            __props__.__dict__["assignment_name"] = assignment_name
+            __props__.__dict__["conflation_policies"] = conflation_policies
+            __props__.__dict__["connectors"] = connectors
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
-            __props__['hub_name'] = hub_name
-            __props__['interactions'] = interactions
-            __props__['kpis'] = kpis
-            __props__['links'] = links
+            __props__.__dict__["hub_name"] = hub_name
+            __props__.__dict__["interactions"] = interactions
+            __props__.__dict__["kpis"] = kpis
+            __props__.__dict__["links"] = links
             if principals is None and not opts.urn:
                 raise TypeError("Missing required property 'principals'")
-            __props__['principals'] = principals
-            __props__['profiles'] = profiles
-            __props__['relationship_links'] = relationship_links
-            __props__['relationships'] = relationships
+            __props__.__dict__["principals"] = principals
+            __props__.__dict__["profiles"] = profiles
+            __props__.__dict__["relationship_links"] = relationship_links
+            __props__.__dict__["relationships"] = relationships
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
-            __props__['role'] = role
-            __props__['role_assignments'] = role_assignments
-            __props__['sas_policies'] = sas_policies
-            __props__['segments'] = segments
-            __props__['views'] = views
-            __props__['widget_types'] = widget_types
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["role"] = role
+            __props__.__dict__["role_assignments"] = role_assignments
+            __props__.__dict__["sas_policies"] = sas_policies
+            __props__.__dict__["segments"] = segments
+            __props__.__dict__["views"] = views
+            __props__.__dict__["widget_types"] = widget_types
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RoleAssignment"), pulumi.Alias(type_="azure-native:customerinsights:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights:RoleAssignment"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
@@ -509,30 +499,30 @@ class RoleAssignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
-        __props__["assignment_name"] = None
-        __props__["conflation_policies"] = None
-        __props__["connectors"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["interactions"] = None
-        __props__["kpis"] = None
-        __props__["links"] = None
-        __props__["name"] = None
-        __props__["principals"] = None
-        __props__["profiles"] = None
-        __props__["provisioning_state"] = None
-        __props__["relationship_links"] = None
-        __props__["relationships"] = None
-        __props__["role"] = None
-        __props__["role_assignments"] = None
-        __props__["sas_policies"] = None
-        __props__["segments"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
-        __props__["views"] = None
-        __props__["widget_types"] = None
+        __props__.__dict__["assignment_name"] = None
+        __props__.__dict__["conflation_policies"] = None
+        __props__.__dict__["connectors"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["interactions"] = None
+        __props__.__dict__["kpis"] = None
+        __props__.__dict__["links"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["principals"] = None
+        __props__.__dict__["profiles"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["relationship_links"] = None
+        __props__.__dict__["relationships"] = None
+        __props__.__dict__["role"] = None
+        __props__.__dict__["role_assignments"] = None
+        __props__.__dict__["sas_policies"] = None
+        __props__.__dict__["segments"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["views"] = None
+        __props__.__dict__["widget_types"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -710,10 +700,4 @@ class RoleAssignment(pulumi.CustomResource):
         Widget types set for the assignment.
         """
         return pulumi.get(self, "widget_types")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,39 +6,39 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
     'AddressDetailsResponse',
     'AddressPropertiesResponse',
-    'AvailabilityInformationResponseResult',
-    'BillingMeterDetailsResponseResult',
-    'ConfigurationResponseResult',
+    'AvailabilityInformationResponse',
+    'BillingMeterDetailsResponse',
+    'ConfigurationResponse',
     'ContactDetailsResponse',
-    'CostInformationResponseResult',
-    'DescriptionResponseResult',
+    'CostInformationResponse',
+    'DescriptionResponse',
     'DeviceDetailsResponse',
     'EncryptionPreferencesResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
-    'FilterablePropertyResponseResult',
+    'FilterablePropertyResponse',
     'HierarchyInformationResponse',
-    'ImageInformationResponseResult',
-    'LinkResponseResult',
+    'ImageInformationResponse',
+    'LinkResponse',
     'ManagementResourceDetailsResponse',
-    'MeterDetailsResponseResult',
+    'MeterDetailsResponse',
     'NotificationPreferenceResponse',
     'OrderItemDetailsResponse',
     'PreferencesResponse',
     'ProductDetailsResponse',
-    'ProductFamilyResponseResult',
-    'ProductLineResponseResult',
-    'ProductResponseResult',
+    'ProductFamilyResponse',
+    'ProductLineResponse',
+    'ProductResponse',
     'ShippingAddressResponse',
     'ShippingDetailsResponse',
-    'SpecificationResponseResult',
+    'SpecificationResponse',
     'StageDetailsResponse',
     'SystemDataResponse',
     'TransportPreferencesResponse',
@@ -49,13 +49,32 @@ class AddressDetailsResponse(dict):
     """
     Address details for an order.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forwardAddress":
+            suggest = "forward_address"
+        elif key == "returnAddress":
+            suggest = "return_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  forward_address: 'outputs.AddressPropertiesResponse',
                  return_address: 'outputs.AddressPropertiesResponse'):
         """
         Address details for an order.
-        :param 'AddressPropertiesResponseArgs' forward_address: Customer address and contact details. It should be address resource
-        :param 'AddressPropertiesResponseArgs' return_address: Return shipping address
+        :param 'AddressPropertiesResponse' forward_address: Customer address and contact details. It should be address resource
+        :param 'AddressPropertiesResponse' return_address: Return shipping address
         """
         pulumi.set(__self__, "forward_address", forward_address)
         pulumi.set(__self__, "return_address", return_address)
@@ -76,22 +95,38 @@ class AddressDetailsResponse(dict):
         """
         return pulumi.get(self, "return_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AddressPropertiesResponse(dict):
     """
     Address Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactDetails":
+            suggest = "contact_details"
+        elif key == "shippingAddress":
+            suggest = "shipping_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  contact_details: 'outputs.ContactDetailsResponse',
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Address Properties
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for the address
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping details for the address
+        :param 'ContactDetailsResponse' contact_details: Contact details for the address
+        :param 'ShippingAddressResponse' shipping_address: Shipping details for the address
         """
         pulumi.set(__self__, "contact_details", contact_details)
         if shipping_address is not None:
@@ -113,12 +148,9 @@ class AddressPropertiesResponse(dict):
         """
         return pulumi.get(self, "shipping_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class AvailabilityInformationResponseResult(dict):
+class AvailabilityInformationResponse(dict):
     """
     Availability information of a product system.
     """
@@ -162,19 +194,19 @@ class AvailabilityInformationResponseResult(dict):
 
 
 @pulumi.output_type
-class BillingMeterDetailsResponseResult(dict):
+class BillingMeterDetailsResponse(dict):
     """
     Holds billing meter details for each type of billing
     """
     def __init__(__self__, *,
                  frequency: str,
-                 meter_details: 'outputs.MeterDetailsResponseResult',
+                 meter_details: 'outputs.MeterDetailsResponse',
                  metering_type: str,
                  name: str):
         """
         Holds billing meter details for each type of billing
         :param str frequency: Frequency of recurrence
-        :param 'MeterDetailsResponseArgs' meter_details: Represents MeterDetails
+        :param 'MeterDetailsResponse' meter_details: Represents MeterDetails
         :param str metering_type: Represents Metering type (eg one-time or recurrent)
         :param str name: Represents Billing type name
         """
@@ -193,7 +225,7 @@ class BillingMeterDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="meterDetails")
-    def meter_details(self) -> 'outputs.MeterDetailsResponseResult':
+    def meter_details(self) -> 'outputs.MeterDetailsResponse':
         """
         Represents MeterDetails
         """
@@ -217,29 +249,29 @@ class BillingMeterDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class ConfigurationResponseResult(dict):
+class ConfigurationResponse(dict):
     """
     Configuration object.
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult'],
-                 specifications: Sequence['outputs.SpecificationResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse'],
+                 specifications: Sequence['outputs.SpecificationResponse']):
         """
         Configuration object.
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
-        :param Sequence['SpecificationResponseArgs'] specifications: Specifications of the configuration
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
+        :param Sequence['SpecificationResponse'] specifications: Specifications of the configuration
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
@@ -252,7 +284,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -260,7 +292,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -268,7 +300,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -284,7 +316,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -300,7 +332,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -308,7 +340,7 @@ class ConfigurationResponseResult(dict):
 
     @property
     @pulumi.getter
-    def specifications(self) -> Sequence['outputs.SpecificationResponseResult']:
+    def specifications(self) -> Sequence['outputs.SpecificationResponse']:
         """
         Specifications of the configuration
         """
@@ -320,6 +352,27 @@ class ContactDetailsResponse(dict):
     """
     Contact Details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactName":
+            suggest = "contact_name"
+        elif key == "emailList":
+            suggest = "email_list"
+        elif key == "phoneExtension":
+            suggest = "phone_extension"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  contact_name: str,
                  email_list: Sequence[str],
@@ -382,22 +435,19 @@ class ContactDetailsResponse(dict):
         """
         return pulumi.get(self, "phone_extension")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class CostInformationResponseResult(dict):
+class CostInformationResponse(dict):
     """
     Cost information for the product system
     """
     def __init__(__self__, *,
                  billing_info_url: str,
-                 billing_meter_details: Sequence['outputs.BillingMeterDetailsResponseResult']):
+                 billing_meter_details: Sequence['outputs.BillingMeterDetailsResponse']):
         """
         Cost information for the product system
         :param str billing_info_url: Default url to display billing information
-        :param Sequence['BillingMeterDetailsResponseArgs'] billing_meter_details: Details on the various billing aspects for the product system.
+        :param Sequence['BillingMeterDetailsResponse'] billing_meter_details: Details on the various billing aspects for the product system.
         """
         pulumi.set(__self__, "billing_info_url", billing_info_url)
         pulumi.set(__self__, "billing_meter_details", billing_meter_details)
@@ -412,7 +462,7 @@ class CostInformationResponseResult(dict):
 
     @property
     @pulumi.getter(name="billingMeterDetails")
-    def billing_meter_details(self) -> Sequence['outputs.BillingMeterDetailsResponseResult']:
+    def billing_meter_details(self) -> Sequence['outputs.BillingMeterDetailsResponse']:
         """
         Details on the various billing aspects for the product system.
         """
@@ -420,7 +470,7 @@ class CostInformationResponseResult(dict):
 
 
 @pulumi.output_type
-class DescriptionResponseResult(dict):
+class DescriptionResponse(dict):
     """
     Description related properties of a product system.
     """
@@ -428,7 +478,7 @@ class DescriptionResponseResult(dict):
                  attributes: Sequence[str],
                  description_type: str,
                  keywords: Sequence[str],
-                 links: Sequence['outputs.LinkResponseResult'],
+                 links: Sequence['outputs.LinkResponse'],
                  long_description: str,
                  short_description: str):
         """
@@ -436,7 +486,7 @@ class DescriptionResponseResult(dict):
         :param Sequence[str] attributes: Attributes for the product system.
         :param str description_type: Type of description.
         :param Sequence[str] keywords: Keywords for the product system.
-        :param Sequence['LinkResponseArgs'] links: Links for the product system.
+        :param Sequence['LinkResponse'] links: Links for the product system.
         :param str long_description: Long description of the product system.
         :param str short_description: Short description of the product system.
         """
@@ -473,7 +523,7 @@ class DescriptionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Sequence['outputs.LinkResponseResult']:
+    def links(self) -> Sequence['outputs.LinkResponse']:
         """
         Links for the product system.
         """
@@ -501,6 +551,25 @@ class DeviceDetailsResponse(dict):
     """
     Device details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceHistory":
+            suggest = "device_history"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_history: Sequence[str],
                  serial_number: str):
@@ -528,15 +597,29 @@ class DeviceDetailsResponse(dict):
         """
         return pulumi.get(self, "serial_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionPreferencesResponse(dict):
     """
     Preferences related to the double encryption
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "doubleEncryptionStatus":
+            suggest = "double_encryption_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPreferencesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPreferencesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPreferencesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  double_encryption_status: Optional[str] = None):
         """
@@ -553,9 +636,6 @@ class EncryptionPreferencesResponse(dict):
         Defines secondary layer of software-based encryption enablement.
         """
         return pulumi.get(self, "double_encryption_status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -590,15 +670,29 @@ class ErrorAdditionalInfoResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorDetailResponse(dict):
     """
     The error detail.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
                  code: str,
@@ -607,9 +701,9 @@ class ErrorDetailResponse(dict):
                  target: str):
         """
         The error detail.
-        :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param str code: The error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: The error details.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
         :param str message: The error message.
         :param str target: The error target.
         """
@@ -659,12 +753,9 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class FilterablePropertyResponseResult(dict):
+class FilterablePropertyResponse(dict):
     """
     Class defining the list of filter values on a filter type as part of configuration request.
     """
@@ -701,6 +792,29 @@ class HierarchyInformationResponse(dict):
     """
     Holds details about product hierarchy information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationName":
+            suggest = "configuration_name"
+        elif key == "productFamilyName":
+            suggest = "product_family_name"
+        elif key == "productLineName":
+            suggest = "product_line_name"
+        elif key == "productName":
+            suggest = "product_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HierarchyInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HierarchyInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HierarchyInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration_name: Optional[str] = None,
                  product_family_name: Optional[str] = None,
@@ -754,12 +868,9 @@ class HierarchyInformationResponse(dict):
         """
         return pulumi.get(self, "product_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ImageInformationResponseResult(dict):
+class ImageInformationResponse(dict):
     """
     Image for the product
     """
@@ -792,7 +903,7 @@ class ImageInformationResponseResult(dict):
 
 
 @pulumi.output_type
-class LinkResponseResult(dict):
+class LinkResponse(dict):
     """
     Returns link related to the product
     """
@@ -829,6 +940,23 @@ class ManagementResourceDetailsResponse(dict):
     """
     Management resource details to link device
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementResourceArmId":
+            suggest = "management_resource_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementResourceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementResourceDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementResourceDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  management_resource_arm_id: str):
         """
@@ -845,12 +973,9 @@ class ManagementResourceDetailsResponse(dict):
         """
         return pulumi.get(self, "management_resource_arm_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class MeterDetailsResponseResult(dict):
+class MeterDetailsResponse(dict):
     """
     Holds details about billing type and its meter guids
     """
@@ -898,6 +1023,25 @@ class NotificationPreferenceResponse(dict):
     """
     Notification preference for a job stage.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sendNotification":
+            suggest = "send_notification"
+        elif key == "stageName":
+            suggest = "stage_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPreferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPreferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPreferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  send_notification: bool,
                  stage_name: str):
@@ -925,15 +1069,55 @@ class NotificationPreferenceResponse(dict):
         """
         return pulumi.get(self, "stage_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderItemDetailsResponse(dict):
     """
     Order item details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cancellationReason":
+            suggest = "cancellation_reason"
+        elif key == "cancellationStatus":
+            suggest = "cancellation_status"
+        elif key == "currentStage":
+            suggest = "current_stage"
+        elif key == "deletionStatus":
+            suggest = "deletion_status"
+        elif key == "forwardShippingDetails":
+            suggest = "forward_shipping_details"
+        elif key == "managementRpDetails":
+            suggest = "management_rp_details"
+        elif key == "orderItemStageHistory":
+            suggest = "order_item_stage_history"
+        elif key == "orderItemType":
+            suggest = "order_item_type"
+        elif key == "productDetails":
+            suggest = "product_details"
+        elif key == "returnReason":
+            suggest = "return_reason"
+        elif key == "returnStatus":
+            suggest = "return_status"
+        elif key == "reverseShippingDetails":
+            suggest = "reverse_shipping_details"
+        elif key == "managementResourceDetails":
+            suggest = "management_resource_details"
+        elif key == "notificationEmailList":
+            suggest = "notification_email_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderItemDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderItemDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderItemDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cancellation_reason: str,
                  cancellation_status: str,
@@ -955,20 +1139,20 @@ class OrderItemDetailsResponse(dict):
         Order item details
         :param str cancellation_reason: Cancellation reason.
         :param str cancellation_status: Describes whether the order is cancellable or not.
-        :param 'StageDetailsResponseArgs' current_stage: Current Order item Status
+        :param 'StageDetailsResponse' current_stage: Current Order item Status
         :param str deletion_status: Describes whether the order item is deletable or not.
-        :param 'ErrorDetailResponseArgs' error: Top level error for the job.
-        :param 'ShippingDetailsResponseArgs' forward_shipping_details: Forward Package Shipping details
+        :param 'ErrorDetailResponse' error: Top level error for the job.
+        :param 'ShippingDetailsResponse' forward_shipping_details: Forward Package Shipping details
         :param Any management_rp_details: parent RP details
-        :param Sequence['StageDetailsResponseArgs'] order_item_stage_history: Order item status history
+        :param Sequence['StageDetailsResponse'] order_item_stage_history: Order item status history
         :param str order_item_type: Order item type.
-        :param 'ProductDetailsResponseArgs' product_details: Unique identifier for configuration.
+        :param 'ProductDetailsResponse' product_details: Unique identifier for configuration.
         :param str return_reason: Return reason.
         :param str return_status: Describes whether the order item is returnable or not.
-        :param 'ShippingDetailsResponseArgs' reverse_shipping_details: Reverse Package Shipping details
-        :param 'ManagementResourceDetailsResponseArgs' management_resource_details: Management resource details
+        :param 'ShippingDetailsResponse' reverse_shipping_details: Reverse Package Shipping details
+        :param 'ManagementResourceDetailsResponse' management_resource_details: Management resource details
         :param Sequence[str] notification_email_list: Additional notification email list
-        :param 'PreferencesResponseArgs' preferences: Customer notification Preferences
+        :param 'PreferencesResponse' preferences: Customer notification Preferences
         """
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
         pulumi.set(__self__, "cancellation_status", cancellation_status)
@@ -1118,24 +1302,42 @@ class OrderItemDetailsResponse(dict):
         """
         return pulumi.get(self, "preferences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PreferencesResponse(dict):
     """
     Preferences related to the order
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionPreferences":
+            suggest = "encryption_preferences"
+        elif key == "notificationPreferences":
+            suggest = "notification_preferences"
+        elif key == "transportPreferences":
+            suggest = "transport_preferences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PreferencesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PreferencesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PreferencesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_preferences: Optional['outputs.EncryptionPreferencesResponse'] = None,
                  notification_preferences: Optional[Sequence['outputs.NotificationPreferenceResponse']] = None,
                  transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
         """
         Preferences related to the order
-        :param 'EncryptionPreferencesResponseArgs' encryption_preferences: Preferences related to the Encryption.
-        :param Sequence['NotificationPreferenceResponseArgs'] notification_preferences: Notification preferences.
-        :param 'TransportPreferencesResponseArgs' transport_preferences: Preferences related to the shipment logistics of the order.
+        :param 'EncryptionPreferencesResponse' encryption_preferences: Preferences related to the Encryption.
+        :param Sequence['NotificationPreferenceResponse'] notification_preferences: Notification preferences.
+        :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the order.
         """
         if encryption_preferences is not None:
             pulumi.set(__self__, "encryption_preferences", encryption_preferences)
@@ -1168,23 +1370,39 @@ class PreferencesResponse(dict):
         """
         return pulumi.get(self, "transport_preferences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProductDetailsResponse(dict):
     """
     Represents product details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceDetails":
+            suggest = "device_details"
+        elif key == "hierarchyInformation":
+            suggest = "hierarchy_information"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProductDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProductDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProductDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_details: Sequence['outputs.DeviceDetailsResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
                  count: Optional[int] = None):
         """
         Represents product details
-        :param Sequence['DeviceDetailsResponseArgs'] device_details: list of device details
-        :param 'HierarchyInformationResponseArgs' hierarchy_information:  Hierarchy of the product which uniquely identifies the product
+        :param Sequence['DeviceDetailsResponse'] device_details: list of device details
+        :param 'HierarchyInformationResponse' hierarchy_information:  Hierarchy of the product which uniquely identifies the product
         :param int count: Quantity of the product
         """
         pulumi.set(__self__, "device_details", device_details)
@@ -1216,34 +1434,31 @@ class ProductDetailsResponse(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ProductFamilyResponseResult(dict):
+class ProductFamilyResponse(dict):
     """
     Product Family
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult'],
-                 product_lines: Sequence['outputs.ProductLineResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse'],
+                 product_lines: Sequence['outputs.ProductLineResponse']):
         """
         Product Family
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
-        :param Sequence['ProductLineResponseArgs'] product_lines: List of product lines supported in the product family
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
+        :param Sequence['ProductLineResponse'] product_lines: List of product lines supported in the product family
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
@@ -1256,7 +1471,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -1264,7 +1479,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -1272,7 +1487,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -1288,7 +1503,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -1304,7 +1519,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -1312,7 +1527,7 @@ class ProductFamilyResponseResult(dict):
 
     @property
     @pulumi.getter(name="productLines")
-    def product_lines(self) -> Sequence['outputs.ProductLineResponseResult']:
+    def product_lines(self) -> Sequence['outputs.ProductLineResponse']:
         """
         List of product lines supported in the product family
         """
@@ -1320,29 +1535,29 @@ class ProductFamilyResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductLineResponseResult(dict):
+class ProductLineResponse(dict):
     """
     Product line
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult'],
-                 products: Sequence['outputs.ProductResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse'],
+                 products: Sequence['outputs.ProductResponse']):
         """
         Product line
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
-        :param Sequence['ProductResponseArgs'] products: List of products in the product line
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
+        :param Sequence['ProductResponse'] products: List of products in the product line
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "cost_information", cost_information)
@@ -1355,7 +1570,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -1363,7 +1578,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -1371,7 +1586,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -1387,7 +1602,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -1403,7 +1618,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -1411,7 +1626,7 @@ class ProductLineResponseResult(dict):
 
     @property
     @pulumi.getter
-    def products(self) -> Sequence['outputs.ProductResponseResult']:
+    def products(self) -> Sequence['outputs.ProductResponse']:
         """
         List of products in the product line
         """
@@ -1419,29 +1634,29 @@ class ProductLineResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductResponseResult(dict):
+class ProductResponse(dict):
     """
     List of Products
     """
     def __init__(__self__, *,
-                 availability_information: 'outputs.AvailabilityInformationResponseResult',
-                 configurations: Sequence['outputs.ConfigurationResponseResult'],
-                 cost_information: 'outputs.CostInformationResponseResult',
-                 description: 'outputs.DescriptionResponseResult',
+                 availability_information: 'outputs.AvailabilityInformationResponse',
+                 configurations: Sequence['outputs.ConfigurationResponse'],
+                 cost_information: 'outputs.CostInformationResponse',
+                 description: 'outputs.DescriptionResponse',
                  display_name: str,
-                 filterable_properties: Sequence['outputs.FilterablePropertyResponseResult'],
+                 filterable_properties: Sequence['outputs.FilterablePropertyResponse'],
                  hierarchy_information: 'outputs.HierarchyInformationResponse',
-                 image_information: Sequence['outputs.ImageInformationResponseResult']):
+                 image_information: Sequence['outputs.ImageInformationResponse']):
         """
         List of Products
-        :param 'AvailabilityInformationResponseArgs' availability_information: Availability information of the product system.
-        :param Sequence['ConfigurationResponseArgs'] configurations: List of configurations for the product
-        :param 'CostInformationResponseArgs' cost_information: Cost information for the product system.
-        :param 'DescriptionResponseArgs' description: Description related to the product system.
+        :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
+        :param Sequence['ConfigurationResponse'] configurations: List of configurations for the product
+        :param 'CostInformationResponse' cost_information: Cost information for the product system.
+        :param 'DescriptionResponse' description: Description related to the product system.
         :param str display_name: Display Name for the product system.
-        :param Sequence['FilterablePropertyResponseArgs'] filterable_properties: list of filters supported for a product
-        :param 'HierarchyInformationResponseArgs' hierarchy_information: Hierarchy information of the product system.
-        :param Sequence['ImageInformationResponseArgs'] image_information: Image information for the product system.
+        :param Sequence['FilterablePropertyResponse'] filterable_properties: list of filters supported for a product
+        :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy information of the product system.
+        :param Sequence['ImageInformationResponse'] image_information: Image information for the product system.
         """
         pulumi.set(__self__, "availability_information", availability_information)
         pulumi.set(__self__, "configurations", configurations)
@@ -1454,7 +1669,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="availabilityInformation")
-    def availability_information(self) -> 'outputs.AvailabilityInformationResponseResult':
+    def availability_information(self) -> 'outputs.AvailabilityInformationResponse':
         """
         Availability information of the product system.
         """
@@ -1462,7 +1677,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def configurations(self) -> Sequence['outputs.ConfigurationResponseResult']:
+    def configurations(self) -> Sequence['outputs.ConfigurationResponse']:
         """
         List of configurations for the product
         """
@@ -1470,7 +1685,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="costInformation")
-    def cost_information(self) -> 'outputs.CostInformationResponseResult':
+    def cost_information(self) -> 'outputs.CostInformationResponse':
         """
         Cost information for the product system.
         """
@@ -1478,7 +1693,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def description(self) -> 'outputs.DescriptionResponseResult':
+    def description(self) -> 'outputs.DescriptionResponse':
         """
         Description related to the product system.
         """
@@ -1494,7 +1709,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="filterableProperties")
-    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponseResult']:
+    def filterable_properties(self) -> Sequence['outputs.FilterablePropertyResponse']:
         """
         list of filters supported for a product
         """
@@ -1510,7 +1725,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="imageInformation")
-    def image_information(self) -> Sequence['outputs.ImageInformationResponseResult']:
+    def image_information(self) -> Sequence['outputs.ImageInformationResponse']:
         """
         Image information for the product system.
         """
@@ -1522,6 +1737,37 @@ class ShippingAddressResponse(dict):
     """
     Shipping address where customer wishes to receive the device.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streetAddress1":
+            suggest = "street_address1"
+        elif key == "addressType":
+            suggest = "address_type"
+        elif key == "companyName":
+            suggest = "company_name"
+        elif key == "postalCode":
+            suggest = "postal_code"
+        elif key == "stateOrProvince":
+            suggest = "state_or_province"
+        elif key == "streetAddress2":
+            suggest = "street_address2"
+        elif key == "streetAddress3":
+            suggest = "street_address3"
+        elif key == "zipExtendedCode":
+            suggest = "zip_extended_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShippingAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShippingAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShippingAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country: str,
                  street_address1: str,
@@ -1645,15 +1891,35 @@ class ShippingAddressResponse(dict):
         """
         return pulumi.get(self, "zip_extended_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ShippingDetailsResponse(dict):
     """
     Package shipping details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "carrierDisplayName":
+            suggest = "carrier_display_name"
+        elif key == "carrierName":
+            suggest = "carrier_name"
+        elif key == "trackingId":
+            suggest = "tracking_id"
+        elif key == "trackingUrl":
+            suggest = "tracking_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShippingDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShippingDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShippingDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  carrier_display_name: str,
                  carrier_name: str,
@@ -1703,12 +1969,9 @@ class ShippingDetailsResponse(dict):
         """
         return pulumi.get(self, "tracking_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SpecificationResponseResult(dict):
+class SpecificationResponse(dict):
     """
     Specifications of the configurations
     """
@@ -1745,6 +2008,29 @@ class StageDetailsResponse(dict):
     """
     Resource stage details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "stageName":
+            suggest = "stage_name"
+        elif key == "stageStatus":
+            suggest = "stage_status"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: str,
                  stage_name: str,
@@ -1794,15 +2080,39 @@ class StageDetailsResponse(dict):
         """
         return pulumi.get(self, "start_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -1880,15 +2190,29 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransportPreferencesResponse(dict):
     """
     Preferences related to the shipment logistics of the sku
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredShipmentType":
+            suggest = "preferred_shipment_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransportPreferencesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransportPreferencesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransportPreferencesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preferred_shipment_type: str):
         """
@@ -1904,8 +2228,5 @@ class TransportPreferencesResponse(dict):
         Indicates Shipment Logistics type that the customer preferred.
         """
         return pulumi.get(self, "preferred_shipment_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

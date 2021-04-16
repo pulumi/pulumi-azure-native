@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -330,9 +330,7 @@ class Profile(pulumi.CustomResource):
                  strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]]] = None,
                  timestamp_field_name: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The profile resource format.
         API Version: 2017-04-26.
@@ -401,15 +399,7 @@ class Profile(pulumi.CustomResource):
                  strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]]] = None,
                  timestamp_field_name: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,35 +409,35 @@ class Profile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProfileArgs.__new__(ProfileArgs)
 
-            __props__['api_entity_set_name'] = api_entity_set_name
-            __props__['attributes'] = attributes
-            __props__['description'] = description
-            __props__['display_name'] = display_name
-            __props__['entity_type'] = entity_type
-            __props__['fields'] = fields
+            __props__.__dict__["api_entity_set_name"] = api_entity_set_name
+            __props__.__dict__["attributes"] = attributes
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["entity_type"] = entity_type
+            __props__.__dict__["fields"] = fields
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
-            __props__['hub_name'] = hub_name
-            __props__['instances_count'] = instances_count
-            __props__['large_image'] = large_image
-            __props__['localized_attributes'] = localized_attributes
-            __props__['medium_image'] = medium_image
-            __props__['profile_name'] = profile_name
+            __props__.__dict__["hub_name"] = hub_name
+            __props__.__dict__["instances_count"] = instances_count
+            __props__.__dict__["large_image"] = large_image
+            __props__.__dict__["localized_attributes"] = localized_attributes
+            __props__.__dict__["medium_image"] = medium_image
+            __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['schema_item_type_link'] = schema_item_type_link
-            __props__['small_image'] = small_image
-            __props__['strong_ids'] = strong_ids
-            __props__['timestamp_field_name'] = timestamp_field_name
-            __props__['type_name'] = type_name
-            __props__['last_changed_utc'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["schema_item_type_link"] = schema_item_type_link
+            __props__.__dict__["small_image"] = small_image
+            __props__.__dict__["strong_ids"] = strong_ids
+            __props__.__dict__["timestamp_field_name"] = timestamp_field_name
+            __props__.__dict__["type_name"] = type_name
+            __props__.__dict__["last_changed_utc"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Profile"), pulumi.Alias(type_="azure-native:customerinsights/v20170101:Profile"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Profile"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:Profile"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
@@ -470,28 +460,28 @@ class Profile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProfileArgs.__new__(ProfileArgs)
 
-        __props__["api_entity_set_name"] = None
-        __props__["attributes"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["entity_type"] = None
-        __props__["fields"] = None
-        __props__["instances_count"] = None
-        __props__["large_image"] = None
-        __props__["last_changed_utc"] = None
-        __props__["localized_attributes"] = None
-        __props__["medium_image"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["schema_item_type_link"] = None
-        __props__["small_image"] = None
-        __props__["strong_ids"] = None
-        __props__["tenant_id"] = None
-        __props__["timestamp_field_name"] = None
-        __props__["type"] = None
-        __props__["type_name"] = None
+        __props__.__dict__["api_entity_set_name"] = None
+        __props__.__dict__["attributes"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["entity_type"] = None
+        __props__.__dict__["fields"] = None
+        __props__.__dict__["instances_count"] = None
+        __props__.__dict__["large_image"] = None
+        __props__.__dict__["last_changed_utc"] = None
+        __props__.__dict__["localized_attributes"] = None
+        __props__.__dict__["medium_image"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["schema_item_type_link"] = None
+        __props__.__dict__["small_image"] = None
+        __props__.__dict__["strong_ids"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["timestamp_field_name"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["type_name"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -653,10 +643,4 @@ class Profile(pulumi.CustomResource):
         The name of the entity.
         """
         return pulumi.get(self, "type_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

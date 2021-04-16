@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -19,6 +19,25 @@ class MachineReferenceWithHintsResponse(dict):
     """
     A machine reference with a hint of the machine's name and operating system.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayNameHint":
+            suggest = "display_name_hint"
+        elif key == "osFamilyHint":
+            suggest = "os_family_hint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineReferenceWithHintsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineReferenceWithHintsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineReferenceWithHintsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name_hint: str,
                  id: str,
@@ -92,9 +111,6 @@ class MachineReferenceWithHintsResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -116,8 +132,5 @@ class SkuResponse(dict):
         The name of the SKU.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

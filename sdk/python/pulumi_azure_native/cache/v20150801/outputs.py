@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -19,6 +19,25 @@ class RedisAccessKeysResponse(dict):
     """
     Redis cache access keys.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedisAccessKeysResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedisAccessKeysResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedisAccessKeysResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  primary_key: Optional[str] = None,
                  secondary_key: Optional[str] = None):
@@ -47,9 +66,6 @@ class RedisAccessKeysResponse(dict):
         The current secondary key that clients can use to authenticate with Redis cache.
         """
         return pulumi.get(self, "secondary_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -94,8 +110,5 @@ class SkuResponse(dict):
         What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

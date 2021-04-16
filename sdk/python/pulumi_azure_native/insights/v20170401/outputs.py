@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,6 +27,25 @@ class ActivityLogAlertActionGroupResponse(dict):
     """
     A pointer to an Azure Action Group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "webhookProperties":
+            suggest = "webhook_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityLogAlertActionGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityLogAlertActionGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityLogAlertActionGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_group_id: str,
                  webhook_properties: Optional[Mapping[str, str]] = None):
@@ -55,20 +74,34 @@ class ActivityLogAlertActionGroupResponse(dict):
         """
         return pulumi.get(self, "webhook_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActivityLogAlertActionListResponse(dict):
     """
     A list of activity log alert actions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroups":
+            suggest = "action_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityLogAlertActionListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityLogAlertActionListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityLogAlertActionListResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_groups: Optional[Sequence['outputs.ActivityLogAlertActionGroupResponse']] = None):
         """
         A list of activity log alert actions.
-        :param Sequence['ActivityLogAlertActionGroupResponseArgs'] action_groups: The list of activity log alerts.
+        :param Sequence['ActivityLogAlertActionGroupResponse'] action_groups: The list of activity log alerts.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
@@ -81,20 +114,34 @@ class ActivityLogAlertActionListResponse(dict):
         """
         return pulumi.get(self, "action_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActivityLogAlertAllOfConditionResponse(dict):
     """
     An Activity Log alert condition that is met when all its member conditions are met.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allOf":
+            suggest = "all_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityLogAlertAllOfConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityLogAlertAllOfConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityLogAlertAllOfConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  all_of: Sequence['outputs.ActivityLogAlertLeafConditionResponse']):
         """
         An Activity Log alert condition that is met when all its member conditions are met.
-        :param Sequence['ActivityLogAlertLeafConditionResponseArgs'] all_of: The list of activity log alert conditions.
+        :param Sequence['ActivityLogAlertLeafConditionResponse'] all_of: The list of activity log alert conditions.
         """
         pulumi.set(__self__, "all_of", all_of)
 
@@ -105,9 +152,6 @@ class ActivityLogAlertAllOfConditionResponse(dict):
         The list of activity log alert conditions.
         """
         return pulumi.get(self, "all_of")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -142,15 +186,37 @@ class ActivityLogAlertLeafConditionResponse(dict):
         """
         return pulumi.get(self, "field")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRunbookReceiverResponse(dict):
     """
     The Azure Automation Runbook notification receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automationAccountId":
+            suggest = "automation_account_id"
+        elif key == "isGlobalRunbook":
+            suggest = "is_global_runbook"
+        elif key == "runbookName":
+            suggest = "runbook_name"
+        elif key == "webhookResourceId":
+            suggest = "webhook_resource_id"
+        elif key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRunbookReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRunbookReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRunbookReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automation_account_id: str,
                  is_global_runbook: bool,
@@ -224,15 +290,29 @@ class AutomationRunbookReceiverResponse(dict):
         """
         return pulumi.get(self, "service_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureAppPushReceiverResponse(dict):
     """
     The Azure mobile App push notification receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureAppPushReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureAppPushReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureAppPushReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: str,
                  name: str):
@@ -260,15 +340,29 @@ class AzureAppPushReceiverResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EmailReceiverResponse(dict):
     """
     An email receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: str,
                  name: str,
@@ -307,15 +401,33 @@ class EmailReceiverResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ItsmReceiverResponse(dict):
     """
     An Itsm receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionId":
+            suggest = "connection_id"
+        elif key == "ticketConfiguration":
+            suggest = "ticket_configuration"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ItsmReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ItsmReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ItsmReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_id: str,
                  name: str,
@@ -376,15 +488,31 @@ class ItsmReceiverResponse(dict):
         """
         return pulumi.get(self, "workspace_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SmsReceiverResponse(dict):
     """
     An SMS receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmsReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmsReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmsReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -434,15 +562,29 @@ class SmsReceiverResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookReceiverResponse(dict):
     """
     A webhook receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  service_uri: str):
@@ -469,8 +611,5 @@ class WebhookReceiverResponse(dict):
         The URI where webhooks should be sent.
         """
         return pulumi.get(self, "service_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

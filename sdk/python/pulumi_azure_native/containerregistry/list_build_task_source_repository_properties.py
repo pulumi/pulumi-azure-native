@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -52,7 +52,7 @@ class ListBuildTaskSourceRepositoryPropertiesResult:
 
     @property
     @pulumi.getter(name="sourceControlAuthProperties")
-    def source_control_auth_properties(self) -> Optional['outputs.SourceControlAuthInfoResponseResult']:
+    def source_control_auth_properties(self) -> Optional['outputs.SourceControlAuthInfoResponse']:
         """
         The authorization properties for accessing the source code repository.
         """

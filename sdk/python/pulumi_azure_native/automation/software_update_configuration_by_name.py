@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -141,9 +141,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  software_update_configuration_name: Optional[pulumi.Input[str]] = None,
                  tasks: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']]] = None,
                  update_configuration: Optional[pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Software update configuration properties.
         API Version: 2019-06-01.
@@ -190,15 +188,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  software_update_configuration_name: Optional[pulumi.Input[str]] = None,
                  tasks: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']]] = None,
                  update_configuration: Optional[pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,30 +198,30 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SoftwareUpdateConfigurationByNameArgs.__new__(SoftwareUpdateConfigurationByNameArgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
-            __props__['error'] = error
+            __props__.__dict__["automation_account_name"] = automation_account_name
+            __props__.__dict__["error"] = error
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if schedule_info is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_info'")
-            __props__['schedule_info'] = schedule_info
-            __props__['software_update_configuration_name'] = software_update_configuration_name
-            __props__['tasks'] = tasks
+            __props__.__dict__["schedule_info"] = schedule_info
+            __props__.__dict__["software_update_configuration_name"] = software_update_configuration_name
+            __props__.__dict__["tasks"] = tasks
             if update_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'update_configuration'")
-            __props__['update_configuration'] = update_configuration
-            __props__['created_by'] = None
-            __props__['creation_time'] = None
-            __props__['last_modified_by'] = None
-            __props__['last_modified_time'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["update_configuration"] = update_configuration
+            __props__.__dict__["created_by"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["last_modified_by"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SoftwareUpdateConfigurationByName, __self__).__init__(
@@ -254,19 +244,19 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SoftwareUpdateConfigurationByNameArgs.__new__(SoftwareUpdateConfigurationByNameArgs)
 
-        __props__["created_by"] = None
-        __props__["creation_time"] = None
-        __props__["error"] = None
-        __props__["last_modified_by"] = None
-        __props__["last_modified_time"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["schedule_info"] = None
-        __props__["tasks"] = None
-        __props__["type"] = None
-        __props__["update_configuration"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["error"] = None
+        __props__.__dict__["last_modified_by"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["schedule_info"] = None
+        __props__.__dict__["tasks"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["update_configuration"] = None
         return SoftwareUpdateConfigurationByName(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -356,10 +346,4 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         update specific properties for the Software update configuration
         """
         return pulumi.get(self, "update_configuration")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

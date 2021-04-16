@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -212,9 +212,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Volume resource
 
@@ -267,15 +265,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,37 +275,37 @@ class Volume(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeArgs.__new__(VolumeArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
+            __props__.__dict__["account_name"] = account_name
             if creation_token is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_token'")
-            __props__['creation_token'] = creation_token
-            __props__['export_policy'] = export_policy
-            __props__['location'] = location
+            __props__.__dict__["creation_token"] = creation_token
+            __props__.__dict__["export_policy"] = export_policy
+            __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
-            __props__['pool_name'] = pool_name
+            __props__.__dict__["pool_name"] = pool_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_level is None:
                 service_level = 'Premium'
             if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
-            __props__['service_level'] = service_level
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
+            __props__.__dict__["service_level"] = service_level
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
             if usage_threshold is None:
                 usage_threshold = 107374182400
-            __props__['usage_threshold'] = usage_threshold
-            __props__['volume_name'] = volume_name
-            __props__['file_system_id'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["usage_threshold"] = usage_threshold
+            __props__.__dict__["volume_name"] = volume_name
+            __props__.__dict__["file_system_id"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp:Volume"), pulumi.Alias(type_="azure-nextgen:netapp:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
@@ -338,19 +328,19 @@ class Volume(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VolumeArgs.__new__(VolumeArgs)
 
-        __props__["creation_token"] = None
-        __props__["export_policy"] = None
-        __props__["file_system_id"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["service_level"] = None
-        __props__["subnet_id"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["usage_threshold"] = None
+        __props__.__dict__["creation_token"] = None
+        __props__.__dict__["export_policy"] = None
+        __props__.__dict__["file_system_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["service_level"] = None
+        __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["usage_threshold"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -440,10 +430,4 @@ class Volume(pulumi.CustomResource):
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
         """
         return pulumi.get(self, "usage_threshold")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

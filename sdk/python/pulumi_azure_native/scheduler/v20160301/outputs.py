@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -77,12 +77,30 @@ class BasicAuthenticationResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClientCertAuthenticationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateExpirationDate":
+            suggest = "certificate_expiration_date"
+        elif key == "certificateSubjectName":
+            suggest = "certificate_subject_name"
+        elif key == "certificateThumbprint":
+            suggest = "certificate_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientCertAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientCertAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientCertAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  certificate_expiration_date: Optional[str] = None,
@@ -160,9 +178,6 @@ class ClientCertAuthenticationResponse(dict):
         """
         return pulumi.get(self, "pfx")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpRequestResponse(dict):
@@ -173,7 +188,7 @@ class HttpRequestResponse(dict):
                  method: Optional[str] = None,
                  uri: Optional[str] = None):
         """
-        :param Union['BasicAuthenticationResponseArgs', 'ClientCertAuthenticationResponseArgs', 'OAuthAuthenticationResponseArgs'] authentication: Gets or sets the authentication method of the request.
+        :param Union['BasicAuthenticationResponse', 'ClientCertAuthenticationResponse', 'OAuthAuthenticationResponse'] authentication: Gets or sets the authentication method of the request.
         :param str body: Gets or sets the request body.
         :param Mapping[str, str] headers: Gets or sets the headers.
         :param str method: Gets or sets the method of the request.
@@ -230,12 +245,34 @@ class HttpRequestResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobActionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorAction":
+            suggest = "error_action"
+        elif key == "queueMessage":
+            suggest = "queue_message"
+        elif key == "retryPolicy":
+            suggest = "retry_policy"
+        elif key == "serviceBusQueueMessage":
+            suggest = "service_bus_queue_message"
+        elif key == "serviceBusTopicMessage":
+            suggest = "service_bus_topic_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_action: Optional['outputs.JobErrorActionResponse'] = None,
                  queue_message: Optional['outputs.StorageQueueMessageResponse'] = None,
@@ -245,12 +282,12 @@ class JobActionResponse(dict):
                  service_bus_topic_message: Optional['outputs.ServiceBusTopicMessageResponse'] = None,
                  type: Optional[str] = None):
         """
-        :param 'JobErrorActionResponseArgs' error_action: Gets or sets the error action.
-        :param 'StorageQueueMessageResponseArgs' queue_message: Gets or sets the storage queue message.
-        :param 'HttpRequestResponseArgs' request: Gets or sets the http requests.
-        :param 'RetryPolicyResponseArgs' retry_policy: Gets or sets the retry policy.
-        :param 'ServiceBusQueueMessageResponseArgs' service_bus_queue_message: Gets or sets the service bus queue message.
-        :param 'ServiceBusTopicMessageResponseArgs' service_bus_topic_message: Gets or sets the service bus topic message.
+        :param 'JobErrorActionResponse' error_action: Gets or sets the error action.
+        :param 'StorageQueueMessageResponse' queue_message: Gets or sets the storage queue message.
+        :param 'HttpRequestResponse' request: Gets or sets the http requests.
+        :param 'RetryPolicyResponse' retry_policy: Gets or sets the retry policy.
+        :param 'ServiceBusQueueMessageResponse' service_bus_queue_message: Gets or sets the service bus queue message.
+        :param 'ServiceBusTopicMessageResponse' service_bus_topic_message: Gets or sets the service bus topic message.
         :param str type: Gets or sets the job action type.
         """
         if error_action is not None:
@@ -324,9 +361,6 @@ class JobActionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobCollectionPropertiesResponse(dict):
@@ -335,8 +369,8 @@ class JobCollectionPropertiesResponse(dict):
                  sku: Optional['outputs.SkuResponse'] = None,
                  state: Optional[str] = None):
         """
-        :param 'JobCollectionQuotaResponseArgs' quota: Gets or sets the job collection quota.
-        :param 'SkuResponseArgs' sku: Gets or sets the SKU.
+        :param 'JobCollectionQuotaResponse' quota: Gets or sets the job collection quota.
+        :param 'SkuResponse' sku: Gets or sets the SKU.
         :param str state: Gets or sets the state.
         """
         if quota is not None:
@@ -370,12 +404,30 @@ class JobCollectionPropertiesResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobCollectionQuotaResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxJobCount":
+            suggest = "max_job_count"
+        elif key == "maxJobOccurrence":
+            suggest = "max_job_occurrence"
+        elif key == "maxRecurrence":
+            suggest = "max_recurrence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobCollectionQuotaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobCollectionQuotaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobCollectionQuotaResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_job_count: Optional[int] = None,
                  max_job_occurrence: Optional[int] = None,
@@ -383,7 +435,7 @@ class JobCollectionQuotaResponse(dict):
         """
         :param int max_job_count: Gets or set the maximum job count.
         :param int max_job_occurrence: Gets or sets the maximum job occurrence.
-        :param 'JobMaxRecurrenceResponseArgs' max_recurrence: Gets or set the maximum recurrence.
+        :param 'JobMaxRecurrenceResponse' max_recurrence: Gets or set the maximum recurrence.
         """
         if max_job_count is not None:
             pulumi.set(__self__, "max_job_count", max_job_count)
@@ -416,12 +468,32 @@ class JobCollectionQuotaResponse(dict):
         """
         return pulumi.get(self, "max_recurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobErrorActionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueMessage":
+            suggest = "queue_message"
+        elif key == "retryPolicy":
+            suggest = "retry_policy"
+        elif key == "serviceBusQueueMessage":
+            suggest = "service_bus_queue_message"
+        elif key == "serviceBusTopicMessage":
+            suggest = "service_bus_topic_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobErrorActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobErrorActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobErrorActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  queue_message: Optional['outputs.StorageQueueMessageResponse'] = None,
                  request: Optional['outputs.HttpRequestResponse'] = None,
@@ -430,11 +502,11 @@ class JobErrorActionResponse(dict):
                  service_bus_topic_message: Optional['outputs.ServiceBusTopicMessageResponse'] = None,
                  type: Optional[str] = None):
         """
-        :param 'StorageQueueMessageResponseArgs' queue_message: Gets or sets the storage queue message.
-        :param 'HttpRequestResponseArgs' request: Gets or sets the http requests.
-        :param 'RetryPolicyResponseArgs' retry_policy: Gets or sets the retry policy.
-        :param 'ServiceBusQueueMessageResponseArgs' service_bus_queue_message: Gets or sets the service bus queue message.
-        :param 'ServiceBusTopicMessageResponseArgs' service_bus_topic_message: Gets or sets the service bus topic message.
+        :param 'StorageQueueMessageResponse' queue_message: Gets or sets the storage queue message.
+        :param 'HttpRequestResponse' request: Gets or sets the http requests.
+        :param 'RetryPolicyResponse' retry_policy: Gets or sets the retry policy.
+        :param 'ServiceBusQueueMessageResponse' service_bus_queue_message: Gets or sets the service bus queue message.
+        :param 'ServiceBusTopicMessageResponse' service_bus_topic_message: Gets or sets the service bus topic message.
         :param str type: Gets or sets the job error action type.
         """
         if queue_message is not None:
@@ -498,9 +570,6 @@ class JobErrorActionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobMaxRecurrenceResponse(dict):
@@ -532,12 +601,26 @@ class JobMaxRecurrenceResponse(dict):
         """
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: 'outputs.JobStatusResponse',
                  action: Optional['outputs.JobActionResponse'] = None,
@@ -545,9 +628,9 @@ class JobPropertiesResponse(dict):
                  start_time: Optional[str] = None,
                  state: Optional[str] = None):
         """
-        :param 'JobStatusResponseArgs' status: Gets the job status.
-        :param 'JobActionResponseArgs' action: Gets or sets the job action.
-        :param 'JobRecurrenceResponseArgs' recurrence: Gets or sets the job recurrence.
+        :param 'JobStatusResponse' status: Gets the job status.
+        :param 'JobActionResponse' action: Gets or sets the job action.
+        :param 'JobRecurrenceResponse' recurrence: Gets or sets the job recurrence.
         :param str start_time: Gets or sets the job start time.
         :param str state: Gets or set the job state.
         """
@@ -601,12 +684,26 @@ class JobPropertiesResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobRecurrenceResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  end_time: Optional[str] = None,
@@ -667,9 +764,6 @@ class JobRecurrenceResponse(dict):
     def schedule(self) -> Optional['outputs.JobRecurrenceScheduleResponse']:
         return pulumi.get(self, "schedule")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobRecurrenceScheduleMonthlyOccurrenceResponse(dict):
@@ -701,12 +795,30 @@ class JobRecurrenceScheduleMonthlyOccurrenceResponse(dict):
         """
         return pulumi.get(self, "occurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobRecurrenceScheduleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthDays":
+            suggest = "month_days"
+        elif key == "monthlyOccurrences":
+            suggest = "monthly_occurrences"
+        elif key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobRecurrenceScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobRecurrenceScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobRecurrenceScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hours: Optional[Sequence[int]] = None,
                  minutes: Optional[Sequence[int]] = None,
@@ -717,7 +829,7 @@ class JobRecurrenceScheduleResponse(dict):
         :param Sequence[int] hours: Gets or sets the hours of the day that the job should execute at.
         :param Sequence[int] minutes: Gets or sets the minutes of the hour that the job should execute at.
         :param Sequence[int] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
-        :param Sequence['JobRecurrenceScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Gets or sets the occurrences of days within a month.
+        :param Sequence['JobRecurrenceScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Gets or sets the occurrences of days within a month.
         :param Sequence[str] week_days: Gets or sets the days of the week that the job should execute on.
         """
         if hours is not None:
@@ -771,12 +883,34 @@ class JobRecurrenceScheduleResponse(dict):
         """
         return pulumi.get(self, "week_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionCount":
+            suggest = "execution_count"
+        elif key == "failureCount":
+            suggest = "failure_count"
+        elif key == "faultedCount":
+            suggest = "faulted_count"
+        elif key == "lastExecutionTime":
+            suggest = "last_execution_time"
+        elif key == "nextExecutionTime":
+            suggest = "next_execution_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  execution_count: int,
                  failure_count: int,
@@ -836,12 +970,26 @@ class JobStatusResponse(dict):
         """
         return pulumi.get(self, "next_execution_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OAuthAuthenticationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuthAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuthAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuthAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  audience: Optional[str] = None,
@@ -907,12 +1055,30 @@ class OAuthAuthenticationResponse(dict):
         """
         return pulumi.get(self, "tenant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RetryPolicyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryCount":
+            suggest = "retry_count"
+        elif key == "retryInterval":
+            suggest = "retry_interval"
+        elif key == "retryType":
+            suggest = "retry_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetryPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetryPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetryPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retry_count: Optional[int] = None,
                  retry_interval: Optional[str] = None,
@@ -953,12 +1119,28 @@ class RetryPolicyResponse(dict):
         """
         return pulumi.get(self, "retry_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusAuthenticationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sasKey":
+            suggest = "sas_key"
+        elif key == "sasKeyName":
+            suggest = "sas_key_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sas_key: Optional[str] = None,
                  sas_key_name: Optional[str] = None,
@@ -999,12 +1181,46 @@ class ServiceBusAuthenticationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusBrokeredMessagePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "forcePersistence":
+            suggest = "force_persistence"
+        elif key == "messageId":
+            suggest = "message_id"
+        elif key == "partitionKey":
+            suggest = "partition_key"
+        elif key == "replyTo":
+            suggest = "reply_to"
+        elif key == "replyToSessionId":
+            suggest = "reply_to_session_id"
+        elif key == "scheduledEnqueueTimeUtc":
+            suggest = "scheduled_enqueue_time_utc"
+        elif key == "sessionId":
+            suggest = "session_id"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+        elif key == "viaPartitionKey":
+            suggest = "via_partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusBrokeredMessagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusBrokeredMessagePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusBrokeredMessagePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_type: Optional[str] = None,
                  correlation_id: Optional[str] = None,
@@ -1165,12 +1381,32 @@ class ServiceBusBrokeredMessagePropertiesResponse(dict):
         """
         return pulumi.get(self, "via_partition_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusQueueMessageResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "brokeredMessageProperties":
+            suggest = "brokered_message_properties"
+        elif key == "customMessageProperties":
+            suggest = "custom_message_properties"
+        elif key == "queueName":
+            suggest = "queue_name"
+        elif key == "transportType":
+            suggest = "transport_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusQueueMessageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusQueueMessageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusQueueMessageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication: Optional['outputs.ServiceBusAuthenticationResponse'] = None,
                  brokered_message_properties: Optional['outputs.ServiceBusBrokeredMessagePropertiesResponse'] = None,
@@ -1180,8 +1416,8 @@ class ServiceBusQueueMessageResponse(dict):
                  queue_name: Optional[str] = None,
                  transport_type: Optional[str] = None):
         """
-        :param 'ServiceBusAuthenticationResponseArgs' authentication: Gets or sets the Service Bus authentication.
-        :param 'ServiceBusBrokeredMessagePropertiesResponseArgs' brokered_message_properties: Gets or sets the brokered message properties.
+        :param 'ServiceBusAuthenticationResponse' authentication: Gets or sets the Service Bus authentication.
+        :param 'ServiceBusBrokeredMessagePropertiesResponse' brokered_message_properties: Gets or sets the brokered message properties.
         :param Mapping[str, str] custom_message_properties: Gets or sets the custom message properties.
         :param str message: Gets or sets the message.
         :param str namespace: Gets or sets the namespace.
@@ -1259,12 +1495,32 @@ class ServiceBusQueueMessageResponse(dict):
         """
         return pulumi.get(self, "transport_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusTopicMessageResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "brokeredMessageProperties":
+            suggest = "brokered_message_properties"
+        elif key == "customMessageProperties":
+            suggest = "custom_message_properties"
+        elif key == "topicPath":
+            suggest = "topic_path"
+        elif key == "transportType":
+            suggest = "transport_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusTopicMessageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusTopicMessageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusTopicMessageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication: Optional['outputs.ServiceBusAuthenticationResponse'] = None,
                  brokered_message_properties: Optional['outputs.ServiceBusBrokeredMessagePropertiesResponse'] = None,
@@ -1274,8 +1530,8 @@ class ServiceBusTopicMessageResponse(dict):
                  topic_path: Optional[str] = None,
                  transport_type: Optional[str] = None):
         """
-        :param 'ServiceBusAuthenticationResponseArgs' authentication: Gets or sets the Service Bus authentication.
-        :param 'ServiceBusBrokeredMessagePropertiesResponseArgs' brokered_message_properties: Gets or sets the brokered message properties.
+        :param 'ServiceBusAuthenticationResponse' authentication: Gets or sets the Service Bus authentication.
+        :param 'ServiceBusBrokeredMessagePropertiesResponse' brokered_message_properties: Gets or sets the brokered message properties.
         :param Mapping[str, str] custom_message_properties: Gets or sets the custom message properties.
         :param str message: Gets or sets the message.
         :param str namespace: Gets or sets the namespace.
@@ -1353,9 +1609,6 @@ class ServiceBusTopicMessageResponse(dict):
         """
         return pulumi.get(self, "transport_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -1375,12 +1628,30 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageQueueMessageResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueName":
+            suggest = "queue_name"
+        elif key == "sasToken":
+            suggest = "sas_token"
+        elif key == "storageAccount":
+            suggest = "storage_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageQueueMessageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageQueueMessageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageQueueMessageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message: Optional[str] = None,
                  queue_name: Optional[str] = None,
@@ -1432,8 +1703,5 @@ class StorageQueueMessageResponse(dict):
         Gets or sets the storage account name.
         """
         return pulumi.get(self, "storage_account")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

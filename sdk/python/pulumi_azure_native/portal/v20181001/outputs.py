@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,6 +22,25 @@ class ConsolePropertiesResponse(dict):
     """
     Cloud shell console properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConsolePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConsolePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConsolePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  os_type: str,
                  provisioning_state: str,
@@ -60,15 +79,33 @@ class ConsolePropertiesResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageProfileResponse(dict):
     """
     The storage profile of the user settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeInGB":
+            suggest = "disk_size_in_gb"
+        elif key == "fileShareName":
+            suggest = "file_share_name"
+        elif key == "storageAccountResourceId":
+            suggest = "storage_account_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_size_in_gb: Optional[int] = None,
                  file_share_name: Optional[str] = None,
@@ -110,15 +147,31 @@ class StorageProfileResponse(dict):
         """
         return pulumi.get(self, "storage_account_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TerminalSettingsResponse(dict):
     """
     Settings for terminal appearance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontSize":
+            suggest = "font_size"
+        elif key == "fontStyle":
+            suggest = "font_style"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TerminalSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TerminalSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TerminalSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  font_size: Optional[str] = None,
                  font_style: Optional[str] = None):
@@ -148,15 +201,37 @@ class TerminalSettingsResponse(dict):
         """
         return pulumi.get(self, "font_style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserPropertiesResponse(dict):
     """
     The cloud shell user settings properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredLocation":
+            suggest = "preferred_location"
+        elif key == "preferredOsType":
+            suggest = "preferred_os_type"
+        elif key == "preferredShellType":
+            suggest = "preferred_shell_type"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+        elif key == "terminalSettings":
+            suggest = "terminal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preferred_location: str,
                  preferred_os_type: str,
@@ -168,8 +243,8 @@ class UserPropertiesResponse(dict):
         :param str preferred_location: The preferred location of the cloud shell.
         :param str preferred_os_type: The operating system type of the cloud shell. Deprecated, use preferredShellType.
         :param str preferred_shell_type: The shell type of the cloud shell.
-        :param 'StorageProfileResponseArgs' storage_profile: The storage profile of the user settings.
-        :param 'TerminalSettingsResponseArgs' terminal_settings: Settings for terminal appearance.
+        :param 'StorageProfileResponse' storage_profile: The storage profile of the user settings.
+        :param 'TerminalSettingsResponse' terminal_settings: Settings for terminal appearance.
         """
         pulumi.set(__self__, "preferred_location", preferred_location)
         pulumi.set(__self__, "preferred_os_type", preferred_os_type)
@@ -216,8 +291,5 @@ class UserPropertiesResponse(dict):
         Settings for terminal appearance.
         """
         return pulumi.get(self, "terminal_settings")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -19,6 +19,23 @@ class CustomDomainResponse(dict):
     """
     The custom domain assigned to this storage account. This can be set via Update.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSubDomainName":
+            suggest = "use_sub_domain_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  use_sub_domain_name: Optional[bool] = None):
@@ -47,9 +64,6 @@ class CustomDomainResponse(dict):
         Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
         """
         return pulumi.get(self, "use_sub_domain_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -97,8 +111,5 @@ class EndpointsResponse(dict):
         Gets the table endpoint.
         """
         return pulumi.get(self, "table")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

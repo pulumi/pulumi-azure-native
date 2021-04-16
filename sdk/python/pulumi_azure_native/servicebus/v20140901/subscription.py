@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -311,9 +311,7 @@ class Subscription(pulumi.CustomResource):
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of subscription resource.
 
@@ -378,15 +376,7 @@ class Subscription(pulumi.CustomResource):
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -396,37 +386,37 @@ class Subscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
-            __props__['auto_delete_on_idle'] = auto_delete_on_idle
-            __props__['dead_lettering_on_filter_evaluation_exceptions'] = dead_lettering_on_filter_evaluation_exceptions
-            __props__['dead_lettering_on_message_expiration'] = dead_lettering_on_message_expiration
-            __props__['default_message_time_to_live'] = default_message_time_to_live
-            __props__['enable_batched_operations'] = enable_batched_operations
-            __props__['entity_availability_status'] = entity_availability_status
-            __props__['is_read_only'] = is_read_only
-            __props__['location'] = location
-            __props__['lock_duration'] = lock_duration
-            __props__['max_delivery_count'] = max_delivery_count
+            __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            __props__.__dict__["dead_lettering_on_filter_evaluation_exceptions"] = dead_lettering_on_filter_evaluation_exceptions
+            __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
+            __props__.__dict__["default_message_time_to_live"] = default_message_time_to_live
+            __props__.__dict__["enable_batched_operations"] = enable_batched_operations
+            __props__.__dict__["entity_availability_status"] = entity_availability_status
+            __props__.__dict__["is_read_only"] = is_read_only
+            __props__.__dict__["location"] = location
+            __props__.__dict__["lock_duration"] = lock_duration
+            __props__.__dict__["max_delivery_count"] = max_delivery_count
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
-            __props__['requires_session'] = requires_session
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["requires_session"] = requires_session
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['status'] = status
-            __props__['subscription_name'] = subscription_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["status"] = status
+            __props__.__dict__["subscription_name"] = subscription_name
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
-            __props__['topic_name'] = topic_name
-            __props__['type'] = type
-            __props__['accessed_at'] = None
-            __props__['count_details'] = None
-            __props__['created_at'] = None
-            __props__['message_count'] = None
-            __props__['name'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["type"] = type
+            __props__.__dict__["accessed_at"] = None
+            __props__.__dict__["count_details"] = None
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["message_count"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:Subscription"), pulumi.Alias(type_="azure-native:servicebus:Subscription"), pulumi.Alias(type_="azure-nextgen:servicebus:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Subscription"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Subscription"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Subscription"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Subscription"), pulumi.Alias(type_="azure-nextgen:servicebus/v20210101preview:Subscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subscription, __self__).__init__(
@@ -449,27 +439,27 @@ class Subscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
-        __props__["accessed_at"] = None
-        __props__["auto_delete_on_idle"] = None
-        __props__["count_details"] = None
-        __props__["created_at"] = None
-        __props__["dead_lettering_on_filter_evaluation_exceptions"] = None
-        __props__["dead_lettering_on_message_expiration"] = None
-        __props__["default_message_time_to_live"] = None
-        __props__["enable_batched_operations"] = None
-        __props__["entity_availability_status"] = None
-        __props__["is_read_only"] = None
-        __props__["location"] = None
-        __props__["lock_duration"] = None
-        __props__["max_delivery_count"] = None
-        __props__["message_count"] = None
-        __props__["name"] = None
-        __props__["requires_session"] = None
-        __props__["status"] = None
-        __props__["type"] = None
-        __props__["updated_at"] = None
+        __props__.__dict__["accessed_at"] = None
+        __props__.__dict__["auto_delete_on_idle"] = None
+        __props__.__dict__["count_details"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["dead_lettering_on_filter_evaluation_exceptions"] = None
+        __props__.__dict__["dead_lettering_on_message_expiration"] = None
+        __props__.__dict__["default_message_time_to_live"] = None
+        __props__.__dict__["enable_batched_operations"] = None
+        __props__.__dict__["entity_availability_status"] = None
+        __props__.__dict__["is_read_only"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["lock_duration"] = None
+        __props__.__dict__["max_delivery_count"] = None
+        __props__.__dict__["message_count"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["requires_session"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_at"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -623,10 +613,4 @@ class Subscription(pulumi.CustomResource):
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

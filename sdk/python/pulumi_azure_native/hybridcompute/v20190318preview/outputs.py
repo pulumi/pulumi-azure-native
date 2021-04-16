@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,7 +24,7 @@ class ErrorDetailResponse(dict):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponse'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)
@@ -66,15 +66,29 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the hybrid machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computerName":
+            suggest = "computer_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  computer_name: str):
         """
@@ -90,8 +104,5 @@ class OSProfileResponse(dict):
         Specifies the host OS name of the hybrid machine.
         """
         return pulumi.get(self, "computer_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

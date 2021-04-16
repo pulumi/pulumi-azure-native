@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -39,7 +39,7 @@ class CloudServiceExtensionProfileResponse(dict):
                  extensions: Optional[Sequence['outputs.ExtensionResponse']] = None):
         """
         Describes a cloud service extension profile.
-        :param Sequence['ExtensionResponseArgs'] extensions: List of extensions for the cloud service.
+        :param Sequence['ExtensionResponse'] extensions: List of extensions for the cloud service.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -52,15 +52,41 @@ class CloudServiceExtensionProfileResponse(dict):
         """
         return pulumi.get(self, "extensions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceExtensionPropertiesResponse(dict):
     """
     Extension Properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "protectedSettingsFromKeyVault":
+            suggest = "protected_settings_from_key_vault"
+        elif key == "rolesAppliedTo":
+            suggest = "roles_applied_to"
+        elif key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudServiceExtensionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudServiceExtensionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudServiceExtensionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  auto_upgrade_minor_version: Optional[bool] = None,
@@ -189,21 +215,37 @@ class CloudServiceExtensionPropertiesResponse(dict):
         """
         return pulumi.get(self, "type_handler_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceNetworkProfileResponse(dict):
     """
     Network Profile for the cloud service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerConfigurations":
+            suggest = "load_balancer_configurations"
+        elif key == "swappableCloudService":
+            suggest = "swappable_cloud_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudServiceNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudServiceNetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudServiceNetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  load_balancer_configurations: Optional[Sequence['outputs.LoadBalancerConfigurationResponse']] = None,
                  swappable_cloud_service: Optional['outputs.SubResourceResponse'] = None):
         """
         Network Profile for the cloud service.
-        :param Sequence['LoadBalancerConfigurationResponseArgs'] load_balancer_configurations: The list of load balancer configurations for the cloud service.
+        :param Sequence['LoadBalancerConfigurationResponse'] load_balancer_configurations: The list of load balancer configurations for the cloud service.
         """
         if load_balancer_configurations is not None:
             pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
@@ -223,9 +265,6 @@ class CloudServiceNetworkProfileResponse(dict):
     def swappable_cloud_service(self) -> Optional['outputs.SubResourceResponse']:
         return pulumi.get(self, "swappable_cloud_service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceOsProfileResponse(dict):
@@ -236,7 +275,7 @@ class CloudServiceOsProfileResponse(dict):
                  secrets: Optional[Sequence['outputs.CloudServiceVaultSecretGroupResponse']] = None):
         """
         Describes the OS profile for the cloud service.
-        :param Sequence['CloudServiceVaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the role instances.
+        :param Sequence['CloudServiceVaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the role instances.
         """
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
@@ -249,15 +288,47 @@ class CloudServiceOsProfileResponse(dict):
         """
         return pulumi.get(self, "secrets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServicePropertiesResponse(dict):
     """
     Cloud service properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueId":
+            suggest = "unique_id"
+        elif key == "configurationUrl":
+            suggest = "configuration_url"
+        elif key == "extensionProfile":
+            suggest = "extension_profile"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "packageUrl":
+            suggest = "package_url"
+        elif key == "roleProfile":
+            suggest = "role_profile"
+        elif key == "startCloudService":
+            suggest = "start_cloud_service"
+        elif key == "upgradeMode":
+            suggest = "upgrade_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudServicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudServicePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudServicePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  unique_id: str,
@@ -277,12 +348,12 @@ class CloudServicePropertiesResponse(dict):
         :param str configuration: Specifies the XML service configuration (.cscfg) for the cloud service.
         :param str configuration_url: Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
                This is a write-only property and is not returned in GET calls.
-        :param 'CloudServiceExtensionProfileResponseArgs' extension_profile: Describes a cloud service extension profile.
-        :param 'CloudServiceNetworkProfileResponseArgs' network_profile: Network Profile for the cloud service.
-        :param 'CloudServiceOsProfileResponseArgs' os_profile: Describes the OS profile for the cloud service.
+        :param 'CloudServiceExtensionProfileResponse' extension_profile: Describes a cloud service extension profile.
+        :param 'CloudServiceNetworkProfileResponse' network_profile: Network Profile for the cloud service.
+        :param 'CloudServiceOsProfileResponse' os_profile: Describes the OS profile for the cloud service.
         :param str package_url: Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
                This is a write-only property and is not returned in GET calls.
-        :param 'CloudServiceRoleProfileResponseArgs' role_profile: Describes the role profile for the cloud service.
+        :param 'CloudServiceRoleProfileResponse' role_profile: Describes the role profile for the cloud service.
         :param bool start_cloud_service: (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
                If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
         :param str upgrade_mode: Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
@@ -403,9 +474,6 @@ class CloudServicePropertiesResponse(dict):
         """
         return pulumi.get(self, "upgrade_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceRoleProfilePropertiesResponse(dict):
@@ -418,7 +486,7 @@ class CloudServiceRoleProfilePropertiesResponse(dict):
         """
         Describes the role properties.
         :param str name: Resource name.
-        :param 'CloudServiceRoleSkuResponseArgs' sku: Describes the cloud service role sku.
+        :param 'CloudServiceRoleSkuResponse' sku: Describes the cloud service role sku.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -441,9 +509,6 @@ class CloudServiceRoleProfilePropertiesResponse(dict):
         """
         return pulumi.get(self, "sku")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceRoleProfileResponse(dict):
@@ -454,7 +519,7 @@ class CloudServiceRoleProfileResponse(dict):
                  roles: Optional[Sequence['outputs.CloudServiceRoleProfilePropertiesResponse']] = None):
         """
         Describes the role profile for the cloud service.
-        :param Sequence['CloudServiceRoleProfilePropertiesResponseArgs'] roles: List of roles for the cloud service.
+        :param Sequence['CloudServiceRoleProfilePropertiesResponse'] roles: List of roles for the cloud service.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -466,9 +531,6 @@ class CloudServiceRoleProfileResponse(dict):
         List of roles for the cloud service.
         """
         return pulumi.get(self, "roles")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -517,12 +579,28 @@ class CloudServiceRoleSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceVaultAndSecretReferenceResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVault":
+            suggest = "source_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudServiceVaultAndSecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudServiceVaultAndSecretReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudServiceVaultAndSecretReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_url: Optional[str] = None,
                  source_vault: Optional['outputs.SubResourceResponse'] = None):
@@ -541,15 +619,29 @@ class CloudServiceVaultAndSecretReferenceResponse(dict):
     def source_vault(self) -> Optional['outputs.SubResourceResponse']:
         return pulumi.get(self, "source_vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceVaultCertificateResponse(dict):
     """
     Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudServiceVaultCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudServiceVaultCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudServiceVaultCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_url: Optional[str] = None):
         """
@@ -567,22 +659,38 @@ class CloudServiceVaultCertificateResponse(dict):
         """
         return pulumi.get(self, "certificate_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudServiceVaultSecretGroupResponse(dict):
     """
     Describes a set of certificates which are all in the same Key Vault.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceVault":
+            suggest = "source_vault"
+        elif key == "vaultCertificates":
+            suggest = "vault_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudServiceVaultSecretGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudServiceVaultSecretGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudServiceVaultSecretGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_vault: Optional['outputs.SubResourceResponse'] = None,
                  vault_certificates: Optional[Sequence['outputs.CloudServiceVaultCertificateResponse']] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
-        :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param Sequence['CloudServiceVaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+        :param Sequence['CloudServiceVaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         if source_vault is not None:
             pulumi.set(__self__, "source_vault", source_vault)
@@ -605,9 +713,6 @@ class CloudServiceVaultSecretGroupResponse(dict):
         """
         return pulumi.get(self, "vault_certificates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtensionResponse(dict):
@@ -620,7 +725,7 @@ class ExtensionResponse(dict):
         """
         Describes a cloud service Extension.
         :param str name: The name of the extension.
-        :param 'CloudServiceExtensionPropertiesResponseArgs' properties: Extension Properties.
+        :param 'CloudServiceExtensionPropertiesResponse' properties: Extension Properties.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -643,16 +748,30 @@ class ExtensionResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerConfigurationPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frontendIPConfigurations":
+            suggest = "frontend_ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  frontend_ip_configurations: Optional[Sequence['outputs.LoadBalancerFrontendIPConfigurationResponse']] = None):
         """
-        :param Sequence['LoadBalancerFrontendIPConfigurationResponseArgs'] frontend_ip_configurations: List of IP
+        :param Sequence['LoadBalancerFrontendIPConfigurationResponse'] frontend_ip_configurations: List of IP
         """
         if frontend_ip_configurations is not None:
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
@@ -664,9 +783,6 @@ class LoadBalancerConfigurationPropertiesResponse(dict):
         List of IP
         """
         return pulumi.get(self, "frontend_ip_configurations")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -699,15 +815,31 @@ class LoadBalancerConfigurationResponse(dict):
     def properties(self) -> Optional['outputs.LoadBalancerConfigurationPropertiesResponse']:
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerFrontendIPConfigurationPropertiesResponse(dict):
     """
     Describes a cloud service IP Configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerFrontendIPConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerFrontendIPConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerFrontendIPConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_ip_address: Optional[str] = None,
                  public_ip_address: Optional['outputs.SubResourceResponse'] = None,
@@ -741,9 +873,6 @@ class LoadBalancerFrontendIPConfigurationPropertiesResponse(dict):
     def subnet(self) -> Optional['outputs.SubResourceResponse']:
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerFrontendIPConfigurationResponse(dict):
@@ -751,7 +880,7 @@ class LoadBalancerFrontendIPConfigurationResponse(dict):
                  name: Optional[str] = None,
                  properties: Optional['outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse'] = None):
         """
-        :param 'LoadBalancerFrontendIPConfigurationPropertiesResponseArgs' properties: Describes a cloud service IP Configuration
+        :param 'LoadBalancerFrontendIPConfigurationPropertiesResponse' properties: Describes a cloud service IP Configuration
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -771,9 +900,6 @@ class LoadBalancerFrontendIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubResourceResponse(dict):
@@ -792,8 +918,5 @@ class SubResourceResponse(dict):
         Resource Id
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

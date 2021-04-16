@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -178,9 +178,7 @@ class NetworkManager(pulumi.CustomResource):
                  network_manager_scopes: Optional[pulumi.Input[pulumi.InputType['NetworkManagerPropertiesNetworkManagerScopesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The Managed Network resource
         API Version: 2021-02-01-preview.
@@ -231,15 +229,7 @@ class NetworkManager(pulumi.CustomResource):
                  network_manager_scopes: Optional[pulumi.Input[pulumi.InputType['NetworkManagerPropertiesNetworkManagerScopesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,24 +239,24 @@ class NetworkManager(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkManagerArgs.__new__(NetworkManagerArgs)
 
-            __props__['description'] = description
-            __props__['display_name'] = display_name
-            __props__['id'] = id
-            __props__['location'] = location
-            __props__['network_manager_name'] = network_manager_name
-            __props__['network_manager_scope_accesses'] = network_manager_scope_accesses
-            __props__['network_manager_scopes'] = network_manager_scopes
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_manager_name"] = network_manager_name
+            __props__.__dict__["network_manager_scope_accesses"] = network_manager_scope_accesses
+            __props__.__dict__["network_manager_scopes"] = network_manager_scopes
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NetworkManager"), pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkManager"), pulumi.Alias(type_="azure-nextgen:network/v20210201preview:NetworkManager")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkManager, __self__).__init__(
@@ -289,19 +279,19 @@ class NetworkManager(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NetworkManagerArgs.__new__(NetworkManagerArgs)
 
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["network_manager_scope_accesses"] = None
-        __props__["network_manager_scopes"] = None
-        __props__["provisioning_state"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_manager_scope_accesses"] = None
+        __props__.__dict__["network_manager_scopes"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return NetworkManager(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -391,10 +381,4 @@ class NetworkManager(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

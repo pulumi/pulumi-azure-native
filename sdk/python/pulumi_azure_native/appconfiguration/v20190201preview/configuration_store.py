@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['ConfigurationStoreArgs', 'ConfigurationStore']
 
@@ -90,9 +90,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 
@@ -131,15 +129,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -149,19 +139,19 @@ class ConfigurationStore(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
-            __props__['config_store_name'] = config_store_name
-            __props__['location'] = location
+            __props__.__dict__["config_store_name"] = config_store_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['creation_date'] = None
-            __props__['endpoint'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["endpoint"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20191001:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191001:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20200601:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200601:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20200701preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"), pulumi.Alias(type_="azure-native:appconfiguration/v20210301preview:ConfigurationStore"), pulumi.Alias(type_="azure-nextgen:appconfiguration/v20210301preview:ConfigurationStore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationStore, __self__).__init__(
@@ -184,15 +174,15 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
-        __props__["creation_date"] = None
-        __props__["endpoint"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["endpoint"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -250,10 +240,4 @@ class ConfigurationStore(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

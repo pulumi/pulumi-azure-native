@@ -6,31 +6,31 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AccountCredentialDetailsResponseResult',
-    'ApplianceNetworkConfigurationResponseResult',
+    'AccountCredentialDetailsResponse',
+    'ApplianceNetworkConfigurationResponse',
     'ContactDetailsResponse',
     'CopyProgressResponse',
     'DataBoxAccountCopyLogDetailsResponse',
     'DataBoxDiskCopyLogDetailsResponse',
     'DataBoxDiskCopyProgressResponse',
     'DataBoxDiskJobDetailsResponse',
-    'DataBoxDiskJobSecretsResponseResult',
+    'DataBoxDiskJobSecretsResponse',
     'DataBoxHeavyAccountCopyLogDetailsResponse',
     'DataBoxHeavyJobDetailsResponse',
-    'DataBoxHeavyJobSecretsResponseResult',
-    'DataBoxHeavySecretResponseResult',
+    'DataBoxHeavyJobSecretsResponse',
+    'DataBoxHeavySecretResponse',
     'DataBoxJobDetailsResponse',
-    'DataBoxSecretResponseResult',
-    'DataboxJobSecretsResponseResult',
-    'DcAccessSecurityCodeResponseResult',
+    'DataBoxSecretResponse',
+    'DataboxJobSecretsResponse',
+    'DcAccessSecurityCodeResponse',
     'DestinationManagedDiskDetailsResponse',
     'DestinationStorageAccountDetailsResponse',
-    'DiskSecretResponseResult',
+    'DiskSecretResponse',
     'ErrorResponse',
     'JobDeliveryInfoResponse',
     'JobErrorDetailsResponse',
@@ -38,15 +38,15 @@ __all__ = [
     'NotificationPreferenceResponse',
     'PackageShippingDetailsResponse',
     'PreferencesResponse',
-    'ShareCredentialDetailsResponseResult',
+    'ShareCredentialDetailsResponse',
     'ShippingAddressResponse',
     'SkuResponse',
     'TransportPreferencesResponse',
-    'UnencryptedCredentialsResponseResult',
+    'UnencryptedCredentialsResponse',
 ]
 
 @pulumi.output_type
-class AccountCredentialDetailsResponseResult(dict):
+class AccountCredentialDetailsResponse(dict):
     """
     Credential details of the account.
     """
@@ -54,13 +54,13 @@ class AccountCredentialDetailsResponseResult(dict):
                  account_connection_string: str,
                  account_name: str,
                  data_destination_type: str,
-                 share_credential_details: Sequence['outputs.ShareCredentialDetailsResponseResult']):
+                 share_credential_details: Sequence['outputs.ShareCredentialDetailsResponse']):
         """
         Credential details of the account.
         :param str account_connection_string: Connection string of the account endpoint to use the account as a storage endpoint on the device.
         :param str account_name: Name of the account.
         :param str data_destination_type: Data Destination Type.
-        :param Sequence['ShareCredentialDetailsResponseArgs'] share_credential_details: Per share level unencrypted access credentials.
+        :param Sequence['ShareCredentialDetailsResponse'] share_credential_details: Per share level unencrypted access credentials.
         """
         pulumi.set(__self__, "account_connection_string", account_connection_string)
         pulumi.set(__self__, "account_name", account_name)
@@ -93,7 +93,7 @@ class AccountCredentialDetailsResponseResult(dict):
 
     @property
     @pulumi.getter(name="shareCredentialDetails")
-    def share_credential_details(self) -> Sequence['outputs.ShareCredentialDetailsResponseResult']:
+    def share_credential_details(self) -> Sequence['outputs.ShareCredentialDetailsResponse']:
         """
         Per share level unencrypted access credentials.
         """
@@ -101,7 +101,7 @@ class AccountCredentialDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class ApplianceNetworkConfigurationResponseResult(dict):
+class ApplianceNetworkConfigurationResponse(dict):
     """
     The Network Adapter configuration of a DataBox.
     """
@@ -138,6 +138,29 @@ class ContactDetailsResponse(dict):
     """
     Contact Details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactName":
+            suggest = "contact_name"
+        elif key == "emailList":
+            suggest = "email_list"
+        elif key == "notificationPreference":
+            suggest = "notification_preference"
+        elif key == "phoneExtension":
+            suggest = "phone_extension"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  contact_name: str,
                  email_list: Sequence[str],
@@ -151,7 +174,7 @@ class ContactDetailsResponse(dict):
         :param Sequence[str] email_list: List of Email-ids to be notified about job progress.
         :param str phone: Phone number of the contact person.
         :param str mobile: Mobile number of the contact person.
-        :param Sequence['NotificationPreferenceResponseArgs'] notification_preference: Notification preference for a job stage.
+        :param Sequence['NotificationPreferenceResponse'] notification_preference: Notification preference for a job stage.
         :param str phone_extension: Phone extension number of the contact person.
         """
         pulumi.set(__self__, "contact_name", contact_name)
@@ -212,15 +235,49 @@ class ContactDetailsResponse(dict):
         """
         return pulumi.get(self, "phone_extension")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CopyProgressResponse(dict):
     """
     Copy progress.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "bytesSentToCloud":
+            suggest = "bytes_sent_to_cloud"
+        elif key == "dataDestinationType":
+            suggest = "data_destination_type"
+        elif key == "filesErroredOut":
+            suggest = "files_errored_out"
+        elif key == "filesProcessed":
+            suggest = "files_processed"
+        elif key == "invalidFileBytesUploaded":
+            suggest = "invalid_file_bytes_uploaded"
+        elif key == "invalidFilesProcessed":
+            suggest = "invalid_files_processed"
+        elif key == "renamedContainerCount":
+            suggest = "renamed_container_count"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "totalBytesToProcess":
+            suggest = "total_bytes_to_process"
+        elif key == "totalFilesToProcess":
+            suggest = "total_files_to_process"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyProgressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyProgressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyProgressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: str,
                  bytes_sent_to_cloud: float,
@@ -347,15 +404,33 @@ class CopyProgressResponse(dict):
         """
         return pulumi.get(self, "total_files_to_process")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataBoxAccountCopyLogDetailsResponse(dict):
     """
     Copy log details for a storage account of a DataBox job
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "copyLogDetailsType":
+            suggest = "copy_log_details_type"
+        elif key == "copyLogLink":
+            suggest = "copy_log_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxAccountCopyLogDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxAccountCopyLogDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxAccountCopyLogDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  copy_log_details_type: str,
@@ -396,15 +471,35 @@ class DataBoxAccountCopyLogDetailsResponse(dict):
         """
         return pulumi.get(self, "copy_log_link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataBoxDiskCopyLogDetailsResponse(dict):
     """
     Copy Log Details for a disk
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyLogDetailsType":
+            suggest = "copy_log_details_type"
+        elif key == "diskSerialNumber":
+            suggest = "disk_serial_number"
+        elif key == "errorLogLink":
+            suggest = "error_log_link"
+        elif key == "verboseLogLink":
+            suggest = "verbose_log_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxDiskCopyLogDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxDiskCopyLogDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxDiskCopyLogDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  copy_log_details_type: str,
                  disk_serial_number: str,
@@ -456,15 +551,33 @@ class DataBoxDiskCopyLogDetailsResponse(dict):
         """
         return pulumi.get(self, "verbose_log_link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataBoxDiskCopyProgressResponse(dict):
     """
     DataBox Disk Copy Progress
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesCopied":
+            suggest = "bytes_copied"
+        elif key == "percentComplete":
+            suggest = "percent_complete"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxDiskCopyProgressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxDiskCopyProgressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxDiskCopyProgressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bytes_copied: float,
                  percent_complete: int,
@@ -514,15 +627,57 @@ class DataBoxDiskCopyProgressResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataBoxDiskJobDetailsResponse(dict):
     """
     DataBox Disk Job Details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chainOfCustodySasKey":
+            suggest = "chain_of_custody_sas_key"
+        elif key == "contactDetails":
+            suggest = "contact_details"
+        elif key == "copyLogDetails":
+            suggest = "copy_log_details"
+        elif key == "copyProgress":
+            suggest = "copy_progress"
+        elif key == "deliveryPackage":
+            suggest = "delivery_package"
+        elif key == "destinationAccountDetails":
+            suggest = "destination_account_details"
+        elif key == "disksAndSizeDetails":
+            suggest = "disks_and_size_details"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "jobDetailsType":
+            suggest = "job_details_type"
+        elif key == "jobStages":
+            suggest = "job_stages"
+        elif key == "returnPackage":
+            suggest = "return_package"
+        elif key == "reverseShipmentLabelSasKey":
+            suggest = "reverse_shipment_label_sas_key"
+        elif key == "shippingAddress":
+            suggest = "shipping_address"
+        elif key == "expectedDataSizeInTeraBytes":
+            suggest = "expected_data_size_in_tera_bytes"
+        elif key == "preferredDisks":
+            suggest = "preferred_disks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxDiskJobDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxDiskJobDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxDiskJobDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
@@ -544,22 +699,22 @@ class DataBoxDiskJobDetailsResponse(dict):
         """
         DataBox Disk Job Details.
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
-        :param Sequence['DataBoxDiskCopyProgressResponseArgs'] copy_progress: Copy progress per disk.
-        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
+        :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
+        :param Sequence['DataBoxDiskCopyProgressResponse'] copy_progress: Copy progress per disk.
+        :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
+        :param Sequence[Union['DestinationManagedDiskDetailsResponse', 'DestinationStorageAccountDetailsResponse']] destination_account_details: Destination account details.
         :param Mapping[str, int] disks_and_size_details: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxDisk'.
-        :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
         :param str passkey: User entered passkey for DataBox Disk job.
-        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param 'PreferencesResponse' preferences: Preferences for the order.
         :param Mapping[str, int] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
@@ -721,29 +876,26 @@ class DataBoxDiskJobDetailsResponse(dict):
         """
         return pulumi.get(self, "preferred_disks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class DataBoxDiskJobSecretsResponseResult(dict):
+class DataBoxDiskJobSecretsResponse(dict):
     """
     The secrets related to disk job.
     """
     def __init__(__self__, *,
-                 disk_secrets: Sequence['outputs.DiskSecretResponseResult'],
+                 disk_secrets: Sequence['outputs.DiskSecretResponse'],
                  is_passkey_user_defined: bool,
                  job_secrets_type: str,
                  pass_key: str,
-                 dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponseResult'] = None):
+                 dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None):
         """
         The secrets related to disk job.
-        :param Sequence['DiskSecretResponseArgs'] disk_secrets: Contains the list of secrets object for that device.
+        :param Sequence['DiskSecretResponse'] disk_secrets: Contains the list of secrets object for that device.
         :param bool is_passkey_user_defined: Whether passkey was provided by user.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxDisk'.
         :param str pass_key: PassKey for the disk Job.
-        :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
+        :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         """
         pulumi.set(__self__, "disk_secrets", disk_secrets)
         pulumi.set(__self__, "is_passkey_user_defined", is_passkey_user_defined)
@@ -754,7 +906,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="diskSecrets")
-    def disk_secrets(self) -> Sequence['outputs.DiskSecretResponseResult']:
+    def disk_secrets(self) -> Sequence['outputs.DiskSecretResponse']:
         """
         Contains the list of secrets object for that device.
         """
@@ -787,7 +939,7 @@ class DataBoxDiskJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
-    def dc_access_security_code(self) -> Optional['outputs.DcAccessSecurityCodeResponseResult']:
+    def dc_access_security_code(self) -> Optional['outputs.DcAccessSecurityCodeResponse']:
         """
         Dc Access Security Code for Customer Managed Shipping
         """
@@ -799,6 +951,27 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
     """
     Copy log details for a storage account for Databox heavy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "copyLogDetailsType":
+            suggest = "copy_log_details_type"
+        elif key == "copyLogLink":
+            suggest = "copy_log_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxHeavyAccountCopyLogDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxHeavyAccountCopyLogDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxHeavyAccountCopyLogDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  copy_log_details_type: str,
@@ -839,15 +1012,55 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
         """
         return pulumi.get(self, "copy_log_link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataBoxHeavyJobDetailsResponse(dict):
     """
     Databox Heavy Device Job Details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chainOfCustodySasKey":
+            suggest = "chain_of_custody_sas_key"
+        elif key == "contactDetails":
+            suggest = "contact_details"
+        elif key == "copyLogDetails":
+            suggest = "copy_log_details"
+        elif key == "copyProgress":
+            suggest = "copy_progress"
+        elif key == "deliveryPackage":
+            suggest = "delivery_package"
+        elif key == "destinationAccountDetails":
+            suggest = "destination_account_details"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "jobDetailsType":
+            suggest = "job_details_type"
+        elif key == "jobStages":
+            suggest = "job_stages"
+        elif key == "returnPackage":
+            suggest = "return_package"
+        elif key == "reverseShipmentLabelSasKey":
+            suggest = "reverse_shipment_label_sas_key"
+        elif key == "shippingAddress":
+            suggest = "shipping_address"
+        elif key == "devicePassword":
+            suggest = "device_password"
+        elif key == "expectedDataSizeInTeraBytes":
+            suggest = "expected_data_size_in_tera_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxHeavyJobDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxHeavyJobDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxHeavyJobDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
@@ -867,21 +1080,21 @@ class DataBoxHeavyJobDetailsResponse(dict):
         """
         Databox Heavy Device Job Details
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
-        :param Sequence['CopyProgressResponseArgs'] copy_progress: Copy progress per account.
-        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
+        :param Sequence['CopyProgressResponse'] copy_progress: Copy progress per account.
+        :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
+        :param Sequence[Union['DestinationManagedDiskDetailsResponse', 'DestinationStorageAccountDetailsResponse']] destination_account_details: Destination account details.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBoxHeavy'.
-        :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         :param str device_password: Set Device password for unlocking Databox Heavy
         :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
-        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param 'PreferencesResponse' preferences: Preferences for the order.
         """
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
@@ -1023,25 +1236,22 @@ class DataBoxHeavyJobDetailsResponse(dict):
         """
         return pulumi.get(self, "preferences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class DataBoxHeavyJobSecretsResponseResult(dict):
+class DataBoxHeavyJobSecretsResponse(dict):
     """
     The secrets related to a databox heavy job.
     """
     def __init__(__self__, *,
-                 cabinet_pod_secrets: Sequence['outputs.DataBoxHeavySecretResponseResult'],
+                 cabinet_pod_secrets: Sequence['outputs.DataBoxHeavySecretResponse'],
                  job_secrets_type: str,
-                 dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponseResult'] = None):
+                 dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None):
         """
         The secrets related to a databox heavy job.
-        :param Sequence['DataBoxHeavySecretResponseArgs'] cabinet_pod_secrets: Contains the list of secret objects for a databox heavy job.
+        :param Sequence['DataBoxHeavySecretResponse'] cabinet_pod_secrets: Contains the list of secret objects for a databox heavy job.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxHeavy'.
-        :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
+        :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
         """
         pulumi.set(__self__, "cabinet_pod_secrets", cabinet_pod_secrets)
         pulumi.set(__self__, "job_secrets_type", 'DataBoxHeavy')
@@ -1050,7 +1260,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="cabinetPodSecrets")
-    def cabinet_pod_secrets(self) -> Sequence['outputs.DataBoxHeavySecretResponseResult']:
+    def cabinet_pod_secrets(self) -> Sequence['outputs.DataBoxHeavySecretResponse']:
         """
         Contains the list of secret objects for a databox heavy job.
         """
@@ -1067,7 +1277,7 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
-    def dc_access_security_code(self) -> Optional['outputs.DcAccessSecurityCodeResponseResult']:
+    def dc_access_security_code(self) -> Optional['outputs.DcAccessSecurityCodeResponse']:
         """
         Dc Access Security Code for Customer Managed Shipping
         """
@@ -1075,23 +1285,23 @@ class DataBoxHeavyJobSecretsResponseResult(dict):
 
 
 @pulumi.output_type
-class DataBoxHeavySecretResponseResult(dict):
+class DataBoxHeavySecretResponse(dict):
     """
     The secrets related to a databox heavy.
     """
     def __init__(__self__, *,
-                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponseResult'],
+                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponse'],
                  device_password: str,
                  device_serial_number: str,
                  encoded_validation_cert_pub_key: str,
-                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponseResult']):
+                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponse']):
         """
         The secrets related to a databox heavy.
-        :param Sequence['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param Sequence['AccountCredentialDetailsResponse'] account_credential_details: Per account level access credentials.
         :param str device_password: Password for out of the box experience on device.
         :param str device_serial_number: Serial number of the assigned device.
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
-        :param Sequence['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        :param Sequence['ApplianceNetworkConfigurationResponse'] network_configurations: Network configuration of the appliance.
         """
         pulumi.set(__self__, "account_credential_details", account_credential_details)
         pulumi.set(__self__, "device_password", device_password)
@@ -1101,7 +1311,7 @@ class DataBoxHeavySecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
-    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponseResult']:
+    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponse']:
         """
         Per account level access credentials.
         """
@@ -1133,7 +1343,7 @@ class DataBoxHeavySecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponseResult']:
+    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponse']:
         """
         Network configuration of the appliance.
         """
@@ -1145,6 +1355,49 @@ class DataBoxJobDetailsResponse(dict):
     """
     Databox Job Details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chainOfCustodySasKey":
+            suggest = "chain_of_custody_sas_key"
+        elif key == "contactDetails":
+            suggest = "contact_details"
+        elif key == "copyLogDetails":
+            suggest = "copy_log_details"
+        elif key == "copyProgress":
+            suggest = "copy_progress"
+        elif key == "deliveryPackage":
+            suggest = "delivery_package"
+        elif key == "destinationAccountDetails":
+            suggest = "destination_account_details"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "jobDetailsType":
+            suggest = "job_details_type"
+        elif key == "jobStages":
+            suggest = "job_stages"
+        elif key == "returnPackage":
+            suggest = "return_package"
+        elif key == "reverseShipmentLabelSasKey":
+            suggest = "reverse_shipment_label_sas_key"
+        elif key == "shippingAddress":
+            suggest = "shipping_address"
+        elif key == "devicePassword":
+            suggest = "device_password"
+        elif key == "expectedDataSizeInTeraBytes":
+            suggest = "expected_data_size_in_tera_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBoxJobDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBoxJobDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBoxJobDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
@@ -1164,21 +1417,21 @@ class DataBoxJobDetailsResponse(dict):
         """
         Databox Job Details
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
-        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
-        :param Sequence['CopyProgressResponseArgs'] copy_progress: Copy progress per storage account.
-        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param Sequence[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param 'ContactDetailsResponse' contact_details: Contact details for notification and shipping.
+        :param Sequence[Union['DataBoxAccountCopyLogDetailsResponse', 'DataBoxDiskCopyLogDetailsResponse', 'DataBoxHeavyAccountCopyLogDetailsResponse']] copy_log_details: List of copy log details.
+        :param Sequence['CopyProgressResponse'] copy_progress: Copy progress per storage account.
+        :param 'PackageShippingDetailsResponse' delivery_package: Delivery package shipping details.
+        :param Sequence[Union['DestinationManagedDiskDetailsResponse', 'DestinationStorageAccountDetailsResponse']] destination_account_details: Destination account details.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
                Expected value is 'DataBox'.
-        :param Sequence['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
-        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param Sequence['JobStagesResponse'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponse' return_package: Return package shipping details.
         :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
-        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         :param str device_password: Set Device password for unlocking Databox
         :param int expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
-        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param 'PreferencesResponse' preferences: Preferences for the order.
         """
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
@@ -1320,28 +1573,25 @@ class DataBoxJobDetailsResponse(dict):
         """
         return pulumi.get(self, "preferences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class DataBoxSecretResponseResult(dict):
+class DataBoxSecretResponse(dict):
     """
     The secrets related to a DataBox.
     """
     def __init__(__self__, *,
-                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponseResult'],
+                 account_credential_details: Sequence['outputs.AccountCredentialDetailsResponse'],
                  device_password: str,
                  device_serial_number: str,
                  encoded_validation_cert_pub_key: str,
-                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponseResult']):
+                 network_configurations: Sequence['outputs.ApplianceNetworkConfigurationResponse']):
         """
         The secrets related to a DataBox.
-        :param Sequence['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param Sequence['AccountCredentialDetailsResponse'] account_credential_details: Per account level access credentials.
         :param str device_password: Password for out of the box experience on device.
         :param str device_serial_number: Serial number of the assigned device.
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
-        :param Sequence['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        :param Sequence['ApplianceNetworkConfigurationResponse'] network_configurations: Network configuration of the appliance.
         """
         pulumi.set(__self__, "account_credential_details", account_credential_details)
         pulumi.set(__self__, "device_password", device_password)
@@ -1351,7 +1601,7 @@ class DataBoxSecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
-    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponseResult']:
+    def account_credential_details(self) -> Sequence['outputs.AccountCredentialDetailsResponse']:
         """
         Per account level access credentials.
         """
@@ -1383,7 +1633,7 @@ class DataBoxSecretResponseResult(dict):
 
     @property
     @pulumi.getter(name="networkConfigurations")
-    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponseResult']:
+    def network_configurations(self) -> Sequence['outputs.ApplianceNetworkConfigurationResponse']:
         """
         Network configuration of the appliance.
         """
@@ -1391,20 +1641,20 @@ class DataBoxSecretResponseResult(dict):
 
 
 @pulumi.output_type
-class DataboxJobSecretsResponseResult(dict):
+class DataboxJobSecretsResponse(dict):
     """
     The secrets related to a databox job.
     """
     def __init__(__self__, *,
                  job_secrets_type: str,
-                 dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponseResult'] = None,
-                 pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponseResult']] = None):
+                 dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None,
+                 pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponse']] = None):
         """
         The secrets related to a databox job.
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBox'.
-        :param 'DcAccessSecurityCodeResponseArgs' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
-        :param Sequence['DataBoxSecretResponseArgs'] pod_secrets: Contains the list of secret objects for a job.
+        :param 'DcAccessSecurityCodeResponse' dc_access_security_code: Dc Access Security Code for Customer Managed Shipping
+        :param Sequence['DataBoxSecretResponse'] pod_secrets: Contains the list of secret objects for a job.
         """
         pulumi.set(__self__, "job_secrets_type", 'DataBox')
         if dc_access_security_code is not None:
@@ -1423,7 +1673,7 @@ class DataboxJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
-    def dc_access_security_code(self) -> Optional['outputs.DcAccessSecurityCodeResponseResult']:
+    def dc_access_security_code(self) -> Optional['outputs.DcAccessSecurityCodeResponse']:
         """
         Dc Access Security Code for Customer Managed Shipping
         """
@@ -1431,7 +1681,7 @@ class DataboxJobSecretsResponseResult(dict):
 
     @property
     @pulumi.getter(name="podSecrets")
-    def pod_secrets(self) -> Optional[Sequence['outputs.DataBoxSecretResponseResult']]:
+    def pod_secrets(self) -> Optional[Sequence['outputs.DataBoxSecretResponse']]:
         """
         Contains the list of secret objects for a job.
         """
@@ -1439,7 +1689,7 @@ class DataboxJobSecretsResponseResult(dict):
 
 
 @pulumi.output_type
-class DcAccessSecurityCodeResponseResult(dict):
+class DcAccessSecurityCodeResponse(dict):
     """
     Dc Access Security code for device.
     """
@@ -1478,6 +1728,31 @@ class DestinationManagedDiskDetailsResponse(dict):
     """
     Details for the destination compute disks.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDestinationType":
+            suggest = "data_destination_type"
+        elif key == "resourceGroupId":
+            suggest = "resource_group_id"
+        elif key == "stagingStorageAccountId":
+            suggest = "staging_storage_account_id"
+        elif key == "accountId":
+            suggest = "account_id"
+        elif key == "sharePassword":
+            suggest = "share_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationManagedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationManagedDiskDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationManagedDiskDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_destination_type: str,
                  resource_group_id: str,
@@ -1542,15 +1817,35 @@ class DestinationManagedDiskDetailsResponse(dict):
         """
         return pulumi.get(self, "share_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DestinationStorageAccountDetailsResponse(dict):
     """
     Details for the destination storage account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDestinationType":
+            suggest = "data_destination_type"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "accountId":
+            suggest = "account_id"
+        elif key == "sharePassword":
+            suggest = "share_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationStorageAccountDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationStorageAccountDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationStorageAccountDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_destination_type: str,
                  storage_account_id: str,
@@ -1604,12 +1899,9 @@ class DestinationStorageAccountDetailsResponse(dict):
         """
         return pulumi.get(self, "share_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class DiskSecretResponseResult(dict):
+class DiskSecretResponse(dict):
     """
     Contains all the secrets of a Disk.
     """
@@ -1673,15 +1965,29 @@ class ErrorResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobDeliveryInfoResponse(dict):
     """
     Additional delivery info.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduledDateTime":
+            suggest = "scheduled_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDeliveryInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDeliveryInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDeliveryInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scheduled_date_time: Optional[str] = None):
         """
@@ -1699,15 +2005,35 @@ class JobDeliveryInfoResponse(dict):
         """
         return pulumi.get(self, "scheduled_date_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobErrorDetailsResponse(dict):
     """
     Job Error Details for providing the information and recommended action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "exceptionMessage":
+            suggest = "exception_message"
+        elif key == "recommendedAction":
+            suggest = "recommended_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobErrorDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobErrorDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobErrorDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: int,
                  error_message: str,
@@ -1757,15 +2083,39 @@ class JobErrorDetailsResponse(dict):
         """
         return pulumi.get(self, "recommended_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobStagesResponse(dict):
     """
     Job stages.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "jobStageDetails":
+            suggest = "job_stage_details"
+        elif key == "stageName":
+            suggest = "stage_name"
+        elif key == "stageStatus":
+            suggest = "stage_status"
+        elif key == "stageTime":
+            suggest = "stage_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobStagesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobStagesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobStagesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: str,
                  error_details: Sequence['outputs.JobErrorDetailsResponse'],
@@ -1776,7 +2126,7 @@ class JobStagesResponse(dict):
         """
         Job stages.
         :param str display_name: Display name of the job stage.
-        :param Sequence['JobErrorDetailsResponseArgs'] error_details: Error details for the stage.
+        :param Sequence['JobErrorDetailsResponse'] error_details: Error details for the stage.
         :param Any job_stage_details: Job Stage Details
         :param str stage_name: Name of the job stage.
         :param str stage_status: Status of the job stage.
@@ -1837,15 +2187,31 @@ class JobStagesResponse(dict):
         """
         return pulumi.get(self, "stage_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationPreferenceResponse(dict):
     """
     Notification preference for a job stage.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sendNotification":
+            suggest = "send_notification"
+        elif key == "stageName":
+            suggest = "stage_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationPreferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationPreferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationPreferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  send_notification: bool,
                  stage_name: str):
@@ -1875,15 +2241,33 @@ class NotificationPreferenceResponse(dict):
         """
         return pulumi.get(self, "stage_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PackageShippingDetailsResponse(dict):
     """
     Shipping details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "carrierName":
+            suggest = "carrier_name"
+        elif key == "trackingId":
+            suggest = "tracking_id"
+        elif key == "trackingUrl":
+            suggest = "tracking_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackageShippingDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackageShippingDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackageShippingDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  carrier_name: str,
                  tracking_id: str,
@@ -1922,22 +2306,38 @@ class PackageShippingDetailsResponse(dict):
         """
         return pulumi.get(self, "tracking_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PreferencesResponse(dict):
     """
     Preferences related to the order
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredDataCenterRegion":
+            suggest = "preferred_data_center_region"
+        elif key == "transportPreferences":
+            suggest = "transport_preferences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PreferencesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PreferencesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PreferencesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preferred_data_center_region: Optional[Sequence[str]] = None,
                  transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
         """
         Preferences related to the order
         :param Sequence[str] preferred_data_center_region: Preferred Data Center Region.
-        :param 'TransportPreferencesResponseArgs' transport_preferences: Preferences related to the shipment logistics of the sku.
+        :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the sku.
         """
         if preferred_data_center_region is not None:
             pulumi.set(__self__, "preferred_data_center_region", preferred_data_center_region)
@@ -1960,12 +2360,9 @@ class PreferencesResponse(dict):
         """
         return pulumi.get(self, "transport_preferences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ShareCredentialDetailsResponseResult(dict):
+class ShareCredentialDetailsResponse(dict):
     """
     Credential details of the shares in account.
     """
@@ -2035,6 +2432,37 @@ class ShippingAddressResponse(dict):
     """
     Shipping address where customer wishes to receive the device.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postalCode":
+            suggest = "postal_code"
+        elif key == "streetAddress1":
+            suggest = "street_address1"
+        elif key == "addressType":
+            suggest = "address_type"
+        elif key == "companyName":
+            suggest = "company_name"
+        elif key == "stateOrProvince":
+            suggest = "state_or_province"
+        elif key == "streetAddress2":
+            suggest = "street_address2"
+        elif key == "streetAddress3":
+            suggest = "street_address3"
+        elif key == "zipExtendedCode":
+            suggest = "zip_extended_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShippingAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShippingAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShippingAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country: str,
                  postal_code: str,
@@ -2159,15 +2587,29 @@ class ShippingAddressResponse(dict):
         """
         return pulumi.get(self, "zip_extended_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
     """
     The Sku.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  display_name: Optional[str] = None,
@@ -2208,15 +2650,29 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "family")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransportPreferencesResponse(dict):
     """
     Preferences related to the shipment logistics of the sku
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredShipmentType":
+            suggest = "preferred_shipment_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransportPreferencesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransportPreferencesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransportPreferencesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preferred_shipment_type: str):
         """
@@ -2233,12 +2689,9 @@ class TransportPreferencesResponse(dict):
         """
         return pulumi.get(self, "preferred_shipment_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class UnencryptedCredentialsResponseResult(dict):
+class UnencryptedCredentialsResponse(dict):
     """
     Unencrypted credentials for accessing device.
     """
@@ -2248,7 +2701,7 @@ class UnencryptedCredentialsResponseResult(dict):
         """
         Unencrypted credentials for accessing device.
         :param str job_name: Name of the job.
-        :param Union['DataBoxDiskJobSecretsResponseArgs', 'DataBoxHeavyJobSecretsResponseArgs', 'DataboxJobSecretsResponseArgs'] job_secrets: Secrets related to this job.
+        :param Union['DataBoxDiskJobSecretsResponse', 'DataBoxHeavyJobSecretsResponse', 'DataboxJobSecretsResponse'] job_secrets: Secrets related to this job.
         """
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "job_secrets", job_secrets)

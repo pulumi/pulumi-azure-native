@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['FileShareArgs', 'FileShare']
 
@@ -106,9 +106,7 @@ class FileShare(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
 
@@ -149,15 +147,7 @@ class FileShare(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,21 +157,21 @@ class FileShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FileShareArgs.__new__(FileShareArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['metadata'] = metadata
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["metadata"] = metadata
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['share_name'] = share_name
-            __props__['share_quota'] = share_quota
-            __props__['etag'] = None
-            __props__['last_modified_time'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["share_name"] = share_name
+            __props__.__dict__["share_quota"] = share_quota
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-native:storage:FileShare"), pulumi.Alias(type_="azure-nextgen:storage:FileShare"), pulumi.Alias(type_="azure-native:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-native:storage/v20210101:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileShare"), pulumi.Alias(type_="azure-native:storage/v20210201:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
@@ -204,14 +194,14 @@ class FileShare(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FileShareArgs.__new__(FileShareArgs)
 
-        __props__["etag"] = None
-        __props__["last_modified_time"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["share_quota"] = None
-        __props__["type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["share_quota"] = None
+        __props__.__dict__["type"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -261,10 +251,4 @@ class FileShare(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

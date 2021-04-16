@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,13 +22,30 @@ class ManagedIdentityResponse(dict):
     """
     Customer Managed Identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  user_assigned_identities: Optional['outputs.UserAssignedIdentitiesResponse'] = None):
         """
         Customer Managed Identity
         :param str type: The identity type.
-        :param 'UserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        :param 'UserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -51,22 +68,36 @@ class ManagedIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MyManagedIdentityResponse(dict):
     """
     Customer Managed Identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MyManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MyManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MyManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  user_assigned_identities: Optional['outputs.MyUserAssignedIdentitiesResponse'] = None):
         """
         Customer Managed Identity
         :param str type: The identity type.
-        :param 'MyUserAssignedIdentitiesResponseArgs' user_assigned_identities: Customer Managed Identity
+        :param 'MyUserAssignedIdentitiesResponse' user_assigned_identities: Customer Managed Identity
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -89,15 +120,31 @@ class MyManagedIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MyUserAssignedIdentitiesResponse(dict):
     """
     Customer Managed Identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MyUserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MyUserAssignedIdentitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MyUserAssignedIdentitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str):
@@ -125,15 +172,33 @@ class MyUserAssignedIdentitiesResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserAssignedIdentitiesResponse(dict):
     """
     Customer Managed Identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str,
@@ -171,8 +236,5 @@ class UserAssignedIdentitiesResponse(dict):
         The tenant ID of resource.
         """
         return pulumi.get(self, "tenant_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

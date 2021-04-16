@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -126,9 +126,7 @@ class Output(pulumi.CustomResource):
                  output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['JsonSerializationArgs']]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
         API Version: 2016-03-01.
@@ -173,15 +171,7 @@ class Output(pulumi.CustomResource):
                  output_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['JsonSerializationArgs']]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -191,21 +181,21 @@ class Output(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OutputArgs.__new__(OutputArgs)
 
-            __props__['datasource'] = datasource
+            __props__.__dict__["datasource"] = datasource
             if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
-            __props__['job_name'] = job_name
-            __props__['name'] = name
-            __props__['output_name'] = output_name
+            __props__.__dict__["job_name"] = job_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["output_name"] = output_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['serialization'] = serialization
-            __props__['diagnostics'] = None
-            __props__['etag'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["serialization"] = serialization
+            __props__.__dict__["diagnostics"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:Output"), pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Output"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Output"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:Output"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Output")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Output, __self__).__init__(
@@ -228,14 +218,14 @@ class Output(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OutputArgs.__new__(OutputArgs)
 
-        __props__["datasource"] = None
-        __props__["diagnostics"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["serialization"] = None
-        __props__["type"] = None
+        __props__.__dict__["datasource"] = None
+        __props__.__dict__["diagnostics"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["serialization"] = None
+        __props__.__dict__["type"] = None
         return Output(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -285,10 +275,4 @@ class Output(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

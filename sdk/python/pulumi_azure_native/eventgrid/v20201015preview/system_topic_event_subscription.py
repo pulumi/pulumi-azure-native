@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -238,9 +238,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
                  system_topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Event Subscription
 
@@ -299,15 +297,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['RetryPolicyArgs']]] = None,
                  system_topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,31 +307,31 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SystemTopicEventSubscriptionArgs.__new__(SystemTopicEventSubscriptionArgs)
 
-            __props__['dead_letter_destination'] = dead_letter_destination
-            __props__['dead_letter_with_resource_identity'] = dead_letter_with_resource_identity
-            __props__['delivery_with_resource_identity'] = delivery_with_resource_identity
-            __props__['destination'] = destination
+            __props__.__dict__["dead_letter_destination"] = dead_letter_destination
+            __props__.__dict__["dead_letter_with_resource_identity"] = dead_letter_with_resource_identity
+            __props__.__dict__["delivery_with_resource_identity"] = delivery_with_resource_identity
+            __props__.__dict__["destination"] = destination
             if event_delivery_schema is None:
                 event_delivery_schema = 'EventGridSchema'
-            __props__['event_delivery_schema'] = event_delivery_schema
-            __props__['event_subscription_name'] = event_subscription_name
-            __props__['expiration_time_utc'] = expiration_time_utc
-            __props__['filter'] = filter
-            __props__['labels'] = labels
+            __props__.__dict__["event_delivery_schema"] = event_delivery_schema
+            __props__.__dict__["event_subscription_name"] = event_subscription_name
+            __props__.__dict__["expiration_time_utc"] = expiration_time_utc
+            __props__.__dict__["filter"] = filter
+            __props__.__dict__["labels"] = labels
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retry_policy'] = retry_policy
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retry_policy"] = retry_policy
             if system_topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'system_topic_name'")
-            __props__['system_topic_name'] = system_topic_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['topic'] = None
-            __props__['type'] = None
+            __props__.__dict__["system_topic_name"] = system_topic_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["topic"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SystemTopicEventSubscription, __self__).__init__(
@@ -364,22 +354,22 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SystemTopicEventSubscriptionArgs.__new__(SystemTopicEventSubscriptionArgs)
 
-        __props__["dead_letter_destination"] = None
-        __props__["dead_letter_with_resource_identity"] = None
-        __props__["delivery_with_resource_identity"] = None
-        __props__["destination"] = None
-        __props__["event_delivery_schema"] = None
-        __props__["expiration_time_utc"] = None
-        __props__["filter"] = None
-        __props__["labels"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["retry_policy"] = None
-        __props__["system_data"] = None
-        __props__["topic"] = None
-        __props__["type"] = None
+        __props__.__dict__["dead_letter_destination"] = None
+        __props__.__dict__["dead_letter_with_resource_identity"] = None
+        __props__.__dict__["delivery_with_resource_identity"] = None
+        __props__.__dict__["destination"] = None
+        __props__.__dict__["event_delivery_schema"] = None
+        __props__.__dict__["expiration_time_utc"] = None
+        __props__.__dict__["filter"] = None
+        __props__.__dict__["labels"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["retry_policy"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["topic"] = None
+        __props__.__dict__["type"] = None
         return SystemTopicEventSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -497,10 +487,4 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         Type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

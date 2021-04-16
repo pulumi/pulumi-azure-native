@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -262,9 +262,7 @@ class ApiManagementService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
                  vpnconfiguration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A single API Management service resource in List or Get response.
 
@@ -323,15 +321,7 @@ class ApiManagementService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
                  vpnconfiguration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,42 +331,42 @@ class ApiManagementService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiManagementServiceArgs.__new__(ApiManagementServiceArgs)
 
-            __props__['additional_locations'] = additional_locations
-            __props__['addresser_email'] = addresser_email
-            __props__['custom_properties'] = custom_properties
-            __props__['hostname_configurations'] = hostname_configurations
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["additional_locations"] = additional_locations
+            __props__.__dict__["addresser_email"] = addresser_email
+            __props__.__dict__["custom_properties"] = custom_properties
+            __props__.__dict__["hostname_configurations"] = hostname_configurations
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if publisher_email is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_email'")
-            __props__['publisher_email'] = publisher_email
+            __props__.__dict__["publisher_email"] = publisher_email
             if publisher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_name'")
-            __props__['publisher_name'] = publisher_name
+            __props__.__dict__["publisher_name"] = publisher_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['service_name'] = service_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_name"] = service_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['tags'] = tags
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
             if vpn_type is None:
                 vpn_type = 'None'
-            __props__['vpn_type'] = vpn_type
-            __props__['vpnconfiguration'] = vpnconfiguration
-            __props__['created_at_utc'] = None
-            __props__['etag'] = None
-            __props__['management_api_url'] = None
-            __props__['portal_url'] = None
-            __props__['provisioning_state'] = None
-            __props__['runtime_url'] = None
-            __props__['scm_url'] = None
-            __props__['static_ips'] = None
-            __props__['target_provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["vpn_type"] = vpn_type
+            __props__.__dict__["vpnconfiguration"] = vpnconfiguration
+            __props__.__dict__["created_at_utc"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["management_api_url"] = None
+            __props__.__dict__["portal_url"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["runtime_url"] = None
+            __props__.__dict__["scm_url"] = None
+            __props__.__dict__["static_ips"] = None
+            __props__.__dict__["target_provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:ApiManagementService"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiManagementService"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:ApiManagementService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiManagementService, __self__).__init__(
@@ -399,30 +389,30 @@ class ApiManagementService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApiManagementServiceArgs.__new__(ApiManagementServiceArgs)
 
-        __props__["additional_locations"] = None
-        __props__["addresser_email"] = None
-        __props__["created_at_utc"] = None
-        __props__["custom_properties"] = None
-        __props__["etag"] = None
-        __props__["hostname_configurations"] = None
-        __props__["location"] = None
-        __props__["management_api_url"] = None
-        __props__["name"] = None
-        __props__["portal_url"] = None
-        __props__["provisioning_state"] = None
-        __props__["publisher_email"] = None
-        __props__["publisher_name"] = None
-        __props__["runtime_url"] = None
-        __props__["scm_url"] = None
-        __props__["sku"] = None
-        __props__["static_ips"] = None
-        __props__["tags"] = None
-        __props__["target_provisioning_state"] = None
-        __props__["type"] = None
-        __props__["vpn_type"] = None
-        __props__["vpnconfiguration"] = None
+        __props__.__dict__["additional_locations"] = None
+        __props__.__dict__["addresser_email"] = None
+        __props__.__dict__["created_at_utc"] = None
+        __props__.__dict__["custom_properties"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["hostname_configurations"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["management_api_url"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["portal_url"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["publisher_email"] = None
+        __props__.__dict__["publisher_name"] = None
+        __props__.__dict__["runtime_url"] = None
+        __props__.__dict__["scm_url"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["static_ips"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["target_provisioning_state"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vpn_type"] = None
+        __props__.__dict__["vpnconfiguration"] = None
         return ApiManagementService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -600,10 +590,4 @@ class ApiManagementService(pulumi.CustomResource):
         Virtual network configuration of the API Management service.
         """
         return pulumi.get(self, "vpnconfiguration")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

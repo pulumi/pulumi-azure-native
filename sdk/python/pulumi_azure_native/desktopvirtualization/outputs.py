@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = [
@@ -26,6 +26,23 @@ class MigrationRequestPropertiesResponse(dict):
     """
     Properties for arm migration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "migrationPath":
+            suggest = "migration_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationRequestPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationRequestPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationRequestPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  migration_path: Optional[str] = None,
                  operation: Optional[str] = None):
@@ -55,15 +72,39 @@ class MigrationRequestPropertiesResponse(dict):
         """
         return pulumi.get(self, "operation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MsixPackageApplicationsResponse(dict):
     """
     Schema for MSIX Package Application properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appUserModelID":
+            suggest = "app_user_model_id"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "iconImageName":
+            suggest = "icon_image_name"
+        elif key == "rawIcon":
+            suggest = "raw_icon"
+        elif key == "rawPng":
+            suggest = "raw_png"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MsixPackageApplicationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MsixPackageApplicationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MsixPackageApplicationsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_id: Optional[str] = None,
                  app_user_model_id: Optional[str] = None,
@@ -153,15 +194,31 @@ class MsixPackageApplicationsResponse(dict):
         """
         return pulumi.get(self, "raw_png")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MsixPackageDependenciesResponse(dict):
     """
     Schema for MSIX Package Dependencies properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependencyName":
+            suggest = "dependency_name"
+        elif key == "minVersion":
+            suggest = "min_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MsixPackageDependenciesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MsixPackageDependenciesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MsixPackageDependenciesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dependency_name: Optional[str] = None,
                  min_version: Optional[str] = None,
@@ -203,15 +260,31 @@ class MsixPackageDependenciesResponse(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistrationInfoResponse(dict):
     """
     Represents a RegistrationInfo definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expirationTime":
+            suggest = "expiration_time"
+        elif key == "registrationTokenOperation":
+            suggest = "registration_token_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistrationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistrationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistrationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expiration_time: Optional[str] = None,
                  registration_token_operation: Optional[str] = None,
@@ -253,12 +326,28 @@ class RegistrationInfoResponse(dict):
         """
         return pulumi.get(self, "token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceModelWithAllowedPropertySetResponseIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceModelWithAllowedPropertySetResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceModelWithAllowedPropertySetResponseIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceModelWithAllowedPropertySetResponseIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -297,12 +386,26 @@ class ResourceModelWithAllowedPropertySetResponseIdentity(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceModelWithAllowedPropertySetResponsePlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceModelWithAllowedPropertySetResponsePlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceModelWithAllowedPropertySetResponsePlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceModelWithAllowedPropertySetResponsePlan.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -363,9 +466,6 @@ class ResourceModelWithAllowedPropertySetResponsePlan(dict):
         The version of the desired product/artifact.
         """
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -433,15 +533,31 @@ class ResourceModelWithAllowedPropertySetResponseSku(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingHostPoolReferenceResponse(dict):
     """
     Scaling plan reference to hostpool.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostPoolArmPath":
+            suggest = "host_pool_arm_path"
+        elif key == "scalingPlanEnabled":
+            suggest = "scaling_plan_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingHostPoolReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingHostPoolReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingHostPoolReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_pool_arm_path: Optional[str] = None,
                  scaling_plan_enabled: Optional[bool] = None):
@@ -471,15 +587,61 @@ class ScalingHostPoolReferenceResponse(dict):
         """
         return pulumi.get(self, "scaling_plan_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScalingScheduleResponse(dict):
     """
     Scaling plan schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfWeek":
+            suggest = "days_of_week"
+        elif key == "offPeakLoadBalancingAlgorithm":
+            suggest = "off_peak_load_balancing_algorithm"
+        elif key == "offPeakStartTime":
+            suggest = "off_peak_start_time"
+        elif key == "peakLoadBalancingAlgorithm":
+            suggest = "peak_load_balancing_algorithm"
+        elif key == "peakStartTime":
+            suggest = "peak_start_time"
+        elif key == "rampDownCapacityThresholdPct":
+            suggest = "ramp_down_capacity_threshold_pct"
+        elif key == "rampDownForceLogoffUsers":
+            suggest = "ramp_down_force_logoff_users"
+        elif key == "rampDownLoadBalancingAlgorithm":
+            suggest = "ramp_down_load_balancing_algorithm"
+        elif key == "rampDownMinimumHostsPct":
+            suggest = "ramp_down_minimum_hosts_pct"
+        elif key == "rampDownNotificationMessage":
+            suggest = "ramp_down_notification_message"
+        elif key == "rampDownStartTime":
+            suggest = "ramp_down_start_time"
+        elif key == "rampDownStopHostsWhen":
+            suggest = "ramp_down_stop_hosts_when"
+        elif key == "rampDownWaitTimeMinutes":
+            suggest = "ramp_down_wait_time_minutes"
+        elif key == "rampUpCapacityThresholdPct":
+            suggest = "ramp_up_capacity_threshold_pct"
+        elif key == "rampUpLoadBalancingAlgorithm":
+            suggest = "ramp_up_load_balancing_algorithm"
+        elif key == "rampUpMinimumHostsPct":
+            suggest = "ramp_up_minimum_hosts_pct"
+        elif key == "rampUpStartTime":
+            suggest = "ramp_up_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days_of_week: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
@@ -700,8 +862,5 @@ class ScalingScheduleResponse(dict):
         Starting time for ramp up period.
         """
         return pulumi.get(self, "ramp_up_start_time")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

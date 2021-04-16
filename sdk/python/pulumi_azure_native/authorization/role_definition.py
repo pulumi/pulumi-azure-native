@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -143,9 +143,7 @@ class RoleDefinition(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Role definition.
         API Version: 2018-01-01-preview.
@@ -192,15 +190,7 @@ class RoleDefinition(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,19 +200,19 @@ class RoleDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RoleDefinitionArgs.__new__(RoleDefinitionArgs)
 
-            __props__['assignable_scopes'] = assignable_scopes
-            __props__['description'] = description
-            __props__['permissions'] = permissions
-            __props__['role_definition_id'] = role_definition_id
-            __props__['role_name'] = role_name
-            __props__['role_type'] = role_type
+            __props__.__dict__["assignable_scopes"] = assignable_scopes
+            __props__.__dict__["description"] = description
+            __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["role_definition_id"] = role_definition_id
+            __props__.__dict__["role_name"] = role_name
+            __props__.__dict__["role_type"] = role_type
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20150701:RoleDefinition"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleDefinition"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleDefinition, __self__).__init__(
@@ -245,15 +235,15 @@ class RoleDefinition(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RoleDefinitionArgs.__new__(RoleDefinitionArgs)
 
-        __props__["assignable_scopes"] = None
-        __props__["description"] = None
-        __props__["name"] = None
-        __props__["permissions"] = None
-        __props__["role_name"] = None
-        __props__["role_type"] = None
-        __props__["type"] = None
+        __props__.__dict__["assignable_scopes"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["permissions"] = None
+        __props__.__dict__["role_name"] = None
+        __props__.__dict__["role_type"] = None
+        __props__.__dict__["type"] = None
         return RoleDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -311,10 +301,4 @@ class RoleDefinition(pulumi.CustomResource):
         The role definition type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

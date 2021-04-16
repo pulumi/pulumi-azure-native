@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['VirtualWanArgs', 'VirtualWan']
@@ -176,9 +176,7 @@ class VirtualWan(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  virtual_wan_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         VirtualWAN Resource.
 
@@ -227,15 +225,7 @@ class VirtualWan(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  virtual_wan_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,25 +235,25 @@ class VirtualWan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualWanArgs.__new__(VirtualWanArgs)
 
-            __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
-            __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
-            __props__['disable_vpn_encryption'] = disable_vpn_encryption
-            __props__['id'] = id
-            __props__['location'] = location
+            __props__.__dict__["allow_branch_to_branch_traffic"] = allow_branch_to_branch_traffic
+            __props__.__dict__["allow_vnet_to_vnet_traffic"] = allow_vnet_to_vnet_traffic
+            __props__.__dict__["disable_vpn_encryption"] = disable_vpn_encryption
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['virtual_wan_name'] = virtual_wan_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['office365_local_breakout_category'] = None
-            __props__['provisioning_state'] = None
-            __props__['virtual_hubs'] = None
-            __props__['vpn_sites'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["virtual_wan_name"] = virtual_wan_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["office365_local_breakout_category"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["virtual_hubs"] = None
+            __props__.__dict__["vpn_sites"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualWan"), pulumi.Alias(type_="azure-native:network:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualWan"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualWan"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualWan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualWan, __self__).__init__(
@@ -286,20 +276,20 @@ class VirtualWan(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualWanArgs.__new__(VirtualWanArgs)
 
-        __props__["allow_branch_to_branch_traffic"] = None
-        __props__["allow_vnet_to_vnet_traffic"] = None
-        __props__["disable_vpn_encryption"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["office365_local_breakout_category"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_hubs"] = None
-        __props__["vpn_sites"] = None
+        __props__.__dict__["allow_branch_to_branch_traffic"] = None
+        __props__.__dict__["allow_vnet_to_vnet_traffic"] = None
+        __props__.__dict__["disable_vpn_encryption"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["office365_local_breakout_category"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_hubs"] = None
+        __props__.__dict__["vpn_sites"] = None
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -397,10 +387,4 @@ class VirtualWan(pulumi.CustomResource):
         List of VpnSites in the VirtualWAN.
         """
         return pulumi.get(self, "vpn_sites")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

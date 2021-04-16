@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -62,7 +62,7 @@ __all__ = [
     'SkuResponse',
     'SmbSettingResponse',
     'StorageAccountInternetEndpointsResponse',
-    'StorageAccountKeyResponseResult',
+    'StorageAccountKeyResponse',
     'StorageAccountMicrosoftEndpointsResponse',
     'SystemDataResponse',
     'TagFilterResponse',
@@ -76,6 +76,33 @@ class ActiveDirectoryPropertiesResponse(dict):
     """
     Settings properties for Active Directory (AD).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureStorageSid":
+            suggest = "azure_storage_sid"
+        elif key == "domainGuid":
+            suggest = "domain_guid"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "domainSid":
+            suggest = "domain_sid"
+        elif key == "forestName":
+            suggest = "forest_name"
+        elif key == "netBiosDomainName":
+            suggest = "net_bios_domain_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActiveDirectoryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActiveDirectoryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_storage_sid: str,
                  domain_guid: str,
@@ -147,22 +174,38 @@ class ActiveDirectoryPropertiesResponse(dict):
         """
         return pulumi.get(self, "net_bios_domain_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFilesIdentityBasedAuthenticationResponse(dict):
     """
     Settings for Azure Files identity based authentication.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryServiceOptions":
+            suggest = "directory_service_options"
+        elif key == "activeDirectoryProperties":
+            suggest = "active_directory_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFilesIdentityBasedAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFilesIdentityBasedAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFilesIdentityBasedAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  directory_service_options: str,
                  active_directory_properties: Optional['outputs.ActiveDirectoryPropertiesResponse'] = None):
         """
         Settings for Azure Files identity based authentication.
         :param str directory_service_options: Indicates the directory service used.
-        :param 'ActiveDirectoryPropertiesResponseArgs' active_directory_properties: Required if choose AD.
+        :param 'ActiveDirectoryPropertiesResponse' active_directory_properties: Required if choose AD.
         """
         pulumi.set(__self__, "directory_service_options", directory_service_options)
         if active_directory_properties is not None:
@@ -184,9 +227,6 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
         """
         return pulumi.get(self, "active_directory_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobInventoryPolicyDefinitionResponse(dict):
@@ -197,7 +237,7 @@ class BlobInventoryPolicyDefinitionResponse(dict):
                  filters: 'outputs.BlobInventoryPolicyFilterResponse'):
         """
         An object that defines the blob inventory rule. Each definition consists of a set of filters.
-        :param 'BlobInventoryPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        :param 'BlobInventoryPolicyFilterResponse' filters: An object that defines the filter set.
         """
         pulumi.set(__self__, "filters", filters)
 
@@ -209,15 +249,35 @@ class BlobInventoryPolicyDefinitionResponse(dict):
         """
         return pulumi.get(self, "filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobInventoryPolicyFilterResponse(dict):
     """
     An object that defines the blob inventory rule filter conditions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobTypes":
+            suggest = "blob_types"
+        elif key == "includeBlobVersions":
+            suggest = "include_blob_versions"
+        elif key == "includeSnapshots":
+            suggest = "include_snapshots"
+        elif key == "prefixMatch":
+            suggest = "prefix_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobInventoryPolicyFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobInventoryPolicyFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobInventoryPolicyFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_types: Sequence[str],
                  include_blob_versions: Optional[bool] = None,
@@ -270,9 +330,6 @@ class BlobInventoryPolicyFilterResponse(dict):
         """
         return pulumi.get(self, "prefix_match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobInventoryPolicyRuleResponse(dict):
@@ -285,7 +342,7 @@ class BlobInventoryPolicyRuleResponse(dict):
                  name: str):
         """
         An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
-        :param 'BlobInventoryPolicyDefinitionResponseArgs' definition: An object that defines the blob inventory policy rule.
+        :param 'BlobInventoryPolicyDefinitionResponse' definition: An object that defines the blob inventory policy rule.
         :param bool enabled: Rule is enabled when set to true.
         :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         """
@@ -317,9 +374,6 @@ class BlobInventoryPolicyRuleResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobInventoryPolicySchemaResponse(dict):
@@ -335,7 +389,7 @@ class BlobInventoryPolicySchemaResponse(dict):
         The storage account blob inventory policy rules.
         :param str destination: Container name where blob inventory files are stored. Must be pre-created.
         :param bool enabled: Policy is enabled if set to true.
-        :param Sequence['BlobInventoryPolicyRuleResponseArgs'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
+        :param Sequence['BlobInventoryPolicyRuleResponse'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
         :param str type: The valid value is Inventory
         """
         pulumi.set(__self__, "destination", destination)
@@ -375,21 +429,37 @@ class BlobInventoryPolicySchemaResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobRestoreParametersResponse(dict):
     """
     Blob restore parameters
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobRanges":
+            suggest = "blob_ranges"
+        elif key == "timeToRestore":
+            suggest = "time_to_restore"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobRestoreParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobRestoreParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobRestoreParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_ranges: Sequence['outputs.BlobRestoreRangeResponse'],
                  time_to_restore: str):
         """
         Blob restore parameters
-        :param Sequence['BlobRestoreRangeResponseArgs'] blob_ranges: Blob ranges to restore.
+        :param Sequence['BlobRestoreRangeResponse'] blob_ranges: Blob ranges to restore.
         :param str time_to_restore: Restore blob to the specified time.
         """
         pulumi.set(__self__, "blob_ranges", blob_ranges)
@@ -411,15 +481,31 @@ class BlobRestoreParametersResponse(dict):
         """
         return pulumi.get(self, "time_to_restore")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobRestoreRangeResponse(dict):
     """
     Blob range
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endRange":
+            suggest = "end_range"
+        elif key == "startRange":
+            suggest = "start_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobRestoreRangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobRestoreRangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobRestoreRangeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_range: str,
                  start_range: str):
@@ -447,15 +533,31 @@ class BlobRestoreRangeResponse(dict):
         """
         return pulumi.get(self, "start_range")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlobRestoreStatusResponse(dict):
     """
     Blob restore status.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "restoreId":
+            suggest = "restore_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobRestoreStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobRestoreStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobRestoreStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failure_reason: str,
                  parameters: 'outputs.BlobRestoreParametersResponse',
@@ -464,7 +566,7 @@ class BlobRestoreStatusResponse(dict):
         """
         Blob restore status.
         :param str failure_reason: Failure reason when blob restore is failed.
-        :param 'BlobRestoreParametersResponseArgs' parameters: Blob restore request parameters.
+        :param 'BlobRestoreParametersResponse' parameters: Blob restore request parameters.
         :param str restore_id: Id for tracking blob restore request.
         :param str status: The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
         """
@@ -505,15 +607,29 @@ class BlobRestoreStatusResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ChangeFeedResponse(dict):
     """
     The blob service properties for change feed events.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChangeFeedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChangeFeedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChangeFeedResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None):
@@ -543,15 +659,37 @@ class ChangeFeedResponse(dict):
         """
         return pulumi.get(self, "retention_in_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CorsRuleResponse(dict):
     """
     Specifies a CORS rule for the Blob service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorsRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorsRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorsRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_headers: Sequence[str],
                  allowed_methods: Sequence[str],
@@ -612,20 +750,34 @@ class CorsRuleResponse(dict):
         """
         return pulumi.get(self, "max_age_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CorsRulesResponse(dict):
     """
     Sets the CORS rules. You can include up to five CorsRule elements in the request. 
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "corsRules":
+            suggest = "cors_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorsRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorsRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorsRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        :param Sequence['CorsRuleResponseArgs'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -638,15 +790,29 @@ class CorsRulesResponse(dict):
         """
         return pulumi.get(self, "cors_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomDomainResponse(dict):
     """
     The custom domain assigned to this storage account. This can be set via Update.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSubDomainName":
+            suggest = "use_sub_domain_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  use_sub_domain_name: Optional[bool] = None):
@@ -675,15 +841,29 @@ class CustomDomainResponse(dict):
         """
         return pulumi.get(self, "use_sub_domain_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DateAfterCreationResponse(dict):
     """
     Object to define the number of days after creation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysAfterCreationGreaterThan":
+            suggest = "days_after_creation_greater_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DateAfterCreationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DateAfterCreationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DateAfterCreationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days_after_creation_greater_than: float):
         """
@@ -700,15 +880,31 @@ class DateAfterCreationResponse(dict):
         """
         return pulumi.get(self, "days_after_creation_greater_than")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DateAfterModificationResponse(dict):
     """
     Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysAfterLastAccessTimeGreaterThan":
+            suggest = "days_after_last_access_time_greater_than"
+        elif key == "daysAfterModificationGreaterThan":
+            suggest = "days_after_modification_greater_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DateAfterModificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DateAfterModificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DateAfterModificationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days_after_last_access_time_greater_than: Optional[float] = None,
                  days_after_modification_greater_than: Optional[float] = None):
@@ -737,9 +933,6 @@ class DateAfterModificationResponse(dict):
         Value indicating the age in days after last modification
         """
         return pulumi.get(self, "days_after_modification_greater_than")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -776,15 +969,33 @@ class DeleteRetentionPolicyResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionResponse(dict):
     """
     The encryption settings on the storage account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+        elif key == "requireInfrastructureEncryption":
+            suggest = "require_infrastructure_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_source: str,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
@@ -793,9 +1004,9 @@ class EncryptionResponse(dict):
         """
         The encryption settings on the storage account.
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Properties provided by key vault.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
         :param bool require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-        :param 'EncryptionServicesResponseArgs' services: List of services which support encryption.
+        :param 'EncryptionServicesResponse' services: List of services which support encryption.
         """
         if key_source is None:
             key_source = 'Microsoft.Storage'
@@ -839,15 +1050,29 @@ class EncryptionResponse(dict):
         """
         return pulumi.get(self, "services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionScopeKeyVaultPropertiesResponse(dict):
     """
     The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUri":
+            suggest = "key_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionScopeKeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionScopeKeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionScopeKeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_uri: Optional[str] = None):
         """
@@ -865,15 +1090,31 @@ class EncryptionScopeKeyVaultPropertiesResponse(dict):
         """
         return pulumi.get(self, "key_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionServiceResponse(dict):
     """
     A service that allows server-side encryption to be used.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastEnabledTime":
+            suggest = "last_enabled_time"
+        elif key == "keyType":
+            suggest = "key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_enabled_time: str,
                  enabled: Optional[bool] = None,
@@ -914,9 +1155,6 @@ class EncryptionServiceResponse(dict):
         """
         return pulumi.get(self, "key_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionServicesResponse(dict):
@@ -930,10 +1168,10 @@ class EncryptionServicesResponse(dict):
                  table: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
-        :param 'EncryptionServiceResponseArgs' blob: The encryption function of the blob storage service.
-        :param 'EncryptionServiceResponseArgs' file: The encryption function of the file storage service.
-        :param 'EncryptionServiceResponseArgs' queue: The encryption function of the queue storage service.
-        :param 'EncryptionServiceResponseArgs' table: The encryption function of the table storage service.
+        :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
+        :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
+        :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
+        :param 'EncryptionServiceResponse' table: The encryption function of the table storage service.
         """
         if blob is not None:
             pulumi.set(__self__, "blob", blob)
@@ -976,15 +1214,31 @@ class EncryptionServicesResponse(dict):
         """
         return pulumi.get(self, "table")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointsResponse(dict):
     """
     The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "internetEndpoints":
+            suggest = "internet_endpoints"
+        elif key == "microsoftEndpoints":
+            suggest = "microsoft_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob: str,
                  dfs: str,
@@ -1002,8 +1256,8 @@ class EndpointsResponse(dict):
         :param str queue: Gets the queue endpoint.
         :param str table: Gets the table endpoint.
         :param str web: Gets the web endpoint.
-        :param 'StorageAccountInternetEndpointsResponseArgs' internet_endpoints: Gets the internet routing storage endpoints
-        :param 'StorageAccountMicrosoftEndpointsResponseArgs' microsoft_endpoints: Gets the microsoft routing storage endpoints.
+        :param 'StorageAccountInternetEndpointsResponse' internet_endpoints: Gets the internet routing storage endpoints
+        :param 'StorageAccountMicrosoftEndpointsResponse' microsoft_endpoints: Gets the microsoft routing storage endpoints.
         """
         pulumi.set(__self__, "blob", blob)
         pulumi.set(__self__, "dfs", dfs)
@@ -1080,9 +1334,6 @@ class EndpointsResponse(dict):
         """
         return pulumi.get(self, "microsoft_endpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtendedLocationResponse(dict):
@@ -1118,15 +1369,31 @@ class ExtendedLocationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GeoReplicationStatsResponse(dict):
     """
     Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "canFailover":
+            suggest = "can_failover"
+        elif key == "lastSyncTime":
+            suggest = "last_sync_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeoReplicationStatsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeoReplicationStatsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeoReplicationStatsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  can_failover: bool,
                  last_sync_time: str,
@@ -1165,15 +1432,29 @@ class GeoReplicationStatsResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPRuleResponse(dict):
     """
     IP rule with specific IP or IP range in CIDR format.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iPAddressOrRange":
+            suggest = "i_p_address_or_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  i_p_address_or_range: str,
                  action: Optional[str] = None):
@@ -1204,15 +1485,31 @@ class IPRuleResponse(dict):
         """
         return pulumi.get(self, "action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -1251,15 +1548,33 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImmutabilityPolicyPropertiesResponse(dict):
     """
     The properties of an ImmutabilityPolicy of a blob container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updateHistory":
+            suggest = "update_history"
+        elif key == "allowProtectedAppendWrites":
+            suggest = "allow_protected_append_writes"
+        elif key == "immutabilityPeriodSinceCreationInDays":
+            suggest = "immutability_period_since_creation_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImmutabilityPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImmutabilityPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImmutabilityPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  state: str,
@@ -1270,7 +1585,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         The properties of an ImmutabilityPolicy of a blob container.
         :param str etag: ImmutabilityPolicy Etag.
         :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-        :param Sequence['UpdateHistoryPropertyResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
+        :param Sequence['UpdateHistoryPropertyResponse'] update_history: The ImmutabilityPolicy update history of the blob container.
         :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
         :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         """
@@ -1322,15 +1637,37 @@ class ImmutabilityPolicyPropertiesResponse(dict):
         """
         return pulumi.get(self, "immutability_period_since_creation_in_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
     """
     Properties of key vault.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentVersionedKeyIdentifier":
+            suggest = "current_versioned_key_identifier"
+        elif key == "lastKeyRotationTimestamp":
+            suggest = "last_key_rotation_timestamp"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  current_versioned_key_identifier: str,
                  last_key_rotation_timestamp: str,
@@ -1394,15 +1731,31 @@ class KeyVaultPropertiesResponse(dict):
         """
         return pulumi.get(self, "key_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LastAccessTimeTrackingPolicyResponse(dict):
     """
     The blob service properties for Last access time based tracking policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobType":
+            suggest = "blob_type"
+        elif key == "trackingGranularityInDays":
+            suggest = "tracking_granularity_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LastAccessTimeTrackingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LastAccessTimeTrackingPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LastAccessTimeTrackingPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable: bool,
                  blob_type: Optional[Sequence[str]] = None,
@@ -1455,22 +1808,36 @@ class LastAccessTimeTrackingPolicyResponse(dict):
         """
         return pulumi.get(self, "tracking_granularity_in_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LegalHoldPropertiesResponse(dict):
     """
     The LegalHold property of a blob container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hasLegalHold":
+            suggest = "has_legal_hold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LegalHoldPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LegalHoldPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LegalHoldPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  has_legal_hold: bool,
                  tags: Optional[Sequence['outputs.TagPropertyResponse']] = None):
         """
         The LegalHold property of a blob container.
         :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-        :param Sequence['TagPropertyResponseArgs'] tags: The list of LegalHold tags of a blob container.
+        :param Sequence['TagPropertyResponse'] tags: The list of LegalHold tags of a blob container.
         """
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
         if tags is not None:
@@ -1492,24 +1859,38 @@ class LegalHoldPropertiesResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyActionResponse(dict):
     """
     Actions are applied to the filtered blobs when the execution condition is met.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseBlob":
+            suggest = "base_blob"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_blob: Optional['outputs.ManagementPolicyBaseBlobResponse'] = None,
                  snapshot: Optional['outputs.ManagementPolicySnapShotResponse'] = None,
                  version: Optional['outputs.ManagementPolicyVersionResponse'] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
-        :param 'ManagementPolicyBaseBlobResponseArgs' base_blob: The management policy action for base blob
-        :param 'ManagementPolicySnapShotResponseArgs' snapshot: The management policy action for snapshot
-        :param 'ManagementPolicyVersionResponseArgs' version: The management policy action for version
+        :param 'ManagementPolicyBaseBlobResponse' base_blob: The management policy action for base blob
+        :param 'ManagementPolicySnapShotResponse' snapshot: The management policy action for snapshot
+        :param 'ManagementPolicyVersionResponse' version: The management policy action for version
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -1542,15 +1923,33 @@ class ManagementPolicyActionResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyBaseBlobResponse(dict):
     """
     Management policy action for base blob.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableAutoTierToHotFromCool":
+            suggest = "enable_auto_tier_to_hot_from_cool"
+        elif key == "tierToArchive":
+            suggest = "tier_to_archive"
+        elif key == "tierToCool":
+            suggest = "tier_to_cool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyBaseBlobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyBaseBlobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyBaseBlobResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterModificationResponse'] = None,
                  enable_auto_tier_to_hot_from_cool: Optional[bool] = None,
@@ -1558,10 +1957,10 @@ class ManagementPolicyBaseBlobResponse(dict):
                  tier_to_cool: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
-        :param 'DateAfterModificationResponseArgs' delete: The function to delete the blob
+        :param 'DateAfterModificationResponse' delete: The function to delete the blob
         :param bool enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-        :param 'DateAfterModificationResponseArgs' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-        :param 'DateAfterModificationResponseArgs' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        :param 'DateAfterModificationResponse' tier_to_archive: The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+        :param 'DateAfterModificationResponse' tier_to_cool: The function to tier blobs to cool storage. Support blobs currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1604,9 +2003,6 @@ class ManagementPolicyBaseBlobResponse(dict):
         """
         return pulumi.get(self, "tier_to_cool")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyDefinitionResponse(dict):
@@ -1618,8 +2014,8 @@ class ManagementPolicyDefinitionResponse(dict):
                  filters: Optional['outputs.ManagementPolicyFilterResponse'] = None):
         """
         An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
-        :param 'ManagementPolicyActionResponseArgs' actions: An object that defines the action set.
-        :param 'ManagementPolicyFilterResponseArgs' filters: An object that defines the filter set.
+        :param 'ManagementPolicyActionResponse' actions: An object that defines the action set.
+        :param 'ManagementPolicyFilterResponse' filters: An object that defines the filter set.
         """
         pulumi.set(__self__, "actions", actions)
         if filters is not None:
@@ -1641,15 +2037,33 @@ class ManagementPolicyDefinitionResponse(dict):
         """
         return pulumi.get(self, "filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyFilterResponse(dict):
     """
     Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobTypes":
+            suggest = "blob_types"
+        elif key == "blobIndexMatch":
+            suggest = "blob_index_match"
+        elif key == "prefixMatch":
+            suggest = "prefix_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_types: Sequence[str],
                  blob_index_match: Optional[Sequence['outputs.TagFilterResponse']] = None,
@@ -1657,7 +2071,7 @@ class ManagementPolicyFilterResponse(dict):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
         :param Sequence[str] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-        :param Sequence['TagFilterResponseArgs'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
+        :param Sequence['TagFilterResponse'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param Sequence[str] prefix_match: An array of strings for prefixes to be match.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -1690,9 +2104,6 @@ class ManagementPolicyFilterResponse(dict):
         """
         return pulumi.get(self, "prefix_match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyRuleResponse(dict):
@@ -1706,7 +2117,7 @@ class ManagementPolicyRuleResponse(dict):
                  enabled: Optional[bool] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
-        :param 'ManagementPolicyDefinitionResponseArgs' definition: An object that defines the Lifecycle rule.
+        :param 'ManagementPolicyDefinitionResponse' definition: An object that defines the Lifecycle rule.
         :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         :param str type: The valid value is Lifecycle
         :param bool enabled: Rule is enabled if set to true.
@@ -1749,9 +2160,6 @@ class ManagementPolicyRuleResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicySchemaResponse(dict):
@@ -1762,7 +2170,7 @@ class ManagementPolicySchemaResponse(dict):
                  rules: Sequence['outputs.ManagementPolicyRuleResponse']):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        :param Sequence['ManagementPolicyRuleResponseArgs'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param Sequence['ManagementPolicyRuleResponse'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -1774,24 +2182,40 @@ class ManagementPolicySchemaResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicySnapShotResponse(dict):
     """
     Management policy action for snapshot.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tierToArchive":
+            suggest = "tier_to_archive"
+        elif key == "tierToCool":
+            suggest = "tier_to_cool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicySnapShotResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicySnapShotResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicySnapShotResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterCreationResponse'] = None,
                  tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
                  tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
-        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob snapshot
-        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
-        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
+        :param 'DateAfterCreationResponse' delete: The function to delete the blob snapshot
+        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob snapshot to archive storage. Support blob snapshot currently at Hot or Cool tier
+        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob snapshot to cool storage. Support blob snapshot currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1824,24 +2248,40 @@ class ManagementPolicySnapShotResponse(dict):
         """
         return pulumi.get(self, "tier_to_cool")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyVersionResponse(dict):
     """
     Management policy action for blob version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tierToArchive":
+            suggest = "tier_to_archive"
+        elif key == "tierToCool":
+            suggest = "tier_to_cool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyVersionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyVersionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyVersionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete: Optional['outputs.DateAfterCreationResponse'] = None,
                  tier_to_archive: Optional['outputs.DateAfterCreationResponse'] = None,
                  tier_to_cool: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for blob version.
-        :param 'DateAfterCreationResponseArgs' delete: The function to delete the blob version
-        :param 'DateAfterCreationResponseArgs' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
-        :param 'DateAfterCreationResponseArgs' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        :param 'DateAfterCreationResponse' delete: The function to delete the blob version
+        :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        :param 'DateAfterCreationResponse' tier_to_cool: The function to tier blob version to cool storage. Support blob version currently at Hot tier
         """
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
@@ -1874,9 +2314,6 @@ class ManagementPolicyVersionResponse(dict):
         """
         return pulumi.get(self, "tier_to_cool")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MultichannelResponse(dict):
@@ -1900,15 +2337,35 @@ class MultichannelResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     Network rule set
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "resourceAccessRules":
+            suggest = "resource_access_rules"
+        elif key == "virtualNetworkRules":
+            suggest = "virtual_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: str,
                  bypass: Optional[str] = None,
@@ -1919,8 +2376,8 @@ class NetworkRuleSetResponse(dict):
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponse'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: Sets the virtual network rules
         """
         if default_action is None:
             default_action = 'Allow'
@@ -1973,15 +2430,31 @@ class NetworkRuleSetResponse(dict):
         """
         return pulumi.get(self, "virtual_network_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ObjectReplicationPolicyFilterResponse(dict):
     """
     Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minCreationTime":
+            suggest = "min_creation_time"
+        elif key == "prefixMatch":
+            suggest = "prefix_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObjectReplicationPolicyFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObjectReplicationPolicyFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObjectReplicationPolicyFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  min_creation_time: Optional[str] = None,
                  prefix_match: Optional[Sequence[str]] = None):
@@ -2011,15 +2484,33 @@ class ObjectReplicationPolicyFilterResponse(dict):
         """
         return pulumi.get(self, "prefix_match")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ObjectReplicationPolicyRuleResponse(dict):
     """
     The replication policy rule between two containers.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationContainer":
+            suggest = "destination_container"
+        elif key == "sourceContainer":
+            suggest = "source_container"
+        elif key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObjectReplicationPolicyRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObjectReplicationPolicyRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObjectReplicationPolicyRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_container: str,
                  source_container: str,
@@ -2029,7 +2520,7 @@ class ObjectReplicationPolicyRuleResponse(dict):
         The replication policy rule between two containers.
         :param str destination_container: Required. Destination container name.
         :param str source_container: Required. Source container name.
-        :param 'ObjectReplicationPolicyFilterResponseArgs' filters: Optional. An object that defines the filter set.
+        :param 'ObjectReplicationPolicyFilterResponse' filters: Optional. An object that defines the filter set.
         :param str rule_id: Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
         """
         pulumi.set(__self__, "destination_container", destination_container)
@@ -2071,15 +2562,33 @@ class ObjectReplicationPolicyRuleResponse(dict):
         """
         return pulumi.get(self, "rule_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -2091,10 +2600,10 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2152,9 +2661,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -2177,15 +2683,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionRequired":
+            suggest = "action_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -2227,9 +2747,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProtocolSettingsResponse(dict):
@@ -2240,7 +2757,7 @@ class ProtocolSettingsResponse(dict):
                  smb: Optional['outputs.SmbSettingResponse'] = None):
         """
         Protocol settings for file service
-        :param 'SmbSettingResponseArgs' smb: Setting for SMB protocol
+        :param 'SmbSettingResponse' smb: Setting for SMB protocol
         """
         if smb is not None:
             pulumi.set(__self__, "smb", smb)
@@ -2253,15 +2770,31 @@ class ProtocolSettingsResponse(dict):
         """
         return pulumi.get(self, "smb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceAccessRuleResponse(dict):
     """
     Resource Access Rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceAccessRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceAccessRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceAccessRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
@@ -2291,15 +2824,31 @@ class ResourceAccessRuleResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RestorePolicyPropertiesResponse(dict):
     """
     The blob service properties for blob restore policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastEnabledTime":
+            suggest = "last_enabled_time"
+        elif key == "minRestoreTime":
+            suggest = "min_restore_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestorePolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestorePolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestorePolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  last_enabled_time: str,
@@ -2350,15 +2899,33 @@ class RestorePolicyPropertiesResponse(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingPreferenceResponse(dict):
     """
     Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishInternetEndpoints":
+            suggest = "publish_internet_endpoints"
+        elif key == "publishMicrosoftEndpoints":
+            suggest = "publish_microsoft_endpoints"
+        elif key == "routingChoice":
+            suggest = "routing_choice"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingPreferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingPreferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingPreferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  publish_internet_endpoints: Optional[bool] = None,
                  publish_microsoft_endpoints: Optional[bool] = None,
@@ -2400,9 +2967,6 @@ class RoutingPreferenceResponse(dict):
         """
         return pulumi.get(self, "routing_choice")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -2436,9 +3000,6 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SmbSettingResponse(dict):
@@ -2449,7 +3010,7 @@ class SmbSettingResponse(dict):
                  multichannel: Optional['outputs.MultichannelResponse'] = None):
         """
         Setting for SMB protocol
-        :param 'MultichannelResponseArgs' multichannel: Multichannel setting. Applies to Premium FileStorage only.
+        :param 'MultichannelResponse' multichannel: Multichannel setting. Applies to Premium FileStorage only.
         """
         if multichannel is not None:
             pulumi.set(__self__, "multichannel", multichannel)
@@ -2461,9 +3022,6 @@ class SmbSettingResponse(dict):
         Multichannel setting. Applies to Premium FileStorage only.
         """
         return pulumi.get(self, "multichannel")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2520,12 +3078,9 @@ class StorageAccountInternetEndpointsResponse(dict):
         """
         return pulumi.get(self, "web")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class StorageAccountKeyResponseResult(dict):
+class StorageAccountKeyResponse(dict):
     """
     An access key for the storage account.
     """
@@ -2644,15 +3199,39 @@ class StorageAccountMicrosoftEndpointsResponse(dict):
         """
         return pulumi.get(self, "web")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -2730,9 +3309,6 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TagFilterResponse(dict):
@@ -2777,15 +3353,31 @@ class TagFilterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TagPropertyResponse(dict):
     """
     A tag of the LegalHold of a blob container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectIdentifier":
+            suggest = "object_identifier"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_identifier: str,
                  tag: str,
@@ -2846,15 +3438,33 @@ class TagPropertyResponse(dict):
         """
         return pulumi.get(self, "upn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UpdateHistoryPropertyResponse(dict):
     """
     An update history of the ImmutabilityPolicy of a blob container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immutabilityPeriodSinceCreationInDays":
+            suggest = "immutability_period_since_creation_in_days"
+        elif key == "objectIdentifier":
+            suggest = "object_identifier"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateHistoryPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateHistoryPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateHistoryPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  immutability_period_since_creation_in_days: int,
                  object_identifier: str,
@@ -2926,15 +3536,29 @@ class UpdateHistoryPropertyResponse(dict):
         """
         return pulumi.get(self, "upn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkRuleResponse(dict):
     """
     Virtual Network rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNetworkResourceId":
+            suggest = "virtual_network_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_network_resource_id: str,
                  action: Optional[str] = None,
@@ -2976,8 +3600,5 @@ class VirtualNetworkRuleResponse(dict):
         Gets the state of virtual network rule.
         """
         return pulumi.get(self, "state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

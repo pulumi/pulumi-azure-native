@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -279,9 +279,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Create a IntegrationAccountAgreement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -340,15 +338,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,29 +348,29 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationAccountAgreementArgs.__new__(IntegrationAccountAgreementArgs)
 
-            __props__['agreement_name'] = agreement_name
-            __props__['agreement_type'] = agreement_type
-            __props__['content'] = content
-            __props__['guest_identity'] = guest_identity
-            __props__['guest_partner'] = guest_partner
-            __props__['host_identity'] = host_identity
-            __props__['host_partner'] = host_partner
-            __props__['id'] = id
+            __props__.__dict__["agreement_name"] = agreement_name
+            __props__.__dict__["agreement_type"] = agreement_type
+            __props__.__dict__["content"] = content
+            __props__.__dict__["guest_identity"] = guest_identity
+            __props__.__dict__["guest_partner"] = guest_partner
+            __props__.__dict__["host_identity"] = host_identity
+            __props__.__dict__["host_partner"] = host_partner
+            __props__.__dict__["id"] = id
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
-            __props__['integration_account_name'] = integration_account_name
-            __props__['location'] = location
-            __props__['metadata'] = metadata
-            __props__['name'] = name
+            __props__.__dict__["integration_account_name"] = integration_account_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['changed_time'] = None
-            __props__['created_time'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["changed_time"] = None
+            __props__.__dict__["created_time"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountAgreement")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountAgreement, __self__).__init__(
@@ -403,21 +393,21 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = IntegrationAccountAgreementArgs.__new__(IntegrationAccountAgreementArgs)
 
-        __props__["agreement_type"] = None
-        __props__["changed_time"] = None
-        __props__["content"] = None
-        __props__["created_time"] = None
-        __props__["guest_identity"] = None
-        __props__["guest_partner"] = None
-        __props__["host_identity"] = None
-        __props__["host_partner"] = None
-        __props__["location"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["agreement_type"] = None
+        __props__.__dict__["changed_time"] = None
+        __props__.__dict__["content"] = None
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["guest_identity"] = None
+        __props__.__dict__["guest_partner"] = None
+        __props__.__dict__["host_identity"] = None
+        __props__.__dict__["host_partner"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return IntegrationAccountAgreement(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -523,10 +513,4 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         The resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -39,7 +39,7 @@ class ListNetworkManagerDeploymentStatusResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.NetworkManagerDeploymentStatusResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.NetworkManagerDeploymentStatusResponse']]:
         """
         Gets a page of Network Manager Deployment Status
         """

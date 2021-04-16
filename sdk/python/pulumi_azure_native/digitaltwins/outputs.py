@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -38,12 +38,26 @@ class ConnectionPropertiesResponsePrivateEndpoint(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesResponsePrivateLinkServiceConnectionState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesResponsePrivateLinkServiceConnectionState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesResponsePrivateLinkServiceConnectionState.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: str,
                  status: str,
@@ -82,15 +96,31 @@ class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
         """
         return pulumi.get(self, "actions_required")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DigitalTwinsIdentityResponse(dict):
     """
     The managed identity for the DigitalTwinsInstance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DigitalTwinsIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DigitalTwinsIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DigitalTwinsIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -130,15 +160,45 @@ class DigitalTwinsIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventGridResponse(dict):
     """
     Properties related to EventGrid.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey1":
+            suggest = "access_key1"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "topicEndpoint":
+            suggest = "topic_endpoint"
+        elif key == "accessKey2":
+            suggest = "access_key2"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "deadLetterSecret":
+            suggest = "dead_letter_secret"
+        elif key == "deadLetterUri":
+            suggest = "dead_letter_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventGridResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventGridResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventGridResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key1: str,
                  created_time: str,
@@ -249,15 +309,47 @@ class EventGridResponse(dict):
         """
         return pulumi.get(self, "dead_letter_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventHubResponse(dict):
     """
     Properties related to EventHub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "connectionStringPrimaryKey":
+            suggest = "connection_string_primary_key"
+        elif key == "connectionStringSecondaryKey":
+            suggest = "connection_string_secondary_key"
+        elif key == "deadLetterSecret":
+            suggest = "dead_letter_secret"
+        elif key == "deadLetterUri":
+            suggest = "dead_letter_uri"
+        elif key == "endpointUri":
+            suggest = "endpoint_uri"
+        elif key == "entityPath":
+            suggest = "entity_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_time: str,
                  endpoint_type: str,
@@ -382,9 +474,6 @@ class EventHubResponse(dict):
         """
         return pulumi.get(self, "entity_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
@@ -436,12 +525,32 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  group_ids: Optional[Sequence[str]] = None,
@@ -485,15 +594,47 @@ class PrivateEndpointConnectionResponseProperties(dict):
     def private_link_service_connection_state(self) -> Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState']:
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceBusResponse(dict):
     """
     Properties related to ServiceBus.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "deadLetterSecret":
+            suggest = "dead_letter_secret"
+        elif key == "deadLetterUri":
+            suggest = "dead_letter_uri"
+        elif key == "endpointUri":
+            suggest = "endpoint_uri"
+        elif key == "entityPath":
+            suggest = "entity_path"
+        elif key == "primaryConnectionString":
+            suggest = "primary_connection_string"
+        elif key == "secondaryConnectionString":
+            suggest = "secondary_connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_time: str,
                  endpoint_type: str,
@@ -617,8 +758,5 @@ class ServiceBusResponse(dict):
         SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         """
         return pulumi.get(self, "secondary_connection_string")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

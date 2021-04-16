@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['RegisteredServerArgs', 'RegisteredServer']
 
@@ -259,9 +259,7 @@ class RegisteredServer(pulumi.CustomResource):
                  server_role: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_uid: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Registered Server resource.
 
@@ -320,15 +318,7 @@ class RegisteredServer(pulumi.CustomResource):
                  server_role: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_uid: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,28 +328,28 @@ class RegisteredServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RegisteredServerArgs.__new__(RegisteredServerArgs)
 
-            __props__['agent_version'] = agent_version
-            __props__['cluster_id'] = cluster_id
-            __props__['cluster_name'] = cluster_name
-            __props__['last_heart_beat'] = last_heart_beat
-            __props__['last_workflow_id'] = last_workflow_id
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["agent_version"] = agent_version
+            __props__.__dict__["cluster_id"] = cluster_id
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["last_heart_beat"] = last_heart_beat
+            __props__.__dict__["last_workflow_id"] = last_workflow_id
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['server_certificate'] = server_certificate
-            __props__['server_id'] = server_id
-            __props__['server_managementt_error_code'] = server_managementt_error_code
-            __props__['server_os_version'] = server_os_version
-            __props__['server_role'] = server_role
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["server_certificate"] = server_certificate
+            __props__.__dict__["server_id"] = server_id
+            __props__.__dict__["server_managementt_error_code"] = server_managementt_error_code
+            __props__.__dict__["server_os_version"] = server_os_version
+            __props__.__dict__["server_role"] = server_role
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
-            __props__['storage_sync_service_name'] = storage_sync_service_name
-            __props__['storage_sync_service_uid'] = storage_sync_service_uid
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
+            __props__.__dict__["storage_sync_service_uid"] = storage_sync_service_uid
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20180402:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20180701:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20181001:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20190201:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20190301:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20190601:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20191001:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20200301:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:RegisteredServer"), pulumi.Alias(type_="azure-native:storagesync/v20200901:RegisteredServer"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:RegisteredServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegisteredServer, __self__).__init__(
@@ -382,22 +372,22 @@ class RegisteredServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RegisteredServerArgs.__new__(RegisteredServerArgs)
 
-        __props__["agent_version"] = None
-        __props__["cluster_id"] = None
-        __props__["cluster_name"] = None
-        __props__["last_heart_beat"] = None
-        __props__["last_workflow_id"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["server_certificate"] = None
-        __props__["server_id"] = None
-        __props__["server_managementt_error_code"] = None
-        __props__["server_os_version"] = None
-        __props__["server_role"] = None
-        __props__["storage_sync_service_uid"] = None
-        __props__["type"] = None
+        __props__.__dict__["agent_version"] = None
+        __props__.__dict__["cluster_id"] = None
+        __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["last_heart_beat"] = None
+        __props__.__dict__["last_workflow_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["server_certificate"] = None
+        __props__.__dict__["server_id"] = None
+        __props__.__dict__["server_managementt_error_code"] = None
+        __props__.__dict__["server_os_version"] = None
+        __props__.__dict__["server_role"] = None
+        __props__.__dict__["storage_sync_service_uid"] = None
+        __props__.__dict__["type"] = None
         return RegisteredServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -511,10 +501,4 @@ class RegisteredServer(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

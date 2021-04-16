@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -145,9 +145,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Azure Cosmos DB database account.
 
@@ -192,15 +190,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,54 +200,54 @@ class DatabaseAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseAccountArgs.__new__(DatabaseAccountArgs)
 
-            __props__['account_name'] = account_name
-            __props__['identity'] = identity
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["identity"] = identity
             if kind is None:
                 kind = 'GlobalDocumentDB'
-            __props__['kind'] = kind
-            __props__['location'] = location
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['api_properties'] = None
-            __props__['backup_policy'] = None
-            __props__['capabilities'] = None
-            __props__['connector_offer'] = None
-            __props__['consistency_policy'] = None
-            __props__['cors'] = None
-            __props__['create_mode'] = None
-            __props__['database_account_offer_type'] = None
-            __props__['disable_key_based_metadata_write_access'] = None
-            __props__['document_endpoint'] = None
-            __props__['enable_analytical_storage'] = None
-            __props__['enable_automatic_failover'] = None
-            __props__['enable_cassandra_connector'] = None
-            __props__['enable_free_tier'] = None
-            __props__['enable_multiple_write_locations'] = None
-            __props__['failover_policies'] = None
-            __props__['instance_id'] = None
-            __props__['ip_rules'] = None
-            __props__['is_virtual_network_filter_enabled'] = None
-            __props__['key_vault_key_uri'] = None
-            __props__['locations'] = None
-            __props__['name'] = None
-            __props__['network_acl_bypass'] = None
-            __props__['network_acl_bypass_resource_ids'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['provisioning_state'] = None
-            __props__['public_network_access'] = None
-            __props__['read_locations'] = None
-            __props__['restore_parameters'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
-            __props__['virtual_network_rules'] = None
-            __props__['write_locations'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["api_properties"] = None
+            __props__.__dict__["backup_policy"] = None
+            __props__.__dict__["capabilities"] = None
+            __props__.__dict__["connector_offer"] = None
+            __props__.__dict__["consistency_policy"] = None
+            __props__.__dict__["cors"] = None
+            __props__.__dict__["create_mode"] = None
+            __props__.__dict__["database_account_offer_type"] = None
+            __props__.__dict__["disable_key_based_metadata_write_access"] = None
+            __props__.__dict__["document_endpoint"] = None
+            __props__.__dict__["enable_analytical_storage"] = None
+            __props__.__dict__["enable_automatic_failover"] = None
+            __props__.__dict__["enable_cassandra_connector"] = None
+            __props__.__dict__["enable_free_tier"] = None
+            __props__.__dict__["enable_multiple_write_locations"] = None
+            __props__.__dict__["failover_policies"] = None
+            __props__.__dict__["instance_id"] = None
+            __props__.__dict__["ip_rules"] = None
+            __props__.__dict__["is_virtual_network_filter_enabled"] = None
+            __props__.__dict__["key_vault_key_uri"] = None
+            __props__.__dict__["locations"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["network_acl_bypass"] = None
+            __props__.__dict__["network_acl_bypass_resource_ids"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_network_access"] = None
+            __props__.__dict__["read_locations"] = None
+            __props__.__dict__["restore_parameters"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_network_rules"] = None
+            __props__.__dict__["write_locations"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210315:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210315:DatabaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccount, __self__).__init__(
@@ -280,45 +270,45 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DatabaseAccountArgs.__new__(DatabaseAccountArgs)
 
-        __props__["api_properties"] = None
-        __props__["backup_policy"] = None
-        __props__["capabilities"] = None
-        __props__["connector_offer"] = None
-        __props__["consistency_policy"] = None
-        __props__["cors"] = None
-        __props__["create_mode"] = None
-        __props__["database_account_offer_type"] = None
-        __props__["disable_key_based_metadata_write_access"] = None
-        __props__["document_endpoint"] = None
-        __props__["enable_analytical_storage"] = None
-        __props__["enable_automatic_failover"] = None
-        __props__["enable_cassandra_connector"] = None
-        __props__["enable_free_tier"] = None
-        __props__["enable_multiple_write_locations"] = None
-        __props__["failover_policies"] = None
-        __props__["identity"] = None
-        __props__["instance_id"] = None
-        __props__["ip_rules"] = None
-        __props__["is_virtual_network_filter_enabled"] = None
-        __props__["key_vault_key_uri"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["locations"] = None
-        __props__["name"] = None
-        __props__["network_acl_bypass"] = None
-        __props__["network_acl_bypass_resource_ids"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_network_access"] = None
-        __props__["read_locations"] = None
-        __props__["restore_parameters"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_network_rules"] = None
-        __props__["write_locations"] = None
+        __props__.__dict__["api_properties"] = None
+        __props__.__dict__["backup_policy"] = None
+        __props__.__dict__["capabilities"] = None
+        __props__.__dict__["connector_offer"] = None
+        __props__.__dict__["consistency_policy"] = None
+        __props__.__dict__["cors"] = None
+        __props__.__dict__["create_mode"] = None
+        __props__.__dict__["database_account_offer_type"] = None
+        __props__.__dict__["disable_key_based_metadata_write_access"] = None
+        __props__.__dict__["document_endpoint"] = None
+        __props__.__dict__["enable_analytical_storage"] = None
+        __props__.__dict__["enable_automatic_failover"] = None
+        __props__.__dict__["enable_cassandra_connector"] = None
+        __props__.__dict__["enable_free_tier"] = None
+        __props__.__dict__["enable_multiple_write_locations"] = None
+        __props__.__dict__["failover_policies"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["instance_id"] = None
+        __props__.__dict__["ip_rules"] = None
+        __props__.__dict__["is_virtual_network_filter_enabled"] = None
+        __props__.__dict__["key_vault_key_uri"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["locations"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_acl_bypass"] = None
+        __props__.__dict__["network_acl_bypass_resource_ids"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["read_locations"] = None
+        __props__.__dict__["restore_parameters"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_network_rules"] = None
+        __props__.__dict__["write_locations"] = None
         return DatabaseAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -616,10 +606,4 @@ class DatabaseAccount(pulumi.CustomResource):
         An array that contains the write location for the Cosmos DB account.
         """
         return pulumi.get(self, "write_locations")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

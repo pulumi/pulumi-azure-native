@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
@@ -176,9 +176,7 @@ class RoleAssignment(pulumi.CustomResource):
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Role Assignments
         API Version: 2020-08-01-preview.
@@ -229,15 +227,7 @@ class RoleAssignment(pulumi.CustomResource):
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,31 +237,31 @@ class RoleAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
-            __props__['condition'] = condition
-            __props__['condition_version'] = condition_version
-            __props__['delegated_managed_identity_resource_id'] = delegated_managed_identity_resource_id
-            __props__['description'] = description
+            __props__.__dict__["condition"] = condition
+            __props__.__dict__["condition_version"] = condition_version
+            __props__.__dict__["delegated_managed_identity_resource_id"] = delegated_managed_identity_resource_id
+            __props__.__dict__["description"] = description
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
-            __props__['principal_id'] = principal_id
+            __props__.__dict__["principal_id"] = principal_id
             if principal_type is None:
                 principal_type = 'User'
-            __props__['principal_type'] = principal_type
-            __props__['role_assignment_name'] = role_assignment_name
+            __props__.__dict__["principal_type"] = principal_type
+            __props__.__dict__["role_assignment_name"] = role_assignment_name
             if role_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_definition_id'")
-            __props__['role_definition_id'] = role_definition_id
+            __props__.__dict__["role_definition_id"] = role_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['created_by'] = None
-            __props__['created_on'] = None
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['updated_by'] = None
-            __props__['updated_on'] = None
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["created_by"] = None
+            __props__.__dict__["created_on"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_by"] = None
+            __props__.__dict__["updated_on"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200401preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200401preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200801preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200801preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20201001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20201001preview:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
@@ -294,22 +284,22 @@ class RoleAssignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
-        __props__["condition"] = None
-        __props__["condition_version"] = None
-        __props__["created_by"] = None
-        __props__["created_on"] = None
-        __props__["delegated_managed_identity_resource_id"] = None
-        __props__["description"] = None
-        __props__["name"] = None
-        __props__["principal_id"] = None
-        __props__["principal_type"] = None
-        __props__["role_definition_id"] = None
-        __props__["scope"] = None
-        __props__["type"] = None
-        __props__["updated_by"] = None
-        __props__["updated_on"] = None
+        __props__.__dict__["condition"] = None
+        __props__.__dict__["condition_version"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["created_on"] = None
+        __props__.__dict__["delegated_managed_identity_resource_id"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["principal_id"] = None
+        __props__.__dict__["principal_type"] = None
+        __props__.__dict__["role_definition_id"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_by"] = None
+        __props__.__dict__["updated_on"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -423,10 +413,4 @@ class RoleAssignment(pulumi.CustomResource):
         Time it was updated
         """
         return pulumi.get(self, "updated_on")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

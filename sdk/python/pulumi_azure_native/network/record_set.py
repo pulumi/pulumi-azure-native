@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -328,9 +328,7 @@ class RecordSet(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
         API Version: 2018-05-01.
@@ -399,15 +397,7 @@ class RecordSet(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,36 +407,36 @@ class RecordSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
-            __props__['a_records'] = a_records
-            __props__['aaaa_records'] = aaaa_records
-            __props__['caa_records'] = caa_records
-            __props__['cname_record'] = cname_record
-            __props__['etag'] = etag
-            __props__['metadata'] = metadata
-            __props__['mx_records'] = mx_records
-            __props__['ns_records'] = ns_records
-            __props__['ptr_records'] = ptr_records
+            __props__.__dict__["a_records"] = a_records
+            __props__.__dict__["aaaa_records"] = aaaa_records
+            __props__.__dict__["caa_records"] = caa_records
+            __props__.__dict__["cname_record"] = cname_record
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["mx_records"] = mx_records
+            __props__.__dict__["ns_records"] = ns_records
+            __props__.__dict__["ptr_records"] = ptr_records
             if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
-            __props__['record_type'] = record_type
-            __props__['relative_record_set_name'] = relative_record_set_name
+            __props__.__dict__["record_type"] = record_type
+            __props__.__dict__["relative_record_set_name"] = relative_record_set_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['soa_record'] = soa_record
-            __props__['srv_records'] = srv_records
-            __props__['target_resource'] = target_resource
-            __props__['ttl'] = ttl
-            __props__['txt_records'] = txt_records
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["soa_record"] = soa_record
+            __props__.__dict__["srv_records"] = srv_records
+            __props__.__dict__["target_resource"] = target_resource
+            __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["txt_records"] = txt_records
             if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
-            __props__['zone_name'] = zone_name
-            __props__['fqdn'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["zone_name"] = zone_name
+            __props__.__dict__["fqdn"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:RecordSet"), pulumi.Alias(type_="azure-native:network/v20150504preview:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20150504preview:RecordSet"), pulumi.Alias(type_="azure-native:network/v20160401:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20160401:RecordSet"), pulumi.Alias(type_="azure-native:network/v20170901:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20170901:RecordSet"), pulumi.Alias(type_="azure-native:network/v20171001:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20171001:RecordSet"), pulumi.Alias(type_="azure-native:network/v20180301preview:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180301preview:RecordSet"), pulumi.Alias(type_="azure-native:network/v20180501:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180501:RecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RecordSet, __self__).__init__(
@@ -469,26 +459,26 @@ class RecordSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
-        __props__["a_records"] = None
-        __props__["aaaa_records"] = None
-        __props__["caa_records"] = None
-        __props__["cname_record"] = None
-        __props__["etag"] = None
-        __props__["fqdn"] = None
-        __props__["metadata"] = None
-        __props__["mx_records"] = None
-        __props__["name"] = None
-        __props__["ns_records"] = None
-        __props__["provisioning_state"] = None
-        __props__["ptr_records"] = None
-        __props__["soa_record"] = None
-        __props__["srv_records"] = None
-        __props__["target_resource"] = None
-        __props__["ttl"] = None
-        __props__["txt_records"] = None
-        __props__["type"] = None
+        __props__.__dict__["a_records"] = None
+        __props__.__dict__["aaaa_records"] = None
+        __props__.__dict__["caa_records"] = None
+        __props__.__dict__["cname_record"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["fqdn"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["mx_records"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["ns_records"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["ptr_records"] = None
+        __props__.__dict__["soa_record"] = None
+        __props__.__dict__["srv_records"] = None
+        __props__.__dict__["target_resource"] = None
+        __props__.__dict__["ttl"] = None
+        __props__.__dict__["txt_records"] = None
+        __props__.__dict__["type"] = None
         return RecordSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -634,10 +624,4 @@ class RecordSet(pulumi.CustomResource):
         The type of the record set.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

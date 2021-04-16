@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -123,9 +123,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  protection_container_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Protection container mapping object.
 
@@ -168,15 +166,7 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  protection_container_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,25 +176,25 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReplicationProtectionContainerMappingArgs.__new__(ReplicationProtectionContainerMappingArgs)
 
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
-            __props__['fabric_name'] = fabric_name
-            __props__['mapping_name'] = mapping_name
-            __props__['properties'] = properties
+            __props__.__dict__["fabric_name"] = fabric_name
+            __props__.__dict__["mapping_name"] = mapping_name
+            __props__.__dict__["properties"] = properties
             if protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'protection_container_name'")
-            __props__['protection_container_name'] = protection_container_name
+            __props__.__dict__["protection_container_name"] = protection_container_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
-            __props__['resource_name'] = resource_name_
-            __props__['location'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["location"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-native:recoveryservices:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationProtectionContainerMapping, __self__).__init__(
@@ -227,12 +217,12 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ReplicationProtectionContainerMappingArgs.__new__(ReplicationProtectionContainerMappingArgs)
 
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["type"] = None
         return ReplicationProtectionContainerMapping(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -266,10 +256,4 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         Resource Type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

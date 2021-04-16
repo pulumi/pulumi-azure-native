@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
 
@@ -155,9 +155,7 @@ class Certificate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Definition of the certificate.
 
@@ -204,15 +202,7 @@ class Certificate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,28 +212,28 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
+            __props__.__dict__["automation_account_name"] = automation_account_name
             if base64_value is None and not opts.urn:
                 raise TypeError("Missing required property 'base64_value'")
-            __props__['base64_value'] = base64_value
-            __props__['certificate_name'] = certificate_name
-            __props__['description'] = description
-            __props__['is_exportable'] = is_exportable
+            __props__.__dict__["base64_value"] = base64_value
+            __props__.__dict__["certificate_name"] = certificate_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["is_exportable"] = is_exportable
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['thumbprint'] = thumbprint
-            __props__['creation_time'] = None
-            __props__['expiry_time'] = None
-            __props__['last_modified_time'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["thumbprint"] = thumbprint
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["expiry_time"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20151031:Certificate"), pulumi.Alias(type_="azure-native:automation:Certificate"), pulumi.Alias(type_="azure-nextgen:automation:Certificate"), pulumi.Alias(type_="azure-native:automation/v20190601:Certificate"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Certificate"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Certificate"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
@@ -266,16 +256,16 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CertificateArgs.__new__(CertificateArgs)
 
-        __props__["creation_time"] = None
-        __props__["description"] = None
-        __props__["expiry_time"] = None
-        __props__["is_exportable"] = None
-        __props__["last_modified_time"] = None
-        __props__["name"] = None
-        __props__["thumbprint"] = None
-        __props__["type"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["expiry_time"] = None
+        __props__.__dict__["is_exportable"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["thumbprint"] = None
+        __props__.__dict__["type"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -341,10 +331,4 @@ class Certificate(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

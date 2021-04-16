@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -15,7 +15,7 @@ __all__ = [
     'AaaaRecordResponse',
     'CaaRecordResponse',
     'CnameRecordResponse',
-    'DnsResourceReferenceResponseResult',
+    'DnsResourceReferenceResponse',
     'MxRecordResponse',
     'NsRecordResponse',
     'PtrRecordResponse',
@@ -30,6 +30,23 @@ class ARecordResponse(dict):
     """
     An A record.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Address":
+            suggest = "ipv4_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ARecordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ARecordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ARecordResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ipv4_address: Optional[str] = None):
         """
@@ -47,15 +64,29 @@ class ARecordResponse(dict):
         """
         return pulumi.get(self, "ipv4_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AaaaRecordResponse(dict):
     """
     An AAAA record.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AaaaRecordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AaaaRecordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AaaaRecordResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ipv6_address: Optional[str] = None):
         """
@@ -72,9 +103,6 @@ class AaaaRecordResponse(dict):
         The IPv6 address of this AAAA record.
         """
         return pulumi.get(self, "ipv6_address")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -123,9 +151,6 @@ class CaaRecordResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CnameRecordResponse(dict):
@@ -149,12 +174,9 @@ class CnameRecordResponse(dict):
         """
         return pulumi.get(self, "cname")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class DnsResourceReferenceResponseResult(dict):
+class DnsResourceReferenceResponse(dict):
     """
     Represents a single Azure resource and its referencing DNS records.
     """
@@ -163,8 +185,8 @@ class DnsResourceReferenceResponseResult(dict):
                  target_resource: Optional['outputs.SubResourceResponse'] = None):
         """
         Represents a single Azure resource and its referencing DNS records.
-        :param Sequence['SubResourceResponseArgs'] dns_resources: A list of dns Records 
-        :param 'SubResourceResponseArgs' target_resource: A reference to an azure resource from where the dns resource value is taken.
+        :param Sequence['SubResourceResponse'] dns_resources: A list of dns Records 
+        :param 'SubResourceResponse' target_resource: A reference to an azure resource from where the dns resource value is taken.
         """
         if dns_resources is not None:
             pulumi.set(__self__, "dns_resources", dns_resources)
@@ -222,9 +244,6 @@ class MxRecordResponse(dict):
         """
         return pulumi.get(self, "preference")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NsRecordResponse(dict):
@@ -247,9 +266,6 @@ class NsRecordResponse(dict):
         The name server name for this NS record.
         """
         return pulumi.get(self, "nsdname")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -274,15 +290,37 @@ class PtrRecordResponse(dict):
         """
         return pulumi.get(self, "ptrdname")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SoaRecordResponse(dict):
     """
     An SOA record.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expireTime":
+            suggest = "expire_time"
+        elif key == "minimumTtl":
+            suggest = "minimum_ttl"
+        elif key == "refreshTime":
+            suggest = "refresh_time"
+        elif key == "retryTime":
+            suggest = "retry_time"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoaRecordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoaRecordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoaRecordResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  expire_time: Optional[float] = None,
@@ -372,9 +410,6 @@ class SoaRecordResponse(dict):
         """
         return pulumi.get(self, "serial_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SrvRecordResponse(dict):
@@ -434,9 +469,6 @@ class SrvRecordResponse(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubResourceResponse(dict):
@@ -460,9 +492,6 @@ class SubResourceResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TxtRecordResponse(dict):
@@ -485,8 +514,5 @@ class TxtRecordResponse(dict):
         The text value of this TXT record.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

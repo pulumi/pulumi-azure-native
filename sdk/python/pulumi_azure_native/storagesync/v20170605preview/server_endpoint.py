@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['ServerEndpointArgs', 'ServerEndpoint']
 
@@ -428,9 +428,7 @@ class ServerEndpoint(pulumi.CustomResource):
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  total_progress: Optional[pulumi.Input[int]] = None,
                  volume_free_space_percent: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Server Endpoint object.
 
@@ -509,15 +507,7 @@ class ServerEndpoint(pulumi.CustomResource):
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  total_progress: Optional[pulumi.Input[int]] = None,
                  volume_free_space_percent: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,40 +517,40 @@ class ServerEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerEndpointArgs.__new__(ServerEndpointArgs)
 
-            __props__['byte_progress'] = byte_progress
-            __props__['byte_total'] = byte_total
-            __props__['cloud_tiering'] = cloud_tiering
-            __props__['current_progress_type'] = current_progress_type
-            __props__['friendly_name'] = friendly_name
-            __props__['item_download_error_count'] = item_download_error_count
-            __props__['item_progress_count'] = item_progress_count
-            __props__['item_total_count'] = item_total_count
-            __props__['item_upload_error_count'] = item_upload_error_count
-            __props__['last_sync_success'] = last_sync_success
-            __props__['last_workflow_id'] = last_workflow_id
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["byte_progress"] = byte_progress
+            __props__.__dict__["byte_total"] = byte_total
+            __props__.__dict__["cloud_tiering"] = cloud_tiering
+            __props__.__dict__["current_progress_type"] = current_progress_type
+            __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["item_download_error_count"] = item_download_error_count
+            __props__.__dict__["item_progress_count"] = item_progress_count
+            __props__.__dict__["item_total_count"] = item_total_count
+            __props__.__dict__["item_upload_error_count"] = item_upload_error_count
+            __props__.__dict__["last_sync_success"] = last_sync_success
+            __props__.__dict__["last_workflow_id"] = last_workflow_id
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['server_endpoint_name'] = server_endpoint_name
-            __props__['server_local_path'] = server_local_path
-            __props__['server_resource_id'] = server_resource_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["server_endpoint_name"] = server_endpoint_name
+            __props__.__dict__["server_local_path"] = server_local_path
+            __props__.__dict__["server_resource_id"] = server_resource_id
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
-            __props__['storage_sync_service_name'] = storage_sync_service_name
-            __props__['sync_error_context'] = sync_error_context
-            __props__['sync_error_direction'] = sync_error_direction
-            __props__['sync_error_state'] = sync_error_state
-            __props__['sync_error_state_timestamp'] = sync_error_state_timestamp
+            __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
+            __props__.__dict__["sync_error_context"] = sync_error_context
+            __props__.__dict__["sync_error_direction"] = sync_error_direction
+            __props__.__dict__["sync_error_state"] = sync_error_state
+            __props__.__dict__["sync_error_state_timestamp"] = sync_error_state_timestamp
             if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
-            __props__['sync_group_name'] = sync_group_name
-            __props__['total_progress'] = total_progress
-            __props__['volume_free_space_percent'] = volume_free_space_percent
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["sync_group_name"] = sync_group_name
+            __props__.__dict__["total_progress"] = total_progress
+            __props__.__dict__["volume_free_space_percent"] = volume_free_space_percent
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180402:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180701:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20181001:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190201:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190301:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190601:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20191001:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200301:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200901:ServerEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:ServerEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerEndpoint, __self__).__init__(
@@ -583,30 +573,30 @@ class ServerEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServerEndpointArgs.__new__(ServerEndpointArgs)
 
-        __props__["byte_progress"] = None
-        __props__["byte_total"] = None
-        __props__["cloud_tiering"] = None
-        __props__["current_progress_type"] = None
-        __props__["friendly_name"] = None
-        __props__["item_download_error_count"] = None
-        __props__["item_progress_count"] = None
-        __props__["item_total_count"] = None
-        __props__["item_upload_error_count"] = None
-        __props__["last_sync_success"] = None
-        __props__["last_workflow_id"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["server_local_path"] = None
-        __props__["server_resource_id"] = None
-        __props__["sync_error_context"] = None
-        __props__["sync_error_direction"] = None
-        __props__["sync_error_state"] = None
-        __props__["sync_error_state_timestamp"] = None
-        __props__["total_progress"] = None
-        __props__["type"] = None
-        __props__["volume_free_space_percent"] = None
+        __props__.__dict__["byte_progress"] = None
+        __props__.__dict__["byte_total"] = None
+        __props__.__dict__["cloud_tiering"] = None
+        __props__.__dict__["current_progress_type"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["item_download_error_count"] = None
+        __props__.__dict__["item_progress_count"] = None
+        __props__.__dict__["item_total_count"] = None
+        __props__.__dict__["item_upload_error_count"] = None
+        __props__.__dict__["last_sync_success"] = None
+        __props__.__dict__["last_workflow_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["server_local_path"] = None
+        __props__.__dict__["server_resource_id"] = None
+        __props__.__dict__["sync_error_context"] = None
+        __props__.__dict__["sync_error_direction"] = None
+        __props__.__dict__["sync_error_state"] = None
+        __props__.__dict__["sync_error_state_timestamp"] = None
+        __props__.__dict__["total_progress"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["volume_free_space_percent"] = None
         return ServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -784,10 +774,4 @@ class ServerEndpoint(pulumi.CustomResource):
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         return pulumi.get(self, "volume_free_space_percent")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -160,9 +160,7 @@ class AFDOriginGroup(pulumi.CustomResource):
                  response_based_afd_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
                  session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
         API Version: 2020-09-01.
@@ -211,15 +209,7 @@ class AFDOriginGroup(pulumi.CustomResource):
                  response_based_afd_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
                  session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,25 +219,25 @@ class AFDOriginGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AFDOriginGroupArgs.__new__(AFDOriginGroupArgs)
 
-            __props__['health_probe_settings'] = health_probe_settings
-            __props__['load_balancing_settings'] = load_balancing_settings
-            __props__['origin_group_name'] = origin_group_name
+            __props__.__dict__["health_probe_settings"] = health_probe_settings
+            __props__.__dict__["load_balancing_settings"] = load_balancing_settings
+            __props__.__dict__["origin_group_name"] = origin_group_name
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
+            __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['response_based_afd_origin_error_detection_settings'] = response_based_afd_origin_error_detection_settings
-            __props__['session_affinity_state'] = session_affinity_state
-            __props__['traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'] = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
-            __props__['deployment_status'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["response_based_afd_origin_error_detection_settings"] = response_based_afd_origin_error_detection_settings
+            __props__.__dict__["session_affinity_state"] = session_affinity_state
+            __props__.__dict__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
+            __props__.__dict__["deployment_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn:AFDOriginGroup"), pulumi.Alias(type_="azure-native:cdn/v20200901:AFDOriginGroup"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:AFDOriginGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AFDOriginGroup, __self__).__init__(
@@ -270,18 +260,18 @@ class AFDOriginGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AFDOriginGroupArgs.__new__(AFDOriginGroupArgs)
 
-        __props__["deployment_status"] = None
-        __props__["health_probe_settings"] = None
-        __props__["load_balancing_settings"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["response_based_afd_origin_error_detection_settings"] = None
-        __props__["session_affinity_state"] = None
-        __props__["system_data"] = None
-        __props__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = None
-        __props__["type"] = None
+        __props__.__dict__["deployment_status"] = None
+        __props__.__dict__["health_probe_settings"] = None
+        __props__.__dict__["load_balancing_settings"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["response_based_afd_origin_error_detection_settings"] = None
+        __props__.__dict__["session_affinity_state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = None
+        __props__.__dict__["type"] = None
         return AFDOriginGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -360,10 +350,4 @@ class AFDOriginGroup(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

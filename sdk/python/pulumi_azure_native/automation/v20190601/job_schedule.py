@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -140,9 +140,7 @@ class JobSchedule(pulumi.CustomResource):
                  run_on: Optional[pulumi.Input[str]] = None,
                  runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Definition of the job schedule.
 
@@ -187,15 +185,7 @@ class JobSchedule(pulumi.CustomResource):
                  run_on: Optional[pulumi.Input[str]] = None,
                  runbook: Optional[pulumi.Input[pulumi.InputType['RunbookAssociationPropertyArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ScheduleAssociationPropertyArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,25 +195,25 @@ class JobSchedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = JobScheduleArgs.__new__(JobScheduleArgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
-            __props__['job_schedule_id'] = job_schedule_id
-            __props__['parameters'] = parameters
+            __props__.__dict__["automation_account_name"] = automation_account_name
+            __props__.__dict__["job_schedule_id"] = job_schedule_id
+            __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['run_on'] = run_on
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["run_on"] = run_on
             if runbook is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook'")
-            __props__['runbook'] = runbook
+            __props__.__dict__["runbook"] = runbook
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
-            __props__['schedule'] = schedule
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20190601:JobSchedule"), pulumi.Alias(type_="azure-native:automation:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:JobSchedule"), pulumi.Alias(type_="azure-native:automation/v20200113preview:JobSchedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:JobSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobSchedule, __self__).__init__(
@@ -246,15 +236,15 @@ class JobSchedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = JobScheduleArgs.__new__(JobScheduleArgs)
 
-        __props__["job_schedule_id"] = None
-        __props__["name"] = None
-        __props__["parameters"] = None
-        __props__["run_on"] = None
-        __props__["runbook"] = None
-        __props__["schedule"] = None
-        __props__["type"] = None
+        __props__.__dict__["job_schedule_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["parameters"] = None
+        __props__.__dict__["run_on"] = None
+        __props__.__dict__["runbook"] = None
+        __props__.__dict__["schedule"] = None
+        __props__.__dict__["type"] = None
         return JobSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -312,10 +302,4 @@ class JobSchedule(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

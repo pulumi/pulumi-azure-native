@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -41,15 +41,31 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
         """
         return pulumi.get(self, "result")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ElasticPoolPerDatabaseSettingsResponse(dict):
     """
     Per database settings of an elastic pool.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticPoolPerDatabaseSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticPoolPerDatabaseSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticPoolPerDatabaseSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_capacity: Optional[float] = None,
                  min_capacity: Optional[float] = None):
@@ -79,15 +95,29 @@ class ElasticPoolPerDatabaseSettingsResponse(dict):
         """
         return pulumi.get(self, "min_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFailoverGroupReadOnlyEndpointResponse(dict):
     """
     Read-only endpoint of the failover group instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverPolicy":
+            suggest = "failover_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFailoverGroupReadOnlyEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFailoverGroupReadOnlyEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFailoverGroupReadOnlyEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failover_policy: Optional[str] = None):
         """
@@ -105,15 +135,31 @@ class InstanceFailoverGroupReadOnlyEndpointResponse(dict):
         """
         return pulumi.get(self, "failover_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InstanceFailoverGroupReadWriteEndpointResponse(dict):
     """
     Read-write endpoint of the failover group instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverPolicy":
+            suggest = "failover_policy"
+        elif key == "failoverWithDataLossGracePeriodMinutes":
+            suggest = "failover_with_data_loss_grace_period_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceFailoverGroupReadWriteEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceFailoverGroupReadWriteEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceFailoverGroupReadWriteEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failover_policy: str,
                  failover_with_data_loss_grace_period_minutes: Optional[int] = None):
@@ -142,15 +188,31 @@ class InstanceFailoverGroupReadWriteEndpointResponse(dict):
         """
         return pulumi.get(self, "failover_with_data_loss_grace_period_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedInstancePairInfoResponse(dict):
     """
     Pairs of Managed Instances in the failover group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerManagedInstanceId":
+            suggest = "partner_managed_instance_id"
+        elif key == "primaryManagedInstanceId":
+            suggest = "primary_managed_instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstancePairInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstancePairInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstancePairInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  partner_managed_instance_id: Optional[str] = None,
                  primary_managed_instance_id: Optional[str] = None):
@@ -180,15 +242,29 @@ class ManagedInstancePairInfoResponse(dict):
         """
         return pulumi.get(self, "primary_managed_instance_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PartnerRegionInfoResponse(dict):
     """
     Partner region information for the failover group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicationRole":
+            suggest = "replication_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerRegionInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerRegionInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerRegionInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  replication_role: str,
                  location: Optional[str] = None):
@@ -216,9 +292,6 @@ class PartnerRegionInfoResponse(dict):
         Geo location of the partner managed instances.
         """
         return pulumi.get(self, "location")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -290,15 +363,31 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
     """
     Properties of a Vulnerability Assessment recurring scans.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubscriptionAdmins":
+            suggest = "email_subscription_admins"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VulnerabilityAssessmentRecurringScansPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VulnerabilityAssessmentRecurringScansPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VulnerabilityAssessmentRecurringScansPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_subscription_admins: Optional[bool] = None,
                  emails: Optional[Sequence[str]] = None,
@@ -341,8 +430,5 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
         Recurring scans state.
         """
         return pulumi.get(self, "is_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

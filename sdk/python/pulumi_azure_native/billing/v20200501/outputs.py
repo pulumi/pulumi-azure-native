@@ -6,16 +6,16 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'AzurePlanResponseResult',
-    'InvoiceSectionWithCreateSubPermissionResponseResult',
+    'AzurePlanResponse',
+    'InvoiceSectionWithCreateSubPermissionResponse',
 ]
 
 @pulumi.output_type
-class AzurePlanResponseResult(dict):
+class AzurePlanResponse(dict):
     """
     Details of the Azure plan.
     """
@@ -49,7 +49,7 @@ class AzurePlanResponseResult(dict):
 
 
 @pulumi.output_type
-class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
+class InvoiceSectionWithCreateSubPermissionResponse(dict):
     """
     Invoice section properties with create subscription permission.
     """
@@ -63,7 +63,7 @@ class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
                  invoice_section_display_name: str,
                  invoice_section_id: str,
                  invoice_section_system_id: str,
-                 enabled_azure_plans: Optional[Sequence['outputs.AzurePlanResponseResult']] = None):
+                 enabled_azure_plans: Optional[Sequence['outputs.AzurePlanResponse']] = None):
         """
         Invoice section properties with create subscription permission.
         :param str billing_profile_display_name: The name of the billing profile for the invoice section.
@@ -75,7 +75,7 @@ class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
         :param str invoice_section_display_name: The name of the invoice section.
         :param str invoice_section_id: The ID of the invoice section.
         :param str invoice_section_system_id: The system generated unique identifier for an invoice section.
-        :param Sequence['AzurePlanResponseArgs'] enabled_azure_plans: Enabled azure plans for the associated billing profile.
+        :param Sequence['AzurePlanResponse'] enabled_azure_plans: Enabled azure plans for the associated billing profile.
         """
         pulumi.set(__self__, "billing_profile_display_name", billing_profile_display_name)
         pulumi.set(__self__, "billing_profile_id", billing_profile_id)
@@ -163,7 +163,7 @@ class InvoiceSectionWithCreateSubPermissionResponseResult(dict):
 
     @property
     @pulumi.getter(name="enabledAzurePlans")
-    def enabled_azure_plans(self) -> Optional[Sequence['outputs.AzurePlanResponseResult']]:
+    def enabled_azure_plans(self) -> Optional[Sequence['outputs.AzurePlanResponse']]:
         """
         Enabled azure plans for the associated billing profile.
         """

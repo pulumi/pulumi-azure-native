@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -35,6 +35,35 @@ class AppResourcePropertiesResponse(dict):
     """
     App resource properties payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "activeDeploymentName":
+            suggest = "active_deployment_name"
+        elif key == "enableEndToEndTLS":
+            suggest = "enable_end_to_end_tls"
+        elif key == "httpsOnly":
+            suggest = "https_only"
+        elif key == "persistentDisk":
+            suggest = "persistent_disk"
+        elif key == "temporaryDisk":
+            suggest = "temporary_disk"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_time: str,
                  provisioning_state: str,
@@ -55,9 +84,9 @@ class AppResourcePropertiesResponse(dict):
         :param bool enable_end_to_end_tls: Indicate if end to end TLS is enabled.
         :param str fqdn: Fully qualified dns Name.
         :param bool https_only: Indicate if only https is allowed.
-        :param 'PersistentDiskResponseArgs' persistent_disk: Persistent disk settings
+        :param 'PersistentDiskResponse' persistent_disk: Persistent disk settings
         :param bool public: Indicates whether the App exposes public endpoint
-        :param 'TemporaryDiskResponseArgs' temporary_disk: Temporary disk settings
+        :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -157,15 +186,41 @@ class AppResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "temporary_disk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BindingResourcePropertiesResponse(dict):
     """
     Binding resource properties payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "generatedProperties":
+            suggest = "generated_properties"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "updatedAt":
+            suggest = "updated_at"
+        elif key == "bindingParameters":
+            suggest = "binding_parameters"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BindingResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BindingResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BindingResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: str,
                  generated_properties: str,
@@ -262,15 +317,43 @@ class BindingResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificatePropertiesResponse(dict):
     """
     Certificate resource payload.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activateDate":
+            suggest = "activate_date"
+        elif key == "dnsNames":
+            suggest = "dns_names"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "issuedDate":
+            suggest = "issued_date"
+        elif key == "keyVaultCertName":
+            suggest = "key_vault_cert_name"
+        elif key == "subjectName":
+            suggest = "subject_name"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
+        elif key == "certVersion":
+            suggest = "cert_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  activate_date: str,
                  dns_names: Sequence[str],
@@ -387,15 +470,33 @@ class CertificatePropertiesResponse(dict):
         """
         return pulumi.get(self, "cert_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterResourcePropertiesResponse(dict):
     """
     Service properties payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceId":
+            suggest = "service_id"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  service_id: str,
@@ -406,7 +507,7 @@ class ClusterResourcePropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of the Service
         :param str service_id: ServiceInstanceEntity GUID which uniquely identifies a created resource
         :param int version: Version of the Service
-        :param 'NetworkProfileResponseArgs' network_profile: Network profile of the Service
+        :param 'NetworkProfileResponse' network_profile: Network profile of the Service
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "service_id", service_id)
@@ -446,15 +547,31 @@ class ClusterResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "network_profile")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomDomainPropertiesResponse(dict):
     """
     Custom domain of app resource payload.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appName":
+            suggest = "app_name"
+        elif key == "certName":
+            suggest = "cert_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_name: str,
                  cert_name: Optional[str] = None,
@@ -495,15 +612,31 @@ class CustomDomainPropertiesResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentInstanceResponse(dict):
     """
     Deployment instance payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryStatus":
+            suggest = "discovery_status"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  discovery_status: str,
                  name: str,
@@ -564,15 +697,35 @@ class DeploymentInstanceResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentResourcePropertiesResponse(dict):
     """
     Deployment resource properties payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appName":
+            suggest = "app_name"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "deploymentSettings":
+            suggest = "deployment_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active: bool,
                  app_name: str,
@@ -587,11 +740,11 @@ class DeploymentResourcePropertiesResponse(dict):
         :param bool active: Indicates whether the Deployment is active
         :param str app_name: App name of the deployment
         :param str created_time: Date time when the resource is created
-        :param Sequence['DeploymentInstanceResponseArgs'] instances: Collection of instances belong to the Deployment
+        :param Sequence['DeploymentInstanceResponse'] instances: Collection of instances belong to the Deployment
         :param str provisioning_state: Provisioning state of the Deployment
         :param str status: Status of the Deployment
-        :param 'DeploymentSettingsResponseArgs' deployment_settings: Deployment settings of the Deployment
-        :param 'UserSourceInfoResponseArgs' source: Uploaded source information of the deployment.
+        :param 'DeploymentSettingsResponse' deployment_settings: Deployment settings of the Deployment
+        :param 'UserSourceInfoResponse' source: Uploaded source information of the deployment.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "app_name", app_name)
@@ -668,15 +821,39 @@ class DeploymentResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentSettingsResponse(dict):
     """
     Deployment settings payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "jvmOptions":
+            suggest = "jvm_options"
+        elif key == "memoryInGB":
+            suggest = "memory_in_gb"
+        elif key == "netCoreMainEntryPath":
+            suggest = "net_core_main_entry_path"
+        elif key == "resourceRequests":
+            suggest = "resource_requests"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cpu: Optional[int] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
@@ -692,7 +869,7 @@ class DeploymentSettingsResponse(dict):
         :param str jvm_options: JVM parameter
         :param int memory_in_gb: Required Memory size in GB. This should be in range [1, 2] for Basic tier, and in range [1, 8] for Standard tier. This is deprecated starting from API version 2020-03-03-preview. Please use the resourceRequests field to set the the memory size.
         :param str net_core_main_entry_path: The path to the .NET executable relative to zip root
-        :param 'ResourceRequestsResponseArgs' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+        :param 'ResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
         :param str runtime_version: Runtime version
         """
         if cpu is None:
@@ -770,15 +947,31 @@ class DeploymentSettingsResponse(dict):
         """
         return pulumi.get(self, "runtime_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedIdentityPropertiesResponse(dict):
     """
     Managed identity properties retrieved from ARM request headers.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -820,15 +1013,41 @@ class ManagedIdentityPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkProfileResponse(dict):
     """
     Service network profile payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outboundIPs":
+            suggest = "outbound_ips"
+        elif key == "requiredTraffics":
+            suggest = "required_traffics"
+        elif key == "appNetworkResourceGroup":
+            suggest = "app_network_resource_group"
+        elif key == "appSubnetId":
+            suggest = "app_subnet_id"
+        elif key == "serviceCidr":
+            suggest = "service_cidr"
+        elif key == "serviceRuntimeNetworkResourceGroup":
+            suggest = "service_runtime_network_resource_group"
+        elif key == "serviceRuntimeSubnetId":
+            suggest = "service_runtime_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  outbound_ips: 'outputs.NetworkProfileResponseOutboundIPs',
                  required_traffics: Sequence['outputs.RequiredTrafficResponse'],
@@ -839,8 +1058,8 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[str] = None):
         """
         Service network profile payload
-        :param 'NetworkProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
-        :param Sequence['RequiredTrafficResponseArgs'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
+        :param 'NetworkProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
+        :param Sequence['RequiredTrafficResponse'] required_traffics: Required inbound or outbound traffics for Azure Spring Cloud instance.
         :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
         :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
         :param str service_cidr: Azure Spring Cloud service reserved CIDR
@@ -916,15 +1135,29 @@ class NetworkProfileResponse(dict):
         """
         return pulumi.get(self, "service_runtime_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkProfileResponseOutboundIPs(dict):
     """
     Desired outbound IP resources for Azure Spring Cloud instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIPs":
+            suggest = "public_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponseOutboundIPs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponseOutboundIPs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponseOutboundIPs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ips: Sequence[str]):
         """
@@ -941,15 +1174,33 @@ class NetworkProfileResponseOutboundIPs(dict):
         """
         return pulumi.get(self, "public_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PersistentDiskResponse(dict):
     """
     Persistent disk payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usedInGB":
+            suggest = "used_in_gb"
+        elif key == "mountPath":
+            suggest = "mount_path"
+        elif key == "sizeInGB":
+            suggest = "size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PersistentDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PersistentDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PersistentDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  used_in_gb: int,
                  mount_path: Optional[str] = None,
@@ -989,9 +1240,6 @@ class PersistentDiskResponse(dict):
         Size of the persistent disk in GB
         """
         return pulumi.get(self, "size_in_gb")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1059,9 +1307,6 @@ class RequiredTrafficResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceRequestsResponse(dict):
@@ -1096,9 +1341,6 @@ class ResourceRequestsResponse(dict):
         Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
         """
         return pulumi.get(self, "memory")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1151,15 +1393,31 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TemporaryDiskResponse(dict):
     """
     Temporary disk payload
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "sizeInGB":
+            suggest = "size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemporaryDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemporaryDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemporaryDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_path: Optional[str] = None,
                  size_in_gb: Optional[int] = None):
@@ -1189,15 +1447,31 @@ class TemporaryDiskResponse(dict):
         """
         return pulumi.get(self, "size_in_gb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserSourceInfoResponse(dict):
     """
     Source information for a deployment
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactSelector":
+            suggest = "artifact_selector"
+        elif key == "relativePath":
+            suggest = "relative_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifact_selector: Optional[str] = None,
                  relative_path: Optional[str] = None,
@@ -1252,8 +1526,5 @@ class UserSourceInfoResponse(dict):
         Version of the source
         """
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

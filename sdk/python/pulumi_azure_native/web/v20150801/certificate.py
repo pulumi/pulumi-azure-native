@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -398,9 +398,7 @@ class Certificate(pulumi.CustomResource):
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  valid: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         App certificate
 
@@ -475,15 +473,7 @@ class Certificate(pulumi.CustomResource):
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  valid: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -493,32 +483,32 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
-            __props__['cer_blob'] = cer_blob
-            __props__['expiration_date'] = expiration_date
-            __props__['friendly_name'] = friendly_name
-            __props__['host_names'] = host_names
-            __props__['hosting_environment_profile'] = hosting_environment_profile
-            __props__['id'] = id
-            __props__['issue_date'] = issue_date
-            __props__['issuer'] = issuer
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['password'] = password
-            __props__['pfx_blob'] = pfx_blob
-            __props__['public_key_hash'] = public_key_hash
+            __props__.__dict__["cer_blob"] = cer_blob
+            __props__.__dict__["expiration_date"] = expiration_date
+            __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["host_names"] = host_names
+            __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
+            __props__.__dict__["id"] = id
+            __props__.__dict__["issue_date"] = issue_date
+            __props__.__dict__["issuer"] = issuer
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["password"] = password
+            __props__.__dict__["pfx_blob"] = pfx_blob
+            __props__.__dict__["public_key_hash"] = public_key_hash
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['self_link'] = self_link
-            __props__['site_name'] = site_name
-            __props__['subject_name'] = subject_name
-            __props__['tags'] = tags
-            __props__['thumbprint'] = thumbprint
-            __props__['type'] = type
-            __props__['valid'] = valid
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["self_link"] = self_link
+            __props__.__dict__["site_name"] = site_name
+            __props__.__dict__["subject_name"] = subject_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["thumbprint"] = thumbprint
+            __props__.__dict__["type"] = type
+            __props__.__dict__["valid"] = valid
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-native:web:Certificate"), pulumi.Alias(type_="azure-nextgen:web:Certificate"), pulumi.Alias(type_="azure-native:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-native:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-native:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-native:web/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Certificate"), pulumi.Alias(type_="azure-native:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-native:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-native:web/v20201001:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate"), pulumi.Alias(type_="azure-native:web/v20201201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201201:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
@@ -541,28 +531,28 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CertificateArgs.__new__(CertificateArgs)
 
-        __props__["cer_blob"] = None
-        __props__["expiration_date"] = None
-        __props__["friendly_name"] = None
-        __props__["host_names"] = None
-        __props__["hosting_environment_profile"] = None
-        __props__["issue_date"] = None
-        __props__["issuer"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["password"] = None
-        __props__["pfx_blob"] = None
-        __props__["public_key_hash"] = None
-        __props__["self_link"] = None
-        __props__["site_name"] = None
-        __props__["subject_name"] = None
-        __props__["tags"] = None
-        __props__["thumbprint"] = None
-        __props__["type"] = None
-        __props__["valid"] = None
+        __props__.__dict__["cer_blob"] = None
+        __props__.__dict__["expiration_date"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["host_names"] = None
+        __props__.__dict__["hosting_environment_profile"] = None
+        __props__.__dict__["issue_date"] = None
+        __props__.__dict__["issuer"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["password"] = None
+        __props__.__dict__["pfx_blob"] = None
+        __props__.__dict__["public_key_hash"] = None
+        __props__.__dict__["self_link"] = None
+        __props__.__dict__["site_name"] = None
+        __props__.__dict__["subject_name"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["thumbprint"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["valid"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -724,10 +714,4 @@ class Certificate(pulumi.CustomResource):
         Is the certificate valid?
         """
         return pulumi.get(self, "valid")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

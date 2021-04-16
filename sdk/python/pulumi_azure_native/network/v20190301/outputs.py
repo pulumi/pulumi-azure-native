@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -31,7 +31,7 @@ class CustomRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
-        :param Sequence['CustomRuleResponseArgs'] rules: List of rules
+        :param Sequence['CustomRuleResponse'] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -44,15 +44,37 @@ class CustomRuleListResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRuleResponse(dict):
     """
     Defines contents of a web application rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "rateLimitDurationInMinutes":
+            suggest = "rate_limit_duration_in_minutes"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  match_conditions: Sequence['outputs.FrontDoorMatchConditionResponse'],
@@ -65,7 +87,7 @@ class CustomRuleResponse(dict):
         """
         Defines contents of a web application rule
         :param str action: Describes what action to be applied when rule matches.
-        :param Sequence['FrontDoorMatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['FrontDoorMatchConditionResponse'] match_conditions: List of match conditions.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -150,22 +172,36 @@ class CustomRuleResponse(dict):
         """
         return pulumi.get(self, "rate_limit_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorManagedRuleGroupOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorManagedRuleGroupOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_group_name: str,
                  rules: Optional[Sequence['outputs.FrontDoorManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group to override.
-        :param Sequence['FrontDoorManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['FrontDoorManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -187,15 +223,31 @@ class FrontDoorManagedRuleGroupOverrideResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorManagedRuleOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorManagedRuleOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorManagedRuleOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorManagedRuleOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_id: str,
                  action: Optional[str] = None,
@@ -236,15 +288,33 @@ class FrontDoorManagedRuleOverrideResponse(dict):
         """
         return pulumi.get(self, "enabled_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorManagedRuleSetResponse(dict):
     """
     Defines a managed rule set.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "ruleGroupOverrides":
+            suggest = "rule_group_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorManagedRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorManagedRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorManagedRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_set_type: str,
                  rule_set_version: str,
@@ -253,7 +323,7 @@ class FrontDoorManagedRuleSetResponse(dict):
         Defines a managed rule set.
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
-        :param Sequence['FrontDoorManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param Sequence['FrontDoorManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -284,15 +354,33 @@ class FrontDoorManagedRuleSetResponse(dict):
         """
         return pulumi.get(self, "rule_group_overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorMatchConditionResponse(dict):
     """
     Define a match condition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValue":
+            suggest = "match_value"
+        elif key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorMatchConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorMatchConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorMatchConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_value: Sequence[str],
                  match_variable: str,
@@ -367,15 +455,35 @@ class FrontDoorMatchConditionResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorPolicySettingsResponse(dict):
     """
     Defines top-level WebApplicationFirewallPolicy configuration settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBlockResponseBody":
+            suggest = "custom_block_response_body"
+        elif key == "customBlockResponseStatusCode":
+            suggest = "custom_block_response_status_code"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "redirectUrl":
+            suggest = "redirect_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorPolicySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorPolicySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorPolicySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_block_response_body: Optional[str] = None,
                  custom_block_response_status_code: Optional[int] = None,
@@ -441,9 +549,6 @@ class FrontDoorPolicySettingsResponse(dict):
         """
         return pulumi.get(self, "redirect_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontendEndpointLinkResponse(dict):
@@ -467,20 +572,34 @@ class FrontendEndpointLinkResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleSetListResponse(dict):
     """
     Defines the list of managed rule sets for the policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedRuleSets":
+            suggest = "managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetListResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_rule_sets: Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param Sequence['FrontDoorManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        :param Sequence['FrontDoorManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
@@ -492,8 +611,5 @@ class ManagedRuleSetListResponse(dict):
         List of rule sets.
         """
         return pulumi.get(self, "managed_rule_sets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

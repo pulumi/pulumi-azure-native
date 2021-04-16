@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['BillingRoleAssignmentByDepartmentArgs', 'BillingRoleAssignmentByDepartment']
 
@@ -157,9 +157,7 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  user_authentication_type: Optional[pulumi.Input[str]] = None,
                  user_email_address: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The role assignment
         API Version: 2019-10-01-preview.
@@ -208,15 +206,7 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  user_authentication_type: Optional[pulumi.Input[str]] = None,
                  user_email_address: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,27 +216,27 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BillingRoleAssignmentByDepartmentArgs.__new__(BillingRoleAssignmentByDepartmentArgs)
 
             if billing_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_name'")
-            __props__['billing_account_name'] = billing_account_name
-            __props__['billing_role_assignment_name'] = billing_role_assignment_name
+            __props__.__dict__["billing_account_name"] = billing_account_name
+            __props__.__dict__["billing_role_assignment_name"] = billing_role_assignment_name
             if department_name is None and not opts.urn:
                 raise TypeError("Missing required property 'department_name'")
-            __props__['department_name'] = department_name
-            __props__['principal_id'] = principal_id
-            __props__['principal_tenant_id'] = principal_tenant_id
-            __props__['role_definition_id'] = role_definition_id
-            __props__['user_authentication_type'] = user_authentication_type
-            __props__['user_email_address'] = user_email_address
-            __props__['created_by_principal_id'] = None
-            __props__['created_by_principal_tenant_id'] = None
-            __props__['created_by_user_email_address'] = None
-            __props__['created_on'] = None
-            __props__['name'] = None
-            __props__['scope'] = None
-            __props__['type'] = None
+            __props__.__dict__["department_name"] = department_name
+            __props__.__dict__["principal_id"] = principal_id
+            __props__.__dict__["principal_tenant_id"] = principal_tenant_id
+            __props__.__dict__["role_definition_id"] = role_definition_id
+            __props__.__dict__["user_authentication_type"] = user_authentication_type
+            __props__.__dict__["user_email_address"] = user_email_address
+            __props__.__dict__["created_by_principal_id"] = None
+            __props__.__dict__["created_by_principal_tenant_id"] = None
+            __props__.__dict__["created_by_user_email_address"] = None
+            __props__.__dict__["created_on"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["scope"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:billing:BillingRoleAssignmentByDepartment"), pulumi.Alias(type_="azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment"), pulumi.Alias(type_="azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByDepartment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BillingRoleAssignmentByDepartment, __self__).__init__(
@@ -269,20 +259,20 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BillingRoleAssignmentByDepartmentArgs.__new__(BillingRoleAssignmentByDepartmentArgs)
 
-        __props__["created_by_principal_id"] = None
-        __props__["created_by_principal_tenant_id"] = None
-        __props__["created_by_user_email_address"] = None
-        __props__["created_on"] = None
-        __props__["name"] = None
-        __props__["principal_id"] = None
-        __props__["principal_tenant_id"] = None
-        __props__["role_definition_id"] = None
-        __props__["scope"] = None
-        __props__["type"] = None
-        __props__["user_authentication_type"] = None
-        __props__["user_email_address"] = None
+        __props__.__dict__["created_by_principal_id"] = None
+        __props__.__dict__["created_by_principal_tenant_id"] = None
+        __props__.__dict__["created_by_user_email_address"] = None
+        __props__.__dict__["created_on"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["principal_id"] = None
+        __props__.__dict__["principal_tenant_id"] = None
+        __props__.__dict__["role_definition_id"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_authentication_type"] = None
+        __props__.__dict__["user_email_address"] = None
         return BillingRoleAssignmentByDepartment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -380,10 +370,4 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         """
         return pulumi.get(self, "user_email_address")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

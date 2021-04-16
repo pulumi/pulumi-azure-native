@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -24,6 +24,23 @@ class AuthorizationResponse(dict):
     """
     Authorization info used to access a resource (like code repository).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_type: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -52,9 +69,6 @@ class AuthorizationResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BootstrapConfigurationResponse(dict):
@@ -66,8 +80,8 @@ class BootstrapConfigurationResponse(dict):
                  repository: Optional['outputs.CodeRepositoryResponse'] = None):
         """
         Configuration used to bootstrap a Pipeline.
-        :param 'PipelineTemplateResponseArgs' template: Template used to bootstrap the pipeline.
-        :param 'CodeRepositoryResponseArgs' repository: Repository containing the source code for the pipeline.
+        :param 'PipelineTemplateResponse' template: Template used to bootstrap the pipeline.
+        :param 'CodeRepositoryResponse' repository: Repository containing the source code for the pipeline.
         """
         pulumi.set(__self__, "template", template)
         if repository is not None:
@@ -89,15 +103,31 @@ class BootstrapConfigurationResponse(dict):
         """
         return pulumi.get(self, "repository")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CodeRepositoryResponse(dict):
     """
     Repository containing the source code for a pipeline.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultBranch":
+            suggest = "default_branch"
+        elif key == "repositoryType":
+            suggest = "repository_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeRepositoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeRepositoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeRepositoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_branch: str,
                  id: str,
@@ -109,7 +139,7 @@ class CodeRepositoryResponse(dict):
         :param str default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
         :param str id: Unique immutable identifier of the code repository.
         :param str repository_type: Type of code repository.
-        :param 'AuthorizationResponseArgs' authorization: Authorization info to access the code repository.
+        :param 'AuthorizationResponse' authorization: Authorization info to access the code repository.
         :param Mapping[str, str] properties: Repository-specific properties.
         """
         pulumi.set(__self__, "default_branch", default_branch)
@@ -160,9 +190,6 @@ class CodeRepositoryResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrganizationReferenceResponse(dict):
@@ -195,9 +222,6 @@ class OrganizationReferenceResponse(dict):
         Name of the Azure DevOps Organization.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -233,9 +257,6 @@ class PipelineTemplateResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProjectReferenceResponse(dict):
@@ -268,8 +289,5 @@ class ProjectReferenceResponse(dict):
         Name of the Azure DevOps Project.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

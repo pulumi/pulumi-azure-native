@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -27,6 +27,27 @@ class ComplianceStatusResponse(dict):
     """
     Compliance Status details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceState":
+            suggest = "compliance_state"
+        elif key == "lastConfigApplied":
+            suggest = "last_config_applied"
+        elif key == "messageLevel":
+            suggest = "message_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComplianceStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComplianceStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComplianceStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compliance_state: str,
                  last_config_applied: Optional[str] = None,
@@ -79,15 +100,31 @@ class ComplianceStatusResponse(dict):
         """
         return pulumi.get(self, "message_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConfigurationIdentityResponse(dict):
     """
     Identity for the managed cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -127,9 +164,6 @@ class ConfigurationIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorDefinitionResponse(dict):
@@ -163,15 +197,29 @@ class ErrorDefinitionResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtensionStatusResponse(dict):
     """
     Status from this instance of the extension.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  display_status: Optional[str] = None,
@@ -239,15 +287,31 @@ class ExtensionStatusResponse(dict):
         """
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HelmOperatorPropertiesResponse(dict):
     """
     Properties for Helm operator.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chartValues":
+            suggest = "chart_values"
+        elif key == "chartVersion":
+            suggest = "chart_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmOperatorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmOperatorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmOperatorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  chart_values: Optional[str] = None,
                  chart_version: Optional[str] = None):
@@ -277,15 +341,29 @@ class HelmOperatorPropertiesResponse(dict):
         """
         return pulumi.get(self, "chart_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScopeClusterResponse(dict):
     """
     Specifies that the scope of the extensionInstance is Cluster
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "releaseNamespace":
+            suggest = "release_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  release_namespace: Optional[str] = None):
         """
@@ -303,15 +381,29 @@ class ScopeClusterResponse(dict):
         """
         return pulumi.get(self, "release_namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScopeNamespaceResponse(dict):
     """
     Specifies that the scope of the extensionInstance is Namespace
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetNamespace":
+            suggest = "target_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeNamespaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeNamespaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeNamespaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_namespace: Optional[str] = None):
         """
@@ -329,9 +421,6 @@ class ScopeNamespaceResponse(dict):
         """
         return pulumi.get(self, "target_namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScopeResponse(dict):
@@ -343,8 +432,8 @@ class ScopeResponse(dict):
                  namespace: Optional['outputs.ScopeNamespaceResponse'] = None):
         """
         Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
-        :param 'ScopeClusterResponseArgs' cluster: Specifies that the scope of the extensionInstance is Cluster
-        :param 'ScopeNamespaceResponseArgs' namespace: Specifies that the scope of the extensionInstance is Namespace
+        :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extensionInstance is Cluster
+        :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extensionInstance is Namespace
         """
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
@@ -367,15 +456,39 @@ class ScopeResponse(dict):
         """
         return pulumi.get(self, "namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -452,8 +565,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CloudEndpointArgs', 'CloudEndpoint']
 
@@ -156,9 +156,7 @@ class CloudEndpoint(pulumi.CustomResource):
                  storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Cloud Endpoint object.
         API Version: 2020-03-01.
@@ -207,15 +205,7 @@ class CloudEndpoint(pulumi.CustomResource):
                  storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,29 +215,29 @@ class CloudEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CloudEndpointArgs.__new__(CloudEndpointArgs)
 
-            __props__['azure_file_share_name'] = azure_file_share_name
-            __props__['cloud_endpoint_name'] = cloud_endpoint_name
-            __props__['friendly_name'] = friendly_name
+            __props__.__dict__["azure_file_share_name"] = azure_file_share_name
+            __props__.__dict__["cloud_endpoint_name"] = cloud_endpoint_name
+            __props__.__dict__["friendly_name"] = friendly_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_account_resource_id'] = storage_account_resource_id
-            __props__['storage_account_tenant_id'] = storage_account_tenant_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_account_resource_id"] = storage_account_resource_id
+            __props__.__dict__["storage_account_tenant_id"] = storage_account_tenant_id
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
-            __props__['storage_sync_service_name'] = storage_sync_service_name
+            __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
             if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
-            __props__['sync_group_name'] = sync_group_name
-            __props__['backup_enabled'] = None
-            __props__['last_operation_name'] = None
-            __props__['last_workflow_id'] = None
-            __props__['name'] = None
-            __props__['partnership_id'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["sync_group_name"] = sync_group_name
+            __props__.__dict__["backup_enabled"] = None
+            __props__.__dict__["last_operation_name"] = None
+            __props__.__dict__["last_workflow_id"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["partnership_id"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagesync:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20191001:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20191001:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200301:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200301:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200901:CloudEndpoint"), pulumi.Alias(type_="azure-nextgen:storagesync/v20200901:CloudEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudEndpoint, __self__).__init__(
@@ -270,19 +260,19 @@ class CloudEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CloudEndpointArgs.__new__(CloudEndpointArgs)
 
-        __props__["azure_file_share_name"] = None
-        __props__["backup_enabled"] = None
-        __props__["friendly_name"] = None
-        __props__["last_operation_name"] = None
-        __props__["last_workflow_id"] = None
-        __props__["name"] = None
-        __props__["partnership_id"] = None
-        __props__["provisioning_state"] = None
-        __props__["storage_account_resource_id"] = None
-        __props__["storage_account_tenant_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["azure_file_share_name"] = None
+        __props__.__dict__["backup_enabled"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["last_operation_name"] = None
+        __props__.__dict__["last_workflow_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["partnership_id"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["storage_account_resource_id"] = None
+        __props__.__dict__["storage_account_tenant_id"] = None
+        __props__.__dict__["type"] = None
         return CloudEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -372,10 +362,4 @@ class CloudEndpoint(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

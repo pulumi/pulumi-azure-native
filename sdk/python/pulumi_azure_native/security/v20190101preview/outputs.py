@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -32,6 +32,23 @@ class AssessmentLinksResponse(dict):
     """
     Links relevant to the assessment
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azurePortalUri":
+            suggest = "azure_portal_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentLinksResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentLinksResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentLinksResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_portal_uri: str):
         """
@@ -47,9 +64,6 @@ class AssessmentLinksResponse(dict):
         Link to assessment in Azure Portal
         """
         return pulumi.get(self, "azure_portal_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -97,15 +111,35 @@ class AssessmentStatusResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationActionEventHubResponse(dict):
     """
     The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "sasPolicyName":
+            suggest = "sas_policy_name"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "eventHubResourceId":
+            suggest = "event_hub_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationActionEventHubResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationActionEventHubResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationActionEventHubResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_type: str,
                  sas_policy_name: str,
@@ -159,15 +193,31 @@ class AutomationActionEventHubResponse(dict):
         """
         return pulumi.get(self, "event_hub_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationActionLogicAppResponse(dict):
     """
     The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "logicAppResourceId":
+            suggest = "logic_app_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationActionLogicAppResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationActionLogicAppResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationActionLogicAppResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_type: str,
                  logic_app_resource_id: Optional[str] = None,
@@ -210,15 +260,31 @@ class AutomationActionLogicAppResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationActionWorkspaceResponse(dict):
     """
     The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationActionWorkspaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationActionWorkspaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationActionWorkspaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_type: str,
                  workspace_resource_id: Optional[str] = None):
@@ -249,9 +315,6 @@ class AutomationActionWorkspaceResponse(dict):
         """
         return pulumi.get(self, "workspace_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRuleSetResponse(dict):
@@ -271,15 +334,29 @@ class AutomationRuleSetResponse(dict):
     def rules(self) -> Optional[Sequence['outputs.AutomationTriggeringRuleResponse']]:
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationScopeResponse(dict):
     """
     A single automation scope.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopePath":
+            suggest = "scope_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  scope_path: Optional[str] = None):
@@ -309,22 +386,38 @@ class AutomationScopeResponse(dict):
         """
         return pulumi.get(self, "scope_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationSourceResponse(dict):
     """
     The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSource":
+            suggest = "event_source"
+        elif key == "ruleSets":
+            suggest = "rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_source: Optional[str] = None,
                  rule_sets: Optional[Sequence['outputs.AutomationRuleSetResponse']] = None):
         """
         The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
         :param str event_source: A valid event source type.
-        :param Sequence['AutomationRuleSetResponseArgs'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        :param Sequence['AutomationRuleSetResponse'] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
@@ -347,15 +440,33 @@ class AutomationSourceResponse(dict):
         """
         return pulumi.get(self, "rule_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationTriggeringRuleResponse(dict):
     """
     A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "propertyJPath":
+            suggest = "property_j_path"
+        elif key == "propertyType":
+            suggest = "property_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationTriggeringRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationTriggeringRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationTriggeringRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expected_value: Optional[str] = None,
                  operator: Optional[str] = None,
@@ -409,9 +520,6 @@ class AutomationTriggeringRuleResponse(dict):
         """
         return pulumi.get(self, "property_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureResourceDetailsResponse(dict):
@@ -447,15 +555,33 @@ class AzureResourceDetailsResponse(dict):
         """
         return pulumi.get(self, "source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OnPremiseResourceDetailsResponse(dict):
     """
     Details of the On Premise resource that was assessed
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "machineName":
+            suggest = "machine_name"
+        elif key == "sourceComputerId":
+            suggest = "source_computer_id"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnPremiseResourceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnPremiseResourceDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnPremiseResourceDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  machine_name: str,
                  source: str,
@@ -518,15 +644,37 @@ class OnPremiseResourceDetailsResponse(dict):
         """
         return pulumi.get(self, "workspace_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OnPremiseSqlResourceDetailsResponse(dict):
     """
     Details of the On Premise Sql resource that was assessed
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "machineName":
+            suggest = "machine_name"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sourceComputerId":
+            suggest = "source_computer_id"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnPremiseSqlResourceDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnPremiseSqlResourceDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnPremiseSqlResourceDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  machine_name: str,
@@ -611,9 +759,6 @@ class OnPremiseSqlResourceDetailsResponse(dict):
         """
         return pulumi.get(self, "workspace_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScopeElementResponse(dict):
@@ -637,16 +782,30 @@ class ScopeElementResponse(dict):
         """
         return pulumi.get(self, "field")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SuppressionAlertsScopeResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allOf":
+            suggest = "all_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SuppressionAlertsScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SuppressionAlertsScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SuppressionAlertsScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  all_of: Sequence['outputs.ScopeElementResponse']):
         """
-        :param Sequence['ScopeElementResponseArgs'] all_of: All the conditions inside need to be true in order to suppress the alert
+        :param Sequence['ScopeElementResponse'] all_of: All the conditions inside need to be true in order to suppress the alert
         """
         pulumi.set(__self__, "all_of", all_of)
 
@@ -657,8 +816,5 @@ class SuppressionAlertsScopeResponse(dict):
         All the conditions inside need to be true in order to suppress the alert
         """
         return pulumi.get(self, "all_of")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

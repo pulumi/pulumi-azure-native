@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -142,9 +142,7 @@ class BlobContainer(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_access: Optional[pulumi.Input['PublicAccess']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
 
@@ -189,15 +187,7 @@ class BlobContainer(pulumi.CustomResource):
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_access: Optional[pulumi.Input['PublicAccess']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,34 +197,34 @@ class BlobContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BlobContainerArgs.__new__(BlobContainerArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['container_name'] = container_name
-            __props__['default_encryption_scope'] = default_encryption_scope
-            __props__['deny_encryption_scope_override'] = deny_encryption_scope_override
-            __props__['metadata'] = metadata
-            __props__['public_access'] = public_access
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["container_name"] = container_name
+            __props__.__dict__["default_encryption_scope"] = default_encryption_scope
+            __props__.__dict__["deny_encryption_scope_override"] = deny_encryption_scope_override
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["public_access"] = public_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['deleted'] = None
-            __props__['deleted_time'] = None
-            __props__['etag'] = None
-            __props__['has_immutability_policy'] = None
-            __props__['has_legal_hold'] = None
-            __props__['immutability_policy'] = None
-            __props__['last_modified_time'] = None
-            __props__['lease_duration'] = None
-            __props__['lease_state'] = None
-            __props__['lease_status'] = None
-            __props__['legal_hold'] = None
-            __props__['name'] = None
-            __props__['remaining_retention_days'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["deleted"] = None
+            __props__.__dict__["deleted_time"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["has_immutability_policy"] = None
+            __props__.__dict__["has_legal_hold"] = None
+            __props__.__dict__["immutability_policy"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["lease_duration"] = None
+            __props__.__dict__["lease_state"] = None
+            __props__.__dict__["lease_status"] = None
+            __props__.__dict__["legal_hold"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["remaining_retention_days"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobContainer"), pulumi.Alias(type_="azure-native:storage:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180201:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180301preview:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainer"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:BlobContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobContainer, __self__).__init__(
@@ -257,27 +247,27 @@ class BlobContainer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BlobContainerArgs.__new__(BlobContainerArgs)
 
-        __props__["default_encryption_scope"] = None
-        __props__["deleted"] = None
-        __props__["deleted_time"] = None
-        __props__["deny_encryption_scope_override"] = None
-        __props__["etag"] = None
-        __props__["has_immutability_policy"] = None
-        __props__["has_legal_hold"] = None
-        __props__["immutability_policy"] = None
-        __props__["last_modified_time"] = None
-        __props__["lease_duration"] = None
-        __props__["lease_state"] = None
-        __props__["lease_status"] = None
-        __props__["legal_hold"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["public_access"] = None
-        __props__["remaining_retention_days"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["default_encryption_scope"] = None
+        __props__.__dict__["deleted"] = None
+        __props__.__dict__["deleted_time"] = None
+        __props__.__dict__["deny_encryption_scope_override"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["has_immutability_policy"] = None
+        __props__.__dict__["has_legal_hold"] = None
+        __props__.__dict__["immutability_policy"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["lease_duration"] = None
+        __props__.__dict__["lease_state"] = None
+        __props__.__dict__["lease_status"] = None
+        __props__.__dict__["legal_hold"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["public_access"] = None
+        __props__.__dict__["remaining_retention_days"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return BlobContainer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -431,10 +421,4 @@ class BlobContainer(pulumi.CustomResource):
         The version of the deleted blob container.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

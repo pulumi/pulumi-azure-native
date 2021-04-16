@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -177,9 +177,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         IpConfigurations.
 
@@ -228,15 +226,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,24 +236,24 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualHubIpConfigurationArgs.__new__(VirtualHubIpConfigurationArgs)
 
-            __props__['id'] = id
-            __props__['ip_config_name'] = ip_config_name
-            __props__['name'] = name
-            __props__['private_ip_address'] = private_ip_address
-            __props__['private_ip_allocation_method'] = private_ip_allocation_method
-            __props__['public_ip_address'] = public_ip_address
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ip_config_name"] = ip_config_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["private_ip_address"] = private_ip_address
+            __props__.__dict__["private_ip_allocation_method"] = private_ip_allocation_method
+            __props__.__dict__["public_ip_address"] = public_ip_address
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['subnet'] = subnet
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subnet"] = subnet
             if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
-            __props__['virtual_hub_name'] = virtual_hub_name
-            __props__['etag'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["virtual_hub_name"] = virtual_hub_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubIpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubIpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubIpConfiguration, __self__).__init__(
@@ -286,16 +276,16 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualHubIpConfigurationArgs.__new__(VirtualHubIpConfigurationArgs)
 
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["private_ip_address"] = None
-        __props__["private_ip_allocation_method"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_ip_address"] = None
-        __props__["subnet"] = None
-        __props__["type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["private_ip_address"] = None
+        __props__.__dict__["private_ip_allocation_method"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_ip_address"] = None
+        __props__.__dict__["subnet"] = None
+        __props__.__dict__["type"] = None
         return VirtualHubIpConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -361,10 +351,4 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         Ipconfiguration type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

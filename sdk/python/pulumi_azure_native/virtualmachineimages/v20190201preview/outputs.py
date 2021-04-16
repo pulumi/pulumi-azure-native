@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = [
     'ImageTemplateIsoSourceResponse',
@@ -27,6 +27,25 @@ class ImageTemplateIsoSourceResponse(dict):
     """
     Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sha256Checksum":
+            suggest = "sha256_checksum"
+        elif key == "sourceURI":
+            suggest = "source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateIsoSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateIsoSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateIsoSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sha256_checksum: str,
                  source_uri: str,
@@ -67,12 +86,32 @@ class ImageTemplateIsoSourceResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplateLastRunStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "runState":
+            suggest = "run_state"
+        elif key == "runSubState":
+            suggest = "run_sub_state"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateLastRunStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateLastRunStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateLastRunStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_time: Optional[str] = None,
                  message: Optional[str] = None,
@@ -137,15 +176,33 @@ class ImageTemplateLastRunStatusResponse(dict):
         """
         return pulumi.get(self, "start_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplateManagedImageDistributorResponse(dict):
     """
     Distribute as a Managed Disk Image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageId":
+            suggest = "image_id"
+        elif key == "runOutputName":
+            suggest = "run_output_name"
+        elif key == "artifactTags":
+            suggest = "artifact_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateManagedImageDistributorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateManagedImageDistributorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateManagedImageDistributorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_id: str,
                  location: str,
@@ -209,15 +266,29 @@ class ImageTemplateManagedImageDistributorResponse(dict):
         """
         return pulumi.get(self, "artifact_tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplateManagedImageSourceResponse(dict):
     """
     Describes an image source that is a managed image in customer subscription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageId":
+            suggest = "image_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateManagedImageSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateManagedImageSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateManagedImageSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_id: str,
                  type: str):
@@ -246,9 +317,6 @@ class ImageTemplateManagedImageSourceResponse(dict):
         Expected value is 'ManagedImage'.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -322,15 +390,29 @@ class ImageTemplatePlatformImageSourceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplatePowerShellCustomizerResponse(dict):
     """
     Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'script' or 'inline' can be specified.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validExitCodes":
+            suggest = "valid_exit_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplatePowerShellCustomizerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplatePowerShellCustomizerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplatePowerShellCustomizerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  inline: Optional[Sequence[str]] = None,
@@ -397,15 +479,33 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
         """
         return pulumi.get(self, "valid_exit_codes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplateRestartCustomizerResponse(dict):
     """
     Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restartCheckCommand":
+            suggest = "restart_check_command"
+        elif key == "restartCommand":
+            suggest = "restart_command"
+        elif key == "restartTimeout":
+            suggest = "restart_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateRestartCustomizerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateRestartCustomizerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateRestartCustomizerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  name: Optional[str] = None,
@@ -472,15 +572,35 @@ class ImageTemplateRestartCustomizerResponse(dict):
         """
         return pulumi.get(self, "restart_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplateSharedImageDistributorResponse(dict):
     """
     Distribute via Shared Image Gallery.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "galleryImageId":
+            suggest = "gallery_image_id"
+        elif key == "replicationRegions":
+            suggest = "replication_regions"
+        elif key == "runOutputName":
+            suggest = "run_output_name"
+        elif key == "artifactTags":
+            suggest = "artifact_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateSharedImageDistributorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateSharedImageDistributorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateSharedImageDistributorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  gallery_image_id: str,
                  replication_regions: Sequence[str],
@@ -539,9 +659,6 @@ class ImageTemplateSharedImageDistributorResponse(dict):
         Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
         return pulumi.get(self, "artifact_tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -603,15 +720,31 @@ class ImageTemplateShellCustomizerResponse(dict):
         """
         return pulumi.get(self, "script")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageTemplateVhdDistributorResponse(dict):
     """
     Distribute via VHD in a storage account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runOutputName":
+            suggest = "run_output_name"
+        elif key == "artifactTags":
+            suggest = "artifact_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplateVhdDistributorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplateVhdDistributorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplateVhdDistributorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  run_output_name: str,
                  type: str,
@@ -653,12 +786,26 @@ class ImageTemplateVhdDistributorResponse(dict):
         """
         return pulumi.get(self, "artifact_tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProvisioningErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningErrorCode":
+            suggest = "provisioning_error_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProvisioningErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProvisioningErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProvisioningErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  message: Optional[str] = None,
                  provisioning_error_code: Optional[str] = None):
@@ -686,8 +833,5 @@ class ProvisioningErrorResponse(dict):
         Error code of the provisioning failure
         """
         return pulumi.get(self, "provisioning_error_code")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

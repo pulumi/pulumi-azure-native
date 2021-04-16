@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['OriginArgs', 'Origin']
 
@@ -206,9 +206,7 @@ class Origin(pulumi.CustomResource):
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
@@ -261,15 +259,7 @@ class Origin(pulumi.CustomResource):
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,31 +269,31 @@ class Origin(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OriginArgs.__new__(OriginArgs)
 
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
-            __props__['endpoint_name'] = endpoint_name
+            __props__.__dict__["endpoint_name"] = endpoint_name
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
-            __props__['host_name'] = host_name
-            __props__['http_port'] = http_port
-            __props__['https_port'] = https_port
-            __props__['origin_host_header'] = origin_host_header
-            __props__['origin_name'] = origin_name
-            __props__['priority'] = priority
+            __props__.__dict__["host_name"] = host_name
+            __props__.__dict__["http_port"] = http_port
+            __props__.__dict__["https_port"] = https_port
+            __props__.__dict__["origin_host_header"] = origin_host_header
+            __props__.__dict__["origin_name"] = origin_name
+            __props__.__dict__["priority"] = priority
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
+            __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['weight'] = weight
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["weight"] = weight
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-native:cdn:Origin"), pulumi.Alias(type_="azure-nextgen:cdn:Origin"), pulumi.Alias(type_="azure-native:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-native:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-native:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200901:Origin"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:Origin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Origin, __self__).__init__(
@@ -326,19 +316,19 @@ class Origin(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OriginArgs.__new__(OriginArgs)
 
-        __props__["enabled"] = None
-        __props__["host_name"] = None
-        __props__["http_port"] = None
-        __props__["https_port"] = None
-        __props__["name"] = None
-        __props__["origin_host_header"] = None
-        __props__["priority"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_state"] = None
-        __props__["type"] = None
-        __props__["weight"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["host_name"] = None
+        __props__.__dict__["http_port"] = None
+        __props__.__dict__["https_port"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["origin_host_header"] = None
+        __props__.__dict__["priority"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_state"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["weight"] = None
         return Origin(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -428,10 +418,4 @@ class Origin(pulumi.CustomResource):
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         return pulumi.get(self, "weight")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

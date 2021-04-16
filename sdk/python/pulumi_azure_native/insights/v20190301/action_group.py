@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -296,9 +296,7 @@ class ActionGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceReceiverArgs']]]]] = None,
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookReceiverArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An action group resource.
 
@@ -361,15 +359,7 @@ class ActionGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceReceiverArgs']]]]] = None,
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookReceiverArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,36 +369,36 @@ class ActionGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ActionGroupArgs.__new__(ActionGroupArgs)
 
-            __props__['action_group_name'] = action_group_name
-            __props__['arm_role_receivers'] = arm_role_receivers
-            __props__['automation_runbook_receivers'] = automation_runbook_receivers
-            __props__['azure_app_push_receivers'] = azure_app_push_receivers
-            __props__['azure_function_receivers'] = azure_function_receivers
-            __props__['email_receivers'] = email_receivers
+            __props__.__dict__["action_group_name"] = action_group_name
+            __props__.__dict__["arm_role_receivers"] = arm_role_receivers
+            __props__.__dict__["automation_runbook_receivers"] = automation_runbook_receivers
+            __props__.__dict__["azure_app_push_receivers"] = azure_app_push_receivers
+            __props__.__dict__["azure_function_receivers"] = azure_function_receivers
+            __props__.__dict__["email_receivers"] = email_receivers
             if enabled is None:
                 enabled = True
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if group_short_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_short_name'")
-            __props__['group_short_name'] = group_short_name
-            __props__['itsm_receivers'] = itsm_receivers
-            __props__['location'] = location
-            __props__['logic_app_receivers'] = logic_app_receivers
+            __props__.__dict__["group_short_name"] = group_short_name
+            __props__.__dict__["itsm_receivers"] = itsm_receivers
+            __props__.__dict__["location"] = location
+            __props__.__dict__["logic_app_receivers"] = logic_app_receivers
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sms_receivers'] = sms_receivers
-            __props__['tags'] = tags
-            __props__['voice_receivers'] = voice_receivers
-            __props__['webhook_receivers'] = webhook_receivers
-            __props__['identity'] = None
-            __props__['kind'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sms_receivers"] = sms_receivers
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["voice_receivers"] = voice_receivers
+            __props__.__dict__["webhook_receivers"] = webhook_receivers
+            __props__.__dict__["identity"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-native:insights:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190601:ActionGroup"), pulumi.Alias(type_="azure-nextgen:insights/v20190601:ActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActionGroup, __self__).__init__(
@@ -431,26 +421,26 @@ class ActionGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ActionGroupArgs.__new__(ActionGroupArgs)
 
-        __props__["arm_role_receivers"] = None
-        __props__["automation_runbook_receivers"] = None
-        __props__["azure_app_push_receivers"] = None
-        __props__["azure_function_receivers"] = None
-        __props__["email_receivers"] = None
-        __props__["enabled"] = None
-        __props__["group_short_name"] = None
-        __props__["identity"] = None
-        __props__["itsm_receivers"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["logic_app_receivers"] = None
-        __props__["name"] = None
-        __props__["sms_receivers"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["voice_receivers"] = None
-        __props__["webhook_receivers"] = None
+        __props__.__dict__["arm_role_receivers"] = None
+        __props__.__dict__["automation_runbook_receivers"] = None
+        __props__.__dict__["azure_app_push_receivers"] = None
+        __props__.__dict__["azure_function_receivers"] = None
+        __props__.__dict__["email_receivers"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["group_short_name"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["itsm_receivers"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["logic_app_receivers"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["sms_receivers"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["voice_receivers"] = None
+        __props__.__dict__["webhook_receivers"] = None
         return ActionGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -596,10 +586,4 @@ class ActionGroup(pulumi.CustomResource):
         The list of webhook receivers that are part of this action group.
         """
         return pulumi.get(self, "webhook_receivers")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

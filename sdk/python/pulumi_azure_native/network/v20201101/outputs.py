@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -17,8 +17,8 @@ __all__ = [
     'ApplicationGatewayAutoscaleConfigurationResponse',
     'ApplicationGatewayBackendAddressPoolResponse',
     'ApplicationGatewayBackendAddressResponse',
-    'ApplicationGatewayBackendHealthHttpSettingsResponseResult',
-    'ApplicationGatewayBackendHealthServerResponseResult',
+    'ApplicationGatewayBackendHealthHttpSettingsResponse',
+    'ApplicationGatewayBackendHealthServerResponse',
     'ApplicationGatewayBackendHttpSettingsResponse',
     'ApplicationGatewayClientAuthConfigurationResponse',
     'ApplicationGatewayConnectionDrainingResponse',
@@ -68,10 +68,10 @@ __all__ = [
     'AzureFirewallRCActionResponse',
     'AzureFirewallSkuResponse',
     'BackendAddressPoolResponse',
-    'BastionActiveSessionResponseResult',
+    'BastionActiveSessionResponse',
     'BastionHostIPConfigurationResponse',
-    'BastionShareableLinkResponseResult',
-    'BgpPeerStatusResponseResult',
+    'BastionShareableLinkResponse',
+    'BgpPeerStatusResponse',
     'BgpSettingsResponse',
     'BreakOutCategoryPoliciesResponse',
     'ConnectionMonitorDestinationResponse',
@@ -142,7 +142,7 @@ __all__ = [
     'FrontDoorPolicySettingsResponse',
     'FrontendEndpointLinkResponse',
     'FrontendIPConfigurationResponse',
-    'GatewayRouteResponseResult',
+    'GatewayRouteResponse',
     'HTTPHeaderResponse',
     'HubIPAddressesResponse',
     'HubPublicIPAddressesResponse',
@@ -231,7 +231,7 @@ __all__ = [
     'TrafficAnalyticsPropertiesResponse',
     'TrafficSelectorPolicyResponse',
     'TunnelConnectionHealthResponse',
-    'VMResponseResult',
+    'VMResponse',
     'VirtualApplianceNicPropertiesResponse',
     'VirtualApplianceSkuPropertiesResponse',
     'VirtualHubIdResponse',
@@ -247,7 +247,7 @@ __all__ = [
     'VirtualNetworkTapResponse',
     'VnetRouteResponse',
     'VpnClientConfigurationResponse',
-    'VpnClientConnectionHealthDetailResponseResult',
+    'VpnClientConnectionHealthDetailResponse',
     'VpnClientConnectionHealthResponse',
     'VpnClientRevokedCertificateResponse',
     'VpnClientRootCertificateResponse',
@@ -271,6 +271,27 @@ class AadAuthenticationParametersResponse(dict):
     """
     AAD Vpn authentication type related parameters.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadAudience":
+            suggest = "aad_audience"
+        elif key == "aadIssuer":
+            suggest = "aad_issuer"
+        elif key == "aadTenant":
+            suggest = "aad_tenant"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AadAuthenticationParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AadAuthenticationParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AadAuthenticationParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aad_audience: Optional[str] = None,
                  aad_issuer: Optional[str] = None,
@@ -312,15 +333,29 @@ class AadAuthenticationParametersResponse(dict):
         """
         return pulumi.get(self, "aad_tenant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AddressSpaceResponse(dict):
     """
     AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressSpaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressSpaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressSpaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefixes: Optional[Sequence[str]] = None):
         """
@@ -338,15 +373,29 @@ class AddressSpaceResponse(dict):
         """
         return pulumi.get(self, "address_prefixes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayAuthenticationCertificateResponse(dict):
     """
     Authentication certificates of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayAuthenticationCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayAuthenticationCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayAuthenticationCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -421,15 +470,31 @@ class ApplicationGatewayAuthenticationCertificateResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayAutoscaleConfigurationResponse(dict):
     """
     Application Gateway autoscale configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minCapacity":
+            suggest = "min_capacity"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayAutoscaleConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayAutoscaleConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayAutoscaleConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  min_capacity: int,
                  max_capacity: Optional[int] = None):
@@ -458,15 +523,33 @@ class ApplicationGatewayAutoscaleConfigurationResponse(dict):
         """
         return pulumi.get(self, "max_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayBackendAddressPoolResponse(dict):
     """
     Backend Address Pool of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfigurations":
+            suggest = "backend_ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddresses":
+            suggest = "backend_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendAddressPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendAddressPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_ip_configurations: Sequence['outputs.NetworkInterfaceIPConfigurationResponse'],
                  etag: str,
@@ -477,11 +560,11 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
                  name: Optional[str] = None):
         """
         Backend Address Pool of an application gateway.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: Collection of references to IPs defined in network interfaces.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: Collection of references to IPs defined in network interfaces.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the backend address pool resource.
         :param str type: Type of the resource.
-        :param Sequence['ApplicationGatewayBackendAddressResponseArgs'] backend_addresses: Backend addresses.
+        :param Sequence['ApplicationGatewayBackendAddressResponse'] backend_addresses: Backend addresses.
         :param str id: Resource ID.
         :param str name: Name of the backend address pool that is unique within an Application Gateway.
         """
@@ -552,15 +635,29 @@ class ApplicationGatewayBackendAddressPoolResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayBackendAddressResponse(dict):
     """
     Backend address of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  ip_address: Optional[str] = None):
@@ -590,22 +687,19 @@ class ApplicationGatewayBackendAddressResponse(dict):
         """
         return pulumi.get(self, "ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
+class ApplicationGatewayBackendHealthHttpSettingsResponse(dict):
     """
     Application gateway BackendHealthHttp settings.
     """
     def __init__(__self__, *,
                  backend_http_settings: Optional['outputs.ApplicationGatewayBackendHttpSettingsResponse'] = None,
-                 servers: Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponseResult']] = None):
+                 servers: Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponse']] = None):
         """
         Application gateway BackendHealthHttp settings.
-        :param 'ApplicationGatewayBackendHttpSettingsResponseArgs' backend_http_settings: Reference to an ApplicationGatewayBackendHttpSettings resource.
-        :param Sequence['ApplicationGatewayBackendHealthServerResponseArgs'] servers: List of ApplicationGatewayBackendHealthServer resources.
+        :param 'ApplicationGatewayBackendHttpSettingsResponse' backend_http_settings: Reference to an ApplicationGatewayBackendHttpSettings resource.
+        :param Sequence['ApplicationGatewayBackendHealthServerResponse'] servers: List of ApplicationGatewayBackendHealthServer resources.
         """
         if backend_http_settings is not None:
             pulumi.set(__self__, "backend_http_settings", backend_http_settings)
@@ -622,7 +716,7 @@ class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
 
     @property
     @pulumi.getter
-    def servers(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponseResult']]:
+    def servers(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHealthServerResponse']]:
         """
         List of ApplicationGatewayBackendHealthServer resources.
         """
@@ -630,7 +724,7 @@ class ApplicationGatewayBackendHealthHttpSettingsResponseResult(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendHealthServerResponseResult(dict):
+class ApplicationGatewayBackendHealthServerResponse(dict):
     """
     Application gateway backendhealth http settings.
     """
@@ -644,7 +738,7 @@ class ApplicationGatewayBackendHealthServerResponseResult(dict):
         :param str address: IP address or FQDN of backend server.
         :param str health: Health of backend server.
         :param str health_probe_log: Health Probe Log.
-        :param 'NetworkInterfaceIPConfigurationResponseArgs' ip_configuration: Reference to IP configuration of backend server.
+        :param 'NetworkInterfaceIPConfigurationResponse' ip_configuration: Reference to IP configuration of backend server.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -693,6 +787,41 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
     """
     Backend address pool settings of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "affinityCookieName":
+            suggest = "affinity_cookie_name"
+        elif key == "authenticationCertificates":
+            suggest = "authentication_certificates"
+        elif key == "connectionDraining":
+            suggest = "connection_draining"
+        elif key == "cookieBasedAffinity":
+            suggest = "cookie_based_affinity"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "pickHostNameFromBackendAddress":
+            suggest = "pick_host_name_from_backend_address"
+        elif key == "probeEnabled":
+            suggest = "probe_enabled"
+        elif key == "requestTimeout":
+            suggest = "request_timeout"
+        elif key == "trustedRootCertificates":
+            suggest = "trusted_root_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendHttpSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendHttpSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendHttpSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -718,8 +847,8 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
         :param str provisioning_state: The provisioning state of the backend HTTP settings resource.
         :param str type: Type of the resource.
         :param str affinity_cookie_name: Cookie name to use for the affinity cookie.
-        :param Sequence['SubResourceResponseArgs'] authentication_certificates: Array of references to application gateway authentication certificates.
-        :param 'ApplicationGatewayConnectionDrainingResponseArgs' connection_draining: Connection draining of the backend http settings resource.
+        :param Sequence['SubResourceResponse'] authentication_certificates: Array of references to application gateway authentication certificates.
+        :param 'ApplicationGatewayConnectionDrainingResponse' connection_draining: Connection draining of the backend http settings resource.
         :param str cookie_based_affinity: Cookie based affinity.
         :param str host_name: Host header to be sent to the backend servers.
         :param str id: Resource ID.
@@ -727,11 +856,11 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
         :param str path: Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
         :param bool pick_host_name_from_backend_address: Whether to pick host header should be picked from the host name of the backend server. Default value is false.
         :param int port: The destination port on the backend.
-        :param 'SubResourceResponseArgs' probe: Probe resource of an application gateway.
+        :param 'SubResourceResponse' probe: Probe resource of an application gateway.
         :param bool probe_enabled: Whether the probe is enabled. Default value is false.
         :param str protocol: The protocol used to communicate with the backend.
         :param int request_timeout: Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
-        :param Sequence['SubResourceResponseArgs'] trusted_root_certificates: Array of references to application gateway trusted root certificates.
+        :param Sequence['SubResourceResponse'] trusted_root_certificates: Array of references to application gateway trusted root certificates.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -911,15 +1040,29 @@ class ApplicationGatewayBackendHttpSettingsResponse(dict):
         """
         return pulumi.get(self, "trusted_root_certificates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayClientAuthConfigurationResponse(dict):
     """
     Application gateway client authentication configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "verifyClientCertIssuerDN":
+            suggest = "verify_client_cert_issuer_dn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayClientAuthConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayClientAuthConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayClientAuthConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  verify_client_cert_issuer_dn: Optional[bool] = None):
         """
@@ -937,15 +1080,29 @@ class ApplicationGatewayClientAuthConfigurationResponse(dict):
         """
         return pulumi.get(self, "verify_client_cert_issuer_dn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayConnectionDrainingResponse(dict):
     """
     Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "drainTimeoutInSec":
+            suggest = "drain_timeout_in_sec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayConnectionDrainingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayConnectionDrainingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayConnectionDrainingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  drain_timeout_in_sec: int,
                  enabled: bool):
@@ -973,15 +1130,31 @@ class ApplicationGatewayConnectionDrainingResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayCustomErrorResponse(dict):
     """
     Customer error of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customErrorPageUrl":
+            suggest = "custom_error_page_url"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayCustomErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayCustomErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayCustomErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_error_page_url: Optional[str] = None,
                  status_code: Optional[str] = None):
@@ -1011,15 +1184,29 @@ class ApplicationGatewayCustomErrorResponse(dict):
         """
         return pulumi.get(self, "status_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayFirewallDisabledRuleGroupResponse(dict):
     """
     Allows to disable rules within a rule group or an entire rule group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFirewallDisabledRuleGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFirewallDisabledRuleGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFirewallDisabledRuleGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_group_name: str,
                  rules: Optional[Sequence[int]] = None):
@@ -1048,15 +1235,31 @@ class ApplicationGatewayFirewallDisabledRuleGroupResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayFirewallExclusionResponse(dict):
     """
     Allow to exclude some variable satisfy the condition for the WAF check.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFirewallExclusionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFirewallExclusionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFirewallExclusionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  selector: str,
@@ -1095,15 +1298,37 @@ class ApplicationGatewayFirewallExclusionResponse(dict):
         """
         return pulumi.get(self, "selector_match_operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayFrontendIPConfigurationResponse(dict):
     """
     Frontend IP configuration of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "privateLinkConfiguration":
+            suggest = "private_link_configuration"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFrontendIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFrontendIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFrontendIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1124,9 +1349,9 @@ class ApplicationGatewayFrontendIPConfigurationResponse(dict):
         :param str name: Name of the frontend IP configuration that is unique within an Application Gateway.
         :param str private_ip_address: PrivateIPAddress of the network interface IP Configuration.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'SubResourceResponseArgs' private_link_configuration: Reference to the application gateway private link configuration.
-        :param 'SubResourceResponseArgs' public_ip_address: Reference to the PublicIP resource.
-        :param 'SubResourceResponseArgs' subnet: Reference to the subnet resource.
+        :param 'SubResourceResponse' private_link_configuration: Reference to the application gateway private link configuration.
+        :param 'SubResourceResponse' public_ip_address: Reference to the PublicIP resource.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1226,15 +1451,29 @@ class ApplicationGatewayFrontendIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayFrontendPortResponse(dict):
     """
     Frontend port of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFrontendPortResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFrontendPortResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFrontendPortResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1309,15 +1548,31 @@ class ApplicationGatewayFrontendPortResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayHeaderConfigurationResponse(dict):
     """
     Header configuration of the Actions set in Application Gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayHeaderConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayHeaderConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayHeaderConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_name: Optional[str] = None,
                  header_value: Optional[str] = None):
@@ -1347,15 +1602,47 @@ class ApplicationGatewayHeaderConfigurationResponse(dict):
         """
         return pulumi.get(self, "header_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayHttpListenerResponse(dict):
     """
     Http listener of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "customErrorConfigurations":
+            suggest = "custom_error_configurations"
+        elif key == "firewallPolicy":
+            suggest = "firewall_policy"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "hostNames":
+            suggest = "host_names"
+        elif key == "requireServerNameIndication":
+            suggest = "require_server_name_indication"
+        elif key == "sslCertificate":
+            suggest = "ssl_certificate"
+        elif key == "sslProfile":
+            suggest = "ssl_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayHttpListenerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayHttpListenerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayHttpListenerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1377,18 +1664,18 @@ class ApplicationGatewayHttpListenerResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the HTTP listener resource.
         :param str type: Type of the resource.
-        :param Sequence['ApplicationGatewayCustomErrorResponseArgs'] custom_error_configurations: Custom error configurations of the HTTP listener.
-        :param 'SubResourceResponseArgs' firewall_policy: Reference to the FirewallPolicy resource.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: Frontend IP configuration resource of an application gateway.
-        :param 'SubResourceResponseArgs' frontend_port: Frontend port resource of an application gateway.
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the HTTP listener.
+        :param 'SubResourceResponse' firewall_policy: Reference to the FirewallPolicy resource.
+        :param 'SubResourceResponse' frontend_ip_configuration: Frontend IP configuration resource of an application gateway.
+        :param 'SubResourceResponse' frontend_port: Frontend port resource of an application gateway.
         :param str host_name: Host name of HTTP listener.
         :param Sequence[str] host_names: List of Host names for HTTP Listener that allows special wildcard characters as well.
         :param str id: Resource ID.
         :param str name: Name of the HTTP listener that is unique within an Application Gateway.
         :param str protocol: Protocol of the HTTP listener.
         :param bool require_server_name_indication: Applicable only if protocol is https. Enables SNI for multi-hosting.
-        :param 'SubResourceResponseArgs' ssl_certificate: SSL certificate resource of an application gateway.
-        :param 'SubResourceResponseArgs' ssl_profile: SSL profile resource of the application gateway.
+        :param 'SubResourceResponse' ssl_certificate: SSL certificate resource of an application gateway.
+        :param 'SubResourceResponse' ssl_profile: SSL profile resource of the application gateway.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1538,15 +1825,29 @@ class ApplicationGatewayHttpListenerResponse(dict):
         """
         return pulumi.get(self, "ssl_profile")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayIPConfigurationResponse(dict):
     """
     IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1561,7 +1862,7 @@ class ApplicationGatewayIPConfigurationResponse(dict):
         :param str type: Type of the resource.
         :param str id: Resource ID.
         :param str name: Name of the IP configuration that is unique within an Application Gateway.
-        :param 'SubResourceResponseArgs' subnet: Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource. A subnet from where application gateway gets its private address.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1621,15 +1922,39 @@ class ApplicationGatewayIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayPathRuleResponse(dict):
     """
     Path rule of URL path map of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendHttpSettings":
+            suggest = "backend_http_settings"
+        elif key == "firewallPolicy":
+            suggest = "firewall_policy"
+        elif key == "redirectConfiguration":
+            suggest = "redirect_configuration"
+        elif key == "rewriteRuleSet":
+            suggest = "rewrite_rule_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPathRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPathRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPathRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1647,14 +1972,14 @@ class ApplicationGatewayPathRuleResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the path rule resource.
         :param str type: Type of the resource.
-        :param 'SubResourceResponseArgs' backend_address_pool: Backend address pool resource of URL path map path rule.
-        :param 'SubResourceResponseArgs' backend_http_settings: Backend http settings resource of URL path map path rule.
-        :param 'SubResourceResponseArgs' firewall_policy: Reference to the FirewallPolicy resource.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of URL path map path rule.
+        :param 'SubResourceResponse' backend_http_settings: Backend http settings resource of URL path map path rule.
+        :param 'SubResourceResponse' firewall_policy: Reference to the FirewallPolicy resource.
         :param str id: Resource ID.
         :param str name: Name of the path rule that is unique within an Application Gateway.
         :param Sequence[str] paths: Path rules of URL path map.
-        :param 'SubResourceResponseArgs' redirect_configuration: Redirect configuration resource of URL path map path rule.
-        :param 'SubResourceResponseArgs' rewrite_rule_set: Rewrite rule set resource of URL path map path rule.
+        :param 'SubResourceResponse' redirect_configuration: Redirect configuration resource of URL path map path rule.
+        :param 'SubResourceResponse' rewrite_rule_set: Rewrite rule set resource of URL path map path rule.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -1764,15 +2089,35 @@ class ApplicationGatewayPathRuleResponse(dict):
         """
         return pulumi.get(self, "rewrite_rule_set")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayPrivateEndpointConnectionResponse(dict):
     """
     Private Endpoint connection on an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  link_identifier: str,
@@ -1786,12 +2131,12 @@ class ApplicationGatewayPrivateEndpointConnectionResponse(dict):
         Private Endpoint connection on an application gateway.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str link_identifier: The consumer link id.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         :param str provisioning_state: The provisioning state of the application gateway private endpoint connection resource.
         :param str type: Type of the resource.
         :param str id: Resource ID.
         :param str name: Name of the private endpoint connection on an application gateway.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "link_identifier", link_identifier)
@@ -1869,15 +2214,31 @@ class ApplicationGatewayPrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayPrivateLinkConfigurationResponse(dict):
     """
     Private Link Configuration on an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPrivateLinkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPrivateLinkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPrivateLinkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1891,7 +2252,7 @@ class ApplicationGatewayPrivateLinkConfigurationResponse(dict):
         :param str provisioning_state: The provisioning state of the application gateway private link configuration.
         :param str type: Type of the resource.
         :param str id: Resource ID.
-        :param Sequence['ApplicationGatewayPrivateLinkIpConfigurationResponseArgs'] ip_configurations: An array of application gateway private link ip configurations.
+        :param Sequence['ApplicationGatewayPrivateLinkIpConfigurationResponse'] ip_configurations: An array of application gateway private link ip configurations.
         :param str name: Name of the private link configuration that is unique within an Application Gateway.
         """
         pulumi.set(__self__, "etag", etag)
@@ -1952,15 +2313,33 @@ class ApplicationGatewayPrivateLinkConfigurationResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayPrivateLinkIpConfigurationResponse(dict):
     """
     The application gateway private link ip configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPrivateLinkIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPrivateLinkIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPrivateLinkIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -1981,7 +2360,7 @@ class ApplicationGatewayPrivateLinkIpConfigurationResponse(dict):
         :param bool primary: Whether the ip configuration is primary or not.
         :param str private_ip_address: The private IP address of the IP configuration.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'SubResourceResponseArgs' subnet: Reference to the subnet resource.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -2071,15 +2450,29 @@ class ApplicationGatewayPrivateLinkIpConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayProbeHealthResponseMatchResponse(dict):
     """
     Application gateway probe health response match.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayProbeHealthResponseMatchResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayProbeHealthResponseMatchResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayProbeHealthResponseMatchResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  body: Optional[str] = None,
                  status_codes: Optional[Sequence[str]] = None):
@@ -2109,15 +2502,35 @@ class ApplicationGatewayProbeHealthResponseMatchResponse(dict):
         """
         return pulumi.get(self, "status_codes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayProbeResponse(dict):
     """
     Probe of the application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "minServers":
+            suggest = "min_servers"
+        elif key == "pickHostNameFromBackendHttpSettings":
+            suggest = "pick_host_name_from_backend_http_settings"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayProbeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayProbeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayProbeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -2142,7 +2555,7 @@ class ApplicationGatewayProbeResponse(dict):
         :param str host: Host name to send the probe to.
         :param str id: Resource ID.
         :param int interval: The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
-        :param 'ApplicationGatewayProbeHealthResponseMatchResponseArgs' match: Criterion for classifying a healthy probe response.
+        :param 'ApplicationGatewayProbeHealthResponseMatchResponse' match: Criterion for classifying a healthy probe response.
         :param int min_servers: Minimum number of servers that are always marked healthy. Default value is 0.
         :param str name: Name of the probe that is unique within an Application Gateway.
         :param str path: Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
@@ -2300,15 +2713,43 @@ class ApplicationGatewayProbeResponse(dict):
         """
         return pulumi.get(self, "unhealthy_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayRedirectConfigurationResponse(dict):
     """
     Redirect configuration of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includePath":
+            suggest = "include_path"
+        elif key == "includeQueryString":
+            suggest = "include_query_string"
+        elif key == "pathRules":
+            suggest = "path_rules"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "requestRoutingRules":
+            suggest = "request_routing_rules"
+        elif key == "targetListener":
+            suggest = "target_listener"
+        elif key == "targetUrl":
+            suggest = "target_url"
+        elif key == "urlPathMaps":
+            suggest = "url_path_maps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRedirectConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRedirectConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRedirectConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  type: str,
@@ -2330,12 +2771,12 @@ class ApplicationGatewayRedirectConfigurationResponse(dict):
         :param bool include_path: Include path in the redirected url.
         :param bool include_query_string: Include query string in the redirected url.
         :param str name: Name of the redirect configuration that is unique within an Application Gateway.
-        :param Sequence['SubResourceResponseArgs'] path_rules: Path rules specifying redirect configuration.
+        :param Sequence['SubResourceResponse'] path_rules: Path rules specifying redirect configuration.
         :param str redirect_type: HTTP redirection type.
-        :param Sequence['SubResourceResponseArgs'] request_routing_rules: Request routing specifying redirect configuration.
-        :param 'SubResourceResponseArgs' target_listener: Reference to a listener to redirect the request to.
+        :param Sequence['SubResourceResponse'] request_routing_rules: Request routing specifying redirect configuration.
+        :param 'SubResourceResponse' target_listener: Reference to a listener to redirect the request to.
         :param str target_url: Url to redirect the request to.
-        :param Sequence['SubResourceResponseArgs'] url_path_maps: Url path maps specifying default redirect configuration.
+        :param Sequence['SubResourceResponse'] url_path_maps: Url path maps specifying default redirect configuration.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "type", type)
@@ -2456,15 +2897,43 @@ class ApplicationGatewayRedirectConfigurationResponse(dict):
         """
         return pulumi.get(self, "url_path_maps")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayRequestRoutingRuleResponse(dict):
     """
     Request routing rule of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendHttpSettings":
+            suggest = "backend_http_settings"
+        elif key == "httpListener":
+            suggest = "http_listener"
+        elif key == "redirectConfiguration":
+            suggest = "redirect_configuration"
+        elif key == "rewriteRuleSet":
+            suggest = "rewrite_rule_set"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "urlPathMap":
+            suggest = "url_path_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRequestRoutingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRequestRoutingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRequestRoutingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -2484,16 +2953,16 @@ class ApplicationGatewayRequestRoutingRuleResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the request routing rule resource.
         :param str type: Type of the resource.
-        :param 'SubResourceResponseArgs' backend_address_pool: Backend address pool resource of the application gateway.
-        :param 'SubResourceResponseArgs' backend_http_settings: Backend http settings resource of the application gateway.
-        :param 'SubResourceResponseArgs' http_listener: Http listener resource of the application gateway.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
+        :param 'SubResourceResponse' backend_http_settings: Backend http settings resource of the application gateway.
+        :param 'SubResourceResponse' http_listener: Http listener resource of the application gateway.
         :param str id: Resource ID.
         :param str name: Name of the request routing rule that is unique within an Application Gateway.
         :param int priority: Priority of the request routing rule.
-        :param 'SubResourceResponseArgs' redirect_configuration: Redirect configuration resource of the application gateway.
-        :param 'SubResourceResponseArgs' rewrite_rule_set: Rewrite Rule Set resource in Basic rule of the application gateway.
+        :param 'SubResourceResponse' redirect_configuration: Redirect configuration resource of the application gateway.
+        :param 'SubResourceResponse' rewrite_rule_set: Rewrite Rule Set resource in Basic rule of the application gateway.
         :param str rule_type: Rule type.
-        :param 'SubResourceResponseArgs' url_path_map: URL path map resource of the application gateway.
+        :param 'SubResourceResponse' url_path_map: URL path map resource of the application gateway.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -2623,15 +3092,83 @@ class ApplicationGatewayRequestRoutingRuleResponse(dict):
         """
         return pulumi.get(self, "url_path_map")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayResponse(dict):
     """
     Application gateway resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationalState":
+            suggest = "operational_state"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "authenticationCertificates":
+            suggest = "authentication_certificates"
+        elif key == "autoscaleConfiguration":
+            suggest = "autoscale_configuration"
+        elif key == "backendAddressPools":
+            suggest = "backend_address_pools"
+        elif key == "backendHttpSettingsCollection":
+            suggest = "backend_http_settings_collection"
+        elif key == "customErrorConfigurations":
+            suggest = "custom_error_configurations"
+        elif key == "enableFips":
+            suggest = "enable_fips"
+        elif key == "enableHttp2":
+            suggest = "enable_http2"
+        elif key == "firewallPolicy":
+            suggest = "firewall_policy"
+        elif key == "forceFirewallPolicyAssociation":
+            suggest = "force_firewall_policy_association"
+        elif key == "frontendIPConfigurations":
+            suggest = "frontend_ip_configurations"
+        elif key == "frontendPorts":
+            suggest = "frontend_ports"
+        elif key == "gatewayIPConfigurations":
+            suggest = "gateway_ip_configurations"
+        elif key == "httpListeners":
+            suggest = "http_listeners"
+        elif key == "privateLinkConfigurations":
+            suggest = "private_link_configurations"
+        elif key == "redirectConfigurations":
+            suggest = "redirect_configurations"
+        elif key == "requestRoutingRules":
+            suggest = "request_routing_rules"
+        elif key == "rewriteRuleSets":
+            suggest = "rewrite_rule_sets"
+        elif key == "sslCertificates":
+            suggest = "ssl_certificates"
+        elif key == "sslPolicy":
+            suggest = "ssl_policy"
+        elif key == "sslProfiles":
+            suggest = "ssl_profiles"
+        elif key == "trustedClientCertificates":
+            suggest = "trusted_client_certificates"
+        elif key == "trustedRootCertificates":
+            suggest = "trusted_root_certificates"
+        elif key == "urlPathMaps":
+            suggest = "url_path_maps"
+        elif key == "webApplicationFirewallConfiguration":
+            suggest = "web_application_firewall_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -2676,40 +3213,40 @@ class ApplicationGatewayResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str name: Resource name.
         :param str operational_state: Operational state of the application gateway resource.
-        :param Sequence['ApplicationGatewayPrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private Endpoint connections on application gateway.
+        :param Sequence['ApplicationGatewayPrivateEndpointConnectionResponse'] private_endpoint_connections: Private Endpoint connections on application gateway.
         :param str provisioning_state: The provisioning state of the application gateway resource.
         :param str resource_guid: The resource GUID property of the application gateway resource.
         :param str type: Resource type.
-        :param Sequence['ApplicationGatewayAuthenticationCertificateResponseArgs'] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param 'ApplicationGatewayAutoscaleConfigurationResponseArgs' autoscale_configuration: Autoscale Configuration.
-        :param Sequence['ApplicationGatewayBackendAddressPoolResponseArgs'] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayBackendHttpSettingsResponseArgs'] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayCustomErrorResponseArgs'] custom_error_configurations: Custom error configurations of the application gateway resource.
+        :param Sequence['ApplicationGatewayAuthenticationCertificateResponse'] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayAutoscaleConfigurationResponse' autoscale_configuration: Autoscale Configuration.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayBackendHttpSettingsResponse'] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the application gateway resource.
         :param bool enable_fips: Whether FIPS is enabled on the application gateway resource.
         :param bool enable_http2: Whether HTTP2 is enabled on the application gateway resource.
-        :param 'SubResourceResponseArgs' firewall_policy: Reference to the FirewallPolicy resource.
+        :param 'SubResourceResponse' firewall_policy: Reference to the FirewallPolicy resource.
         :param bool force_firewall_policy_association: If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
-        :param Sequence['ApplicationGatewayFrontendIPConfigurationResponseArgs'] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayFrontendPortResponseArgs'] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayIPConfigurationResponseArgs'] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayHttpListenerResponseArgs'] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayFrontendIPConfigurationResponse'] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayFrontendPortResponse'] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayIPConfigurationResponse'] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayHttpListenerResponse'] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param str id: Resource ID.
-        :param 'ManagedServiceIdentityResponseArgs' identity: The identity of the application gateway, if configured.
+        :param 'ManagedServiceIdentityResponse' identity: The identity of the application gateway, if configured.
         :param str location: Resource location.
-        :param Sequence['ApplicationGatewayPrivateLinkConfigurationResponseArgs'] private_link_configurations: PrivateLink configurations on application gateway.
-        :param Sequence['ApplicationGatewayProbeResponseArgs'] probes: Probes of the application gateway resource.
-        :param Sequence['ApplicationGatewayRedirectConfigurationResponseArgs'] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayRequestRoutingRuleResponseArgs'] request_routing_rules: Request routing rules of the application gateway resource.
-        :param Sequence['ApplicationGatewayRewriteRuleSetResponseArgs'] rewrite_rule_sets: Rewrite rules for the application gateway resource.
-        :param 'ApplicationGatewaySkuResponseArgs' sku: SKU of the application gateway resource.
-        :param Sequence['ApplicationGatewaySslCertificateResponseArgs'] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param 'ApplicationGatewaySslPolicyResponseArgs' ssl_policy: SSL policy of the application gateway resource.
-        :param Sequence['ApplicationGatewaySslProfileResponseArgs'] ssl_profiles: SSL profiles of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayPrivateLinkConfigurationResponse'] private_link_configurations: PrivateLink configurations on application gateway.
+        :param Sequence['ApplicationGatewayProbeResponse'] probes: Probes of the application gateway resource.
+        :param Sequence['ApplicationGatewayRedirectConfigurationResponse'] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayRequestRoutingRuleResponse'] request_routing_rules: Request routing rules of the application gateway resource.
+        :param Sequence['ApplicationGatewayRewriteRuleSetResponse'] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param 'ApplicationGatewaySkuResponse' sku: SKU of the application gateway resource.
+        :param Sequence['ApplicationGatewaySslCertificateResponse'] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewaySslPolicyResponse' ssl_policy: SSL policy of the application gateway resource.
+        :param Sequence['ApplicationGatewaySslProfileResponse'] ssl_profiles: SSL profiles of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param Mapping[str, str] tags: Resource tags.
-        :param Sequence['ApplicationGatewayTrustedClientCertificateResponseArgs'] trusted_client_certificates: Trusted client certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayTrustedRootCertificateResponseArgs'] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param Sequence['ApplicationGatewayUrlPathMapResponseArgs'] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-        :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponseArgs' web_application_firewall_configuration: Web application firewall configuration.
+        :param Sequence['ApplicationGatewayTrustedClientCertificateResponse'] trusted_client_certificates: Trusted client certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayTrustedRootCertificateResponse'] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayUrlPathMapResponse'] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponse' web_application_firewall_configuration: Web application firewall configuration.
         :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "etag", etag)
@@ -3086,24 +3623,42 @@ class ApplicationGatewayResponse(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayRewriteRuleActionSetResponse(dict):
     """
     Set of actions in the Rewrite Rule in Application Gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestHeaderConfigurations":
+            suggest = "request_header_configurations"
+        elif key == "responseHeaderConfigurations":
+            suggest = "response_header_configurations"
+        elif key == "urlConfiguration":
+            suggest = "url_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleActionSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleActionSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleActionSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  request_header_configurations: Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']] = None,
                  response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']] = None,
                  url_configuration: Optional['outputs.ApplicationGatewayUrlConfigurationResponse'] = None):
         """
         Set of actions in the Rewrite Rule in Application Gateway.
-        :param Sequence['ApplicationGatewayHeaderConfigurationResponseArgs'] request_header_configurations: Request Header Actions in the Action Set.
-        :param Sequence['ApplicationGatewayHeaderConfigurationResponseArgs'] response_header_configurations: Response Header Actions in the Action Set.
-        :param 'ApplicationGatewayUrlConfigurationResponseArgs' url_configuration: Url Configuration Action in the Action Set.
+        :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] request_header_configurations: Request Header Actions in the Action Set.
+        :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] response_header_configurations: Response Header Actions in the Action Set.
+        :param 'ApplicationGatewayUrlConfigurationResponse' url_configuration: Url Configuration Action in the Action Set.
         """
         if request_header_configurations is not None:
             pulumi.set(__self__, "request_header_configurations", request_header_configurations)
@@ -3136,15 +3691,29 @@ class ApplicationGatewayRewriteRuleActionSetResponse(dict):
         """
         return pulumi.get(self, "url_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayRewriteRuleConditionResponse(dict):
     """
     Set of conditions in the Rewrite Rule in Application Gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreCase":
+            suggest = "ignore_case"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ignore_case: Optional[bool] = None,
                  negate: Optional[bool] = None,
@@ -3198,15 +3767,31 @@ class ApplicationGatewayRewriteRuleConditionResponse(dict):
         """
         return pulumi.get(self, "variable")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayRewriteRuleResponse(dict):
     """
     Rewrite rule of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionSet":
+            suggest = "action_set"
+        elif key == "ruleSequence":
+            suggest = "rule_sequence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_set: Optional['outputs.ApplicationGatewayRewriteRuleActionSetResponse'] = None,
                  conditions: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleConditionResponse']] = None,
@@ -3214,8 +3799,8 @@ class ApplicationGatewayRewriteRuleResponse(dict):
                  rule_sequence: Optional[int] = None):
         """
         Rewrite rule of an application gateway.
-        :param 'ApplicationGatewayRewriteRuleActionSetResponseArgs' action_set: Set of actions to be done as part of the rewrite Rule.
-        :param Sequence['ApplicationGatewayRewriteRuleConditionResponseArgs'] conditions: Conditions based on which the action set execution will be evaluated.
+        :param 'ApplicationGatewayRewriteRuleActionSetResponse' action_set: Set of actions to be done as part of the rewrite Rule.
+        :param Sequence['ApplicationGatewayRewriteRuleConditionResponse'] conditions: Conditions based on which the action set execution will be evaluated.
         :param str name: Name of the rewrite rule that is unique within an Application Gateway.
         :param int rule_sequence: Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
         """
@@ -3260,15 +3845,31 @@ class ApplicationGatewayRewriteRuleResponse(dict):
         """
         return pulumi.get(self, "rule_sequence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayRewriteRuleSetResponse(dict):
     """
     Rewrite rule set of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "rewriteRules":
+            suggest = "rewrite_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -3281,7 +3882,7 @@ class ApplicationGatewayRewriteRuleSetResponse(dict):
         :param str provisioning_state: The provisioning state of the rewrite rule set resource.
         :param str id: Resource ID.
         :param str name: Name of the rewrite rule set that is unique within an Application Gateway.
-        :param Sequence['ApplicationGatewayRewriteRuleResponseArgs'] rewrite_rules: Rewrite rules in the rewrite rule set.
+        :param Sequence['ApplicationGatewayRewriteRuleResponse'] rewrite_rules: Rewrite rules in the rewrite rule set.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -3332,9 +3933,6 @@ class ApplicationGatewayRewriteRuleSetResponse(dict):
         """
         return pulumi.get(self, "rewrite_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewaySkuResponse(dict):
@@ -3382,15 +3980,33 @@ class ApplicationGatewaySkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewaySslCertificateResponse(dict):
     """
     SSL certificates of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicCertData":
+            suggest = "public_cert_data"
+        elif key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewaySslCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewaySslCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -3500,15 +4116,37 @@ class ApplicationGatewaySslCertificateResponse(dict):
         """
         return pulumi.get(self, "password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewaySslPolicyResponse(dict):
     """
     Application Gateway Ssl policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cipherSuites":
+            suggest = "cipher_suites"
+        elif key == "disabledSslProtocols":
+            suggest = "disabled_ssl_protocols"
+        elif key == "minProtocolVersion":
+            suggest = "min_protocol_version"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "policyType":
+            suggest = "policy_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewaySslPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewaySslPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cipher_suites: Optional[Sequence[str]] = None,
                  disabled_ssl_protocols: Optional[Sequence[str]] = None,
@@ -3574,15 +4212,35 @@ class ApplicationGatewaySslPolicyResponse(dict):
         """
         return pulumi.get(self, "policy_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewaySslProfileResponse(dict):
     """
     SSL profile of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "clientAuthConfiguration":
+            suggest = "client_auth_configuration"
+        elif key == "sslPolicy":
+            suggest = "ssl_policy"
+        elif key == "trustedClientCertificates":
+            suggest = "trusted_client_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewaySslProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewaySslProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -3597,11 +4255,11 @@ class ApplicationGatewaySslProfileResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the HTTP listener resource.
         :param str type: Type of the resource.
-        :param 'ApplicationGatewayClientAuthConfigurationResponseArgs' client_auth_configuration: Client authentication configuration of the application gateway resource.
+        :param 'ApplicationGatewayClientAuthConfigurationResponse' client_auth_configuration: Client authentication configuration of the application gateway resource.
         :param str id: Resource ID.
         :param str name: Name of the SSL profile that is unique within an Application Gateway.
-        :param 'ApplicationGatewaySslPolicyResponseArgs' ssl_policy: SSL policy of the application gateway resource.
-        :param Sequence['SubResourceResponseArgs'] trusted_client_certificates: Array of references to application gateway trusted client certificates.
+        :param 'ApplicationGatewaySslPolicyResponse' ssl_policy: SSL policy of the application gateway resource.
+        :param Sequence['SubResourceResponse'] trusted_client_certificates: Array of references to application gateway trusted client certificates.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -3681,15 +4339,29 @@ class ApplicationGatewaySslProfileResponse(dict):
         """
         return pulumi.get(self, "trusted_client_certificates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayTrustedClientCertificateResponse(dict):
     """
     Trusted client certificates of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayTrustedClientCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayTrustedClientCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayTrustedClientCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -3764,15 +4436,31 @@ class ApplicationGatewayTrustedClientCertificateResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayTrustedRootCertificateResponse(dict):
     """
     Trusted Root certificates of an application gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayTrustedRootCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayTrustedRootCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayTrustedRootCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -3859,15 +4547,31 @@ class ApplicationGatewayTrustedRootCertificateResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayUrlConfigurationResponse(dict):
     """
     Url configuration of the Actions set in Application Gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modifiedPath":
+            suggest = "modified_path"
+        elif key == "modifiedQueryString":
+            suggest = "modified_query_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayUrlConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayUrlConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayUrlConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  modified_path: Optional[str] = None,
                  modified_query_string: Optional[str] = None,
@@ -3909,15 +4613,39 @@ class ApplicationGatewayUrlConfigurationResponse(dict):
         """
         return pulumi.get(self, "reroute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayUrlPathMapResponse(dict):
     """
     UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "defaultBackendAddressPool":
+            suggest = "default_backend_address_pool"
+        elif key == "defaultBackendHttpSettings":
+            suggest = "default_backend_http_settings"
+        elif key == "defaultRedirectConfiguration":
+            suggest = "default_redirect_configuration"
+        elif key == "defaultRewriteRuleSet":
+            suggest = "default_rewrite_rule_set"
+        elif key == "pathRules":
+            suggest = "path_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayUrlPathMapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayUrlPathMapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayUrlPathMapResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -3934,13 +4662,13 @@ class ApplicationGatewayUrlPathMapResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the URL path map resource.
         :param str type: Type of the resource.
-        :param 'SubResourceResponseArgs' default_backend_address_pool: Default backend address pool resource of URL path map.
-        :param 'SubResourceResponseArgs' default_backend_http_settings: Default backend http settings resource of URL path map.
-        :param 'SubResourceResponseArgs' default_redirect_configuration: Default redirect configuration resource of URL path map.
-        :param 'SubResourceResponseArgs' default_rewrite_rule_set: Default Rewrite rule set resource of URL path map.
+        :param 'SubResourceResponse' default_backend_address_pool: Default backend address pool resource of URL path map.
+        :param 'SubResourceResponse' default_backend_http_settings: Default backend http settings resource of URL path map.
+        :param 'SubResourceResponse' default_redirect_configuration: Default redirect configuration resource of URL path map.
+        :param 'SubResourceResponse' default_rewrite_rule_set: Default Rewrite rule set resource of URL path map.
         :param str id: Resource ID.
         :param str name: Name of the URL path map that is unique within an Application Gateway.
-        :param Sequence['ApplicationGatewayPathRuleResponseArgs'] path_rules: Path rule of URL path map resource.
+        :param Sequence['ApplicationGatewayPathRuleResponse'] path_rules: Path rule of URL path map resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -4040,15 +4768,43 @@ class ApplicationGatewayUrlPathMapResponse(dict):
         """
         return pulumi.get(self, "path_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
     """
     Application gateway web application firewall configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firewallMode":
+            suggest = "firewall_mode"
+        elif key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "disabledRuleGroups":
+            suggest = "disabled_rule_groups"
+        elif key == "fileUploadLimitInMb":
+            suggest = "file_upload_limit_in_mb"
+        elif key == "maxRequestBodySize":
+            suggest = "max_request_body_size"
+        elif key == "maxRequestBodySizeInKb":
+            suggest = "max_request_body_size_in_kb"
+        elif key == "requestBodyCheck":
+            suggest = "request_body_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayWebApplicationFirewallConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayWebApplicationFirewallConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayWebApplicationFirewallConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  firewall_mode: str,
@@ -4066,8 +4822,8 @@ class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
         :param str firewall_mode: Web application firewall mode.
         :param str rule_set_type: The type of the web application firewall rule set. Possible values are: 'OWASP'.
         :param str rule_set_version: The version of the rule set type.
-        :param Sequence['ApplicationGatewayFirewallDisabledRuleGroupResponseArgs'] disabled_rule_groups: The disabled rule groups.
-        :param Sequence['ApplicationGatewayFirewallExclusionResponseArgs'] exclusions: The exclusion list.
+        :param Sequence['ApplicationGatewayFirewallDisabledRuleGroupResponse'] disabled_rule_groups: The disabled rule groups.
+        :param Sequence['ApplicationGatewayFirewallExclusionResponse'] exclusions: The exclusion list.
         :param int file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
         :param int max_request_body_size: Maximum request body size for WAF.
         :param int max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
@@ -4170,15 +4926,45 @@ class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
         """
         return pulumi.get(self, "request_body_check")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationRuleResponse(dict):
     """
     Rule of type application.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleType":
+            suggest = "rule_type"
+        elif key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "fqdnTags":
+            suggest = "fqdn_tags"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+        elif key == "targetFqdns":
+            suggest = "target_fqdns"
+        elif key == "targetUrls":
+            suggest = "target_urls"
+        elif key == "terminateTLS":
+            suggest = "terminate_tls"
+        elif key == "webCategories":
+            suggest = "web_categories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_type: str,
                  description: Optional[str] = None,
@@ -4200,7 +4986,7 @@ class ApplicationRuleResponse(dict):
         :param Sequence[str] destination_addresses: List of destination IP addresses or Service Tags.
         :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule.
         :param str name: Name of the rule.
-        :param Sequence['FirewallPolicyRuleApplicationProtocolResponseArgs'] protocols: Array of Application Protocols.
+        :param Sequence['FirewallPolicyRuleApplicationProtocolResponse'] protocols: Array of Application Protocols.
         :param Sequence[str] source_addresses: List of source IP addresses for this rule.
         :param Sequence[str] source_ip_groups: List of source IpGroups for this rule.
         :param Sequence[str] target_fqdns: List of FQDNs for this rule.
@@ -4329,15 +5115,31 @@ class ApplicationRuleResponse(dict):
         """
         return pulumi.get(self, "web_categories")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationSecurityGroupResponse(dict):
     """
     An application security group in a resource group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSecurityGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSecurityGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSecurityGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -4434,15 +5236,29 @@ class ApplicationSecurityGroupResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallApplicationRuleCollectionResponse(dict):
     """
     Application rule collection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallApplicationRuleCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallApplicationRuleCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallApplicationRuleCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -4455,11 +5271,11 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
         Application rule collection resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the application rule collection resource.
-        :param 'AzureFirewallRCActionResponseArgs' action: The action type of a rule collection.
+        :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
         :param int priority: Priority of the application rule collection resource.
-        :param Sequence['AzureFirewallApplicationRuleResponseArgs'] rules: Collection of rules used by a application rule collection.
+        :param Sequence['AzureFirewallApplicationRuleResponse'] rules: Collection of rules used by a application rule collection.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -4530,15 +5346,29 @@ class AzureFirewallApplicationRuleCollectionResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallApplicationRuleProtocolResponse(dict):
     """
     Properties of the application rule protocol.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protocolType":
+            suggest = "protocol_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallApplicationRuleProtocolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallApplicationRuleProtocolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallApplicationRuleProtocolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port: Optional[int] = None,
                  protocol_type: Optional[str] = None):
@@ -4568,15 +5398,35 @@ class AzureFirewallApplicationRuleProtocolResponse(dict):
         """
         return pulumi.get(self, "protocol_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallApplicationRuleResponse(dict):
     """
     Properties of an application rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fqdnTags":
+            suggest = "fqdn_tags"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+        elif key == "targetFqdns":
+            suggest = "target_fqdns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallApplicationRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallApplicationRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallApplicationRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  fqdn_tags: Optional[Sequence[str]] = None,
@@ -4590,7 +5440,7 @@ class AzureFirewallApplicationRuleResponse(dict):
         :param str description: Description of the rule.
         :param Sequence[str] fqdn_tags: List of FQDN Tags for this rule.
         :param str name: Name of the application rule.
-        :param Sequence['AzureFirewallApplicationRuleProtocolResponseArgs'] protocols: Array of ApplicationRuleProtocols.
+        :param Sequence['AzureFirewallApplicationRuleProtocolResponse'] protocols: Array of ApplicationRuleProtocols.
         :param Sequence[str] source_addresses: List of source IP addresses for this rule.
         :param Sequence[str] source_ip_groups: List of source IpGroups for this rule.
         :param Sequence[str] target_fqdns: List of FQDNs for this rule.
@@ -4666,15 +5516,33 @@ class AzureFirewallApplicationRuleResponse(dict):
         """
         return pulumi.get(self, "target_fqdns")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallIPConfigurationResponse(dict):
     """
     IP configuration of an Azure Firewall.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  private_ip_address: str,
@@ -4692,8 +5560,8 @@ class AzureFirewallIPConfigurationResponse(dict):
         :param str type: Type of the resource.
         :param str id: Resource ID.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' public_ip_address: Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
-        :param 'SubResourceResponseArgs' subnet: Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+        :param 'SubResourceResponse' public_ip_address: Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -4772,15 +5640,29 @@ class AzureFirewallIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallIpGroupsResponse(dict):
     """
     IpGroups associated with azure firewall.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeNumber":
+            suggest = "change_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallIpGroupsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallIpGroupsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallIpGroupsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  change_number: str,
                  id: str):
@@ -4808,9 +5690,6 @@ class AzureFirewallIpGroupsResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallNatRCActionResponse(dict):
@@ -4834,15 +5713,29 @@ class AzureFirewallNatRCActionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallNatRuleCollectionResponse(dict):
     """
     NAT rule collection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallNatRuleCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallNatRuleCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallNatRuleCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -4855,11 +5748,11 @@ class AzureFirewallNatRuleCollectionResponse(dict):
         NAT rule collection resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the NAT rule collection resource.
-        :param 'AzureFirewallNatRCActionResponseArgs' action: The action type of a NAT rule collection.
+        :param 'AzureFirewallNatRCActionResponse' action: The action type of a NAT rule collection.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
         :param int priority: Priority of the NAT rule collection resource.
-        :param Sequence['AzureFirewallNatRuleResponseArgs'] rules: Collection of rules used by a NAT rule collection.
+        :param Sequence['AzureFirewallNatRuleResponse'] rules: Collection of rules used by a NAT rule collection.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -4930,15 +5823,41 @@ class AzureFirewallNatRuleCollectionResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallNatRuleResponse(dict):
     """
     Properties of a NAT rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+        elif key == "translatedAddress":
+            suggest = "translated_address"
+        elif key == "translatedFqdn":
+            suggest = "translated_fqdn"
+        elif key == "translatedPort":
+            suggest = "translated_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallNatRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallNatRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallNatRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  destination_addresses: Optional[Sequence[str]] = None,
@@ -5064,15 +5983,29 @@ class AzureFirewallNatRuleResponse(dict):
         """
         return pulumi.get(self, "translated_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallNetworkRuleCollectionResponse(dict):
     """
     Network rule collection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallNetworkRuleCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallNetworkRuleCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallNetworkRuleCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -5085,11 +6018,11 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
         Network rule collection resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the network rule collection resource.
-        :param 'AzureFirewallRCActionResponseArgs' action: The action type of a rule collection.
+        :param 'AzureFirewallRCActionResponse' action: The action type of a rule collection.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
         :param int priority: Priority of the network rule collection resource.
-        :param Sequence['AzureFirewallNetworkRuleResponseArgs'] rules: Collection of rules used by a network rule collection.
+        :param Sequence['AzureFirewallNetworkRuleResponse'] rules: Collection of rules used by a network rule collection.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -5160,15 +6093,39 @@ class AzureFirewallNetworkRuleCollectionResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallNetworkRuleResponse(dict):
     """
     Properties of the network rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationFqdns":
+            suggest = "destination_fqdns"
+        elif key == "destinationIpGroups":
+            suggest = "destination_ip_groups"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFirewallNetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFirewallNetworkRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFirewallNetworkRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  destination_addresses: Optional[Sequence[str]] = None,
@@ -5282,9 +6239,6 @@ class AzureFirewallNetworkRuleResponse(dict):
         """
         return pulumi.get(self, "source_ip_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallPublicIPAddressResponse(dict):
@@ -5308,9 +6262,6 @@ class AzureFirewallPublicIPAddressResponse(dict):
         """
         return pulumi.get(self, "address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFirewallRCActionResponse(dict):
@@ -5333,9 +6284,6 @@ class AzureFirewallRCActionResponse(dict):
         The type of action.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5372,15 +6320,39 @@ class AzureFirewallSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackendAddressPoolResponse(dict):
     """
     Pool of backend IP addresses.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfigurations":
+            suggest = "backend_ip_configurations"
+        elif key == "loadBalancingRules":
+            suggest = "load_balancing_rules"
+        elif key == "outboundRule":
+            suggest = "outbound_rule"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "loadBalancerBackendAddresses":
+            suggest = "load_balancer_backend_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendAddressPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendAddressPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_ip_configurations: Sequence['outputs.NetworkInterfaceIPConfigurationResponse'],
                  etag: str,
@@ -5395,15 +6367,15 @@ class BackendAddressPoolResponse(dict):
                  name: Optional[str] = None):
         """
         Pool of backend IP addresses.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] backend_ip_configurations: An array of references to IP addresses defined in network interfaces.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: An array of references to IP addresses defined in network interfaces.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: An array of references to load balancing rules that use this backend address pool.
-        :param 'SubResourceResponseArgs' outbound_rule: A reference to an outbound rule that uses this backend address pool.
-        :param Sequence['SubResourceResponseArgs'] outbound_rules: An array of references to outbound rules that use this backend address pool.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: An array of references to load balancing rules that use this backend address pool.
+        :param 'SubResourceResponse' outbound_rule: A reference to an outbound rule that uses this backend address pool.
+        :param Sequence['SubResourceResponse'] outbound_rules: An array of references to outbound rules that use this backend address pool.
         :param str provisioning_state: The provisioning state of the backend address pool resource.
         :param str type: Type of the resource.
         :param str id: Resource ID.
-        :param Sequence['LoadBalancerBackendAddressResponseArgs'] load_balancer_backend_addresses: An array of backend addresses.
+        :param Sequence['LoadBalancerBackendAddressResponse'] load_balancer_backend_addresses: An array of backend addresses.
         :param str location: The location of the backend address pool.
         :param str name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
@@ -5511,12 +6483,9 @@ class BackendAddressPoolResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class BastionActiveSessionResponseResult(dict):
+class BastionActiveSessionResponse(dict):
     """
     The session detail for a target.
     """
@@ -5652,6 +6621,27 @@ class BastionHostIPConfigurationResponse(dict):
     """
     IP configuration of an Bastion Host.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BastionHostIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BastionHostIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BastionHostIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -5665,8 +6655,8 @@ class BastionHostIPConfigurationResponse(dict):
         IP configuration of an Bastion Host.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the bastion host IP configuration resource.
-        :param 'SubResourceResponseArgs' public_ip_address: Reference of the PublicIP resource.
-        :param 'SubResourceResponseArgs' subnet: Reference of the subnet resource.
+        :param 'SubResourceResponse' public_ip_address: Reference of the PublicIP resource.
+        :param 'SubResourceResponse' subnet: Reference of the subnet resource.
         :param str type: Ip configuration type.
         :param str id: Resource ID.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -5748,12 +6738,9 @@ class BastionHostIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "private_ip_allocation_method")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class BastionShareableLinkResponseResult(dict):
+class BastionShareableLinkResponse(dict):
     """
     Bastion Shareable Link.
     """
@@ -5761,13 +6748,13 @@ class BastionShareableLinkResponseResult(dict):
                  bsl: str,
                  created_at: str,
                  message: str,
-                 vm: 'outputs.VMResponseResult'):
+                 vm: 'outputs.VMResponse'):
         """
         Bastion Shareable Link.
         :param str bsl: The unique Bastion Shareable Link to the virtual machine.
         :param str created_at: The time when the link was created.
         :param str message: Optional field indicating the warning or error message related to the vm in case of partial failure.
-        :param 'VMResponseArgs' vm: Reference of the virtual machine resource.
+        :param 'VMResponse' vm: Reference of the virtual machine resource.
         """
         pulumi.set(__self__, "bsl", bsl)
         pulumi.set(__self__, "created_at", created_at)
@@ -5800,7 +6787,7 @@ class BastionShareableLinkResponseResult(dict):
 
     @property
     @pulumi.getter
-    def vm(self) -> 'outputs.VMResponseResult':
+    def vm(self) -> 'outputs.VMResponse':
         """
         Reference of the virtual machine resource.
         """
@@ -5808,7 +6795,7 @@ class BastionShareableLinkResponseResult(dict):
 
 
 @pulumi.output_type
-class BgpPeerStatusResponseResult(dict):
+class BgpPeerStatusResponse(dict):
     """
     BGP peer status details.
     """
@@ -5911,6 +6898,27 @@ class BgpSettingsResponse(dict):
     """
     BGP settings details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bgpPeeringAddress":
+            suggest = "bgp_peering_address"
+        elif key == "bgpPeeringAddresses":
+            suggest = "bgp_peering_addresses"
+        elif key == "peerWeight":
+            suggest = "peer_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BgpSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BgpSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BgpSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asn: Optional[float] = None,
                  bgp_peering_address: Optional[str] = None,
@@ -5920,7 +6928,7 @@ class BgpSettingsResponse(dict):
         BGP settings details.
         :param float asn: The BGP speaker's ASN.
         :param str bgp_peering_address: The BGP peering address and BGP identifier of this BGP speaker.
-        :param Sequence['IPConfigurationBgpPeeringAddressResponseArgs'] bgp_peering_addresses: BGP peering address with IP configuration ID for virtual network gateway.
+        :param Sequence['IPConfigurationBgpPeeringAddressResponse'] bgp_peering_addresses: BGP peering address with IP configuration ID for virtual network gateway.
         :param int peer_weight: The weight added to routes learned from this BGP speaker.
         """
         if asn is not None:
@@ -5963,9 +6971,6 @@ class BgpSettingsResponse(dict):
         The weight added to routes learned from this BGP speaker.
         """
         return pulumi.get(self, "peer_weight")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6014,15 +7019,29 @@ class BreakOutCategoryPoliciesResponse(dict):
         """
         return pulumi.get(self, "optimize")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorDestinationResponse(dict):
     """
     Describes the destination of connection monitor.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  port: Optional[int] = None,
@@ -6064,9 +7083,6 @@ class ConnectionMonitorDestinationResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorEndpointFilterItemResponse(dict):
@@ -6102,9 +7118,6 @@ class ConnectionMonitorEndpointFilterItemResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorEndpointFilterResponse(dict):
@@ -6116,7 +7129,7 @@ class ConnectionMonitorEndpointFilterResponse(dict):
                  type: Optional[str] = None):
         """
         Describes the connection monitor endpoint filter.
-        :param Sequence['ConnectionMonitorEndpointFilterItemResponseArgs'] items: List of items in the filter.
+        :param Sequence['ConnectionMonitorEndpointFilterItemResponse'] items: List of items in the filter.
         :param str type: The behavior of the endpoint filter. Currently only 'Include' is supported.
         """
         if items is not None:
@@ -6140,15 +7153,31 @@ class ConnectionMonitorEndpointFilterResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorEndpointResponse(dict):
     """
     Describes the connection monitor endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coverageLevel":
+            suggest = "coverage_level"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  address: Optional[str] = None,
@@ -6162,9 +7191,9 @@ class ConnectionMonitorEndpointResponse(dict):
         :param str name: The name of the connection monitor endpoint.
         :param str address: Address of the connection monitor endpoint (IP or domain name).
         :param str coverage_level: Test coverage for the endpoint.
-        :param 'ConnectionMonitorEndpointFilterResponseArgs' filter: Filter for sub-items within the endpoint.
+        :param 'ConnectionMonitorEndpointFilterResponse' filter: Filter for sub-items within the endpoint.
         :param str resource_id: Resource ID of the connection monitor endpoint.
-        :param 'ConnectionMonitorEndpointScopeResponseArgs' scope: Endpoint scope.
+        :param 'ConnectionMonitorEndpointScopeResponse' scope: Endpoint scope.
         :param str type: The endpoint type.
         """
         pulumi.set(__self__, "name", name)
@@ -6237,9 +7266,6 @@ class ConnectionMonitorEndpointResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorEndpointScopeItemResponse(dict):
@@ -6263,9 +7289,6 @@ class ConnectionMonitorEndpointScopeItemResponse(dict):
         """
         return pulumi.get(self, "address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorEndpointScopeResponse(dict):
@@ -6277,8 +7300,8 @@ class ConnectionMonitorEndpointScopeResponse(dict):
                  include: Optional[Sequence['outputs.ConnectionMonitorEndpointScopeItemResponse']] = None):
         """
         Describes the connection monitor endpoint scope.
-        :param Sequence['ConnectionMonitorEndpointScopeItemResponseArgs'] exclude: List of items which needs to be excluded from the endpoint scope.
-        :param Sequence['ConnectionMonitorEndpointScopeItemResponseArgs'] include: List of items which needs to be included to the endpoint scope.
+        :param Sequence['ConnectionMonitorEndpointScopeItemResponse'] exclude: List of items which needs to be excluded from the endpoint scope.
+        :param Sequence['ConnectionMonitorEndpointScopeItemResponse'] include: List of items which needs to be included to the endpoint scope.
         """
         if exclude is not None:
             pulumi.set(__self__, "exclude", exclude)
@@ -6301,15 +7324,33 @@ class ConnectionMonitorEndpointScopeResponse(dict):
         """
         return pulumi.get(self, "include")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorHttpConfigurationResponse(dict):
     """
     Describes the HTTP configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferHTTPS":
+            suggest = "prefer_https"
+        elif key == "requestHeaders":
+            suggest = "request_headers"
+        elif key == "validStatusCodeRanges":
+            suggest = "valid_status_code_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorHttpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorHttpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorHttpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  method: Optional[str] = None,
                  path: Optional[str] = None,
@@ -6323,7 +7364,7 @@ class ConnectionMonitorHttpConfigurationResponse(dict):
         :param str path: The path component of the URI. For instance, "/dir1/dir2".
         :param int port: The port to connect to.
         :param bool prefer_https: Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
-        :param Sequence['HTTPHeaderResponseArgs'] request_headers: The HTTP headers to transmit with the request.
+        :param Sequence['HTTPHeaderResponse'] request_headers: The HTTP headers to transmit with the request.
         :param Sequence[str] valid_status_code_ranges: HTTP status codes to consider successful. For instance, "2xx,301-304,418".
         """
         if method is not None:
@@ -6387,15 +7428,29 @@ class ConnectionMonitorHttpConfigurationResponse(dict):
         """
         return pulumi.get(self, "valid_status_code_ranges")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorIcmpConfigurationResponse(dict):
     """
     Describes the ICMP configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableTraceRoute":
+            suggest = "disable_trace_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorIcmpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorIcmpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorIcmpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_trace_route: Optional[bool] = None):
         """
@@ -6413,22 +7468,36 @@ class ConnectionMonitorIcmpConfigurationResponse(dict):
         """
         return pulumi.get(self, "disable_trace_route")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorOutputResponse(dict):
     """
     Describes a connection monitor output destination.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceSettings":
+            suggest = "workspace_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  workspace_settings: Optional['outputs.ConnectionMonitorWorkspaceSettingsResponse'] = None):
         """
         Describes a connection monitor output destination.
         :param str type: Connection monitor output destination type. Currently, only "Workspace" is supported.
-        :param 'ConnectionMonitorWorkspaceSettingsResponseArgs' workspace_settings: Describes the settings for producing output into a log analytics workspace.
+        :param 'ConnectionMonitorWorkspaceSettingsResponse' workspace_settings: Describes the settings for producing output into a log analytics workspace.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -6451,15 +7520,29 @@ class ConnectionMonitorOutputResponse(dict):
         """
         return pulumi.get(self, "workspace_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorSourceResponse(dict):
     """
     Describes the source of connection monitor.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: str,
                  port: Optional[int] = None):
@@ -6488,15 +7571,31 @@ class ConnectionMonitorSourceResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorSuccessThresholdResponse(dict):
     """
     Describes the threshold for declaring a test successful.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checksFailedPercent":
+            suggest = "checks_failed_percent"
+        elif key == "roundTripTimeMs":
+            suggest = "round_trip_time_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorSuccessThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorSuccessThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorSuccessThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  checks_failed_percent: Optional[int] = None,
                  round_trip_time_ms: Optional[float] = None):
@@ -6526,15 +7625,31 @@ class ConnectionMonitorSuccessThresholdResponse(dict):
         """
         return pulumi.get(self, "round_trip_time_ms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorTcpConfigurationResponse(dict):
     """
     Describes the TCP configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPortBehavior":
+            suggest = "destination_port_behavior"
+        elif key == "disableTraceRoute":
+            suggest = "disable_trace_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorTcpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorTcpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorTcpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_port_behavior: Optional[str] = None,
                  disable_trace_route: Optional[bool] = None,
@@ -6576,15 +7691,39 @@ class ConnectionMonitorTcpConfigurationResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorTestConfigurationResponse(dict):
     """
     Describes a connection monitor test configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpConfiguration":
+            suggest = "http_configuration"
+        elif key == "icmpConfiguration":
+            suggest = "icmp_configuration"
+        elif key == "preferredIPVersion":
+            suggest = "preferred_ip_version"
+        elif key == "successThreshold":
+            suggest = "success_threshold"
+        elif key == "tcpConfiguration":
+            suggest = "tcp_configuration"
+        elif key == "testFrequencySec":
+            suggest = "test_frequency_sec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorTestConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorTestConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorTestConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  protocol: str,
@@ -6598,11 +7737,11 @@ class ConnectionMonitorTestConfigurationResponse(dict):
         Describes a connection monitor test configuration.
         :param str name: The name of the connection monitor test configuration.
         :param str protocol: The protocol to use in test evaluation.
-        :param 'ConnectionMonitorHttpConfigurationResponseArgs' http_configuration: The parameters used to perform test evaluation over HTTP.
-        :param 'ConnectionMonitorIcmpConfigurationResponseArgs' icmp_configuration: The parameters used to perform test evaluation over ICMP.
+        :param 'ConnectionMonitorHttpConfigurationResponse' http_configuration: The parameters used to perform test evaluation over HTTP.
+        :param 'ConnectionMonitorIcmpConfigurationResponse' icmp_configuration: The parameters used to perform test evaluation over ICMP.
         :param str preferred_ip_version: The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
-        :param 'ConnectionMonitorSuccessThresholdResponseArgs' success_threshold: The threshold for declaring a test successful.
-        :param 'ConnectionMonitorTcpConfigurationResponseArgs' tcp_configuration: The parameters used to perform test evaluation over TCP.
+        :param 'ConnectionMonitorSuccessThresholdResponse' success_threshold: The threshold for declaring a test successful.
+        :param 'ConnectionMonitorTcpConfigurationResponse' tcp_configuration: The parameters used to perform test evaluation over TCP.
         :param int test_frequency_sec: The frequency of test evaluation, in seconds.
         """
         pulumi.set(__self__, "name", name)
@@ -6684,15 +7823,29 @@ class ConnectionMonitorTestConfigurationResponse(dict):
         """
         return pulumi.get(self, "test_frequency_sec")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorTestGroupResponse(dict):
     """
     Describes the connection monitor test group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "testConfigurations":
+            suggest = "test_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorTestGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorTestGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorTestGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destinations: Sequence[str],
                  name: str,
@@ -6754,15 +7907,29 @@ class ConnectionMonitorTestGroupResponse(dict):
         """
         return pulumi.get(self, "disable")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionMonitorWorkspaceSettingsResponse(dict):
     """
     Describes the settings for producing output into a log analytics workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionMonitorWorkspaceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionMonitorWorkspaceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionMonitorWorkspaceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  workspace_resource_id: Optional[str] = None):
         """
@@ -6780,15 +7947,33 @@ class ConnectionMonitorWorkspaceSettingsResponse(dict):
         """
         return pulumi.get(self, "workspace_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerNetworkInterfaceConfigurationResponse(dict):
     """
     Container network interface configuration child resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "containerNetworkInterfaces":
+            suggest = "container_network_interfaces"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerNetworkInterfaceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerNetworkInterfaceConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerNetworkInterfaceConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -6802,9 +7987,9 @@ class ContainerNetworkInterfaceConfigurationResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the container network interface configuration resource.
         :param str type: Sub Resource type.
-        :param Sequence['SubResourceResponseArgs'] container_network_interfaces: A list of container network interfaces created from this container network interface configuration.
+        :param Sequence['SubResourceResponse'] container_network_interfaces: A list of container network interfaces created from this container network interface configuration.
         :param str id: Resource ID.
-        :param Sequence['IPConfigurationProfileResponseArgs'] ip_configurations: A list of ip configurations of the container network interface configuration.
+        :param Sequence['IPConfigurationProfileResponse'] ip_configurations: A list of ip configurations of the container network interface configuration.
         :param str name: The name of the resource. This name can be used to access the resource.
         """
         pulumi.set(__self__, "etag", etag)
@@ -6875,15 +8060,29 @@ class ContainerNetworkInterfaceConfigurationResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerNetworkInterfaceIpConfigurationResponse(dict):
     """
     The ip configuration for a container network interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerNetworkInterfaceIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerNetworkInterfaceIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerNetworkInterfaceIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -6934,15 +8133,33 @@ class ContainerNetworkInterfaceIpConfigurationResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerNetworkInterfaceResponse(dict):
     """
     Container network interface child resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerNetworkInterfaceConfiguration":
+            suggest = "container_network_interface_configuration"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerNetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerNetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerNetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_network_interface_configuration: 'outputs.ContainerNetworkInterfaceConfigurationResponse',
                  etag: str,
@@ -6954,12 +8171,12 @@ class ContainerNetworkInterfaceResponse(dict):
                  name: Optional[str] = None):
         """
         Container network interface child resource.
-        :param 'ContainerNetworkInterfaceConfigurationResponseArgs' container_network_interface_configuration: Container network interface configuration from which this container network interface is created.
+        :param 'ContainerNetworkInterfaceConfigurationResponse' container_network_interface_configuration: Container network interface configuration from which this container network interface is created.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['ContainerNetworkInterfaceIpConfigurationResponseArgs'] ip_configurations: Reference to the ip configuration on this container nic.
+        :param Sequence['ContainerNetworkInterfaceIpConfigurationResponse'] ip_configurations: Reference to the ip configuration on this container nic.
         :param str provisioning_state: The provisioning state of the container network interface resource.
         :param str type: Sub Resource type.
-        :param 'ContainerResponseArgs' container: Reference to the container to which this container network interface is attached.
+        :param 'ContainerResponse' container: Reference to the container to which this container network interface is attached.
         :param str id: Resource ID.
         :param str name: The name of the resource. This name can be used to access the resource.
         """
@@ -7039,9 +8256,6 @@ class ContainerNetworkInterfaceResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerResponse(dict):
@@ -7065,15 +8279,29 @@ class ContainerResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomDnsConfigPropertiesFormatResponse(dict):
     """
     Contains custom Dns resolution configuration from customer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDnsConfigPropertiesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDnsConfigPropertiesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDnsConfigPropertiesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
@@ -7103,9 +8331,6 @@ class CustomDnsConfigPropertiesFormatResponse(dict):
         """
         return pulumi.get(self, "ip_addresses")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRuleListResponse(dict):
@@ -7116,7 +8341,7 @@ class CustomRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
-        :param Sequence['CustomRuleResponseArgs'] rules: List of rules
+        :param Sequence['CustomRuleResponse'] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -7129,15 +8354,37 @@ class CustomRuleListResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRuleResponse(dict):
     """
     Defines contents of a web application rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "rateLimitDurationInMinutes":
+            suggest = "rate_limit_duration_in_minutes"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  match_conditions: Sequence['outputs.FrontDoorMatchConditionResponse'],
@@ -7150,7 +8397,7 @@ class CustomRuleResponse(dict):
         """
         Defines contents of a web application rule
         :param str action: Describes what action to be applied when rule matches.
-        :param Sequence['FrontDoorMatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['FrontDoorMatchConditionResponse'] match_conditions: List of match conditions.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -7235,22 +8482,40 @@ class CustomRuleResponse(dict):
         """
         return pulumi.get(self, "rate_limit_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DdosSettingsResponse(dict):
     """
     Contains the DDoS protection settings of the public IP.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ddosCustomPolicy":
+            suggest = "ddos_custom_policy"
+        elif key == "protectedIP":
+            suggest = "protected_ip"
+        elif key == "protectionCoverage":
+            suggest = "protection_coverage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DdosSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DdosSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DdosSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ddos_custom_policy: Optional['outputs.SubResourceResponse'] = None,
                  protected_ip: Optional[bool] = None,
                  protection_coverage: Optional[str] = None):
         """
         Contains the DDoS protection settings of the public IP.
-        :param 'SubResourceResponseArgs' ddos_custom_policy: The DDoS custom policy associated with the public IP.
+        :param 'SubResourceResponse' ddos_custom_policy: The DDoS custom policy associated with the public IP.
         :param bool protected_ip: Enables DDoS protection on the public IP.
         :param str protection_coverage: The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
         """
@@ -7285,15 +8550,31 @@ class DdosSettingsResponse(dict):
         """
         return pulumi.get(self, "protection_coverage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DelegationResponse(dict):
     """
     Details the service to which the subnet is delegated.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DelegationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DelegationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DelegationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions: Sequence[str],
                  etag: str,
@@ -7368,15 +8649,33 @@ class DelegationResponse(dict):
         """
         return pulumi.get(self, "service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DevicePropertiesResponse(dict):
     """
     List of properties of the device.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceModel":
+            suggest = "device_model"
+        elif key == "deviceVendor":
+            suggest = "device_vendor"
+        elif key == "linkSpeedInMbps":
+            suggest = "link_speed_in_mbps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevicePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevicePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_model: Optional[str] = None,
                  device_vendor: Optional[str] = None,
@@ -7418,15 +8717,29 @@ class DevicePropertiesResponse(dict):
         """
         return pulumi.get(self, "link_speed_in_mbps")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DhcpOptionsResponse(dict):
     """
     DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DhcpOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DhcpOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DhcpOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_servers: Optional[Sequence[str]] = None):
         """
@@ -7444,15 +8757,31 @@ class DhcpOptionsResponse(dict):
         """
         return pulumi.get(self, "dns_servers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DnsSettingsResponse(dict):
     """
     DNS Proxy Settings in Firewall Policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableProxy":
+            suggest = "enable_proxy"
+        elif key == "requireProxyForNetworkRules":
+            suggest = "require_proxy_for_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DnsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DnsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DnsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_proxy: Optional[bool] = None,
                  require_proxy_for_network_rules: Optional[bool] = None,
@@ -7494,15 +8823,33 @@ class DnsSettingsResponse(dict):
         """
         return pulumi.get(self, "servers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitAuthorizationResponse(dict):
     """
     Authorization in an ExpressRouteCircuit resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authorizationKey":
+            suggest = "authorization_key"
+        elif key == "authorizationUseStatus":
+            suggest = "authorization_use_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteCircuitAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteCircuitAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteCircuitAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -7589,15 +8936,41 @@ class ExpressRouteCircuitAuthorizationResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitConnectionResponse(dict):
     """
     Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "circuitConnectionStatus":
+            suggest = "circuit_connection_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "authorizationKey":
+            suggest = "authorization_key"
+        elif key == "expressRouteCircuitPeering":
+            suggest = "express_route_circuit_peering"
+        elif key == "ipv6CircuitConnectionConfig":
+            suggest = "ipv6_circuit_connection_config"
+        elif key == "peerExpressRouteCircuitPeering":
+            suggest = "peer_express_route_circuit_peering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteCircuitConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteCircuitConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteCircuitConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  circuit_connection_status: str,
                  etag: str,
@@ -7618,11 +8991,11 @@ class ExpressRouteCircuitConnectionResponse(dict):
         :param str type: Type of the resource.
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str authorization_key: The authorization key.
-        :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        :param 'SubResourceResponse' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         :param str id: Resource ID.
-        :param 'Ipv6CircuitConnectionConfigResponseArgs' ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
+        :param 'Ipv6CircuitConnectionConfigResponse' ipv6_circuit_connection_config: IPv6 Address PrefixProperties of the express route circuit connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        :param 'SubResourceResponse' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
@@ -7731,15 +9104,39 @@ class ExpressRouteCircuitConnectionResponse(dict):
         """
         return pulumi.get(self, "peer_express_route_circuit_peering")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitPeeringConfigResponse(dict):
     """
     Specifies the peering configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advertisedPublicPrefixesState":
+            suggest = "advertised_public_prefixes_state"
+        elif key == "advertisedCommunities":
+            suggest = "advertised_communities"
+        elif key == "advertisedPublicPrefixes":
+            suggest = "advertised_public_prefixes"
+        elif key == "customerASN":
+            suggest = "customer_asn"
+        elif key == "legacyMode":
+            suggest = "legacy_mode"
+        elif key == "routingRegistryName":
+            suggest = "routing_registry_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteCircuitPeeringConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteCircuitPeeringConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteCircuitPeeringConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  advertised_public_prefixes_state: str,
                  advertised_communities: Optional[Sequence[str]] = None,
@@ -7816,9 +9213,6 @@ class ExpressRouteCircuitPeeringConfigResponse(dict):
         """
         return pulumi.get(self, "routing_registry_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitPeeringIdResponse(dict):
@@ -7842,15 +9236,61 @@ class ExpressRouteCircuitPeeringIdResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitPeeringResponse(dict):
     """
     Peering in an ExpressRouteCircuit resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "peeredConnections":
+            suggest = "peered_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "azureASN":
+            suggest = "azure_asn"
+        elif key == "expressRouteConnection":
+            suggest = "express_route_connection"
+        elif key == "gatewayManagerEtag":
+            suggest = "gateway_manager_etag"
+        elif key == "ipv6PeeringConfig":
+            suggest = "ipv6_peering_config"
+        elif key == "microsoftPeeringConfig":
+            suggest = "microsoft_peering_config"
+        elif key == "peerASN":
+            suggest = "peer_asn"
+        elif key == "peeringType":
+            suggest = "peering_type"
+        elif key == "primaryAzurePort":
+            suggest = "primary_azure_port"
+        elif key == "primaryPeerAddressPrefix":
+            suggest = "primary_peer_address_prefix"
+        elif key == "routeFilter":
+            suggest = "route_filter"
+        elif key == "secondaryAzurePort":
+            suggest = "secondary_azure_port"
+        elif key == "secondaryPeerAddressPrefix":
+            suggest = "secondary_peer_address_prefix"
+        elif key == "sharedKey":
+            suggest = "shared_key"
+        elif key == "vlanId":
+            suggest = "vlan_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteCircuitPeeringResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteCircuitPeeringResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteCircuitPeeringResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  last_modified_by: str,
@@ -7880,27 +9320,27 @@ class ExpressRouteCircuitPeeringResponse(dict):
         Peering in an ExpressRouteCircuit resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str last_modified_by: Who was the last to modify the peering.
-        :param Sequence['PeerExpressRouteCircuitConnectionResponseArgs'] peered_connections: The list of peered circuit connections associated with Azure Private Peering for this circuit.
+        :param Sequence['PeerExpressRouteCircuitConnectionResponse'] peered_connections: The list of peered circuit connections associated with Azure Private Peering for this circuit.
         :param str provisioning_state: The provisioning state of the express route circuit peering resource.
         :param str type: Type of the resource.
         :param int azure_asn: The Azure ASN.
-        :param Sequence['ExpressRouteCircuitConnectionResponseArgs'] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
-        :param 'ExpressRouteConnectionIdResponseArgs' express_route_connection: The ExpressRoute connection.
+        :param Sequence['ExpressRouteCircuitConnectionResponse'] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
+        :param 'ExpressRouteConnectionIdResponse' express_route_connection: The ExpressRoute connection.
         :param str gateway_manager_etag: The GatewayManager Etag.
         :param str id: Resource ID.
-        :param 'Ipv6ExpressRouteCircuitPeeringConfigResponseArgs' ipv6_peering_config: The IPv6 peering configuration.
-        :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: The Microsoft peering configuration.
+        :param 'Ipv6ExpressRouteCircuitPeeringConfigResponse' ipv6_peering_config: The IPv6 peering configuration.
+        :param 'ExpressRouteCircuitPeeringConfigResponse' microsoft_peering_config: The Microsoft peering configuration.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param float peer_asn: The peer ASN.
         :param str peering_type: The peering type.
         :param str primary_azure_port: The primary port.
         :param str primary_peer_address_prefix: The primary address prefix.
-        :param 'SubResourceResponseArgs' route_filter: The reference to the RouteFilter resource.
+        :param 'SubResourceResponse' route_filter: The reference to the RouteFilter resource.
         :param str secondary_azure_port: The secondary port.
         :param str secondary_peer_address_prefix: The secondary address prefix.
         :param str shared_key: The shared key.
         :param str state: The peering state.
-        :param 'ExpressRouteCircuitStatsResponseArgs' stats: The peering stats of express route circuit.
+        :param 'ExpressRouteCircuitStatsResponse' stats: The peering stats of express route circuit.
         :param int vlan_id: The VLAN ID.
         """
         pulumi.set(__self__, "etag", etag)
@@ -8139,15 +9579,33 @@ class ExpressRouteCircuitPeeringResponse(dict):
         """
         return pulumi.get(self, "vlan_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitServiceProviderPropertiesResponse(dict):
     """
     Contains ServiceProviderProperties in an ExpressRouteCircuit.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthInMbps":
+            suggest = "bandwidth_in_mbps"
+        elif key == "peeringLocation":
+            suggest = "peering_location"
+        elif key == "serviceProviderName":
+            suggest = "service_provider_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteCircuitServiceProviderPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteCircuitServiceProviderPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteCircuitServiceProviderPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bandwidth_in_mbps: Optional[int] = None,
                  peering_location: Optional[str] = None,
@@ -8188,9 +9646,6 @@ class ExpressRouteCircuitServiceProviderPropertiesResponse(dict):
         The serviceProviderName.
         """
         return pulumi.get(self, "service_provider_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8239,15 +9694,35 @@ class ExpressRouteCircuitSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteCircuitStatsResponse(dict):
     """
     Contains stats associated with the peering.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primarybytesIn":
+            suggest = "primarybytes_in"
+        elif key == "primarybytesOut":
+            suggest = "primarybytes_out"
+        elif key == "secondarybytesIn":
+            suggest = "secondarybytes_in"
+        elif key == "secondarybytesOut":
+            suggest = "secondarybytes_out"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteCircuitStatsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteCircuitStatsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteCircuitStatsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  primarybytes_in: Optional[float] = None,
                  primarybytes_out: Optional[float] = None,
@@ -8301,9 +9776,6 @@ class ExpressRouteCircuitStatsResponse(dict):
         """
         return pulumi.get(self, "secondarybytes_out")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteConnectionIdResponse(dict):
@@ -8326,15 +9798,41 @@ class ExpressRouteConnectionIdResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteConnectionResponse(dict):
     """
     ExpressRouteConnection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expressRouteCircuitPeering":
+            suggest = "express_route_circuit_peering"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authorizationKey":
+            suggest = "authorization_key"
+        elif key == "enableInternetSecurity":
+            suggest = "enable_internet_security"
+        elif key == "expressRouteGatewayBypass":
+            suggest = "express_route_gateway_bypass"
+        elif key == "routingConfiguration":
+            suggest = "routing_configuration"
+        elif key == "routingWeight":
+            suggest = "routing_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  express_route_circuit_peering: 'outputs.ExpressRouteCircuitPeeringIdResponse',
                  name: str,
@@ -8347,14 +9845,14 @@ class ExpressRouteConnectionResponse(dict):
                  routing_weight: Optional[int] = None):
         """
         ExpressRouteConnection resource.
-        :param 'ExpressRouteCircuitPeeringIdResponseArgs' express_route_circuit_peering: The ExpressRoute circuit peering.
+        :param 'ExpressRouteCircuitPeeringIdResponse' express_route_circuit_peering: The ExpressRoute circuit peering.
         :param str name: The name of the resource.
         :param str provisioning_state: The provisioning state of the express route connection resource.
         :param str authorization_key: Authorization key to establish the connection.
         :param bool enable_internet_security: Enable internet security.
         :param bool express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param str id: Resource ID.
-        :param 'RoutingConfigurationResponseArgs' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param 'RoutingConfigurationResponse' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param int routing_weight: The routing weight associated to the connection.
         """
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
@@ -8445,9 +9943,6 @@ class ExpressRouteConnectionResponse(dict):
         """
         return pulumi.get(self, "routing_weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
@@ -8458,7 +9953,7 @@ class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
                  bounds: Optional['outputs.ExpressRouteGatewayPropertiesResponseBounds'] = None):
         """
         Configuration for auto scaling.
-        :param 'ExpressRouteGatewayPropertiesResponseBoundsArgs' bounds: Minimum and maximum number of scale units to deploy.
+        :param 'ExpressRouteGatewayPropertiesResponseBounds' bounds: Minimum and maximum number of scale units to deploy.
         """
         if bounds is not None:
             pulumi.set(__self__, "bounds", bounds)
@@ -8470,9 +9965,6 @@ class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration(dict):
         Minimum and maximum number of scale units to deploy.
         """
         return pulumi.get(self, "bounds")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8509,15 +10001,33 @@ class ExpressRouteGatewayPropertiesResponseBounds(dict):
         """
         return pulumi.get(self, "min")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteLinkMacSecConfigResponse(dict):
     """
     ExpressRouteLink Mac Security Configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cakSecretIdentifier":
+            suggest = "cak_secret_identifier"
+        elif key == "cknSecretIdentifier":
+            suggest = "ckn_secret_identifier"
+        elif key == "sciState":
+            suggest = "sci_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteLinkMacSecConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteLinkMacSecConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteLinkMacSecConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cak_secret_identifier: Optional[str] = None,
                  cipher: Optional[str] = None,
@@ -8571,15 +10081,43 @@ class ExpressRouteLinkMacSecConfigResponse(dict):
         """
         return pulumi.get(self, "sci_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRouteLinkResponse(dict):
     """
     ExpressRouteLink child resource definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorType":
+            suggest = "connector_type"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+        elif key == "patchPanelId":
+            suggest = "patch_panel_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "rackId":
+            suggest = "rack_id"
+        elif key == "routerName":
+            suggest = "router_name"
+        elif key == "adminState":
+            suggest = "admin_state"
+        elif key == "macSecConfig":
+            suggest = "mac_sec_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRouteLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRouteLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRouteLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connector_type: str,
                  etag: str,
@@ -8603,7 +10141,7 @@ class ExpressRouteLinkResponse(dict):
         :param str router_name: Name of Azure router associated with physical port.
         :param str admin_state: Administrative state of the physical port.
         :param str id: Resource ID.
-        :param 'ExpressRouteLinkMacSecConfigResponseArgs' mac_sec_config: MacSec configuration.
+        :param 'ExpressRouteLinkMacSecConfigResponse' mac_sec_config: MacSec configuration.
         :param str name: Name of child port resource that is unique among child port resources of the parent.
         """
         pulumi.set(__self__, "connector_type", connector_type)
@@ -8710,9 +10248,6 @@ class ExpressRouteLinkResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtendedLocationResponse(dict):
@@ -8746,15 +10281,29 @@ class ExtendedLocationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyCertificateAuthorityResponse(dict):
     """
     Trusted Root certificates properties for tls.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyCertificateAuthorityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyCertificateAuthorityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyCertificateAuthorityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_secret_id: Optional[str] = None,
                  name: Optional[str] = None):
@@ -8784,9 +10333,6 @@ class FirewallPolicyCertificateAuthorityResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFilterRuleCollectionActionResponse(dict):
@@ -8810,15 +10356,29 @@ class FirewallPolicyFilterRuleCollectionActionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyFilterRuleCollectionResponse(dict):
     """
     Firewall Policy Filter Rule Collection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleCollectionType":
+            suggest = "rule_collection_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFilterRuleCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFilterRuleCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFilterRuleCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_collection_type: str,
                  action: Optional['outputs.FirewallPolicyFilterRuleCollectionActionResponse'] = None,
@@ -8829,10 +10389,10 @@ class FirewallPolicyFilterRuleCollectionResponse(dict):
         Firewall Policy Filter Rule Collection.
         :param str rule_collection_type: The type of the rule collection.
                Expected value is 'FirewallPolicyFilterRuleCollection'.
-        :param 'FirewallPolicyFilterRuleCollectionActionResponseArgs' action: The action type of a Filter rule collection.
+        :param 'FirewallPolicyFilterRuleCollectionActionResponse' action: The action type of a Filter rule collection.
         :param str name: The name of the rule collection.
         :param int priority: Priority of the Firewall Policy Rule Collection resource.
-        :param Sequence[Union['ApplicationRuleResponseArgs', 'NatRuleResponseArgs', 'NetworkRuleResponseArgs']] rules: List of rules included in a rule collection.
+        :param Sequence[Union['ApplicationRuleResponse', 'NatRuleResponse', 'NetworkRuleResponse']] rules: List of rules included in a rule collection.
         """
         pulumi.set(__self__, "rule_collection_type", 'FirewallPolicyFilterRuleCollection')
         if action is not None:
@@ -8885,15 +10445,33 @@ class FirewallPolicyFilterRuleCollectionResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyInsightsResponse(dict):
     """
     Firewall Policy Insights.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "logAnalyticsResources":
+            suggest = "log_analytics_resources"
+        elif key == "retentionDays":
+            suggest = "retention_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyInsightsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyInsightsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyInsightsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_enabled: Optional[bool] = None,
                  log_analytics_resources: Optional['outputs.FirewallPolicyLogAnalyticsResourcesResponse'] = None,
@@ -8901,7 +10479,7 @@ class FirewallPolicyInsightsResponse(dict):
         """
         Firewall Policy Insights.
         :param bool is_enabled: A flag to indicate if the insights are enabled on the policy.
-        :param 'FirewallPolicyLogAnalyticsResourcesResponseArgs' log_analytics_resources: Workspaces needed to configure the Firewall Policy Insights.
+        :param 'FirewallPolicyLogAnalyticsResourcesResponse' log_analytics_resources: Workspaces needed to configure the Firewall Policy Insights.
         :param int retention_days: Number of days the insights should be enabled on the policy.
         """
         if is_enabled is not None:
@@ -8935,15 +10513,37 @@ class FirewallPolicyInsightsResponse(dict):
         """
         return pulumi.get(self, "retention_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse(dict):
     """
     Intrusion detection bypass traffic specification.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationIpGroups":
+            suggest = "destination_ip_groups"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  destination_addresses: Optional[Sequence[str]] = None,
@@ -9045,22 +10645,38 @@ class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse(dict):
         """
         return pulumi.get(self, "source_ip_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyIntrusionDetectionConfigurationResponse(dict):
     """
     The operation for configuring intrusion detection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bypassTrafficSettings":
+            suggest = "bypass_traffic_settings"
+        elif key == "signatureOverrides":
+            suggest = "signature_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyIntrusionDetectionConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyIntrusionDetectionConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyIntrusionDetectionConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bypass_traffic_settings: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse']] = None,
                  signature_overrides: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureSpecificationResponse']] = None):
         """
         The operation for configuring intrusion detection.
-        :param Sequence['FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponseArgs'] bypass_traffic_settings: List of rules for traffic to bypass.
-        :param Sequence['FirewallPolicyIntrusionDetectionSignatureSpecificationResponseArgs'] signature_overrides: List of specific signatures states.
+        :param Sequence['FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse'] bypass_traffic_settings: List of rules for traffic to bypass.
+        :param Sequence['FirewallPolicyIntrusionDetectionSignatureSpecificationResponse'] signature_overrides: List of specific signatures states.
         """
         if bypass_traffic_settings is not None:
             pulumi.set(__self__, "bypass_traffic_settings", bypass_traffic_settings)
@@ -9083,9 +10699,6 @@ class FirewallPolicyIntrusionDetectionConfigurationResponse(dict):
         """
         return pulumi.get(self, "signature_overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyIntrusionDetectionResponse(dict):
@@ -9097,7 +10710,7 @@ class FirewallPolicyIntrusionDetectionResponse(dict):
                  mode: Optional[str] = None):
         """
         Configuration for intrusion detection mode and rules.
-        :param 'FirewallPolicyIntrusionDetectionConfigurationResponseArgs' configuration: Intrusion detection configuration properties.
+        :param 'FirewallPolicyIntrusionDetectionConfigurationResponse' configuration: Intrusion detection configuration properties.
         :param str mode: Intrusion detection general state.
         """
         if configuration is not None:
@@ -9120,9 +10733,6 @@ class FirewallPolicyIntrusionDetectionResponse(dict):
         Intrusion detection general state.
         """
         return pulumi.get(self, "mode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9159,22 +10769,36 @@ class FirewallPolicyIntrusionDetectionSignatureSpecificationResponse(dict):
         """
         return pulumi.get(self, "mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyLogAnalyticsResourcesResponse(dict):
     """
     Log Analytics Resources for Firewall Policy Insights.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultWorkspaceId":
+            suggest = "default_workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyLogAnalyticsResourcesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyLogAnalyticsResourcesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyLogAnalyticsResourcesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_workspace_id: Optional['outputs.SubResourceResponse'] = None,
                  workspaces: Optional[Sequence['outputs.FirewallPolicyLogAnalyticsWorkspaceResponse']] = None):
         """
         Log Analytics Resources for Firewall Policy Insights.
-        :param 'SubResourceResponseArgs' default_workspace_id: The default workspace Id for Firewall Policy Insights.
-        :param Sequence['FirewallPolicyLogAnalyticsWorkspaceResponseArgs'] workspaces: List of workspaces for Firewall Policy Insights.
+        :param 'SubResourceResponse' default_workspace_id: The default workspace Id for Firewall Policy Insights.
+        :param Sequence['FirewallPolicyLogAnalyticsWorkspaceResponse'] workspaces: List of workspaces for Firewall Policy Insights.
         """
         if default_workspace_id is not None:
             pulumi.set(__self__, "default_workspace_id", default_workspace_id)
@@ -9197,22 +10821,36 @@ class FirewallPolicyLogAnalyticsResourcesResponse(dict):
         """
         return pulumi.get(self, "workspaces")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyLogAnalyticsWorkspaceResponse(dict):
     """
     Log Analytics Workspace for Firewall Policy Insights.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyLogAnalyticsWorkspaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyLogAnalyticsWorkspaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyLogAnalyticsWorkspaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  region: Optional[str] = None,
                  workspace_id: Optional['outputs.SubResourceResponse'] = None):
         """
         Log Analytics Workspace for Firewall Policy Insights.
         :param str region: Region to configure the Workspace.
-        :param 'SubResourceResponseArgs' workspace_id: The workspace Id for Firewall Policy Insights.
+        :param 'SubResourceResponse' workspace_id: The workspace Id for Firewall Policy Insights.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -9234,9 +10872,6 @@ class FirewallPolicyLogAnalyticsWorkspaceResponse(dict):
         The workspace Id for Firewall Policy Insights.
         """
         return pulumi.get(self, "workspace_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9261,15 +10896,29 @@ class FirewallPolicyNatRuleCollectionActionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyNatRuleCollectionResponse(dict):
     """
     Firewall Policy NAT Rule Collection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleCollectionType":
+            suggest = "rule_collection_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyNatRuleCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyNatRuleCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyNatRuleCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_collection_type: str,
                  action: Optional['outputs.FirewallPolicyNatRuleCollectionActionResponse'] = None,
@@ -9280,10 +10929,10 @@ class FirewallPolicyNatRuleCollectionResponse(dict):
         Firewall Policy NAT Rule Collection.
         :param str rule_collection_type: The type of the rule collection.
                Expected value is 'FirewallPolicyNatRuleCollection'.
-        :param 'FirewallPolicyNatRuleCollectionActionResponseArgs' action: The action type of a Nat rule collection.
+        :param 'FirewallPolicyNatRuleCollectionActionResponse' action: The action type of a Nat rule collection.
         :param str name: The name of the rule collection.
         :param int priority: Priority of the Firewall Policy Rule Collection resource.
-        :param Sequence[Union['ApplicationRuleResponseArgs', 'NatRuleResponseArgs', 'NetworkRuleResponseArgs']] rules: List of rules included in a rule collection.
+        :param Sequence[Union['ApplicationRuleResponse', 'NatRuleResponse', 'NetworkRuleResponse']] rules: List of rules included in a rule collection.
         """
         pulumi.set(__self__, "rule_collection_type", 'FirewallPolicyNatRuleCollection')
         if action is not None:
@@ -9336,15 +10985,29 @@ class FirewallPolicyNatRuleCollectionResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyRuleApplicationProtocolResponse(dict):
     """
     Properties of the application rule protocol.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protocolType":
+            suggest = "protocol_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyRuleApplicationProtocolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyRuleApplicationProtocolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyRuleApplicationProtocolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port: Optional[int] = None,
                  protocol_type: Optional[str] = None):
@@ -9374,15 +11037,29 @@ class FirewallPolicyRuleApplicationProtocolResponse(dict):
         """
         return pulumi.get(self, "protocol_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicySNATResponse(dict):
     """
     The private IP addresses/IP ranges to which traffic will not be SNAT.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateRanges":
+            suggest = "private_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicySNATResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicySNATResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicySNATResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_ranges: Optional[Sequence[str]] = None):
         """
@@ -9399,9 +11076,6 @@ class FirewallPolicySNATResponse(dict):
         List of private IP addresses/IP address ranges to not be SNAT.
         """
         return pulumi.get(self, "private_ranges")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9426,15 +11100,29 @@ class FirewallPolicySkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyThreatIntelWhitelistResponse(dict):
     """
     ThreatIntel Whitelist for Firewall Policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyThreatIntelWhitelistResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyThreatIntelWhitelistResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyThreatIntelWhitelistResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdns: Optional[Sequence[str]] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
@@ -9464,20 +11152,34 @@ class FirewallPolicyThreatIntelWhitelistResponse(dict):
         """
         return pulumi.get(self, "ip_addresses")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyTransportSecurityResponse(dict):
     """
     Configuration needed to perform TLS termination & initiation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthority":
+            suggest = "certificate_authority"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyTransportSecurityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyTransportSecurityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyTransportSecurityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_authority: Optional['outputs.FirewallPolicyCertificateAuthorityResponse'] = None):
         """
         Configuration needed to perform TLS termination & initiation.
-        :param 'FirewallPolicyCertificateAuthorityResponseArgs' certificate_authority: The CA used for intermediate CA generation.
+        :param 'FirewallPolicyCertificateAuthorityResponse' certificate_authority: The CA used for intermediate CA generation.
         """
         if certificate_authority is not None:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
@@ -9489,9 +11191,6 @@ class FirewallPolicyTransportSecurityResponse(dict):
         The CA used for intermediate CA generation.
         """
         return pulumi.get(self, "certificate_authority")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9530,15 +11229,39 @@ class FlowLogFormatParametersResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FlowLogResponse(dict):
     """
     A flow log resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "storageId":
+            suggest = "storage_id"
+        elif key == "targetResourceGuid":
+            suggest = "target_resource_guid"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "flowAnalyticsConfiguration":
+            suggest = "flow_analytics_configuration"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowLogResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowLogResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowLogResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -9564,11 +11287,11 @@ class FlowLogResponse(dict):
         :param str target_resource_id: ID of network security group to which flow log will be applied.
         :param str type: Resource type.
         :param bool enabled: Flag to enable/disable flow logging.
-        :param 'TrafficAnalyticsPropertiesResponseArgs' flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
-        :param 'FlowLogFormatParametersResponseArgs' format: Parameters that define the flow log format.
+        :param 'TrafficAnalyticsPropertiesResponse' flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param 'FlowLogFormatParametersResponse' format: Parameters that define the flow log format.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param 'RetentionPolicyParametersResponseArgs' retention_policy: Parameters that define the retention policy for flow log.
+        :param 'RetentionPolicyParametersResponse' retention_policy: Parameters that define the retention policy for flow log.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "etag", etag)
@@ -9705,15 +11428,29 @@ class FlowLogResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorManagedRuleGroupOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorManagedRuleGroupOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_group_name: str,
                  exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
@@ -9721,8 +11458,8 @@ class FrontDoorManagedRuleGroupOverrideResponse(dict):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group to override.
-        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the group.
-        :param Sequence['FrontDoorManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the group.
+        :param Sequence['FrontDoorManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -9754,15 +11491,31 @@ class FrontDoorManagedRuleGroupOverrideResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorManagedRuleOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorManagedRuleOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorManagedRuleOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorManagedRuleOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_id: str,
                  action: Optional[str] = None,
@@ -9773,7 +11526,7 @@ class FrontDoorManagedRuleOverrideResponse(dict):
         :param str rule_id: Identifier for the managed rule.
         :param str action: Describes the override action to be applied when rule matches.
         :param str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to this specific rule.
+        :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to this specific rule.
         """
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -9815,15 +11568,35 @@ class FrontDoorManagedRuleOverrideResponse(dict):
         """
         return pulumi.get(self, "exclusions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorManagedRuleSetResponse(dict):
     """
     Defines a managed rule set.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "ruleGroupOverrides":
+            suggest = "rule_group_overrides"
+        elif key == "ruleSetAction":
+            suggest = "rule_set_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorManagedRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorManagedRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorManagedRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_set_type: str,
                  rule_set_version: str,
@@ -9834,8 +11607,8 @@ class FrontDoorManagedRuleSetResponse(dict):
         Defines a managed rule set.
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
-        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the set.
-        :param Sequence['FrontDoorManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to all rules in the set.
+        :param Sequence['FrontDoorManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         :param str rule_set_action: Defines the action to take when a managed rule set score threshold is met.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
@@ -9887,15 +11660,33 @@ class FrontDoorManagedRuleSetResponse(dict):
         """
         return pulumi.get(self, "rule_set_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorMatchConditionResponse(dict):
     """
     Define a match condition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValue":
+            suggest = "match_value"
+        elif key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorMatchConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorMatchConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorMatchConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_value: Sequence[str],
                  match_variable: str,
@@ -9970,15 +11761,37 @@ class FrontDoorMatchConditionResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontDoorPolicySettingsResponse(dict):
     """
     Defines top-level WebApplicationFirewallPolicy configuration settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBlockResponseBody":
+            suggest = "custom_block_response_body"
+        elif key == "customBlockResponseStatusCode":
+            suggest = "custom_block_response_status_code"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "redirectUrl":
+            suggest = "redirect_url"
+        elif key == "requestBodyCheck":
+            suggest = "request_body_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontDoorPolicySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontDoorPolicySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontDoorPolicySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_block_response_body: Optional[str] = None,
                  custom_block_response_status_code: Optional[int] = None,
@@ -10056,9 +11869,6 @@ class FrontDoorPolicySettingsResponse(dict):
         """
         return pulumi.get(self, "request_body_check")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontendEndpointLinkResponse(dict):
@@ -10082,15 +11892,47 @@ class FrontendEndpointLinkResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontendIPConfigurationResponse(dict):
     """
     Frontend IP address of the load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundNatPools":
+            suggest = "inbound_nat_pools"
+        elif key == "inboundNatRules":
+            suggest = "inbound_nat_rules"
+        elif key == "loadBalancingRules":
+            suggest = "load_balancing_rules"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+        elif key == "publicIPPrefix":
+            suggest = "public_ip_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontendIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontendIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontendIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  inbound_nat_pools: Sequence['outputs.SubResourceResponse'],
@@ -10111,10 +11953,10 @@ class FrontendIPConfigurationResponse(dict):
         """
         Frontend IP address of the load balancer.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['SubResourceResponseArgs'] inbound_nat_pools: An array of references to inbound pools that use this frontend IP.
-        :param Sequence['SubResourceResponseArgs'] inbound_nat_rules: An array of references to inbound rules that use this frontend IP.
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: An array of references to load balancing rules that use this frontend IP.
-        :param Sequence['SubResourceResponseArgs'] outbound_rules: An array of references to outbound rules that use this frontend IP.
+        :param Sequence['SubResourceResponse'] inbound_nat_pools: An array of references to inbound pools that use this frontend IP.
+        :param Sequence['SubResourceResponse'] inbound_nat_rules: An array of references to inbound rules that use this frontend IP.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: An array of references to load balancing rules that use this frontend IP.
+        :param Sequence['SubResourceResponse'] outbound_rules: An array of references to outbound rules that use this frontend IP.
         :param str provisioning_state: The provisioning state of the frontend IP configuration resource.
         :param str type: Type of the resource.
         :param str id: Resource ID.
@@ -10122,9 +11964,9 @@ class FrontendIPConfigurationResponse(dict):
         :param str private_ip_address: The private IP address of the IP configuration.
         :param str private_ip_address_version: Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         :param str private_ip_allocation_method: The Private IP allocation method.
-        :param 'PublicIPAddressResponseArgs' public_ip_address: The reference to the Public IP resource.
-        :param 'SubResourceResponseArgs' public_ip_prefix: The reference to the Public IP Prefix resource.
-        :param 'SubnetResponseArgs' subnet: The reference to the subnet resource.
+        :param 'PublicIPAddressResponse' public_ip_address: The reference to the Public IP resource.
+        :param 'SubResourceResponse' public_ip_prefix: The reference to the Public IP Prefix resource.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
         :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         pulumi.set(__self__, "etag", etag)
@@ -10281,12 +12123,9 @@ class FrontendIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class GatewayRouteResponseResult(dict):
+class GatewayRouteResponse(dict):
     """
     Gateway routing details.
     """
@@ -10407,22 +12246,38 @@ class HTTPHeaderResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubIPAddressesResponse(dict):
     """
     IP addresses associated with azure firewall.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIPs":
+            suggest = "public_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubIPAddressesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubIPAddressesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubIPAddressesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_ip_address: Optional[str] = None,
                  public_ips: Optional['outputs.HubPublicIPAddressesResponse'] = None):
         """
         IP addresses associated with azure firewall.
         :param str private_ip_address: Private IP Address associated with azure firewall.
-        :param 'HubPublicIPAddressesResponseArgs' public_ips: Public IP addresses associated with azure firewall.
+        :param 'HubPublicIPAddressesResponse' public_ips: Public IP addresses associated with azure firewall.
         """
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -10445,9 +12300,6 @@ class HubIPAddressesResponse(dict):
         """
         return pulumi.get(self, "public_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubPublicIPAddressesResponse(dict):
@@ -10459,7 +12311,7 @@ class HubPublicIPAddressesResponse(dict):
                  count: Optional[int] = None):
         """
         Public IP addresses associated with azure firewall.
-        :param Sequence['AzureFirewallPublicIPAddressResponseArgs'] addresses: The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
+        :param Sequence['AzureFirewallPublicIPAddressResponse'] addresses: The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
         :param int count: The number of Public IP addresses associated with azure firewall.
         """
         if addresses is not None:
@@ -10483,15 +12335,33 @@ class HubPublicIPAddressesResponse(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubRouteResponse(dict):
     """
     RouteTable route.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationType":
+            suggest = "destination_type"
+        elif key == "nextHop":
+            suggest = "next_hop"
+        elif key == "nextHopType":
+            suggest = "next_hop_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubRouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubRouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubRouteResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_type: str,
                  destinations: Sequence[str],
@@ -10552,15 +12422,35 @@ class HubRouteResponse(dict):
         """
         return pulumi.get(self, "next_hop_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPConfigurationBgpPeeringAddressResponse(dict):
     """
     Properties of IPConfigurationBgpPeeringAddress.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultBgpIpAddresses":
+            suggest = "default_bgp_ip_addresses"
+        elif key == "tunnelIpAddresses":
+            suggest = "tunnel_ip_addresses"
+        elif key == "customBgpIpAddresses":
+            suggest = "custom_bgp_ip_addresses"
+        elif key == "ipconfigurationId":
+            suggest = "ipconfiguration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationBgpPeeringAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationBgpPeeringAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationBgpPeeringAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_bgp_ip_addresses: Sequence[str],
                  tunnel_ip_addresses: Sequence[str],
@@ -10612,15 +12502,29 @@ class IPConfigurationBgpPeeringAddressResponse(dict):
         """
         return pulumi.get(self, "ipconfiguration_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPConfigurationProfileResponse(dict):
     """
     IP configuration profile child resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -10635,7 +12539,7 @@ class IPConfigurationProfileResponse(dict):
         :param str type: Sub Resource type.
         :param str id: Resource ID.
         :param str name: The name of the resource. This name can be used to access the resource.
-        :param 'SubnetResponseArgs' subnet: The reference to the subnet resource to create a container network interface ip configuration.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource to create a container network interface ip configuration.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -10695,15 +12599,35 @@ class IPConfigurationProfileResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPConfigurationResponse(dict):
     """
     IP configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -10721,8 +12645,8 @@ class IPConfigurationResponse(dict):
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str private_ip_address: The private IP address of the IP configuration.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'PublicIPAddressResponseArgs' public_ip_address: The reference to the public IP resource.
-        :param 'SubnetResponseArgs' subnet: The reference to the subnet resource.
+        :param 'PublicIPAddressResponse' public_ip_address: The reference to the public IP resource.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -10803,15 +12727,43 @@ class IPConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InboundNatPoolResponse(dict):
     """
     Inbound NAT pool of the load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPortRangeEnd":
+            suggest = "frontend_port_range_end"
+        elif key == "frontendPortRangeStart":
+            suggest = "frontend_port_range_start"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "enableFloatingIP":
+            suggest = "enable_floating_ip"
+        elif key == "enableTcpReset":
+            suggest = "enable_tcp_reset"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundNatPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundNatPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundNatPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: int,
                  etag: str,
@@ -10837,7 +12789,7 @@ class InboundNatPoolResponse(dict):
         :param str type: Type of the resource.
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param str name: The name of the resource that is unique within the set of inbound NAT pools used by the load balancer. This name can be used to access the resource.
@@ -10966,15 +12918,43 @@ class InboundNatPoolResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InboundNatRuleResponse(dict):
     """
     Inbound NAT rule of the load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfiguration":
+            suggest = "backend_ip_configuration"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendPort":
+            suggest = "backend_port"
+        elif key == "enableFloatingIP":
+            suggest = "enable_floating_ip"
+        elif key == "enableTcpReset":
+            suggest = "enable_tcp_reset"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundNatRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundNatRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundNatRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_ip_configuration: 'outputs.NetworkInterfaceIPConfigurationResponse',
                  etag: str,
@@ -10991,14 +12971,14 @@ class InboundNatRuleResponse(dict):
                  protocol: Optional[str] = None):
         """
         Inbound NAT rule of the load balancer.
-        :param 'NetworkInterfaceIPConfigurationResponseArgs' backend_ip_configuration: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        :param 'NetworkInterfaceIPConfigurationResponse' backend_ip_configuration: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the inbound NAT rule resource.
         :param str type: Type of the resource.
         :param int backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
         :param int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
@@ -11132,15 +13112,29 @@ class InboundNatRuleResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IpTagResponse(dict):
     """
     Contains the IpTag associated with the object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipTagType":
+            suggest = "ip_tag_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpTagResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpTagResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpTagResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_tag_type: Optional[str] = None,
                  tag: Optional[str] = None):
@@ -11170,15 +13164,43 @@ class IpTagResponse(dict):
         """
         return pulumi.get(self, "tag")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IpsecPolicyResponse(dict):
     """
     An IPSec Policy configuration for a virtual network gateway connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dhGroup":
+            suggest = "dh_group"
+        elif key == "ikeEncryption":
+            suggest = "ike_encryption"
+        elif key == "ikeIntegrity":
+            suggest = "ike_integrity"
+        elif key == "ipsecEncryption":
+            suggest = "ipsec_encryption"
+        elif key == "ipsecIntegrity":
+            suggest = "ipsec_integrity"
+        elif key == "pfsGroup":
+            suggest = "pfs_group"
+        elif key == "saDataSizeKilobytes":
+            suggest = "sa_data_size_kilobytes"
+        elif key == "saLifeTimeSeconds":
+            suggest = "sa_life_time_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpsecPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpsecPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpsecPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dh_group: str,
                  ike_encryption: str,
@@ -11272,15 +13294,31 @@ class IpsecPolicyResponse(dict):
         """
         return pulumi.get(self, "sa_life_time_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class Ipv6CircuitConnectionConfigResponse(dict):
     """
     IPv6 Circuit Connection properties for global reach.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "circuitConnectionStatus":
+            suggest = "circuit_connection_status"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ipv6CircuitConnectionConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ipv6CircuitConnectionConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ipv6CircuitConnectionConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  circuit_connection_status: str,
                  address_prefix: Optional[str] = None):
@@ -11309,15 +13347,35 @@ class Ipv6CircuitConnectionConfigResponse(dict):
         """
         return pulumi.get(self, "address_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
     """
     Contains IPv6 peering config.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "microsoftPeeringConfig":
+            suggest = "microsoft_peering_config"
+        elif key == "primaryPeerAddressPrefix":
+            suggest = "primary_peer_address_prefix"
+        elif key == "routeFilter":
+            suggest = "route_filter"
+        elif key == "secondaryPeerAddressPrefix":
+            suggest = "secondary_peer_address_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ipv6ExpressRouteCircuitPeeringConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ipv6ExpressRouteCircuitPeeringConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ipv6ExpressRouteCircuitPeeringConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  microsoft_peering_config: Optional['outputs.ExpressRouteCircuitPeeringConfigResponse'] = None,
                  primary_peer_address_prefix: Optional[str] = None,
@@ -11326,9 +13384,9 @@ class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
                  state: Optional[str] = None):
         """
         Contains IPv6 peering config.
-        :param 'ExpressRouteCircuitPeeringConfigResponseArgs' microsoft_peering_config: The Microsoft peering configuration.
+        :param 'ExpressRouteCircuitPeeringConfigResponse' microsoft_peering_config: The Microsoft peering configuration.
         :param str primary_peer_address_prefix: The primary address prefix.
-        :param 'SubResourceResponseArgs' route_filter: The reference to the RouteFilter resource.
+        :param 'SubResourceResponse' route_filter: The reference to the RouteFilter resource.
         :param str secondary_peer_address_prefix: The secondary address prefix.
         :param str state: The state of peering.
         """
@@ -11383,15 +13441,35 @@ class Ipv6ExpressRouteCircuitPeeringConfigResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerBackendAddressResponse(dict):
     """
     Load balancer backend addresses.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceIPConfiguration":
+            suggest = "network_interface_ip_configuration"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "loadBalancerFrontendIPConfiguration":
+            suggest = "load_balancer_frontend_ip_configuration"
+        elif key == "virtualNetwork":
+            suggest = "virtual_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerBackendAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerBackendAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerBackendAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_interface_ip_configuration: 'outputs.SubResourceResponse',
                  ip_address: Optional[str] = None,
@@ -11401,12 +13479,12 @@ class LoadBalancerBackendAddressResponse(dict):
                  virtual_network: Optional['outputs.SubResourceResponse'] = None):
         """
         Load balancer backend addresses.
-        :param 'SubResourceResponseArgs' network_interface_ip_configuration: Reference to IP address defined in network interfaces.
+        :param 'SubResourceResponse' network_interface_ip_configuration: Reference to IP address defined in network interfaces.
         :param str ip_address: IP Address belonging to the referenced virtual network.
-        :param 'SubResourceResponseArgs' load_balancer_frontend_ip_configuration: Reference to the frontend ip address configuration defined in regional loadbalancer.
+        :param 'SubResourceResponse' load_balancer_frontend_ip_configuration: Reference to the frontend ip address configuration defined in regional loadbalancer.
         :param str name: Name of the backend address.
-        :param 'SubResourceResponseArgs' subnet: Reference to an existing subnet.
-        :param 'SubResourceResponseArgs' virtual_network: Reference to an existing virtual network.
+        :param 'SubResourceResponse' subnet: Reference to an existing subnet.
+        :param 'SubResourceResponse' virtual_network: Reference to an existing virtual network.
         """
         pulumi.set(__self__, "network_interface_ip_configuration", network_interface_ip_configuration)
         if ip_address is not None:
@@ -11468,9 +13546,6 @@ class LoadBalancerBackendAddressResponse(dict):
         """
         return pulumi.get(self, "virtual_network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerSkuResponse(dict):
@@ -11506,15 +13581,47 @@ class LoadBalancerSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancingRuleResponse(dict):
     """
     A load balancing rule for a load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendPort":
+            suggest = "backend_port"
+        elif key == "disableOutboundSnat":
+            suggest = "disable_outbound_snat"
+        elif key == "enableFloatingIP":
+            suggest = "enable_floating_ip"
+        elif key == "enableTcpReset":
+            suggest = "enable_tcp_reset"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "loadDistribution":
+            suggest = "load_distribution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  frontend_port: int,
@@ -11539,17 +13646,17 @@ class LoadBalancingRuleResponse(dict):
         :param str protocol: The reference to the transport protocol used by the load balancing rule.
         :param str provisioning_state: The provisioning state of the load balancing rule resource.
         :param str type: Type of the resource.
-        :param 'SubResourceResponseArgs' backend_address_pool: A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
+        :param 'SubResourceResponse' backend_address_pool: A reference to a pool of DIPs. Inbound traffic is randomly load balanced across IPs in the backend IPs.
         :param int backend_port: The port used for internal connections on the endpoint. Acceptable values are between 0 and 65535. Note that value 0 enables "Any Port".
         :param bool disable_outbound_snat: Configures SNAT for the VMs in the backend pool to use the publicIP address specified in the frontend of the load balancing rule.
         :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
         :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        :param 'SubResourceResponseArgs' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param str load_distribution: The load distribution policy for this rule.
         :param str name: The name of the resource that is unique within the set of load balancing rules used by the load balancer. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' probe: The reference to the load balancer probe used by the load balancing rule.
+        :param 'SubResourceResponse' probe: The reference to the load balancer probe used by the load balancing rule.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "frontend_port", frontend_port)
@@ -11707,15 +13814,37 @@ class LoadBalancingRuleResponse(dict):
         """
         return pulumi.get(self, "probe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LocalNetworkGatewayResponse(dict):
     """
     A common class for general resource information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "bgpSettings":
+            suggest = "bgp_settings"
+        elif key == "gatewayIpAddress":
+            suggest = "gateway_ip_address"
+        elif key == "localNetworkAddressSpace":
+            suggest = "local_network_address_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocalNetworkGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocalNetworkGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocalNetworkGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -11736,11 +13865,11 @@ class LocalNetworkGatewayResponse(dict):
         :param str provisioning_state: The provisioning state of the local network gateway resource.
         :param str resource_guid: The resource GUID property of the local network gateway resource.
         :param str type: Resource type.
-        :param 'BgpSettingsResponseArgs' bgp_settings: Local network gateway's BGP speaker settings.
+        :param 'BgpSettingsResponse' bgp_settings: Local network gateway's BGP speaker settings.
         :param str fqdn: FQDN of local network gateway.
         :param str gateway_ip_address: IP address of local network gateway.
         :param str id: Resource ID.
-        :param 'AddressSpaceResponseArgs' local_network_address_space: Local network site address space.
+        :param 'AddressSpaceResponse' local_network_address_space: Local network site address space.
         :param str location: Resource location.
         :param Mapping[str, str] tags: Resource tags.
         """
@@ -11860,15 +13989,31 @@ class LocalNetworkGatewayResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleExclusionResponse(dict):
     """
     Exclude variables from managed rule evaluation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleExclusionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleExclusionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleExclusionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  selector: str,
@@ -11907,22 +14052,36 @@ class ManagedRuleExclusionResponse(dict):
         """
         return pulumi.get(self, "selector_match_operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleGroupOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleGroupOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_group_name: str,
                  rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: The managed rule group to override.
-        :param Sequence['ManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -11944,15 +14103,29 @@ class ManagedRuleGroupOverrideResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_id: str,
                  state: Optional[str] = None):
@@ -11981,20 +14154,34 @@ class ManagedRuleOverrideResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleSetListResponse(dict):
     """
     Defines the list of managed rule sets for the policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedRuleSets":
+            suggest = "managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetListResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_rule_sets: Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param Sequence['FrontDoorManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        :param Sequence['FrontDoorManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
@@ -12007,15 +14194,33 @@ class ManagedRuleSetListResponse(dict):
         """
         return pulumi.get(self, "managed_rule_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleSetResponse(dict):
     """
     Defines a managed rule set.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "ruleGroupOverrides":
+            suggest = "rule_group_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_set_type: str,
                  rule_set_version: str,
@@ -12024,7 +14229,7 @@ class ManagedRuleSetResponse(dict):
         Defines a managed rule set.
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
-        :param Sequence['ManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param Sequence['ManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -12055,22 +14260,36 @@ class ManagedRuleSetResponse(dict):
         """
         return pulumi.get(self, "rule_group_overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRulesDefinitionResponse(dict):
     """
     Allow to exclude some variable satisfy the condition for the WAF check.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedRuleSets":
+            suggest = "managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRulesDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRulesDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRulesDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_rule_sets: Sequence['outputs.ManagedRuleSetResponse'],
                  exclusions: Optional[Sequence['outputs.OwaspCrsExclusionEntryResponse']] = None):
         """
         Allow to exclude some variable satisfy the condition for the WAF check.
-        :param Sequence['ManagedRuleSetResponseArgs'] managed_rule_sets: The managed rule sets that are associated with the policy.
-        :param Sequence['OwaspCrsExclusionEntryResponseArgs'] exclusions: The Exclusions that are applied on the policy.
+        :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: The managed rule sets that are associated with the policy.
+        :param Sequence['OwaspCrsExclusionEntryResponse'] exclusions: The Exclusions that are applied on the policy.
         """
         pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
         if exclusions is not None:
@@ -12092,15 +14311,33 @@ class ManagedRulesDefinitionResponse(dict):
         """
         return pulumi.get(self, "exclusions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -12111,7 +14348,7 @@ class ManagedServiceIdentityResponse(dict):
         :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -12152,12 +14389,28 @@ class ManagedServiceIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str):
@@ -12184,15 +14437,33 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MatchConditionResponse(dict):
     """
     Define match conditions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "matchVariables":
+            suggest = "match_variables"
+        elif key == "negationConditon":
+            suggest = "negation_conditon"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  match_variables: Sequence['outputs.MatchVariableResponse'],
@@ -12202,7 +14473,7 @@ class MatchConditionResponse(dict):
         """
         Define match conditions.
         :param Sequence[str] match_values: Match value.
-        :param Sequence['MatchVariableResponseArgs'] match_variables: List of match variables.
+        :param Sequence['MatchVariableResponse'] match_variables: List of match variables.
         :param str operator: The operator to be matched.
         :param bool negation_conditon: Whether this is negate condition or not.
         :param Sequence[str] transforms: List of transforms.
@@ -12255,15 +14526,29 @@ class MatchConditionResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MatchVariableResponse(dict):
     """
     Define match variables.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableName":
+            suggest = "variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchVariableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchVariableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchVariableResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  variable_name: str,
                  selector: Optional[str] = None):
@@ -12292,9 +14577,6 @@ class MatchVariableResponse(dict):
         """
         return pulumi.get(self, "selector")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NatGatewaySkuResponse(dict):
@@ -12318,15 +14600,45 @@ class NatGatewaySkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NatRuleResponse(dict):
     """
     Rule of type nat.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleType":
+            suggest = "rule_type"
+        elif key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "ipProtocols":
+            suggest = "ip_protocols"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+        elif key == "translatedAddress":
+            suggest = "translated_address"
+        elif key == "translatedFqdn":
+            suggest = "translated_fqdn"
+        elif key == "translatedPort":
+            suggest = "translated_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_type: str,
                  description: Optional[str] = None,
@@ -12465,15 +14777,37 @@ class NatRuleResponse(dict):
         """
         return pulumi.get(self, "translated_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceDnsSettingsResponse(dict):
     """
     DNS settings of a network interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appliedDnsServers":
+            suggest = "applied_dns_servers"
+        elif key == "internalDomainNameSuffix":
+            suggest = "internal_domain_name_suffix"
+        elif key == "internalFqdn":
+            suggest = "internal_fqdn"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "internalDnsNameLabel":
+            suggest = "internal_dns_name_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceDnsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceDnsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceDnsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  applied_dns_servers: Sequence[str],
                  internal_domain_name_suffix: str,
@@ -12536,15 +14870,31 @@ class NetworkInterfaceDnsSettingsResponse(dict):
         """
         return pulumi.get(self, "internal_dns_name_label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse(dict):
     """
     PrivateLinkConnection properties for the network interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "requiredMemberName":
+            suggest = "required_member_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdns: Sequence[str],
                  group_id: str,
@@ -12583,15 +14933,49 @@ class NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse(dic
         """
         return pulumi.get(self, "required_member_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceIPConfigurationResponse(dict):
     """
     IPConfiguration in a network interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkConnectionProperties":
+            suggest = "private_link_connection_properties"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "applicationGatewayBackendAddressPools":
+            suggest = "application_gateway_backend_address_pools"
+        elif key == "applicationSecurityGroups":
+            suggest = "application_security_groups"
+        elif key == "loadBalancerBackendAddressPools":
+            suggest = "load_balancer_backend_address_pools"
+        elif key == "loadBalancerInboundNatRules":
+            suggest = "load_balancer_inbound_nat_rules"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+        elif key == "virtualNetworkTaps":
+            suggest = "virtual_network_taps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  private_link_connection_properties: 'outputs.NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse',
@@ -12612,21 +14996,21 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         """
         IPConfiguration in a network interface.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponseArgs' private_link_connection_properties: PrivateLinkConnection properties for the network interface.
+        :param 'NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse' private_link_connection_properties: PrivateLinkConnection properties for the network interface.
         :param str provisioning_state: The provisioning state of the network interface IP configuration.
-        :param Sequence['ApplicationGatewayBackendAddressPoolResponseArgs'] application_gateway_backend_address_pools: The reference to ApplicationGatewayBackendAddressPool resource.
-        :param Sequence['ApplicationSecurityGroupResponseArgs'] application_security_groups: Application security groups in which the IP configuration is included.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] application_gateway_backend_address_pools: The reference to ApplicationGatewayBackendAddressPool resource.
+        :param Sequence['ApplicationSecurityGroupResponse'] application_security_groups: Application security groups in which the IP configuration is included.
         :param str id: Resource ID.
-        :param Sequence['BackendAddressPoolResponseArgs'] load_balancer_backend_address_pools: The reference to LoadBalancerBackendAddressPool resource.
-        :param Sequence['InboundNatRuleResponseArgs'] load_balancer_inbound_nat_rules: A list of references of LoadBalancerInboundNatRules.
+        :param Sequence['BackendAddressPoolResponse'] load_balancer_backend_address_pools: The reference to LoadBalancerBackendAddressPool resource.
+        :param Sequence['InboundNatRuleResponse'] load_balancer_inbound_nat_rules: A list of references of LoadBalancerInboundNatRules.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param bool primary: Whether this is a primary customer address on the network interface.
         :param str private_ip_address: Private IP address of the IP configuration.
         :param str private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'PublicIPAddressResponseArgs' public_ip_address: Public IP address bound to the IP configuration.
-        :param 'SubnetResponseArgs' subnet: Subnet bound to the IP configuration.
-        :param Sequence['VirtualNetworkTapResponseArgs'] virtual_network_taps: The reference to Virtual Network Taps.
+        :param 'PublicIPAddressResponse' public_ip_address: Public IP address bound to the IP configuration.
+        :param 'SubnetResponse' subnet: Subnet bound to the IP configuration.
+        :param Sequence['VirtualNetworkTapResponse'] virtual_network_taps: The reference to Virtual Network Taps.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "private_link_connection_properties", private_link_connection_properties)
@@ -12786,15 +15170,55 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "virtual_network_taps")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceResponse(dict):
     """
     A network interface in a resource group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dscpConfiguration":
+            suggest = "dscp_configuration"
+        elif key == "hostedWorkloads":
+            suggest = "hosted_workloads"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "tapConfigurations":
+            suggest = "tap_configurations"
+        elif key == "virtualMachine":
+            suggest = "virtual_machine"
+        elif key == "dnsSettings":
+            suggest = "dns_settings"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
+        elif key == "enableIPForwarding":
+            suggest = "enable_ip_forwarding"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "networkSecurityGroup":
+            suggest = "network_security_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dscp_configuration: 'outputs.SubResourceResponse',
                  etag: str,
@@ -12819,26 +15243,26 @@ class NetworkInterfaceResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         A network interface in a resource group.
-        :param 'SubResourceResponseArgs' dscp_configuration: A reference to the dscp configuration to which the network interface is linked.
+        :param 'SubResourceResponse' dscp_configuration: A reference to the dscp configuration to which the network interface is linked.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param Sequence[str] hosted_workloads: A list of references to linked BareMetal resources.
         :param str mac_address: The MAC address of the network interface.
         :param str name: Resource name.
         :param bool primary: Whether this is a primary network interface on a virtual machine.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: A reference to the private endpoint to which the network interface is linked.
+        :param 'PrivateEndpointResponse' private_endpoint: A reference to the private endpoint to which the network interface is linked.
         :param str provisioning_state: The provisioning state of the network interface resource.
         :param str resource_guid: The resource GUID property of the network interface resource.
-        :param Sequence['NetworkInterfaceTapConfigurationResponseArgs'] tap_configurations: A list of TapConfigurations of the network interface.
+        :param Sequence['NetworkInterfaceTapConfigurationResponse'] tap_configurations: A list of TapConfigurations of the network interface.
         :param str type: Resource type.
-        :param 'SubResourceResponseArgs' virtual_machine: The reference to a virtual machine.
-        :param 'NetworkInterfaceDnsSettingsResponseArgs' dns_settings: The DNS settings in network interface.
+        :param 'SubResourceResponse' virtual_machine: The reference to a virtual machine.
+        :param 'NetworkInterfaceDnsSettingsResponse' dns_settings: The DNS settings in network interface.
         :param bool enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param bool enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
-        :param 'ExtendedLocationResponseArgs' extended_location: The extended location of the network interface.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the network interface.
         :param str id: Resource ID.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: A list of IPConfigurations of the network interface.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] ip_configurations: A list of IPConfigurations of the network interface.
         :param str location: Resource location.
-        :param 'NetworkSecurityGroupResponseArgs' network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param 'NetworkSecurityGroupResponse' network_security_group: The reference to the NetworkSecurityGroup resource.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "dscp_configuration", dscp_configuration)
@@ -13040,15 +15464,31 @@ class NetworkInterfaceResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceTapConfigurationResponse(dict):
     """
     Tap configuration in a Network Interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "virtualNetworkTap":
+            suggest = "virtual_network_tap"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceTapConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceTapConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceTapConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -13063,7 +15503,7 @@ class NetworkInterfaceTapConfigurationResponse(dict):
         :param str type: Sub Resource type.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'VirtualNetworkTapResponseArgs' virtual_network_tap: The reference to the Virtual Network Tap resource.
+        :param 'VirtualNetworkTapResponse' virtual_network_tap: The reference to the Virtual Network Tap resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -13123,15 +15563,43 @@ class NetworkInterfaceTapConfigurationResponse(dict):
         """
         return pulumi.get(self, "virtual_network_tap")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkRuleResponse(dict):
     """
     Rule of type network.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleType":
+            suggest = "rule_type"
+        elif key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationFqdns":
+            suggest = "destination_fqdns"
+        elif key == "destinationIpGroups":
+            suggest = "destination_ip_groups"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "ipProtocols":
+            suggest = "ip_protocols"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourceIpGroups":
+            suggest = "source_ip_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_type: str,
                  description: Optional[str] = None,
@@ -13258,15 +15726,39 @@ class NetworkRuleResponse(dict):
         """
         return pulumi.get(self, "source_ip_groups")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkSecurityGroupResponse(dict):
     """
     NetworkSecurityGroup resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSecurityRules":
+            suggest = "default_security_rules"
+        elif key == "flowLogs":
+            suggest = "flow_logs"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "securityRules":
+            suggest = "security_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSecurityGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSecurityGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_security_rules: Sequence['outputs.SecurityRuleResponse'],
                  etag: str,
@@ -13283,18 +15775,18 @@ class NetworkSecurityGroupResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         NetworkSecurityGroup resource.
-        :param Sequence['SecurityRuleResponseArgs'] default_security_rules: The default security rules of network security group.
+        :param Sequence['SecurityRuleResponse'] default_security_rules: The default security rules of network security group.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['FlowLogResponseArgs'] flow_logs: A collection of references to flow log resources.
+        :param Sequence['FlowLogResponse'] flow_logs: A collection of references to flow log resources.
         :param str name: Resource name.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: A collection of references to network interfaces.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: A collection of references to network interfaces.
         :param str provisioning_state: The provisioning state of the network security group resource.
         :param str resource_guid: The resource GUID property of the network security group resource.
-        :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
         :param str type: Resource type.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param Sequence['SecurityRuleResponseArgs'] security_rules: A collection of security rules of the network security group.
+        :param Sequence['SecurityRuleResponse'] security_rules: A collection of security rules of the network security group.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "default_security_rules", default_security_rules)
@@ -13419,9 +15911,6 @@ class NetworkSecurityGroupResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class O365BreakOutCategoryPoliciesResponse(dict):
@@ -13469,20 +15958,34 @@ class O365BreakOutCategoryPoliciesResponse(dict):
         """
         return pulumi.get(self, "optimize")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class O365PolicyPropertiesResponse(dict):
     """
     The Office365 breakout policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "breakOutCategories":
+            suggest = "break_out_categories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in O365PolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        O365PolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        O365PolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  break_out_categories: Optional['outputs.O365BreakOutCategoryPoliciesResponse'] = None):
         """
         The Office365 breakout policy.
-        :param 'O365BreakOutCategoryPoliciesResponseArgs' break_out_categories: Office365 breakout categories.
+        :param 'O365BreakOutCategoryPoliciesResponse' break_out_categories: Office365 breakout categories.
         """
         if break_out_categories is not None:
             pulumi.set(__self__, "break_out_categories", break_out_categories)
@@ -13495,20 +15998,34 @@ class O365PolicyPropertiesResponse(dict):
         """
         return pulumi.get(self, "break_out_categories")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class Office365PolicyPropertiesResponse(dict):
     """
     Network Virtual Appliance Sku Properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "breakOutCategories":
+            suggest = "break_out_categories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Office365PolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Office365PolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Office365PolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  break_out_categories: Optional['outputs.BreakOutCategoryPoliciesResponse'] = None):
         """
         Network Virtual Appliance Sku Properties.
-        :param 'BreakOutCategoryPoliciesResponseArgs' break_out_categories: Office 365 breakout categories.
+        :param 'BreakOutCategoryPoliciesResponse' break_out_categories: Office 365 breakout categories.
         """
         if break_out_categories is not None:
             pulumi.set(__self__, "break_out_categories", break_out_categories)
@@ -13521,15 +16038,39 @@ class Office365PolicyPropertiesResponse(dict):
         """
         return pulumi.get(self, "break_out_categories")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OutboundRuleResponse(dict):
     """
     Outbound rule of the load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "frontendIPConfigurations":
+            suggest = "frontend_ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allocatedOutboundPorts":
+            suggest = "allocated_outbound_ports"
+        elif key == "enableTcpReset":
+            suggest = "enable_tcp_reset"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_address_pool: 'outputs.SubResourceResponse',
                  etag: str,
@@ -13544,9 +16085,9 @@ class OutboundRuleResponse(dict):
                  name: Optional[str] = None):
         """
         Outbound rule of the load balancer.
-        :param 'SubResourceResponseArgs' backend_address_pool: A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        :param 'SubResourceResponse' backend_address_pool: A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['SubResourceResponseArgs'] frontend_ip_configurations: The Frontend IP addresses of the load balancer.
+        :param Sequence['SubResourceResponse'] frontend_ip_configurations: The Frontend IP addresses of the load balancer.
         :param str protocol: The protocol for the outbound rule in load balancer.
         :param str provisioning_state: The provisioning state of the outbound rule resource.
         :param str type: Type of the resource.
@@ -13661,15 +16202,31 @@ class OutboundRuleResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OwaspCrsExclusionEntryResponse(dict):
     """
     Allow to exclude some variable satisfy the condition for the WAF check.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OwaspCrsExclusionEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OwaspCrsExclusionEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OwaspCrsExclusionEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  selector: str,
@@ -13708,15 +16265,35 @@ class OwaspCrsExclusionEntryResponse(dict):
         """
         return pulumi.get(self, "selector_match_operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class P2SConnectionConfigurationResponse(dict):
     """
     P2SConnectionConfiguration Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "enableInternetSecurity":
+            suggest = "enable_internet_security"
+        elif key == "routingConfiguration":
+            suggest = "routing_configuration"
+        elif key == "vpnClientAddressPool":
+            suggest = "vpn_client_address_pool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in P2SConnectionConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        P2SConnectionConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        P2SConnectionConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -13732,8 +16309,8 @@ class P2SConnectionConfigurationResponse(dict):
         :param bool enable_internet_security: Flag indicating whether the enable internet security flag is turned on for the P2S Connections or not.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'RoutingConfigurationResponseArgs' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
-        :param 'AddressSpaceResponseArgs' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
+        :param 'RoutingConfigurationResponse' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -13804,15 +16381,43 @@ class P2SConnectionConfigurationResponse(dict):
         """
         return pulumi.get(self, "vpn_client_address_pool")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class P2SVpnGatewayResponse(dict):
     """
     P2SVpnGateway Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "vpnClientConnectionHealth":
+            suggest = "vpn_client_connection_health"
+        elif key == "customDnsServers":
+            suggest = "custom_dns_servers"
+        elif key == "isRoutingPreferenceInternet":
+            suggest = "is_routing_preference_internet"
+        elif key == "p2SConnectionConfigurations":
+            suggest = "p2_s_connection_configurations"
+        elif key == "virtualHub":
+            suggest = "virtual_hub"
+        elif key == "vpnGatewayScaleUnit":
+            suggest = "vpn_gateway_scale_unit"
+        elif key == "vpnServerConfiguration":
+            suggest = "vpn_server_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in P2SVpnGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        P2SVpnGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        P2SVpnGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  location: str,
@@ -13835,15 +16440,15 @@ class P2SVpnGatewayResponse(dict):
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the P2S VPN gateway resource.
         :param str type: Resource type.
-        :param 'VpnClientConnectionHealthResponseArgs' vpn_client_connection_health: All P2S VPN clients' connection health status.
+        :param 'VpnClientConnectionHealthResponse' vpn_client_connection_health: All P2S VPN clients' connection health status.
         :param Sequence[str] custom_dns_servers: List of all customer specified DNS servers IP addresses.
         :param str id: Resource ID.
         :param bool is_routing_preference_internet: Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
-        :param Sequence['P2SConnectionConfigurationResponseArgs'] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
+        :param Sequence['P2SConnectionConfigurationResponse'] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param Mapping[str, str] tags: Resource tags.
-        :param 'SubResourceResponseArgs' virtual_hub: The VirtualHub to which the gateway belongs.
+        :param 'SubResourceResponse' virtual_hub: The VirtualHub to which the gateway belongs.
         :param int vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
-        :param 'SubResourceResponseArgs' vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+        :param 'SubResourceResponse' vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "location", location)
@@ -13980,15 +16585,35 @@ class P2SVpnGatewayResponse(dict):
         """
         return pulumi.get(self, "vpn_server_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PacketCaptureFilterResponse(dict):
     """
     Filter that is applied to packet capture request. Multiple filters can be applied.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localIPAddress":
+            suggest = "local_ip_address"
+        elif key == "localPort":
+            suggest = "local_port"
+        elif key == "remoteIPAddress":
+            suggest = "remote_ip_address"
+        elif key == "remotePort":
+            suggest = "remote_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PacketCaptureFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PacketCaptureFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PacketCaptureFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_ip_address: Optional[str] = None,
                  local_port: Optional[str] = None,
@@ -14056,15 +16681,33 @@ class PacketCaptureFilterResponse(dict):
         """
         return pulumi.get(self, "remote_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PacketCaptureStorageLocationResponse(dict):
     """
     The storage location for a packet capture session.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePath":
+            suggest = "file_path"
+        elif key == "storageId":
+            suggest = "storage_id"
+        elif key == "storagePath":
+            suggest = "storage_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PacketCaptureStorageLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PacketCaptureStorageLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PacketCaptureStorageLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_path: Optional[str] = None,
                  storage_id: Optional[str] = None,
@@ -14106,15 +16749,41 @@ class PacketCaptureStorageLocationResponse(dict):
         """
         return pulumi.get(self, "storage_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PeerExpressRouteCircuitConnectionResponse(dict):
     """
     Peer Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "circuitConnectionStatus":
+            suggest = "circuit_connection_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "authResourceGuid":
+            suggest = "auth_resource_guid"
+        elif key == "connectionName":
+            suggest = "connection_name"
+        elif key == "expressRouteCircuitPeering":
+            suggest = "express_route_circuit_peering"
+        elif key == "peerExpressRouteCircuitPeering":
+            suggest = "peer_express_route_circuit_peering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PeerExpressRouteCircuitConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PeerExpressRouteCircuitConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PeerExpressRouteCircuitConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  circuit_connection_status: str,
                  etag: str,
@@ -14136,10 +16805,10 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         :param str address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
         :param str auth_resource_guid: The resource guid of the authorization used for the express route circuit connection.
         :param str connection_name: The name of the express route circuit connection resource.
-        :param 'SubResourceResponseArgs' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit.
+        :param 'SubResourceResponse' express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the circuit.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        :param 'SubResourceResponse' peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
         pulumi.set(__self__, "etag", etag)
@@ -14248,15 +16917,33 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         """
         return pulumi.get(self, "peer_express_route_circuit_peering")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicySettingsResponse(dict):
     """
     Defines contents of a web application firewall global configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileUploadLimitInMb":
+            suggest = "file_upload_limit_in_mb"
+        elif key == "maxRequestBodySizeInKb":
+            suggest = "max_request_body_size_in_kb"
+        elif key == "requestBodyCheck":
+            suggest = "request_body_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_upload_limit_in_mb: Optional[int] = None,
                  max_request_body_size_in_kb: Optional[int] = None,
@@ -14322,22 +17009,38 @@ class PolicySettingsResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateDnsZoneConfigResponse(dict):
     """
     PrivateDnsZoneConfig resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordSets":
+            suggest = "record_sets"
+        elif key == "privateDnsZoneId":
+            suggest = "private_dns_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsZoneConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateDnsZoneConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateDnsZoneConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  record_sets: Sequence['outputs.RecordSetResponse'],
                  name: Optional[str] = None,
                  private_dns_zone_id: Optional[str] = None):
         """
         PrivateDnsZoneConfig resource.
-        :param Sequence['RecordSetResponseArgs'] record_sets: A collection of information regarding a recordSet, holding information to identify private resources.
+        :param Sequence['RecordSetResponse'] record_sets: A collection of information regarding a recordSet, holding information to identify private resources.
         :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str private_dns_zone_id: The resource id of the private dns zone.
         """
@@ -14371,15 +17074,35 @@ class PrivateDnsZoneConfigResponse(dict):
         """
         return pulumi.get(self, "private_dns_zone_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     PrivateEndpointConnection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  link_identifier: str,
@@ -14393,12 +17116,12 @@ class PrivateEndpointConnectionResponse(dict):
         PrivateEndpointConnection resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str link_identifier: The consumer link id.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: The resource type.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "link_identifier", link_identifier)
@@ -14476,15 +17199,39 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     Private endpoint resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "customDnsConfigs":
+            suggest = "custom_dns_configs"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "manualPrivateLinkServiceConnections":
+            suggest = "manual_private_link_service_connections"
+        elif key == "privateLinkServiceConnections":
+            suggest = "private_link_service_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -14503,16 +17250,16 @@ class PrivateEndpointResponse(dict):
         Private endpoint resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str name: Resource name.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: An array of references to the network interfaces created for this private endpoint.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: An array of references to the network interfaces created for this private endpoint.
         :param str provisioning_state: The provisioning state of the private endpoint resource.
         :param str type: Resource type.
-        :param Sequence['CustomDnsConfigPropertiesFormatResponseArgs'] custom_dns_configs: An array of custom dns configurations.
-        :param 'ExtendedLocationResponseArgs' extended_location: The extended location of the load balancer.
+        :param Sequence['CustomDnsConfigPropertiesFormatResponse'] custom_dns_configs: An array of custom dns configurations.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the load balancer.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] private_link_service_connections: A grouping of information about the connection to the remote resource.
-        :param 'SubnetResponseArgs' subnet: The ID of the subnet from which the private IP will be allocated.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param 'SubnetResponse' subnet: The ID of the subnet from which the private IP will be allocated.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "etag", etag)
@@ -14641,15 +17388,37 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionResponse(dict):
     """
     PrivateLinkServiceConnection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "privateLinkServiceId":
+            suggest = "private_link_service_id"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -14668,7 +17437,7 @@ class PrivateLinkServiceConnectionResponse(dict):
         :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
         :param str private_link_service_id: The resource id of private link service.
         :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
@@ -14760,15 +17529,29 @@ class PrivateLinkServiceConnectionResponse(dict):
         """
         return pulumi.get(self, "request_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -14810,15 +17593,35 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceIpConfigurationResponse(dict):
     """
     The private link service ip configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -14841,7 +17644,7 @@ class PrivateLinkServiceIpConfigurationResponse(dict):
         :param str private_ip_address: The private IP address of the IP configuration.
         :param str private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'SubnetResponseArgs' subnet: The reference to the subnet resource.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -14941,9 +17744,6 @@ class PrivateLinkServiceIpConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServicePropertiesResponseAutoApproval(dict):
@@ -14966,9 +17766,6 @@ class PrivateLinkServicePropertiesResponseAutoApproval(dict):
         The list of subscriptions.
         """
         return pulumi.get(self, "subscriptions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14993,15 +17790,37 @@ class PrivateLinkServicePropertiesResponseVisibility(dict):
         """
         return pulumi.get(self, "subscriptions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProbeResponse(dict):
     """
     A load balancer probe.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancingRules":
+            suggest = "load_balancing_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "numberOfProbes":
+            suggest = "number_of_probes"
+        elif key == "requestPath":
+            suggest = "request_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProbeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProbeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProbeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  load_balancing_rules: Sequence['outputs.SubResourceResponse'],
@@ -15017,7 +17836,7 @@ class ProbeResponse(dict):
         """
         A load balancer probe.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['SubResourceResponseArgs'] load_balancing_rules: The load balancer rules that use this probe.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: The load balancer rules that use this probe.
         :param int port: The port for communicating the probe. Possible values range from 1 to 65535, inclusive.
         :param str protocol: The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
         :param str provisioning_state: The provisioning state of the probe resource.
@@ -15133,9 +17952,6 @@ class ProbeResponse(dict):
         """
         return pulumi.get(self, "request_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PropagatedRouteTableResponse(dict):
@@ -15147,7 +17963,7 @@ class PropagatedRouteTableResponse(dict):
                  labels: Optional[Sequence[str]] = None):
         """
         The list of RouteTables to advertise the routes to.
-        :param Sequence['SubResourceResponseArgs'] ids: The list of resource ids of all the RouteTables.
+        :param Sequence['SubResourceResponse'] ids: The list of resource ids of all the RouteTables.
         :param Sequence[str] labels: The list of labels.
         """
         if ids is not None:
@@ -15171,15 +17987,33 @@ class PropagatedRouteTableResponse(dict):
         """
         return pulumi.get(self, "labels")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProtocolCustomSettingsFormatResponse(dict):
     """
     DDoS custom policy properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRateOverride":
+            suggest = "source_rate_override"
+        elif key == "triggerRateOverride":
+            suggest = "trigger_rate_override"
+        elif key == "triggerSensitivityOverride":
+            suggest = "trigger_sensitivity_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProtocolCustomSettingsFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProtocolCustomSettingsFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProtocolCustomSettingsFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protocol: Optional[str] = None,
                  source_rate_override: Optional[str] = None,
@@ -15233,15 +18067,31 @@ class ProtocolCustomSettingsFormatResponse(dict):
         """
         return pulumi.get(self, "trigger_sensitivity_override")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PublicIPAddressDnsSettingsResponse(dict):
     """
     Contains FQDN of the DNS record associated with the public IP address.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "reverseFqdn":
+            suggest = "reverse_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressDnsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressDnsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressDnsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain_name_label: Optional[str] = None,
                  fqdn: Optional[str] = None,
@@ -15283,15 +18133,51 @@ class PublicIPAddressDnsSettingsResponse(dict):
         """
         return pulumi.get(self, "reverse_fqdn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PublicIPAddressResponse(dict):
     """
     Public IP address resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfiguration":
+            suggest = "ip_configuration"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "ddosSettings":
+            suggest = "ddos_settings"
+        elif key == "dnsSettings":
+            suggest = "dns_settings"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "ipTags":
+            suggest = "ip_tags"
+        elif key == "publicIPAddressVersion":
+            suggest = "public_ip_address_version"
+        elif key == "publicIPAllocationMethod":
+            suggest = "public_ip_allocation_method"
+        elif key == "publicIPPrefix":
+            suggest = "public_ip_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  ip_configuration: 'outputs.IPConfigurationResponse',
@@ -15316,23 +18202,23 @@ class PublicIPAddressResponse(dict):
         """
         Public IP address resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param 'IPConfigurationResponseArgs' ip_configuration: The IP configuration associated with the public IP address.
+        :param 'IPConfigurationResponse' ip_configuration: The IP configuration associated with the public IP address.
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the public IP address resource.
         :param str resource_guid: The resource GUID property of the public IP address resource.
         :param str type: Resource type.
-        :param 'DdosSettingsResponseArgs' ddos_settings: The DDoS protection custom policy associated with the public IP address.
-        :param 'PublicIPAddressDnsSettingsResponseArgs' dns_settings: The FQDN of the DNS record associated with the public IP address.
-        :param 'ExtendedLocationResponseArgs' extended_location: The extended location of the public ip address.
+        :param 'DdosSettingsResponse' ddos_settings: The DDoS protection custom policy associated with the public IP address.
+        :param 'PublicIPAddressDnsSettingsResponse' dns_settings: The FQDN of the DNS record associated with the public IP address.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the public ip address.
         :param str id: Resource ID.
         :param int idle_timeout_in_minutes: The idle timeout of the public IP address.
         :param str ip_address: The IP address associated with the public IP address resource.
-        :param Sequence['IpTagResponseArgs'] ip_tags: The list of tags associated with the public IP address.
+        :param Sequence['IpTagResponse'] ip_tags: The list of tags associated with the public IP address.
         :param str location: Resource location.
         :param str public_ip_address_version: The public IP address version.
         :param str public_ip_allocation_method: The public IP address allocation method.
-        :param 'SubResourceResponseArgs' public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
-        :param 'PublicIPAddressSkuResponseArgs' sku: The public IP address SKU.
+        :param 'SubResourceResponse' public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
+        :param 'PublicIPAddressSkuResponse' sku: The public IP address SKU.
         :param Mapping[str, str] tags: Resource tags.
         :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
@@ -15531,9 +18417,6 @@ class PublicIPAddressResponse(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PublicIPAddressSkuResponse(dict):
@@ -15568,9 +18451,6 @@ class PublicIPAddressSkuResponse(dict):
         Tier of a public IP address SKU.
         """
         return pulumi.get(self, "tier")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15607,15 +18487,31 @@ class PublicIPPrefixSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class QosIpRangeResponse(dict):
     """
     Qos Traffic Profiler IP Range properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIP":
+            suggest = "end_ip"
+        elif key == "startIP":
+            suggest = "start_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QosIpRangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QosIpRangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QosIpRangeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_ip: Optional[str] = None,
                  start_ip: Optional[str] = None):
@@ -15644,9 +18540,6 @@ class QosIpRangeResponse(dict):
         Start IP Address.
         """
         return pulumi.get(self, "start_ip")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15683,15 +18576,33 @@ class QosPortRangeResponse(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RadiusServerResponse(dict):
     """
     Radius Server Settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "radiusServerAddress":
+            suggest = "radius_server_address"
+        elif key == "radiusServerScore":
+            suggest = "radius_server_score"
+        elif key == "radiusServerSecret":
+            suggest = "radius_server_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RadiusServerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RadiusServerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RadiusServerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  radius_server_address: str,
                  radius_server_score: Optional[float] = None,
@@ -15732,15 +18643,35 @@ class RadiusServerResponse(dict):
         """
         return pulumi.get(self, "radius_server_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecordSetResponse(dict):
     """
     A collective group of information about the record set information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "recordSetName":
+            suggest = "record_set_name"
+        elif key == "recordType":
+            suggest = "record_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  fqdn: Optional[str] = None,
@@ -15817,9 +18748,6 @@ class RecordSetResponse(dict):
         """
         return pulumi.get(self, "ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReferencedPublicIpAddressResponse(dict):
@@ -15843,15 +18771,31 @@ class ReferencedPublicIpAddressResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceNavigationLinkResponse(dict):
     """
     ResourceNavigationLink resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "linkedResourceType":
+            suggest = "linked_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceNavigationLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceNavigationLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceNavigationLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  id: str,
@@ -15937,9 +18881,6 @@ class ResourceNavigationLinkResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RetentionPolicyParametersResponse(dict):
@@ -15979,15 +18920,31 @@ class RetentionPolicyParametersResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteFilterRuleResponse(dict):
     """
     Route Filter Rule Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "routeFilterRuleType":
+            suggest = "route_filter_rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteFilterRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteFilterRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteFilterRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access: str,
                  communities: Sequence[str],
@@ -16084,15 +19041,37 @@ class RouteFilterRuleResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteResponse(dict):
     """
     Route resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextHopType":
+            suggest = "next_hop_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "hasBgpOverride":
+            suggest = "has_bgp_override"
+        elif key == "nextHopIpAddress":
+            suggest = "next_hop_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  next_hop_type: str,
@@ -16203,15 +19182,33 @@ class RouteResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RouteTableResponse(dict):
     """
     Route table resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "disableBgpRoutePropagation":
+            suggest = "disable_bgp_route_propagation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteTableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteTableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteTableResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -16230,12 +19227,12 @@ class RouteTableResponse(dict):
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the route table resource.
         :param str resource_guid: The resource GUID property of the route table.
-        :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
         :param str type: Resource type.
         :param bool disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param Sequence['RouteResponseArgs'] routes: Collection of routes contained within a route table.
+        :param Sequence['RouteResponse'] routes: Collection of routes contained within a route table.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "etag", etag)
@@ -16343,24 +19340,42 @@ class RouteTableResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingConfigurationResponse(dict):
     """
     Routing Configuration indicating the associated and propagated route tables for this connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedRouteTable":
+            suggest = "associated_route_table"
+        elif key == "propagatedRouteTables":
+            suggest = "propagated_route_tables"
+        elif key == "vnetRoutes":
+            suggest = "vnet_routes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  associated_route_table: Optional['outputs.SubResourceResponse'] = None,
                  propagated_route_tables: Optional['outputs.PropagatedRouteTableResponse'] = None,
                  vnet_routes: Optional['outputs.VnetRouteResponse'] = None):
         """
         Routing Configuration indicating the associated and propagated route tables for this connection.
-        :param 'SubResourceResponseArgs' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'PropagatedRouteTableResponseArgs' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        :param 'VnetRouteResponseArgs' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
+        :param 'SubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
+        :param 'PropagatedRouteTableResponse' propagated_route_tables: The list of RouteTables to advertise the routes to.
+        :param 'VnetRouteResponse' vnet_routes: List of routes that control routing from VirtualHub into a virtual network connection.
         """
         if associated_route_table is not None:
             pulumi.set(__self__, "associated_route_table", associated_route_table)
@@ -16393,9 +19408,6 @@ class RoutingConfigurationResponse(dict):
         """
         return pulumi.get(self, "vnet_routes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingRuleLinkResponse(dict):
@@ -16418,9 +19430,6 @@ class RoutingRuleLinkResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16445,15 +19454,49 @@ class SecurityPolicyLinkResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityRuleResponse(dict):
     """
     Network security rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "destinationAddressPrefix":
+            suggest = "destination_address_prefix"
+        elif key == "destinationAddressPrefixes":
+            suggest = "destination_address_prefixes"
+        elif key == "destinationApplicationSecurityGroups":
+            suggest = "destination_application_security_groups"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "destinationPortRanges":
+            suggest = "destination_port_ranges"
+        elif key == "sourceAddressPrefix":
+            suggest = "source_address_prefix"
+        elif key == "sourceAddressPrefixes":
+            suggest = "source_address_prefixes"
+        elif key == "sourceApplicationSecurityGroups":
+            suggest = "source_application_security_groups"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+        elif key == "sourcePortRanges":
+            suggest = "source_port_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access: str,
                  direction: str,
@@ -16485,7 +19528,7 @@ class SecurityRuleResponse(dict):
         :param str description: A description for this rule. Restricted to 140 chars.
         :param str destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         :param Sequence[str] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
-        :param Sequence['ApplicationSecurityGroupResponseArgs'] destination_application_security_groups: The application security group specified as destination.
+        :param Sequence['ApplicationSecurityGroupResponse'] destination_application_security_groups: The application security group specified as destination.
         :param str destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] destination_port_ranges: The destination port ranges.
         :param str id: Resource ID.
@@ -16493,7 +19536,7 @@ class SecurityRuleResponse(dict):
         :param int priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
         :param Sequence[str] source_address_prefixes: The CIDR or source IP ranges.
-        :param Sequence['ApplicationSecurityGroupResponseArgs'] source_application_security_groups: The application security group specified as source.
+        :param Sequence['ApplicationSecurityGroupResponse'] source_application_security_groups: The application security group specified as source.
         :param str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param Sequence[str] source_port_ranges: The source port ranges.
         :param str type: The type of the resource.
@@ -16694,15 +19737,33 @@ class SecurityRuleResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAssociationLinkResponse(dict):
     """
     ServiceAssociationLink resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowDelete":
+            suggest = "allow_delete"
+        elif key == "linkedResourceType":
+            suggest = "linked_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAssociationLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAssociationLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAssociationLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -16813,15 +19874,31 @@ class ServiceAssociationLinkResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointPolicyDefinitionResponse(dict):
     """
     Service Endpoint policy definitions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceResources":
+            suggest = "service_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPolicyDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPolicyDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPolicyDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -16909,15 +19986,33 @@ class ServiceEndpointPolicyDefinitionResponse(dict):
         """
         return pulumi.get(self, "service_resources")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointPolicyResponse(dict):
     """
     Service End point policy resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "serviceEndpointPolicyDefinitions":
+            suggest = "service_endpoint_policy_definitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  kind: str,
@@ -16937,11 +20032,11 @@ class ServiceEndpointPolicyResponse(dict):
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the service endpoint policy resource.
         :param str resource_guid: The resource GUID property of the service endpoint policy resource.
-        :param Sequence['SubnetResponseArgs'] subnets: A collection of references to subnets.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
         :param str type: Resource type.
         :param str id: Resource ID.
         :param str location: Resource location.
-        :param Sequence['ServiceEndpointPolicyDefinitionResponseArgs'] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
+        :param Sequence['ServiceEndpointPolicyDefinitionResponse'] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "etag", etag)
@@ -17048,15 +20143,29 @@ class ServiceEndpointPolicyResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointPropertiesFormatResponse(dict):
     """
     The service endpoint properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPropertiesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPropertiesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPropertiesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  locations: Optional[Sequence[str]] = None,
@@ -17097,9 +20206,6 @@ class ServiceEndpointPropertiesFormatResponse(dict):
         """
         return pulumi.get(self, "service")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -17123,15 +20229,31 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StaticRouteResponse(dict):
     """
     List of all Static Routes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "nextHopIpAddress":
+            suggest = "next_hop_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticRouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticRouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticRouteResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefixes: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
@@ -17173,9 +20295,6 @@ class StaticRouteResponse(dict):
         """
         return pulumi.get(self, "next_hop_ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubResourceResponse(dict):
@@ -17199,15 +20318,59 @@ class SubResourceResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetResponse(dict):
     """
     Subnet in a virtual network resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurationProfiles":
+            suggest = "ip_configuration_profiles"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "privateEndpoints":
+            suggest = "private_endpoints"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceNavigationLinks":
+            suggest = "resource_navigation_links"
+        elif key == "serviceAssociationLinks":
+            suggest = "service_association_links"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "ipAllocations":
+            suggest = "ip_allocations"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "networkSecurityGroup":
+            suggest = "network_security_group"
+        elif key == "privateEndpointNetworkPolicies":
+            suggest = "private_endpoint_network_policies"
+        elif key == "privateLinkServiceNetworkPolicies":
+            suggest = "private_link_service_network_policies"
+        elif key == "routeTable":
+            suggest = "route_table"
+        elif key == "serviceEndpointPolicies":
+            suggest = "service_endpoint_policies"
+        elif key == "serviceEndpoints":
+            suggest = "service_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  ip_configuration_profiles: Sequence['outputs.IPConfigurationProfileResponse'],
@@ -17233,26 +20396,26 @@ class SubnetResponse(dict):
         """
         Subnet in a virtual network resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['IPConfigurationProfileResponseArgs'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
-        :param Sequence['IPConfigurationResponseArgs'] ip_configurations: An array of references to the network interface IP configurations using subnet.
-        :param Sequence['PrivateEndpointResponseArgs'] private_endpoints: An array of references to private endpoints.
+        :param Sequence['IPConfigurationProfileResponse'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
+        :param Sequence['IPConfigurationResponse'] ip_configurations: An array of references to the network interface IP configurations using subnet.
+        :param Sequence['PrivateEndpointResponse'] private_endpoints: An array of references to private endpoints.
         :param str provisioning_state: The provisioning state of the subnet resource.
         :param str purpose: A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
-        :param Sequence['ResourceNavigationLinkResponseArgs'] resource_navigation_links: An array of references to the external resources using subnet.
-        :param Sequence['ServiceAssociationLinkResponseArgs'] service_association_links: An array of references to services injecting into this subnet.
+        :param Sequence['ResourceNavigationLinkResponse'] resource_navigation_links: An array of references to the external resources using subnet.
+        :param Sequence['ServiceAssociationLinkResponse'] service_association_links: An array of references to services injecting into this subnet.
         :param str address_prefix: The address prefix for the subnet.
         :param Sequence[str] address_prefixes: List of address prefixes for the subnet.
-        :param Sequence['DelegationResponseArgs'] delegations: An array of references to the delegations on the subnet.
+        :param Sequence['DelegationResponse'] delegations: An array of references to the delegations on the subnet.
         :param str id: Resource ID.
-        :param Sequence['SubResourceResponseArgs'] ip_allocations: Array of IpAllocation which reference this subnet.
+        :param Sequence['SubResourceResponse'] ip_allocations: Array of IpAllocation which reference this subnet.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' nat_gateway: Nat gateway associated with this subnet.
-        :param 'NetworkSecurityGroupResponseArgs' network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param 'SubResourceResponse' nat_gateway: Nat gateway associated with this subnet.
+        :param 'NetworkSecurityGroupResponse' network_security_group: The reference to the NetworkSecurityGroup resource.
         :param str private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
         :param str private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
-        :param 'RouteTableResponseArgs' route_table: The reference to the RouteTable resource.
-        :param Sequence['ServiceEndpointPolicyResponseArgs'] service_endpoint_policies: An array of service endpoint policies.
-        :param Sequence['ServiceEndpointPropertiesFormatResponseArgs'] service_endpoints: An array of service endpoints.
+        :param 'RouteTableResponse' route_table: The reference to the RouteTable resource.
+        :param Sequence['ServiceEndpointPolicyResponse'] service_endpoint_policies: An array of service endpoint policies.
+        :param Sequence['ServiceEndpointPropertiesFormatResponse'] service_endpoints: An array of service endpoints.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "ip_configuration_profiles", ip_configuration_profiles)
@@ -17461,15 +20624,35 @@ class SubnetResponse(dict):
         """
         return pulumi.get(self, "service_endpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrafficAnalyticsConfigurationPropertiesResponse(dict):
     """
     Parameters that define the configuration of traffic analytics.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficAnalyticsInterval":
+            suggest = "traffic_analytics_interval"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+        elif key == "workspaceRegion":
+            suggest = "workspace_region"
+        elif key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficAnalyticsConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficAnalyticsConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficAnalyticsConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  traffic_analytics_interval: Optional[int] = None,
@@ -17535,20 +20718,34 @@ class TrafficAnalyticsConfigurationPropertiesResponse(dict):
         """
         return pulumi.get(self, "workspace_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrafficAnalyticsPropertiesResponse(dict):
     """
     Parameters that define the configuration of traffic analytics.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkWatcherFlowAnalyticsConfiguration":
+            suggest = "network_watcher_flow_analytics_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficAnalyticsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficAnalyticsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficAnalyticsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_watcher_flow_analytics_configuration: Optional['outputs.TrafficAnalyticsConfigurationPropertiesResponse'] = None):
         """
         Parameters that define the configuration of traffic analytics.
-        :param 'TrafficAnalyticsConfigurationPropertiesResponseArgs' network_watcher_flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param 'TrafficAnalyticsConfigurationPropertiesResponse' network_watcher_flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
         """
         if network_watcher_flow_analytics_configuration is not None:
             pulumi.set(__self__, "network_watcher_flow_analytics_configuration", network_watcher_flow_analytics_configuration)
@@ -17561,15 +20758,31 @@ class TrafficAnalyticsPropertiesResponse(dict):
         """
         return pulumi.get(self, "network_watcher_flow_analytics_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrafficSelectorPolicyResponse(dict):
     """
     An traffic selector policy for a virtual network gateway connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localAddressRanges":
+            suggest = "local_address_ranges"
+        elif key == "remoteAddressRanges":
+            suggest = "remote_address_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficSelectorPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficSelectorPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficSelectorPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  local_address_ranges: Sequence[str],
                  remote_address_ranges: Sequence[str]):
@@ -17597,15 +20810,35 @@ class TrafficSelectorPolicyResponse(dict):
         """
         return pulumi.get(self, "remote_address_ranges")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TunnelConnectionHealthResponse(dict):
     """
     VirtualNetworkGatewayConnection properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionStatus":
+            suggest = "connection_status"
+        elif key == "egressBytesTransferred":
+            suggest = "egress_bytes_transferred"
+        elif key == "ingressBytesTransferred":
+            suggest = "ingress_bytes_transferred"
+        elif key == "lastConnectionEstablishedUtcTime":
+            suggest = "last_connection_established_utc_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TunnelConnectionHealthResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TunnelConnectionHealthResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TunnelConnectionHealthResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_status: str,
                  egress_bytes_transferred: float,
@@ -17666,12 +20899,9 @@ class TunnelConnectionHealthResponse(dict):
         """
         return pulumi.get(self, "tunnel")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class VMResponseResult(dict):
+class VMResponse(dict):
     """
     Describes a Virtual Machine.
     """
@@ -17744,6 +20974,25 @@ class VirtualApplianceNicPropertiesResponse(dict):
     """
     Network Virtual Appliance NIC properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIpAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualApplianceNicPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualApplianceNicPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualApplianceNicPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  private_ip_address: str,
@@ -17782,15 +21031,31 @@ class VirtualApplianceNicPropertiesResponse(dict):
         """
         return pulumi.get(self, "public_ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualApplianceSkuPropertiesResponse(dict):
     """
     Network Virtual Appliance Sku Properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bundledScaleUnit":
+            suggest = "bundled_scale_unit"
+        elif key == "marketPlaceVersion":
+            suggest = "market_place_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualApplianceSkuPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualApplianceSkuPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualApplianceSkuPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bundled_scale_unit: Optional[str] = None,
                  market_place_version: Optional[str] = None,
@@ -17832,9 +21097,6 @@ class VirtualApplianceSkuPropertiesResponse(dict):
         """
         return pulumi.get(self, "vendor")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualHubIdResponse(dict):
@@ -17858,15 +21120,31 @@ class VirtualHubIdResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualHubRouteResponse(dict):
     """
     VirtualHub route.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "nextHopIpAddress":
+            suggest = "next_hop_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualHubRouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualHubRouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualHubRouteResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefixes: Optional[Sequence[str]] = None,
                  next_hop_ip_address: Optional[str] = None):
@@ -17896,9 +21174,6 @@ class VirtualHubRouteResponse(dict):
         """
         return pulumi.get(self, "next_hop_ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualHubRouteTableResponse(dict):
@@ -17909,7 +21184,7 @@ class VirtualHubRouteTableResponse(dict):
                  routes: Optional[Sequence['outputs.VirtualHubRouteResponse']] = None):
         """
         VirtualHub route table.
-        :param Sequence['VirtualHubRouteResponseArgs'] routes: List of all routes.
+        :param Sequence['VirtualHubRouteResponse'] routes: List of all routes.
         """
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
@@ -17922,15 +21197,31 @@ class VirtualHubRouteTableResponse(dict):
         """
         return pulumi.get(self, "routes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualHubRouteTableV2Response(dict):
     """
     VirtualHubRouteTableV2 Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "attachedConnections":
+            suggest = "attached_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualHubRouteTableV2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualHubRouteTableV2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualHubRouteTableV2Response.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -17945,7 +21236,7 @@ class VirtualHubRouteTableV2Response(dict):
         :param Sequence[str] attached_connections: List of all connections attached to this route table v2.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param Sequence['VirtualHubRouteV2ResponseArgs'] routes: List of all routes.
+        :param Sequence['VirtualHubRouteV2Response'] routes: List of all routes.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -18006,15 +21297,33 @@ class VirtualHubRouteTableV2Response(dict):
         """
         return pulumi.get(self, "routes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualHubRouteV2Response(dict):
     """
     VirtualHubRouteTableV2 route.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationType":
+            suggest = "destination_type"
+        elif key == "nextHopType":
+            suggest = "next_hop_type"
+        elif key == "nextHops":
+            suggest = "next_hops"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualHubRouteV2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualHubRouteV2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualHubRouteV2Response.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_type: Optional[str] = None,
                  destinations: Optional[Sequence[str]] = None,
@@ -18068,15 +21377,31 @@ class VirtualHubRouteV2Response(dict):
         """
         return pulumi.get(self, "next_hops")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkBgpCommunitiesResponse(dict):
     """
     Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionalCommunity":
+            suggest = "regional_community"
+        elif key == "virtualNetworkCommunity":
+            suggest = "virtual_network_community"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkBgpCommunitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkBgpCommunitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkBgpCommunitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regional_community: str,
                  virtual_network_community: str):
@@ -18104,15 +21429,35 @@ class VirtualNetworkBgpCommunitiesResponse(dict):
         """
         return pulumi.get(self, "virtual_network_community")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkGatewayIPConfigurationResponse(dict):
     """
     IP configuration for virtual network gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  private_ip_address: str,
@@ -18130,8 +21475,8 @@ class VirtualNetworkGatewayIPConfigurationResponse(dict):
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str private_ip_allocation_method: The private IP address allocation method.
-        :param 'SubResourceResponseArgs' public_ip_address: The reference to the public IP resource.
-        :param 'SubResourceResponseArgs' subnet: The reference to the subnet resource.
+        :param 'SubResourceResponse' public_ip_address: The reference to the public IP resource.
+        :param 'SubResourceResponse' subnet: The reference to the subnet resource.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -18211,15 +21556,61 @@ class VirtualNetworkGatewayIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkGatewayResponse(dict):
     """
     A common class for general resource information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundDnsForwardingEndpoint":
+            suggest = "inbound_dns_forwarding_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "activeActive":
+            suggest = "active_active"
+        elif key == "bgpSettings":
+            suggest = "bgp_settings"
+        elif key == "customRoutes":
+            suggest = "custom_routes"
+        elif key == "enableBgp":
+            suggest = "enable_bgp"
+        elif key == "enableDnsForwarding":
+            suggest = "enable_dns_forwarding"
+        elif key == "enablePrivateIpAddress":
+            suggest = "enable_private_ip_address"
+        elif key == "gatewayDefaultSite":
+            suggest = "gateway_default_site"
+        elif key == "gatewayType":
+            suggest = "gateway_type"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "vNetExtendedLocationResourceId":
+            suggest = "v_net_extended_location_resource_id"
+        elif key == "virtualNetworkExtendedLocation":
+            suggest = "virtual_network_extended_location"
+        elif key == "vpnClientConfiguration":
+            suggest = "vpn_client_configuration"
+        elif key == "vpnGatewayGeneration":
+            suggest = "vpn_gateway_generation"
+        elif key == "vpnType":
+            suggest = "vpn_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  inbound_dns_forwarding_endpoint: str,
@@ -18254,21 +21645,21 @@ class VirtualNetworkGatewayResponse(dict):
         :param str resource_guid: The resource GUID property of the virtual network gateway resource.
         :param str type: Resource type.
         :param bool active_active: ActiveActive flag.
-        :param 'BgpSettingsResponseArgs' bgp_settings: Virtual network gateway's BGP speaker settings.
-        :param 'AddressSpaceResponseArgs' custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+        :param 'BgpSettingsResponse' bgp_settings: Virtual network gateway's BGP speaker settings.
+        :param 'AddressSpaceResponse' custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param bool enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
         :param bool enable_dns_forwarding: Whether dns forwarding is enabled or not.
         :param bool enable_private_ip_address: Whether private IP needs to be enabled on this gateway for connections or not.
-        :param 'SubResourceResponseArgs' gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        :param 'SubResourceResponse' gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param str gateway_type: The type of this virtual network gateway.
         :param str id: Resource ID.
-        :param Sequence['VirtualNetworkGatewayIPConfigurationResponseArgs'] ip_configurations: IP configurations for virtual network gateway.
+        :param Sequence['VirtualNetworkGatewayIPConfigurationResponse'] ip_configurations: IP configurations for virtual network gateway.
         :param str location: Resource location.
-        :param 'VirtualNetworkGatewaySkuResponseArgs' sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        :param 'VirtualNetworkGatewaySkuResponse' sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param Mapping[str, str] tags: Resource tags.
         :param str v_net_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-        :param 'ExtendedLocationResponseArgs' virtual_network_extended_location: The extended location of type local virtual network gateway.
-        :param 'VpnClientConfigurationResponseArgs' vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        :param 'ExtendedLocationResponse' virtual_network_extended_location: The extended location of type local virtual network gateway.
+        :param 'VpnClientConfigurationResponse' vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param str vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param str vpn_type: The type of this virtual network gateway.
         """
@@ -18507,9 +21898,6 @@ class VirtualNetworkGatewayResponse(dict):
         """
         return pulumi.get(self, "vpn_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkGatewaySkuResponse(dict):
@@ -18556,15 +21944,45 @@ class VirtualNetworkGatewaySkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkPeeringResponse(dict):
     """
     Peerings in a virtual network resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowForwardedTraffic":
+            suggest = "allow_forwarded_traffic"
+        elif key == "allowGatewayTransit":
+            suggest = "allow_gateway_transit"
+        elif key == "allowVirtualNetworkAccess":
+            suggest = "allow_virtual_network_access"
+        elif key == "peeringState":
+            suggest = "peering_state"
+        elif key == "remoteAddressSpace":
+            suggest = "remote_address_space"
+        elif key == "remoteBgpCommunities":
+            suggest = "remote_bgp_communities"
+        elif key == "remoteVirtualNetwork":
+            suggest = "remote_virtual_network"
+        elif key == "useRemoteGateways":
+            suggest = "use_remote_gateways"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkPeeringResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkPeeringResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkPeeringResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -18588,9 +22006,9 @@ class VirtualNetworkPeeringResponse(dict):
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str peering_state: The status of the virtual network peering.
-        :param 'AddressSpaceResponseArgs' remote_address_space: The reference to the remote virtual network address space.
-        :param 'VirtualNetworkBgpCommunitiesResponseArgs' remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
-        :param 'SubResourceResponseArgs' remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        :param 'AddressSpaceResponse' remote_address_space: The reference to the remote virtual network address space.
+        :param 'VirtualNetworkBgpCommunitiesResponse' remote_bgp_communities: The reference to the remote virtual network's Bgp Communities.
+        :param 'SubResourceResponse' remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param bool use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         pulumi.set(__self__, "etag", etag)
@@ -18712,15 +22130,39 @@ class VirtualNetworkPeeringResponse(dict):
         """
         return pulumi.get(self, "use_remote_gateways")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkTapResponse(dict):
     """
     Virtual Network Tap resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceTapConfigurations":
+            suggest = "network_interface_tap_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "destinationLoadBalancerFrontEndIPConfiguration":
+            suggest = "destination_load_balancer_front_end_ip_configuration"
+        elif key == "destinationNetworkInterfaceIPConfiguration":
+            suggest = "destination_network_interface_ip_configuration"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkTapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkTapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkTapResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  name: str,
@@ -18738,12 +22180,12 @@ class VirtualNetworkTapResponse(dict):
         Virtual Network Tap resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str name: Resource name.
-        :param Sequence['NetworkInterfaceTapConfigurationResponseArgs'] network_interface_tap_configurations: Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+        :param Sequence['NetworkInterfaceTapConfigurationResponse'] network_interface_tap_configurations: Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         :param str provisioning_state: The provisioning state of the virtual network tap resource.
         :param str resource_guid: The resource GUID property of the virtual network tap resource.
         :param str type: Resource type.
-        :param 'FrontendIPConfigurationResponseArgs' destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
-        :param 'NetworkInterfaceIPConfigurationResponseArgs' destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
+        :param 'FrontendIPConfigurationResponse' destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        :param 'NetworkInterfaceIPConfigurationResponse' destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
         :param int destination_port: The VXLAN destination port that will receive the tapped traffic.
         :param str id: Resource ID.
         :param str location: Resource location.
@@ -18864,20 +22306,34 @@ class VirtualNetworkTapResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VnetRouteResponse(dict):
     """
     List of routes that control routing from VirtualHub into a virtual network connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticRoutes":
+            suggest = "static_routes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VnetRouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VnetRouteResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  static_routes: Optional[Sequence['outputs.StaticRouteResponse']] = None):
         """
         List of routes that control routing from VirtualHub into a virtual network connection.
-        :param Sequence['StaticRouteResponseArgs'] static_routes: List of all Static Routes.
+        :param Sequence['StaticRouteResponse'] static_routes: List of all Static Routes.
         """
         if static_routes is not None:
             pulumi.set(__self__, "static_routes", static_routes)
@@ -18890,15 +22346,51 @@ class VnetRouteResponse(dict):
         """
         return pulumi.get(self, "static_routes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnClientConfigurationResponse(dict):
     """
     VpnClientConfiguration for P2S client.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadAudience":
+            suggest = "aad_audience"
+        elif key == "aadIssuer":
+            suggest = "aad_issuer"
+        elif key == "aadTenant":
+            suggest = "aad_tenant"
+        elif key == "radiusServerAddress":
+            suggest = "radius_server_address"
+        elif key == "radiusServerSecret":
+            suggest = "radius_server_secret"
+        elif key == "radiusServers":
+            suggest = "radius_servers"
+        elif key == "vpnAuthenticationTypes":
+            suggest = "vpn_authentication_types"
+        elif key == "vpnClientAddressPool":
+            suggest = "vpn_client_address_pool"
+        elif key == "vpnClientIpsecPolicies":
+            suggest = "vpn_client_ipsec_policies"
+        elif key == "vpnClientProtocols":
+            suggest = "vpn_client_protocols"
+        elif key == "vpnClientRevokedCertificates":
+            suggest = "vpn_client_revoked_certificates"
+        elif key == "vpnClientRootCertificates":
+            suggest = "vpn_client_root_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnClientConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnClientConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnClientConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aad_audience: Optional[str] = None,
                  aad_issuer: Optional[str] = None,
@@ -18919,13 +22411,13 @@ class VpnClientConfigurationResponse(dict):
         :param str aad_tenant: The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         :param str radius_server_address: The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
         :param str radius_server_secret: The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
-        :param Sequence['RadiusServerResponseArgs'] radius_servers: The radiusServers property for multiple radius server configuration.
+        :param Sequence['RadiusServerResponse'] radius_servers: The radiusServers property for multiple radius server configuration.
         :param Sequence[str] vpn_authentication_types: VPN authentication types for the virtual network gateway..
-        :param 'AddressSpaceResponseArgs' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
-        :param Sequence['IpsecPolicyResponseArgs'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for virtual network gateway P2S client.
+        :param 'AddressSpaceResponse' vpn_client_address_pool: The reference to the address space resource which represents Address space for P2S VpnClient.
+        :param Sequence['IpsecPolicyResponse'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for virtual network gateway P2S client.
         :param Sequence[str] vpn_client_protocols: VpnClientProtocols for Virtual network gateway.
-        :param Sequence['VpnClientRevokedCertificateResponseArgs'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
-        :param Sequence['VpnClientRootCertificateResponseArgs'] vpn_client_root_certificates: VpnClientRootCertificate for virtual network gateway.
+        :param Sequence['VpnClientRevokedCertificateResponse'] vpn_client_revoked_certificates: VpnClientRevokedCertificate for Virtual network gateway.
+        :param Sequence['VpnClientRootCertificateResponse'] vpn_client_root_certificates: VpnClientRootCertificate for virtual network gateway.
         """
         if aad_audience is not None:
             pulumi.set(__self__, "aad_audience", aad_audience)
@@ -19048,12 +22540,9 @@ class VpnClientConfigurationResponse(dict):
         """
         return pulumi.get(self, "vpn_client_root_certificates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class VpnClientConnectionHealthDetailResponseResult(dict):
+class VpnClientConnectionHealthDetailResponse(dict):
     """
     VPN client connection health detail.
     """
@@ -19200,6 +22689,29 @@ class VpnClientConnectionHealthResponse(dict):
     """
     VpnClientConnectionHealth properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "totalEgressBytesTransferred":
+            suggest = "total_egress_bytes_transferred"
+        elif key == "totalIngressBytesTransferred":
+            suggest = "total_ingress_bytes_transferred"
+        elif key == "allocatedIpAddresses":
+            suggest = "allocated_ip_addresses"
+        elif key == "vpnClientConnectionsCount":
+            suggest = "vpn_client_connections_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnClientConnectionHealthResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnClientConnectionHealthResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnClientConnectionHealthResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  total_egress_bytes_transferred: float,
                  total_ingress_bytes_transferred: float,
@@ -19251,15 +22763,29 @@ class VpnClientConnectionHealthResponse(dict):
         """
         return pulumi.get(self, "vpn_client_connections_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnClientRevokedCertificateResponse(dict):
     """
     VPN client revoked certificate of virtual network gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnClientRevokedCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnClientRevokedCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnClientRevokedCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -19323,15 +22849,31 @@ class VpnClientRevokedCertificateResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnClientRootCertificateResponse(dict):
     """
     VPN client root certificate of virtual network gateway.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicCertData":
+            suggest = "public_cert_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnClientRootCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnClientRootCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnClientRootCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -19394,15 +22936,65 @@ class VpnClientRootCertificateResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnConnectionResponse(dict):
     """
     VpnConnection Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionStatus":
+            suggest = "connection_status"
+        elif key == "egressBytesTransferred":
+            suggest = "egress_bytes_transferred"
+        elif key == "ingressBytesTransferred":
+            suggest = "ingress_bytes_transferred"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "connectionBandwidth":
+            suggest = "connection_bandwidth"
+        elif key == "dpdTimeoutSeconds":
+            suggest = "dpd_timeout_seconds"
+        elif key == "enableBgp":
+            suggest = "enable_bgp"
+        elif key == "enableInternetSecurity":
+            suggest = "enable_internet_security"
+        elif key == "enableRateLimiting":
+            suggest = "enable_rate_limiting"
+        elif key == "ipsecPolicies":
+            suggest = "ipsec_policies"
+        elif key == "remoteVpnSite":
+            suggest = "remote_vpn_site"
+        elif key == "routingConfiguration":
+            suggest = "routing_configuration"
+        elif key == "routingWeight":
+            suggest = "routing_weight"
+        elif key == "sharedKey":
+            suggest = "shared_key"
+        elif key == "trafficSelectorPolicies":
+            suggest = "traffic_selector_policies"
+        elif key == "useLocalAzureIpAddress":
+            suggest = "use_local_azure_ip_address"
+        elif key == "usePolicyBasedTrafficSelectors":
+            suggest = "use_policy_based_traffic_selectors"
+        elif key == "vpnConnectionProtocolType":
+            suggest = "vpn_connection_protocol_type"
+        elif key == "vpnLinkConnections":
+            suggest = "vpn_link_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_status: str,
                  egress_bytes_transferred: float,
@@ -19439,17 +23031,17 @@ class VpnConnectionResponse(dict):
         :param bool enable_internet_security: Enable internet security.
         :param bool enable_rate_limiting: EnableBgp flag.
         :param str id: Resource ID.
-        :param Sequence['IpsecPolicyResponseArgs'] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param Sequence['IpsecPolicyResponse'] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param 'SubResourceResponseArgs' remote_vpn_site: Id of the connected vpn site.
-        :param 'RoutingConfigurationResponseArgs' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
+        :param 'SubResourceResponse' remote_vpn_site: Id of the connected vpn site.
+        :param 'RoutingConfigurationResponse' routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param int routing_weight: Routing weight for vpn connection.
         :param str shared_key: SharedKey for the vpn connection.
-        :param Sequence['TrafficSelectorPolicyResponseArgs'] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
+        :param Sequence['TrafficSelectorPolicyResponse'] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
         :param bool use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param bool use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param str vpn_connection_protocol_type: Connection protocol used for this connection.
-        :param Sequence['VpnSiteLinkConnectionResponseArgs'] vpn_link_connections: List of all vpn site link connections to the gateway.
+        :param Sequence['VpnSiteLinkConnectionResponse'] vpn_link_connections: List of all vpn site link connections to the gateway.
         """
         pulumi.set(__self__, "connection_status", connection_status)
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
@@ -19667,15 +23259,31 @@ class VpnConnectionResponse(dict):
         """
         return pulumi.get(self, "vpn_link_connections")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnGatewayIpConfigurationResponse(dict):
     """
     IP Configuration of a VPN Gateway Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIpAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnGatewayIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnGatewayIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnGatewayIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
@@ -19717,15 +23325,39 @@ class VpnGatewayIpConfigurationResponse(dict):
         """
         return pulumi.get(self, "public_ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnGatewayNatRuleResponse(dict):
     """
     VpnGatewayNatRule Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressVpnSiteLinkConnections":
+            suggest = "egress_vpn_site_link_connections"
+        elif key == "ingressVpnSiteLinkConnections":
+            suggest = "ingress_vpn_site_link_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "externalMappings":
+            suggest = "external_mappings"
+        elif key == "internalMappings":
+            suggest = "internal_mappings"
+        elif key == "ipConfigurationId":
+            suggest = "ip_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnGatewayNatRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnGatewayNatRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnGatewayNatRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  egress_vpn_site_link_connections: Sequence['outputs.SubResourceResponse'],
                  etag: str,
@@ -19740,14 +23372,14 @@ class VpnGatewayNatRuleResponse(dict):
                  name: Optional[str] = None):
         """
         VpnGatewayNatRule Resource.
-        :param Sequence['SubResourceResponseArgs'] egress_vpn_site_link_connections: List of egress VpnSiteLinkConnections.
+        :param Sequence['SubResourceResponse'] egress_vpn_site_link_connections: List of egress VpnSiteLinkConnections.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['SubResourceResponseArgs'] ingress_vpn_site_link_connections: List of ingress VpnSiteLinkConnections.
+        :param Sequence['SubResourceResponse'] ingress_vpn_site_link_connections: List of ingress VpnSiteLinkConnections.
         :param str provisioning_state: The provisioning state of the NAT Rule resource.
         :param str type: Resource type.
-        :param Sequence['VpnNatRuleMappingResponseArgs'] external_mappings: The private IP address external mapping for NAT.
+        :param Sequence['VpnNatRuleMappingResponse'] external_mappings: The private IP address external mapping for NAT.
         :param str id: Resource ID.
-        :param Sequence['VpnNatRuleMappingResponseArgs'] internal_mappings: The private IP address internal mapping for NAT.
+        :param Sequence['VpnNatRuleMappingResponse'] internal_mappings: The private IP address internal mapping for NAT.
         :param str ip_configuration_id: The IP Configuration ID this NAT rule applies to.
         :param str mode: The Source NAT direction of a VPN NAT.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -19858,15 +23490,29 @@ class VpnGatewayNatRuleResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnLinkBgpSettingsResponse(dict):
     """
     BGP settings details for a link.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bgpPeeringAddress":
+            suggest = "bgp_peering_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnLinkBgpSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnLinkBgpSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnLinkBgpSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asn: Optional[float] = None,
                  bgp_peering_address: Optional[str] = None):
@@ -19896,15 +23542,31 @@ class VpnLinkBgpSettingsResponse(dict):
         """
         return pulumi.get(self, "bgp_peering_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnLinkProviderPropertiesResponse(dict):
     """
     List of properties of a link provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkProviderName":
+            suggest = "link_provider_name"
+        elif key == "linkSpeedInMbps":
+            suggest = "link_speed_in_mbps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnLinkProviderPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnLinkProviderPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnLinkProviderPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  link_provider_name: Optional[str] = None,
                  link_speed_in_mbps: Optional[int] = None):
@@ -19934,15 +23596,29 @@ class VpnLinkProviderPropertiesResponse(dict):
         """
         return pulumi.get(self, "link_speed_in_mbps")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnNatRuleMappingResponse(dict):
     """
     Vpn NatRule mapping.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressSpace":
+            suggest = "address_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnNatRuleMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnNatRuleMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnNatRuleMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_space: Optional[str] = None):
         """
@@ -19959,9 +23635,6 @@ class VpnNatRuleMappingResponse(dict):
         Address space for Vpn NatRule mapping.
         """
         return pulumi.get(self, "address_space")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19998,15 +23671,29 @@ class VpnServerConfigRadiusClientRootCertificateResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnServerConfigRadiusServerRootCertificateResponse(dict):
     """
     Properties of Radius Server root certificate of VpnServerConfiguration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicCertData":
+            suggest = "public_cert_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigRadiusServerRootCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnServerConfigRadiusServerRootCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnServerConfigRadiusServerRootCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  public_cert_data: Optional[str] = None):
@@ -20035,9 +23722,6 @@ class VpnServerConfigRadiusServerRootCertificateResponse(dict):
         The certificate public data.
         """
         return pulumi.get(self, "public_cert_data")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20074,15 +23758,29 @@ class VpnServerConfigVpnClientRevokedCertificateResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnServerConfigVpnClientRootCertificateResponse(dict):
     """
     Properties of VPN client root certificate of VpnServerConfiguration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicCertData":
+            suggest = "public_cert_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigVpnClientRootCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnServerConfigVpnClientRootCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnServerConfigVpnClientRootCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  public_cert_data: Optional[str] = None):
@@ -20112,15 +23810,61 @@ class VpnServerConfigVpnClientRootCertificateResponse(dict):
         """
         return pulumi.get(self, "public_cert_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnSiteLinkConnectionResponse(dict):
     """
     VpnSiteLinkConnection Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionStatus":
+            suggest = "connection_status"
+        elif key == "egressBytesTransferred":
+            suggest = "egress_bytes_transferred"
+        elif key == "ingressBytesTransferred":
+            suggest = "ingress_bytes_transferred"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "connectionBandwidth":
+            suggest = "connection_bandwidth"
+        elif key == "egressNatRules":
+            suggest = "egress_nat_rules"
+        elif key == "enableBgp":
+            suggest = "enable_bgp"
+        elif key == "enableRateLimiting":
+            suggest = "enable_rate_limiting"
+        elif key == "ingressNatRules":
+            suggest = "ingress_nat_rules"
+        elif key == "ipsecPolicies":
+            suggest = "ipsec_policies"
+        elif key == "routingWeight":
+            suggest = "routing_weight"
+        elif key == "sharedKey":
+            suggest = "shared_key"
+        elif key == "useLocalAzureIpAddress":
+            suggest = "use_local_azure_ip_address"
+        elif key == "usePolicyBasedTrafficSelectors":
+            suggest = "use_policy_based_traffic_selectors"
+        elif key == "vpnConnectionProtocolType":
+            suggest = "vpn_connection_protocol_type"
+        elif key == "vpnLinkConnectionMode":
+            suggest = "vpn_link_connection_mode"
+        elif key == "vpnSiteLink":
+            suggest = "vpn_site_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnSiteLinkConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnSiteLinkConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnSiteLinkConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_status: str,
                  egress_bytes_transferred: float,
@@ -20152,12 +23896,12 @@ class VpnSiteLinkConnectionResponse(dict):
         :param str provisioning_state: The provisioning state of the VPN site link connection resource.
         :param str type: Resource type.
         :param int connection_bandwidth: Expected bandwidth in MBPS.
-        :param Sequence['SubResourceResponseArgs'] egress_nat_rules: List of egress NatRules.
+        :param Sequence['SubResourceResponse'] egress_nat_rules: List of egress NatRules.
         :param bool enable_bgp: EnableBgp flag.
         :param bool enable_rate_limiting: EnableBgp flag.
         :param str id: Resource ID.
-        :param Sequence['SubResourceResponseArgs'] ingress_nat_rules: List of ingress NatRules.
-        :param Sequence['IpsecPolicyResponseArgs'] ipsec_policies: The IPSec Policies to be considered by this connection.
+        :param Sequence['SubResourceResponse'] ingress_nat_rules: List of ingress NatRules.
+        :param Sequence['IpsecPolicyResponse'] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param int routing_weight: Routing weight for vpn connection.
         :param str shared_key: SharedKey for the vpn connection.
@@ -20165,7 +23909,7 @@ class VpnSiteLinkConnectionResponse(dict):
         :param bool use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param str vpn_connection_protocol_type: Connection protocol used for this connection.
         :param str vpn_link_connection_mode: Vpn link connection mode.
-        :param 'SubResourceResponseArgs' vpn_site_link: Id of the connected vpn site link.
+        :param 'SubResourceResponse' vpn_site_link: Id of the connected vpn site link.
         """
         pulumi.set(__self__, "connection_status", connection_status)
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
@@ -20372,15 +24116,35 @@ class VpnSiteLinkConnectionResponse(dict):
         """
         return pulumi.get(self, "vpn_site_link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VpnSiteLinkResponse(dict):
     """
     VpnSiteLink Resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "bgpProperties":
+            suggest = "bgp_properties"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "linkProperties":
+            suggest = "link_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnSiteLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnSiteLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnSiteLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  provisioning_state: str,
@@ -20396,11 +24160,11 @@ class VpnSiteLinkResponse(dict):
         :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str provisioning_state: The provisioning state of the VPN site link resource.
         :param str type: Resource type.
-        :param 'VpnLinkBgpSettingsResponseArgs' bgp_properties: The set of bgp properties.
+        :param 'VpnLinkBgpSettingsResponse' bgp_properties: The set of bgp properties.
         :param str fqdn: FQDN of vpn-site-link.
         :param str id: Resource ID.
         :param str ip_address: The ip-address for the vpn-site-link.
-        :param 'VpnLinkProviderPropertiesResponseArgs' link_properties: The link provider properties.
+        :param 'VpnLinkProviderPropertiesResponse' link_properties: The link provider properties.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         pulumi.set(__self__, "etag", etag)
@@ -20491,15 +24255,31 @@ class VpnSiteLinkResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebApplicationFirewallCustomRuleResponse(dict):
     """
     Defines contents of a web application rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "ruleType":
+            suggest = "rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebApplicationFirewallCustomRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebApplicationFirewallCustomRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebApplicationFirewallCustomRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  etag: str,
@@ -20511,7 +24291,7 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         Defines contents of a web application rule.
         :param str action: Type of Actions.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
-        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param int priority: Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: The rule type.
         :param str name: The name of the resource that is unique within a policy. This name can be used to access the resource.
@@ -20571,8 +24351,5 @@ class WebApplicationFirewallCustomRuleResponse(dict):
         The name of the resource that is unique within a policy. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

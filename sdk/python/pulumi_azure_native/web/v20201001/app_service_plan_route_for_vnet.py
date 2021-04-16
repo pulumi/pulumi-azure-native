@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -168,9 +168,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  route_type: Optional[pulumi.Input[Union[str, 'RouteType']]] = None,
                  start_address: Optional[pulumi.Input[str]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
 
@@ -222,15 +220,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  route_type: Optional[pulumi.Input[Union[str, 'RouteType']]] = None,
                  start_address: Optional[pulumi.Input[str]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,24 +230,24 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AppServicePlanRouteForVnetArgs.__new__(AppServicePlanRouteForVnetArgs)
 
-            __props__['end_address'] = end_address
-            __props__['kind'] = kind
+            __props__.__dict__["end_address"] = end_address
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['route_name'] = route_name
-            __props__['route_type'] = route_type
-            __props__['start_address'] = start_address
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["route_name"] = route_name
+            __props__.__dict__["route_type"] = route_type
+            __props__.__dict__["start_address"] = start_address
             if vnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vnet_name'")
-            __props__['vnet_name'] = vnet_name
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["vnet_name"] = vnet_name
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20201201:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlanRouteForVnet, __self__).__init__(
@@ -280,15 +270,15 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AppServicePlanRouteForVnetArgs.__new__(AppServicePlanRouteForVnetArgs)
 
-        __props__["end_address"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["route_type"] = None
-        __props__["start_address"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["end_address"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["route_type"] = None
+        __props__.__dict__["start_address"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return AppServicePlanRouteForVnet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +341,4 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

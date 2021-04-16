@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -159,9 +159,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  template: Optional[Any] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Template Spec Version object.
 
@@ -208,15 +206,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  template: Optional[Any] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  template_spec_version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,23 +216,23 @@ class TemplateSpecVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
-            __props__['artifacts'] = artifacts
-            __props__['description'] = description
-            __props__['location'] = location
+            __props__.__dict__["artifacts"] = artifacts
+            __props__.__dict__["description"] = description
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['template'] = template
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["template"] = template
             if template_spec_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_name'")
-            __props__['template_spec_name'] = template_spec_name
-            __props__['template_spec_version'] = template_spec_version
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["template_spec_name"] = template_spec_name
+            __props__.__dict__["template_spec_version"] = template_spec_version
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20190601preview:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources:TemplateSpecVersion"), pulumi.Alias(type_="azure-nextgen:resources:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources/v20210301preview:TemplateSpecVersion"), pulumi.Alias(type_="azure-nextgen:resources/v20210301preview:TemplateSpecVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateSpecVersion, __self__).__init__(
@@ -265,16 +255,16 @@ class TemplateSpecVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
-        __props__["artifacts"] = None
-        __props__["description"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["template"] = None
-        __props__["type"] = None
+        __props__.__dict__["artifacts"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["template"] = None
+        __props__.__dict__["type"] = None
         return TemplateSpecVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -340,10 +330,4 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Type of this resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

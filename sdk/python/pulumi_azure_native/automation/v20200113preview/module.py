@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -141,9 +141,7 @@ class Module(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Definition of the module type.
 
@@ -188,15 +186,7 @@ class Module(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,33 +196,33 @@ class Module(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ModuleArgs.__new__(ModuleArgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
+            __props__.__dict__["automation_account_name"] = automation_account_name
             if content_link is None and not opts.urn:
                 raise TypeError("Missing required property 'content_link'")
-            __props__['content_link'] = content_link
-            __props__['location'] = location
-            __props__['module_name'] = module_name
-            __props__['name'] = name
+            __props__.__dict__["content_link"] = content_link
+            __props__.__dict__["location"] = location
+            __props__.__dict__["module_name"] = module_name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['activity_count'] = None
-            __props__['creation_time'] = None
-            __props__['description'] = None
-            __props__['error'] = None
-            __props__['etag'] = None
-            __props__['is_composite'] = None
-            __props__['is_global'] = None
-            __props__['last_modified_time'] = None
-            __props__['provisioning_state'] = None
-            __props__['size_in_bytes'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["activity_count"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["error"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["is_composite"] = None
+            __props__.__dict__["is_global"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["size_in_bytes"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Module"), pulumi.Alias(type_="azure-native:automation:Module"), pulumi.Alias(type_="azure-nextgen:automation:Module"), pulumi.Alias(type_="azure-native:automation/v20151031:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Module"), pulumi.Alias(type_="azure-native:automation/v20190601:Module"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Module")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Module, __self__).__init__(
@@ -255,24 +245,24 @@ class Module(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ModuleArgs.__new__(ModuleArgs)
 
-        __props__["activity_count"] = None
-        __props__["content_link"] = None
-        __props__["creation_time"] = None
-        __props__["description"] = None
-        __props__["error"] = None
-        __props__["etag"] = None
-        __props__["is_composite"] = None
-        __props__["is_global"] = None
-        __props__["last_modified_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["size_in_bytes"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["activity_count"] = None
+        __props__.__dict__["content_link"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["error"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["is_composite"] = None
+        __props__.__dict__["is_global"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["size_in_bytes"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return Module(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -402,10 +392,4 @@ class Module(pulumi.CustomResource):
         Gets or sets the version of the module.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

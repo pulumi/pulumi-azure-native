@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -452,9 +452,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_name: Optional[pulumi.Input[str]] = None,
                  worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         App Service Environment ARM resource.
 
@@ -537,15 +535,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_name: Optional[pulumi.Input[str]] = None,
                  worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -555,57 +545,57 @@ class AppServiceEnvironment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AppServiceEnvironmentArgs.__new__(AppServiceEnvironmentArgs)
 
-            __props__['api_management_account_id'] = api_management_account_id
-            __props__['cluster_settings'] = cluster_settings
-            __props__['dns_suffix'] = dns_suffix
-            __props__['dynamic_cache_enabled'] = dynamic_cache_enabled
-            __props__['front_end_scale_factor'] = front_end_scale_factor
-            __props__['has_linux_workers'] = has_linux_workers
-            __props__['internal_load_balancing_mode'] = internal_load_balancing_mode
-            __props__['ipssl_address_count'] = ipssl_address_count
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['multi_role_count'] = multi_role_count
-            __props__['multi_size'] = multi_size
-            __props__['name'] = name
-            __props__['network_access_control_list'] = network_access_control_list
+            __props__.__dict__["api_management_account_id"] = api_management_account_id
+            __props__.__dict__["cluster_settings"] = cluster_settings
+            __props__.__dict__["dns_suffix"] = dns_suffix
+            __props__.__dict__["dynamic_cache_enabled"] = dynamic_cache_enabled
+            __props__.__dict__["front_end_scale_factor"] = front_end_scale_factor
+            __props__.__dict__["has_linux_workers"] = has_linux_workers
+            __props__.__dict__["internal_load_balancing_mode"] = internal_load_balancing_mode
+            __props__.__dict__["ipssl_address_count"] = ipssl_address_count
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["multi_role_count"] = multi_role_count
+            __props__.__dict__["multi_size"] = multi_size
+            __props__.__dict__["name"] = name
+            __props__.__dict__["network_access_control_list"] = network_access_control_list
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['ssl_cert_key_vault_id'] = ssl_cert_key_vault_id
-            __props__['ssl_cert_key_vault_secret_name'] = ssl_cert_key_vault_secret_name
-            __props__['suspended'] = suspended
-            __props__['tags'] = tags
-            __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["ssl_cert_key_vault_id"] = ssl_cert_key_vault_id
+            __props__.__dict__["ssl_cert_key_vault_secret_name"] = ssl_cert_key_vault_secret_name
+            __props__.__dict__["suspended"] = suspended
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
             if virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network'")
-            __props__['virtual_network'] = virtual_network
-            __props__['vnet_name'] = vnet_name
-            __props__['vnet_resource_group_name'] = vnet_resource_group_name
-            __props__['vnet_subnet_name'] = vnet_subnet_name
+            __props__.__dict__["virtual_network"] = virtual_network
+            __props__.__dict__["vnet_name"] = vnet_name
+            __props__.__dict__["vnet_resource_group_name"] = vnet_resource_group_name
+            __props__.__dict__["vnet_subnet_name"] = vnet_subnet_name
             if worker_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'worker_pools'")
-            __props__['worker_pools'] = worker_pools
-            __props__['allowed_multi_sizes'] = None
-            __props__['allowed_worker_sizes'] = None
-            __props__['database_edition'] = None
-            __props__['database_service_objective'] = None
-            __props__['default_front_end_scale_factor'] = None
-            __props__['environment_capacities'] = None
-            __props__['environment_is_healthy'] = None
-            __props__['environment_status'] = None
-            __props__['last_action'] = None
-            __props__['last_action_result'] = None
-            __props__['maximum_number_of_machines'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_group'] = None
-            __props__['status'] = None
-            __props__['subscription_id'] = None
-            __props__['type'] = None
-            __props__['upgrade_domains'] = None
-            __props__['vip_mappings'] = None
+            __props__.__dict__["worker_pools"] = worker_pools
+            __props__.__dict__["allowed_multi_sizes"] = None
+            __props__.__dict__["allowed_worker_sizes"] = None
+            __props__.__dict__["database_edition"] = None
+            __props__.__dict__["database_service_objective"] = None
+            __props__.__dict__["default_front_end_scale_factor"] = None
+            __props__.__dict__["environment_capacities"] = None
+            __props__.__dict__["environment_is_healthy"] = None
+            __props__.__dict__["environment_status"] = None
+            __props__.__dict__["last_action"] = None
+            __props__.__dict__["last_action_result"] = None
+            __props__.__dict__["maximum_number_of_machines"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_group"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["subscription_id"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["upgrade_domains"] = None
+            __props__.__dict__["vip_mappings"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20150801:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20160901:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20180201:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20200601:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20200901:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20201001:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20201201:AppServiceEnvironment"), pulumi.Alias(type_="azure-nextgen:web/v20201201:AppServiceEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceEnvironment, __self__).__init__(
@@ -628,50 +618,50 @@ class AppServiceEnvironment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AppServiceEnvironmentArgs.__new__(AppServiceEnvironmentArgs)
 
-        __props__["allowed_multi_sizes"] = None
-        __props__["allowed_worker_sizes"] = None
-        __props__["api_management_account_id"] = None
-        __props__["cluster_settings"] = None
-        __props__["database_edition"] = None
-        __props__["database_service_objective"] = None
-        __props__["default_front_end_scale_factor"] = None
-        __props__["dns_suffix"] = None
-        __props__["dynamic_cache_enabled"] = None
-        __props__["environment_capacities"] = None
-        __props__["environment_is_healthy"] = None
-        __props__["environment_status"] = None
-        __props__["front_end_scale_factor"] = None
-        __props__["has_linux_workers"] = None
-        __props__["internal_load_balancing_mode"] = None
-        __props__["ipssl_address_count"] = None
-        __props__["kind"] = None
-        __props__["last_action"] = None
-        __props__["last_action_result"] = None
-        __props__["location"] = None
-        __props__["maximum_number_of_machines"] = None
-        __props__["multi_role_count"] = None
-        __props__["multi_size"] = None
-        __props__["name"] = None
-        __props__["network_access_control_list"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_group"] = None
-        __props__["ssl_cert_key_vault_id"] = None
-        __props__["ssl_cert_key_vault_secret_name"] = None
-        __props__["status"] = None
-        __props__["subscription_id"] = None
-        __props__["suspended"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["upgrade_domains"] = None
-        __props__["user_whitelisted_ip_ranges"] = None
-        __props__["vip_mappings"] = None
-        __props__["virtual_network"] = None
-        __props__["vnet_name"] = None
-        __props__["vnet_resource_group_name"] = None
-        __props__["vnet_subnet_name"] = None
-        __props__["worker_pools"] = None
+        __props__.__dict__["allowed_multi_sizes"] = None
+        __props__.__dict__["allowed_worker_sizes"] = None
+        __props__.__dict__["api_management_account_id"] = None
+        __props__.__dict__["cluster_settings"] = None
+        __props__.__dict__["database_edition"] = None
+        __props__.__dict__["database_service_objective"] = None
+        __props__.__dict__["default_front_end_scale_factor"] = None
+        __props__.__dict__["dns_suffix"] = None
+        __props__.__dict__["dynamic_cache_enabled"] = None
+        __props__.__dict__["environment_capacities"] = None
+        __props__.__dict__["environment_is_healthy"] = None
+        __props__.__dict__["environment_status"] = None
+        __props__.__dict__["front_end_scale_factor"] = None
+        __props__.__dict__["has_linux_workers"] = None
+        __props__.__dict__["internal_load_balancing_mode"] = None
+        __props__.__dict__["ipssl_address_count"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_action"] = None
+        __props__.__dict__["last_action_result"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maximum_number_of_machines"] = None
+        __props__.__dict__["multi_role_count"] = None
+        __props__.__dict__["multi_size"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_access_control_list"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_group"] = None
+        __props__.__dict__["ssl_cert_key_vault_id"] = None
+        __props__.__dict__["ssl_cert_key_vault_secret_name"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["suspended"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_domains"] = None
+        __props__.__dict__["user_whitelisted_ip_ranges"] = None
+        __props__.__dict__["vip_mappings"] = None
+        __props__.__dict__["virtual_network"] = None
+        __props__.__dict__["vnet_name"] = None
+        __props__.__dict__["vnet_resource_group_name"] = None
+        __props__.__dict__["vnet_subnet_name"] = None
+        __props__.__dict__["worker_pools"] = None
         return AppServiceEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1011,10 +1001,4 @@ class AppServiceEnvironment(pulumi.CustomResource):
         Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
         """
         return pulumi.get(self, "worker_pools")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

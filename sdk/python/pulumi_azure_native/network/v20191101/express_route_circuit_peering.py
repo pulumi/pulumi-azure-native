@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -381,9 +381,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
                  stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Peering in an ExpressRouteCircuit resource.
 
@@ -456,15 +454,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
                  stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,39 +464,39 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExpressRouteCircuitPeeringArgs.__new__(ExpressRouteCircuitPeeringArgs)
 
-            __props__['azure_asn'] = azure_asn
+            __props__.__dict__["azure_asn"] = azure_asn
             if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
-            __props__['circuit_name'] = circuit_name
-            __props__['connections'] = connections
-            __props__['gateway_manager_etag'] = gateway_manager_etag
-            __props__['id'] = id
-            __props__['ipv6_peering_config'] = ipv6_peering_config
-            __props__['microsoft_peering_config'] = microsoft_peering_config
-            __props__['name'] = name
-            __props__['peer_asn'] = peer_asn
-            __props__['peering_name'] = peering_name
-            __props__['peering_type'] = peering_type
-            __props__['primary_azure_port'] = primary_azure_port
-            __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
+            __props__.__dict__["circuit_name"] = circuit_name
+            __props__.__dict__["connections"] = connections
+            __props__.__dict__["gateway_manager_etag"] = gateway_manager_etag
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ipv6_peering_config"] = ipv6_peering_config
+            __props__.__dict__["microsoft_peering_config"] = microsoft_peering_config
+            __props__.__dict__["name"] = name
+            __props__.__dict__["peer_asn"] = peer_asn
+            __props__.__dict__["peering_name"] = peering_name
+            __props__.__dict__["peering_type"] = peering_type
+            __props__.__dict__["primary_azure_port"] = primary_azure_port
+            __props__.__dict__["primary_peer_address_prefix"] = primary_peer_address_prefix
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['route_filter'] = route_filter
-            __props__['secondary_azure_port'] = secondary_azure_port
-            __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
-            __props__['shared_key'] = shared_key
-            __props__['state'] = state
-            __props__['stats'] = stats
-            __props__['vlan_id'] = vlan_id
-            __props__['etag'] = None
-            __props__['express_route_connection'] = None
-            __props__['last_modified_by'] = None
-            __props__['peered_connections'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["route_filter"] = route_filter
+            __props__.__dict__["secondary_azure_port"] = secondary_azure_port
+            __props__.__dict__["secondary_peer_address_prefix"] = secondary_peer_address_prefix
+            __props__.__dict__["shared_key"] = shared_key
+            __props__.__dict__["state"] = state
+            __props__.__dict__["stats"] = stats
+            __props__.__dict__["vlan_id"] = vlan_id
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["express_route_connection"] = None
+            __props__.__dict__["last_modified_by"] = None
+            __props__.__dict__["peered_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20150501preview:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20150615:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20150615:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20160330:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160330:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20160601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20160901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20160901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20161201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20161201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20170901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20170901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20171001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20171101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteCircuitPeering"), pulumi.Alias(type_="azure-nextgen:network/v20201101:ExpressRouteCircuitPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteCircuitPeering, __self__).__init__(
@@ -529,31 +519,31 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ExpressRouteCircuitPeeringArgs.__new__(ExpressRouteCircuitPeeringArgs)
 
-        __props__["azure_asn"] = None
-        __props__["connections"] = None
-        __props__["etag"] = None
-        __props__["express_route_connection"] = None
-        __props__["gateway_manager_etag"] = None
-        __props__["ipv6_peering_config"] = None
-        __props__["last_modified_by"] = None
-        __props__["microsoft_peering_config"] = None
-        __props__["name"] = None
-        __props__["peer_asn"] = None
-        __props__["peered_connections"] = None
-        __props__["peering_type"] = None
-        __props__["primary_azure_port"] = None
-        __props__["primary_peer_address_prefix"] = None
-        __props__["provisioning_state"] = None
-        __props__["route_filter"] = None
-        __props__["secondary_azure_port"] = None
-        __props__["secondary_peer_address_prefix"] = None
-        __props__["shared_key"] = None
-        __props__["state"] = None
-        __props__["stats"] = None
-        __props__["type"] = None
-        __props__["vlan_id"] = None
+        __props__.__dict__["azure_asn"] = None
+        __props__.__dict__["connections"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["express_route_connection"] = None
+        __props__.__dict__["gateway_manager_etag"] = None
+        __props__.__dict__["ipv6_peering_config"] = None
+        __props__.__dict__["last_modified_by"] = None
+        __props__.__dict__["microsoft_peering_config"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peer_asn"] = None
+        __props__.__dict__["peered_connections"] = None
+        __props__.__dict__["peering_type"] = None
+        __props__.__dict__["primary_azure_port"] = None
+        __props__.__dict__["primary_peer_address_prefix"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["route_filter"] = None
+        __props__.__dict__["secondary_azure_port"] = None
+        __props__.__dict__["secondary_peer_address_prefix"] = None
+        __props__.__dict__["shared_key"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["stats"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vlan_id"] = None
         return ExpressRouteCircuitPeering(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -739,10 +729,4 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         The VLAN ID.
         """
         return pulumi.get(self, "vlan_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

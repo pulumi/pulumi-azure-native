@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,7 +24,7 @@ class ListControllerConnectionDetailsResult:
 
     @property
     @pulumi.getter(name="connectionDetailsList")
-    def connection_details_list(self) -> Optional[Sequence['outputs.ControllerConnectionDetailsResponseResult']]:
+    def connection_details_list(self) -> Optional[Sequence['outputs.ControllerConnectionDetailsResponse']]:
         """
         List of Azure Dev Spaces Controller connection details.
         """

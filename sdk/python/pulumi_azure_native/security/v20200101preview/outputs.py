@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -26,6 +26,33 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
     """
     AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "authenticationProvisioningState":
+            suggest = "authentication_provisioning_state"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "awsAssumeRoleArn":
+            suggest = "aws_assume_role_arn"
+        elif key == "awsExternalId":
+            suggest = "aws_external_id"
+        elif key == "grantedPermissions":
+            suggest = "granted_permissions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwAssumeRoleAuthenticationDetailsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwAssumeRoleAuthenticationDetailsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwAssumeRoleAuthenticationDetailsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: str,
                  authentication_provisioning_state: str,
@@ -99,15 +126,39 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
         """
         return pulumi.get(self, "granted_permissions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
     """
     AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "authenticationProvisioningState":
+            suggest = "authentication_provisioning_state"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "awsAccessKeyId":
+            suggest = "aws_access_key_id"
+        elif key == "awsSecretAccessKey":
+            suggest = "aws_secret_access_key"
+        elif key == "grantedPermissions":
+            suggest = "granted_permissions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsCredsAuthenticationDetailsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsCredsAuthenticationDetailsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsCredsAuthenticationDetailsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: str,
                  authentication_provisioning_state: str,
@@ -181,15 +232,53 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
         """
         return pulumi.get(self, "granted_permissions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GcpCredentialsDetailsPropertiesResponse(dict):
     """
     GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authProviderX509CertUrl":
+            suggest = "auth_provider_x509_cert_url"
+        elif key == "authUri":
+            suggest = "auth_uri"
+        elif key == "authenticationProvisioningState":
+            suggest = "authentication_provisioning_state"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "clientEmail":
+            suggest = "client_email"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientX509CertUrl":
+            suggest = "client_x509_cert_url"
+        elif key == "grantedPermissions":
+            suggest = "granted_permissions"
+        elif key == "organizationId":
+            suggest = "organization_id"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "privateKeyId":
+            suggest = "private_key_id"
+        elif key == "projectId":
+            suggest = "project_id"
+        elif key == "tokenUri":
+            suggest = "token_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcpCredentialsDetailsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcpCredentialsDetailsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcpCredentialsDetailsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_provider_x509_cert_url: str,
                  auth_uri: str,
@@ -351,15 +440,37 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HybridComputeSettingsPropertiesResponse(dict):
     """
     Settings for hybrid compute management
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoProvision":
+            suggest = "auto_provision"
+        elif key == "hybridComputeProvisioningState":
+            suggest = "hybrid_compute_provisioning_state"
+        elif key == "proxyServer":
+            suggest = "proxy_server"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "servicePrincipal":
+            suggest = "service_principal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridComputeSettingsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridComputeSettingsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridComputeSettingsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_provision: str,
                  hybrid_compute_provisioning_state: str,
@@ -371,10 +482,10 @@ class HybridComputeSettingsPropertiesResponse(dict):
         Settings for hybrid compute management
         :param str auto_provision: Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
         :param str hybrid_compute_provisioning_state: State of the service principal and its secret
-        :param 'ProxyServerPropertiesResponseArgs' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+        :param 'ProxyServerPropertiesResponse' proxy_server: For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
         :param str region: The location where the metadata of machines will be stored
         :param str resource_group_name: The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-        :param 'ServicePrincipalPropertiesResponseArgs' service_principal: An object to access resources that are secured by an Azure AD tenant.
+        :param 'ServicePrincipalPropertiesResponse' service_principal: An object to access resources that are secured by an Azure AD tenant.
         """
         pulumi.set(__self__, "auto_provision", auto_provision)
         pulumi.set(__self__, "hybrid_compute_provisioning_state", hybrid_compute_provisioning_state)
@@ -435,9 +546,6 @@ class HybridComputeSettingsPropertiesResponse(dict):
         """
         return pulumi.get(self, "service_principal")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProxyServerPropertiesResponse(dict):
@@ -473,15 +581,29 @@ class ProxyServerPropertiesResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityContactPropertiesResponseAlertNotifications(dict):
     """
     Defines whether to send email notifications about new security alerts
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimalSeverity":
+            suggest = "minimal_severity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityContactPropertiesResponseAlertNotifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityContactPropertiesResponseAlertNotifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityContactPropertiesResponseAlertNotifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  minimal_severity: Optional[str] = None,
                  state: Optional[str] = None):
@@ -510,9 +632,6 @@ class SecurityContactPropertiesResponseAlertNotifications(dict):
         Defines if email notifications will be sent about new security alerts
         """
         return pulumi.get(self, "state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -549,15 +668,29 @@ class SecurityContactPropertiesResponseNotificationsByRole(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServicePrincipalPropertiesResponse(dict):
     """
     Details of the service principal.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_id: Optional[str] = None,
                  secret: Optional[str] = None):
@@ -586,8 +719,5 @@ class ServicePrincipalPropertiesResponse(dict):
         A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
         """
         return pulumi.get(self, "secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

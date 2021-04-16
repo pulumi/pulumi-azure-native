@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -191,9 +191,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ExpressRouteConnection resource.
 
@@ -244,15 +242,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,27 +252,27 @@ class ExpressRouteConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
 
-            __props__['authorization_key'] = authorization_key
-            __props__['connection_name'] = connection_name
-            __props__['enable_internet_security'] = enable_internet_security
+            __props__.__dict__["authorization_key"] = authorization_key
+            __props__.__dict__["connection_name"] = connection_name
+            __props__.__dict__["enable_internet_security"] = enable_internet_security
             if express_route_circuit_peering is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_peering'")
-            __props__['express_route_circuit_peering'] = express_route_circuit_peering
+            __props__.__dict__["express_route_circuit_peering"] = express_route_circuit_peering
             if express_route_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_gateway_name'")
-            __props__['express_route_gateway_name'] = express_route_gateway_name
-            __props__['id'] = id
+            __props__.__dict__["express_route_gateway_name"] = express_route_gateway_name
+            __props__.__dict__["id"] = id
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['routing_configuration'] = routing_configuration
-            __props__['routing_weight'] = routing_weight
-            __props__['provisioning_state'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routing_configuration"] = routing_configuration
+            __props__.__dict__["routing_weight"] = routing_weight
+            __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteConnection"), pulumi.Alias(type_="azure-nextgen:network/v20201101:ExpressRouteConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteConnection, __self__).__init__(
@@ -305,15 +295,15 @@ class ExpressRouteConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
 
-        __props__["authorization_key"] = None
-        __props__["enable_internet_security"] = None
-        __props__["express_route_circuit_peering"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["routing_configuration"] = None
-        __props__["routing_weight"] = None
+        __props__.__dict__["authorization_key"] = None
+        __props__.__dict__["enable_internet_security"] = None
+        __props__.__dict__["express_route_circuit_peering"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["routing_configuration"] = None
+        __props__.__dict__["routing_weight"] = None
         return ExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -371,10 +361,4 @@ class ExpressRouteConnection(pulumi.CustomResource):
         The routing weight associated to the connection.
         """
         return pulumi.get(self, "routing_weight")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

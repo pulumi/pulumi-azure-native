@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -175,9 +175,7 @@ class Rule(pulumi.CustomResource):
                  sql_filter: Optional[pulumi.Input[pulumi.InputType['SqlFilterArgs']]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of Rule Resource.
 
@@ -226,15 +224,7 @@ class Rule(pulumi.CustomResource):
                  sql_filter: Optional[pulumi.Input[pulumi.InputType['SqlFilterArgs']]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,28 +234,28 @@ class Rule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RuleArgs.__new__(RuleArgs)
 
-            __props__['action'] = action
-            __props__['correlation_filter'] = correlation_filter
-            __props__['filter_type'] = filter_type
+            __props__.__dict__["action"] = action
+            __props__.__dict__["correlation_filter"] = correlation_filter
+            __props__.__dict__["filter_type"] = filter_type
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
+            __props__.__dict__["namespace_name"] = namespace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['rule_name'] = rule_name
-            __props__['sql_filter'] = sql_filter
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["rule_name"] = rule_name
+            __props__.__dict__["sql_filter"] = sql_filter
             if subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_name'")
-            __props__['subscription_name'] = subscription_name
+            __props__.__dict__["subscription_name"] = subscription_name
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
-            __props__['topic_name'] = topic_name
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20210101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
@@ -288,15 +278,15 @@ class Rule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RuleArgs.__new__(RuleArgs)
 
-        __props__["action"] = None
-        __props__["correlation_filter"] = None
-        __props__["filter_type"] = None
-        __props__["name"] = None
-        __props__["sql_filter"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["action"] = None
+        __props__.__dict__["correlation_filter"] = None
+        __props__.__dict__["filter_type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["sql_filter"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -354,10 +344,4 @@ class Rule(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -423,9 +423,7 @@ class Volume(pulumi.CustomResource):
                  usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Volume resource
 
@@ -501,15 +499,7 @@ class Volume(pulumi.CustomResource):
                  usage_threshold: Optional[pulumi.Input[float]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,65 +509,65 @@ class Volume(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeArgs.__new__(VolumeArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['backup_id'] = backup_id
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["backup_id"] = backup_id
             if creation_token is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_token'")
-            __props__['creation_token'] = creation_token
-            __props__['data_protection'] = data_protection
-            __props__['export_policy'] = export_policy
-            __props__['is_restoring'] = is_restoring
+            __props__.__dict__["creation_token"] = creation_token
+            __props__.__dict__["data_protection"] = data_protection
+            __props__.__dict__["export_policy"] = export_policy
+            __props__.__dict__["is_restoring"] = is_restoring
             if kerberos_enabled is None:
                 kerberos_enabled = False
-            __props__['kerberos_enabled'] = kerberos_enabled
-            __props__['location'] = location
+            __props__.__dict__["kerberos_enabled"] = kerberos_enabled
+            __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
-            __props__['pool_name'] = pool_name
-            __props__['protocol_types'] = protocol_types
+            __props__.__dict__["pool_name"] = pool_name
+            __props__.__dict__["protocol_types"] = protocol_types
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if security_style is None:
                 security_style = 'unix'
-            __props__['security_style'] = security_style
+            __props__.__dict__["security_style"] = security_style
             if service_level is None:
                 service_level = 'Premium'
-            __props__['service_level'] = service_level
+            __props__.__dict__["service_level"] = service_level
             if smb_continuously_available is None:
                 smb_continuously_available = False
-            __props__['smb_continuously_available'] = smb_continuously_available
+            __props__.__dict__["smb_continuously_available"] = smb_continuously_available
             if smb_encryption is None:
                 smb_encryption = False
-            __props__['smb_encryption'] = smb_encryption
+            __props__.__dict__["smb_encryption"] = smb_encryption
             if snapshot_directory_visible is None:
                 snapshot_directory_visible = True
-            __props__['snapshot_directory_visible'] = snapshot_directory_visible
-            __props__['snapshot_id'] = snapshot_id
+            __props__.__dict__["snapshot_directory_visible"] = snapshot_directory_visible
+            __props__.__dict__["snapshot_id"] = snapshot_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
             if throughput_mibps is None:
                 throughput_mibps = 0
-            __props__['throughput_mibps'] = throughput_mibps
+            __props__.__dict__["throughput_mibps"] = throughput_mibps
             if usage_threshold is None:
                 usage_threshold = 107374182400
             if usage_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_threshold'")
-            __props__['usage_threshold'] = usage_threshold
-            __props__['volume_name'] = volume_name
-            __props__['volume_type'] = volume_type
-            __props__['baremetal_tenant_id'] = None
-            __props__['file_system_id'] = None
-            __props__['mount_targets'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["usage_threshold"] = usage_threshold
+            __props__.__dict__["volume_name"] = volume_name
+            __props__.__dict__["volume_type"] = volume_type
+            __props__.__dict__["baremetal_tenant_id"] = None
+            __props__.__dict__["file_system_id"] = None
+            __props__.__dict__["mount_targets"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp:Volume"), pulumi.Alias(type_="azure-nextgen:netapp:Volume"), pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
@@ -600,33 +590,33 @@ class Volume(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VolumeArgs.__new__(VolumeArgs)
 
-        __props__["backup_id"] = None
-        __props__["baremetal_tenant_id"] = None
-        __props__["creation_token"] = None
-        __props__["data_protection"] = None
-        __props__["export_policy"] = None
-        __props__["file_system_id"] = None
-        __props__["is_restoring"] = None
-        __props__["kerberos_enabled"] = None
-        __props__["location"] = None
-        __props__["mount_targets"] = None
-        __props__["name"] = None
-        __props__["protocol_types"] = None
-        __props__["provisioning_state"] = None
-        __props__["security_style"] = None
-        __props__["service_level"] = None
-        __props__["smb_continuously_available"] = None
-        __props__["smb_encryption"] = None
-        __props__["snapshot_directory_visible"] = None
-        __props__["snapshot_id"] = None
-        __props__["subnet_id"] = None
-        __props__["tags"] = None
-        __props__["throughput_mibps"] = None
-        __props__["type"] = None
-        __props__["usage_threshold"] = None
-        __props__["volume_type"] = None
+        __props__.__dict__["backup_id"] = None
+        __props__.__dict__["baremetal_tenant_id"] = None
+        __props__.__dict__["creation_token"] = None
+        __props__.__dict__["data_protection"] = None
+        __props__.__dict__["export_policy"] = None
+        __props__.__dict__["file_system_id"] = None
+        __props__.__dict__["is_restoring"] = None
+        __props__.__dict__["kerberos_enabled"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["mount_targets"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["protocol_types"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["security_style"] = None
+        __props__.__dict__["service_level"] = None
+        __props__.__dict__["smb_continuously_available"] = None
+        __props__.__dict__["smb_encryption"] = None
+        __props__.__dict__["snapshot_directory_visible"] = None
+        __props__.__dict__["snapshot_id"] = None
+        __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["throughput_mibps"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["usage_threshold"] = None
+        __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -825,10 +815,4 @@ class Volume(pulumi.CustomResource):
         What type of volume is this
         """
         return pulumi.get(self, "volume_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

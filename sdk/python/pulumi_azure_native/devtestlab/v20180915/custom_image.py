@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -262,9 +262,7 @@ class CustomImage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
                  vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A custom image.
 
@@ -323,15 +321,7 @@ class CustomImage(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
                  vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,30 +331,30 @@ class CustomImage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
-            __props__['author'] = author
-            __props__['custom_image_plan'] = custom_image_plan
-            __props__['data_disk_storage_info'] = data_disk_storage_info
-            __props__['description'] = description
-            __props__['is_plan_authorized'] = is_plan_authorized
+            __props__.__dict__["author"] = author
+            __props__.__dict__["custom_image_plan"] = custom_image_plan
+            __props__.__dict__["data_disk_storage_info"] = data_disk_storage_info
+            __props__.__dict__["description"] = description
+            __props__.__dict__["is_plan_authorized"] = is_plan_authorized
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
-            __props__['lab_name'] = lab_name
-            __props__['location'] = location
-            __props__['managed_image_id'] = managed_image_id
-            __props__['managed_snapshot_id'] = managed_snapshot_id
-            __props__['name'] = name
+            __props__.__dict__["lab_name"] = lab_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_image_id"] = managed_image_id
+            __props__.__dict__["managed_snapshot_id"] = managed_snapshot_id
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['vhd'] = vhd
-            __props__['vm'] = vm
-            __props__['creation_date'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
-            __props__['unique_identifier'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vhd"] = vhd
+            __props__.__dict__["vm"] = vm
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["unique_identifier"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:CustomImage"), pulumi.Alias(type_="azure-native:devtestlab:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab:CustomImage"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:CustomImage"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:CustomImage"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:CustomImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomImage, __self__).__init__(
@@ -387,24 +377,24 @@ class CustomImage(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
-        __props__["author"] = None
-        __props__["creation_date"] = None
-        __props__["custom_image_plan"] = None
-        __props__["data_disk_storage_info"] = None
-        __props__["description"] = None
-        __props__["is_plan_authorized"] = None
-        __props__["location"] = None
-        __props__["managed_image_id"] = None
-        __props__["managed_snapshot_id"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["unique_identifier"] = None
-        __props__["vhd"] = None
-        __props__["vm"] = None
+        __props__.__dict__["author"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["custom_image_plan"] = None
+        __props__.__dict__["data_disk_storage_info"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["is_plan_authorized"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_image_id"] = None
+        __props__.__dict__["managed_snapshot_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unique_identifier"] = None
+        __props__.__dict__["vhd"] = None
+        __props__.__dict__["vm"] = None
         return CustomImage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -534,10 +524,4 @@ class CustomImage(pulumi.CustomResource):
         The virtual machine from which the image is to be created.
         """
         return pulumi.get(self, "vm")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

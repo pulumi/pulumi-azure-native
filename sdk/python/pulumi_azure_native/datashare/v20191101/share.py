@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ShareArgs', 'Share']
@@ -124,9 +124,7 @@ class Share(pulumi.CustomResource):
                  share_kind: Optional[pulumi.Input[Union[str, 'ShareKind']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A share data transfer object.
 
@@ -169,15 +167,7 @@ class Share(pulumi.CustomResource):
                  share_kind: Optional[pulumi.Input[Union[str, 'ShareKind']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,24 +177,24 @@ class Share(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ShareArgs.__new__(ShareArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['description'] = description
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["description"] = description
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['share_kind'] = share_kind
-            __props__['share_name'] = share_name
-            __props__['terms'] = terms
-            __props__['created_at'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
-            __props__['user_email'] = None
-            __props__['user_name'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["share_kind"] = share_kind
+            __props__.__dict__["share_name"] = share_name
+            __props__.__dict__["terms"] = terms
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["user_email"] = None
+            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Share"), pulumi.Alias(type_="azure-native:datashare:Share"), pulumi.Alias(type_="azure-nextgen:datashare:Share"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Share"), pulumi.Alias(type_="azure-native:datashare/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Share"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:Share"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
@@ -227,17 +217,17 @@ class Share(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ShareArgs.__new__(ShareArgs)
 
-        __props__["created_at"] = None
-        __props__["description"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["share_kind"] = None
-        __props__["terms"] = None
-        __props__["type"] = None
-        __props__["user_email"] = None
-        __props__["user_name"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["share_kind"] = None
+        __props__.__dict__["terms"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_email"] = None
+        __props__.__dict__["user_name"] = None
         return Share(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -311,10 +301,4 @@ class Share(pulumi.CustomResource):
         Name of the user who created the resource
         """
         return pulumi.get(self, "user_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

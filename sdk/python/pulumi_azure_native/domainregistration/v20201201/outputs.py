@@ -6,13 +6,13 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'HostNameResponse',
-    'NameIdentifierResponseResult',
-    'TldLegalAgreementResponseResult',
+    'NameIdentifierResponse',
+    'TldLegalAgreementResponse',
 ]
 
 @pulumi.output_type
@@ -20,6 +20,31 @@ class HostNameResponse(dict):
     """
     Details of a hostname derived from a domain.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureResourceName":
+            suggest = "azure_resource_name"
+        elif key == "azureResourceType":
+            suggest = "azure_resource_type"
+        elif key == "customHostNameDnsRecordType":
+            suggest = "custom_host_name_dns_record_type"
+        elif key == "hostNameType":
+            suggest = "host_name_type"
+        elif key == "siteNames":
+            suggest = "site_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostNameResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostNameResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostNameResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_resource_name: Optional[str] = None,
                  azure_resource_type: Optional[str] = None,
@@ -97,12 +122,9 @@ class HostNameResponse(dict):
         """
         return pulumi.get(self, "site_names")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class NameIdentifierResponseResult(dict):
+class NameIdentifierResponse(dict):
     """
     Identifies an object.
     """
@@ -125,7 +147,7 @@ class NameIdentifierResponseResult(dict):
 
 
 @pulumi.output_type
-class TldLegalAgreementResponseResult(dict):
+class TldLegalAgreementResponse(dict):
     """
     Legal agreement for a top level domain.
     """

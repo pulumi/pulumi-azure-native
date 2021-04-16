@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -161,9 +161,7 @@ class VendorSkus(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Sku sub resource.
 
@@ -210,15 +208,7 @@ class VendorSkus(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,21 +218,21 @@ class VendorSkus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VendorSkusArgs.__new__(VendorSkusArgs)
 
-            __props__['deployment_mode'] = deployment_mode
-            __props__['managed_application_parameters'] = managed_application_parameters
-            __props__['managed_application_template'] = managed_application_template
-            __props__['network_function_template'] = network_function_template
-            __props__['preview'] = preview
-            __props__['sku_name'] = sku_name
-            __props__['sku_type'] = sku_type
+            __props__.__dict__["deployment_mode"] = deployment_mode
+            __props__.__dict__["managed_application_parameters"] = managed_application_parameters
+            __props__.__dict__["managed_application_template"] = managed_application_template
+            __props__.__dict__["network_function_template"] = network_function_template
+            __props__.__dict__["preview"] = preview
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["sku_type"] = sku_type
             if vendor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vendor_name'")
-            __props__['vendor_name'] = vendor_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["vendor_name"] = vendor_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:VendorSkus"), pulumi.Alias(type_="azure-native:hybridnetwork:VendorSkus"), pulumi.Alias(type_="azure-nextgen:hybridnetwork:VendorSkus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VendorSkus, __self__).__init__(
@@ -265,17 +255,17 @@ class VendorSkus(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VendorSkusArgs.__new__(VendorSkusArgs)
 
-        __props__["deployment_mode"] = None
-        __props__["managed_application_parameters"] = None
-        __props__["managed_application_template"] = None
-        __props__["name"] = None
-        __props__["network_function_template"] = None
-        __props__["preview"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku_type"] = None
-        __props__["type"] = None
+        __props__.__dict__["deployment_mode"] = None
+        __props__.__dict__["managed_application_parameters"] = None
+        __props__.__dict__["managed_application_template"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_function_template"] = None
+        __props__.__dict__["preview"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku_type"] = None
+        __props__.__dict__["type"] = None
         return VendorSkus(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,10 +339,4 @@ class VendorSkus(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

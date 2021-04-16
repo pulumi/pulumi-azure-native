@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -313,9 +313,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a virtual machine scale set virtual machine.
 
@@ -380,15 +378,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,39 +388,39 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualMachineScaleSetVMArgs.__new__(VirtualMachineScaleSetVMArgs)
 
-            __props__['additional_capabilities'] = additional_capabilities
-            __props__['availability_set'] = availability_set
-            __props__['diagnostics_profile'] = diagnostics_profile
-            __props__['hardware_profile'] = hardware_profile
-            __props__['instance_id'] = instance_id
-            __props__['license_type'] = license_type
-            __props__['location'] = location
-            __props__['network_profile'] = network_profile
-            __props__['network_profile_configuration'] = network_profile_configuration
-            __props__['os_profile'] = os_profile
-            __props__['plan'] = plan
-            __props__['protection_policy'] = protection_policy
+            __props__.__dict__["additional_capabilities"] = additional_capabilities
+            __props__.__dict__["availability_set"] = availability_set
+            __props__.__dict__["diagnostics_profile"] = diagnostics_profile
+            __props__.__dict__["hardware_profile"] = hardware_profile
+            __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["license_type"] = license_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_profile"] = network_profile
+            __props__.__dict__["network_profile_configuration"] = network_profile_configuration
+            __props__.__dict__["os_profile"] = os_profile
+            __props__.__dict__["plan"] = plan
+            __props__.__dict__["protection_policy"] = protection_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['security_profile'] = security_profile
-            __props__['storage_profile'] = storage_profile
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_profile"] = security_profile
+            __props__.__dict__["storage_profile"] = storage_profile
+            __props__.__dict__["tags"] = tags
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
-            __props__['vm_scale_set_name'] = vm_scale_set_name
-            __props__['instance_view'] = None
-            __props__['latest_model_applied'] = None
-            __props__['model_definition_applied'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resources'] = None
-            __props__['sku'] = None
-            __props__['type'] = None
-            __props__['vm_id'] = None
-            __props__['zones'] = None
+            __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
+            __props__.__dict__["instance_view"] = None
+            __props__.__dict__["latest_model_applied"] = None
+            __props__.__dict__["model_definition_applied"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resources"] = None
+            __props__.__dict__["sku"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["vm_id"] = None
+            __props__.__dict__["zones"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVM"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVM, __self__).__init__(
@@ -453,33 +443,33 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualMachineScaleSetVMArgs.__new__(VirtualMachineScaleSetVMArgs)
 
-        __props__["additional_capabilities"] = None
-        __props__["availability_set"] = None
-        __props__["diagnostics_profile"] = None
-        __props__["hardware_profile"] = None
-        __props__["instance_id"] = None
-        __props__["instance_view"] = None
-        __props__["latest_model_applied"] = None
-        __props__["license_type"] = None
-        __props__["location"] = None
-        __props__["model_definition_applied"] = None
-        __props__["name"] = None
-        __props__["network_profile"] = None
-        __props__["network_profile_configuration"] = None
-        __props__["os_profile"] = None
-        __props__["plan"] = None
-        __props__["protection_policy"] = None
-        __props__["provisioning_state"] = None
-        __props__["resources"] = None
-        __props__["security_profile"] = None
-        __props__["sku"] = None
-        __props__["storage_profile"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vm_id"] = None
-        __props__["zones"] = None
+        __props__.__dict__["additional_capabilities"] = None
+        __props__.__dict__["availability_set"] = None
+        __props__.__dict__["diagnostics_profile"] = None
+        __props__.__dict__["hardware_profile"] = None
+        __props__.__dict__["instance_id"] = None
+        __props__.__dict__["instance_view"] = None
+        __props__.__dict__["latest_model_applied"] = None
+        __props__.__dict__["license_type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["model_definition_applied"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_profile"] = None
+        __props__.__dict__["network_profile_configuration"] = None
+        __props__.__dict__["os_profile"] = None
+        __props__.__dict__["plan"] = None
+        __props__.__dict__["protection_policy"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resources"] = None
+        __props__.__dict__["security_profile"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vm_id"] = None
+        __props__.__dict__["zones"] = None
         return VirtualMachineScaleSetVM(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -681,10 +671,4 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         The virtual machine zones.
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

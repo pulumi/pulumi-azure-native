@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['EventHubConnectionArgs', 'EventHubConnection']
@@ -189,9 +189,7 @@ class EventHubConnection(pulumi.CustomResource):
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Class representing an event hub connection.
 
@@ -242,15 +240,7 @@ class EventHubConnection(pulumi.CustomResource):
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,30 +250,30 @@ class EventHubConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventHubConnectionArgs.__new__(EventHubConnectionArgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
+            __props__.__dict__["cluster_name"] = cluster_name
             if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
-            __props__['consumer_group'] = consumer_group
-            __props__['data_format'] = data_format
+            __props__.__dict__["consumer_group"] = consumer_group
+            __props__.__dict__["data_format"] = data_format
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
-            __props__['database_name'] = database_name
-            __props__['event_hub_connection_name'] = event_hub_connection_name
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["event_hub_connection_name"] = event_hub_connection_name
             if event_hub_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_resource_id'")
-            __props__['event_hub_resource_id'] = event_hub_resource_id
-            __props__['location'] = location
-            __props__['mapping_rule_name'] = mapping_rule_name
+            __props__.__dict__["event_hub_resource_id"] = event_hub_resource_id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["mapping_rule_name"] = mapping_rule_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['table_name'] = table_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:EventHubConnection"), pulumi.Alias(type_="azure-native:kusto:EventHubConnection"), pulumi.Alias(type_="azure-nextgen:kusto:EventHubConnection"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:EventHubConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:EventHubConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubConnection, __self__).__init__(
@@ -306,16 +296,16 @@ class EventHubConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EventHubConnectionArgs.__new__(EventHubConnectionArgs)
 
-        __props__["consumer_group"] = None
-        __props__["data_format"] = None
-        __props__["event_hub_resource_id"] = None
-        __props__["location"] = None
-        __props__["mapping_rule_name"] = None
-        __props__["name"] = None
-        __props__["table_name"] = None
-        __props__["type"] = None
+        __props__.__dict__["consumer_group"] = None
+        __props__.__dict__["data_format"] = None
+        __props__.__dict__["event_hub_resource_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["mapping_rule_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["table_name"] = None
+        __props__.__dict__["type"] = None
         return EventHubConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -381,10 +371,4 @@ class EventHubConnection(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

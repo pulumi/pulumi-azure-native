@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -29,6 +29,27 @@ class AzureOperationalStoreParametersResponse(dict):
     """
     Parameters for Operational-Tier DataStore
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStoreType":
+            suggest = "data_store_type"
+        elif key == "objectType":
+            suggest = "object_type"
+        elif key == "resourceGroupId":
+            suggest = "resource_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureOperationalStoreParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureOperationalStoreParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureOperationalStoreParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_store_type: str,
                  object_type: str,
@@ -70,15 +91,41 @@ class AzureOperationalStoreParametersResponse(dict):
         """
         return pulumi.get(self, "resource_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasourceResponse(dict):
     """
     Datasource to be backed up
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceID":
+            suggest = "resource_id"
+        elif key == "datasourceType":
+            suggest = "datasource_type"
+        elif key == "objectType":
+            suggest = "object_type"
+        elif key == "resourceLocation":
+            suggest = "resource_location"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: str,
                  datasource_type: Optional[str] = None,
@@ -167,15 +214,41 @@ class DatasourceResponse(dict):
         """
         return pulumi.get(self, "resource_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasourceSetResponse(dict):
     """
     DatasourceSet details of datasource to be backed up
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceID":
+            suggest = "resource_id"
+        elif key == "datasourceType":
+            suggest = "datasource_type"
+        elif key == "objectType":
+            suggest = "object_type"
+        elif key == "resourceLocation":
+            suggest = "resource_location"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasourceSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasourceSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasourceSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: str,
                  datasource_type: Optional[str] = None,
@@ -264,15 +337,31 @@ class DatasourceSetResponse(dict):
         """
         return pulumi.get(self, "resource_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DppIdentityDetailsResponse(dict):
     """
     Identity details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DppIdentityDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DppIdentityDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DppIdentityDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -312,15 +401,31 @@ class DppIdentityDetailsResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InnerErrorResponse(dict):
     """
     Inner Error
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+        elif key == "embeddedInnerError":
+            suggest = "embedded_inner_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InnerErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InnerErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InnerErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_info: Optional[Mapping[str, str]] = None,
                  code: Optional[str] = None,
@@ -329,7 +434,7 @@ class InnerErrorResponse(dict):
         Inner Error
         :param Mapping[str, str] additional_info: Any Key value pairs that can be provided to the client for additional  verbose information.
         :param str code: Unique code for this error
-        :param 'InnerErrorResponseArgs' embedded_inner_error: Child Inner Error, to allow Nesting.
+        :param 'InnerErrorResponse' embedded_inner_error: Child Inner Error, to allow Nesting.
         """
         if additional_info is not None:
             pulumi.set(__self__, "additional_info", additional_info)
@@ -362,22 +467,40 @@ class InnerErrorResponse(dict):
         """
         return pulumi.get(self, "embedded_inner_error")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyInfoResponse(dict):
     """
     Policy Info in backupInstance
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyId":
+            suggest = "policy_id"
+        elif key == "policyVersion":
+            suggest = "policy_version"
+        elif key == "policyParameters":
+            suggest = "policy_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  policy_id: str,
                  policy_version: str,
                  policy_parameters: Optional['outputs.PolicyParametersResponse'] = None):
         """
         Policy Info in backupInstance
-        :param 'PolicyParametersResponseArgs' policy_parameters: Policy parameters for the backup instance
+        :param 'PolicyParametersResponse' policy_parameters: Policy parameters for the backup instance
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "policy_version", policy_version)
@@ -402,20 +525,34 @@ class PolicyInfoResponse(dict):
         """
         return pulumi.get(self, "policy_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyParametersResponse(dict):
     """
     Parameters in Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStoreParametersList":
+            suggest = "data_store_parameters_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_store_parameters_list: Optional[Sequence['outputs.AzureOperationalStoreParametersResponse']] = None):
         """
         Parameters in Policy
-        :param Sequence['AzureOperationalStoreParametersResponseArgs'] data_store_parameters_list: Gets or sets the DataStore Parameters
+        :param Sequence['AzureOperationalStoreParametersResponse'] data_store_parameters_list: Gets or sets the DataStore Parameters
         """
         if data_store_parameters_list is not None:
             pulumi.set(__self__, "data_store_parameters_list", data_store_parameters_list)
@@ -428,21 +565,35 @@ class PolicyParametersResponse(dict):
         """
         return pulumi.get(self, "data_store_parameters_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProtectionStatusDetailsResponse(dict):
     """
     Protection status details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDetails":
+            suggest = "error_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProtectionStatusDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProtectionStatusDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProtectionStatusDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_details: Optional['outputs.UserFacingErrorResponse'] = None,
                  status: Optional[str] = None):
         """
         Protection status details
-        :param 'UserFacingErrorResponseArgs' error_details: Specifies the protection status error of the resource
+        :param 'UserFacingErrorResponse' error_details: Specifies the protection status error of the resource
         :param str status: Specifies the protection status of the resource
         """
         if error_details is not None:
@@ -466,15 +617,29 @@ class ProtectionStatusDetailsResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageSettingResponse(dict):
     """
     Storage setting
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datastoreType":
+            suggest = "datastore_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  datastore_type: Optional[str] = None,
                  type: Optional[str] = None):
@@ -504,15 +669,39 @@ class StorageSettingResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -590,15 +779,35 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserFacingErrorResponse(dict):
     """
     Error object used by layers that have access to localized content, and propagate that to user
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "innerError":
+            suggest = "inner_error"
+        elif key == "isRetryable":
+            suggest = "is_retryable"
+        elif key == "isUserError":
+            suggest = "is_user_error"
+        elif key == "recommendedAction":
+            suggest = "recommended_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserFacingErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserFacingErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserFacingErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  details: Optional[Sequence['outputs.UserFacingErrorResponse']] = None,
@@ -612,8 +821,8 @@ class UserFacingErrorResponse(dict):
         """
         Error object used by layers that have access to localized content, and propagate that to user
         :param str code: Unique code for this error
-        :param Sequence['UserFacingErrorResponseArgs'] details: Additional related Errors
-        :param 'InnerErrorResponseArgs' inner_error: Inner Error
+        :param Sequence['UserFacingErrorResponse'] details: Additional related Errors
+        :param 'InnerErrorResponse' inner_error: Inner Error
         :param bool is_retryable: Whether the operation will be retryable or not
         :param bool is_user_error: Whether the operation is due to a user error or service error
         :param Mapping[str, str] properties: Any key value pairs that can be injected inside error object
@@ -707,8 +916,5 @@ class UserFacingErrorResponse(dict):
         Target of the error.
         """
         return pulumi.get(self, "target")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

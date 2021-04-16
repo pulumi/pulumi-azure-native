@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,6 +22,25 @@ class HealthAlertActionResponse(dict):
     """
     An alert action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "webHookProperties":
+            suggest = "web_hook_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthAlertActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthAlertActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthAlertActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_group_id: Optional[str] = None,
                  web_hook_properties: Optional[Mapping[str, str]] = None):
@@ -51,20 +70,34 @@ class HealthAlertActionResponse(dict):
         """
         return pulumi.get(self, "web_hook_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthAlertCriteriaResponse(dict):
     """
     Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allOf":
+            suggest = "all_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthAlertCriteriaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthAlertCriteriaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthAlertCriteriaResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  all_of: Optional[Sequence['outputs.VmGuestHealthAlertCriterionResponse']] = None):
         """
         Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
-        :param Sequence['VmGuestHealthAlertCriterionResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        :param Sequence['VmGuestHealthAlertCriterionResponse'] all_of: The list of metric criteria for this 'all of' operation. 
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)
@@ -77,15 +110,29 @@ class HealthAlertCriteriaResponse(dict):
         """
         return pulumi.get(self, "all_of")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthStateResponse(dict):
     """
     Specifies the health state to alert on and the corresponding severity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthStateName":
+            suggest = "health_state_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  health_state_name: str,
                  severity: float):
@@ -113,15 +160,33 @@ class HealthStateResponse(dict):
         """
         return pulumi.get(self, "severity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VmGuestHealthAlertCriterionResponse(dict):
     """
     Specifies the health alert criteria to alert on.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthStates":
+            suggest = "health_states"
+        elif key == "monitorNames":
+            suggest = "monitor_names"
+        elif key == "monitorTypes":
+            suggest = "monitor_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmGuestHealthAlertCriterionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmGuestHealthAlertCriterionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmGuestHealthAlertCriterionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  health_states: Sequence['outputs.HealthStateResponse'],
                  namespace: str,
@@ -129,7 +194,7 @@ class VmGuestHealthAlertCriterionResponse(dict):
                  monitor_types: Optional[Sequence[str]] = None):
         """
         Specifies the health alert criteria to alert on.
-        :param Sequence['HealthStateResponseArgs'] health_states: Health states to alert on
+        :param Sequence['HealthStateResponse'] health_states: Health states to alert on
         :param str namespace: specifies the type of the alert criterion.
                Expected value is 'GuestVmHealth'.
         :param Sequence[str] monitor_names: Names of health monitor on which to define alert
@@ -174,8 +239,5 @@ class VmGuestHealthAlertCriterionResponse(dict):
         Names of health monitor type on which to define alert
         """
         return pulumi.get(self, "monitor_types")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

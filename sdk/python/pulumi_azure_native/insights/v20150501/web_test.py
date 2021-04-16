@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -268,9 +268,7 @@ class WebTest(pulumi.CustomResource):
                  timeout: Optional[pulumi.Input[int]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKind']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Application Insights web test definition.
 
@@ -329,15 +327,7 @@ class WebTest(pulumi.CustomResource):
                  timeout: Optional[pulumi.Input[int]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKind']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,41 +337,41 @@ class WebTest(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebTestArgs.__new__(WebTestArgs)
 
-            __props__['configuration'] = configuration
-            __props__['description'] = description
-            __props__['enabled'] = enabled
+            __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["description"] = description
+            __props__.__dict__["enabled"] = enabled
             if frequency is None:
                 frequency = 300
-            __props__['frequency'] = frequency
+            __props__.__dict__["frequency"] = frequency
             if kind is None:
                 kind = 'ping'
-            __props__['kind'] = kind
-            __props__['location'] = location
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
             if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
-            __props__['locations'] = locations
+            __props__.__dict__["locations"] = locations
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retry_enabled'] = retry_enabled
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retry_enabled"] = retry_enabled
             if synthetic_monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synthetic_monitor_id'")
-            __props__['synthetic_monitor_id'] = synthetic_monitor_id
-            __props__['tags'] = tags
+            __props__.__dict__["synthetic_monitor_id"] = synthetic_monitor_id
+            __props__.__dict__["tags"] = tags
             if timeout is None:
                 timeout = 30
-            __props__['timeout'] = timeout
+            __props__.__dict__["timeout"] = timeout
             if web_test_kind is None:
                 web_test_kind = 'ping'
             if web_test_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'web_test_kind'")
-            __props__['web_test_kind'] = web_test_kind
-            __props__['web_test_name'] = web_test_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["web_test_kind"] = web_test_kind
+            __props__.__dict__["web_test_name"] = web_test_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:WebTest"), pulumi.Alias(type_="azure-native:insights:WebTest"), pulumi.Alias(type_="azure-nextgen:insights:WebTest"), pulumi.Alias(type_="azure-native:insights/v20201005preview:WebTest"), pulumi.Alias(type_="azure-nextgen:insights/v20201005preview:WebTest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebTest, __self__).__init__(
@@ -404,24 +394,24 @@ class WebTest(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebTestArgs.__new__(WebTestArgs)
 
-        __props__["configuration"] = None
-        __props__["description"] = None
-        __props__["enabled"] = None
-        __props__["frequency"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["locations"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["retry_enabled"] = None
-        __props__["synthetic_monitor_id"] = None
-        __props__["tags"] = None
-        __props__["timeout"] = None
-        __props__["type"] = None
-        __props__["web_test_kind"] = None
-        __props__["web_test_name"] = None
+        __props__.__dict__["configuration"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["frequency"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["locations"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["retry_enabled"] = None
+        __props__.__dict__["synthetic_monitor_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["timeout"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["web_test_kind"] = None
+        __props__.__dict__["web_test_name"] = None
         return WebTest(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -551,10 +541,4 @@ class WebTest(pulumi.CustomResource):
         User defined name if this WebTest.
         """
         return pulumi.get(self, "web_test_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

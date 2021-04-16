@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -277,9 +277,7 @@ class PrivateRecordSet(pulumi.CustomResource):
                  srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
 
@@ -340,15 +338,7 @@ class PrivateRecordSet(pulumi.CustomResource):
                  srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,33 +348,33 @@ class PrivateRecordSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PrivateRecordSetArgs.__new__(PrivateRecordSetArgs)
 
-            __props__['a_records'] = a_records
-            __props__['aaaa_records'] = aaaa_records
-            __props__['cname_record'] = cname_record
-            __props__['etag'] = etag
-            __props__['metadata'] = metadata
-            __props__['mx_records'] = mx_records
+            __props__.__dict__["a_records"] = a_records
+            __props__.__dict__["aaaa_records"] = aaaa_records
+            __props__.__dict__["cname_record"] = cname_record
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["mx_records"] = mx_records
             if private_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_zone_name'")
-            __props__['private_zone_name'] = private_zone_name
-            __props__['ptr_records'] = ptr_records
+            __props__.__dict__["private_zone_name"] = private_zone_name
+            __props__.__dict__["ptr_records"] = ptr_records
             if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
-            __props__['record_type'] = record_type
-            __props__['relative_record_set_name'] = relative_record_set_name
+            __props__.__dict__["record_type"] = record_type
+            __props__.__dict__["relative_record_set_name"] = relative_record_set_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['soa_record'] = soa_record
-            __props__['srv_records'] = srv_records
-            __props__['ttl'] = ttl
-            __props__['txt_records'] = txt_records
-            __props__['fqdn'] = None
-            __props__['is_auto_registered'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["soa_record"] = soa_record
+            __props__.__dict__["srv_records"] = srv_records
+            __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["txt_records"] = txt_records
+            __props__.__dict__["fqdn"] = None
+            __props__.__dict__["is_auto_registered"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200101:PrivateRecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateRecordSet, __self__).__init__(
@@ -407,23 +397,23 @@ class PrivateRecordSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PrivateRecordSetArgs.__new__(PrivateRecordSetArgs)
 
-        __props__["a_records"] = None
-        __props__["aaaa_records"] = None
-        __props__["cname_record"] = None
-        __props__["etag"] = None
-        __props__["fqdn"] = None
-        __props__["is_auto_registered"] = None
-        __props__["metadata"] = None
-        __props__["mx_records"] = None
-        __props__["name"] = None
-        __props__["ptr_records"] = None
-        __props__["soa_record"] = None
-        __props__["srv_records"] = None
-        __props__["ttl"] = None
-        __props__["txt_records"] = None
-        __props__["type"] = None
+        __props__.__dict__["a_records"] = None
+        __props__.__dict__["aaaa_records"] = None
+        __props__.__dict__["cname_record"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["fqdn"] = None
+        __props__.__dict__["is_auto_registered"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["mx_records"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["ptr_records"] = None
+        __props__.__dict__["soa_record"] = None
+        __props__.__dict__["srv_records"] = None
+        __props__.__dict__["ttl"] = None
+        __props__.__dict__["txt_records"] = None
+        __props__.__dict__["type"] = None
         return PrivateRecordSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -545,10 +535,4 @@ class PrivateRecordSet(pulumi.CustomResource):
         The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NotebookProxyArgs', 'NotebookProxy']
 
@@ -73,9 +73,7 @@ class NotebookProxy(pulumi.CustomResource):
                  hostname: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A NotebookProxy resource.
         API Version: 2019-10-11-preview.
@@ -114,15 +112,7 @@ class NotebookProxy(pulumi.CustomResource):
                  hostname: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -132,16 +122,16 @@ class NotebookProxy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NotebookProxyArgs.__new__(NotebookProxyArgs)
 
-            __props__['hostname'] = hostname
+            __props__.__dict__["hostname"] = hostname
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_name'] = resource_name_
-            __props__['name'] = None
-            __props__['resource_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["name"] = None
+            __props__.__dict__["resource_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notebooks:NotebookProxy"), pulumi.Alias(type_="azure-native:notebooks/v20191011preview:NotebookProxy"), pulumi.Alias(type_="azure-nextgen:notebooks/v20191011preview:NotebookProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotebookProxy, __self__).__init__(
@@ -164,12 +154,12 @@ class NotebookProxy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NotebookProxyArgs.__new__(NotebookProxyArgs)
 
-        __props__["hostname"] = None
-        __props__["name"] = None
-        __props__["resource_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["hostname"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["type"] = None
         return NotebookProxy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -203,10 +193,4 @@ class NotebookProxy(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -245,9 +245,7 @@ class Application(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Information about managed application.
 
@@ -304,15 +302,7 @@ class Application(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,38 +312,38 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            __props__['application_definition_id'] = application_definition_id
-            __props__['application_name'] = application_name
-            __props__['identity'] = identity
-            __props__['jit_access_policy'] = jit_access_policy
+            __props__.__dict__["application_definition_id"] = application_definition_id
+            __props__.__dict__["application_name"] = application_name
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["jit_access_policy"] = jit_access_policy
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['managed_by'] = managed_by
-            __props__['managed_resource_group_id'] = managed_resource_group_id
-            __props__['parameters'] = parameters
-            __props__['plan'] = plan
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_by"] = managed_by
+            __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['artifacts'] = None
-            __props__['authorizations'] = None
-            __props__['billing_details'] = None
-            __props__['created_by'] = None
-            __props__['customer_support'] = None
-            __props__['management_mode'] = None
-            __props__['name'] = None
-            __props__['outputs'] = None
-            __props__['provisioning_state'] = None
-            __props__['publisher_tenant_id'] = None
-            __props__['support_urls'] = None
-            __props__['type'] = None
-            __props__['updated_by'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["artifacts"] = None
+            __props__.__dict__["authorizations"] = None
+            __props__.__dict__["billing_details"] = None
+            __props__.__dict__["created_by"] = None
+            __props__.__dict__["customer_support"] = None
+            __props__.__dict__["management_mode"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["outputs"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["publisher_tenant_id"] = None
+            __props__.__dict__["support_urls"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_by"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions:Application"), pulumi.Alias(type_="azure-nextgen:solutions:Application"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20170901:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20170901:Application"), pulumi.Alias(type_="azure-native:solutions/v20180601:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20180601:Application"), pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-nextgen:solutions/v20190701:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
@@ -376,32 +366,32 @@ class Application(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-        __props__["application_definition_id"] = None
-        __props__["artifacts"] = None
-        __props__["authorizations"] = None
-        __props__["billing_details"] = None
-        __props__["created_by"] = None
-        __props__["customer_support"] = None
-        __props__["identity"] = None
-        __props__["jit_access_policy"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["managed_by"] = None
-        __props__["managed_resource_group_id"] = None
-        __props__["management_mode"] = None
-        __props__["name"] = None
-        __props__["outputs"] = None
-        __props__["parameters"] = None
-        __props__["plan"] = None
-        __props__["provisioning_state"] = None
-        __props__["publisher_tenant_id"] = None
-        __props__["sku"] = None
-        __props__["support_urls"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["updated_by"] = None
+        __props__.__dict__["application_definition_id"] = None
+        __props__.__dict__["artifacts"] = None
+        __props__.__dict__["authorizations"] = None
+        __props__.__dict__["billing_details"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["customer_support"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["jit_access_policy"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
+        __props__.__dict__["managed_resource_group_id"] = None
+        __props__.__dict__["management_mode"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["outputs"] = None
+        __props__.__dict__["parameters"] = None
+        __props__.__dict__["plan"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["publisher_tenant_id"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["support_urls"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_by"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -595,10 +585,4 @@ class Application(pulumi.CustomResource):
         The client entity that last updated the JIT request.
         """
         return pulumi.get(self, "updated_by")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

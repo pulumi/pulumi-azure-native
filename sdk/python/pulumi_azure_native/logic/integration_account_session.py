@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationAccountSessionArgs', 'IntegrationAccountSession']
 
@@ -123,9 +123,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The integration account session.
         API Version: 2019-05-01.
@@ -170,15 +168,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,22 +178,22 @@ class IntegrationAccountSession(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationAccountSessionArgs.__new__(IntegrationAccountSessionArgs)
 
-            __props__['content'] = content
+            __props__.__dict__["content"] = content
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
-            __props__['integration_account_name'] = integration_account_name
-            __props__['location'] = location
+            __props__.__dict__["integration_account_name"] = integration_account_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['session_name'] = session_name
-            __props__['tags'] = tags
-            __props__['changed_time'] = None
-            __props__['created_time'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["session_name"] = session_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["changed_time"] = None
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSession"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountSession")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSession, __self__).__init__(
@@ -226,15 +216,15 @@ class IntegrationAccountSession(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = IntegrationAccountSessionArgs.__new__(IntegrationAccountSessionArgs)
 
-        __props__["changed_time"] = None
-        __props__["content"] = None
-        __props__["created_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["changed_time"] = None
+        __props__.__dict__["content"] = None
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return IntegrationAccountSession(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -292,10 +282,4 @@ class IntegrationAccountSession(pulumi.CustomResource):
         Gets the resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

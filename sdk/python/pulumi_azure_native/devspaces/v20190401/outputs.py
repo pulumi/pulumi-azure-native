@@ -6,29 +6,29 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ControllerConnectionDetailsResponseResult',
-    'KubernetesConnectionDetailsResponseResult',
+    'ControllerConnectionDetailsResponse',
+    'KubernetesConnectionDetailsResponse',
     'SkuResponse',
 ]
 
 @pulumi.output_type
-class ControllerConnectionDetailsResponseResult(dict):
+class ControllerConnectionDetailsResponse(dict):
     def __init__(__self__, *,
-                 orchestrator_specific_connection_details: Optional['outputs.KubernetesConnectionDetailsResponseResult'] = None):
+                 orchestrator_specific_connection_details: Optional['outputs.KubernetesConnectionDetailsResponse'] = None):
         """
-        :param 'KubernetesConnectionDetailsResponseArgs' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
+        :param 'KubernetesConnectionDetailsResponse' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
         """
         if orchestrator_specific_connection_details is not None:
             pulumi.set(__self__, "orchestrator_specific_connection_details", orchestrator_specific_connection_details)
 
     @property
     @pulumi.getter(name="orchestratorSpecificConnectionDetails")
-    def orchestrator_specific_connection_details(self) -> Optional['outputs.KubernetesConnectionDetailsResponseResult']:
+    def orchestrator_specific_connection_details(self) -> Optional['outputs.KubernetesConnectionDetailsResponse']:
         """
         Base class for types that supply values used to connect to container orchestrators
         """
@@ -36,7 +36,7 @@ class ControllerConnectionDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class KubernetesConnectionDetailsResponseResult(dict):
+class KubernetesConnectionDetailsResponse(dict):
     """
     Contains information used to connect to a Kubernetes cluster
     """
@@ -103,8 +103,5 @@ class SkuResponse(dict):
         The tier of the SKU for Azure Dev Spaces Controller.
         """
         return pulumi.get(self, "tier")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

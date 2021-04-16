@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -127,9 +127,7 @@ class Organization(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_detail: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Organization resource.
 
@@ -172,15 +170,7 @@ class Organization(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_detail: Optional[pulumi.Input[pulumi.InputType['OrganizationResourcePropertiesUserDetailArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -190,22 +180,22 @@ class Organization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
-            __props__['location'] = location
-            __props__['offer_detail'] = offer_detail
-            __props__['organization_name'] = organization_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["offer_detail"] = offer_detail
+            __props__.__dict__["organization_name"] = organization_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['user_detail'] = user_detail
-            __props__['created_time'] = None
-            __props__['name'] = None
-            __props__['organization_id'] = None
-            __props__['provisioning_state'] = None
-            __props__['sso_url'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_detail"] = user_detail
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["organization_id"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sso_url"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent:Organization"), pulumi.Alias(type_="azure-nextgen:confluent:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-nextgen:confluent/v20210301preview:Organization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Organization, __self__).__init__(
@@ -228,18 +218,18 @@ class Organization(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
-        __props__["created_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["offer_detail"] = None
-        __props__["organization_id"] = None
-        __props__["provisioning_state"] = None
-        __props__["sso_url"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["user_detail"] = None
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["offer_detail"] = None
+        __props__.__dict__["organization_id"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sso_url"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_detail"] = None
         return Organization(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -321,10 +311,4 @@ class Organization(pulumi.CustomResource):
         Subscriber detail
         """
         return pulumi.get(self, "user_detail")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

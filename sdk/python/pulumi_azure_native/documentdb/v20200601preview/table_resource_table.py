@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -158,9 +158,7 @@ class TableResourceTable(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Azure Cosmos DB Table.
 
@@ -207,15 +205,7 @@ class TableResourceTable(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,26 +215,26 @@ class TableResourceTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TableResourceTableArgs.__new__(TableResourceTableArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['identity'] = identity
-            __props__['location'] = location
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
-            __props__['options'] = options
+            __props__.__dict__["options"] = options
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
-            __props__['resource'] = resource
+            __props__.__dict__["resource"] = resource
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['table_name'] = table_name
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20150401:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20150408:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20151106:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20160319:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20160331:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20190801:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20191212:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20200301:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20200401:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20200901:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20210115:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210301preview:TableResourceTable"), pulumi.Alias(type_="azure-native:documentdb/v20210315:TableResourceTable"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210315:TableResourceTable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableResourceTable, __self__).__init__(
@@ -267,15 +257,15 @@ class TableResourceTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TableResourceTableArgs.__new__(TableResourceTableArgs)
 
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["options"] = None
-        __props__["resource"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["options"] = None
+        __props__.__dict__["resource"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return TableResourceTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -327,10 +317,4 @@ class TableResourceTable(pulumi.CustomResource):
         The type of Azure resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

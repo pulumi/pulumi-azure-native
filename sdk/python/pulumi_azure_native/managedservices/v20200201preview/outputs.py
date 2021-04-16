@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -26,6 +26,29 @@ class AuthorizationResponse(dict):
     """
     Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+        elif key == "delegatedRoleDefinitionIds":
+            suggest = "delegated_role_definition_ids"
+        elif key == "principalIdDisplayName":
+            suggest = "principal_id_display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  role_definition_id: str,
@@ -77,15 +100,35 @@ class AuthorizationResponse(dict):
         """
         return pulumi.get(self, "principal_id_display_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EligibleAuthorizationResponse(dict):
     """
     Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+        elif key == "justInTimeAccessPolicy":
+            suggest = "just_in_time_access_policy"
+        elif key == "principalIdDisplayName":
+            suggest = "principal_id_display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EligibleAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EligibleAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EligibleAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  role_definition_id: str,
@@ -95,7 +138,7 @@ class EligibleAuthorizationResponse(dict):
         Eligible authorization tuple containing principle Id (of user/service principal/security group), role definition id, and the just-in-time access setting.
         :param str principal_id: Principal Id of the security group/service principal/user that would be delegated permissions to the projected subscription
         :param str role_definition_id: The role definition identifier. This role will delegate all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param 'JustInTimeAccessPolicyResponseArgs' just_in_time_access_policy: Just-in-time access policy setting.
+        :param 'JustInTimeAccessPolicyResponse' just_in_time_access_policy: Just-in-time access policy setting.
         :param str principal_id_display_name: Display name of the principal Id.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -137,15 +180,31 @@ class EligibleAuthorizationResponse(dict):
         """
         return pulumi.get(self, "principal_id_display_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JustInTimeAccessPolicyResponse(dict):
     """
     Just-in-time access policy setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multiFactorAuthProvider":
+            suggest = "multi_factor_auth_provider"
+        elif key == "maximumActivationDuration":
+            suggest = "maximum_activation_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JustInTimeAccessPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JustInTimeAccessPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JustInTimeAccessPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  multi_factor_auth_provider: str,
                  maximum_activation_duration: Optional[str] = None):
@@ -173,9 +232,6 @@ class JustInTimeAccessPolicyResponse(dict):
         Maximum access duration in ISO 8601 format.  The default value is "PT8H".
         """
         return pulumi.get(self, "maximum_activation_duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -232,15 +288,33 @@ class PlanResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistrationAssignmentPropertiesResponse(dict):
     """
     Properties of a registration assignment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "registrationDefinition":
+            suggest = "registration_definition"
+        elif key == "registrationDefinitionId":
+            suggest = "registration_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistrationAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistrationAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistrationAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  registration_definition: 'outputs.RegistrationAssignmentPropertiesResponseRegistrationDefinition',
@@ -248,7 +322,7 @@ class RegistrationAssignmentPropertiesResponse(dict):
         """
         Properties of a registration assignment.
         :param str provisioning_state: Current state of the registration assignment.
-        :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs' registration_definition: Registration definition inside registration assignment.
+        :param 'RegistrationAssignmentPropertiesResponseRegistrationDefinition' registration_definition: Registration definition inside registration assignment.
         :param str registration_definition_id: Fully qualified path of the registration definition.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -279,15 +353,41 @@ class RegistrationAssignmentPropertiesResponse(dict):
         """
         return pulumi.get(self, "registration_definition_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistrationAssignmentPropertiesResponseProperties(dict):
     """
     Properties of registration definition inside registration assignment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eligibleAuthorizations":
+            suggest = "eligible_authorizations"
+        elif key == "managedByTenantId":
+            suggest = "managed_by_tenant_id"
+        elif key == "managedByTenantName":
+            suggest = "managed_by_tenant_name"
+        elif key == "manageeTenantId":
+            suggest = "managee_tenant_id"
+        elif key == "manageeTenantName":
+            suggest = "managee_tenant_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "registrationDefinitionName":
+            suggest = "registration_definition_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistrationAssignmentPropertiesResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistrationAssignmentPropertiesResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistrationAssignmentPropertiesResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorizations: Optional[Sequence['outputs.AuthorizationResponse']] = None,
                  description: Optional[str] = None,
@@ -300,9 +400,9 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
                  registration_definition_name: Optional[str] = None):
         """
         Properties of registration definition inside registration assignment.
-        :param Sequence['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param Sequence['AuthorizationResponse'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param str description: Description of the registration definition.
-        :param Sequence['EligibleAuthorizationResponseArgs'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         :param str managed_by_tenant_id: Id of the managedBy tenant.
         :param str managed_by_tenant_name: Name of the managedBy tenant.
         :param str managee_tenant_id: Id of the home tenant.
@@ -401,9 +501,6 @@ class RegistrationAssignmentPropertiesResponseProperties(dict):
         """
         return pulumi.get(self, "registration_definition_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
@@ -421,8 +518,8 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
         :param str id: Fully qualified path of the registration definition.
         :param str name: Name of the registration definition.
         :param str type: Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-        :param 'PlanResponseArgs' plan: Plan details for the managed services.
-        :param 'RegistrationAssignmentPropertiesResponsePropertiesArgs' properties: Properties of registration definition inside registration assignment.
+        :param 'PlanResponse' plan: Plan details for the managed services.
+        :param 'RegistrationAssignmentPropertiesResponseProperties' properties: Properties of registration definition inside registration assignment.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -472,15 +569,37 @@ class RegistrationAssignmentPropertiesResponseRegistrationDefinition(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistrationDefinitionPropertiesResponse(dict):
     """
     Properties of a registration definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedByTenantId":
+            suggest = "managed_by_tenant_id"
+        elif key == "managedByTenantName":
+            suggest = "managed_by_tenant_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "eligibleAuthorizations":
+            suggest = "eligible_authorizations"
+        elif key == "registrationDefinitionName":
+            suggest = "registration_definition_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistrationDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistrationDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistrationDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorizations: Sequence['outputs.AuthorizationResponse'],
                  managed_by_tenant_id: str,
@@ -491,12 +610,12 @@ class RegistrationDefinitionPropertiesResponse(dict):
                  registration_definition_name: Optional[str] = None):
         """
         Properties of a registration definition.
-        :param Sequence['AuthorizationResponseArgs'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param Sequence['AuthorizationResponse'] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param str managed_by_tenant_id: Id of the managedBy tenant.
         :param str managed_by_tenant_name: Name of the managedBy tenant.
         :param str provisioning_state: Current state of the registration definition.
         :param str description: Description of the registration definition.
-        :param Sequence['EligibleAuthorizationResponseArgs'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         :param str registration_definition_name: Name of the registration definition.
         """
         pulumi.set(__self__, "authorizations", authorizations)
@@ -565,8 +684,5 @@ class RegistrationDefinitionPropertiesResponse(dict):
         Name of the registration definition.
         """
         return pulumi.get(self, "registration_definition_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

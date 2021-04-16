@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -229,9 +229,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Private link service resource.
 
@@ -286,15 +284,7 @@ class PrivateLinkService(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesVisibilityArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,27 +294,27 @@ class PrivateLinkService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PrivateLinkServiceArgs.__new__(PrivateLinkServiceArgs)
 
-            __props__['auto_approval'] = auto_approval
-            __props__['etag'] = etag
-            __props__['fqdns'] = fqdns
-            __props__['id'] = id
-            __props__['ip_configurations'] = ip_configurations
-            __props__['load_balancer_frontend_ip_configurations'] = load_balancer_frontend_ip_configurations
-            __props__['location'] = location
-            __props__['private_endpoint_connections'] = private_endpoint_connections
+            __props__.__dict__["auto_approval"] = auto_approval
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["fqdns"] = fqdns
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ip_configurations"] = ip_configurations
+            __props__.__dict__["load_balancer_frontend_ip_configurations"] = load_balancer_frontend_ip_configurations
+            __props__.__dict__["location"] = location
+            __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['service_name'] = service_name
-            __props__['tags'] = tags
-            __props__['visibility'] = visibility
-            __props__['alias'] = None
-            __props__['name'] = None
-            __props__['network_interfaces'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["visibility"] = visibility
+            __props__.__dict__["alias"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["network_interfaces"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateLinkService"), pulumi.Alias(type_="azure-nextgen:network/v20201101:PrivateLinkService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkService, __self__).__init__(
@@ -347,22 +337,22 @@ class PrivateLinkService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PrivateLinkServiceArgs.__new__(PrivateLinkServiceArgs)
 
-        __props__["alias"] = None
-        __props__["auto_approval"] = None
-        __props__["etag"] = None
-        __props__["fqdns"] = None
-        __props__["ip_configurations"] = None
-        __props__["load_balancer_frontend_ip_configurations"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["network_interfaces"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["visibility"] = None
+        __props__.__dict__["alias"] = None
+        __props__.__dict__["auto_approval"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["fqdns"] = None
+        __props__.__dict__["ip_configurations"] = None
+        __props__.__dict__["load_balancer_frontend_ip_configurations"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_interfaces"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["visibility"] = None
         return PrivateLinkService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -476,10 +466,4 @@ class PrivateLinkService(pulumi.CustomResource):
         The visibility list of the private link service.
         """
         return pulumi.get(self, "visibility")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

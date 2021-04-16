@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -279,9 +279,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a Virtual Machine run command.
         API Version: 2020-12-01.
@@ -344,15 +342,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,35 +352,35 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualMachineScaleSetVMRunCommandArgs.__new__(VirtualMachineScaleSetVMRunCommandArgs)
 
             if async_execution is None:
                 async_execution = False
-            __props__['async_execution'] = async_execution
-            __props__['error_blob_uri'] = error_blob_uri
+            __props__.__dict__["async_execution"] = async_execution
+            __props__.__dict__["error_blob_uri"] = error_blob_uri
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
-            __props__['instance_id'] = instance_id
-            __props__['location'] = location
-            __props__['output_blob_uri'] = output_blob_uri
-            __props__['parameters'] = parameters
-            __props__['protected_parameters'] = protected_parameters
+            __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["output_blob_uri"] = output_blob_uri
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["protected_parameters"] = protected_parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['run_as_password'] = run_as_password
-            __props__['run_as_user'] = run_as_user
-            __props__['run_command_name'] = run_command_name
-            __props__['source'] = source
-            __props__['tags'] = tags
-            __props__['timeout_in_seconds'] = timeout_in_seconds
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["run_as_password"] = run_as_password
+            __props__.__dict__["run_as_user"] = run_as_user
+            __props__.__dict__["run_command_name"] = run_command_name
+            __props__.__dict__["source"] = source
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
-            __props__['vm_scale_set_name'] = vm_scale_set_name
-            __props__['instance_view'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
+            __props__.__dict__["instance_view"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVMRunCommand"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVMRunCommand, __self__).__init__(
@@ -413,23 +403,23 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualMachineScaleSetVMRunCommandArgs.__new__(VirtualMachineScaleSetVMRunCommandArgs)
 
-        __props__["async_execution"] = None
-        __props__["error_blob_uri"] = None
-        __props__["instance_view"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["output_blob_uri"] = None
-        __props__["parameters"] = None
-        __props__["protected_parameters"] = None
-        __props__["provisioning_state"] = None
-        __props__["run_as_password"] = None
-        __props__["run_as_user"] = None
-        __props__["source"] = None
-        __props__["tags"] = None
-        __props__["timeout_in_seconds"] = None
-        __props__["type"] = None
+        __props__.__dict__["async_execution"] = None
+        __props__.__dict__["error_blob_uri"] = None
+        __props__.__dict__["instance_view"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["output_blob_uri"] = None
+        __props__.__dict__["parameters"] = None
+        __props__.__dict__["protected_parameters"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["run_as_password"] = None
+        __props__.__dict__["run_as_user"] = None
+        __props__.__dict__["source"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["timeout_in_seconds"] = None
+        __props__.__dict__["type"] = None
         return VirtualMachineScaleSetVMRunCommand(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -551,10 +541,4 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -229,9 +229,7 @@ class FrontDoor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 
@@ -286,15 +284,7 @@ class FrontDoor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,29 +294,29 @@ class FrontDoor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FrontDoorArgs.__new__(FrontDoorArgs)
 
-            __props__['backend_pools'] = backend_pools
-            __props__['backend_pools_settings'] = backend_pools_settings
-            __props__['enabled_state'] = enabled_state
-            __props__['friendly_name'] = friendly_name
-            __props__['front_door_name'] = front_door_name
-            __props__['frontend_endpoints'] = frontend_endpoints
-            __props__['health_probe_settings'] = health_probe_settings
-            __props__['load_balancing_settings'] = load_balancing_settings
-            __props__['location'] = location
+            __props__.__dict__["backend_pools"] = backend_pools
+            __props__.__dict__["backend_pools_settings"] = backend_pools_settings
+            __props__.__dict__["enabled_state"] = enabled_state
+            __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["front_door_name"] = front_door_name
+            __props__.__dict__["frontend_endpoints"] = frontend_endpoints
+            __props__.__dict__["health_probe_settings"] = health_probe_settings
+            __props__.__dict__["load_balancing_settings"] = load_balancing_settings
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['routing_rules'] = routing_rules
-            __props__['tags'] = tags
-            __props__['cname'] = None
-            __props__['frontdoor_id'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_state'] = None
-            __props__['rules_engines'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routing_rules"] = routing_rules
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["cname"] = None
+            __props__.__dict__["frontdoor_id"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_state"] = None
+            __props__.__dict__["rules_engines"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200101:FrontDoor"), pulumi.Alias(type_="azure-native:network:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network:FrontDoor"), pulumi.Alias(type_="azure-native:network/v20190401:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20190401:FrontDoor"), pulumi.Alias(type_="azure-native:network/v20190501:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20190501:FrontDoor"), pulumi.Alias(type_="azure-native:network/v20200401:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FrontDoor"), pulumi.Alias(type_="azure-native:network/v20200501:FrontDoor"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FrontDoor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontDoor, __self__).__init__(
@@ -349,25 +339,25 @@ class FrontDoor(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FrontDoorArgs.__new__(FrontDoorArgs)
 
-        __props__["backend_pools"] = None
-        __props__["backend_pools_settings"] = None
-        __props__["cname"] = None
-        __props__["enabled_state"] = None
-        __props__["friendly_name"] = None
-        __props__["frontdoor_id"] = None
-        __props__["frontend_endpoints"] = None
-        __props__["health_probe_settings"] = None
-        __props__["load_balancing_settings"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_state"] = None
-        __props__["routing_rules"] = None
-        __props__["rules_engines"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["backend_pools"] = None
+        __props__.__dict__["backend_pools_settings"] = None
+        __props__.__dict__["cname"] = None
+        __props__.__dict__["enabled_state"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["frontdoor_id"] = None
+        __props__.__dict__["frontend_endpoints"] = None
+        __props__.__dict__["health_probe_settings"] = None
+        __props__.__dict__["load_balancing_settings"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_state"] = None
+        __props__.__dict__["routing_rules"] = None
+        __props__.__dict__["rules_engines"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return FrontDoor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -505,10 +495,4 @@ class FrontDoor(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

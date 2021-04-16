@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,8 +22,8 @@ __all__ = [
     'HDInsightResponseProperties',
     'IdentityResponse',
     'MachineLearningServiceErrorResponse',
-    'PasswordResponseResult',
-    'RegistryListCredentialsResultResponseResult',
+    'PasswordResponse',
+    'RegistryListCredentialsResultResponse',
     'ScaleSettingsResponse',
     'SslConfigurationResponse',
     'SystemServiceResponse',
@@ -37,6 +37,35 @@ class AKSResponse(dict):
     """
     A Machine Learning compute based on AKS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "modifiedOn":
+            suggest = "modified_on"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  created_on: str,
@@ -53,11 +82,11 @@ class AKSResponse(dict):
                Expected value is 'AKS'.
         :param str created_on: The date and time when the compute was created.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AKSResponsePropertiesArgs' properties: AKS properties
+        :param 'AKSResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the compute
         """
         pulumi.set(__self__, "compute_type", 'AKS')
@@ -147,15 +176,37 @@ class AKSResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSResponseProperties(dict):
     """
     AKS properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentCount":
+            suggest = "agent_count"
+        elif key == "agentVMSize":
+            suggest = "agent_vm_size"
+        elif key == "clusterFqdn":
+            suggest = "cluster_fqdn"
+        elif key == "sslConfiguration":
+            suggest = "ssl_configuration"
+        elif key == "systemServices":
+            suggest = "system_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agent_count: Optional[int] = None,
                  agent_vm_size: Optional[str] = None,
@@ -167,8 +218,8 @@ class AKSResponseProperties(dict):
         :param int agent_count: Number of agents
         :param str agent_vm_size: Agent virtual machine size
         :param str cluster_fqdn: Cluster full qualified domain name
-        :param 'SslConfigurationResponseArgs' ssl_configuration: SSL configuration
-        :param Sequence['SystemServiceResponseArgs'] system_services: System services
+        :param 'SslConfigurationResponse' ssl_configuration: SSL configuration
+        :param Sequence['SystemServiceResponse'] system_services: System services
         """
         if agent_count is not None:
             pulumi.set(__self__, "agent_count", agent_count)
@@ -221,15 +272,41 @@ class AKSResponseProperties(dict):
         """
         return pulumi.get(self, "system_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BatchAIResponse(dict):
     """
     A Machine Learning compute based on Azure BatchAI.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "modifiedOn":
+            suggest = "modified_on"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BatchAIResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BatchAIResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BatchAIResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  created_on: str,
@@ -246,11 +323,11 @@ class BatchAIResponse(dict):
                Expected value is 'BatchAI'.
         :param str created_on: The date and time when the compute was created.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'BatchAIResponsePropertiesArgs' properties: BatchAI properties
+        :param 'BatchAIResponseProperties' properties: BatchAI properties
         :param str resource_id: ARM resource id of the compute
         """
         pulumi.set(__self__, "compute_type", 'BatchAI')
@@ -340,22 +417,40 @@ class BatchAIResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BatchAIResponseProperties(dict):
     """
     BatchAI properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleSettings":
+            suggest = "scale_settings"
+        elif key == "vmPriority":
+            suggest = "vm_priority"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BatchAIResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BatchAIResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BatchAIResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
                  vm_priority: Optional[str] = None,
                  vm_size: Optional[str] = None):
         """
         BatchAI properties
-        :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for BatchAI
+        :param 'ScaleSettingsResponse' scale_settings: Scale settings for BatchAI
         :param str vm_priority: Virtual Machine priority
         :param str vm_size: Virtual Machine Size
         """
@@ -390,15 +485,41 @@ class BatchAIResponseProperties(dict):
         """
         return pulumi.get(self, "vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataFactoryResponse(dict):
     """
     A DataFactory compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "modifiedOn":
+            suggest = "modified_on"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFactoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFactoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFactoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  created_on: str,
@@ -414,7 +535,7 @@ class DataFactoryResponse(dict):
                Expected value is 'DataFactory'.
         :param str created_on: The date and time when the compute was created.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -497,9 +618,6 @@ class DataFactoryResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorDetailResponse(dict):
@@ -533,9 +651,6 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorResponseResponse(dict):
@@ -550,7 +665,7 @@ class ErrorResponseResponse(dict):
         Error response information.
         :param str code: Error code.
         :param str message: Error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -581,15 +696,41 @@ class ErrorResponseResponse(dict):
         """
         return pulumi.get(self, "details")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightResponse(dict):
     """
     A HDInsight compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "modifiedOn":
+            suggest = "modified_on"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  created_on: str,
@@ -606,7 +747,7 @@ class HDInsightResponse(dict):
                Expected value is 'HDInsight'.
         :param str created_on: The date and time when the compute was created.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -696,19 +837,35 @@ class HDInsightResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorAccount":
+            suggest = "administrator_account"
+        elif key == "sshPort":
+            suggest = "ssh_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
                  ssh_port: Optional[int] = None):
         """
         :param str address: Public IP address of the master node of the cluster.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for master node of the cluster
         :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
@@ -742,15 +899,31 @@ class HDInsightResponseProperties(dict):
         """
         return pulumi.get(self, "ssh_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -790,9 +963,6 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MachineLearningServiceErrorResponse(dict):
@@ -803,7 +973,7 @@ class MachineLearningServiceErrorResponse(dict):
                  error: Optional['outputs.ErrorResponseResponse'] = None):
         """
         Wrapper for error response to follow ARM guidelines.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -816,12 +986,9 @@ class MachineLearningServiceErrorResponse(dict):
         """
         return pulumi.get(self, "error")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class PasswordResponseResult(dict):
+class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -840,11 +1007,11 @@ class PasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RegistryListCredentialsResultResponseResult(dict):
+class RegistryListCredentialsResultResponse(dict):
     def __init__(__self__, *,
                  location: str,
                  username: str,
-                 passwords: Optional[Sequence['outputs.PasswordResponseResult']] = None):
+                 passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "username", username)
         if passwords is not None:
@@ -862,7 +1029,7 @@ class RegistryListCredentialsResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.PasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.PasswordResponse']]:
         return pulumi.get(self, "passwords")
 
 
@@ -871,6 +1038,27 @@ class ScaleSettingsResponse(dict):
     """
     scale settings for BatchAI Compute
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScaleEnabled":
+            suggest = "auto_scale_enabled"
+        elif key == "maxNodeCount":
+            suggest = "max_node_count"
+        elif key == "minNodeCount":
+            suggest = "min_node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_scale_enabled: Optional[bool] = None,
                  max_node_count: Optional[int] = None,
@@ -911,9 +1099,6 @@ class ScaleSettingsResponse(dict):
         Min number of nodes to use
         """
         return pulumi.get(self, "min_node_count")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -974,15 +1159,31 @@ class SslConfigurationResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemServiceResponse(dict):
     """
     A system service running on a compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddress":
+            suggest = "public_ip_address"
+        elif key == "systemServiceType":
+            suggest = "system_service_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ip_address: str,
                  system_service_type: str,
@@ -1021,15 +1222,41 @@ class SystemServiceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineResponse(dict):
     """
     A Machine Learning compute based on Azure Virtual Machines.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "modifiedOn":
+            suggest = "modified_on"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  created_on: str,
@@ -1046,7 +1273,7 @@ class VirtualMachineResponse(dict):
                Expected value is 'VirtualMachine'.
         :param str created_on: The date and time when the compute was created.
         :param str modified_on: The date and time when the compute was last modified.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1136,12 +1363,30 @@ class VirtualMachineResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorAccount":
+            suggest = "administrator_account"
+        elif key == "sshPort":
+            suggest = "ssh_port"
+        elif key == "virtualMachineSize":
+            suggest = "virtual_machine_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
@@ -1149,7 +1394,7 @@ class VirtualMachineResponseProperties(dict):
                  virtual_machine_size: Optional[str] = None):
         """
         :param str address: Public IP address of the virtual machine.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for virtual machine
         :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """
@@ -1194,15 +1439,31 @@ class VirtualMachineResponseProperties(dict):
         """
         return pulumi.get(self, "virtual_machine_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineSshCredentialsResponse(dict):
     """
     Admin credentials for virtual machine
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKeyData":
+            suggest = "private_key_data"
+        elif key == "publicKeyData":
+            suggest = "public_key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineSshCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineSshCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineSshCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  private_key_data: Optional[str] = None,
@@ -1255,8 +1516,5 @@ class VirtualMachineSshCredentialsResponse(dict):
         Username of admin account
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

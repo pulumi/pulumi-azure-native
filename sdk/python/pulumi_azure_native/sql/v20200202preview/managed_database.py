@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ManagedDatabaseArgs', 'ManagedDatabase']
@@ -311,9 +311,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  storage_container_sas_token: Optional[pulumi.Input[str]] = None,
                  storage_container_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A managed database resource.
 
@@ -378,15 +376,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  storage_container_sas_token: Optional[pulumi.Input[str]] = None,
                  storage_container_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -396,36 +386,36 @@ class ManagedDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagedDatabaseArgs.__new__(ManagedDatabaseArgs)
 
-            __props__['auto_complete_restore'] = auto_complete_restore
-            __props__['catalog_collation'] = catalog_collation
-            __props__['collation'] = collation
-            __props__['create_mode'] = create_mode
-            __props__['database_name'] = database_name
-            __props__['last_backup_name'] = last_backup_name
-            __props__['location'] = location
-            __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
+            __props__.__dict__["auto_complete_restore"] = auto_complete_restore
+            __props__.__dict__["catalog_collation"] = catalog_collation
+            __props__.__dict__["collation"] = collation
+            __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["last_backup_name"] = last_backup_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["long_term_retention_backup_resource_id"] = long_term_retention_backup_resource_id
             if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
-            __props__['managed_instance_name'] = managed_instance_name
-            __props__['recoverable_database_id'] = recoverable_database_id
+            __props__.__dict__["managed_instance_name"] = managed_instance_name
+            __props__.__dict__["recoverable_database_id"] = recoverable_database_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['restorable_dropped_database_id'] = restorable_dropped_database_id
-            __props__['restore_point_in_time'] = restore_point_in_time
-            __props__['source_database_id'] = source_database_id
-            __props__['storage_container_sas_token'] = storage_container_sas_token
-            __props__['storage_container_uri'] = storage_container_uri
-            __props__['tags'] = tags
-            __props__['creation_date'] = None
-            __props__['default_secondary_location'] = None
-            __props__['earliest_restore_point'] = None
-            __props__['failover_group_id'] = None
-            __props__['name'] = None
-            __props__['status'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restorable_dropped_database_id"] = restorable_dropped_database_id
+            __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            __props__.__dict__["source_database_id"] = source_database_id
+            __props__.__dict__["storage_container_sas_token"] = storage_container_sas_token
+            __props__.__dict__["storage_container_uri"] = storage_container_uri
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["default_secondary_location"] = None
+            __props__.__dict__["earliest_restore_point"] = None
+            __props__.__dict__["failover_group_id"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20170301preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20190601preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedDatabase"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ManagedDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedDatabase, __self__).__init__(
@@ -448,19 +438,19 @@ class ManagedDatabase(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ManagedDatabaseArgs.__new__(ManagedDatabaseArgs)
 
-        __props__["catalog_collation"] = None
-        __props__["collation"] = None
-        __props__["creation_date"] = None
-        __props__["default_secondary_location"] = None
-        __props__["earliest_restore_point"] = None
-        __props__["failover_group_id"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["status"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["catalog_collation"] = None
+        __props__.__dict__["collation"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["default_secondary_location"] = None
+        __props__.__dict__["earliest_restore_point"] = None
+        __props__.__dict__["failover_group_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ManagedDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -550,10 +540,4 @@ class ManagedDatabase(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

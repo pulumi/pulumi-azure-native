@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -92,9 +92,7 @@ class Setting(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  start_on: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         State of the myscope setting.
         API Version: 2019-11-01.
@@ -135,15 +133,7 @@ class Setting(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  start_on: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -153,17 +143,17 @@ class Setting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SettingArgs.__new__(SettingArgs)
 
-            __props__['cache'] = cache
+            __props__.__dict__["cache"] = cache
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['setting_name'] = setting_name
-            __props__['start_on'] = start_on
-            __props__['kind'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["setting_name"] = setting_name
+            __props__.__dict__["start_on"] = start_on
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:Setting"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:Setting"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:Setting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Setting, __self__).__init__(
@@ -186,14 +176,14 @@ class Setting(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SettingArgs.__new__(SettingArgs)
 
-        __props__["cache"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["scope"] = None
-        __props__["start_on"] = None
-        __props__["type"] = None
+        __props__.__dict__["cache"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["start_on"] = None
+        __props__.__dict__["type"] = None
         return Setting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,10 +233,4 @@ class Setting(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -246,9 +246,7 @@ class Server(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Azure SQL Database server.
 
@@ -305,15 +303,7 @@ class Server(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,30 +313,30 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerArgs.__new__(ServerArgs)
 
-            __props__['administrator_login'] = administrator_login
-            __props__['administrator_login_password'] = administrator_login_password
-            __props__['administrators'] = administrators
-            __props__['identity'] = identity
-            __props__['key_id'] = key_id
-            __props__['location'] = location
-            __props__['minimal_tls_version'] = minimal_tls_version
-            __props__['primary_user_assigned_identity_id'] = primary_user_assigned_identity_id
-            __props__['public_network_access'] = public_network_access
+            __props__.__dict__["administrator_login"] = administrator_login
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["administrators"] = administrators
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_id"] = key_id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["minimal_tls_version"] = minimal_tls_version
+            __props__.__dict__["primary_user_assigned_identity_id"] = primary_user_assigned_identity_id
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['server_name'] = server_name
-            __props__['tags'] = tags
-            __props__['version'] = version
-            __props__['fully_qualified_domain_name'] = None
-            __props__['kind'] = None
-            __props__['name'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['state'] = None
-            __props__['type'] = None
-            __props__['workspace_feature'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
+            __props__.__dict__["fully_qualified_domain_name"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["workspace_feature"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:Server"), pulumi.Alias(type_="azure-native:sql:Server"), pulumi.Alias(type_="azure-nextgen:sql:Server"), pulumi.Alias(type_="azure-native:sql/v20140401:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:Server"), pulumi.Alias(type_="azure-native:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Server"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:Server"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
@@ -369,25 +359,25 @@ class Server(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServerArgs.__new__(ServerArgs)
 
-        __props__["administrator_login"] = None
-        __props__["administrators"] = None
-        __props__["fully_qualified_domain_name"] = None
-        __props__["identity"] = None
-        __props__["key_id"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["minimal_tls_version"] = None
-        __props__["name"] = None
-        __props__["primary_user_assigned_identity_id"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["public_network_access"] = None
-        __props__["state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["version"] = None
-        __props__["workspace_feature"] = None
+        __props__.__dict__["administrator_login"] = None
+        __props__.__dict__["administrators"] = None
+        __props__.__dict__["fully_qualified_domain_name"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["key_id"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["minimal_tls_version"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["primary_user_assigned_identity_id"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
+        __props__.__dict__["workspace_feature"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -525,10 +515,4 @@ class Server(pulumi.CustomResource):
         Whether or not existing server has a workspace created and if it allows connection from workspace
         """
         return pulumi.get(self, "workspace_feature")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

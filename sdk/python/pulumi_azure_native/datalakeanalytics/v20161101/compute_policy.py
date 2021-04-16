@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ComputePolicyArgs', 'ComputePolicy']
@@ -139,9 +139,7 @@ class ComputePolicy(pulumi.CustomResource):
                  object_id: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[Union[str, 'AADObjectType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Data Lake Analytics compute policy information.
 
@@ -186,15 +184,7 @@ class ComputePolicy(pulumi.CustomResource):
                  object_id: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[Union[str, 'AADObjectType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,25 +194,25 @@ class ComputePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ComputePolicyArgs.__new__(ComputePolicyArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['compute_policy_name'] = compute_policy_name
-            __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
-            __props__['min_priority_per_job'] = min_priority_per_job
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["compute_policy_name"] = compute_policy_name
+            __props__.__dict__["max_degree_of_parallelism_per_job"] = max_degree_of_parallelism_per_job
+            __props__.__dict__["min_priority_per_job"] = min_priority_per_job
             if object_id is None and not opts.urn:
                 raise TypeError("Missing required property 'object_id'")
-            __props__['object_id'] = object_id
+            __props__.__dict__["object_id"] = object_id
             if object_type is None and not opts.urn:
                 raise TypeError("Missing required property 'object_type'")
-            __props__['object_type'] = object_type
+            __props__.__dict__["object_type"] = object_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20161101:ComputePolicy"), pulumi.Alias(type_="azure-native:datalakeanalytics:ComputePolicy"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics:ComputePolicy"), pulumi.Alias(type_="azure-native:datalakeanalytics/v20151001preview:ComputePolicy"), pulumi.Alias(type_="azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ComputePolicy, __self__).__init__(
@@ -245,14 +235,14 @@ class ComputePolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ComputePolicyArgs.__new__(ComputePolicyArgs)
 
-        __props__["max_degree_of_parallelism_per_job"] = None
-        __props__["min_priority_per_job"] = None
-        __props__["name"] = None
-        __props__["object_id"] = None
-        __props__["object_type"] = None
-        __props__["type"] = None
+        __props__.__dict__["max_degree_of_parallelism_per_job"] = None
+        __props__.__dict__["min_priority_per_job"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["object_id"] = None
+        __props__.__dict__["object_type"] = None
+        __props__.__dict__["type"] = None
         return ComputePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -302,10 +292,4 @@ class ComputePolicy(pulumi.CustomResource):
         The resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

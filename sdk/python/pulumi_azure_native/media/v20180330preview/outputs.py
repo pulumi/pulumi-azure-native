@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -81,9 +81,9 @@ __all__ = [
     'StandardEncoderPresetResponse',
     'StorageAccountResponse',
     'StreamingEndpointAccessControlResponse',
-    'StreamingLocatorContentKeyResponseResult',
+    'StreamingLocatorContentKeyResponse',
     'StreamingLocatorUserDefinedContentKeyResponse',
-    'StreamingPathResponseResult',
+    'StreamingPathResponse',
     'StreamingPolicyContentKeyResponse',
     'StreamingPolicyContentKeysResponse',
     'StreamingPolicyFairPlayConfigurationResponse',
@@ -103,6 +103,25 @@ class AacAudioResponse(dict):
     """
     Describes Advanced Audio Codec (AAC) audio encoding settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AacAudioResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AacAudioResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AacAudioResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  bitrate: Optional[int] = None,
@@ -181,20 +200,34 @@ class AacAudioResponse(dict):
         """
         return pulumi.get(self, "sampling_rate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AkamaiAccessControlResponse(dict):
     """
     Akamai access control
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "akamaiSignatureHeaderAuthenticationKeyList":
+            suggest = "akamai_signature_header_authentication_key_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkamaiAccessControlResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkamaiAccessControlResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkamaiAccessControlResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
         """
         Akamai access control
-        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
@@ -207,15 +240,29 @@ class AkamaiAccessControlResponse(dict):
         """
         return pulumi.get(self, "akamai_signature_header_authentication_key_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
     """
     Akamai Signature Header authentication key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "base64Key":
+            suggest = "base64_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkamaiSignatureHeaderAuthenticationKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkamaiSignatureHeaderAuthenticationKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkamaiSignatureHeaderAuthenticationKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base64_key: Optional[str] = None,
                  expiration: Optional[str] = None,
@@ -257,15 +304,31 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
         """
         return pulumi.get(self, "identifier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AudioAnalyzerPresetResponse(dict):
     """
     The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "audioLanguage":
+            suggest = "audio_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AudioAnalyzerPresetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AudioAnalyzerPresetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AudioAnalyzerPresetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  audio_language: Optional[str] = None):
@@ -296,15 +359,37 @@ class AudioAnalyzerPresetResponse(dict):
         """
         return pulumi.get(self, "audio_language")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AudioOverlayResponse(dict):
     """
     Describes the properties of an audio overlay.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "audioGainLevel":
+            suggest = "audio_gain_level"
+        elif key == "fadeInDuration":
+            suggest = "fade_in_duration"
+        elif key == "fadeOutDuration":
+            suggest = "fade_out_duration"
+        elif key == "inputLabel":
+            suggest = "input_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AudioOverlayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AudioOverlayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AudioOverlayResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  audio_gain_level: Optional[float] = None,
@@ -395,15 +480,31 @@ class AudioOverlayResponse(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AudioResponse(dict):
     """
     Defines the common properties for all audio codecs.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AudioResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AudioResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AudioResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  bitrate: Optional[int] = None,
@@ -470,15 +571,31 @@ class AudioResponse(dict):
         """
         return pulumi.get(self, "sampling_rate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuiltInStandardEncoderPresetResponse(dict):
     """
     Describes a built-in preset for encoding the input video with the Standard Encoder.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "presetName":
+            suggest = "preset_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuiltInStandardEncoderPresetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuiltInStandardEncoderPresetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuiltInStandardEncoderPresetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  preset_name: str):
@@ -508,24 +625,40 @@ class BuiltInStandardEncoderPresetResponse(dict):
         """
         return pulumi.get(self, "preset_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CbcsDrmConfigurationResponse(dict):
     """
     Class to specify drm configurations of CommonEncryptionCbcs scheme in Streaming Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fairPlay":
+            suggest = "fair_play"
+        elif key == "playReady":
+            suggest = "play_ready"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CbcsDrmConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CbcsDrmConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CbcsDrmConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fair_play: Optional['outputs.StreamingPolicyFairPlayConfigurationResponse'] = None,
                  play_ready: Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse'] = None,
                  widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None):
         """
         Class to specify drm configurations of CommonEncryptionCbcs scheme in Streaming Policy
-        :param 'StreamingPolicyFairPlayConfigurationResponseArgs' fair_play: Fairplay configurations
-        :param 'StreamingPolicyPlayReadyConfigurationResponseArgs' play_ready: PlayReady configurations
-        :param 'StreamingPolicyWidevineConfigurationResponseArgs' widevine: Widevine configurations
+        :param 'StreamingPolicyFairPlayConfigurationResponse' fair_play: Fairplay configurations
+        :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
+        :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
         """
         if fair_play is not None:
             pulumi.set(__self__, "fair_play", fair_play)
@@ -558,22 +691,36 @@ class CbcsDrmConfigurationResponse(dict):
         """
         return pulumi.get(self, "widevine")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CencDrmConfigurationResponse(dict):
     """
     Class to specify drm configurations of CommonEncryptionCenc scheme in Streaming Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "playReady":
+            suggest = "play_ready"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CencDrmConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CencDrmConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CencDrmConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  play_ready: Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse'] = None,
                  widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None):
         """
         Class to specify drm configurations of CommonEncryptionCenc scheme in Streaming Policy
-        :param 'StreamingPolicyPlayReadyConfigurationResponseArgs' play_ready: PlayReady configurations
-        :param 'StreamingPolicyWidevineConfigurationResponseArgs' widevine: Widevine configurations
+        :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
+        :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
         """
         if play_ready is not None:
             pulumi.set(__self__, "play_ready", play_ready)
@@ -596,15 +743,33 @@ class CencDrmConfigurationResponse(dict):
         """
         return pulumi.get(self, "widevine")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CommonEncryptionCbcsResponse(dict):
     """
     Class for CommonEncryptionCbcs encryption scheme
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clearTracks":
+            suggest = "clear_tracks"
+        elif key == "contentKeys":
+            suggest = "content_keys"
+        elif key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommonEncryptionCbcsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommonEncryptionCbcsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommonEncryptionCbcsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
@@ -612,10 +777,10 @@ class CommonEncryptionCbcsResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for CommonEncryptionCbcs encryption scheme
-        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
-        :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
-        :param 'CbcsDrmConfigurationResponseArgs' drm: Configuration of DRMs for current encryption scheme
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param 'CbcsDrmConfigurationResponse' drm: Configuration of DRMs for current encryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if clear_tracks is not None:
             pulumi.set(__self__, "clear_tracks", clear_tracks)
@@ -658,15 +823,33 @@ class CommonEncryptionCbcsResponse(dict):
         """
         return pulumi.get(self, "enabled_protocols")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CommonEncryptionCencResponse(dict):
     """
     Class for envelope encryption scheme
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clearTracks":
+            suggest = "clear_tracks"
+        elif key == "contentKeys":
+            suggest = "content_keys"
+        elif key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommonEncryptionCencResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommonEncryptionCencResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommonEncryptionCencResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
@@ -674,10 +857,10 @@ class CommonEncryptionCencResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for envelope encryption scheme
-        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
-        :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
-        :param 'CencDrmConfigurationResponseArgs' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param 'CencDrmConfigurationResponse' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if clear_tracks is not None:
             pulumi.set(__self__, "clear_tracks", clear_tracks)
@@ -720,15 +903,29 @@ class CommonEncryptionCencResponse(dict):
         """
         return pulumi.get(self, "enabled_protocols")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyClearKeyConfigurationResponse(dict):
     """
     Represents a configuration for non-DRM keys.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyClearKeyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyClearKeyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyClearKeyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str):
         """
@@ -747,15 +944,37 @@ class ContentKeyPolicyClearKeyConfigurationResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyFairPlayConfigurationResponse(dict):
     """
     Specifies a configuration for FairPlay licenses.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fairPlayPfx":
+            suggest = "fair_play_pfx"
+        elif key == "fairPlayPfxPassword":
+            suggest = "fair_play_pfx_password"
+        elif key == "odataType":
+            suggest = "odata_type"
+        elif key == "rentalAndLeaseKeyType":
+            suggest = "rental_and_lease_key_type"
+        elif key == "rentalDuration":
+            suggest = "rental_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyFairPlayConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyFairPlayConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyFairPlayConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ask: str,
                  fair_play_pfx: str,
@@ -829,15 +1048,29 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
         """
         return pulumi.get(self, "rental_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyOpenRestrictionResponse(dict):
     """
     Represents an open restriction. License or key will be delivered on every request.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyOpenRestrictionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyOpenRestrictionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyOpenRestrictionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str):
         """
@@ -856,15 +1089,29 @@ class ContentKeyPolicyOpenRestrictionResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyOptionResponse(dict):
     """
     Represents a policy option.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyOptionId":
+            suggest = "policy_option_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyOptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyOptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyOptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  configuration: Any,
                  policy_option_id: str,
@@ -872,9 +1119,9 @@ class ContentKeyPolicyOptionResponse(dict):
                  name: Optional[str] = None):
         """
         Represents a policy option.
-        :param Union['ContentKeyPolicyClearKeyConfigurationResponseArgs', 'ContentKeyPolicyFairPlayConfigurationResponseArgs', 'ContentKeyPolicyPlayReadyConfigurationResponseArgs', 'ContentKeyPolicyUnknownConfigurationResponseArgs', 'ContentKeyPolicyWidevineConfigurationResponseArgs'] configuration: The key delivery configuration.
+        :param Union['ContentKeyPolicyClearKeyConfigurationResponse', 'ContentKeyPolicyFairPlayConfigurationResponse', 'ContentKeyPolicyPlayReadyConfigurationResponse', 'ContentKeyPolicyUnknownConfigurationResponse', 'ContentKeyPolicyWidevineConfigurationResponse'] configuration: The key delivery configuration.
         :param str policy_option_id: The legacy Policy Option ID.
-        :param Union['ContentKeyPolicyOpenRestrictionResponseArgs', 'ContentKeyPolicyTokenRestrictionResponseArgs', 'ContentKeyPolicyUnknownRestrictionResponseArgs'] restriction: The requirements that must be met to deliver keys with this configuration
+        :param Union['ContentKeyPolicyOpenRestrictionResponse', 'ContentKeyPolicyTokenRestrictionResponse', 'ContentKeyPolicyUnknownRestrictionResponse'] restriction: The requirements that must be met to deliver keys with this configuration
         :param str name: The Policy Option description.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -915,22 +1162,38 @@ class ContentKeyPolicyOptionResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
     """
     Specifies a configuration for PlayReady licenses.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "responseCustomData":
+            suggest = "response_custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPlayReadyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPlayReadyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPlayReadyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  licenses: Sequence['outputs.ContentKeyPolicyPlayReadyLicenseResponse'],
                  odata_type: str,
                  response_custom_data: Optional[str] = None):
         """
         Specifies a configuration for PlayReady licenses.
-        :param Sequence['ContentKeyPolicyPlayReadyLicenseResponseArgs'] licenses: The PlayReady licenses.
+        :param Sequence['ContentKeyPolicyPlayReadyLicenseResponse'] licenses: The PlayReady licenses.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         :param str response_custom_data: The custom response data.
@@ -965,15 +1228,29 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
         """
         return pulumi.get(self, "response_custom_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse(dict):
     """
     Specifies that the content key ID is in the PlayReady header.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str):
         """
@@ -992,15 +1269,31 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse(dict):
     """
     Specifies that the content key ID is specified in the PlayReady configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_id: str,
                  odata_type: str):
@@ -1030,15 +1323,31 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse(dic
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse(dict):
     """
     Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bestEffort":
+            suggest = "best_effort"
+        elif key == "configurationData":
+            suggest = "configuration_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  best_effort: bool,
                  configuration_data: int):
@@ -1066,15 +1375,47 @@ class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse(dict)
         """
         return pulumi.get(self, "configuration_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPlayReadyLicenseResponse(dict):
     """
     The PlayReady license
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowTestDevices":
+            suggest = "allow_test_devices"
+        elif key == "contentKeyLocation":
+            suggest = "content_key_location"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "licenseType":
+            suggest = "license_type"
+        elif key == "beginDate":
+            suggest = "begin_date"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "gracePeriod":
+            suggest = "grace_period"
+        elif key == "playRight":
+            suggest = "play_right"
+        elif key == "relativeBeginDate":
+            suggest = "relative_begin_date"
+        elif key == "relativeExpirationDate":
+            suggest = "relative_expiration_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPlayReadyLicenseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPlayReadyLicenseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPlayReadyLicenseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_test_devices: bool,
                  content_key_location: Any,
@@ -1089,13 +1430,13 @@ class ContentKeyPolicyPlayReadyLicenseResponse(dict):
         """
         The PlayReady license
         :param bool allow_test_devices: A flag indicating whether test devices can use the license.
-        :param Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseArgs', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseArgs'] content_key_location: The content key location.
+        :param Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse'] content_key_location: The content key location.
         :param str content_type: The PlayReady content type.
         :param str license_type: The license type.
         :param str begin_date: The begin date of license
         :param str expiration_date: The expiration date of license.
         :param str grace_period: The grace period of license.
-        :param 'ContentKeyPolicyPlayReadyPlayRightResponseArgs' play_right: The license PlayRight
+        :param 'ContentKeyPolicyPlayReadyPlayRightResponse' play_right: The license PlayRight
         :param str relative_begin_date: The relative begin date of license.
         :param str relative_expiration_date: The relative expiration date of license.
         """
@@ -1196,15 +1537,53 @@ class ContentKeyPolicyPlayReadyLicenseResponse(dict):
         """
         return pulumi.get(self, "relative_expiration_date")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
     """
     Configures the Play Right in the PlayReady license.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPassingVideoContentToUnknownOutput":
+            suggest = "allow_passing_video_content_to_unknown_output"
+        elif key == "digitalVideoOnlyContentRestriction":
+            suggest = "digital_video_only_content_restriction"
+        elif key == "imageConstraintForAnalogComponentVideoRestriction":
+            suggest = "image_constraint_for_analog_component_video_restriction"
+        elif key == "imageConstraintForAnalogComputerMonitorRestriction":
+            suggest = "image_constraint_for_analog_computer_monitor_restriction"
+        elif key == "agcAndColorStripeRestriction":
+            suggest = "agc_and_color_stripe_restriction"
+        elif key == "analogVideoOpl":
+            suggest = "analog_video_opl"
+        elif key == "compressedDigitalAudioOpl":
+            suggest = "compressed_digital_audio_opl"
+        elif key == "compressedDigitalVideoOpl":
+            suggest = "compressed_digital_video_opl"
+        elif key == "explicitAnalogTelevisionOutputRestriction":
+            suggest = "explicit_analog_television_output_restriction"
+        elif key == "firstPlayExpiration":
+            suggest = "first_play_expiration"
+        elif key == "scmsRestriction":
+            suggest = "scms_restriction"
+        elif key == "uncompressedDigitalAudioOpl":
+            suggest = "uncompressed_digital_audio_opl"
+        elif key == "uncompressedDigitalVideoOpl":
+            suggest = "uncompressed_digital_video_opl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPlayReadyPlayRightResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPlayReadyPlayRightResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPlayReadyPlayRightResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_passing_video_content_to_unknown_output: str,
                  digital_video_only_content_restriction: bool,
@@ -1229,7 +1608,7 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
         :param int analog_video_opl: Specifies the output protection level for compressed digital audio.
         :param int compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.
         :param int compressed_digital_video_opl: Specifies the output protection level for compressed digital video.
-        :param 'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs' explicit_analog_television_output_restriction: Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+        :param 'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse' explicit_analog_television_output_restriction: Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
         :param str first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
         :param int scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
         :param int uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
@@ -1362,15 +1741,29 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
         """
         return pulumi.get(self, "uncompressed_digital_video_opl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyRsaTokenKeyResponse(dict):
     """
     Specifies a RSA key for token validation
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyRsaTokenKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyRsaTokenKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyRsaTokenKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  exponent: str,
                  modulus: str,
@@ -1411,15 +1804,31 @@ class ContentKeyPolicyRsaTokenKeyResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicySymmetricTokenKeyResponse(dict):
     """
     Specifies a symmetric key for token validation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValue":
+            suggest = "key_value"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicySymmetricTokenKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicySymmetricTokenKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicySymmetricTokenKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_value: str,
                  odata_type: str):
@@ -1449,15 +1858,31 @@ class ContentKeyPolicySymmetricTokenKeyResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyTokenClaimResponse(dict):
     """
     Represents a token claim.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimType":
+            suggest = "claim_type"
+        elif key == "claimValue":
+            suggest = "claim_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyTokenClaimResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyTokenClaimResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyTokenClaimResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  claim_type: Optional[str] = None,
                  claim_value: Optional[str] = None):
@@ -1487,15 +1912,39 @@ class ContentKeyPolicyTokenClaimResponse(dict):
         """
         return pulumi.get(self, "claim_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyTokenRestrictionResponse(dict):
     """
     Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "primaryVerificationKey":
+            suggest = "primary_verification_key"
+        elif key == "restrictionTokenType":
+            suggest = "restriction_token_type"
+        elif key == "alternateVerificationKeys":
+            suggest = "alternate_verification_keys"
+        elif key == "openIdConnectDiscoveryDocument":
+            suggest = "open_id_connect_discovery_document"
+        elif key == "requiredClaims":
+            suggest = "required_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyTokenRestrictionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyTokenRestrictionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyTokenRestrictionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audience: str,
                  issuer: str,
@@ -1511,11 +1960,11 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
         :param str issuer: The token issuer.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
-        :param Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs'] primary_verification_key: The primary verification key.
+        :param Union['ContentKeyPolicyRsaTokenKeyResponse', 'ContentKeyPolicySymmetricTokenKeyResponse', 'ContentKeyPolicyX509CertificateTokenKeyResponse'] primary_verification_key: The primary verification key.
         :param str restriction_token_type: The type of token.
-        :param Sequence[Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs']] alternate_verification_keys: A list of alternative verification keys.
+        :param Sequence[Union['ContentKeyPolicyRsaTokenKeyResponse', 'ContentKeyPolicySymmetricTokenKeyResponse', 'ContentKeyPolicyX509CertificateTokenKeyResponse']] alternate_verification_keys: A list of alternative verification keys.
         :param str open_id_connect_discovery_document: The OpenID connect discovery document.
-        :param Sequence['ContentKeyPolicyTokenClaimResponseArgs'] required_claims: A list of required token claims.
+        :param Sequence['ContentKeyPolicyTokenClaimResponse'] required_claims: A list of required token claims.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "issuer", issuer)
@@ -1594,15 +2043,29 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
         """
         return pulumi.get(self, "required_claims")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyUnknownConfigurationResponse(dict):
     """
     Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyUnknownConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyUnknownConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyUnknownConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str):
         """
@@ -1621,15 +2084,29 @@ class ContentKeyPolicyUnknownConfigurationResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyUnknownRestrictionResponse(dict):
     """
     Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyUnknownRestrictionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyUnknownRestrictionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyUnknownRestrictionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str):
         """
@@ -1648,15 +2125,31 @@ class ContentKeyPolicyUnknownRestrictionResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyWidevineConfigurationResponse(dict):
     """
     Specifies a configuration for Widevine licenses.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "widevineTemplate":
+            suggest = "widevine_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyWidevineConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyWidevineConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyWidevineConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  widevine_template: str):
@@ -1686,15 +2179,31 @@ class ContentKeyPolicyWidevineConfigurationResponse(dict):
         """
         return pulumi.get(self, "widevine_template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
     """
     Specifies a certificate for token validation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "rawBody":
+            suggest = "raw_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyX509CertificateTokenKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyX509CertificateTokenKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyX509CertificateTokenKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  raw_body: str):
@@ -1724,15 +2233,29 @@ class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
         """
         return pulumi.get(self, "raw_body")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CopyAudioResponse(dict):
     """
     A codec flag, which tells the encoder to copy the input audio bitstream.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyAudioResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyAudioResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyAudioResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  label: Optional[str] = None):
@@ -1763,15 +2286,29 @@ class CopyAudioResponse(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CopyVideoResponse(dict):
     """
     A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyVideoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyVideoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyVideoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  label: Optional[str] = None):
@@ -1802,15 +2339,31 @@ class CopyVideoResponse(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrossSiteAccessPoliciesResponse(dict):
     """
     The client access policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAccessPolicy":
+            suggest = "client_access_policy"
+        elif key == "crossDomainPolicy":
+            suggest = "cross_domain_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrossSiteAccessPoliciesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrossSiteAccessPoliciesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrossSiteAccessPoliciesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_access_policy: Optional[str] = None,
                  cross_domain_policy: Optional[str] = None):
@@ -1840,15 +2393,29 @@ class CrossSiteAccessPoliciesResponse(dict):
         """
         return pulumi.get(self, "cross_domain_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultKeyResponse(dict):
     """
     Class to specify properties of default content key for each encryption scheme
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None):
@@ -1877,9 +2444,6 @@ class DefaultKeyResponse(dict):
         Policy used by Default Key
         """
         return pulumi.get(self, "policy_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1916,15 +2480,29 @@ class DeinterlaceResponse(dict):
         """
         return pulumi.get(self, "parity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnabledProtocolsResponse(dict):
     """
     Class to specify which protocols are enabled
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smoothStreaming":
+            suggest = "smooth_streaming"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnabledProtocolsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnabledProtocolsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnabledProtocolsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dash: bool,
                  download: bool,
@@ -1974,15 +2552,35 @@ class EnabledProtocolsResponse(dict):
         """
         return pulumi.get(self, "smooth_streaming")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvelopeEncryptionResponse(dict):
     """
     Class for EnvelopeEncryption encryption scheme
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clearTracks":
+            suggest = "clear_tracks"
+        elif key == "contentKeys":
+            suggest = "content_keys"
+        elif key == "customLicenseAcquisitionUrlTemplate":
+            suggest = "custom_license_acquisition_url_template"
+        elif key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvelopeEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvelopeEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvelopeEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
                  content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
@@ -1990,10 +2588,10 @@ class EnvelopeEncryptionResponse(dict):
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for EnvelopeEncryption encryption scheme
-        :param Sequence['TrackSelectionResponseArgs'] clear_tracks: Representing which tracks should not be encrypted
-        :param 'StreamingPolicyContentKeysResponseArgs' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
+        :param Sequence['TrackSelectionResponse'] clear_tracks: Representing which tracks should not be encrypted
+        :param 'StreamingPolicyContentKeysResponse' content_keys: Representing default content key for each encryption scheme and separate content keys for specific tracks
         :param str custom_license_acquisition_url_template: LicenseAcquisitionUrlTemplate is used to point to user specified service to delivery content keys
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if clear_tracks is not None:
             pulumi.set(__self__, "clear_tracks", clear_tracks)
@@ -2036,9 +2634,6 @@ class EnvelopeEncryptionResponse(dict):
         """
         return pulumi.get(self, "enabled_protocols")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FiltersResponse(dict):
@@ -2052,9 +2647,9 @@ class FiltersResponse(dict):
                  rotation: Optional[str] = None):
         """
         Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
-        :param 'RectangleResponseArgs' crop: The parameters for the rectangular window with which to crop the input video.
-        :param 'DeinterlaceResponseArgs' deinterlace: The de-interlacing settings.
-        :param Sequence[Union['AudioOverlayResponseArgs', 'VideoOverlayResponseArgs']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+        :param 'RectangleResponse' crop: The parameters for the rectangular window with which to crop the input video.
+        :param 'DeinterlaceResponse' deinterlace: The de-interlacing settings.
+        :param Sequence[Union['AudioOverlayResponse', 'VideoOverlayResponse']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         :param str rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
         if crop is not None:
@@ -2098,15 +2693,43 @@ class FiltersResponse(dict):
         """
         return pulumi.get(self, "rotation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class H264LayerResponse(dict):
     """
     Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "adaptiveBFrame":
+            suggest = "adaptive_b_frame"
+        elif key == "bFrames":
+            suggest = "b_frames"
+        elif key == "bufferWindow":
+            suggest = "buffer_window"
+        elif key == "entropyMode":
+            suggest = "entropy_mode"
+        elif key == "frameRate":
+            suggest = "frame_rate"
+        elif key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "referenceFrames":
+            suggest = "reference_frames"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in H264LayerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        H264LayerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        H264LayerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  adaptive_b_frame: Optional[bool] = None,
@@ -2293,15 +2916,35 @@ class H264LayerResponse(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class H264VideoResponse(dict):
     """
     Describes all the properties for encoding a video with the H.264 codec.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "sceneChangeDetection":
+            suggest = "scene_change_detection"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in H264VideoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        H264VideoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        H264VideoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  complexity: Optional[str] = None,
@@ -2317,7 +2960,7 @@ class H264VideoResponse(dict):
         :param str complexity: Tells the encoder how to choose its encoding settings. The default value is Balanced.
         :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['H264LayerResponseArgs'] layers: The collection of output H.264 layers to be produced by the encoder.
+        :param Sequence['H264LayerResponse'] layers: The collection of output H.264 layers to be produced by the encoder.
         :param bool scene_change_detection: Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         """
@@ -2392,15 +3035,29 @@ class H264VideoResponse(dict):
         """
         return pulumi.get(self, "stretch_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HlsResponse(dict):
     """
     The HLS configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fragmentsPerTsSegment":
+            suggest = "fragments_per_ts_segment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HlsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HlsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HlsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fragments_per_ts_segment: Optional[int] = None):
         """
@@ -2418,9 +3075,6 @@ class HlsResponse(dict):
         """
         return pulumi.get(self, "fragments_per_ts_segment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPAccessControlResponse(dict):
@@ -2431,7 +3085,7 @@ class IPAccessControlResponse(dict):
                  allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
         """
         The IP access control.
-        :param Sequence['IPRangeResponseArgs'] allow: The IP allow list.
+        :param Sequence['IPRangeResponse'] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -2444,15 +3098,29 @@ class IPAccessControlResponse(dict):
         """
         return pulumi.get(self, "allow")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPRangeResponse(dict):
     """
     The IP address range in the CIDR scheme.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetPrefixLength":
+            suggest = "subnet_prefix_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPRangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPRangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPRangeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
@@ -2494,15 +3162,31 @@ class IPRangeResponse(dict):
         """
         return pulumi.get(self, "subnet_prefix_length")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageFormatResponse(dict):
     """
     Describes the properties for an output image file.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "filenamePattern":
+            suggest = "filename_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None):
@@ -2533,15 +3217,33 @@ class ImageFormatResponse(dict):
         """
         return pulumi.get(self, "filename_pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageResponse(dict):
     """
     Describes the basic properties for generating thumbnails from the input video
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  key_frame_interval: Optional[str] = None,
@@ -2632,9 +3334,6 @@ class ImageResponse(dict):
         """
         return pulumi.get(self, "stretch_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobErrorDetailResponse(dict):
@@ -2668,9 +3367,6 @@ class JobErrorDetailResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobErrorResponse(dict):
@@ -2687,7 +3383,7 @@ class JobErrorResponse(dict):
         Details of JobOutput errors.
         :param str category: Helps with categorization of errors.
         :param str code: Error code describing the error.
-        :param Sequence['JobErrorDetailResponseArgs'] details: An array of details about specific errors that led to this reported error.
+        :param Sequence['JobErrorDetailResponse'] details: An array of details about specific errors that led to this reported error.
         :param str message: A human-readable language-dependent representation of the error.
         :param str retry: Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
         """
@@ -2737,15 +3433,31 @@ class JobErrorResponse(dict):
         """
         return pulumi.get(self, "retry")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobInputAssetResponse(dict):
     """
     Represents an Asset for input into a Job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assetName":
+            suggest = "asset_name"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobInputAssetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobInputAssetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobInputAssetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asset_name: str,
                  odata_type: str,
@@ -2799,15 +3511,29 @@ class JobInputAssetResponse(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobInputClipResponse(dict):
     """
     Represents input files for a Job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobInputClipResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobInputClipResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobInputClipResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  files: Optional[Sequence[str]] = None,
@@ -2850,15 +3576,31 @@ class JobInputClipResponse(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobInputHttpResponse(dict):
     """
     Represents HTTPS job input.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "baseUri":
+            suggest = "base_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobInputHttpResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobInputHttpResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobInputHttpResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  base_uri: Optional[str] = None,
@@ -2913,15 +3655,29 @@ class JobInputHttpResponse(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobInputsResponse(dict):
     """
     Describes a list of inputs to a Job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobInputsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobInputsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobInputsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  inputs: Optional[Sequence[Any]] = None,
@@ -2930,7 +3686,7 @@ class JobInputsResponse(dict):
         Describes a list of inputs to a Job.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobInputs'.
-        :param Sequence[Union['JobInputAssetResponseArgs', 'JobInputClipResponseArgs', 'JobInputHttpResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
+        :param Sequence[Union['JobInputAssetResponse', 'JobInputClipResponse', 'JobInputHttpResponse', 'JobInputsResponse']] inputs: List of inputs to a Job.
         :param str label: A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
@@ -2964,15 +3720,31 @@ class JobInputsResponse(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobOutputAssetResponse(dict):
     """
     Represents an Asset used as a JobOutput.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assetName":
+            suggest = "asset_name"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobOutputAssetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobOutputAssetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobOutputAssetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asset_name: str,
                  error: 'outputs.JobErrorResponse',
@@ -2982,7 +3754,7 @@ class JobOutputAssetResponse(dict):
         """
         Represents an Asset used as a JobOutput.
         :param str asset_name: The name of the output Asset.
-        :param 'JobErrorResponseArgs' error: If the JobOutput is in the Error state, it contains the details of the error.
+        :param 'JobErrorResponse' error: If the JobOutput is in the Error state, it contains the details of the error.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JobOutputAsset'.
         :param int progress: If the JobOutput is in a Processing state, this contains the job completion percentage.  The value is an estimate and not intended to be used to predict job completion times. To determine if the JobOutput is complete, use the State property.
@@ -3035,15 +3807,31 @@ class JobOutputAssetResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JpgFormatResponse(dict):
     """
     Describes the settings for producing JPEG thumbnails.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "filenamePattern":
+            suggest = "filename_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JpgFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JpgFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JpgFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None):
@@ -3074,15 +3862,33 @@ class JpgFormatResponse(dict):
         """
         return pulumi.get(self, "filename_pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JpgImageResponse(dict):
     """
     Describes the properties for producing a series of JPEG images from the input video.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JpgImageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JpgImageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JpgImageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  key_frame_interval: Optional[str] = None,
@@ -3098,7 +3904,7 @@ class JpgImageResponse(dict):
                Expected value is '#Microsoft.Media.Video'.
         :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['JpgLayerResponseArgs'] layers: A collection of output JPEG image layers to be produced by the encoder.
+        :param Sequence['JpgLayerResponse'] layers: A collection of output JPEG image layers to be produced by the encoder.
         :param str range: The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
         :param str start: The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
         :param str step: The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
@@ -3185,15 +3991,29 @@ class JpgImageResponse(dict):
         """
         return pulumi.get(self, "stretch_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JpgLayerResponse(dict):
     """
     Describes the settings to produce a JPEG image from the input video.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JpgLayerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JpgLayerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JpgLayerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  height: Optional[str] = None,
@@ -3260,15 +4080,31 @@ class JpgLayerResponse(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventEncodingResponse(dict):
     """
     The Live Event encoding.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodingType":
+            suggest = "encoding_type"
+        elif key == "presetName":
+            suggest = "preset_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventEncodingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventEncodingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventEncodingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encoding_type: Optional[str] = None,
                  preset_name: Optional[str] = None):
@@ -3297,9 +4133,6 @@ class LiveEventEncodingResponse(dict):
         The encoding preset name.
         """
         return pulumi.get(self, "preset_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3336,15 +4169,33 @@ class LiveEventEndpointResponse(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInputResponse(dict):
     """
     The Live Event input.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamingProtocol":
+            suggest = "streaming_protocol"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "keyFrameIntervalDuration":
+            suggest = "key_frame_interval_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  streaming_protocol: str,
                  access_token: Optional[str] = None,
@@ -3354,7 +4205,7 @@ class LiveEventInputResponse(dict):
         The Live Event input.
         :param str streaming_protocol: The streaming protocol for the Live Event.
         :param str access_token: The access token.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The input endpoints for the Live Event.
         :param str key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -3397,9 +4248,6 @@ class LiveEventInputResponse(dict):
         """
         return pulumi.get(self, "key_frame_interval_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreviewAccessControlResponse(dict):
@@ -3410,7 +4258,7 @@ class LiveEventPreviewAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for Live Event preview.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -3423,15 +4271,33 @@ class LiveEventPreviewAccessControlResponse(dict):
         """
         return pulumi.get(self, "ip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreviewResponse(dict):
     """
     The Live Event preview.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControl":
+            suggest = "access_control"
+        elif key == "previewLocator":
+            suggest = "preview_locator"
+        elif key == "streamingPolicyName":
+            suggest = "streaming_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventPreviewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventPreviewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventPreviewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
                  endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
@@ -3439,8 +4305,8 @@ class LiveEventPreviewResponse(dict):
                  streaming_policy_name: Optional[str] = None):
         """
         The Live Event preview.
-        :param 'LiveEventPreviewAccessControlResponseArgs' access_control: The access control for LiveEvent preview.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
+        :param 'LiveEventPreviewAccessControlResponse' access_control: The access control for LiveEvent preview.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The endpoints for preview.
         :param str preview_locator: The preview locator Guid.
         :param str streaming_policy_name: The name of streaming policy used for LiveEvent preview
         """
@@ -3485,15 +4351,33 @@ class LiveEventPreviewResponse(dict):
         """
         return pulumi.get(self, "streaming_policy_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class Mp4FormatResponse(dict):
     """
     Describes the properties for an output ISO MP4 file.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "filenamePattern":
+            suggest = "filename_pattern"
+        elif key == "outputFiles":
+            suggest = "output_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Mp4FormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Mp4FormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Mp4FormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None,
@@ -3503,7 +4387,7 @@ class Mp4FormatResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
         if filename_pattern is not None:
@@ -3536,15 +4420,33 @@ class Mp4FormatResponse(dict):
         """
         return pulumi.get(self, "output_files")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MultiBitrateFormatResponse(dict):
     """
     Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "filenamePattern":
+            suggest = "filename_pattern"
+        elif key == "outputFiles":
+            suggest = "output_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiBitrateFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiBitrateFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiBitrateFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None,
@@ -3554,7 +4456,7 @@ class MultiBitrateFormatResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
         if filename_pattern is not None:
@@ -3587,20 +4489,34 @@ class MultiBitrateFormatResponse(dict):
         """
         return pulumi.get(self, "output_files")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NoEncryptionResponse(dict):
     """
     Class for NoEncryption scheme
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NoEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NoEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NoEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None):
         """
         Class for NoEncryption scheme
-        :param 'EnabledProtocolsResponseArgs' enabled_protocols: Representing supported protocols
+        :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
         if enabled_protocols is not None:
             pulumi.set(__self__, "enabled_protocols", enabled_protocols)
@@ -3612,9 +4528,6 @@ class NoEncryptionResponse(dict):
         Representing supported protocols
         """
         return pulumi.get(self, "enabled_protocols")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3639,15 +4552,31 @@ class OutputFileResponse(dict):
         """
         return pulumi.get(self, "labels")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PngFormatResponse(dict):
     """
     Describes the settings for producing PNG thumbnails.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "filenamePattern":
+            suggest = "filename_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PngFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PngFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PngFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None):
@@ -3678,15 +4607,33 @@ class PngFormatResponse(dict):
         """
         return pulumi.get(self, "filename_pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PngImageResponse(dict):
     """
     Describes the properties for producing a series of PNG images from the input video.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PngImageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PngImageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PngImageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  key_frame_interval: Optional[str] = None,
@@ -3702,7 +4649,7 @@ class PngImageResponse(dict):
                Expected value is '#Microsoft.Media.Video'.
         :param str key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['PngLayerResponseArgs'] layers: A collection of output PNG image layers to be produced by the encoder.
+        :param Sequence['PngLayerResponse'] layers: A collection of output PNG image layers to be produced by the encoder.
         :param str range: The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
         :param str start: The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
         :param str step: The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
@@ -3789,15 +4736,29 @@ class PngImageResponse(dict):
         """
         return pulumi.get(self, "stretch_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PngLayerResponse(dict):
     """
     Describes the settings to produce a PNG image from the input video.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PngLayerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PngLayerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PngLayerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  height: Optional[str] = None,
@@ -3851,9 +4812,6 @@ class PngLayerResponse(dict):
         The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3914,15 +4872,29 @@ class RectangleResponse(dict):
         """
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StandardEncoderPresetResponse(dict):
     """
     Describes all the settings to be used when encoding the input video with the Standard Encoder.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardEncoderPresetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardEncoderPresetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardEncoderPresetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  codecs: Optional[Sequence[Any]] = None,
@@ -3932,9 +4904,9 @@ class StandardEncoderPresetResponse(dict):
         Describes all the settings to be used when encoding the input video with the Standard Encoder.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.StandardEncoderPreset'.
-        :param Sequence[Union['AacAudioResponseArgs', 'AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'H264VideoResponseArgs', 'ImageResponseArgs', 'JpgImageResponseArgs', 'PngImageResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
-        :param 'FiltersResponseArgs' filters: One or more filtering operations that are applied to the input media before encoding.
-        :param Sequence[Union['ImageFormatResponseArgs', 'JpgFormatResponseArgs', 'Mp4FormatResponseArgs', 'MultiBitrateFormatResponseArgs', 'PngFormatResponseArgs', 'TransportStreamFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
+        :param Sequence[Union['AacAudioResponse', 'AudioResponse', 'CopyAudioResponse', 'CopyVideoResponse', 'H264VideoResponse', 'ImageResponse', 'JpgImageResponse', 'PngImageResponse', 'VideoResponse']] codecs: The list of codecs to be used when encoding the input video.
+        :param 'FiltersResponse' filters: One or more filtering operations that are applied to the input media before encoding.
+        :param Sequence[Union['ImageFormatResponse', 'JpgFormatResponse', 'Mp4FormatResponse', 'MultiBitrateFormatResponse', 'PngFormatResponse', 'TransportStreamFormatResponse']] formats: The list of outputs to be produced by the encoder.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.StandardEncoderPreset')
         if codecs is not None:
@@ -3977,9 +4949,6 @@ class StandardEncoderPresetResponse(dict):
         """
         return pulumi.get(self, "formats")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageAccountResponse(dict):
@@ -4014,9 +4983,6 @@ class StorageAccountResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingEndpointAccessControlResponse(dict):
@@ -4028,8 +4994,8 @@ class StreamingEndpointAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         StreamingEndpoint access control definition.
-        :param 'AkamaiAccessControlResponseArgs' akamai: The access control of Akamai
-        :param 'IPAccessControlResponseArgs' ip: The IP access control of the StreamingEndpoint.
+        :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
+        :param 'IPAccessControlResponse' ip: The IP access control of the StreamingEndpoint.
         """
         if akamai is not None:
             pulumi.set(__self__, "akamai", akamai)
@@ -4052,12 +5018,9 @@ class StreamingEndpointAccessControlResponse(dict):
         """
         return pulumi.get(self, "ip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class StreamingLocatorContentKeyResponseResult(dict):
+class StreamingLocatorContentKeyResponse(dict):
     """
     Class for content key in Streaming Locator
     """
@@ -4074,7 +5037,7 @@ class StreamingLocatorContentKeyResponseResult(dict):
         :param str type: Encryption type of Content Key
         :param str label: Label of Content Key
         :param str policy_name: ContentKeyPolicy used by Content Key
-        :param Sequence['TrackSelectionResponseArgs'] tracks: Tracks which use this Content Key
+        :param Sequence['TrackSelectionResponse'] tracks: Tracks which use this Content Key
         :param str value: Value of Content Key
         """
         pulumi.set(__self__, "id", id)
@@ -4182,12 +5145,9 @@ class StreamingLocatorUserDefinedContentKeyResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class StreamingPathResponseResult(dict):
+class StreamingPathResponse(dict):
     """
     Class of paths for streaming
     """
@@ -4236,6 +5196,23 @@ class StreamingPolicyContentKeyResponse(dict):
     """
     Class to specify properties of content key
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyContentKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyContentKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyContentKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None,
@@ -4244,7 +5221,7 @@ class StreamingPolicyContentKeyResponse(dict):
         Class to specify properties of content key
         :param str label: Label can be used to specify Content Key when creating Streaming Locator
         :param str policy_name: Policy used by Content Key
-        :param Sequence['TrackSelectionResponseArgs'] tracks: Tracks which use this content key
+        :param Sequence['TrackSelectionResponse'] tracks: Tracks which use this content key
         """
         if label is not None:
             pulumi.set(__self__, "label", label)
@@ -4277,22 +5254,38 @@ class StreamingPolicyContentKeyResponse(dict):
         """
         return pulumi.get(self, "tracks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyContentKeysResponse(dict):
     """
     Class to specify properties of all content keys in Streaming Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultKey":
+            suggest = "default_key"
+        elif key == "keyToTrackMappings":
+            suggest = "key_to_track_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyContentKeysResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyContentKeysResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyContentKeysResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_key: Optional['outputs.DefaultKeyResponse'] = None,
                  key_to_track_mappings: Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']] = None):
         """
         Class to specify properties of all content keys in Streaming Policy
-        :param 'DefaultKeyResponseArgs' default_key: Default content key for an encryption scheme
-        :param Sequence['StreamingPolicyContentKeyResponseArgs'] key_to_track_mappings: Representing tracks needs separate content key
+        :param 'DefaultKeyResponse' default_key: Default content key for an encryption scheme
+        :param Sequence['StreamingPolicyContentKeyResponse'] key_to_track_mappings: Representing tracks needs separate content key
         """
         if default_key is not None:
             pulumi.set(__self__, "default_key", default_key)
@@ -4315,15 +5308,31 @@ class StreamingPolicyContentKeysResponse(dict):
         """
         return pulumi.get(self, "key_to_track_mappings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyFairPlayConfigurationResponse(dict):
     """
     Class to specify configurations of FairPlay in Streaming Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPersistentLicense":
+            suggest = "allow_persistent_license"
+        elif key == "customLicenseAcquisitionUrlTemplate":
+            suggest = "custom_license_acquisition_url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyFairPlayConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyFairPlayConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyFairPlayConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_persistent_license: bool,
                  custom_license_acquisition_url_template: Optional[str] = None):
@@ -4352,15 +5361,31 @@ class StreamingPolicyFairPlayConfigurationResponse(dict):
         """
         return pulumi.get(self, "custom_license_acquisition_url_template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyPlayReadyConfigurationResponse(dict):
     """
     Class to specify configurations of PlayReady in Streaming Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLicenseAcquisitionUrlTemplate":
+            suggest = "custom_license_acquisition_url_template"
+        elif key == "playReadyCustomAttributes":
+            suggest = "play_ready_custom_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyPlayReadyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyPlayReadyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyPlayReadyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_license_acquisition_url_template: Optional[str] = None,
                  play_ready_custom_attributes: Optional[str] = None):
@@ -4390,15 +5415,29 @@ class StreamingPolicyPlayReadyConfigurationResponse(dict):
         """
         return pulumi.get(self, "play_ready_custom_attributes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyWidevineConfigurationResponse(dict):
     """
     Class to specify configurations of Widevine in Streaming Policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLicenseAcquisitionUrlTemplate":
+            suggest = "custom_license_acquisition_url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyWidevineConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyWidevineConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyWidevineConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_license_acquisition_url_template: Optional[str] = None):
         """
@@ -4415,9 +5454,6 @@ class StreamingPolicyWidevineConfigurationResponse(dict):
         The template for a customer service to deliver keys to end users.  Not needed when using Azure Media Services for issuing keys.
         """
         return pulumi.get(self, "custom_license_acquisition_url_template")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4464,20 +5500,34 @@ class TrackPropertyConditionResponse(dict):
         """
         return pulumi.get(self, "property")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrackSelectionResponse(dict):
     """
     Class to select a track
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trackSelections":
+            suggest = "track_selections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrackSelectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrackSelectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrackSelectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  track_selections: Optional[Sequence['outputs.TrackPropertyConditionResponse']] = None):
         """
         Class to select a track
-        :param Sequence['TrackPropertyConditionResponseArgs'] track_selections: TrackSelections is a track property condition list which can specify track(s)
+        :param Sequence['TrackPropertyConditionResponse'] track_selections: TrackSelections is a track property condition list which can specify track(s)
         """
         if track_selections is not None:
             pulumi.set(__self__, "track_selections", track_selections)
@@ -4490,22 +5540,38 @@ class TrackSelectionResponse(dict):
         """
         return pulumi.get(self, "track_selections")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformOutputResponse(dict):
     """
     Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onError":
+            suggest = "on_error"
+        elif key == "relativePriority":
+            suggest = "relative_priority"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preset: Any,
                  on_error: Optional[str] = None,
                  relative_priority: Optional[str] = None):
         """
         Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
-        :param Union['AudioAnalyzerPresetResponseArgs', 'BuiltInStandardEncoderPresetResponseArgs', 'StandardEncoderPresetResponseArgs', 'VideoAnalyzerPresetResponseArgs'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+        :param Union['AudioAnalyzerPresetResponse', 'BuiltInStandardEncoderPresetResponse', 'StandardEncoderPresetResponse', 'VideoAnalyzerPresetResponse'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         :param str on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
         :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
@@ -4539,15 +5605,33 @@ class TransformOutputResponse(dict):
         """
         return pulumi.get(self, "relative_priority")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransportStreamFormatResponse(dict):
     """
     Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "filenamePattern":
+            suggest = "filename_pattern"
+        elif key == "outputFiles":
+            suggest = "output_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransportStreamFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransportStreamFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransportStreamFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  filename_pattern: Optional[str] = None,
@@ -4557,7 +5641,7 @@ class TransportStreamFormatResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param Sequence['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
         if filename_pattern is not None:
@@ -4590,15 +5674,33 @@ class TransportStreamFormatResponse(dict):
         """
         return pulumi.get(self, "output_files")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VideoAnalyzerPresetResponse(dict):
     """
     A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "audioInsightsOnly":
+            suggest = "audio_insights_only"
+        elif key == "audioLanguage":
+            suggest = "audio_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoAnalyzerPresetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoAnalyzerPresetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoAnalyzerPresetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  audio_insights_only: Optional[bool] = None,
@@ -4641,15 +5743,39 @@ class VideoAnalyzerPresetResponse(dict):
         """
         return pulumi.get(self, "audio_language")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VideoOverlayResponse(dict):
     """
     Describes the properties of a video overlay.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "audioGainLevel":
+            suggest = "audio_gain_level"
+        elif key == "cropRectangle":
+            suggest = "crop_rectangle"
+        elif key == "fadeInDuration":
+            suggest = "fade_in_duration"
+        elif key == "fadeOutDuration":
+            suggest = "fade_out_duration"
+        elif key == "inputLabel":
+            suggest = "input_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoOverlayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoOverlayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoOverlayResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  audio_gain_level: Optional[float] = None,
@@ -4666,13 +5792,13 @@ class VideoOverlayResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoOverlay'.
         :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
-        :param 'RectangleResponseArgs' crop_rectangle: An optional rectangular window used to crop the overlay image or video.
+        :param 'RectangleResponse' crop_rectangle: An optional rectangular window used to crop the overlay image or video.
         :param str end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
         :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
         :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
         :param str input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
         :param float opacity: The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
-        :param 'RectangleResponseArgs' position: The location in the input video where the overlay is applied.
+        :param 'RectangleResponse' position: The location in the input video where the overlay is applied.
         :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoOverlay')
@@ -4776,15 +5902,33 @@ class VideoOverlayResponse(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VideoResponse(dict):
     """
     Describes the basic properties for encoding the input video.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VideoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VideoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VideoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  key_frame_interval: Optional[str] = None,
@@ -4838,8 +5982,5 @@ class VideoResponse(dict):
         The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         """
         return pulumi.get(self, "stretch_mode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

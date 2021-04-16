@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -145,9 +145,7 @@ class Registry(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An object that represents a container registry.
 
@@ -192,15 +190,7 @@ class Registry(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,27 +200,27 @@ class Registry(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RegistryArgs.__new__(RegistryArgs)
 
             if admin_user_enabled is None:
                 admin_user_enabled = False
-            __props__['admin_user_enabled'] = admin_user_enabled
-            __props__['location'] = location
-            __props__['registry_name'] = registry_name
+            __props__.__dict__["admin_user_enabled"] = admin_user_enabled
+            __props__.__dict__["location"] = location
+            __props__.__dict__["registry_name"] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['storage_account'] = storage_account
-            __props__['tags'] = tags
-            __props__['creation_date'] = None
-            __props__['login_server'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['status'] = None
-            __props__['type'] = None
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["storage_account"] = storage_account
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["login_server"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20170601preview:Registry"), pulumi.Alias(type_="azure-native:containerregistry:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry:Registry"), pulumi.Alias(type_="azure-native:containerregistry/v20160627preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20160627preview:Registry"), pulumi.Alias(type_="azure-native:containerregistry/v20170301:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20170301:Registry"), pulumi.Alias(type_="azure-native:containerregistry/v20171001:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20171001:Registry"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501:Registry"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20191201preview:Registry"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Registry"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Registry")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Registry, __self__).__init__(
@@ -253,19 +243,19 @@ class Registry(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RegistryArgs.__new__(RegistryArgs)
 
-        __props__["admin_user_enabled"] = None
-        __props__["creation_date"] = None
-        __props__["location"] = None
-        __props__["login_server"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku"] = None
-        __props__["status"] = None
-        __props__["storage_account"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["admin_user_enabled"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["login_server"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["storage_account"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return Registry(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -355,10 +345,4 @@ class Registry(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

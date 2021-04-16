@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -76,9 +76,7 @@ class DefaultRollout(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Default rollout definition.
 
@@ -115,15 +113,7 @@ class DefaultRollout(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -133,15 +123,15 @@ class DefaultRollout(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DefaultRolloutArgs.__new__(DefaultRolloutArgs)
 
-            __props__['properties'] = properties
+            __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
-            __props__['provider_namespace'] = provider_namespace
-            __props__['rollout_name'] = rollout_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["provider_namespace"] = provider_namespace
+            __props__.__dict__["rollout_name"] = rollout_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultRollout, __self__).__init__(
@@ -164,11 +154,11 @@ class DefaultRollout(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DefaultRolloutArgs.__new__(DefaultRolloutArgs)
 
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["type"] = None
         return DefaultRollout(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -194,10 +184,4 @@ class DefaultRollout(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

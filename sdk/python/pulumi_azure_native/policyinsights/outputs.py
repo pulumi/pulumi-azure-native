@@ -6,18 +6,18 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
     'AttestationEvidenceResponse',
-    'ErrorDefinitionResponseResult',
-    'RemediationDeploymentResponseResult',
+    'ErrorDefinitionResponse',
+    'RemediationDeploymentResponse',
     'RemediationDeploymentSummaryResponse',
     'RemediationFiltersResponse',
     'SystemDataResponse',
-    'TypedErrorInfoResponseResult',
+    'TypedErrorInfoResponse',
 ]
 
 @pulumi.output_type
@@ -25,6 +25,23 @@ class AttestationEvidenceResponse(dict):
     """
     A piece of evidence supporting the compliance state set in the attestation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceUri":
+            suggest = "source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttestationEvidenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttestationEvidenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttestationEvidenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  source_uri: Optional[str] = None):
@@ -54,26 +71,23 @@ class AttestationEvidenceResponse(dict):
         """
         return pulumi.get(self, "source_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ErrorDefinitionResponseResult(dict):
+class ErrorDefinitionResponse(dict):
     """
     Error definition.
     """
     def __init__(__self__, *,
-                 additional_info: Sequence['outputs.TypedErrorInfoResponseResult'],
+                 additional_info: Sequence['outputs.TypedErrorInfoResponse'],
                  code: str,
-                 details: Sequence['outputs.ErrorDefinitionResponseResult'],
+                 details: Sequence['outputs.ErrorDefinitionResponse'],
                  message: str,
                  target: str):
         """
         Error definition.
-        :param Sequence['TypedErrorInfoResponseArgs'] additional_info: Additional scenario specific error details.
+        :param Sequence['TypedErrorInfoResponse'] additional_info: Additional scenario specific error details.
         :param str code: Service specific error code which serves as the substatus for the HTTP error code.
-        :param Sequence['ErrorDefinitionResponseArgs'] details: Internal error details.
+        :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
         :param str message: Description of the error.
         :param str target: The target of the error.
         """
@@ -85,7 +99,7 @@ class ErrorDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Sequence['outputs.TypedErrorInfoResponseResult']:
+    def additional_info(self) -> Sequence['outputs.TypedErrorInfoResponse']:
         """
         Additional scenario specific error details.
         """
@@ -101,7 +115,7 @@ class ErrorDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Sequence['outputs.ErrorDefinitionResponseResult']:
+    def details(self) -> Sequence['outputs.ErrorDefinitionResponse']:
         """
         Internal error details.
         """
@@ -125,14 +139,14 @@ class ErrorDefinitionResponseResult(dict):
 
 
 @pulumi.output_type
-class RemediationDeploymentResponseResult(dict):
+class RemediationDeploymentResponse(dict):
     """
     Details of a single deployment created by the remediation.
     """
     def __init__(__self__, *,
                  created_on: str,
                  deployment_id: str,
-                 error: 'outputs.ErrorDefinitionResponseResult',
+                 error: 'outputs.ErrorDefinitionResponse',
                  last_updated_on: str,
                  remediated_resource_id: str,
                  resource_location: str,
@@ -141,7 +155,7 @@ class RemediationDeploymentResponseResult(dict):
         Details of a single deployment created by the remediation.
         :param str created_on: The time at which the remediation was created.
         :param str deployment_id: Resource ID of the template deployment that will remediate the resource.
-        :param 'ErrorDefinitionResponseArgs' error: Error encountered while remediated the resource.
+        :param 'ErrorDefinitionResponse' error: Error encountered while remediated the resource.
         :param str last_updated_on: The time at which the remediation deployment was last updated.
         :param str remediated_resource_id: Resource ID of the resource that is being remediated by the deployment.
         :param str resource_location: Location of the resource that is being remediated.
@@ -173,7 +187,7 @@ class RemediationDeploymentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.ErrorDefinitionResponseResult':
+    def error(self) -> 'outputs.ErrorDefinitionResponse':
         """
         Error encountered while remediated the resource.
         """
@@ -217,6 +231,27 @@ class RemediationDeploymentSummaryResponse(dict):
     """
     The deployment status summary for all deployments created by the remediation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failedDeployments":
+            suggest = "failed_deployments"
+        elif key == "successfulDeployments":
+            suggest = "successful_deployments"
+        elif key == "totalDeployments":
+            suggest = "total_deployments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationDeploymentSummaryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationDeploymentSummaryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationDeploymentSummaryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failed_deployments: int,
                  successful_deployments: int,
@@ -255,9 +290,6 @@ class RemediationDeploymentSummaryResponse(dict):
         """
         return pulumi.get(self, "total_deployments")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RemediationFiltersResponse(dict):
@@ -281,15 +313,39 @@ class RemediationFiltersResponse(dict):
         """
         return pulumi.get(self, "locations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -367,12 +423,9 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class TypedErrorInfoResponseResult(dict):
+class TypedErrorInfoResponse(dict):
     """
     Scenario specific error details.
     """

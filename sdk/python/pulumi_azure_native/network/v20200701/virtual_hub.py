@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -347,9 +347,7 @@ class VirtualHub(pulumi.CustomResource):
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         VirtualHub Resource.
 
@@ -418,15 +416,7 @@ class VirtualHub(pulumi.CustomResource):
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -436,36 +426,36 @@ class VirtualHub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualHubArgs.__new__(VirtualHubArgs)
 
-            __props__['address_prefix'] = address_prefix
-            __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
-            __props__['azure_firewall'] = azure_firewall
-            __props__['express_route_gateway'] = express_route_gateway
-            __props__['id'] = id
-            __props__['location'] = location
-            __props__['p2_s_vpn_gateway'] = p2_s_vpn_gateway
+            __props__.__dict__["address_prefix"] = address_prefix
+            __props__.__dict__["allow_branch_to_branch_traffic"] = allow_branch_to_branch_traffic
+            __props__.__dict__["azure_firewall"] = azure_firewall
+            __props__.__dict__["express_route_gateway"] = express_route_gateway
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["p2_s_vpn_gateway"] = p2_s_vpn_gateway
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['route_table'] = route_table
-            __props__['security_partner_provider'] = security_partner_provider
-            __props__['security_provider_name'] = security_provider_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['virtual_hub_name'] = virtual_hub_name
-            __props__['virtual_hub_route_table_v2s'] = virtual_hub_route_table_v2s
-            __props__['virtual_router_asn'] = virtual_router_asn
-            __props__['virtual_router_ips'] = virtual_router_ips
-            __props__['virtual_wan'] = virtual_wan
-            __props__['vpn_gateway'] = vpn_gateway
-            __props__['bgp_connections'] = None
-            __props__['etag'] = None
-            __props__['ip_configurations'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['routing_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["route_table"] = route_table
+            __props__.__dict__["security_partner_provider"] = security_partner_provider
+            __props__.__dict__["security_provider_name"] = security_provider_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_hub_name"] = virtual_hub_name
+            __props__.__dict__["virtual_hub_route_table_v2s"] = virtual_hub_route_table_v2s
+            __props__.__dict__["virtual_router_asn"] = virtual_router_asn
+            __props__.__dict__["virtual_router_ips"] = virtual_router_ips
+            __props__.__dict__["virtual_wan"] = virtual_wan
+            __props__.__dict__["vpn_gateway"] = vpn_gateway
+            __props__.__dict__["bgp_connections"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["ip_configurations"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["routing_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHub"), pulumi.Alias(type_="azure-native:network:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHub"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualHub"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHub, __self__).__init__(
@@ -488,31 +478,31 @@ class VirtualHub(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualHubArgs.__new__(VirtualHubArgs)
 
-        __props__["address_prefix"] = None
-        __props__["allow_branch_to_branch_traffic"] = None
-        __props__["azure_firewall"] = None
-        __props__["bgp_connections"] = None
-        __props__["etag"] = None
-        __props__["express_route_gateway"] = None
-        __props__["ip_configurations"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["p2_s_vpn_gateway"] = None
-        __props__["provisioning_state"] = None
-        __props__["route_table"] = None
-        __props__["routing_state"] = None
-        __props__["security_partner_provider"] = None
-        __props__["security_provider_name"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_hub_route_table_v2s"] = None
-        __props__["virtual_router_asn"] = None
-        __props__["virtual_router_ips"] = None
-        __props__["virtual_wan"] = None
-        __props__["vpn_gateway"] = None
+        __props__.__dict__["address_prefix"] = None
+        __props__.__dict__["allow_branch_to_branch_traffic"] = None
+        __props__.__dict__["azure_firewall"] = None
+        __props__.__dict__["bgp_connections"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["express_route_gateway"] = None
+        __props__.__dict__["ip_configurations"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["p2_s_vpn_gateway"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["route_table"] = None
+        __props__.__dict__["routing_state"] = None
+        __props__.__dict__["security_partner_provider"] = None
+        __props__.__dict__["security_provider_name"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_hub_route_table_v2s"] = None
+        __props__.__dict__["virtual_router_asn"] = None
+        __props__.__dict__["virtual_router_ips"] = None
+        __props__.__dict__["virtual_wan"] = None
+        __props__.__dict__["vpn_gateway"] = None
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -698,10 +688,4 @@ class VirtualHub(pulumi.CustomResource):
         The VpnGateway associated with this VirtualHub.
         """
         return pulumi.get(self, "vpn_gateway")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -58,9 +58,6 @@ class NetworkACLResponse(dict):
         """
         return pulumi.get(self, "deny")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointACLResponse(dict):
@@ -107,15 +104,33 @@ class PrivateEndpointACLResponse(dict):
         """
         return pulumi.get(self, "deny")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection to SignalR resource
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -129,8 +144,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource.
         :param str provisioning_state: Provisioning state of the private endpoint connection
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -189,9 +204,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -215,15 +227,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     Connection state of the private endpoint connection
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -264,9 +290,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -352,9 +375,6 @@ class ResourceSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerlessUpstreamSettingsResponse(dict):
@@ -365,7 +385,7 @@ class ServerlessUpstreamSettingsResponse(dict):
                  templates: Optional[Sequence['outputs.UpstreamTemplateResponse']] = None):
         """
         The settings for the Upstream when the Azure SignalR is in server-less mode.
-        :param Sequence['UpstreamTemplateResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        :param Sequence['UpstreamTemplateResponse'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
             pulumi.set(__self__, "templates", templates)
@@ -378,15 +398,29 @@ class ServerlessUpstreamSettingsResponse(dict):
         """
         return pulumi.get(self, "templates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SignalRCorsSettingsResponse(dict):
     """
     Cross-Origin Resource Sharing (CORS) settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalRCorsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalRCorsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalRCorsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_origins: Optional[Sequence[str]] = None):
         """
@@ -403,9 +437,6 @@ class SignalRCorsSettingsResponse(dict):
         Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
         return pulumi.get(self, "allowed_origins")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -456,15 +487,33 @@ class SignalRFeatureResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SignalRNetworkACLsResponse(dict):
     """
     Network ACLs for SignalR
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "privateEndpoints":
+            suggest = "private_endpoints"
+        elif key == "publicNetwork":
+            suggest = "public_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalRNetworkACLsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalRNetworkACLsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalRNetworkACLsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
                  private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLResponse']] = None,
@@ -472,8 +521,8 @@ class SignalRNetworkACLsResponse(dict):
         """
         Network ACLs for SignalR
         :param str default_action: Default action when no other rule matches
-        :param Sequence['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponseArgs' public_network: ACL for requests from public network
+        :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
+        :param 'NetworkACLResponse' public_network: ACL for requests from public network
         """
         if default_action is None:
             default_action = 'Deny'
@@ -508,9 +557,6 @@ class SignalRNetworkACLsResponse(dict):
         """
         return pulumi.get(self, "public_network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UpstreamTemplateResponse(dict):
@@ -518,6 +564,29 @@ class UpstreamTemplateResponse(dict):
     Upstream template item settings. It defines the Upstream URL of the incoming requests.
     The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "urlTemplate":
+            suggest = "url_template"
+        elif key == "categoryPattern":
+            suggest = "category_pattern"
+        elif key == "eventPattern":
+            suggest = "event_pattern"
+        elif key == "hubPattern":
+            suggest = "hub_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamTemplateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamTemplateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamTemplateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url_template: str,
                  category_pattern: Optional[str] = None,
@@ -596,8 +665,5 @@ class UpstreamTemplateResponse(dict):
             3. The single hub name, for example, "hub1", it matches "hub1"
         """
         return pulumi.get(self, "hub_pattern")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

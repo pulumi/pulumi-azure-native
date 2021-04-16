@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ProductArgs', 'Product']
@@ -191,9 +191,7 @@ class Product(pulumi.CustomResource):
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Product details.
 
@@ -244,15 +242,7 @@ class Product(pulumi.CustomResource):
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,26 +252,26 @@ class Product(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProductArgs.__new__(ProductArgs)
 
-            __props__['approval_required'] = approval_required
-            __props__['description'] = description
+            __props__.__dict__["approval_required"] = approval_required
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['product_id'] = product_id
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["product_id"] = product_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['state'] = state
-            __props__['subscription_required'] = subscription_required
-            __props__['subscriptions_limit'] = subscriptions_limit
-            __props__['terms'] = terms
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["state"] = state
+            __props__.__dict__["subscription_required"] = subscription_required
+            __props__.__dict__["subscriptions_limit"] = subscriptions_limit
+            __props__.__dict__["terms"] = terms
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:Product"), pulumi.Alias(type_="azure-native:apimanagement:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Product"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:Product")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Product, __self__).__init__(
@@ -304,17 +294,17 @@ class Product(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProductArgs.__new__(ProductArgs)
 
-        __props__["approval_required"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["name"] = None
-        __props__["state"] = None
-        __props__["subscription_required"] = None
-        __props__["subscriptions_limit"] = None
-        __props__["terms"] = None
-        __props__["type"] = None
+        __props__.__dict__["approval_required"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["subscription_required"] = None
+        __props__.__dict__["subscriptions_limit"] = None
+        __props__.__dict__["terms"] = None
+        __props__.__dict__["type"] = None
         return Product(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -388,10 +378,4 @@ class Product(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

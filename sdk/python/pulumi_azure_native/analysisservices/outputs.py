@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,27 @@ class GatewayDetailsResponse(dict):
     """
     The gateway details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dmtsClusterUri":
+            suggest = "dmts_cluster_uri"
+        elif key == "gatewayObjectId":
+            suggest = "gateway_object_id"
+        elif key == "gatewayResourceId":
+            suggest = "gateway_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dmts_cluster_uri: str,
                  gateway_object_id: str,
@@ -62,15 +83,33 @@ class GatewayDetailsResponse(dict):
         """
         return pulumi.get(self, "gateway_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPv4FirewallRuleResponse(dict):
     """
     The detail of firewall rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firewallRuleName":
+            suggest = "firewall_rule_name"
+        elif key == "rangeEnd":
+            suggest = "range_end"
+        elif key == "rangeStart":
+            suggest = "range_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPv4FirewallRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPv4FirewallRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPv4FirewallRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  firewall_rule_name: Optional[str] = None,
                  range_end: Optional[str] = None,
@@ -112,22 +151,38 @@ class IPv4FirewallRuleResponse(dict):
         """
         return pulumi.get(self, "range_start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPv4FirewallSettingsResponse(dict):
     """
     An array of firewall rules.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enablePowerBIService":
+            suggest = "enable_power_bi_service"
+        elif key == "firewallRules":
+            suggest = "firewall_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPv4FirewallSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPv4FirewallSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPv4FirewallSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_power_bi_service: Optional[bool] = None,
                  firewall_rules: Optional[Sequence['outputs.IPv4FirewallRuleResponse']] = None):
         """
         An array of firewall rules.
         :param bool enable_power_bi_service: The indicator of enabling PBI service.
-        :param Sequence['IPv4FirewallRuleResponseArgs'] firewall_rules: An array of firewall rules.
+        :param Sequence['IPv4FirewallRuleResponse'] firewall_rules: An array of firewall rules.
         """
         if enable_power_bi_service is not None:
             pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
@@ -149,9 +204,6 @@ class IPv4FirewallSettingsResponse(dict):
         An array of firewall rules.
         """
         return pulumi.get(self, "firewall_rules")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -201,9 +253,6 @@ class ResourceSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerAdministratorsResponse(dict):
@@ -226,8 +275,5 @@ class ServerAdministratorsResponse(dict):
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

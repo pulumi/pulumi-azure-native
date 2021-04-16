@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -106,9 +106,7 @@ class ServerTrustGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
                  trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A server trust group.
 
@@ -149,15 +147,7 @@ class ServerTrustGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
                  trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,23 +157,23 @@ class ServerTrustGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerTrustGroupArgs.__new__(ServerTrustGroupArgs)
 
             if group_members is None and not opts.urn:
                 raise TypeError("Missing required property 'group_members'")
-            __props__['group_members'] = group_members
+            __props__.__dict__["group_members"] = group_members
             if location_name is None and not opts.urn:
                 raise TypeError("Missing required property 'location_name'")
-            __props__['location_name'] = location_name
+            __props__.__dict__["location_name"] = location_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['server_trust_group_name'] = server_trust_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["server_trust_group_name"] = server_trust_group_name
             if trust_scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'trust_scopes'")
-            __props__['trust_scopes'] = trust_scopes
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["trust_scopes"] = trust_scopes
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql:ServerTrustGroup"), pulumi.Alias(type_="azure-nextgen:sql:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ServerTrustGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerTrustGroup, __self__).__init__(
@@ -206,12 +196,12 @@ class ServerTrustGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServerTrustGroupArgs.__new__(ServerTrustGroupArgs)
 
-        __props__["group_members"] = None
-        __props__["name"] = None
-        __props__["trust_scopes"] = None
-        __props__["type"] = None
+        __props__.__dict__["group_members"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["trust_scopes"] = None
+        __props__.__dict__["type"] = None
         return ServerTrustGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -245,10 +235,4 @@ class ServerTrustGroup(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

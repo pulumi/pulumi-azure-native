@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -226,9 +226,7 @@ class FlowLog(pulumi.CustomResource):
                  storage_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A flow log resource.
 
@@ -283,15 +281,7 @@ class FlowLog(pulumi.CustomResource):
                  storage_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,33 +291,33 @@ class FlowLog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
-            __props__['enabled'] = enabled
-            __props__['flow_analytics_configuration'] = flow_analytics_configuration
-            __props__['flow_log_name'] = flow_log_name
-            __props__['format'] = format
-            __props__['id'] = id
-            __props__['location'] = location
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["flow_analytics_configuration"] = flow_analytics_configuration
+            __props__.__dict__["flow_log_name"] = flow_log_name
+            __props__.__dict__["format"] = format
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
-            __props__['network_watcher_name'] = network_watcher_name
+            __props__.__dict__["network_watcher_name"] = network_watcher_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retention_policy'] = retention_policy
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_policy"] = retention_policy
             if storage_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_id'")
-            __props__['storage_id'] = storage_id
-            __props__['tags'] = tags
+            __props__.__dict__["storage_id"] = storage_id
+            __props__.__dict__["tags"] = tags
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['target_resource_guid'] = None
-            __props__['type'] = None
+            __props__.__dict__["target_resource_id"] = target_resource_id
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["target_resource_guid"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:FlowLog"), pulumi.Alias(type_="azure-native:network:FlowLog"), pulumi.Alias(type_="azure-nextgen:network:FlowLog"), pulumi.Alias(type_="azure-native:network/v20191101:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20191201:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200301:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200401:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200501:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200701:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200801:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FlowLog"), pulumi.Alias(type_="azure-native:network/v20201101:FlowLog"), pulumi.Alias(type_="azure-nextgen:network/v20201101:FlowLog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FlowLog, __self__).__init__(
@@ -350,21 +340,21 @@ class FlowLog(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
-        __props__["enabled"] = None
-        __props__["etag"] = None
-        __props__["flow_analytics_configuration"] = None
-        __props__["format"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["retention_policy"] = None
-        __props__["storage_id"] = None
-        __props__["tags"] = None
-        __props__["target_resource_guid"] = None
-        __props__["target_resource_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["flow_analytics_configuration"] = None
+        __props__.__dict__["format"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["retention_policy"] = None
+        __props__.__dict__["storage_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["target_resource_guid"] = None
+        __props__.__dict__["target_resource_id"] = None
+        __props__.__dict__["type"] = None
         return FlowLog(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -470,10 +460,4 @@ class FlowLog(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

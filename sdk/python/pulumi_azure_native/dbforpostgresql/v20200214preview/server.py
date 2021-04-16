@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -361,9 +361,7 @@ class Server(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a server.
 
@@ -433,15 +431,7 @@ class Server(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -451,38 +441,38 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerArgs.__new__(ServerArgs)
 
-            __props__['administrator_login'] = administrator_login
-            __props__['administrator_login_password'] = administrator_login_password
-            __props__['availability_zone'] = availability_zone
-            __props__['create_mode'] = create_mode
-            __props__['delegated_subnet_arguments'] = delegated_subnet_arguments
-            __props__['display_name'] = display_name
-            __props__['ha_enabled'] = ha_enabled
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['maintenance_window'] = maintenance_window
-            __props__['point_in_time_utc'] = point_in_time_utc
+            __props__.__dict__["administrator_login"] = administrator_login
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["delegated_subnet_arguments"] = delegated_subnet_arguments
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["ha_enabled"] = ha_enabled
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["point_in_time_utc"] = point_in_time_utc
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['server_name'] = server_name
-            __props__['sku'] = sku
-            __props__['source_resource_group_name'] = source_resource_group_name
-            __props__['source_server_name'] = source_server_name
-            __props__['source_subscription_id'] = source_subscription_id
-            __props__['storage_profile'] = storage_profile
-            __props__['tags'] = tags
-            __props__['version'] = version
-            __props__['byok_enforcement'] = None
-            __props__['fully_qualified_domain_name'] = None
-            __props__['ha_state'] = None
-            __props__['name'] = None
-            __props__['public_network_access'] = None
-            __props__['standby_availability_zone'] = None
-            __props__['state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["source_resource_group_name"] = source_resource_group_name
+            __props__.__dict__["source_server_name"] = source_server_name
+            __props__.__dict__["source_subscription_id"] = source_subscription_id
+            __props__.__dict__["storage_profile"] = storage_profile
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
+            __props__.__dict__["byok_enforcement"] = None
+            __props__.__dict__["fully_qualified_domain_name"] = None
+            __props__.__dict__["ha_state"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["public_network_access"] = None
+            __props__.__dict__["standby_availability_zone"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214privatepreview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
@@ -505,32 +495,32 @@ class Server(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServerArgs.__new__(ServerArgs)
 
-        __props__["administrator_login"] = None
-        __props__["availability_zone"] = None
-        __props__["byok_enforcement"] = None
-        __props__["delegated_subnet_arguments"] = None
-        __props__["display_name"] = None
-        __props__["fully_qualified_domain_name"] = None
-        __props__["ha_enabled"] = None
-        __props__["ha_state"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["maintenance_window"] = None
-        __props__["name"] = None
-        __props__["point_in_time_utc"] = None
-        __props__["public_network_access"] = None
-        __props__["sku"] = None
-        __props__["source_resource_group_name"] = None
-        __props__["source_server_name"] = None
-        __props__["source_subscription_id"] = None
-        __props__["standby_availability_zone"] = None
-        __props__["state"] = None
-        __props__["storage_profile"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["administrator_login"] = None
+        __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["byok_enforcement"] = None
+        __props__.__dict__["delegated_subnet_arguments"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["fully_qualified_domain_name"] = None
+        __props__.__dict__["ha_enabled"] = None
+        __props__.__dict__["ha_state"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maintenance_window"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["point_in_time_utc"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["source_resource_group_name"] = None
+        __props__.__dict__["source_server_name"] = None
+        __props__.__dict__["source_subscription_id"] = None
+        __props__.__dict__["standby_availability_zone"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["storage_profile"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -721,10 +711,4 @@ class Server(pulumi.CustomResource):
         PostgreSQL Server version.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

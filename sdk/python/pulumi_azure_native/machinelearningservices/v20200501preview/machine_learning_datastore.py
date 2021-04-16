@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -604,9 +604,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
 
@@ -705,15 +703,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -723,58 +713,58 @@ class MachineLearningDatastore(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MachineLearningDatastoreArgs.__new__(MachineLearningDatastoreArgs)
 
-            __props__['account_key'] = account_key
-            __props__['account_name'] = account_name
-            __props__['adls_resource_group'] = adls_resource_group
-            __props__['adls_subscription_id'] = adls_subscription_id
-            __props__['authority_url'] = authority_url
-            __props__['client_id'] = client_id
-            __props__['client_secret'] = client_secret
-            __props__['container_name'] = container_name
+            __props__.__dict__["account_key"] = account_key
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["adls_resource_group"] = adls_resource_group
+            __props__.__dict__["adls_subscription_id"] = adls_subscription_id
+            __props__.__dict__["authority_url"] = authority_url
+            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["container_name"] = container_name
             if data_store_type is None and not opts.urn:
                 raise TypeError("Missing required property 'data_store_type'")
-            __props__['data_store_type'] = data_store_type
-            __props__['database_name'] = database_name
-            __props__['datastore_name'] = datastore_name
-            __props__['description'] = description
-            __props__['endpoint'] = endpoint
+            __props__.__dict__["data_store_type"] = data_store_type
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["datastore_name"] = datastore_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["endpoint"] = endpoint
             if enforce_ssl is None:
                 enforce_ssl = True
-            __props__['enforce_ssl'] = enforce_ssl
-            __props__['file_system'] = file_system
+            __props__.__dict__["enforce_ssl"] = enforce_ssl
+            __props__.__dict__["file_system"] = file_system
             if include_secret is None:
                 include_secret = True
-            __props__['include_secret'] = include_secret
-            __props__['name'] = name
-            __props__['password'] = password
-            __props__['port'] = port
-            __props__['protocol'] = protocol
+            __props__.__dict__["include_secret"] = include_secret
+            __props__.__dict__["name"] = name
+            __props__.__dict__["password"] = password
+            __props__.__dict__["port"] = port
+            __props__.__dict__["protocol"] = protocol
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_url'] = resource_url
-            __props__['sas_token'] = sas_token
-            __props__['server_name'] = server_name
-            __props__['share_name'] = share_name
-            __props__['skip_validation'] = skip_validation
-            __props__['storage_account_resource_group'] = storage_account_resource_group
-            __props__['storage_account_subscription_id'] = storage_account_subscription_id
-            __props__['store_name'] = store_name
-            __props__['tenant_id'] = tenant_id
-            __props__['user_id'] = user_id
-            __props__['user_name'] = user_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_url"] = resource_url
+            __props__.__dict__["sas_token"] = sas_token
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["share_name"] = share_name
+            __props__.__dict__["skip_validation"] = skip_validation
+            __props__.__dict__["storage_account_resource_group"] = storage_account_resource_group
+            __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
+            __props__.__dict__["store_name"] = store_name
+            __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["user_id"] = user_id
+            __props__.__dict__["user_name"] = user_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['workspace_system_assigned_identity'] = workspace_system_assigned_identity
-            __props__['identity'] = None
-            __props__['location'] = None
-            __props__['properties'] = None
-            __props__['sku'] = None
-            __props__['tags'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["workspace_system_assigned_identity"] = workspace_system_assigned_identity
+            __props__.__dict__["identity"] = None
+            __props__.__dict__["location"] = None
+            __props__.__dict__["properties"] = None
+            __props__.__dict__["sku"] = None
+            __props__.__dict__["tags"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices:MachineLearningDatastore"), pulumi.Alias(type_="azure-nextgen:machinelearningservices:MachineLearningDatastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningDatastore, __self__).__init__(
@@ -797,15 +787,15 @@ class MachineLearningDatastore(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MachineLearningDatastoreArgs.__new__(MachineLearningDatastoreArgs)
 
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return MachineLearningDatastore(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -863,10 +853,4 @@ class MachineLearningDatastore(pulumi.CustomResource):
         Specifies the type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

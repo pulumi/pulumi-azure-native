@@ -6,24 +6,24 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
     'AsymmetricEncryptedSecretResponse',
     'BandwidthScheduleResponse',
-    'FailoverSetEligibilityResultResponseResult',
-    'FailoverSetResponseResult',
-    'FailoverTargetResponseResult',
+    'FailoverSetEligibilityResultResponse',
+    'FailoverSetResponse',
+    'FailoverTargetResponse',
     'ManagerIntrinsicSettingsResponse',
     'ManagerSkuResponse',
     'ScheduleRecurrenceResponse',
-    'TargetEligibilityErrorMessageResponseResult',
-    'TargetEligibilityResultResponseResult',
+    'TargetEligibilityErrorMessageResponse',
+    'TargetEligibilityResultResponse',
     'TimeResponse',
-    'VolumeContainerFailoverMetadataResponseResult',
-    'VolumeFailoverMetadataResponseResult',
+    'VolumeContainerFailoverMetadataResponse',
+    'VolumeFailoverMetadataResponse',
 ]
 
 @pulumi.output_type
@@ -31,6 +31,25 @@ class AsymmetricEncryptedSecretResponse(dict):
     """
     Represent the secrets intended for encryption with asymmetric key pair.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionCertThumbprint":
+            suggest = "encryption_cert_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AsymmetricEncryptedSecretResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AsymmetricEncryptedSecretResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AsymmetricEncryptedSecretResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_algorithm: str,
                  value: str,
@@ -70,15 +89,29 @@ class AsymmetricEncryptedSecretResponse(dict):
         """
         return pulumi.get(self, "encryption_cert_thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BandwidthScheduleResponse(dict):
     """
     The schedule for bandwidth setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rateInMbps":
+            suggest = "rate_in_mbps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BandwidthScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BandwidthScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BandwidthScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days: Sequence[str],
                  rate_in_mbps: int,
@@ -88,8 +121,8 @@ class BandwidthScheduleResponse(dict):
         The schedule for bandwidth setting.
         :param Sequence[str] days: The days of the week when this schedule is applicable.
         :param int rate_in_mbps: The rate in Mbps.
-        :param 'TimeResponseArgs' start: The start time of the schedule.
-        :param 'TimeResponseArgs' stop: The stop time of the schedule.
+        :param 'TimeResponse' start: The start time of the schedule.
+        :param 'TimeResponse' stop: The stop time of the schedule.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
@@ -128,12 +161,9 @@ class BandwidthScheduleResponse(dict):
         """
         return pulumi.get(self, "stop")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class FailoverSetEligibilityResultResponseResult(dict):
+class FailoverSetEligibilityResultResponse(dict):
     """
     The eligibility result of failover set, for failover.
     """
@@ -168,17 +198,17 @@ class FailoverSetEligibilityResultResponseResult(dict):
 
 
 @pulumi.output_type
-class FailoverSetResponseResult(dict):
+class FailoverSetResponse(dict):
     """
     The failover set on a device.
     """
     def __init__(__self__, *,
-                 eligibility_result: Optional['outputs.FailoverSetEligibilityResultResponseResult'] = None,
-                 volume_containers: Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponseResult']] = None):
+                 eligibility_result: Optional['outputs.FailoverSetEligibilityResultResponse'] = None,
+                 volume_containers: Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponse']] = None):
         """
         The failover set on a device.
-        :param 'FailoverSetEligibilityResultResponseArgs' eligibility_result: The eligibility result of the failover set, for failover.
-        :param Sequence['VolumeContainerFailoverMetadataResponseArgs'] volume_containers: The list of meta data of volume containers, which are part of the failover set.
+        :param 'FailoverSetEligibilityResultResponse' eligibility_result: The eligibility result of the failover set, for failover.
+        :param Sequence['VolumeContainerFailoverMetadataResponse'] volume_containers: The list of meta data of volume containers, which are part of the failover set.
         """
         if eligibility_result is not None:
             pulumi.set(__self__, "eligibility_result", eligibility_result)
@@ -187,7 +217,7 @@ class FailoverSetResponseResult(dict):
 
     @property
     @pulumi.getter(name="eligibilityResult")
-    def eligibility_result(self) -> Optional['outputs.FailoverSetEligibilityResultResponseResult']:
+    def eligibility_result(self) -> Optional['outputs.FailoverSetEligibilityResultResponse']:
         """
         The eligibility result of the failover set, for failover.
         """
@@ -195,7 +225,7 @@ class FailoverSetResponseResult(dict):
 
     @property
     @pulumi.getter(name="volumeContainers")
-    def volume_containers(self) -> Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponseResult']]:
+    def volume_containers(self) -> Optional[Sequence['outputs.VolumeContainerFailoverMetadataResponse']]:
         """
         The list of meta data of volume containers, which are part of the failover set.
         """
@@ -203,7 +233,7 @@ class FailoverSetResponseResult(dict):
 
 
 @pulumi.output_type
-class FailoverTargetResponseResult(dict):
+class FailoverTargetResponse(dict):
     """
     Represents the eligibility of a device as a failover target device.
     """
@@ -215,7 +245,7 @@ class FailoverTargetResponseResult(dict):
                  device_location: Optional[str] = None,
                  device_software_version: Optional[str] = None,
                  device_status: Optional[str] = None,
-                 eligibility_result: Optional['outputs.TargetEligibilityResultResponseResult'] = None,
+                 eligibility_result: Optional['outputs.TargetEligibilityResultResponse'] = None,
                  friendly_device_software_version: Optional[str] = None,
                  model_description: Optional[str] = None,
                  volumes_count: Optional[int] = None):
@@ -228,7 +258,7 @@ class FailoverTargetResponseResult(dict):
         :param str device_location: The geo location (applicable only for cloud appliances) of the device.
         :param str device_software_version: The software version of the device.
         :param str device_status: The status of the device.
-        :param 'TargetEligibilityResultResponseArgs' eligibility_result: The eligibility result of the device, as a failover target device.
+        :param 'TargetEligibilityResultResponse' eligibility_result: The eligibility result of the device, as a failover target device.
         :param str friendly_device_software_version: The friendly name for the current version of software on the device.
         :param str model_description: The model number of the device.
         :param int volumes_count: The count of volumes on the device.
@@ -314,7 +344,7 @@ class FailoverTargetResponseResult(dict):
 
     @property
     @pulumi.getter(name="eligibilityResult")
-    def eligibility_result(self) -> Optional['outputs.TargetEligibilityResultResponseResult']:
+    def eligibility_result(self) -> Optional['outputs.TargetEligibilityResultResponse']:
         """
         The eligibility result of the device, as a failover target device.
         """
@@ -366,9 +396,6 @@ class ManagerIntrinsicSettingsResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagerSkuResponse(dict):
@@ -391,15 +418,33 @@ class ManagerSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleRecurrenceResponse(dict):
     """
     The schedule recurrence.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurrenceType":
+            suggest = "recurrence_type"
+        elif key == "recurrenceValue":
+            suggest = "recurrence_value"
+        elif key == "weeklyDaysList":
+            suggest = "weekly_days_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recurrence_type: str,
                  recurrence_value: int,
@@ -439,12 +484,9 @@ class ScheduleRecurrenceResponse(dict):
         """
         return pulumi.get(self, "weekly_days_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class TargetEligibilityErrorMessageResponseResult(dict):
+class TargetEligibilityErrorMessageResponse(dict):
     """
     The error/warning message due to which the device is ineligible as a failover target device.
     """
@@ -491,17 +533,17 @@ class TargetEligibilityErrorMessageResponseResult(dict):
 
 
 @pulumi.output_type
-class TargetEligibilityResultResponseResult(dict):
+class TargetEligibilityResultResponse(dict):
     """
     The eligibility result of device, as a failover target device.
     """
     def __init__(__self__, *,
                  eligibility_status: Optional[str] = None,
-                 messages: Optional[Sequence['outputs.TargetEligibilityErrorMessageResponseResult']] = None):
+                 messages: Optional[Sequence['outputs.TargetEligibilityErrorMessageResponse']] = None):
         """
         The eligibility result of device, as a failover target device.
         :param str eligibility_status: The eligibility status of device, as a failover target device.
-        :param Sequence['TargetEligibilityErrorMessageResponseArgs'] messages: The list of error messages, if a device does not qualify as a failover target device.
+        :param Sequence['TargetEligibilityErrorMessageResponse'] messages: The list of error messages, if a device does not qualify as a failover target device.
         """
         if eligibility_status is not None:
             pulumi.set(__self__, "eligibility_status", eligibility_status)
@@ -518,7 +560,7 @@ class TargetEligibilityResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def messages(self) -> Optional[Sequence['outputs.TargetEligibilityErrorMessageResponseResult']]:
+    def messages(self) -> Optional[Sequence['outputs.TargetEligibilityErrorMessageResponse']]:
         """
         The list of error messages, if a device does not qualify as a failover target device.
         """
@@ -568,22 +610,19 @@ class TimeResponse(dict):
         """
         return pulumi.get(self, "seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class VolumeContainerFailoverMetadataResponseResult(dict):
+class VolumeContainerFailoverMetadataResponse(dict):
     """
     The metadata of the volume container, that is being considered as part of a failover set.
     """
     def __init__(__self__, *,
                  volume_container_id: Optional[str] = None,
-                 volumes: Optional[Sequence['outputs.VolumeFailoverMetadataResponseResult']] = None):
+                 volumes: Optional[Sequence['outputs.VolumeFailoverMetadataResponse']] = None):
         """
         The metadata of the volume container, that is being considered as part of a failover set.
         :param str volume_container_id: The path ID of the volume container.
-        :param Sequence['VolumeFailoverMetadataResponseArgs'] volumes: The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
+        :param Sequence['VolumeFailoverMetadataResponse'] volumes: The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
         """
         if volume_container_id is not None:
             pulumi.set(__self__, "volume_container_id", volume_container_id)
@@ -600,7 +639,7 @@ class VolumeContainerFailoverMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.VolumeFailoverMetadataResponseResult']]:
+    def volumes(self) -> Optional[Sequence['outputs.VolumeFailoverMetadataResponse']]:
         """
         The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
         """
@@ -608,7 +647,7 @@ class VolumeContainerFailoverMetadataResponseResult(dict):
 
 
 @pulumi.output_type
-class VolumeFailoverMetadataResponseResult(dict):
+class VolumeFailoverMetadataResponse(dict):
     """
     The metadata of a volume that has valid cloud snapshot.
     """

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -126,9 +126,7 @@ class Cluster(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Class representing a Kusto cluster.
 
@@ -171,15 +169,7 @@ class Cluster(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -189,25 +179,25 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['cluster_name'] = cluster_name
-            __props__['location'] = location
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['trusted_external_tenants'] = trusted_external_tenants
-            __props__['data_ingestion_uri'] = None
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['state'] = None
-            __props__['type'] = None
-            __props__['uri'] = None
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
+            __props__.__dict__["data_ingestion_uri"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["uri"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
@@ -230,19 +220,19 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ClusterArgs.__new__(ClusterArgs)
 
-        __props__["data_ingestion_uri"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku"] = None
-        __props__["state"] = None
-        __props__["tags"] = None
-        __props__["trusted_external_tenants"] = None
-        __props__["type"] = None
-        __props__["uri"] = None
+        __props__.__dict__["data_ingestion_uri"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["trusted_external_tenants"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["uri"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -332,10 +322,4 @@ class Cluster(pulumi.CustomResource):
         The cluster URI.
         """
         return pulumi.get(self, "uri")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

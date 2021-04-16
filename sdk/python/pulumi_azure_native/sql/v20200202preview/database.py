@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -518,9 +518,7 @@ class Database(pulumi.CustomResource):
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A database resource.
 
@@ -629,15 +627,7 @@ class Database(pulumi.CustomResource):
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -647,54 +637,54 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-            __props__['auto_pause_delay'] = auto_pause_delay
-            __props__['catalog_collation'] = catalog_collation
-            __props__['collation'] = collation
-            __props__['create_mode'] = create_mode
-            __props__['database_name'] = database_name
-            __props__['elastic_pool_id'] = elastic_pool_id
-            __props__['license_type'] = license_type
-            __props__['location'] = location
-            __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
-            __props__['max_size_bytes'] = max_size_bytes
-            __props__['min_capacity'] = min_capacity
-            __props__['read_replica_count'] = read_replica_count
-            __props__['read_scale'] = read_scale
-            __props__['recoverable_database_id'] = recoverable_database_id
-            __props__['recovery_services_recovery_point_id'] = recovery_services_recovery_point_id
+            __props__.__dict__["auto_pause_delay"] = auto_pause_delay
+            __props__.__dict__["catalog_collation"] = catalog_collation
+            __props__.__dict__["collation"] = collation
+            __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["elastic_pool_id"] = elastic_pool_id
+            __props__.__dict__["license_type"] = license_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["long_term_retention_backup_resource_id"] = long_term_retention_backup_resource_id
+            __props__.__dict__["max_size_bytes"] = max_size_bytes
+            __props__.__dict__["min_capacity"] = min_capacity
+            __props__.__dict__["read_replica_count"] = read_replica_count
+            __props__.__dict__["read_scale"] = read_scale
+            __props__.__dict__["recoverable_database_id"] = recoverable_database_id
+            __props__.__dict__["recovery_services_recovery_point_id"] = recovery_services_recovery_point_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['restorable_dropped_database_id'] = restorable_dropped_database_id
-            __props__['restore_point_in_time'] = restore_point_in_time
-            __props__['sample_name'] = sample_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restorable_dropped_database_id"] = restorable_dropped_database_id
+            __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            __props__.__dict__["sample_name"] = sample_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['sku'] = sku
-            __props__['source_database_deletion_date'] = source_database_deletion_date
-            __props__['source_database_id'] = source_database_id
-            __props__['storage_account_type'] = storage_account_type
-            __props__['tags'] = tags
-            __props__['zone_redundant'] = zone_redundant
-            __props__['creation_date'] = None
-            __props__['current_service_objective_name'] = None
-            __props__['current_sku'] = None
-            __props__['database_id'] = None
-            __props__['default_secondary_location'] = None
-            __props__['earliest_restore_date'] = None
-            __props__['failover_group_id'] = None
-            __props__['kind'] = None
-            __props__['managed_by'] = None
-            __props__['max_log_size_bytes'] = None
-            __props__['name'] = None
-            __props__['paused_date'] = None
-            __props__['requested_service_objective_name'] = None
-            __props__['resumed_date'] = None
-            __props__['status'] = None
-            __props__['type'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
+            __props__.__dict__["source_database_id"] = source_database_id
+            __props__.__dict__["storage_account_type"] = storage_account_type
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["current_service_objective_name"] = None
+            __props__.__dict__["current_sku"] = None
+            __props__.__dict__["database_id"] = None
+            __props__.__dict__["default_secondary_location"] = None
+            __props__.__dict__["earliest_restore_date"] = None
+            __props__.__dict__["failover_group_id"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["managed_by"] = None
+            __props__.__dict__["max_log_size_bytes"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["paused_date"] = None
+            __props__.__dict__["requested_service_objective_name"] = None
+            __props__.__dict__["resumed_date"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:Database"), pulumi.Alias(type_="azure-native:sql:Database"), pulumi.Alias(type_="azure-nextgen:sql:Database"), pulumi.Alias(type_="azure-native:sql/v20140401:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:Database"), pulumi.Alias(type_="azure-native:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:Database"), pulumi.Alias(type_="azure-native:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20171001preview:Database"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Database"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:Database"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Database"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
@@ -717,38 +707,38 @@ class Database(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-        __props__["auto_pause_delay"] = None
-        __props__["catalog_collation"] = None
-        __props__["collation"] = None
-        __props__["creation_date"] = None
-        __props__["current_service_objective_name"] = None
-        __props__["current_sku"] = None
-        __props__["database_id"] = None
-        __props__["default_secondary_location"] = None
-        __props__["earliest_restore_date"] = None
-        __props__["elastic_pool_id"] = None
-        __props__["failover_group_id"] = None
-        __props__["kind"] = None
-        __props__["license_type"] = None
-        __props__["location"] = None
-        __props__["managed_by"] = None
-        __props__["max_log_size_bytes"] = None
-        __props__["max_size_bytes"] = None
-        __props__["min_capacity"] = None
-        __props__["name"] = None
-        __props__["paused_date"] = None
-        __props__["read_replica_count"] = None
-        __props__["read_scale"] = None
-        __props__["requested_service_objective_name"] = None
-        __props__["resumed_date"] = None
-        __props__["sku"] = None
-        __props__["status"] = None
-        __props__["storage_account_type"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["zone_redundant"] = None
+        __props__.__dict__["auto_pause_delay"] = None
+        __props__.__dict__["catalog_collation"] = None
+        __props__.__dict__["collation"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["current_service_objective_name"] = None
+        __props__.__dict__["current_sku"] = None
+        __props__.__dict__["database_id"] = None
+        __props__.__dict__["default_secondary_location"] = None
+        __props__.__dict__["earliest_restore_date"] = None
+        __props__.__dict__["elastic_pool_id"] = None
+        __props__.__dict__["failover_group_id"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["license_type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
+        __props__.__dict__["max_log_size_bytes"] = None
+        __props__.__dict__["max_size_bytes"] = None
+        __props__.__dict__["min_capacity"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["paused_date"] = None
+        __props__.__dict__["read_replica_count"] = None
+        __props__.__dict__["read_scale"] = None
+        __props__.__dict__["requested_service_objective_name"] = None
+        __props__.__dict__["resumed_date"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["storage_account_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["zone_redundant"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1000,10 +990,4 @@ class Database(pulumi.CustomResource):
         Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         return pulumi.get(self, "zone_redundant")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

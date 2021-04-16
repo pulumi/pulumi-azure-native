@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -143,9 +143,7 @@ class TaskRun(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_request: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]]] = None,
                  task_run_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The task run that has the ARM resource and properties.
         The task run will have the information of request and result of a run.
@@ -194,15 +192,7 @@ class TaskRun(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  run_request: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]]] = None,
                  task_run_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,24 +202,24 @@ class TaskRun(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TaskRunArgs.__new__(TaskRunArgs)
 
-            __props__['force_update_tag'] = force_update_tag
-            __props__['identity'] = identity
-            __props__['location'] = location
+            __props__.__dict__["force_update_tag"] = force_update_tag
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
-            __props__['registry_name'] = registry_name
+            __props__.__dict__["registry_name"] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['run_request'] = run_request
-            __props__['task_run_name'] = task_run_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['run_result'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["run_request"] = run_request
+            __props__.__dict__["task_run_name"] = task_run_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["run_result"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:TaskRun"), pulumi.Alias(type_="azure-native:containerregistry/v20190601preview:TaskRun"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190601preview:TaskRun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TaskRun, __self__).__init__(
@@ -252,17 +242,17 @@ class TaskRun(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TaskRunArgs.__new__(TaskRunArgs)
 
-        __props__["force_update_tag"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["run_request"] = None
-        __props__["run_result"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["force_update_tag"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["run_request"] = None
+        __props__.__dict__["run_result"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return TaskRun(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -336,10 +326,4 @@ class TaskRun(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = ['DomainOwnershipIdentifierArgs', 'DomainOwnershipIdentifier']
@@ -107,9 +107,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ownership_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Domain ownership Identifier.
         API Version: 2020-10-01.
@@ -152,15 +150,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ownership_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,19 +160,19 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainOwnershipIdentifierArgs.__new__(DomainOwnershipIdentifierArgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
-            __props__['domain_name'] = domain_name
-            __props__['kind'] = kind
-            __props__['name'] = name
-            __props__['ownership_id'] = ownership_id
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["name"] = name
+            __props__.__dict__["ownership_id"] = ownership_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20200601:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201201:DomainOwnershipIdentifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainOwnershipIdentifier, __self__).__init__(
@@ -205,13 +195,13 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DomainOwnershipIdentifierArgs.__new__(DomainOwnershipIdentifierArgs)
 
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["ownership_id"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["ownership_id"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return DomainOwnershipIdentifier(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -253,10 +243,4 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

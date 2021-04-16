@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['BackupPolicyArgs', 'BackupPolicy']
@@ -97,9 +97,7 @@ class BackupPolicy(pulumi.CustomResource):
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         BaseBackupPolicy resource
 
@@ -138,15 +136,7 @@ class BackupPolicy(pulumi.CustomResource):
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -156,24 +146,24 @@ class BackupPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-            __props__['backup_policy_name'] = backup_policy_name
+            __props__.__dict__["backup_policy_name"] = backup_policy_name
             if datasource_types is None and not opts.urn:
                 raise TypeError("Missing required property 'datasource_types'")
-            __props__['datasource_types'] = datasource_types
+            __props__.__dict__["datasource_types"] = datasource_types
             if object_type is None and not opts.urn:
                 raise TypeError("Missing required property 'object_type'")
-            __props__['object_type'] = object_type
+            __props__.__dict__["object_type"] = object_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
-            __props__['vault_name'] = vault_name
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:dataprotection:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
@@ -196,13 +186,13 @@ class BackupPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-        __props__["datasource_types"] = None
-        __props__["name"] = None
-        __props__["object_type"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["datasource_types"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["object_type"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -241,10 +231,4 @@ class BackupPolicy(pulumi.CustomResource):
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

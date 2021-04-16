@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -177,9 +177,7 @@ class AvailabilitySet(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
 
@@ -228,15 +226,7 @@ class AvailabilitySet(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,22 +236,22 @@ class AvailabilitySet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AvailabilitySetArgs.__new__(AvailabilitySetArgs)
 
-            __props__['availability_set_name'] = availability_set_name
-            __props__['location'] = location
-            __props__['platform_fault_domain_count'] = platform_fault_domain_count
-            __props__['platform_update_domain_count'] = platform_update_domain_count
-            __props__['proximity_placement_group'] = proximity_placement_group
+            __props__.__dict__["availability_set_name"] = availability_set_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
+            __props__.__dict__["platform_update_domain_count"] = platform_update_domain_count
+            __props__.__dict__["proximity_placement_group"] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['virtual_machines'] = virtual_machines
-            __props__['name'] = None
-            __props__['statuses'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_machines"] = virtual_machines
+            __props__.__dict__["name"] = None
+            __props__.__dict__["statuses"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20180601:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20200601:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:AvailabilitySet"), pulumi.Alias(type_="azure-native:compute/v20201201:AvailabilitySet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:AvailabilitySet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AvailabilitySet, __self__).__init__(
@@ -284,18 +274,18 @@ class AvailabilitySet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AvailabilitySetArgs.__new__(AvailabilitySetArgs)
 
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["platform_fault_domain_count"] = None
-        __props__["platform_update_domain_count"] = None
-        __props__["proximity_placement_group"] = None
-        __props__["sku"] = None
-        __props__["statuses"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_machines"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["platform_fault_domain_count"] = None
+        __props__.__dict__["platform_update_domain_count"] = None
+        __props__.__dict__["proximity_placement_group"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["statuses"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_machines"] = None
         return AvailabilitySet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -377,10 +367,4 @@ class AvailabilitySet(pulumi.CustomResource):
         A list of references to all virtual machines in the availability set.
         """
         return pulumi.get(self, "virtual_machines")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

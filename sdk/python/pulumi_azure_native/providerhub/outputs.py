@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -93,12 +93,38 @@ class AuthorizationActionMappingResponse(dict):
     def original(self) -> Optional[str]:
         return pulumi.get(self, "original")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultRolloutPropertiesResponseSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highTraffic":
+            suggest = "high_traffic"
+        elif key == "lowTraffic":
+            suggest = "low_traffic"
+        elif key == "mediumTraffic":
+            suggest = "medium_traffic"
+        elif key == "providerRegistration":
+            suggest = "provider_registration"
+        elif key == "resourceTypeRegistrations":
+            suggest = "resource_type_registrations"
+        elif key == "restOfTheWorldGroupOne":
+            suggest = "rest_of_the_world_group_one"
+        elif key == "restOfTheWorldGroupTwo":
+            suggest = "rest_of_the_world_group_two"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutPropertiesResponseSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutPropertiesResponseSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutPropertiesResponseSpecification.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  canary: Optional['outputs.DefaultRolloutSpecificationResponseCanary'] = None,
                  high_traffic: Optional['outputs.DefaultRolloutSpecificationResponseHighTraffic'] = None,
@@ -165,12 +191,34 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
     def rest_of_the_world_group_two(self) -> Optional['outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo']:
         return pulumi.get(self, "rest_of_the_world_group_two")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultRolloutPropertiesResponseStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedRegions":
+            suggest = "completed_regions"
+        elif key == "failedOrSkippedRegions":
+            suggest = "failed_or_skipped_regions"
+        elif key == "nextTrafficRegion":
+            suggest = "next_traffic_region"
+        elif key == "nextTrafficRegionScheduledTime":
+            suggest = "next_traffic_region_scheduled_time"
+        elif key == "subscriptionReregistrationResult":
+            suggest = "subscription_reregistration_result"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutPropertiesResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutPropertiesResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  completed_regions: Optional[Sequence[str]] = None,
                  failed_or_skipped_regions: Optional[Mapping[str, 'outputs.ExtendedErrorInfoResponse']] = None,
@@ -213,15 +261,29 @@ class DefaultRolloutPropertiesResponseStatus(dict):
     def subscription_reregistration_result(self) -> Optional[str]:
         return pulumi.get(self, "subscription_reregistration_result")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultRolloutResponseProperties(dict):
     """
     Properties of the rollout.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: Optional[str] = None,
                  specification: Optional['outputs.DefaultRolloutPropertiesResponseSpecification'] = None,
@@ -251,12 +313,26 @@ class DefaultRolloutResponseProperties(dict):
     def status(self) -> Optional['outputs.DefaultRolloutPropertiesResponseStatus']:
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseCanary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skipRegions":
+            suggest = "skip_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseCanary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseCanary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseCanary.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regions: Optional[Sequence[str]] = None,
                  skip_regions: Optional[Sequence[str]] = None):
@@ -275,12 +351,26 @@ class DefaultRolloutSpecificationResponseCanary(dict):
     def skip_regions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "skip_regions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseHighTraffic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitDuration":
+            suggest = "wait_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseHighTraffic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseHighTraffic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseHighTraffic.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regions: Optional[Sequence[str]] = None,
                  wait_duration: Optional[str] = None):
@@ -298,13 +388,27 @@ class DefaultRolloutSpecificationResponseHighTraffic(dict):
     @pulumi.getter(name="waitDuration")
     def wait_duration(self) -> Optional[str]:
         return pulumi.get(self, "wait_duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseLowTraffic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitDuration":
+            suggest = "wait_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseLowTraffic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseLowTraffic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseLowTraffic.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regions: Optional[Sequence[str]] = None,
                  wait_duration: Optional[str] = None):
@@ -322,13 +426,27 @@ class DefaultRolloutSpecificationResponseLowTraffic(dict):
     @pulumi.getter(name="waitDuration")
     def wait_duration(self) -> Optional[str]:
         return pulumi.get(self, "wait_duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseMediumTraffic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitDuration":
+            suggest = "wait_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseMediumTraffic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseMediumTraffic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseMediumTraffic.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regions: Optional[Sequence[str]] = None,
                  wait_duration: Optional[str] = None):
@@ -346,9 +464,6 @@ class DefaultRolloutSpecificationResponseMediumTraffic(dict):
     @pulumi.getter(name="waitDuration")
     def wait_duration(self) -> Optional[str]:
         return pulumi.get(self, "wait_duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -398,12 +513,26 @@ class DefaultRolloutSpecificationResponseProviderRegistration(dict):
     def properties(self) -> Optional['outputs.ProviderRegistrationResponseProperties']:
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitDuration":
+            suggest = "wait_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regions: Optional[Sequence[str]] = None,
                  wait_duration: Optional[str] = None):
@@ -421,13 +550,27 @@ class DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne(dict):
     @pulumi.getter(name="waitDuration")
     def wait_duration(self) -> Optional[str]:
         return pulumi.get(self, "wait_duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitDuration":
+            suggest = "wait_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  regions: Optional[Sequence[str]] = None,
                  wait_duration: Optional[str] = None):
@@ -446,12 +589,26 @@ class DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo(dict):
     def wait_duration(self) -> Optional[str]:
         return pulumi.get(self, "wait_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtendedErrorInfoResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtendedErrorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtendedErrorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtendedErrorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_info: Optional[Sequence['outputs.TypedErrorInfoResponse']] = None,
                  code: Optional[str] = None,
@@ -494,12 +651,26 @@ class ExtendedErrorInfoResponse(dict):
     def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtendedLocationOptionsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedPolicy":
+            suggest = "supported_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtendedLocationOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtendedLocationOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtendedLocationOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  supported_policy: Optional[str] = None,
                  type: Optional[str] = None):
@@ -518,12 +689,28 @@ class ExtendedLocationOptionsResponse(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LightHouseAuthorizationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LightHouseAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LightHouseAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LightHouseAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  role_definition_id: str):
@@ -540,12 +727,34 @@ class LightHouseAuthorizationResponse(dict):
     def role_definition_id(self) -> str:
         return pulumi.get(self, "role_definition_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedAccessCheckResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionName":
+            suggest = "action_name"
+        elif key == "linkedAction":
+            suggest = "linked_action"
+        elif key == "linkedActionVerb":
+            suggest = "linked_action_verb"
+        elif key == "linkedProperty":
+            suggest = "linked_property"
+        elif key == "linkedType":
+            suggest = "linked_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedAccessCheckResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedAccessCheckResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedAccessCheckResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_name: Optional[str] = None,
                  linked_action: Optional[str] = None,
@@ -588,12 +797,28 @@ class LinkedAccessCheckResponse(dict):
     def linked_type(self) -> Optional[str]:
         return pulumi.get(self, "linked_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingRuleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailLevel":
+            suggest = "detail_level"
+        elif key == "hiddenPropertyPaths":
+            suggest = "hidden_property_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  detail_level: str,
@@ -625,12 +850,28 @@ class LoggingRuleResponse(dict):
     def hidden_property_paths(self) -> Optional['outputs.LoggingRuleResponseHiddenPropertyPaths']:
         return pulumi.get(self, "hidden_property_paths")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingRuleResponseHiddenPropertyPaths(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hiddenPathsOnRequest":
+            suggest = "hidden_paths_on_request"
+        elif key == "hiddenPathsOnResponse":
+            suggest = "hidden_paths_on_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingRuleResponseHiddenPropertyPaths. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingRuleResponseHiddenPropertyPaths.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingRuleResponseHiddenPropertyPaths.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hidden_paths_on_request: Optional[Sequence[str]] = None,
                  hidden_paths_on_response: Optional[Sequence[str]] = None):
@@ -649,12 +890,26 @@ class LoggingRuleResponseHiddenPropertyPaths(dict):
     def hidden_paths_on_response(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "hidden_paths_on_response")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationEndpointResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationDestination":
+            suggest = "notification_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  locations: Optional[Sequence[str]] = None,
                  notification_destination: Optional[str] = None):
@@ -673,12 +928,32 @@ class NotificationEndpointResponse(dict):
     def notification_destination(self) -> Optional[str]:
         return pulumi.get(self, "notification_destination")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationRegistrationResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedEvents":
+            suggest = "included_events"
+        elif key == "messageScope":
+            suggest = "message_scope"
+        elif key == "notificationEndpoints":
+            suggest = "notification_endpoints"
+        elif key == "notificationMode":
+            suggest = "notification_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationRegistrationResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationRegistrationResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationRegistrationResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  included_events: Optional[Sequence[str]] = None,
                  message_scope: Optional[str] = None,
@@ -712,9 +987,6 @@ class NotificationRegistrationResponseProperties(dict):
     @pulumi.getter(name="notificationMode")
     def notification_mode(self) -> Optional[str]:
         return pulumi.get(self, "notification_mode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -755,12 +1027,26 @@ class OperationsDefinitionResponseDisplay(dict):
     def resource(self) -> str:
         return pulumi.get(self, "resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderHubMetadataResponseProviderAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAudiences":
+            suggest = "allowed_audiences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderHubMetadataResponseProviderAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderHubMetadataResponseProviderAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderHubMetadataResponseProviderAuthentication.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str]):
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -770,12 +1056,26 @@ class ProviderHubMetadataResponseProviderAuthentication(dict):
     def allowed_audiences(self) -> Sequence[str]:
         return pulumi.get(self, "allowed_audiences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderHubMetadataResponseThirdPartyProviderAuthorization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedByTenantId":
+            suggest = "managed_by_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderHubMetadataResponseThirdPartyProviderAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderHubMetadataResponseThirdPartyProviderAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderHubMetadataResponseThirdPartyProviderAuthorization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorizations: Optional[Sequence['outputs.LightHouseAuthorizationResponse']] = None,
                  managed_by_tenant_id: Optional[str] = None):
@@ -794,12 +1094,30 @@ class ProviderHubMetadataResponseThirdPartyProviderAuthorization(dict):
     def managed_by_tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "managed_by_tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderRegistrationPropertiesResponseProviderHubMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerAuthentication":
+            suggest = "provider_authentication"
+        elif key == "providerAuthorizations":
+            suggest = "provider_authorizations"
+        elif key == "thirdPartyProviderAuthorization":
+            suggest = "third_party_provider_authorization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesResponseProviderHubMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderRegistrationPropertiesResponseProviderHubMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderRegistrationPropertiesResponseProviderHubMetadata.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provider_authentication: Optional['outputs.ProviderHubMetadataResponseProviderAuthentication'] = None,
                  provider_authorizations: Optional[Sequence['outputs.ResourceProviderAuthorizationResponse']] = None,
@@ -826,12 +1144,28 @@ class ProviderRegistrationPropertiesResponseProviderHubMetadata(dict):
     def third_party_provider_authorization(self) -> Optional['outputs.ProviderHubMetadataResponseThirdPartyProviderAuthorization']:
         return pulumi.get(self, "third_party_provider_authorization")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "softDeleteTTL":
+            suggest = "soft_delete_ttl"
+        elif key == "subscriptionStateOverrideActions":
+            suggest = "subscription_state_override_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  soft_delete_ttl: Optional[str] = None,
                  subscription_state_override_actions: Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']] = None):
@@ -850,12 +1184,46 @@ class ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpe
     def subscription_state_override_actions(self) -> Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']]:
         return pulumi.get(self, "subscription_state_override_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderRegistrationResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "featuresRule":
+            suggest = "features_rule"
+        elif key == "providerAuthentication":
+            suggest = "provider_authentication"
+        elif key == "providerAuthorizations":
+            suggest = "provider_authorizations"
+        elif key == "providerHubMetadata":
+            suggest = "provider_hub_metadata"
+        elif key == "providerType":
+            suggest = "provider_type"
+        elif key == "providerVersion":
+            suggest = "provider_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "requestHeaderOptions":
+            suggest = "request_header_options"
+        elif key == "requiredFeatures":
+            suggest = "required_features"
+        elif key == "subscriptionLifecycleNotificationSpecifications":
+            suggest = "subscription_lifecycle_notification_specifications"
+        elif key == "templateDeploymentOptions":
+            suggest = "template_deployment_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderRegistrationResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderRegistrationResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderRegistrationResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capabilities: Optional[Sequence['outputs.ResourceProviderCapabilitiesResponse']] = None,
                  features_rule: Optional['outputs.ResourceProviderManifestPropertiesResponseFeaturesRule'] = None,
@@ -978,12 +1346,30 @@ class ProviderRegistrationResponseProperties(dict):
     def template_deployment_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions']:
         return pulumi.get(self, "template_deployment_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderAuthorizationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "managedByRoleDefinitionId":
+            suggest = "managed_by_role_definition_id"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_id: Optional[str] = None,
                  managed_by_role_definition_id: Optional[str] = None,
@@ -1010,12 +1396,28 @@ class ResourceProviderAuthorizationResponse(dict):
     def role_definition_id(self) -> Optional[str]:
         return pulumi.get(self, "role_definition_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderCapabilitiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "quotaId":
+            suggest = "quota_id"
+        elif key == "requiredFeatures":
+            suggest = "required_features"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderCapabilitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderCapabilitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderCapabilitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  effect: str,
                  quota_id: str,
@@ -1040,12 +1442,26 @@ class ResourceProviderCapabilitiesResponse(dict):
     def required_features(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "required_features")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderManifestPropertiesResponseFeaturesRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeaturesPolicy":
+            suggest = "required_features_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderManifestPropertiesResponseFeaturesRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderManifestPropertiesResponseFeaturesRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  required_features_policy: str):
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -1055,12 +1471,40 @@ class ResourceProviderManifestPropertiesResponseFeaturesRule(dict):
     def required_features_policy(self) -> str:
         return pulumi.get(self, "required_features_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderManifestPropertiesResponseManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentContactEmail":
+            suggest = "incident_contact_email"
+        elif key == "incidentRoutingService":
+            suggest = "incident_routing_service"
+        elif key == "incidentRoutingTeam":
+            suggest = "incident_routing_team"
+        elif key == "manifestOwners":
+            suggest = "manifest_owners"
+        elif key == "resourceAccessPolicy":
+            suggest = "resource_access_policy"
+        elif key == "resourceAccessRoles":
+            suggest = "resource_access_roles"
+        elif key == "schemaOwners":
+            suggest = "schema_owners"
+        elif key == "serviceTreeInfos":
+            suggest = "service_tree_infos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderManifestPropertiesResponseManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderManifestPropertiesResponseManagement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  incident_contact_email: Optional[str] = None,
                  incident_routing_service: Optional[str] = None,
@@ -1127,12 +1571,26 @@ class ResourceProviderManifestPropertiesResponseManagement(dict):
     def service_tree_infos(self) -> Optional[Sequence['outputs.ServiceTreeInfoResponse']]:
         return pulumi.get(self, "service_tree_infos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderManifestPropertiesResponseProviderAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAudiences":
+            suggest = "allowed_audiences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseProviderAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderManifestPropertiesResponseProviderAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderManifestPropertiesResponseProviderAuthentication.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str]):
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -1142,12 +1600,26 @@ class ResourceProviderManifestPropertiesResponseProviderAuthentication(dict):
     def allowed_audiences(self) -> Sequence[str]:
         return pulumi.get(self, "allowed_audiences")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderManifestPropertiesResponseRequestHeaderOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optInHeaders":
+            suggest = "opt_in_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseRequestHeaderOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderManifestPropertiesResponseRequestHeaderOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderManifestPropertiesResponseRequestHeaderOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  opt_in_headers: Optional[str] = None):
         if opt_in_headers is not None:
@@ -1158,12 +1630,28 @@ class ResourceProviderManifestPropertiesResponseRequestHeaderOptions(dict):
     def opt_in_headers(self) -> Optional[str]:
         return pulumi.get(self, "opt_in_headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preflightOptions":
+            suggest = "preflight_options"
+        elif key == "preflightSupported":
+            suggest = "preflight_supported"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preflight_options: Optional[Sequence[str]] = None,
                  preflight_supported: Optional[bool] = None):
@@ -1182,12 +1670,30 @@ class ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions(dict):
     def preflight_supported(self) -> Optional[bool]:
         return pulumi.get(self, "preflight_supported")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeEndpointResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersions":
+            suggest = "api_versions"
+        elif key == "featuresRule":
+            suggest = "features_rule"
+        elif key == "requiredFeatures":
+            suggest = "required_features"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_versions: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None,
@@ -1246,12 +1752,26 @@ class ResourceTypeEndpointResponse(dict):
     def timeout(self) -> Optional[str]:
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeEndpointResponseFeaturesRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeaturesPolicy":
+            suggest = "required_features_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeEndpointResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeEndpointResponseFeaturesRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeEndpointResponseFeaturesRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  required_features_policy: str):
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -1260,9 +1780,6 @@ class ResourceTypeEndpointResponseFeaturesRule(dict):
     @pulumi.getter(name="requiredFeaturesPolicy")
     def required_features_policy(self) -> str:
         return pulumi.get(self, "required_features_policy")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1285,12 +1802,28 @@ class ResourceTypeExtensionOptionsResponseResourceCreationBegin(dict):
     def response(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "response")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeExtensionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointUri":
+            suggest = "endpoint_uri"
+        elif key == "extensionCategories":
+            suggest = "extension_categories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_uri: Optional[str] = None,
                  extension_categories: Optional[Sequence[str]] = None,
@@ -1317,12 +1850,28 @@ class ResourceTypeExtensionResponse(dict):
     def timeout(self) -> Optional[str]:
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDefaultValidation":
+            suggest = "enable_default_validation"
+        elif key == "resourceTypesWithCustomValidation":
+            suggest = "resource_types_with_custom_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_default_validation: Optional[bool] = None,
                  resource_types_with_custom_validation: Optional[Sequence[str]] = None):
@@ -1341,12 +1890,26 @@ class ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificati
     def resource_types_with_custom_validation(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "resource_types_with_custom_validation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseExtensionOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceCreationBegin":
+            suggest = "resource_creation_begin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseExtensionOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseExtensionOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseExtensionOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_creation_begin: Optional['outputs.ResourceTypeExtensionOptionsResponseResourceCreationBegin'] = None):
         if resource_creation_begin is not None:
@@ -1357,12 +1920,26 @@ class ResourceTypeRegistrationPropertiesResponseExtensionOptions(dict):
     def resource_creation_begin(self) -> Optional['outputs.ResourceTypeExtensionOptionsResponseResourceCreationBegin']:
         return pulumi.get(self, "resource_creation_begin")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseFeaturesRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeaturesPolicy":
+            suggest = "required_features_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseFeaturesRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseFeaturesRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseFeaturesRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  required_features_policy: str):
         pulumi.set(__self__, "required_features_policy", required_features_policy)
@@ -1372,12 +1949,26 @@ class ResourceTypeRegistrationPropertiesResponseFeaturesRule(dict):
     def required_features_policy(self) -> str:
         return pulumi.get(self, "required_features_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseIdentityManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseIdentityManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseIdentityManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseIdentityManagement.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_id: Optional[str] = None,
                  type: Optional[str] = None):
@@ -1396,12 +1987,26 @@ class ResourceTypeRegistrationPropertiesResponseIdentityManagement(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optInHeaders":
+            suggest = "opt_in_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  opt_in_headers: Optional[str] = None):
         if opt_in_headers is not None:
@@ -1412,12 +2017,30 @@ class ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions(dict):
     def opt_in_headers(self) -> Optional[str]:
         return pulumi.get(self, "opt_in_headers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseResourceMovePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossResourceGroupMoveEnabled":
+            suggest = "cross_resource_group_move_enabled"
+        elif key == "crossSubscriptionMoveEnabled":
+            suggest = "cross_subscription_move_enabled"
+        elif key == "validationRequired":
+            suggest = "validation_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceMovePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseResourceMovePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseResourceMovePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cross_resource_group_move_enabled: Optional[bool] = None,
                  cross_subscription_move_enabled: Optional[bool] = None,
@@ -1444,12 +2067,28 @@ class ResourceTypeRegistrationPropertiesResponseResourceMovePolicy(dict):
     def validation_required(self) -> Optional[bool]:
         return pulumi.get(self, "validation_required")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "softDeleteTTL":
+            suggest = "soft_delete_ttl"
+        elif key == "subscriptionStateOverrideActions":
+            suggest = "subscription_state_override_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  soft_delete_ttl: Optional[str] = None,
                  subscription_state_override_actions: Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']] = None):
@@ -1468,12 +2107,28 @@ class ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificatio
     def subscription_state_override_actions(self) -> Optional[Sequence['outputs.SubscriptionStateOverrideActionResponse']]:
         return pulumi.get(self, "subscription_state_override_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preflightOptions":
+            suggest = "preflight_options"
+        elif key == "preflightSupported":
+            suggest = "preflight_supported"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preflight_options: Optional[Sequence[str]] = None,
                  preflight_supported: Optional[bool] = None):
@@ -1491,9 +2146,6 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
     @pulumi.getter(name="preflightSupported")
     def preflight_supported(self) -> Optional[bool]:
         return pulumi.get(self, "preflight_supported")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1543,12 +2195,78 @@ class ResourceTypeRegistrationResponse(dict):
     def properties(self) -> Optional['outputs.ResourceTypeRegistrationResponseProperties']:
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceTypeRegistrationResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedUnauthorizedActions":
+            suggest = "allowed_unauthorized_actions"
+        elif key == "authorizationActionMappings":
+            suggest = "authorization_action_mappings"
+        elif key == "checkNameAvailabilitySpecifications":
+            suggest = "check_name_availability_specifications"
+        elif key == "defaultApiVersion":
+            suggest = "default_api_version"
+        elif key == "disallowedActionVerbs":
+            suggest = "disallowed_action_verbs"
+        elif key == "enableAsyncOperation":
+            suggest = "enable_async_operation"
+        elif key == "enableThirdPartyS2S":
+            suggest = "enable_third_party_s2_s"
+        elif key == "extendedLocations":
+            suggest = "extended_locations"
+        elif key == "extensionOptions":
+            suggest = "extension_options"
+        elif key == "featuresRule":
+            suggest = "features_rule"
+        elif key == "identityManagement":
+            suggest = "identity_management"
+        elif key == "isPureProxy":
+            suggest = "is_pure_proxy"
+        elif key == "linkedAccessChecks":
+            suggest = "linked_access_checks"
+        elif key == "loggingRules":
+            suggest = "logging_rules"
+        elif key == "marketplaceType":
+            suggest = "marketplace_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "requestHeaderOptions":
+            suggest = "request_header_options"
+        elif key == "requiredFeatures":
+            suggest = "required_features"
+        elif key == "resourceDeletionPolicy":
+            suggest = "resource_deletion_policy"
+        elif key == "resourceMovePolicy":
+            suggest = "resource_move_policy"
+        elif key == "routingType":
+            suggest = "routing_type"
+        elif key == "serviceTreeInfos":
+            suggest = "service_tree_infos"
+        elif key == "subscriptionLifecycleNotificationSpecifications":
+            suggest = "subscription_lifecycle_notification_specifications"
+        elif key == "subscriptionStateRules":
+            suggest = "subscription_state_rules"
+        elif key == "swaggerSpecifications":
+            suggest = "swagger_specifications"
+        elif key == "templateDeploymentOptions":
+            suggest = "template_deployment_options"
+        elif key == "throttlingRules":
+            suggest = "throttling_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_unauthorized_actions: Optional[Sequence[str]] = None,
                  authorization_action_mappings: Optional[Sequence['outputs.AuthorizationActionMappingResponse']] = None,
@@ -1783,12 +2501,28 @@ class ResourceTypeRegistrationResponseProperties(dict):
     def throttling_rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
         return pulumi.get(self, "throttling_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceTreeInfoResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentId":
+            suggest = "component_id"
+        elif key == "serviceId":
+            suggest = "service_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTreeInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTreeInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTreeInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_id: Optional[str] = None,
                  service_id: Optional[str] = None):
@@ -1806,9 +2540,6 @@ class ServiceTreeInfoResponse(dict):
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[str]:
         return pulumi.get(self, "service_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1829,12 +2560,28 @@ class SkuCapabilityResponse(dict):
     def value(self) -> str:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuCostResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "meterId":
+            suggest = "meter_id"
+        elif key == "extendedUnit":
+            suggest = "extended_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuCostResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuCostResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuCostResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  meter_id: str,
                  extended_unit: Optional[str] = None,
@@ -1860,12 +2607,28 @@ class SkuCostResponse(dict):
     def quantity(self) -> Optional[int]:
         return pulumi.get(self, "quantity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuLocationInfoResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extendedLocations":
+            suggest = "extended_locations"
+        elif key == "zoneDetails":
+            suggest = "zone_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuLocationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuLocationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuLocationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  extended_locations: Optional[Sequence[str]] = None,
@@ -1907,12 +2670,26 @@ class SkuLocationInfoResponse(dict):
     def zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResourceResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skuSettings":
+            suggest = "sku_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuResourceResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuResourceResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sku_settings: Sequence['outputs.SkuSettingResponse']):
         pulumi.set(__self__, "sku_settings", sku_settings)
@@ -1922,12 +2699,30 @@ class SkuResourceResponseProperties(dict):
     def sku_settings(self) -> Sequence['outputs.SkuSettingResponse']:
         return pulumi.get(self, "sku_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuSettingResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationInfo":
+            suggest = "location_info"
+        elif key == "requiredFeatures":
+            suggest = "required_features"
+        elif key == "requiredQuotaIds":
+            suggest = "required_quota_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  capabilities: Optional[Sequence['outputs.SkuCapabilityResponse']] = None,
@@ -2025,12 +2820,26 @@ class SkuSettingResponse(dict):
     def tier(self) -> Optional[str]:
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuSettingResponseCapacity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleType":
+            suggest = "scale_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuSettingResponseCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuSettingResponseCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuSettingResponseCapacity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  minimum: int,
                  default: Optional[int] = None,
@@ -2064,9 +2873,6 @@ class SkuSettingResponseCapacity(dict):
     def scale_type(self) -> Optional[str]:
         return pulumi.get(self, "scale_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuZoneDetailResponse(dict):
@@ -2088,9 +2894,6 @@ class SkuZoneDetailResponse(dict):
     def name(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubscriptionStateOverrideActionResponse(dict):
@@ -2110,12 +2913,26 @@ class SubscriptionStateOverrideActionResponse(dict):
     def state(self) -> str:
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubscriptionStateRuleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedActions":
+            suggest = "allowed_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionStateRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionStateRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionStateRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_actions: Optional[Sequence[str]] = None,
                  state: Optional[str] = None):
@@ -2134,12 +2951,28 @@ class SubscriptionStateRuleResponse(dict):
     def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SwaggerSpecificationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersions":
+            suggest = "api_versions"
+        elif key == "swaggerSpecFolderUri":
+            suggest = "swagger_spec_folder_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SwaggerSpecificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SwaggerSpecificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SwaggerSpecificationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_versions: Optional[Sequence[str]] = None,
                  swagger_spec_folder_uri: Optional[str] = None):
@@ -2157,9 +2990,6 @@ class SwaggerSpecificationResponse(dict):
     @pulumi.getter(name="swaggerSpecFolderUri")
     def swagger_spec_folder_uri(self) -> Optional[str]:
         return pulumi.get(self, "swagger_spec_folder_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2188,12 +3018,26 @@ class ThrottlingMetricResponse(dict):
     def interval(self) -> Optional[str]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ThrottlingRuleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requiredFeatures":
+            suggest = "required_features"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThrottlingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThrottlingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThrottlingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  metrics: Sequence['outputs.ThrottlingMetricResponse'],
@@ -2218,9 +3062,6 @@ class ThrottlingRuleResponse(dict):
     def required_features(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "required_features")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TypedErrorInfoResponse(dict):
@@ -2239,8 +3080,5 @@ class TypedErrorInfoResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

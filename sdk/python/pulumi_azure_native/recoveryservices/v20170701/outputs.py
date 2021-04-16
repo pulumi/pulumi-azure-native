@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -21,6 +21,33 @@ class AzureRecoveryServiceVaultProtectionIntentResponse(dict):
     """
     Azure Recovery Services Vault specific protection intent item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "itemId":
+            suggest = "item_id"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionIntentItemType":
+            suggest = "protection_intent_item_type"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureRecoveryServiceVaultProtectionIntentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureRecoveryServiceVaultProtectionIntentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureRecoveryServiceVaultProtectionIntentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  item_id: Optional[str] = None,
@@ -100,15 +127,41 @@ class AzureRecoveryServiceVaultProtectionIntentResponse(dict):
         """
         return pulumi.get(self, "source_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureResourceProtectionIntentResponse(dict):
     """
     IaaS VM specific backup protection intent item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "itemId":
+            suggest = "item_id"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionIntentItemType":
+            suggest = "protection_intent_item_type"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureResourceProtectionIntentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureResourceProtectionIntentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureResourceProtectionIntentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
@@ -200,15 +253,39 @@ class AzureResourceProtectionIntentResponse(dict):
         """
         return pulumi.get(self, "source_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureWorkloadAutoProtectionIntentResponse(dict):
     """
     Azure Recovery Services Vault specific protection intent item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "itemId":
+            suggest = "item_id"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionIntentItemType":
+            suggest = "protection_intent_item_type"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureWorkloadAutoProtectionIntentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureWorkloadAutoProtectionIntentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureWorkloadAutoProtectionIntentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  item_id: Optional[str] = None,
@@ -288,15 +365,41 @@ class AzureWorkloadAutoProtectionIntentResponse(dict):
         """
         return pulumi.get(self, "source_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
     """
     Azure Workload SQL Auto Protection intent item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "itemId":
+            suggest = "item_id"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionIntentItemType":
+            suggest = "protection_intent_item_type"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadItemType":
+            suggest = "workload_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureWorkloadSQLAutoProtectionIntentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureWorkloadSQLAutoProtectionIntentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureWorkloadSQLAutoProtectionIntentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  item_id: Optional[str] = None,
@@ -387,8 +490,5 @@ class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
         Workload item type of the item for which intent is to be set
         """
         return pulumi.get(self, "workload_item_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

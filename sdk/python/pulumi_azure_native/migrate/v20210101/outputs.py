@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -54,6 +54,23 @@ class AutomaticResolutionPropertiesResponse(dict):
     """
     Defines the properties for automatic resolution.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "moveResourceId":
+            suggest = "move_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomaticResolutionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomaticResolutionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomaticResolutionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  move_resource_id: Optional[str] = None):
         """
@@ -73,15 +90,35 @@ class AutomaticResolutionPropertiesResponse(dict):
         """
         return pulumi.get(self, "move_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AvailabilitySetResourceSettingsResponse(dict):
     """
     Gets or sets the availability set resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "faultDomain":
+            suggest = "fault_domain"
+        elif key == "updateDomain":
+            suggest = "update_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvailabilitySetResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvailabilitySetResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvailabilitySetResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -135,15 +172,31 @@ class AvailabilitySetResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "update_domain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskEncryptionSetResourceSettingsResponse(dict):
     """
     Defines the disk encryption set resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskEncryptionSetResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskEncryptionSetResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskEncryptionSetResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str):
@@ -173,15 +226,31 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponse(dict):
     """
     Defines the MSI properties of the Move Collection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -223,15 +292,31 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobStatusResponse(dict):
     """
     Defines the job status.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobName":
+            suggest = "job_name"
+        elif key == "jobProgress":
+            suggest = "job_progress"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  job_name: str,
                  job_progress: str):
@@ -259,15 +344,31 @@ class JobStatusResponse(dict):
         """
         return pulumi.get(self, "job_progress")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultResourceSettingsResponse(dict):
     """
     Defines the key vault resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str):
@@ -297,9 +398,6 @@ class KeyVaultResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LBBackendAddressPoolResourceSettingsResponse(dict):
@@ -323,15 +421,31 @@ class LBBackendAddressPoolResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LBFrontendIPConfigurationResourceSettingsResponse(dict):
     """
     Defines load balancer frontend IP configuration properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LBFrontendIPConfigurationResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LBFrontendIPConfigurationResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LBFrontendIPConfigurationResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
@@ -344,7 +458,7 @@ class LBFrontendIPConfigurationResourceSettingsResponse(dict):
         :param str private_ip_address: Gets or sets the IP address of the Load Balancer.This is only specified if a specific
                private IP address shall be allocated from the subnet specified in subnetRef.
         :param str private_ip_allocation_method: Gets or sets PrivateIP allocation method (Static/Dynamic).
-        :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
+        :param 'SubnetReferenceResponse' subnet: Defines reference to subnet.
         :param str zones: Gets or sets the csv list of zones.
         """
         if name is not None:
@@ -399,15 +513,29 @@ class LBFrontendIPConfigurationResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerBackendAddressPoolReferenceResponse(dict):
     """
     Defines reference to load balancer backend address pools.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArmResourceId":
+            suggest = "source_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerBackendAddressPoolReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerBackendAddressPoolReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerBackendAddressPoolReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_arm_resource_id: str,
                  name: Optional[str] = None):
@@ -436,15 +564,29 @@ class LoadBalancerBackendAddressPoolReferenceResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerNatRuleReferenceResponse(dict):
     """
     Defines reference to load balancer NAT rules.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArmResourceId":
+            suggest = "source_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerNatRuleReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerNatRuleReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerNatRuleReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_arm_resource_id: str,
                  name: Optional[str] = None):
@@ -473,15 +615,35 @@ class LoadBalancerNatRuleReferenceResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerResourceSettingsResponse(dict):
     """
     Defines the load balancer resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "backendAddressPools":
+            suggest = "backend_address_pools"
+        elif key == "frontendIPConfigurations":
+            suggest = "frontend_ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -494,8 +656,8 @@ class LoadBalancerResourceSettingsResponse(dict):
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/loadBalancers'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Sequence['LBBackendAddressPoolResourceSettingsResponseArgs'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
-        :param Sequence['LBFrontendIPConfigurationResourceSettingsResponseArgs'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
+        :param Sequence['LBBackendAddressPoolResourceSettingsResponse'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
+        :param Sequence['LBFrontendIPConfigurationResourceSettingsResponse'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param str sku: Gets or sets load balancer sku (Basic/Standard).
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
@@ -561,15 +723,29 @@ class LoadBalancerResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManualResolutionPropertiesResponse(dict):
     """
     Defines the properties for manual resolution.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetId":
+            suggest = "target_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManualResolutionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManualResolutionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManualResolutionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_id: Optional[str] = None):
         """
@@ -587,15 +763,33 @@ class ManualResolutionPropertiesResponse(dict):
         """
         return pulumi.get(self, "target_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveCollectionPropertiesResponse(dict):
     """
     Defines the move collection properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceRegion":
+            suggest = "source_region"
+        elif key == "targetRegion":
+            suggest = "target_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MoveCollectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MoveCollectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MoveCollectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: 'outputs.MoveCollectionPropertiesResponseErrors',
                  provisioning_state: str,
@@ -603,7 +797,7 @@ class MoveCollectionPropertiesResponse(dict):
                  target_region: str):
         """
         Defines the move collection properties.
-        :param 'MoveCollectionPropertiesResponseErrorsArgs' errors: Defines the move collection errors.
+        :param 'MoveCollectionPropertiesResponseErrors' errors: Defines the move collection errors.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_region: Gets or sets the source region.
         :param str target_region: Gets or sets the target region.
@@ -645,9 +839,6 @@ class MoveCollectionPropertiesResponse(dict):
         """
         return pulumi.get(self, "target_region")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveCollectionPropertiesResponseErrors(dict):
@@ -658,7 +849,7 @@ class MoveCollectionPropertiesResponseErrors(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         Defines the move collection errors.
-        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -671,15 +862,29 @@ class MoveCollectionPropertiesResponseErrors(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourceDependencyOverrideResponse(dict):
     """
     Defines the dependency override of the move resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetId":
+            suggest = "target_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MoveResourceDependencyOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MoveResourceDependencyOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MoveResourceDependencyOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  target_id: Optional[str] = None):
@@ -711,15 +916,39 @@ class MoveResourceDependencyOverrideResponse(dict):
         """
         return pulumi.get(self, "target_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourceDependencyResponse(dict):
     """
     Defines the dependency of the move resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automaticResolution":
+            suggest = "automatic_resolution"
+        elif key == "dependencyType":
+            suggest = "dependency_type"
+        elif key == "isOptional":
+            suggest = "is_optional"
+        elif key == "manualResolution":
+            suggest = "manual_resolution"
+        elif key == "resolutionStatus":
+            suggest = "resolution_status"
+        elif key == "resolutionType":
+            suggest = "resolution_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MoveResourceDependencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MoveResourceDependencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MoveResourceDependencyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automatic_resolution: Optional['outputs.AutomaticResolutionPropertiesResponse'] = None,
                  dependency_type: Optional[str] = None,
@@ -730,11 +959,11 @@ class MoveResourceDependencyResponse(dict):
                  resolution_type: Optional[str] = None):
         """
         Defines the dependency of the move resource.
-        :param 'AutomaticResolutionPropertiesResponseArgs' automatic_resolution: Defines the properties for automatic resolution.
+        :param 'AutomaticResolutionPropertiesResponse' automatic_resolution: Defines the properties for automatic resolution.
         :param str dependency_type: Defines the dependency type.
         :param str id: Gets the source ARM ID of the dependent resource.
         :param str is_optional: Gets or sets a value indicating whether the dependency is optional.
-        :param 'ManualResolutionPropertiesResponseArgs' manual_resolution: Defines the properties for manual resolution.
+        :param 'ManualResolutionPropertiesResponse' manual_resolution: Defines the properties for manual resolution.
         :param str resolution_status: Gets the dependency resolution status.
         :param str resolution_type: Defines the resolution type.
         """
@@ -809,9 +1038,6 @@ class MoveResourceDependencyResponse(dict):
         """
         return pulumi.get(self, "resolution_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourceErrorBodyResponse(dict):
@@ -826,7 +1052,7 @@ class MoveResourceErrorBodyResponse(dict):
         """
         An error response from the Azure Migrate service.
         :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param Sequence['MoveResourceErrorBodyResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['MoveResourceErrorBodyResponse'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         :param str target: The target of the particular error. For example, the name of the property in error.
         """
@@ -867,9 +1093,6 @@ class MoveResourceErrorBodyResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourceErrorResponse(dict):
@@ -880,7 +1103,7 @@ class MoveResourceErrorResponse(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         An error response from the azure resource mover service.
-        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -893,15 +1116,47 @@ class MoveResourceErrorResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourcePropertiesResponse(dict):
     """
     Defines the move resource properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "isResolveRequired":
+            suggest = "is_resolve_required"
+        elif key == "moveStatus":
+            suggest = "move_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceId":
+            suggest = "source_id"
+        elif key == "sourceResourceSettings":
+            suggest = "source_resource_settings"
+        elif key == "targetId":
+            suggest = "target_id"
+        elif key == "dependsOnOverrides":
+            suggest = "depends_on_overrides"
+        elif key == "existingTargetId":
+            suggest = "existing_target_id"
+        elif key == "resourceSettings":
+            suggest = "resource_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MoveResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MoveResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MoveResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  depends_on: Sequence['outputs.MoveResourceDependencyResponse'],
                  errors: 'outputs.MoveResourcePropertiesResponseErrors',
@@ -916,17 +1171,17 @@ class MoveResourcePropertiesResponse(dict):
                  resource_settings: Optional[Any] = None):
         """
         Defines the move resource properties.
-        :param Sequence['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
-        :param 'MoveResourcePropertiesResponseErrorsArgs' errors: Defines the move resource errors.
+        :param Sequence['MoveResourceDependencyResponse'] depends_on: Gets or sets the move resource dependencies.
+        :param 'MoveResourcePropertiesResponseErrors' errors: Defines the move resource errors.
         :param bool is_resolve_required: Gets a value indicating whether the resolve action is required over the move collection.
-        :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
+        :param 'MoveResourcePropertiesResponseMoveStatus' move_status: Defines the move resource status.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
-        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'DiskEncryptionSetResourceSettingsResponseArgs', 'KeyVaultResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] source_resource_settings: Gets or sets the source resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponse', 'DiskEncryptionSetResourceSettingsResponse', 'KeyVaultResourceSettingsResponse', 'LoadBalancerResourceSettingsResponse', 'NetworkInterfaceResourceSettingsResponse', 'NetworkSecurityGroupResourceSettingsResponse', 'PublicIPAddressResourceSettingsResponse', 'ResourceGroupResourceSettingsResponse', 'SqlDatabaseResourceSettingsResponse', 'SqlElasticPoolResourceSettingsResponse', 'SqlServerResourceSettingsResponse', 'VirtualMachineResourceSettingsResponse', 'VirtualNetworkResourceSettingsResponse'] source_resource_settings: Gets or sets the source resource settings.
         :param str target_id: Gets or sets the Target ARM Id of the resource.
-        :param Sequence['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
+        :param Sequence['MoveResourceDependencyOverrideResponse'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
-        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'DiskEncryptionSetResourceSettingsResponseArgs', 'KeyVaultResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponse', 'DiskEncryptionSetResourceSettingsResponse', 'KeyVaultResourceSettingsResponse', 'LoadBalancerResourceSettingsResponse', 'NetworkInterfaceResourceSettingsResponse', 'NetworkSecurityGroupResourceSettingsResponse', 'PublicIPAddressResourceSettingsResponse', 'ResourceGroupResourceSettingsResponse', 'SqlDatabaseResourceSettingsResponse', 'SqlElasticPoolResourceSettingsResponse', 'SqlServerResourceSettingsResponse', 'VirtualMachineResourceSettingsResponse', 'VirtualNetworkResourceSettingsResponse'] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "depends_on", depends_on)
         pulumi.set(__self__, "errors", errors)
@@ -1031,9 +1286,6 @@ class MoveResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "resource_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourcePropertiesResponseErrors(dict):
@@ -1044,7 +1296,7 @@ class MoveResourcePropertiesResponseErrors(dict):
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
         Defines the move resource errors.
-        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        :param 'MoveResourceErrorBodyResponse' properties: The move resource error body.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -1057,15 +1309,31 @@ class MoveResourcePropertiesResponseErrors(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MoveResourcePropertiesResponseMoveStatus(dict):
     """
     Defines the move resource status.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "moveState":
+            suggest = "move_state"
+        elif key == "jobStatus":
+            suggest = "job_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MoveResourcePropertiesResponseMoveStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MoveResourcePropertiesResponseMoveStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MoveResourcePropertiesResponseMoveStatus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  move_state: str,
                  errors: Optional['outputs.MoveResourceErrorResponse'] = None,
@@ -1073,8 +1341,8 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         """
         Defines the move resource status.
         :param str move_state: Defines the MoveResource states.
-        :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure resource mover service.
-        :param 'JobStatusResponseArgs' job_status: Defines the job status.
+        :param 'MoveResourceErrorResponse' errors: An error response from the azure resource mover service.
+        :param 'JobStatusResponse' job_status: Defines the job status.
         """
         pulumi.set(__self__, "move_state", move_state)
         if errors is not None:
@@ -1106,15 +1374,35 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         """
         return pulumi.get(self, "job_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceResourceSettingsResponse(dict):
     """
     Defines the network interface resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1126,7 +1414,7 @@ class NetworkInterfaceResourceSettingsResponse(dict):
                Expected value is 'Microsoft.Network/networkInterfaces'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
-        :param Sequence['NicIpConfigurationResourceSettingsResponseArgs'] ip_configurations: Gets or sets the IP configurations of the NIC.
+        :param Sequence['NicIpConfigurationResourceSettingsResponse'] ip_configurations: Gets or sets the IP configurations of the NIC.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1168,15 +1456,33 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "ip_configurations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkSecurityGroupResourceSettingsResponse(dict):
     """
     Defines the NSG resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "securityRules":
+            suggest = "security_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityGroupResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSecurityGroupResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSecurityGroupResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1186,7 +1492,7 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Sequence['NsgSecurityRuleResponseArgs'] security_rules: Gets or sets Security rules of network security group.
+        :param Sequence['NsgSecurityRuleResponse'] security_rules: Gets or sets Security rules of network security group.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1218,15 +1524,37 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "security_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NicIpConfigurationResourceSettingsResponse(dict):
     """
     Defines NIC IP configuration properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerBackendAddressPools":
+            suggest = "load_balancer_backend_address_pools"
+        elif key == "loadBalancerNatRules":
+            suggest = "load_balancer_nat_rules"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIp":
+            suggest = "public_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NicIpConfigurationResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NicIpConfigurationResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NicIpConfigurationResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  load_balancer_backend_address_pools: Optional[Sequence['outputs.LoadBalancerBackendAddressPoolReferenceResponse']] = None,
                  load_balancer_nat_rules: Optional[Sequence['outputs.LoadBalancerNatRuleReferenceResponse']] = None,
@@ -1238,14 +1566,14 @@ class NicIpConfigurationResourceSettingsResponse(dict):
                  subnet: Optional['outputs.SubnetReferenceResponse'] = None):
         """
         Defines NIC IP configuration properties.
-        :param Sequence['LoadBalancerBackendAddressPoolReferenceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
-        :param Sequence['LoadBalancerNatRuleReferenceResponseArgs'] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
+        :param Sequence['LoadBalancerBackendAddressPoolReferenceResponse'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param Sequence['LoadBalancerNatRuleReferenceResponse'] load_balancer_nat_rules: Gets or sets the references of the load balancer NAT rules.
         :param str name: Gets or sets the IP configuration name.
         :param bool primary: Gets or sets a value indicating whether this IP configuration is the primary.
         :param str private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
         :param str private_ip_allocation_method: Gets or sets the private IP address allocation method.
-        :param 'PublicIpReferenceResponseArgs' public_ip: Defines reference to a public IP.
-        :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
+        :param 'PublicIpReferenceResponse' public_ip: Defines reference to a public IP.
+        :param 'SubnetReferenceResponse' subnet: Defines reference to subnet.
         """
         if load_balancer_backend_address_pools is not None:
             pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
@@ -1328,15 +1656,29 @@ class NicIpConfigurationResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NsgReferenceResponse(dict):
     """
     Defines reference to NSG.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArmResourceId":
+            suggest = "source_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NsgReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NsgReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NsgReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_arm_resource_id: str):
         """
@@ -1353,15 +1695,35 @@ class NsgReferenceResponse(dict):
         """
         return pulumi.get(self, "source_arm_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NsgSecurityRuleResponse(dict):
     """
     Security Rule data model for Network Security Groups.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddressPrefix":
+            suggest = "destination_address_prefix"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "sourceAddressPrefix":
+            suggest = "source_address_prefix"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NsgSecurityRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NsgSecurityRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NsgSecurityRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1509,15 +1871,35 @@ class NsgSecurityRuleResponse(dict):
         """
         return pulumi.get(self, "source_port_range")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PublicIPAddressResourceSettingsResponse(dict):
     """
     Defines the public IP address resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "publicIpAllocationMethod":
+            suggest = "public_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1607,15 +1989,29 @@ class PublicIPAddressResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PublicIpReferenceResponse(dict):
     """
     Defines reference to a public IP.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArmResourceId":
+            suggest = "source_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIpReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIpReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIpReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_arm_resource_id: str):
         """
@@ -1632,15 +2028,31 @@ class PublicIpReferenceResponse(dict):
         """
         return pulumi.get(self, "source_arm_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceGroupResourceSettingsResponse(dict):
     """
     Defines the resource group resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str):
@@ -1670,15 +2082,33 @@ class ResourceGroupResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlDatabaseResourceSettingsResponse(dict):
     """
     Defines the Sql Database resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "zoneRedundant":
+            suggest = "zone_redundant"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDatabaseResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDatabaseResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDatabaseResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1720,15 +2150,33 @@ class SqlDatabaseResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "zone_redundant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlElasticPoolResourceSettingsResponse(dict):
     """
     Defines the Sql ElasticPool resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "zoneRedundant":
+            suggest = "zone_redundant"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlElasticPoolResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlElasticPoolResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlElasticPoolResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1770,15 +2218,31 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "zone_redundant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlServerResourceSettingsResponse(dict):
     """
     Defines the SQL Server resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str):
@@ -1808,15 +2272,29 @@ class SqlServerResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetReferenceResponse(dict):
     """
     Defines reference to subnet.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArmResourceId":
+            suggest = "source_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_arm_resource_id: str,
                  name: Optional[str] = None):
@@ -1845,15 +2323,31 @@ class SubnetReferenceResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetResourceSettingsResponse(dict):
     """
     Defines the virtual network subnets resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "networkSecurityGroup":
+            suggest = "network_security_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefix: Optional[str] = None,
                  name: Optional[str] = None,
@@ -1862,7 +2356,7 @@ class SubnetResourceSettingsResponse(dict):
         Defines the virtual network subnets resource settings.
         :param str address_prefix: Gets or sets address prefix for the subnet.
         :param str name: Gets or sets the Subnet name.
-        :param 'NsgReferenceResponseArgs' network_security_group: Defines reference to NSG.
+        :param 'NsgReferenceResponse' network_security_group: Defines reference to NSG.
         """
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
@@ -1895,15 +2389,37 @@ class SubnetResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "network_security_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineResourceSettingsResponse(dict):
     """
     Gets or sets the virtual machine resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "targetAvailabilitySetId":
+            suggest = "target_availability_set_id"
+        elif key == "targetAvailabilityZone":
+            suggest = "target_availability_zone"
+        elif key == "targetVmSize":
+            suggest = "target_vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1969,15 +2485,37 @@ class VirtualMachineResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkResourceSettingsResponse(dict):
     """
     Defines the virtual network resource settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
+        elif key == "addressSpace":
+            suggest = "address_space"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "enableDdosProtection":
+            suggest = "enable_ddos_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkResourceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkResourceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
@@ -1995,7 +2533,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
                deployed in the virtual network.
         :param bool enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
-        :param Sequence['SubnetResourceSettingsResponseArgs'] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        :param Sequence['SubnetResourceSettingsResponse'] subnets: Gets or sets List of subnets in a VirtualNetwork.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -2058,8 +2596,5 @@ class VirtualNetworkResourceSettingsResponse(dict):
         Gets or sets List of subnets in a VirtualNetwork.
         """
         return pulumi.get(self, "subnets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

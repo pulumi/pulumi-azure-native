@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -69,9 +69,6 @@ class CapabilityResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HostingEnvironmentProfileResponse(dict):
@@ -117,9 +114,6 @@ class HostingEnvironmentProfileResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NameValuePairResponse(dict):
@@ -155,15 +149,29 @@ class NameValuePairResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkAccessControlEntryResponse(dict):
     """
     Network access control entry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteSubnet":
+            suggest = "remote_subnet"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAccessControlEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAccessControlEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAccessControlEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  description: Optional[str] = None,
@@ -217,15 +225,29 @@ class NetworkAccessControlEntryResponse(dict):
         """
         return pulumi.get(self, "remote_subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuCapacityResponse(dict):
     """
     Description of the App Service plan scale options.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleType":
+            suggest = "scale_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuCapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuCapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuCapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default: Optional[int] = None,
                  maximum: Optional[int] = None,
@@ -279,15 +301,29 @@ class SkuCapacityResponse(dict):
         """
         return pulumi.get(self, "scale_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuDescriptionResponse(dict):
     """
     Description of a SKU for a scalable resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skuCapacity":
+            suggest = "sku_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capabilities: Optional[Sequence['outputs.CapabilityResponse']] = None,
                  capacity: Optional[int] = None,
@@ -299,13 +335,13 @@ class SkuDescriptionResponse(dict):
                  tier: Optional[str] = None):
         """
         Description of a SKU for a scalable resource.
-        :param Sequence['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param Sequence['CapabilityResponse'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
         :param int capacity: Current number of instances assigned to the resource.
         :param str family: Family code of the resource SKU.
         :param Sequence[str] locations: Locations of the SKU.
         :param str name: Name of the resource SKU.
         :param str size: Size specifier of the resource SKU.
-        :param 'SkuCapacityResponseArgs' sku_capacity: Min, max, and default scale values of the SKU.
+        :param 'SkuCapacityResponse' sku_capacity: Min, max, and default scale values of the SKU.
         :param str tier: Service tier of the resource SKU.
         """
         if capabilities is not None:
@@ -389,15 +425,43 @@ class SkuDescriptionResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StampCapacityResponse(dict):
     """
     Stamp capacity information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availableCapacity":
+            suggest = "available_capacity"
+        elif key == "computeMode":
+            suggest = "compute_mode"
+        elif key == "excludeFromCapacityAllocation":
+            suggest = "exclude_from_capacity_allocation"
+        elif key == "isApplicableForAllComputeModes":
+            suggest = "is_applicable_for_all_compute_modes"
+        elif key == "siteMode":
+            suggest = "site_mode"
+        elif key == "totalCapacity":
+            suggest = "total_capacity"
+        elif key == "workerSize":
+            suggest = "worker_size"
+        elif key == "workerSizeId":
+            suggest = "worker_size_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StampCapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StampCapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StampCapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  available_capacity: Optional[float] = None,
                  compute_mode: Optional[str] = None,
@@ -531,15 +595,35 @@ class StampCapacityResponse(dict):
         """
         return pulumi.get(self, "worker_size_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualIPMappingResponse(dict):
     """
     Virtual IP mapping.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inUse":
+            suggest = "in_use"
+        elif key == "internalHttpPort":
+            suggest = "internal_http_port"
+        elif key == "internalHttpsPort":
+            suggest = "internal_https_port"
+        elif key == "virtualIP":
+            suggest = "virtual_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualIPMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualIPMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualIPMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  in_use: Optional[bool] = None,
                  internal_http_port: Optional[int] = None,
@@ -592,9 +676,6 @@ class VirtualIPMappingResponse(dict):
         Virtual IP address.
         """
         return pulumi.get(self, "virtual_ip")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -653,15 +734,37 @@ class VirtualNetworkProfileResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkerPoolResponse(dict):
     """
     Worker pool of an App Service Environment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceNames":
+            suggest = "instance_names"
+        elif key == "computeMode":
+            suggest = "compute_mode"
+        elif key == "workerCount":
+            suggest = "worker_count"
+        elif key == "workerSize":
+            suggest = "worker_size"
+        elif key == "workerSizeId":
+            suggest = "worker_size_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkerPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkerPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkerPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_names: Sequence[str],
                  compute_mode: Optional[str] = None,
@@ -725,8 +828,5 @@ class WorkerPoolResponse(dict):
         Worker size ID for referencing this worker pool.
         """
         return pulumi.get(self, "worker_size_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

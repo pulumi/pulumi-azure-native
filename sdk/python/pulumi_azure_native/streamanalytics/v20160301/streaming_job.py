@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -314,9 +314,7 @@ class StreamingJob(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transformation: Optional[pulumi.Input[pulumi.InputType['TransformationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A streaming job object, containing all information associated with the named streaming job.
 
@@ -381,15 +379,7 @@ class StreamingJob(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transformation: Optional[pulumi.Input[pulumi.InputType['TransformationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,35 +389,35 @@ class StreamingJob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StreamingJobArgs.__new__(StreamingJobArgs)
 
-            __props__['compatibility_level'] = compatibility_level
-            __props__['data_locale'] = data_locale
-            __props__['events_late_arrival_max_delay_in_seconds'] = events_late_arrival_max_delay_in_seconds
-            __props__['events_out_of_order_max_delay_in_seconds'] = events_out_of_order_max_delay_in_seconds
-            __props__['events_out_of_order_policy'] = events_out_of_order_policy
-            __props__['functions'] = functions
-            __props__['inputs'] = inputs
-            __props__['job_name'] = job_name
-            __props__['location'] = location
-            __props__['output_error_policy'] = output_error_policy
-            __props__['output_start_mode'] = output_start_mode
-            __props__['output_start_time'] = output_start_time
-            __props__['outputs'] = outputs
+            __props__.__dict__["compatibility_level"] = compatibility_level
+            __props__.__dict__["data_locale"] = data_locale
+            __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = events_late_arrival_max_delay_in_seconds
+            __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
+            __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
+            __props__.__dict__["functions"] = functions
+            __props__.__dict__["inputs"] = inputs
+            __props__.__dict__["job_name"] = job_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["output_error_policy"] = output_error_policy
+            __props__.__dict__["output_start_mode"] = output_start_mode
+            __props__.__dict__["output_start_time"] = output_start_time
+            __props__.__dict__["outputs"] = outputs
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['transformation'] = transformation
-            __props__['created_date'] = None
-            __props__['etag'] = None
-            __props__['job_id'] = None
-            __props__['job_state'] = None
-            __props__['last_output_event_time'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["transformation"] = transformation
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["job_id"] = None
+            __props__.__dict__["job_state"] = None
+            __props__.__dict__["last_output_event_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:StreamingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingJob, __self__).__init__(
@@ -450,31 +440,31 @@ class StreamingJob(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StreamingJobArgs.__new__(StreamingJobArgs)
 
-        __props__["compatibility_level"] = None
-        __props__["created_date"] = None
-        __props__["data_locale"] = None
-        __props__["etag"] = None
-        __props__["events_late_arrival_max_delay_in_seconds"] = None
-        __props__["events_out_of_order_max_delay_in_seconds"] = None
-        __props__["events_out_of_order_policy"] = None
-        __props__["functions"] = None
-        __props__["inputs"] = None
-        __props__["job_id"] = None
-        __props__["job_state"] = None
-        __props__["last_output_event_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["output_error_policy"] = None
-        __props__["output_start_mode"] = None
-        __props__["output_start_time"] = None
-        __props__["outputs"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["transformation"] = None
-        __props__["type"] = None
+        __props__.__dict__["compatibility_level"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["data_locale"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = None
+        __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = None
+        __props__.__dict__["events_out_of_order_policy"] = None
+        __props__.__dict__["functions"] = None
+        __props__.__dict__["inputs"] = None
+        __props__.__dict__["job_id"] = None
+        __props__.__dict__["job_state"] = None
+        __props__.__dict__["last_output_event_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["output_error_policy"] = None
+        __props__.__dict__["output_start_mode"] = None
+        __props__.__dict__["output_start_time"] = None
+        __props__.__dict__["outputs"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["transformation"] = None
+        __props__.__dict__["type"] = None
         return StreamingJob(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -660,10 +650,4 @@ class StreamingJob(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

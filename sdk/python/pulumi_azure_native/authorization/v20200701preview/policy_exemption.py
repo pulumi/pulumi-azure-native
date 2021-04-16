@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -175,9 +175,7 @@ class PolicyExemption(pulumi.CustomResource):
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The policy exemption.
 
@@ -226,15 +224,7 @@ class PolicyExemption(pulumi.CustomResource):
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,26 +234,26 @@ class PolicyExemption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyExemptionArgs.__new__(PolicyExemptionArgs)
 
-            __props__['description'] = description
-            __props__['display_name'] = display_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
             if exemption_category is None and not opts.urn:
                 raise TypeError("Missing required property 'exemption_category'")
-            __props__['exemption_category'] = exemption_category
-            __props__['expires_on'] = expires_on
-            __props__['metadata'] = metadata
+            __props__.__dict__["exemption_category"] = exemption_category
+            __props__.__dict__["expires_on"] = expires_on
+            __props__.__dict__["metadata"] = metadata
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
-            __props__['policy_assignment_id'] = policy_assignment_id
-            __props__['policy_definition_reference_ids'] = policy_definition_reference_ids
-            __props__['policy_exemption_name'] = policy_exemption_name
+            __props__.__dict__["policy_assignment_id"] = policy_assignment_id
+            __props__.__dict__["policy_definition_reference_ids"] = policy_definition_reference_ids
+            __props__.__dict__["policy_exemption_name"] = policy_exemption_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20200701preview:PolicyExemption"), pulumi.Alias(type_="azure-native:authorization:PolicyExemption"), pulumi.Alias(type_="azure-nextgen:authorization:PolicyExemption")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyExemption, __self__).__init__(
@@ -286,18 +276,18 @@ class PolicyExemption(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PolicyExemptionArgs.__new__(PolicyExemptionArgs)
 
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["exemption_category"] = None
-        __props__["expires_on"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["policy_assignment_id"] = None
-        __props__["policy_definition_reference_ids"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["exemption_category"] = None
+        __props__.__dict__["expires_on"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["policy_assignment_id"] = None
+        __props__.__dict__["policy_definition_reference_ids"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return PolicyExemption(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -379,10 +369,4 @@ class PolicyExemption(pulumi.CustomResource):
         The type of the resource (Microsoft.Authorization/policyExemptions).
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

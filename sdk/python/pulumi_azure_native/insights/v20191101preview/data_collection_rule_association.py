@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['DataCollectionRuleAssociationArgs', 'DataCollectionRuleAssociation']
 
@@ -90,9 +90,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Definition of generic ARM proxy resource.
 
@@ -131,15 +129,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -149,18 +139,18 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataCollectionRuleAssociationArgs.__new__(DataCollectionRuleAssociationArgs)
 
-            __props__['association_name'] = association_name
-            __props__['data_collection_rule_id'] = data_collection_rule_id
-            __props__['description'] = description
+            __props__.__dict__["association_name"] = association_name
+            __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
+            __props__.__dict__["description"] = description
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
-            __props__['resource_uri'] = resource_uri
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation"), pulumi.Alias(type_="azure-native:insights:DataCollectionRuleAssociation"), pulumi.Alias(type_="azure-nextgen:insights:DataCollectionRuleAssociation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataCollectionRuleAssociation, __self__).__init__(
@@ -183,14 +173,14 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DataCollectionRuleAssociationArgs.__new__(DataCollectionRuleAssociationArgs)
 
-        __props__["data_collection_rule_id"] = None
-        __props__["description"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["type"] = None
+        __props__.__dict__["data_collection_rule_id"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["type"] = None
         return DataCollectionRuleAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -240,10 +230,4 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['WebAppSiteExtensionSlotArgs', 'WebAppSiteExtensionSlot']
 
@@ -88,9 +88,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_extension_id: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Site Extension Information.
 
@@ -129,15 +127,7 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_extension_id: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -147,40 +137,40 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppSiteExtensionSlotArgs.__new__(WebAppSiteExtensionSlotArgs)
 
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['site_extension_id'] = site_extension_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["site_extension_id"] = site_extension_id
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
-            __props__['authors'] = None
-            __props__['comment'] = None
-            __props__['description'] = None
-            __props__['download_count'] = None
-            __props__['extension_id'] = None
-            __props__['extension_type'] = None
-            __props__['extension_url'] = None
-            __props__['feed_url'] = None
-            __props__['icon_url'] = None
-            __props__['installed_date_time'] = None
-            __props__['installer_command_line_params'] = None
-            __props__['kind'] = None
-            __props__['license_url'] = None
-            __props__['local_is_latest_version'] = None
-            __props__['local_path'] = None
-            __props__['project_url'] = None
-            __props__['provisioning_state'] = None
-            __props__['published_date_time'] = None
-            __props__['summary'] = None
-            __props__['title'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["authors"] = None
+            __props__.__dict__["comment"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["download_count"] = None
+            __props__.__dict__["extension_id"] = None
+            __props__.__dict__["extension_type"] = None
+            __props__.__dict__["extension_url"] = None
+            __props__.__dict__["feed_url"] = None
+            __props__.__dict__["icon_url"] = None
+            __props__.__dict__["installed_date_time"] = None
+            __props__.__dict__["installer_command_line_params"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["license_url"] = None
+            __props__.__dict__["local_is_latest_version"] = None
+            __props__.__dict__["local_path"] = None
+            __props__.__dict__["project_url"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["published_date_time"] = None
+            __props__.__dict__["summary"] = None
+            __props__.__dict__["title"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSiteExtensionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppSiteExtensionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteExtensionSlot, __self__).__init__(
@@ -203,31 +193,31 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppSiteExtensionSlotArgs.__new__(WebAppSiteExtensionSlotArgs)
 
-        __props__["authors"] = None
-        __props__["comment"] = None
-        __props__["description"] = None
-        __props__["download_count"] = None
-        __props__["extension_id"] = None
-        __props__["extension_type"] = None
-        __props__["extension_url"] = None
-        __props__["feed_url"] = None
-        __props__["icon_url"] = None
-        __props__["installed_date_time"] = None
-        __props__["installer_command_line_params"] = None
-        __props__["kind"] = None
-        __props__["license_url"] = None
-        __props__["local_is_latest_version"] = None
-        __props__["local_path"] = None
-        __props__["name"] = None
-        __props__["project_url"] = None
-        __props__["provisioning_state"] = None
-        __props__["published_date_time"] = None
-        __props__["summary"] = None
-        __props__["title"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["authors"] = None
+        __props__.__dict__["comment"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["download_count"] = None
+        __props__.__dict__["extension_id"] = None
+        __props__.__dict__["extension_type"] = None
+        __props__.__dict__["extension_url"] = None
+        __props__.__dict__["feed_url"] = None
+        __props__.__dict__["icon_url"] = None
+        __props__.__dict__["installed_date_time"] = None
+        __props__.__dict__["installer_command_line_params"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["license_url"] = None
+        __props__.__dict__["local_is_latest_version"] = None
+        __props__.__dict__["local_path"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["project_url"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["published_date_time"] = None
+        __props__.__dict__["summary"] = None
+        __props__.__dict__["title"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return WebAppSiteExtensionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -410,10 +400,4 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
         Version information.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

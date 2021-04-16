@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -191,9 +191,7 @@ class Account(pulumi.CustomResource):
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vso_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An object that represents a machine learning team account.
         API Version: 2017-05-01-preview.
@@ -246,15 +244,7 @@ class Account(pulumi.CustomResource):
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vso_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,32 +254,32 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['account_name'] = account_name
-            __props__['description'] = description
-            __props__['friendly_name'] = friendly_name
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["friendly_name"] = friendly_name
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
-            __props__['key_vault_id'] = key_vault_id
-            __props__['location'] = location
+            __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['seats'] = seats
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["seats"] = seats
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
-            __props__['storage_account'] = storage_account
-            __props__['tags'] = tags
+            __props__.__dict__["storage_account"] = storage_account
+            __props__.__dict__["tags"] = tags
             if vso_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vso_account_id'")
-            __props__['vso_account_id'] = vso_account_id
-            __props__['account_id'] = None
-            __props__['creation_date'] = None
-            __props__['discovery_uri'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["vso_account_id"] = vso_account_id
+            __props__.__dict__["account_id"] = None
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["discovery_uri"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningexperimentation:Account"), pulumi.Alias(type_="azure-native:machinelearningexperimentation/v20170501preview:Account"), pulumi.Alias(type_="azure-nextgen:machinelearningexperimentation/v20170501preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
@@ -312,22 +302,22 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AccountArgs.__new__(AccountArgs)
 
-        __props__["account_id"] = None
-        __props__["creation_date"] = None
-        __props__["description"] = None
-        __props__["discovery_uri"] = None
-        __props__["friendly_name"] = None
-        __props__["key_vault_id"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["seats"] = None
-        __props__["storage_account"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vso_account_id"] = None
+        __props__.__dict__["account_id"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["discovery_uri"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["key_vault_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["seats"] = None
+        __props__.__dict__["storage_account"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vso_account_id"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -441,10 +431,4 @@ class Account(pulumi.CustomResource):
         The fully qualified arm id of the vso account to be used for this team account.
         """
         return pulumi.get(self, "vso_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

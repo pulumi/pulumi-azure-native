@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -42,15 +42,31 @@ class AssignmentLockSettingsResponse(dict):
         """
         return pulumi.get(self, "mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssignmentStatusResponse(dict):
     """
     The status of Blueprint assignment. This field is readonly.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastModified":
+            suggest = "last_modified"
+        elif key == "timeCreated":
+            suggest = "time_created"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_modified: str,
                  time_created: str):
@@ -78,15 +94,31 @@ class AssignmentStatusResponse(dict):
         """
         return pulumi.get(self, "time_created")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BlueprintStatusResponse(dict):
     """
     The status of the blueprint. This field is readonly.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastModified":
+            suggest = "last_modified"
+        elif key == "timeCreated":
+            suggest = "time_created"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlueprintStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlueprintStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlueprintStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_modified: str,
                  time_created: str):
@@ -114,15 +146,31 @@ class BlueprintStatusResponse(dict):
         """
         return pulumi.get(self, "time_created")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
     Managed Service Identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -163,15 +211,35 @@ class ManagedServiceIdentityResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterDefinitionResponse(dict):
     """
     Represent a parameter with constrains and metadata.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "defaultValue":
+            suggest = "default_value"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "strongType":
+            suggest = "strong_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  allowed_values: Optional[Sequence[Any]] = None,
@@ -248,9 +316,6 @@ class ParameterDefinitionResponse(dict):
         """
         return pulumi.get(self, "strong_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParameterValueBaseResponse(dict):
@@ -274,15 +339,33 @@ class ParameterValueBaseResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceGroupDefinitionResponse(dict):
     """
     Represents an Azure resource group in a Blueprint definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "strongType":
+            suggest = "strong_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  depends_on: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
@@ -360,9 +443,6 @@ class ResourceGroupDefinitionResponse(dict):
         """
         return pulumi.get(self, "strong_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceGroupValueResponse(dict):
@@ -397,8 +477,5 @@ class ResourceGroupValueResponse(dict):
         Name of the resource group
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -111,9 +111,7 @@ class PeerAsn(pulumi.CustomResource):
                  peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
                  validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The essential information related to the peer's ASN.
 
@@ -154,15 +152,7 @@ class PeerAsn(pulumi.CustomResource):
                  peer_contact_detail: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactDetailArgs']]]]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
                  validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,16 +162,16 @@ class PeerAsn(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PeerAsnArgs.__new__(PeerAsnArgs)
 
-            __props__['peer_asn'] = peer_asn
-            __props__['peer_asn_name'] = peer_asn_name
-            __props__['peer_contact_detail'] = peer_contact_detail
-            __props__['peer_name'] = peer_name
-            __props__['validation_state'] = validation_state
-            __props__['error_message'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["peer_asn"] = peer_asn
+            __props__.__dict__["peer_asn_name"] = peer_asn_name
+            __props__.__dict__["peer_contact_detail"] = peer_contact_detail
+            __props__.__dict__["peer_name"] = peer_name
+            __props__.__dict__["validation_state"] = validation_state
+            __props__.__dict__["error_message"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:PeerAsn"), pulumi.Alias(type_="azure-native:peering/v20210101:PeerAsn"), pulumi.Alias(type_="azure-nextgen:peering/v20210101:PeerAsn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeerAsn, __self__).__init__(
@@ -204,15 +194,15 @@ class PeerAsn(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PeerAsnArgs.__new__(PeerAsnArgs)
 
-        __props__["error_message"] = None
-        __props__["name"] = None
-        __props__["peer_asn"] = None
-        __props__["peer_contact_detail"] = None
-        __props__["peer_name"] = None
-        __props__["type"] = None
-        __props__["validation_state"] = None
+        __props__.__dict__["error_message"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peer_asn"] = None
+        __props__.__dict__["peer_contact_detail"] = None
+        __props__.__dict__["peer_name"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["validation_state"] = None
         return PeerAsn(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -270,10 +260,4 @@ class PeerAsn(pulumi.CustomResource):
         The validation state of the ASN associated with the peer.
         """
         return pulumi.get(self, "validation_state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

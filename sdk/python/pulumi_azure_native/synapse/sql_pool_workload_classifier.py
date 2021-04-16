@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SqlPoolWorkloadClassifierArgs', 'SqlPoolWorkloadClassifier']
 
@@ -205,9 +205,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                  workload_classifier_name: Optional[pulumi.Input[str]] = None,
                  workload_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Workload classifier operations for a data warehouse
         API Version: 2021-03-01.
@@ -262,15 +260,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                  workload_classifier_name: Optional[pulumi.Input[str]] = None,
                  workload_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,31 +270,31 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SqlPoolWorkloadClassifierArgs.__new__(SqlPoolWorkloadClassifierArgs)
 
-            __props__['context'] = context
-            __props__['end_time'] = end_time
-            __props__['importance'] = importance
-            __props__['label'] = label
+            __props__.__dict__["context"] = context
+            __props__.__dict__["end_time"] = end_time
+            __props__.__dict__["importance"] = importance
+            __props__.__dict__["label"] = label
             if member_name is None and not opts.urn:
                 raise TypeError("Missing required property 'member_name'")
-            __props__['member_name'] = member_name
+            __props__.__dict__["member_name"] = member_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
-            __props__['sql_pool_name'] = sql_pool_name
-            __props__['start_time'] = start_time
-            __props__['workload_classifier_name'] = workload_classifier_name
+            __props__.__dict__["sql_pool_name"] = sql_pool_name
+            __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["workload_classifier_name"] = workload_classifier_name
             if workload_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workload_group_name'")
-            __props__['workload_group_name'] = workload_group_name
+            __props__.__dict__["workload_group_name"] = workload_group_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPoolWorkloadClassifier"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:SqlPoolWorkloadClassifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolWorkloadClassifier, __self__).__init__(
@@ -327,16 +317,16 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SqlPoolWorkloadClassifierArgs.__new__(SqlPoolWorkloadClassifierArgs)
 
-        __props__["context"] = None
-        __props__["end_time"] = None
-        __props__["importance"] = None
-        __props__["label"] = None
-        __props__["member_name"] = None
-        __props__["name"] = None
-        __props__["start_time"] = None
-        __props__["type"] = None
+        __props__.__dict__["context"] = None
+        __props__.__dict__["end_time"] = None
+        __props__.__dict__["importance"] = None
+        __props__.__dict__["label"] = None
+        __props__.__dict__["member_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["type"] = None
         return SqlPoolWorkloadClassifier(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -402,10 +392,4 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

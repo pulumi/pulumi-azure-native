@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -20,6 +20,29 @@ class ConnectorCollectionErrorInfoResponse(dict):
     """
     Details of any error encountered on last collection attempt
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorInnerMessage":
+            suggest = "error_inner_message"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "errorStartTime":
+            suggest = "error_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionErrorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorCollectionErrorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorCollectionErrorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_code: str,
                  error_inner_message: str,
@@ -69,15 +92,33 @@ class ConnectorCollectionErrorInfoResponse(dict):
         """
         return pulumi.get(self, "error_start_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorCollectionInfoResponse(dict):
     """
     Collection and ingestion information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastChecked":
+            suggest = "last_checked"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+        elif key == "sourceLastUpdated":
+            suggest = "source_last_updated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorCollectionInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorCollectionInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_checked: str,
                  last_updated: str,
@@ -88,7 +129,7 @@ class ConnectorCollectionInfoResponse(dict):
         :param str last_checked: Last time the data acquisition process initiated connecting to the external provider
         :param str last_updated: Last time the external data was updated into Azure
         :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-        :param 'ConnectorCollectionErrorInfoResponseArgs' error: Error information of last collection
+        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
         """
         pulumi.set(__self__, "last_checked", last_checked)
         pulumi.set(__self__, "last_updated", last_updated)
@@ -127,8 +168,5 @@ class ConnectorCollectionInfoResponse(dict):
         Error information of last collection
         """
         return pulumi.get(self, "error")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

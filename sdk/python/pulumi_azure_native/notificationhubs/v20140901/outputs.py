@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -33,6 +33,27 @@ class AdmCredentialPropertiesResponse(dict):
     """
     Description of a NotificationHub AdmCredential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTokenUrl":
+            suggest = "auth_token_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdmCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdmCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdmCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_token_url: Optional[str] = None,
                  client_id: Optional[str] = None,
@@ -74,9 +95,6 @@ class AdmCredentialPropertiesResponse(dict):
         """
         return pulumi.get(self, "client_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AdmCredentialResponse(dict):
@@ -87,7 +105,7 @@ class AdmCredentialResponse(dict):
                  properties: Optional['outputs.AdmCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub AdmCredential.
-        :param 'AdmCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub AdmCredential.
+        :param 'AdmCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub AdmCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -100,15 +118,31 @@ class AdmCredentialResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApnsCredentialPropertiesResponse(dict):
     """
     Description of a NotificationHub ApnsCredential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apnsCertificate":
+            suggest = "apns_certificate"
+        elif key == "certificateKey":
+            suggest = "certificate_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApnsCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApnsCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apns_certificate: Optional[str] = None,
                  certificate_key: Optional[str] = None,
@@ -162,9 +196,6 @@ class ApnsCredentialPropertiesResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApnsCredentialResponse(dict):
@@ -175,7 +206,7 @@ class ApnsCredentialResponse(dict):
                  properties: Optional['outputs.ApnsCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub ApnsCredential.
-        :param 'ApnsCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub ApnsCredential.
+        :param 'ApnsCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub ApnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -188,15 +219,33 @@ class ApnsCredentialResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BaiduCredentialPropertiesResponse(dict):
     """
     Description of a NotificationHub BaiduCredential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baiduApiKey":
+            suggest = "baidu_api_key"
+        elif key == "baiduEndPoint":
+            suggest = "baidu_end_point"
+        elif key == "baiduSecretKey":
+            suggest = "baidu_secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BaiduCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BaiduCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BaiduCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  baidu_api_key: Optional[str] = None,
                  baidu_end_point: Optional[str] = None,
@@ -238,9 +287,6 @@ class BaiduCredentialPropertiesResponse(dict):
         """
         return pulumi.get(self, "baidu_secret_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BaiduCredentialResponse(dict):
@@ -251,7 +297,7 @@ class BaiduCredentialResponse(dict):
                  properties: Optional['outputs.BaiduCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub BaiduCredential.
-        :param 'BaiduCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub BaiduCredential.
+        :param 'BaiduCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub BaiduCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -264,15 +310,31 @@ class BaiduCredentialResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GcmCredentialPropertiesResponse(dict):
     """
     Description of a NotificationHub GcmCredential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gcmEndpoint":
+            suggest = "gcm_endpoint"
+        elif key == "googleApiKey":
+            suggest = "google_api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GcmCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GcmCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GcmCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  gcm_endpoint: Optional[str] = None,
                  google_api_key: Optional[str] = None):
@@ -302,9 +364,6 @@ class GcmCredentialPropertiesResponse(dict):
         """
         return pulumi.get(self, "google_api_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GcmCredentialResponse(dict):
@@ -315,7 +374,7 @@ class GcmCredentialResponse(dict):
                  properties: Optional['outputs.GcmCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub GcmCredential.
-        :param 'GcmCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub GcmCredential.
+        :param 'GcmCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub GcmCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -328,15 +387,31 @@ class GcmCredentialResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MpnsCredentialPropertiesResponse(dict):
     """
     Description of a NotificationHub MpnsCredential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateKey":
+            suggest = "certificate_key"
+        elif key == "mpnsCertificate":
+            suggest = "mpns_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MpnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MpnsCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MpnsCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_key: Optional[str] = None,
                  mpns_certificate: Optional[str] = None,
@@ -378,9 +453,6 @@ class MpnsCredentialPropertiesResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MpnsCredentialResponse(dict):
@@ -391,7 +463,7 @@ class MpnsCredentialResponse(dict):
                  properties: Optional['outputs.MpnsCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub MpnsCredential.
-        :param 'MpnsCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub MpnsCredential.
+        :param 'MpnsCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub MpnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -404,15 +476,39 @@ class MpnsCredentialResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NamespacePropertiesResponse(dict):
     """
     Namespace properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "namespaceType":
+            suggest = "namespace_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "scaleUnit":
+            suggest = "scale_unit"
+        elif key == "serviceBusEndpoint":
+            suggest = "service_bus_endpoint"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  critical: Optional[bool] = None,
@@ -550,15 +646,43 @@ class NamespacePropertiesResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationHubPropertiesResponse(dict):
     """
     NotificationHub properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "admCredential":
+            suggest = "adm_credential"
+        elif key == "apnsCredential":
+            suggest = "apns_credential"
+        elif key == "authorizationRules":
+            suggest = "authorization_rules"
+        elif key == "baiduCredential":
+            suggest = "baidu_credential"
+        elif key == "gcmCredential":
+            suggest = "gcm_credential"
+        elif key == "mpnsCredential":
+            suggest = "mpns_credential"
+        elif key == "registrationTtl":
+            suggest = "registration_ttl"
+        elif key == "wnsCredential":
+            suggest = "wns_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationHubPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationHubPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  adm_credential: Optional['outputs.AdmCredentialResponse'] = None,
                  apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
@@ -571,15 +695,15 @@ class NotificationHubPropertiesResponse(dict):
                  wns_credential: Optional['outputs.WnsCredentialResponse'] = None):
         """
         NotificationHub properties.
-        :param 'AdmCredentialResponseArgs' adm_credential: The AdmCredential of the created NotificationHub
-        :param 'ApnsCredentialResponseArgs' apns_credential: The ApnsCredential of the created NotificationHub
-        :param Sequence['SharedAccessAuthorizationRulePropertiesResponseArgs'] authorization_rules: The AuthorizationRules of the created NotificationHub
-        :param 'BaiduCredentialResponseArgs' baidu_credential: The BaiduCredential of the created NotificationHub
-        :param 'GcmCredentialResponseArgs' gcm_credential: The GcmCredential of the created NotificationHub
-        :param 'MpnsCredentialResponseArgs' mpns_credential: The MpnsCredential of the created NotificationHub
+        :param 'AdmCredentialResponse' adm_credential: The AdmCredential of the created NotificationHub
+        :param 'ApnsCredentialResponse' apns_credential: The ApnsCredential of the created NotificationHub
+        :param Sequence['SharedAccessAuthorizationRulePropertiesResponse'] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param 'BaiduCredentialResponse' baidu_credential: The BaiduCredential of the created NotificationHub
+        :param 'GcmCredentialResponse' gcm_credential: The GcmCredential of the created NotificationHub
+        :param 'MpnsCredentialResponse' mpns_credential: The MpnsCredential of the created NotificationHub
         :param str name: The NotificationHub name.
         :param str registration_ttl: The RegistrationTtl of the created NotificationHub
-        :param 'WnsCredentialResponseArgs' wns_credential: The WnsCredential of the created NotificationHub
+        :param 'WnsCredentialResponse' wns_credential: The WnsCredential of the created NotificationHub
         """
         if adm_credential is not None:
             pulumi.set(__self__, "adm_credential", adm_credential)
@@ -672,15 +796,41 @@ class NotificationHubPropertiesResponse(dict):
         """
         return pulumi.get(self, "wns_credential")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedAccessAuthorizationRulePropertiesResponse(dict):
     """
     SharedAccessAuthorizationRule properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimType":
+            suggest = "claim_type"
+        elif key == "claimValue":
+            suggest = "claim_value"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedAccessAuthorizationRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedAccessAuthorizationRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedAccessAuthorizationRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  claim_type: Optional[str] = None,
                  claim_value: Optional[str] = None,
@@ -794,15 +944,33 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
         """
         return pulumi.get(self, "secondary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WnsCredentialPropertiesResponse(dict):
     """
     Description of a NotificationHub WnsCredential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packageSid":
+            suggest = "package_sid"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "windowsLiveEndpoint":
+            suggest = "windows_live_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WnsCredentialPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WnsCredentialPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WnsCredentialPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  package_sid: Optional[str] = None,
                  secret_key: Optional[str] = None,
@@ -844,9 +1012,6 @@ class WnsCredentialPropertiesResponse(dict):
         """
         return pulumi.get(self, "windows_live_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WnsCredentialResponse(dict):
@@ -857,7 +1022,7 @@ class WnsCredentialResponse(dict):
                  properties: Optional['outputs.WnsCredentialPropertiesResponse'] = None):
         """
         Description of a NotificationHub WnsCredential.
-        :param 'WnsCredentialPropertiesResponseArgs' properties: Gets or sets properties of NotificationHub WnsCredential.
+        :param 'WnsCredentialPropertiesResponse' properties: Gets or sets properties of NotificationHub WnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -869,8 +1034,5 @@ class WnsCredentialResponse(dict):
         Gets or sets properties of NotificationHub WnsCredential.
         """
         return pulumi.get(self, "properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

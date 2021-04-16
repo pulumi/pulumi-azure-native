@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -415,9 +415,7 @@ class BigDataPool(pulumi.CustomResource):
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Big Data pool
 
@@ -494,15 +492,7 @@ class BigDataPool(pulumi.CustomResource):
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,38 +502,38 @@ class BigDataPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BigDataPoolArgs.__new__(BigDataPoolArgs)
 
-            __props__['auto_pause'] = auto_pause
-            __props__['auto_scale'] = auto_scale
-            __props__['big_data_pool_name'] = big_data_pool_name
-            __props__['cache_size'] = cache_size
-            __props__['creation_date'] = creation_date
-            __props__['custom_libraries'] = custom_libraries
-            __props__['default_spark_log_folder'] = default_spark_log_folder
-            __props__['dynamic_executor_allocation'] = dynamic_executor_allocation
-            __props__['force'] = force
-            __props__['is_compute_isolation_enabled'] = is_compute_isolation_enabled
-            __props__['library_requirements'] = library_requirements
-            __props__['location'] = location
-            __props__['node_count'] = node_count
-            __props__['node_size'] = node_size
-            __props__['node_size_family'] = node_size_family
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["auto_pause"] = auto_pause
+            __props__.__dict__["auto_scale"] = auto_scale
+            __props__.__dict__["big_data_pool_name"] = big_data_pool_name
+            __props__.__dict__["cache_size"] = cache_size
+            __props__.__dict__["creation_date"] = creation_date
+            __props__.__dict__["custom_libraries"] = custom_libraries
+            __props__.__dict__["default_spark_log_folder"] = default_spark_log_folder
+            __props__.__dict__["dynamic_executor_allocation"] = dynamic_executor_allocation
+            __props__.__dict__["force"] = force
+            __props__.__dict__["is_compute_isolation_enabled"] = is_compute_isolation_enabled
+            __props__.__dict__["library_requirements"] = library_requirements
+            __props__.__dict__["location"] = location
+            __props__.__dict__["node_count"] = node_count
+            __props__.__dict__["node_size"] = node_size
+            __props__.__dict__["node_size_family"] = node_size_family
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['session_level_packages_enabled'] = session_level_packages_enabled
-            __props__['spark_config_properties'] = spark_config_properties
-            __props__['spark_events_folder'] = spark_events_folder
-            __props__['spark_version'] = spark_version
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["session_level_packages_enabled"] = session_level_packages_enabled
+            __props__.__dict__["spark_config_properties"] = spark_config_properties
+            __props__.__dict__["spark_events_folder"] = spark_events_folder
+            __props__.__dict__["spark_version"] = spark_version
+            __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['last_succeeded_timestamp'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["last_succeeded_timestamp"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20201201:BigDataPool"), pulumi.Alias(type_="azure-native:synapse:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:BigDataPool"), pulumi.Alias(type_="azure-native:synapse/v20210301:BigDataPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:BigDataPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BigDataPool, __self__).__init__(
@@ -566,30 +556,30 @@ class BigDataPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BigDataPoolArgs.__new__(BigDataPoolArgs)
 
-        __props__["auto_pause"] = None
-        __props__["auto_scale"] = None
-        __props__["cache_size"] = None
-        __props__["creation_date"] = None
-        __props__["custom_libraries"] = None
-        __props__["default_spark_log_folder"] = None
-        __props__["dynamic_executor_allocation"] = None
-        __props__["is_compute_isolation_enabled"] = None
-        __props__["last_succeeded_timestamp"] = None
-        __props__["library_requirements"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["node_count"] = None
-        __props__["node_size"] = None
-        __props__["node_size_family"] = None
-        __props__["provisioning_state"] = None
-        __props__["session_level_packages_enabled"] = None
-        __props__["spark_config_properties"] = None
-        __props__["spark_events_folder"] = None
-        __props__["spark_version"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["auto_pause"] = None
+        __props__.__dict__["auto_scale"] = None
+        __props__.__dict__["cache_size"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["custom_libraries"] = None
+        __props__.__dict__["default_spark_log_folder"] = None
+        __props__.__dict__["dynamic_executor_allocation"] = None
+        __props__.__dict__["is_compute_isolation_enabled"] = None
+        __props__.__dict__["last_succeeded_timestamp"] = None
+        __props__.__dict__["library_requirements"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["node_count"] = None
+        __props__.__dict__["node_size"] = None
+        __props__.__dict__["node_size_family"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["session_level_packages_enabled"] = None
+        __props__.__dict__["spark_config_properties"] = None
+        __props__.__dict__["spark_events_folder"] = None
+        __props__.__dict__["spark_version"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return BigDataPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -767,10 +757,4 @@ class BigDataPool(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

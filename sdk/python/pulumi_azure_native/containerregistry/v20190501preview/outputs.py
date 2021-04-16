@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,25 @@ class ActiveDirectoryObjectResponse(dict):
     """
     The Active Directory Object that will be used for authenticating the token of a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryObjectResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActiveDirectoryObjectResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActiveDirectoryObjectResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
@@ -52,15 +71,39 @@ class ActiveDirectoryObjectResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -138,15 +181,29 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TokenCertificateResponse(dict):
     """
     The properties of a certificate used for authenticating a token.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodedPemCertificate":
+            suggest = "encoded_pem_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TokenCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TokenCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TokenCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encoded_pem_certificate: Optional[str] = None,
                  expiry: Optional[str] = None,
@@ -196,22 +253,36 @@ class TokenCertificateResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TokenCredentialsPropertiesResponse(dict):
     """
     The properties of the credentials that can be used for authenticating the token.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryObject":
+            suggest = "active_directory_object"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TokenCredentialsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TokenCredentialsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TokenCredentialsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_directory_object: Optional['outputs.ActiveDirectoryObjectResponse'] = None,
                  certificates: Optional[Sequence['outputs.TokenCertificateResponse']] = None,
                  passwords: Optional[Sequence['outputs.TokenPasswordResponse']] = None):
         """
         The properties of the credentials that can be used for authenticating the token.
-        :param 'ActiveDirectoryObjectResponseArgs' active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
+        :param 'ActiveDirectoryObjectResponse' active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
         """
         if active_directory_object is not None:
             pulumi.set(__self__, "active_directory_object", active_directory_object)
@@ -238,15 +309,29 @@ class TokenCredentialsPropertiesResponse(dict):
     def passwords(self) -> Optional[Sequence['outputs.TokenPasswordResponse']]:
         return pulumi.get(self, "passwords")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TokenPasswordResponse(dict):
     """
     The password that will be used for authenticating the token of a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TokenPasswordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TokenPasswordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TokenPasswordResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value: str,
                  creation_time: Optional[str] = None,
@@ -298,8 +383,5 @@ class TokenPasswordResponse(dict):
         The password name "password1" or "password2"
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

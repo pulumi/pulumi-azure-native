@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['BlobArgs', 'Blob']
@@ -193,9 +193,7 @@ class Blob(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  type: Optional[pulumi.Input['BlobType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Blob within a Storage Container.
 
@@ -246,15 +244,7 @@ class Blob(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  type: Optional[pulumi.Input['BlobType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,28 +254,28 @@ class Blob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BlobArgs.__new__(BlobArgs)
 
-            __props__['access_tier'] = access_tier
+            __props__.__dict__["access_tier"] = access_tier
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['blob_name'] = blob_name
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["blob_name"] = blob_name
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
-            __props__['container_name'] = container_name
-            __props__['content_md5'] = content_md5
-            __props__['content_type'] = content_type
-            __props__['metadata'] = metadata
+            __props__.__dict__["container_name"] = container_name
+            __props__.__dict__["content_md5"] = content_md5
+            __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["metadata"] = metadata
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['source'] = source
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["source"] = source
             if type is None:
                 type = 'Block'
-            __props__['type'] = type
-            __props__['name'] = None
-            __props__['url'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["name"] = None
+            __props__.__dict__["url"] = None
         super(Blob, __self__).__init__(
             'azure-native:storage:Blob',
             resource_name,
@@ -306,15 +296,15 @@ class Blob(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BlobArgs.__new__(BlobArgs)
 
-        __props__["access_tier"] = None
-        __props__["content_md5"] = None
-        __props__["content_type"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["type"] = None
-        __props__["url"] = None
+        __props__.__dict__["access_tier"] = None
+        __props__.__dict__["content_md5"] = None
+        __props__.__dict__["content_type"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["url"] = None
         return Blob(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -372,10 +362,4 @@ class Blob(pulumi.CustomResource):
         The URL of the blob.
         """
         return pulumi.get(self, "url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

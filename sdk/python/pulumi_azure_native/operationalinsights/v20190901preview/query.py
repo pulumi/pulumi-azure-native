@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -174,9 +174,7 @@ class Query(pulumi.CustomResource):
                  related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Log Analytics QueryPack-Query definition.
 
@@ -225,15 +223,7 @@ class Query(pulumi.CustomResource):
                  related: Optional[pulumi.Input[pulumi.InputType['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,31 +233,31 @@ class Query(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = QueryArgs.__new__(QueryArgs)
 
             if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")
-            __props__['body'] = body
-            __props__['description'] = description
+            __props__.__dict__["body"] = body
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['id'] = id
-            __props__['properties'] = properties
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["properties"] = properties
             if query_pack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'query_pack_name'")
-            __props__['query_pack_name'] = query_pack_name
-            __props__['related'] = related
+            __props__.__dict__["query_pack_name"] = query_pack_name
+            __props__.__dict__["related"] = related
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['author'] = None
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['time_created'] = None
-            __props__['time_modified'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["author"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["time_created"] = None
+            __props__.__dict__["time_modified"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190901preview:Query"), pulumi.Alias(type_="azure-native:operationalinsights:Query"), pulumi.Alias(type_="azure-nextgen:operationalinsights:Query")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Query, __self__).__init__(
@@ -290,20 +280,20 @@ class Query(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = QueryArgs.__new__(QueryArgs)
 
-        __props__["author"] = None
-        __props__["body"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["related"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["time_created"] = None
-        __props__["time_modified"] = None
-        __props__["type"] = None
+        __props__.__dict__["author"] = None
+        __props__.__dict__["body"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["related"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
+        __props__.__dict__["time_modified"] = None
+        __props__.__dict__["type"] = None
         return Query(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -401,10 +391,4 @@ class Query(pulumi.CustomResource):
         Azure resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

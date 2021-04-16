@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['ManagerExtendedInfoArgs', 'ManagerExtendedInfo']
@@ -190,9 +190,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The extended info of the manager.
         API Version: 2017-06-01.
@@ -245,15 +243,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,28 +253,28 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagerExtendedInfoArgs.__new__(ManagerExtendedInfoArgs)
 
             if algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'algorithm'")
-            __props__['algorithm'] = algorithm
-            __props__['encryption_key'] = encryption_key
-            __props__['encryption_key_thumbprint'] = encryption_key_thumbprint
-            __props__['etag'] = etag
+            __props__.__dict__["algorithm"] = algorithm
+            __props__.__dict__["encryption_key"] = encryption_key
+            __props__.__dict__["encryption_key_thumbprint"] = encryption_key_thumbprint
+            __props__.__dict__["etag"] = etag
             if integrity_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integrity_key'")
-            __props__['integrity_key'] = integrity_key
-            __props__['kind'] = kind
+            __props__.__dict__["integrity_key"] = integrity_key
+            __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
-            __props__['portal_certificate_thumbprint'] = portal_certificate_thumbprint
+            __props__.__dict__["manager_name"] = manager_name
+            __props__.__dict__["portal_certificate_thumbprint"] = portal_certificate_thumbprint
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['version'] = version
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["version"] = version
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:ManagerExtendedInfo"), pulumi.Alias(type_="azure-native:storsimple/v20161001:ManagerExtendedInfo"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:ManagerExtendedInfo"), pulumi.Alias(type_="azure-native:storsimple/v20170601:ManagerExtendedInfo"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:ManagerExtendedInfo")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagerExtendedInfo, __self__).__init__(
@@ -307,18 +297,18 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ManagerExtendedInfoArgs.__new__(ManagerExtendedInfoArgs)
 
-        __props__["algorithm"] = None
-        __props__["encryption_key"] = None
-        __props__["encryption_key_thumbprint"] = None
-        __props__["etag"] = None
-        __props__["integrity_key"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["portal_certificate_thumbprint"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["algorithm"] = None
+        __props__.__dict__["encryption_key"] = None
+        __props__.__dict__["encryption_key_thumbprint"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["integrity_key"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["portal_certificate_thumbprint"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return ManagerExtendedInfo(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -400,10 +390,4 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         The version of the extended info being persisted.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

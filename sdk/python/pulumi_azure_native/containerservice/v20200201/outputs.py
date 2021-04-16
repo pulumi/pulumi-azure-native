@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -15,7 +15,7 @@ __all__ = [
     'ContainerServiceNetworkProfileResponse',
     'ContainerServiceSshConfigurationResponse',
     'ContainerServiceSshPublicKeyResponse',
-    'CredentialResultResponseResult',
+    'CredentialResultResponse',
     'ManagedClusterAADProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
     'ManagedClusterAddonProfileResponse',
@@ -38,13 +38,30 @@ class ContainerServiceLinuxProfileResponse(dict):
     """
     Profile for Linux VMs in the container service cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceLinuxProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceLinuxProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceLinuxProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  ssh: 'outputs.ContainerServiceSshConfigurationResponse'):
         """
         Profile for Linux VMs in the container service cluster.
         :param str admin_username: The administrator username to use for Linux VMs.
-        :param 'ContainerServiceSshConfigurationResponseArgs' ssh: SSH configuration for Linux-based VMs running on Azure.
+        :param 'ContainerServiceSshConfigurationResponse' ssh: SSH configuration for Linux-based VMs running on Azure.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh", ssh)
@@ -65,15 +82,47 @@ class ContainerServiceLinuxProfileResponse(dict):
         """
         return pulumi.get(self, "ssh")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceNetworkProfileResponse(dict):
     """
     Profile of network configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServiceIP":
+            suggest = "dns_service_ip"
+        elif key == "dockerBridgeCidr":
+            suggest = "docker_bridge_cidr"
+        elif key == "loadBalancerProfile":
+            suggest = "load_balancer_profile"
+        elif key == "loadBalancerSku":
+            suggest = "load_balancer_sku"
+        elif key == "networkMode":
+            suggest = "network_mode"
+        elif key == "networkPlugin":
+            suggest = "network_plugin"
+        elif key == "networkPolicy":
+            suggest = "network_policy"
+        elif key == "outboundType":
+            suggest = "outbound_type"
+        elif key == "podCidr":
+            suggest = "pod_cidr"
+        elif key == "serviceCidr":
+            suggest = "service_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceNetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceNetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_service_ip: Optional[str] = None,
                  docker_bridge_cidr: Optional[str] = None,
@@ -89,7 +138,7 @@ class ContainerServiceNetworkProfileResponse(dict):
         Profile of network configuration.
         :param str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param str docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        :param 'ManagedClusterLoadBalancerProfileResponseArgs' load_balancer_profile: Profile of the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponse' load_balancer_profile: Profile of the cluster load balancer.
         :param str load_balancer_sku: The load balancer sku for the managed cluster.
         :param str network_mode: Network mode used for building Kubernetes network.
         :param str network_plugin: Network plugin used for building Kubernetes network.
@@ -211,20 +260,34 @@ class ContainerServiceNetworkProfileResponse(dict):
         """
         return pulumi.get(self, "service_cidr")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceSshConfigurationResponse(dict):
     """
     SSH configuration for Linux-based VMs running on Azure.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKeys":
+            suggest = "public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceSshConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceSshConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceSshConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
@@ -236,15 +299,29 @@ class ContainerServiceSshConfigurationResponse(dict):
         """
         return pulumi.get(self, "public_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceSshPublicKeyResponse(dict):
     """
     Contains information about SSH certificate public key data.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceSshPublicKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceSshPublicKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceSshPublicKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_data: str):
         """
@@ -261,12 +338,9 @@ class ContainerServiceSshPublicKeyResponse(dict):
         """
         return pulumi.get(self, "key_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class CredentialResultResponseResult(dict):
+class CredentialResultResponse(dict):
     """
     The credential result response.
     """
@@ -303,6 +377,29 @@ class ManagedClusterAADProfileResponse(dict):
     """
     AADProfile specifies attributes for Azure Active Directory integration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAppID":
+            suggest = "client_app_id"
+        elif key == "serverAppID":
+            suggest = "server_app_id"
+        elif key == "serverAppSecret":
+            suggest = "server_app_secret"
+        elif key == "tenantID":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAADProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAADProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAADProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_app_id: str,
                  server_app_id: str,
@@ -354,15 +451,31 @@ class ManagedClusterAADProfileResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterAPIServerAccessProfileResponse(dict):
     """
     Access profile for managed cluster API server.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizedIPRanges":
+            suggest = "authorized_ip_ranges"
+        elif key == "enablePrivateCluster":
+            suggest = "enable_private_cluster"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAPIServerAccessProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAPIServerAccessProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAPIServerAccessProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorized_ip_ranges: Optional[Sequence[str]] = None,
                  enable_private_cluster: Optional[bool] = None):
@@ -392,9 +505,6 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
         """
         return pulumi.get(self, "enable_private_cluster")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterAddonProfileResponse(dict):
@@ -408,7 +518,7 @@ class ManagedClusterAddonProfileResponse(dict):
         """
         A Kubernetes add-on profile for a managed cluster.
         :param bool enabled: Whether the add-on is enabled or not.
-        :param 'ManagedClusterAddonProfileResponseIdentityArgs' identity: Information of user assigned identity used by this add-on.
+        :param 'ManagedClusterAddonProfileResponseIdentity' identity: Information of user assigned identity used by this add-on.
         :param Mapping[str, str] config: Key-value pairs for configuring an add-on.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -440,15 +550,33 @@ class ManagedClusterAddonProfileResponse(dict):
         """
         return pulumi.get(self, "config")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterAddonProfileResponseIdentity(dict):
     """
     Information of user assigned identity used by this add-on.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAddonProfileResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAddonProfileResponseIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAddonProfileResponseIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  object_id: Optional[str] = None,
@@ -490,15 +618,61 @@ class ManagedClusterAddonProfileResponseIdentity(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterAgentPoolProfileResponse(dict):
     """
     Profile for the container service agent pool.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "enableAutoScaling":
+            suggest = "enable_auto_scaling"
+        elif key == "enableNodePublicIP":
+            suggest = "enable_node_public_ip"
+        elif key == "maxCount":
+            suggest = "max_count"
+        elif key == "maxPods":
+            suggest = "max_pods"
+        elif key == "minCount":
+            suggest = "min_count"
+        elif key == "nodeLabels":
+            suggest = "node_labels"
+        elif key == "nodeTaints":
+            suggest = "node_taints"
+        elif key == "orchestratorVersion":
+            suggest = "orchestrator_version"
+        elif key == "osDiskSizeGB":
+            suggest = "os_disk_size_gb"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "scaleSetEvictionPolicy":
+            suggest = "scale_set_eviction_policy"
+        elif key == "scaleSetPriority":
+            suggest = "scale_set_priority"
+        elif key == "spotMaxPrice":
+            suggest = "spot_max_price"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "vnetSubnetID":
+            suggest = "vnet_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAgentPoolProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAgentPoolProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAgentPoolProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  provisioning_state: str,
@@ -754,15 +928,31 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         """
         return pulumi.get(self, "vnet_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterIdentityResponse(dict):
     """
     Identity for the managed cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -802,15 +992,39 @@ class ManagedClusterIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterLoadBalancerProfileResponse(dict):
     """
     Profile of the managed cluster load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocatedOutboundPorts":
+            suggest = "allocated_outbound_ports"
+        elif key == "effectiveOutboundIPs":
+            suggest = "effective_outbound_ips"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "managedOutboundIPs":
+            suggest = "managed_outbound_ips"
+        elif key == "outboundIPPrefixes":
+            suggest = "outbound_ip_prefixes"
+        elif key == "outboundIPs":
+            suggest = "outbound_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterLoadBalancerProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterLoadBalancerProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterLoadBalancerProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocated_outbound_ports: Optional[int] = None,
                  effective_outbound_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None,
@@ -821,11 +1035,11 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         """
         Profile of the managed cluster load balancer.
         :param int allocated_outbound_ports: Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-        :param Sequence['ResourceReferenceResponseArgs'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
+        :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
-        :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
-        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
+        :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
         """
         if allocated_outbound_ports is None:
             allocated_outbound_ports = 0
@@ -892,9 +1106,6 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         """
         return pulumi.get(self, "outbound_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
@@ -920,20 +1131,34 @@ class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes(dict):
     """
     Desired outbound IP Prefix resources for the cluster load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIPPrefixes":
+            suggest = "public_ip_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ip_prefixes: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
-        :param Sequence['ResourceReferenceResponseArgs'] public_ip_prefixes: A list of public IP prefix resources.
+        :param Sequence['ResourceReferenceResponse'] public_ip_prefixes: A list of public IP prefix resources.
         """
         if public_ip_prefixes is not None:
             pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
@@ -946,20 +1171,34 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes(dict):
         """
         return pulumi.get(self, "public_ip_prefixes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
     """
     Desired outbound IP resources for the cluster load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIPs":
+            suggest = "public_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterLoadBalancerProfileResponseOutboundIPs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterLoadBalancerProfileResponseOutboundIPs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterLoadBalancerProfileResponseOutboundIPs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None):
         """
         Desired outbound IP resources for the cluster load balancer.
-        :param Sequence['ResourceReferenceResponseArgs'] public_ips: A list of public IP resources.
+        :param Sequence['ResourceReferenceResponse'] public_ips: A list of public IP resources.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
@@ -972,15 +1211,43 @@ class ManagedClusterLoadBalancerProfileResponseOutboundIPs(dict):
         """
         return pulumi.get(self, "public_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     """
     Parameters to be applied to the cluster-autoscaler when enabled
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxGracefulTerminationSec":
+            suggest = "max_graceful_termination_sec"
+        elif key == "scaleDownDelayAfterAdd":
+            suggest = "scale_down_delay_after_add"
+        elif key == "scaleDownDelayAfterDelete":
+            suggest = "scale_down_delay_after_delete"
+        elif key == "scaleDownDelayAfterFailure":
+            suggest = "scale_down_delay_after_failure"
+        elif key == "scaleDownUnneededTime":
+            suggest = "scale_down_unneeded_time"
+        elif key == "scaleDownUnreadyTime":
+            suggest = "scale_down_unready_time"
+        elif key == "scaleDownUtilizationThreshold":
+            suggest = "scale_down_utilization_threshold"
+        elif key == "scanInterval":
+            suggest = "scan_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterPropertiesResponseAutoScalerProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterPropertiesResponseAutoScalerProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterPropertiesResponseAutoScalerProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_graceful_termination_sec: Optional[str] = None,
                  scale_down_delay_after_add: Optional[str] = None,
@@ -1050,12 +1317,30 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     def scan_interval(self) -> Optional[str]:
         return pulumi.get(self, "scan_interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterPropertiesResponseIdentityProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterPropertiesResponseIdentityProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterPropertiesResponseIdentityProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterPropertiesResponseIdentityProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  object_id: Optional[str] = None,
@@ -1096,15 +1381,29 @@ class ManagedClusterPropertiesResponseIdentityProfile(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterServicePrincipalProfileResponse(dict):
     """
     Information about a service principal identity for the cluster to use for manipulating Azure APIs.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterServicePrincipalProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterServicePrincipalProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterServicePrincipalProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  secret: Optional[str] = None):
@@ -1133,15 +1432,31 @@ class ManagedClusterServicePrincipalProfileResponse(dict):
         """
         return pulumi.get(self, "secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedClusterWindowsProfileResponse(dict):
     """
     Profile for Windows VMs in the container service cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "adminPassword":
+            suggest = "admin_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterWindowsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterWindowsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterWindowsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  admin_password: Optional[str] = None):
@@ -1170,9 +1485,6 @@ class ManagedClusterWindowsProfileResponse(dict):
         """
         return pulumi.get(self, "admin_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceReferenceResponse(dict):
@@ -1195,8 +1507,5 @@ class ResourceReferenceResponse(dict):
         The fully qualified Azure resource id.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

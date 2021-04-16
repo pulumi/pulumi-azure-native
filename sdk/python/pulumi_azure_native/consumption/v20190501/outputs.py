@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -21,6 +21,25 @@ class BudgetTimePeriodResponse(dict):
     """
     The start and end date for a budget.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startDate":
+            suggest = "start_date"
+        elif key == "endDate":
+            suggest = "end_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetTimePeriodResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetTimePeriodResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetTimePeriodResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  start_date: str,
                  end_date: Optional[str] = None):
@@ -48,9 +67,6 @@ class BudgetTimePeriodResponse(dict):
         The end date for the budget. If not provided, we default this to 10 years from the start date.
         """
         return pulumi.get(self, "end_date")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -85,15 +101,29 @@ class CurrentSpendResponse(dict):
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FilterResponse(dict):
     """
     May be used to filter budgets by user-specified dimensions and/or tags.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  meters: Optional[Sequence[str]] = None,
                  resource_groups: Optional[Sequence[str]] = None,
@@ -147,15 +177,35 @@ class FilterResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationResponse(dict):
     """
     The notification associated with a budget.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactEmails":
+            suggest = "contact_emails"
+        elif key == "contactGroups":
+            suggest = "contact_groups"
+        elif key == "contactRoles":
+            suggest = "contact_roles"
+        elif key == "thresholdType":
+            suggest = "threshold_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  contact_emails: Sequence[str],
                  enabled: bool,
@@ -242,8 +292,5 @@ class NotificationResponse(dict):
         The type of threshold
         """
         return pulumi.get(self, "threshold_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

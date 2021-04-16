@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,7 +27,7 @@ class ListGlobalUserEnvironmentsResult:
 
     @property
     @pulumi.getter
-    def environments(self) -> Optional[Sequence['outputs.EnvironmentDetailsResponseResult']]:
+    def environments(self) -> Optional[Sequence['outputs.EnvironmentDetailsResponse']]:
         """
         List of all the environments
         """

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -228,9 +228,7 @@ class InboundNatRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Inbound NAT rule of the load balancer.
 
@@ -285,15 +283,7 @@ class InboundNatRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,28 +293,28 @@ class InboundNatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InboundNatRuleArgs.__new__(InboundNatRuleArgs)
 
-            __props__['backend_port'] = backend_port
-            __props__['enable_floating_ip'] = enable_floating_ip
-            __props__['enable_tcp_reset'] = enable_tcp_reset
-            __props__['frontend_ip_configuration'] = frontend_ip_configuration
-            __props__['frontend_port'] = frontend_port
-            __props__['id'] = id
-            __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
-            __props__['inbound_nat_rule_name'] = inbound_nat_rule_name
+            __props__.__dict__["backend_port"] = backend_port
+            __props__.__dict__["enable_floating_ip"] = enable_floating_ip
+            __props__.__dict__["enable_tcp_reset"] = enable_tcp_reset
+            __props__.__dict__["frontend_ip_configuration"] = frontend_ip_configuration
+            __props__.__dict__["frontend_port"] = frontend_port
+            __props__.__dict__["id"] = id
+            __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
+            __props__.__dict__["inbound_nat_rule_name"] = inbound_nat_rule_name
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
-            __props__['load_balancer_name'] = load_balancer_name
-            __props__['name'] = name
-            __props__['protocol'] = protocol
+            __props__.__dict__["load_balancer_name"] = load_balancer_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["protocol"] = protocol
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['backend_ip_configuration'] = None
-            __props__['etag'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["backend_ip_configuration"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200401:InboundNatRule"), pulumi.Alias(type_="azure-native:network:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20170601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170601:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20170801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20170901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20171001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20171101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20171101:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20180101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20180201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20180401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20180601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20180701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20180801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20181001:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20181101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20181201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20190201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20190401:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20190601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20190701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190701:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20190801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20190901:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20191101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20191201:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20200301:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20200501:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20200601:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20200701:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200701:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20200801:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:InboundNatRule"), pulumi.Alias(type_="azure-native:network/v20201101:InboundNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20201101:InboundNatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InboundNatRule, __self__).__init__(
@@ -347,20 +337,20 @@ class InboundNatRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = InboundNatRuleArgs.__new__(InboundNatRuleArgs)
 
-        __props__["backend_ip_configuration"] = None
-        __props__["backend_port"] = None
-        __props__["enable_floating_ip"] = None
-        __props__["enable_tcp_reset"] = None
-        __props__["etag"] = None
-        __props__["frontend_ip_configuration"] = None
-        __props__["frontend_port"] = None
-        __props__["idle_timeout_in_minutes"] = None
-        __props__["name"] = None
-        __props__["protocol"] = None
-        __props__["provisioning_state"] = None
-        __props__["type"] = None
+        __props__.__dict__["backend_ip_configuration"] = None
+        __props__.__dict__["backend_port"] = None
+        __props__.__dict__["enable_floating_ip"] = None
+        __props__.__dict__["enable_tcp_reset"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["frontend_ip_configuration"] = None
+        __props__.__dict__["frontend_port"] = None
+        __props__.__dict__["idle_timeout_in_minutes"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["protocol"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["type"] = None
         return InboundNatRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -458,10 +448,4 @@ class InboundNatRule(pulumi.CustomResource):
         Type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

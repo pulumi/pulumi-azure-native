@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -228,9 +228,7 @@ class WebPubSub(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A class represent a resource.
 
@@ -290,15 +288,7 @@ class WebPubSub(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -308,34 +298,34 @@ class WebPubSub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
-            __props__['event_handler'] = event_handler
-            __props__['features'] = features
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['network_acls'] = network_acls
+            __props__.__dict__["event_handler"] = event_handler
+            __props__.__dict__["features"] = features
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_acls"] = network_acls
             if public_network_access is None:
                 public_network_access = 'Enabled'
-            __props__['public_network_access'] = public_network_access
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_name'] = resource_name_
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['tls'] = tls
-            __props__['external_ip'] = None
-            __props__['host_name'] = None
-            __props__['name'] = None
-            __props__['private_endpoint_connections'] = None
-            __props__['provisioning_state'] = None
-            __props__['public_port'] = None
-            __props__['server_port'] = None
-            __props__['shared_private_link_resources'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tls"] = tls
+            __props__.__dict__["external_ip"] = None
+            __props__.__dict__["host_name"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_port"] = None
+            __props__.__dict__["server_port"] = None
+            __props__.__dict__["shared_private_link_resources"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub:WebPubSub"), pulumi.Alias(type_="azure-nextgen:webpubsub:WebPubSub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSub, __self__).__init__(
@@ -358,28 +348,28 @@ class WebPubSub(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
-        __props__["event_handler"] = None
-        __props__["external_ip"] = None
-        __props__["features"] = None
-        __props__["host_name"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["network_acls"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_network_access"] = None
-        __props__["public_port"] = None
-        __props__["server_port"] = None
-        __props__["shared_private_link_resources"] = None
-        __props__["sku"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["tls"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["event_handler"] = None
+        __props__.__dict__["external_ip"] = None
+        __props__.__dict__["features"] = None
+        __props__.__dict__["host_name"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_acls"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["public_port"] = None
+        __props__.__dict__["server_port"] = None
+        __props__.__dict__["shared_private_link_resources"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tls"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return WebPubSub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -548,10 +538,4 @@ class WebPubSub(pulumi.CustomResource):
         Version of the resource. Probably you need the same or higher version of client SDKs.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

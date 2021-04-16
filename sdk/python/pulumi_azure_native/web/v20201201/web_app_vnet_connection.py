@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['WebAppVnetConnectionArgs', 'WebAppVnetConnection']
@@ -160,9 +160,7 @@ class WebAppVnetConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Virtual Network information contract.
 
@@ -210,15 +208,7 @@ class WebAppVnetConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,24 +218,24 @@ class WebAppVnetConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppVnetConnectionArgs.__new__(WebAppVnetConnectionArgs)
 
-            __props__['cert_blob'] = cert_blob
-            __props__['dns_servers'] = dns_servers
-            __props__['is_swift'] = is_swift
-            __props__['kind'] = kind
+            __props__.__dict__["cert_blob"] = cert_blob
+            __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["is_swift"] = is_swift
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['vnet_name'] = vnet_name
-            __props__['vnet_resource_id'] = vnet_resource_id
-            __props__['cert_thumbprint'] = None
-            __props__['resync_required'] = None
-            __props__['routes'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["vnet_name"] = vnet_name
+            __props__.__dict__["vnet_resource_id"] = vnet_resource_id
+            __props__.__dict__["cert_thumbprint"] = None
+            __props__.__dict__["resync_required"] = None
+            __props__.__dict__["routes"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnection, __self__).__init__(
@@ -268,18 +258,18 @@ class WebAppVnetConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppVnetConnectionArgs.__new__(WebAppVnetConnectionArgs)
 
-        __props__["cert_blob"] = None
-        __props__["cert_thumbprint"] = None
-        __props__["dns_servers"] = None
-        __props__["is_swift"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["resync_required"] = None
-        __props__["routes"] = None
-        __props__["type"] = None
-        __props__["vnet_resource_id"] = None
+        __props__.__dict__["cert_blob"] = None
+        __props__.__dict__["cert_thumbprint"] = None
+        __props__.__dict__["dns_servers"] = None
+        __props__.__dict__["is_swift"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["resync_required"] = None
+        __props__.__dict__["routes"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vnet_resource_id"] = None
         return WebAppVnetConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +352,4 @@ class WebAppVnetConnection(pulumi.CustomResource):
         The Virtual Network's resource ID.
         """
         return pulumi.get(self, "vnet_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

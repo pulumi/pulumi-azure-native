@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['PrivateLinkForAzureAdArgs', 'PrivateLinkForAzureAd']
 
@@ -192,9 +192,7 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         PrivateLink Policy configuration object.
 
@@ -245,15 +243,7 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,21 +253,21 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PrivateLinkForAzureAdArgs.__new__(PrivateLinkForAzureAdArgs)
 
-            __props__['all_tenants'] = all_tenants
-            __props__['name'] = name
-            __props__['owner_tenant_id'] = owner_tenant_id
-            __props__['policy_name'] = policy_name
-            __props__['resource_group'] = resource_group
+            __props__.__dict__["all_tenants"] = all_tenants
+            __props__.__dict__["name"] = name
+            __props__.__dict__["owner_tenant_id"] = owner_tenant_id
+            __props__.__dict__["policy_name"] = policy_name
+            __props__.__dict__["resource_group"] = resource_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_name'] = resource_name_
-            __props__['subscription_id'] = subscription_id
-            __props__['tags'] = tags
-            __props__['tenants'] = tenants
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["subscription_id"] = subscription_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenants"] = tenants
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd"), pulumi.Alias(type_="azure-native:aadiam:privateLinkForAzureAd"), pulumi.Alias(type_="azure-nextgen:aadiam:privateLinkForAzureAd")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkForAzureAd, __self__).__init__(
@@ -300,17 +290,17 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PrivateLinkForAzureAdArgs.__new__(PrivateLinkForAzureAdArgs)
 
-        __props__["all_tenants"] = None
-        __props__["name"] = None
-        __props__["owner_tenant_id"] = None
-        __props__["resource_group"] = None
-        __props__["resource_name"] = None
-        __props__["subscription_id"] = None
-        __props__["tags"] = None
-        __props__["tenants"] = None
-        __props__["type"] = None
+        __props__.__dict__["all_tenants"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["owner_tenant_id"] = None
+        __props__.__dict__["resource_group"] = None
+        __props__.__dict__["resource_name"] = None
+        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tenants"] = None
+        __props__.__dict__["type"] = None
         return PrivateLinkForAzureAd(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -384,10 +374,4 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
         Type of this resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

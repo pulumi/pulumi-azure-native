@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['WorkspaceArgs', 'Workspace']
 
@@ -139,9 +139,7 @@ class Workspace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An object that represents a machine learning workspace.
         API Version: 2016-04-01.
@@ -188,15 +186,7 @@ class Workspace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,28 +196,28 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            __props__['key_vault_identifier_id'] = key_vault_identifier_id
-            __props__['location'] = location
+            __props__.__dict__["key_vault_identifier_id"] = key_vault_identifier_id
+            __props__.__dict__["location"] = location
             if owner_email is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_email'")
-            __props__['owner_email'] = owner_email
+            __props__.__dict__["owner_email"] = owner_email
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if user_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_storage_account_id'")
-            __props__['user_storage_account_id'] = user_storage_account_id
-            __props__['workspace_name'] = workspace_name
-            __props__['creation_time'] = None
-            __props__['name'] = None
-            __props__['studio_endpoint'] = None
-            __props__['type'] = None
-            __props__['workspace_id'] = None
-            __props__['workspace_state'] = None
-            __props__['workspace_type'] = None
+            __props__.__dict__["user_storage_account_id"] = user_storage_account_id
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["studio_endpoint"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["workspace_id"] = None
+            __props__.__dict__["workspace_state"] = None
+            __props__.__dict__["workspace_type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning:Workspace"), pulumi.Alias(type_="azure-native:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-native:machinelearning/v20191001:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20191001:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
@@ -250,20 +240,20 @@ class Workspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-        __props__["creation_time"] = None
-        __props__["key_vault_identifier_id"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["owner_email"] = None
-        __props__["studio_endpoint"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["user_storage_account_id"] = None
-        __props__["workspace_id"] = None
-        __props__["workspace_state"] = None
-        __props__["workspace_type"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["key_vault_identifier_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["owner_email"] = None
+        __props__.__dict__["studio_endpoint"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_storage_account_id"] = None
+        __props__.__dict__["workspace_id"] = None
+        __props__.__dict__["workspace_state"] = None
+        __props__.__dict__["workspace_type"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -361,10 +351,4 @@ class Workspace(pulumi.CustomResource):
         The type of this workspace.
         """
         return pulumi.get(self, "workspace_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

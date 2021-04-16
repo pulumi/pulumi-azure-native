@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -209,9 +209,7 @@ class StreamingLocator(pulumi.CustomResource):
                  streaming_locator_id: Optional[pulumi.Input[str]] = None,
                  streaming_locator_name: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Streaming Locator resource
 
@@ -264,15 +262,7 @@ class StreamingLocator(pulumi.CustomResource):
                  streaming_locator_id: Optional[pulumi.Input[str]] = None,
                  streaming_locator_name: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,30 +272,30 @@ class StreamingLocator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StreamingLocatorArgs.__new__(StreamingLocatorArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['alternative_media_id'] = alternative_media_id
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["alternative_media_id"] = alternative_media_id
             if asset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_name'")
-            __props__['asset_name'] = asset_name
-            __props__['content_keys'] = content_keys
-            __props__['default_content_key_policy_name'] = default_content_key_policy_name
-            __props__['end_time'] = end_time
+            __props__.__dict__["asset_name"] = asset_name
+            __props__.__dict__["content_keys"] = content_keys
+            __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
+            __props__.__dict__["end_time"] = end_time
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['start_time'] = start_time
-            __props__['streaming_locator_id'] = streaming_locator_id
-            __props__['streaming_locator_name'] = streaming_locator_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["streaming_locator_id"] = streaming_locator_id
+            __props__.__dict__["streaming_locator_name"] = streaming_locator_name
             if streaming_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_policy_name'")
-            __props__['streaming_policy_name'] = streaming_policy_name
-            __props__['created'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["streaming_policy_name"] = streaming_policy_name
+            __props__.__dict__["created"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingLocator"), pulumi.Alias(type_="azure-native:media:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media:StreamingLocator"), pulumi.Alias(type_="azure-native:media/v20180330preview:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingLocator"), pulumi.Alias(type_="azure-native:media/v20180701:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingLocator"), pulumi.Alias(type_="azure-native:media/v20200501:StreamingLocator"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingLocator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingLocator, __self__).__init__(
@@ -328,19 +318,19 @@ class StreamingLocator(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StreamingLocatorArgs.__new__(StreamingLocatorArgs)
 
-        __props__["alternative_media_id"] = None
-        __props__["asset_name"] = None
-        __props__["content_keys"] = None
-        __props__["created"] = None
-        __props__["default_content_key_policy_name"] = None
-        __props__["end_time"] = None
-        __props__["name"] = None
-        __props__["start_time"] = None
-        __props__["streaming_locator_id"] = None
-        __props__["streaming_policy_name"] = None
-        __props__["type"] = None
+        __props__.__dict__["alternative_media_id"] = None
+        __props__.__dict__["asset_name"] = None
+        __props__.__dict__["content_keys"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["default_content_key_policy_name"] = None
+        __props__.__dict__["end_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["streaming_locator_id"] = None
+        __props__.__dict__["streaming_policy_name"] = None
+        __props__.__dict__["type"] = None
         return StreamingLocator(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -430,10 +420,4 @@ class StreamingLocator(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

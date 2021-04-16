@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['WorkflowAccessKeyArgs', 'WorkflowAccessKey']
 
@@ -123,9 +123,7 @@ class WorkflowAccessKey(pulumi.CustomResource):
                  not_before: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         API Version: 2015-02-01-preview.
 
@@ -168,15 +166,7 @@ class WorkflowAccessKey(pulumi.CustomResource):
                  not_before: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,20 +176,20 @@ class WorkflowAccessKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkflowAccessKeyArgs.__new__(WorkflowAccessKeyArgs)
 
-            __props__['access_key_name'] = access_key_name
-            __props__['id'] = id
-            __props__['not_after'] = not_after
-            __props__['not_before'] = not_before
+            __props__.__dict__["access_key_name"] = access_key_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["not_after"] = not_after
+            __props__.__dict__["not_before"] = not_before
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if workflow_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workflow_name'")
-            __props__['workflow_name'] = workflow_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workflow_name"] = workflow_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:WorkflowAccessKey"), pulumi.Alias(type_="azure-native:logic/v20150201preview:WorkflowAccessKey"), pulumi.Alias(type_="azure-nextgen:logic/v20150201preview:WorkflowAccessKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkflowAccessKey, __self__).__init__(
@@ -222,12 +212,12 @@ class WorkflowAccessKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WorkflowAccessKeyArgs.__new__(WorkflowAccessKeyArgs)
 
-        __props__["name"] = None
-        __props__["not_after"] = None
-        __props__["not_before"] = None
-        __props__["type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["not_after"] = None
+        __props__.__dict__["not_before"] = None
+        __props__.__dict__["type"] = None
         return WorkflowAccessKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -261,10 +251,4 @@ class WorkflowAccessKey(pulumi.CustomResource):
         Gets the workflow access key type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

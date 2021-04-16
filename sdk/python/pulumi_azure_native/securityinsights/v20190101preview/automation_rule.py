@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -172,9 +172,7 @@ class AutomationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents an automation rule.
 
@@ -223,15 +221,7 @@ class AutomationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggering_logic: Optional[pulumi.Input[pulumi.InputType['AutomationRuleTriggeringLogicArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -241,37 +231,37 @@ class AutomationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
-            __props__['actions'] = actions
-            __props__['automation_rule_id'] = automation_rule_id
+            __props__.__dict__["actions"] = actions
+            __props__.__dict__["automation_rule_id"] = automation_rule_id
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['etag'] = etag
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["etag"] = etag
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
+            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")
-            __props__['order'] = order
+            __props__.__dict__["order"] = order
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if triggering_logic is None and not opts.urn:
                 raise TypeError("Missing required property 'triggering_logic'")
-            __props__['triggering_logic'] = triggering_logic
+            __props__.__dict__["triggering_logic"] = triggering_logic
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['created_by'] = None
-            __props__['created_time_utc'] = None
-            __props__['last_modified_by'] = None
-            __props__['last_modified_time_utc'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["created_by"] = None
+            __props__.__dict__["created_time_utc"] = None
+            __props__.__dict__["last_modified_by"] = None
+            __props__.__dict__["last_modified_time_utc"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights:AutomationRule"), pulumi.Alias(type_="azure-nextgen:securityinsights:AutomationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationRule, __self__).__init__(
@@ -294,19 +284,19 @@ class AutomationRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
-        __props__["actions"] = None
-        __props__["created_by"] = None
-        __props__["created_time_utc"] = None
-        __props__["display_name"] = None
-        __props__["etag"] = None
-        __props__["last_modified_by"] = None
-        __props__["last_modified_time_utc"] = None
-        __props__["name"] = None
-        __props__["order"] = None
-        __props__["triggering_logic"] = None
-        __props__["type"] = None
+        __props__.__dict__["actions"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["created_time_utc"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["last_modified_by"] = None
+        __props__.__dict__["last_modified_time_utc"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["order"] = None
+        __props__.__dict__["triggering_logic"] = None
+        __props__.__dict__["type"] = None
         return AutomationRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -396,10 +386,4 @@ class AutomationRule(pulumi.CustomResource):
         Azure resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

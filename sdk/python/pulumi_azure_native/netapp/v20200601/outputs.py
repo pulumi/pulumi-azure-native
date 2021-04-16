@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -31,6 +31,37 @@ class ActiveDirectoryResponse(dict):
     """
     Active Directory
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusDetails":
+            suggest = "status_details"
+        elif key == "activeDirectoryId":
+            suggest = "active_directory_id"
+        elif key == "adName":
+            suggest = "ad_name"
+        elif key == "backupOperators":
+            suggest = "backup_operators"
+        elif key == "kdcIP":
+            suggest = "kdc_ip"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+        elif key == "serverRootCACertificate":
+            suggest = "server_root_ca_certificate"
+        elif key == "smbServerName":
+            suggest = "smb_server_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActiveDirectoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActiveDirectoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: str,
                  status_details: str,
@@ -206,15 +237,31 @@ class ActiveDirectoryResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DailyScheduleResponse(dict):
     """
     Daily Schedule properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+        elif key == "usedBytes":
+            suggest = "used_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DailyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DailyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DailyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hour: Optional[int] = None,
                  minute: Optional[int] = None,
@@ -268,15 +315,49 @@ class DailyScheduleResponse(dict):
         """
         return pulumi.get(self, "used_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExportPolicyRuleResponse(dict):
     """
     Volume Export Policy Rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "hasRootAccess":
+            suggest = "has_root_access"
+        elif key == "kerberos5ReadOnly":
+            suggest = "kerberos5_read_only"
+        elif key == "kerberos5ReadWrite":
+            suggest = "kerberos5_read_write"
+        elif key == "kerberos5iReadOnly":
+            suggest = "kerberos5i_read_only"
+        elif key == "kerberos5iReadWrite":
+            suggest = "kerberos5i_read_write"
+        elif key == "kerberos5pReadOnly":
+            suggest = "kerberos5p_read_only"
+        elif key == "kerberos5pReadWrite":
+            suggest = "kerberos5p_read_write"
+        elif key == "ruleIndex":
+            suggest = "rule_index"
+        elif key == "unixReadOnly":
+            suggest = "unix_read_only"
+        elif key == "unixReadWrite":
+            suggest = "unix_read_write"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExportPolicyRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExportPolicyRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExportPolicyRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_clients: Optional[str] = None,
                  cifs: Optional[bool] = None,
@@ -468,15 +549,31 @@ class ExportPolicyRuleResponse(dict):
         """
         return pulumi.get(self, "unix_read_write")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HourlyScheduleResponse(dict):
     """
     Hourly Schedule properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+        elif key == "usedBytes":
+            suggest = "used_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HourlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HourlyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HourlyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  minute: Optional[int] = None,
                  snapshots_to_keep: Optional[int] = None,
@@ -518,15 +615,33 @@ class HourlyScheduleResponse(dict):
         """
         return pulumi.get(self, "used_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonthlyScheduleResponse(dict):
     """
     Monthly Schedule properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfMonth":
+            suggest = "days_of_month"
+        elif key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+        elif key == "usedBytes":
+            suggest = "used_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonthlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonthlyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonthlyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days_of_month: Optional[str] = None,
                  hour: Optional[int] = None,
@@ -592,15 +707,35 @@ class MonthlyScheduleResponse(dict):
         """
         return pulumi.get(self, "used_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MountTargetPropertiesResponse(dict):
     """
     Mount target properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "mountTargetId":
+            suggest = "mount_target_id"
+        elif key == "smbServerFqdn":
+            suggest = "smb_server_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MountTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MountTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MountTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_system_id: str,
                  ip_address: str,
@@ -651,15 +786,37 @@ class MountTargetPropertiesResponse(dict):
         """
         return pulumi.get(self, "smb_server_fqdn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReplicationObjectResponse(dict):
     """
     Replication properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteVolumeResourceId":
+            suggest = "remote_volume_resource_id"
+        elif key == "replicationSchedule":
+            suggest = "replication_schedule"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "remoteVolumeRegion":
+            suggest = "remote_volume_region"
+        elif key == "replicationId":
+            suggest = "replication_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationObjectResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationObjectResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationObjectResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  remote_volume_resource_id: str,
                  replication_schedule: str,
@@ -723,15 +880,35 @@ class ReplicationObjectResponse(dict):
         """
         return pulumi.get(self, "replication_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeBackupPropertiesResponse(dict):
     """
     Volume Backup Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupEnabled":
+            suggest = "backup_enabled"
+        elif key == "backupPolicyId":
+            suggest = "backup_policy_id"
+        elif key == "policyEnforced":
+            suggest = "policy_enforced"
+        elif key == "vaultId":
+            suggest = "vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBackupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBackupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBackupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_enabled: Optional[bool] = None,
                  backup_policy_id: Optional[str] = None,
@@ -785,15 +962,33 @@ class VolumeBackupPropertiesResponse(dict):
         """
         return pulumi.get(self, "vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeBackupsResponse(dict):
     """
     Volume details using the backup policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupsCount":
+            suggest = "backups_count"
+        elif key == "policyEnabled":
+            suggest = "policy_enabled"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBackupsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBackupsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBackupsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backups_count: Optional[int] = None,
                  policy_enabled: Optional[bool] = None,
@@ -835,9 +1030,6 @@ class VolumeBackupsResponse(dict):
         """
         return pulumi.get(self, "volume_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumePropertiesResponseDataProtection(dict):
@@ -850,9 +1042,9 @@ class VolumePropertiesResponseDataProtection(dict):
                  snapshot: Optional['outputs.VolumeSnapshotPropertiesResponse'] = None):
         """
         DataProtection type volumes include an object containing details of the replication
-        :param 'VolumeBackupPropertiesResponseArgs' backup: Backup Properties
-        :param 'ReplicationObjectResponseArgs' replication: Replication properties
-        :param 'VolumeSnapshotPropertiesResponseArgs' snapshot: Snapshot properties.
+        :param 'VolumeBackupPropertiesResponse' backup: Backup Properties
+        :param 'ReplicationObjectResponse' replication: Replication properties
+        :param 'VolumeSnapshotPropertiesResponse' snapshot: Snapshot properties.
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
@@ -885,9 +1077,6 @@ class VolumePropertiesResponseDataProtection(dict):
         """
         return pulumi.get(self, "snapshot")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumePropertiesResponseExportPolicy(dict):
@@ -898,7 +1087,7 @@ class VolumePropertiesResponseExportPolicy(dict):
                  rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
-        :param Sequence['ExportPolicyRuleResponseArgs'] rules: Export policy rule
+        :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -911,15 +1100,29 @@ class VolumePropertiesResponseExportPolicy(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeSnapshotPropertiesResponse(dict):
     """
     Volume Snapshot Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotPolicyId":
+            suggest = "snapshot_policy_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeSnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeSnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeSnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  snapshot_policy_id: Optional[str] = None):
         """
@@ -937,15 +1140,31 @@ class VolumeSnapshotPropertiesResponse(dict):
         """
         return pulumi.get(self, "snapshot_policy_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WeeklyScheduleResponse(dict):
     """
     Weekly Schedule properties, make a snapshot every week at a specific day or days
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+        elif key == "usedBytes":
+            suggest = "used_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WeeklyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WeeklyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WeeklyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  day: Optional[str] = None,
                  hour: Optional[int] = None,
@@ -1010,8 +1229,5 @@ class WeeklyScheduleResponse(dict):
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

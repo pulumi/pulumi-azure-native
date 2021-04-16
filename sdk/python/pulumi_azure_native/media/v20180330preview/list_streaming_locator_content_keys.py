@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,7 +27,7 @@ class ListStreamingLocatorContentKeysResult:
 
     @property
     @pulumi.getter(name="contentKeys")
-    def content_keys(self) -> Optional[Sequence['outputs.StreamingLocatorContentKeyResponseResult']]:
+    def content_keys(self) -> Optional[Sequence['outputs.StreamingLocatorContentKeyResponse']]:
         """
         ContentKeys used by current Streaming Locator
         """

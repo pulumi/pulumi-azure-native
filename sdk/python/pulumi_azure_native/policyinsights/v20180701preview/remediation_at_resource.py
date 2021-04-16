@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -126,9 +126,7 @@ class RemediationAtResource(pulumi.CustomResource):
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  remediation_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The remediation definition.
 
@@ -171,15 +169,7 @@ class RemediationAtResource(pulumi.CustomResource):
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  remediation_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -189,21 +179,21 @@ class RemediationAtResource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RemediationAtResourceArgs.__new__(RemediationAtResourceArgs)
 
-            __props__['deployment_status'] = deployment_status
-            __props__['filters'] = filters
-            __props__['policy_assignment_id'] = policy_assignment_id
-            __props__['policy_definition_reference_id'] = policy_definition_reference_id
-            __props__['remediation_name'] = remediation_name
+            __props__.__dict__["deployment_status"] = deployment_status
+            __props__.__dict__["filters"] = filters
+            __props__.__dict__["policy_assignment_id"] = policy_assignment_id
+            __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
+            __props__.__dict__["remediation_name"] = remediation_name
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
-            __props__['created_on'] = None
-            __props__['last_updated_on'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["created_on"] = None
+            __props__.__dict__["last_updated_on"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights/v20180701preview:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights:RemediationAtResource"), pulumi.Alias(type_="azure-native:policyinsights/v20190701:RemediationAtResource"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20190701:RemediationAtResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RemediationAtResource, __self__).__init__(
@@ -226,17 +216,17 @@ class RemediationAtResource(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RemediationAtResourceArgs.__new__(RemediationAtResourceArgs)
 
-        __props__["created_on"] = None
-        __props__["deployment_status"] = None
-        __props__["filters"] = None
-        __props__["last_updated_on"] = None
-        __props__["name"] = None
-        __props__["policy_assignment_id"] = None
-        __props__["policy_definition_reference_id"] = None
-        __props__["provisioning_state"] = None
-        __props__["type"] = None
+        __props__.__dict__["created_on"] = None
+        __props__.__dict__["deployment_status"] = None
+        __props__.__dict__["filters"] = None
+        __props__.__dict__["last_updated_on"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["policy_assignment_id"] = None
+        __props__.__dict__["policy_definition_reference_id"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["type"] = None
         return RemediationAtResource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,10 +300,4 @@ class RemediationAtResource(pulumi.CustomResource):
         The type of the remediation.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,12 +6,12 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActivityTimelineItemResponseResult',
+    'ActivityTimelineItemResponse',
     'AutomationRuleModifyPropertiesActionResponse',
     'AutomationRuleModifyPropertiesActionResponseActionConfiguration',
     'AutomationRulePropertyValuesConditionResponse',
@@ -19,29 +19,29 @@ __all__ = [
     'AutomationRuleRunPlaybookActionResponse',
     'AutomationRuleRunPlaybookActionResponseActionConfiguration',
     'AutomationRuleTriggeringLogicResponse',
-    'BookmarkTimelineItemResponseResult',
+    'BookmarkTimelineItemResponse',
     'ClientInfoResponse',
-    'EntityInsightItemResponseResult',
-    'EntityInsightItemResponseQueryTimeIntervalResult',
-    'GetInsightsErrorResponseResult',
-    'GetInsightsResultsMetadataResponseResult',
+    'EntityInsightItemResponse',
+    'EntityInsightItemResponseQueryTimeInterval',
+    'GetInsightsErrorResponse',
+    'GetInsightsResultsMetadataResponse',
     'IncidentAdditionalDataResponse',
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
-    'InsightsTableResultResponseResult',
-    'InsightsTableResultResponseColumnsResult',
-    'SecurityAlertTimelineItemResponseResult',
+    'InsightsTableResultResponse',
+    'InsightsTableResultResponseColumns',
+    'SecurityAlertTimelineItemResponse',
     'SystemDataResponse',
-    'TimelineAggregationResponseResult',
-    'TimelineErrorResponseResult',
-    'TimelineResultsMetadataResponseResult',
+    'TimelineAggregationResponse',
+    'TimelineErrorResponse',
+    'TimelineResultsMetadataResponse',
     'UserInfoResponse',
     'WatchlistUserInfoResponse',
 ]
 
 @pulumi.output_type
-class ActivityTimelineItemResponseResult(dict):
+class ActivityTimelineItemResponse(dict):
     """
     Represents Activity timeline item.
     """
@@ -146,13 +146,32 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
     """
     Describes an automation rule action to modify an object's properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionConfiguration":
+            suggest = "action_configuration"
+        elif key == "actionType":
+            suggest = "action_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleModifyPropertiesActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleModifyPropertiesActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleModifyPropertiesActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_configuration: 'outputs.AutomationRuleModifyPropertiesActionResponseActionConfiguration',
                  action_type: str,
                  order: int):
         """
         Describes an automation rule action to modify an object's properties
-        :param 'AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs' action_configuration: The configuration of the modify properties automation rule action
+        :param 'AutomationRuleModifyPropertiesActionResponseActionConfiguration' action_configuration: The configuration of the modify properties automation rule action
         :param str action_type: The type of the automation rule action
                Expected value is 'ModifyProperties'.
         :param int order: The order of execution of the automation rule action
@@ -186,15 +205,31 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRuleModifyPropertiesActionResponseActionConfiguration(dict):
     """
     The configuration of the modify properties automation rule action
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationComment":
+            suggest = "classification_comment"
+        elif key == "classificationReason":
+            suggest = "classification_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleModifyPropertiesActionResponseActionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleModifyPropertiesActionResponseActionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleModifyPropertiesActionResponseActionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  classification: Optional[str] = None,
                  classification_comment: Optional[str] = None,
@@ -208,8 +243,8 @@ class AutomationRuleModifyPropertiesActionResponseActionConfiguration(dict):
         :param str classification: The reason the incident was closed
         :param str classification_comment: Describes the reason the incident was closed
         :param str classification_reason: The classification reason to close the incident with
-        :param Sequence['IncidentLabelResponseArgs'] labels: List of labels to add to the incident
-        :param 'IncidentOwnerInfoResponseArgs' owner: Describes a user that the incident is assigned to
+        :param Sequence['IncidentLabelResponse'] labels: List of labels to add to the incident
+        :param 'IncidentOwnerInfoResponse' owner: Describes a user that the incident is assigned to
         :param str severity: The severity of the incident
         :param str status: The status of the incident
         """
@@ -284,21 +319,37 @@ class AutomationRuleModifyPropertiesActionResponseActionConfiguration(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRulePropertyValuesConditionResponse(dict):
     """
     Describes an automation rule condition that evaluates a property's value
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionProperties":
+            suggest = "condition_properties"
+        elif key == "conditionType":
+            suggest = "condition_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRulePropertyValuesConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRulePropertyValuesConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRulePropertyValuesConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  condition_properties: 'outputs.AutomationRulePropertyValuesConditionResponseConditionProperties',
                  condition_type: str):
         """
         Describes an automation rule condition that evaluates a property's value
-        :param 'AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs' condition_properties: The configuration of the automation rule condition
+        :param 'AutomationRulePropertyValuesConditionResponseConditionProperties' condition_properties: The configuration of the automation rule condition
         :param str condition_type: The type of the automation rule condition
                Expected value is 'Property'.
         """
@@ -322,15 +373,31 @@ class AutomationRulePropertyValuesConditionResponse(dict):
         """
         return pulumi.get(self, "condition_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRulePropertyValuesConditionResponseConditionProperties(dict):
     """
     The configuration of the automation rule condition
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyName":
+            suggest = "property_name"
+        elif key == "propertyValues":
+            suggest = "property_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRulePropertyValuesConditionResponseConditionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRulePropertyValuesConditionResponseConditionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRulePropertyValuesConditionResponseConditionProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: Optional[str] = None,
                  property_name: Optional[str] = None,
@@ -372,22 +439,38 @@ class AutomationRulePropertyValuesConditionResponseConditionProperties(dict):
         """
         return pulumi.get(self, "property_values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRuleRunPlaybookActionResponse(dict):
     """
     Describes an automation rule action to run a playbook
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionConfiguration":
+            suggest = "action_configuration"
+        elif key == "actionType":
+            suggest = "action_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleRunPlaybookActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleRunPlaybookActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleRunPlaybookActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_configuration: 'outputs.AutomationRuleRunPlaybookActionResponseActionConfiguration',
                  action_type: str,
                  order: int):
         """
         Describes an automation rule action to run a playbook
-        :param 'AutomationRuleRunPlaybookActionResponseActionConfigurationArgs' action_configuration: The configuration of the run playbook automation rule action
+        :param 'AutomationRuleRunPlaybookActionResponseActionConfiguration' action_configuration: The configuration of the run playbook automation rule action
         :param str action_type: The type of the automation rule action
                Expected value is 'RunPlaybook'.
         :param int order: The order of execution of the automation rule action
@@ -421,15 +504,31 @@ class AutomationRuleRunPlaybookActionResponse(dict):
         """
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRuleRunPlaybookActionResponseActionConfiguration(dict):
     """
     The configuration of the run playbook automation rule action
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicAppResourceId":
+            suggest = "logic_app_resource_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleRunPlaybookActionResponseActionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleRunPlaybookActionResponseActionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleRunPlaybookActionResponseActionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  logic_app_resource_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
@@ -459,15 +558,35 @@ class AutomationRuleRunPlaybookActionResponseActionConfiguration(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRuleTriggeringLogicResponse(dict):
     """
     Describes automation rule triggering logic
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "triggersOn":
+            suggest = "triggers_on"
+        elif key == "triggersWhen":
+            suggest = "triggers_when"
+        elif key == "expirationTimeUtc":
+            suggest = "expiration_time_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleTriggeringLogicResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleTriggeringLogicResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleTriggeringLogicResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_enabled: bool,
                  triggers_on: str,
@@ -479,7 +598,7 @@ class AutomationRuleTriggeringLogicResponse(dict):
         :param bool is_enabled: Determines whether the automation rule is enabled or disabled.
         :param str triggers_on: The type of object the automation rule triggers on
         :param str triggers_when: The type of event the automation rule triggers on
-        :param Sequence['AutomationRulePropertyValuesConditionResponseArgs'] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        :param Sequence['AutomationRulePropertyValuesConditionResponse'] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
         :param str expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -530,12 +649,9 @@ class AutomationRuleTriggeringLogicResponse(dict):
         """
         return pulumi.get(self, "expiration_time_utc")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class BookmarkTimelineItemResponseResult(dict):
+class BookmarkTimelineItemResponse(dict):
     """
     Represents bookmark timeline item.
     """
@@ -554,7 +670,7 @@ class BookmarkTimelineItemResponseResult(dict):
         :param str azure_resource_id: The bookmark azure resource id.
         :param str kind: The entity query kind type.
                Expected value is 'Bookmark'.
-        :param 'UserInfoResponseArgs' created_by: Describes a user that created the bookmark
+        :param 'UserInfoResponse' created_by: Describes a user that created the bookmark
         :param str display_name: The bookmark display name.
         :param str end_time_utc: The bookmark end time.
         :param str event_time: The bookmark event time.
@@ -658,6 +774,25 @@ class ClientInfoResponse(dict):
     """
     Information on the client (user or application) that made some action
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "userPrincipalName":
+            suggest = "user_principal_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  name: Optional[str] = None,
@@ -711,26 +846,23 @@ class ClientInfoResponse(dict):
         """
         return pulumi.get(self, "user_principal_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class EntityInsightItemResponseResult(dict):
+class EntityInsightItemResponse(dict):
     """
     Entity insight Item.
     """
     def __init__(__self__, *,
-                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponseResult']] = None,
+                 chart_query_results: Optional[Sequence['outputs.InsightsTableResultResponse']] = None,
                  query_id: Optional[str] = None,
-                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult'] = None,
-                 table_query_results: Optional['outputs.InsightsTableResultResponseResult'] = None):
+                 query_time_interval: Optional['outputs.EntityInsightItemResponseQueryTimeInterval'] = None,
+                 table_query_results: Optional['outputs.InsightsTableResultResponse'] = None):
         """
         Entity insight Item.
-        :param Sequence['InsightsTableResultResponseArgs'] chart_query_results: Query results for table insights query.
+        :param Sequence['InsightsTableResultResponse'] chart_query_results: Query results for table insights query.
         :param str query_id: The query id of the insight
-        :param 'EntityInsightItemResponseQueryTimeIntervalArgs' query_time_interval: The Time interval that the query actually executed on.
-        :param 'InsightsTableResultResponseArgs' table_query_results: Query results for table insights query.
+        :param 'EntityInsightItemResponseQueryTimeInterval' query_time_interval: The Time interval that the query actually executed on.
+        :param 'InsightsTableResultResponse' table_query_results: Query results for table insights query.
         """
         if chart_query_results is not None:
             pulumi.set(__self__, "chart_query_results", chart_query_results)
@@ -743,7 +875,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="chartQueryResults")
-    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponseResult']]:
+    def chart_query_results(self) -> Optional[Sequence['outputs.InsightsTableResultResponse']]:
         """
         Query results for table insights query.
         """
@@ -759,7 +891,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="queryTimeInterval")
-    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeIntervalResult']:
+    def query_time_interval(self) -> Optional['outputs.EntityInsightItemResponseQueryTimeInterval']:
         """
         The Time interval that the query actually executed on.
         """
@@ -767,7 +899,7 @@ class EntityInsightItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="tableQueryResults")
-    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponseResult']:
+    def table_query_results(self) -> Optional['outputs.InsightsTableResultResponse']:
         """
         Query results for table insights query.
         """
@@ -775,7 +907,7 @@ class EntityInsightItemResponseResult(dict):
 
 
 @pulumi.output_type
-class EntityInsightItemResponseQueryTimeIntervalResult(dict):
+class EntityInsightItemResponseQueryTimeInterval(dict):
     """
     The Time interval that the query actually executed on.
     """
@@ -810,7 +942,7 @@ class EntityInsightItemResponseQueryTimeIntervalResult(dict):
 
 
 @pulumi.output_type
-class GetInsightsErrorResponseResult(dict):
+class GetInsightsErrorResponse(dict):
     """
     GetInsights Query Errors.
     """
@@ -855,17 +987,17 @@ class GetInsightsErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class GetInsightsResultsMetadataResponseResult(dict):
+class GetInsightsResultsMetadataResponse(dict):
     """
     Get Insights result metadata.
     """
     def __init__(__self__, *,
                  total_count: int,
-                 errors: Optional[Sequence['outputs.GetInsightsErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.GetInsightsErrorResponse']] = None):
         """
         Get Insights result metadata.
         :param int total_count: the total items found for the insights request
-        :param Sequence['GetInsightsErrorResponseArgs'] errors: information about the failed queries
+        :param Sequence['GetInsightsErrorResponse'] errors: information about the failed queries
         """
         pulumi.set(__self__, "total_count", total_count)
         if errors is not None:
@@ -881,7 +1013,7 @@ class GetInsightsResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.GetInsightsErrorResponse']]:
         """
         information about the failed queries
         """
@@ -893,6 +1025,29 @@ class IncidentAdditionalDataResponse(dict):
     """
     Incident additional data property bag.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertProductNames":
+            suggest = "alert_product_names"
+        elif key == "alertsCount":
+            suggest = "alerts_count"
+        elif key == "bookmarksCount":
+            suggest = "bookmarks_count"
+        elif key == "commentsCount":
+            suggest = "comments_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentAdditionalDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentAdditionalDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentAdditionalDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_product_names: Sequence[str],
                  alerts_count: int,
@@ -953,15 +1108,31 @@ class IncidentAdditionalDataResponse(dict):
         """
         return pulumi.get(self, "tactics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IncidentInfoResponse(dict):
     """
     Describes related incident information for the bookmark
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentId":
+            suggest = "incident_id"
+        elif key == "relationName":
+            suggest = "relation_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  incident_id: Optional[str] = None,
                  relation_name: Optional[str] = None,
@@ -1015,15 +1186,31 @@ class IncidentInfoResponse(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IncidentLabelResponse(dict):
     """
     Represents an incident label
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelName":
+            suggest = "label_name"
+        elif key == "labelType":
+            suggest = "label_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentLabelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentLabelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentLabelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  label_name: str,
                  label_type: str):
@@ -1051,15 +1238,33 @@ class IncidentLabelResponse(dict):
         """
         return pulumi.get(self, "label_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IncidentOwnerInfoResponse(dict):
     """
     Information on the user an incident is assigned to
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedTo":
+            suggest = "assigned_to"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userPrincipalName":
+            suggest = "user_principal_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentOwnerInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentOwnerInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentOwnerInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assigned_to: Optional[str] = None,
                  email: Optional[str] = None,
@@ -1113,21 +1318,18 @@ class IncidentOwnerInfoResponse(dict):
         """
         return pulumi.get(self, "user_principal_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class InsightsTableResultResponseResult(dict):
+class InsightsTableResultResponse(dict):
     """
     Query results for table insights query.
     """
     def __init__(__self__, *,
-                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']] = None,
+                 columns: Optional[Sequence['outputs.InsightsTableResultResponseColumns']] = None,
                  rows: Optional[Sequence[Sequence[str]]] = None):
         """
         Query results for table insights query.
-        :param Sequence['InsightsTableResultResponseColumnsArgs'] columns: Columns Metadata of the table
+        :param Sequence['InsightsTableResultResponseColumns'] columns: Columns Metadata of the table
         :param Sequence[Sequence[str]] rows: Rows data of the table
         """
         if columns is not None:
@@ -1137,7 +1339,7 @@ class InsightsTableResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumnsResult']]:
+    def columns(self) -> Optional[Sequence['outputs.InsightsTableResultResponseColumns']]:
         """
         Columns Metadata of the table
         """
@@ -1153,7 +1355,7 @@ class InsightsTableResultResponseResult(dict):
 
 
 @pulumi.output_type
-class InsightsTableResultResponseColumnsResult(dict):
+class InsightsTableResultResponseColumns(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -1184,7 +1386,7 @@ class InsightsTableResultResponseColumnsResult(dict):
 
 
 @pulumi.output_type
-class SecurityAlertTimelineItemResponseResult(dict):
+class SecurityAlertTimelineItemResponse(dict):
     """
     Represents security alert timeline item.
     """
@@ -1313,6 +1515,33 @@ class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -1390,12 +1619,9 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class TimelineAggregationResponseResult(dict):
+class TimelineAggregationResponse(dict):
     """
     timeline aggregation information per kind
     """
@@ -1428,7 +1654,7 @@ class TimelineAggregationResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineErrorResponseResult(dict):
+class TimelineErrorResponse(dict):
     """
     Timeline Query Errors.
     """
@@ -1473,19 +1699,19 @@ class TimelineErrorResponseResult(dict):
 
 
 @pulumi.output_type
-class TimelineResultsMetadataResponseResult(dict):
+class TimelineResultsMetadataResponse(dict):
     """
     Expansion result metadata.
     """
     def __init__(__self__, *,
-                 aggregations: Sequence['outputs.TimelineAggregationResponseResult'],
+                 aggregations: Sequence['outputs.TimelineAggregationResponse'],
                  total_count: int,
-                 errors: Optional[Sequence['outputs.TimelineErrorResponseResult']] = None):
+                 errors: Optional[Sequence['outputs.TimelineErrorResponse']] = None):
         """
         Expansion result metadata.
-        :param Sequence['TimelineAggregationResponseArgs'] aggregations: timeline aggregation per kind
+        :param Sequence['TimelineAggregationResponse'] aggregations: timeline aggregation per kind
         :param int total_count: the total items found for the timeline request
-        :param Sequence['TimelineErrorResponseArgs'] errors: information about the failure queries
+        :param Sequence['TimelineErrorResponse'] errors: information about the failure queries
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "total_count", total_count)
@@ -1494,7 +1720,7 @@ class TimelineResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def aggregations(self) -> Sequence['outputs.TimelineAggregationResponseResult']:
+    def aggregations(self) -> Sequence['outputs.TimelineAggregationResponse']:
         """
         timeline aggregation per kind
         """
@@ -1510,7 +1736,7 @@ class TimelineResultsMetadataResponseResult(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.TimelineErrorResponseResult']]:
+    def errors(self) -> Optional[Sequence['outputs.TimelineErrorResponse']]:
         """
         information about the failure queries
         """
@@ -1522,6 +1748,23 @@ class UserInfoResponse(dict):
     """
     User information that made some action
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: str,
                  name: str,
@@ -1560,9 +1803,6 @@ class UserInfoResponse(dict):
         The object id of the user.
         """
         return pulumi.get(self, "object_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1570,6 +1810,23 @@ class WatchlistUserInfoResponse(dict):
     """
     User information that made some action
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WatchlistUserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WatchlistUserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WatchlistUserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: str,
                  name: str,
@@ -1608,8 +1865,5 @@ class WatchlistUserInfoResponse(dict):
         The object id of the user.
         """
         return pulumi.get(self, "object_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

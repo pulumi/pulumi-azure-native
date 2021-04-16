@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -39,6 +39,27 @@ class AccessPolicyEntryResponse(dict):
     """
     An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_id: str,
                  permissions: 'outputs.PermissionsResponse',
@@ -47,7 +68,7 @@ class AccessPolicyEntryResponse(dict):
         """
         An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        :param 'PermissionsResponseArgs' permissions: Permissions the identity has for keys, secrets and certificates.
+        :param 'PermissionsResponse' permissions: Permissions the identity has for keys, secrets and certificates.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param str application_id:  Application ID of the client making request on behalf of a principal
         """
@@ -89,9 +110,6 @@ class AccessPolicyEntryResponse(dict):
         """
         return pulumi.get(self, "application_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPRuleResponse(dict):
@@ -113,9 +131,6 @@ class IPRuleResponse(dict):
         An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -139,15 +154,33 @@ class MHSMIPRuleResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MHSMNetworkRuleSetResponse(dict):
     """
     A set of rules governing the network accessibility of a managed hsm pool.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "virtualNetworkRules":
+            suggest = "virtual_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MHSMNetworkRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MHSMNetworkRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MHSMNetworkRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bypass: Optional[str] = None,
                  default_action: Optional[str] = None,
@@ -157,8 +190,8 @@ class MHSMNetworkRuleSetResponse(dict):
         A set of rules governing the network accessibility of a managed hsm pool.
         :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param Sequence['MHSMIPRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param Sequence['MHSMVirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['MHSMIPRuleResponse'] ip_rules: The list of IP address rules.
+        :param Sequence['MHSMVirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
@@ -201,15 +234,33 @@ class MHSMNetworkRuleSetResponse(dict):
         """
         return pulumi.get(self, "virtual_network_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MHSMPrivateEndpointConnectionItemResponse(dict):
     """
     Private endpoint connection item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MHSMPrivateEndpointConnectionItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MHSMPrivateEndpointConnectionItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MHSMPrivateEndpointConnectionItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  private_endpoint: Optional['outputs.MHSMPrivateEndpointResponse'] = None,
@@ -217,8 +268,8 @@ class MHSMPrivateEndpointConnectionItemResponse(dict):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param 'MHSMPrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
-        :param 'MHSMPrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
+        :param 'MHSMPrivateEndpointResponse' private_endpoint: Properties of the private endpoint object.
+        :param 'MHSMPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -250,9 +301,6 @@ class MHSMPrivateEndpointConnectionItemResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MHSMPrivateEndpointResponse(dict):
@@ -275,15 +323,29 @@ class MHSMPrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MHSMPrivateLinkServiceConnectionStateResponse(dict):
     """
     An object that represents the approval state of the private link connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MHSMPrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MHSMPrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MHSMPrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -325,9 +387,6 @@ class MHSMPrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MHSMVirtualNetworkRuleResponse(dict):
@@ -350,15 +409,53 @@ class MHSMVirtualNetworkRuleResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedHsmPropertiesResponse(dict):
     """
     Properties of the managed HSM Pool
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hsmUri":
+            suggest = "hsm_uri"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "scheduledPurgeDate":
+            suggest = "scheduled_purge_date"
+        elif key == "statusMessage":
+            suggest = "status_message"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "enablePurgeProtection":
+            suggest = "enable_purge_protection"
+        elif key == "enableSoftDelete":
+            suggest = "enable_soft_delete"
+        elif key == "initialAdminObjectIds":
+            suggest = "initial_admin_object_ids"
+        elif key == "networkAcls":
+            suggest = "network_acls"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "softDeleteRetentionInDays":
+            suggest = "soft_delete_retention_in_days"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedHsmPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedHsmPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedHsmPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hsm_uri: str,
                  private_endpoint_connections: Sequence['outputs.MHSMPrivateEndpointConnectionItemResponse'],
@@ -376,7 +473,7 @@ class ManagedHsmPropertiesResponse(dict):
         """
         Properties of the managed HSM Pool
         :param str hsm_uri: The URI of the managed hsm pool for performing operations on keys.
-        :param Sequence['MHSMPrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
+        :param Sequence['MHSMPrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the managed hsm pool.
         :param str provisioning_state: Provisioning state.
         :param str scheduled_purge_date: The scheduled purge date in UTC.
         :param str status_message: Resource Status Message.
@@ -384,7 +481,7 @@ class ManagedHsmPropertiesResponse(dict):
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
-        :param 'MHSMNetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param 'MHSMNetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
@@ -521,9 +618,6 @@ class ManagedHsmPropertiesResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedHsmSkuResponse(dict):
@@ -557,15 +651,33 @@ class ManagedHsmSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     A set of rules governing the network accessibility of a vault.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "virtualNetworkRules":
+            suggest = "virtual_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bypass: Optional[str] = None,
                  default_action: Optional[str] = None,
@@ -575,8 +687,8 @@ class NetworkRuleSetResponse(dict):
         A set of rules governing the network accessibility of a vault.
         :param str bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: The list of IP address rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The list of virtual network rules.
+        :param Sequence['IPRuleResponse'] ip_rules: The list of IP address rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
@@ -618,9 +730,6 @@ class NetworkRuleSetResponse(dict):
         The list of virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -681,15 +790,33 @@ class PermissionsResponse(dict):
         """
         return pulumi.get(self, "storage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionItemResponse(dict):
     """
     Private endpoint connection item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
@@ -697,8 +824,8 @@ class PrivateEndpointConnectionItemResponse(dict):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Properties of the private endpoint object.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Approval state of the private link connection.
+        :param 'PrivateEndpointResponse' private_endpoint: Properties of the private endpoint object.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -730,9 +857,6 @@ class PrivateEndpointConnectionItemResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -755,15 +879,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     An object that represents the approval state of the private link connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -805,15 +943,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecretAttributesResponse(dict):
     """
     The secret management attributes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notBefore":
+            suggest = "not_before"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretAttributesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretAttributesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretAttributesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created: float,
                  updated: float,
@@ -877,15 +1029,33 @@ class SecretAttributesResponse(dict):
         """
         return pulumi.get(self, "not_before")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecretPropertiesResponse(dict):
     """
     Properties of the secret
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUri":
+            suggest = "secret_uri"
+        elif key == "secretUriWithVersion":
+            suggest = "secret_uri_with_version"
+        elif key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_uri: str,
                  secret_uri_with_version: str,
@@ -896,7 +1066,7 @@ class SecretPropertiesResponse(dict):
         Properties of the secret
         :param str secret_uri: The URI to retrieve the current version of the secret.
         :param str secret_uri_with_version: The URI to retrieve the specific version of the secret.
-        :param 'SecretAttributesResponseArgs' attributes: The attributes of the secret.
+        :param 'SecretAttributesResponse' attributes: The attributes of the secret.
         :param str content_type: The content type of the secret.
         :param str value: The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
         """
@@ -949,9 +1119,6 @@ class SecretPropertiesResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -985,15 +1152,39 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the key vault resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -1071,15 +1262,55 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VaultPropertiesResponse(dict):
     """
     Properties of the vault
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "accessPolicies":
+            suggest = "access_policies"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "enablePurgeProtection":
+            suggest = "enable_purge_protection"
+        elif key == "enableRbacAuthorization":
+            suggest = "enable_rbac_authorization"
+        elif key == "enableSoftDelete":
+            suggest = "enable_soft_delete"
+        elif key == "enabledForDeployment":
+            suggest = "enabled_for_deployment"
+        elif key == "enabledForDiskEncryption":
+            suggest = "enabled_for_disk_encryption"
+        elif key == "enabledForTemplateDeployment":
+            suggest = "enabled_for_template_deployment"
+        elif key == "networkAcls":
+            suggest = "network_acls"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "softDeleteRetentionInDays":
+            suggest = "soft_delete_retention_in_days"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionItemResponse'],
                  sku: 'outputs.SkuResponse',
@@ -1098,10 +1329,10 @@ class VaultPropertiesResponse(dict):
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
-        :param Sequence['PrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
-        :param 'SkuResponseArgs' sku: SKU details
+        :param Sequence['PrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
+        :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         :param str create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -1109,7 +1340,7 @@ class VaultPropertiesResponse(dict):
         :param bool enabled_for_deployment: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param bool enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-        :param 'NetworkRuleSetResponseArgs' network_acls: Rules governing the accessibility of the key vault from specific network locations.
+        :param 'NetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param str provisioning_state: Provisioning state of the vault.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
@@ -1268,9 +1499,6 @@ class VaultPropertiesResponse(dict):
         """
         return pulumi.get(self, "vault_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkRuleResponse(dict):
@@ -1292,8 +1520,5 @@ class VirtualNetworkRuleResponse(dict):
         Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
