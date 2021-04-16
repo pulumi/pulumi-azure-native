@@ -130,7 +130,7 @@ export interface ConnectionTypeArgs {
     /**
      * Gets or sets the field definitions of the connection type.
      */
-    readonly fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20190601.FieldDefinition>}>;
+    readonly fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20190601.FieldDefinitionArgs>}>;
     /**
      * Gets or sets a Boolean value to indicate if the connection type is global.
      */

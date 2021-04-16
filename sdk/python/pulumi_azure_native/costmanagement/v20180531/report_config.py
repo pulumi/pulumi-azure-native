@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -109,9 +109,7 @@ class ReportConfig(pulumi.CustomResource):
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  report_config_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A report config resource.
 
@@ -152,15 +150,7 @@ class ReportConfig(pulumi.CustomResource):
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  report_config_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,20 +160,20 @@ class ReportConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReportConfigArgs.__new__(ReportConfigArgs)
 
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
-            __props__['definition'] = definition
+            __props__.__dict__["definition"] = definition
             if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
-            __props__['delivery_info'] = delivery_info
-            __props__['format'] = format
-            __props__['report_config_name'] = report_config_name
-            __props__['schedule'] = schedule
-            __props__['name'] = None
-            __props__['tags'] = None
-            __props__['type'] = None
+            __props__.__dict__["delivery_info"] = delivery_info
+            __props__.__dict__["format"] = format
+            __props__.__dict__["report_config_name"] = report_config_name
+            __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["name"] = None
+            __props__.__dict__["tags"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20180531:ReportConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReportConfig, __self__).__init__(
@@ -206,15 +196,15 @@ class ReportConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ReportConfigArgs.__new__(ReportConfigArgs)
 
-        __props__["definition"] = None
-        __props__["delivery_info"] = None
-        __props__["format"] = None
-        __props__["name"] = None
-        __props__["schedule"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["definition"] = None
+        __props__.__dict__["delivery_info"] = None
+        __props__.__dict__["format"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["schedule"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ReportConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -272,10 +262,4 @@ class ReportConfig(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

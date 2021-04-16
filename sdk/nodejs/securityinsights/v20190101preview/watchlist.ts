@@ -232,7 +232,7 @@ export interface WatchlistArgs {
     /**
      * Describes a user that created the watchlist
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
+    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -292,7 +292,7 @@ export interface WatchlistArgs {
     /**
      * Describes a user that updated the watchlist
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
+    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
      */

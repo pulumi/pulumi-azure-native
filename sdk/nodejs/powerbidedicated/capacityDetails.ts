@@ -134,7 +134,7 @@ export interface CapacityDetailsArgs {
     /**
      * A collection of Dedicated capacity administrators
      */
-    readonly administration?: pulumi.Input<inputs.powerbidedicated.DedicatedCapacityAdministrators>;
+    readonly administration?: pulumi.Input<inputs.powerbidedicated.DedicatedCapacityAdministratorsArgs>;
     /**
      * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
@@ -154,11 +154,11 @@ export interface CapacityDetailsArgs {
     /**
      * The SKU of the PowerBI Dedicated capacity resource.
      */
-    readonly sku: pulumi.Input<inputs.powerbidedicated.CapacitySku>;
+    readonly sku: pulumi.Input<inputs.powerbidedicated.CapacitySkuArgs>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData?: pulumi.Input<inputs.powerbidedicated.SystemData>;
+    readonly systemData?: pulumi.Input<inputs.powerbidedicated.SystemDataArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

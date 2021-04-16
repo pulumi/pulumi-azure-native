@@ -126,7 +126,7 @@ export interface AssessmentArgs {
     /**
      * Details of the resource that was assessed
      */
-    readonly resourceDetails: pulumi.Input<inputs.security.v20190101preview.AzureResourceDetails | inputs.security.v20190101preview.OnPremiseResourceDetails | inputs.security.v20190101preview.OnPremiseSqlResourceDetails>;
+    readonly resourceDetails: pulumi.Input<inputs.security.v20190101preview.AzureResourceDetailsArgs | inputs.security.v20190101preview.OnPremiseResourceDetailsArgs | inputs.security.v20190101preview.OnPremiseSqlResourceDetailsArgs>;
     /**
      * The identifier of the resource.
      */
@@ -134,5 +134,5 @@ export interface AssessmentArgs {
     /**
      * The result of the assessment
      */
-    readonly status: pulumi.Input<inputs.security.v20190101preview.AssessmentStatus>;
+    readonly status: pulumi.Input<inputs.security.v20190101preview.AssessmentStatusArgs>;
 }

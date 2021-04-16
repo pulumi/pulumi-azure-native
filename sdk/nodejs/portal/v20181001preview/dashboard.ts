@@ -110,7 +110,7 @@ export interface DashboardArgs {
     /**
      * The dashboard lenses.
      */
-    readonly lenses?: pulumi.Input<{[key: string]: pulumi.Input<inputs.portal.v20181001preview.DashboardLens>}>;
+    readonly lenses?: pulumi.Input<{[key: string]: pulumi.Input<inputs.portal.v20181001preview.DashboardLensArgs>}>;
     /**
      * Resource location
      */

@@ -336,7 +336,7 @@ export interface WebAppSlotArgs {
     /**
      * If specified during app creation, the app is cloned from a source app.
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20190801.CloningInfo>;
+    readonly cloningInfo?: pulumi.Input<inputs.web.v20190801.CloningInfoArgs>;
     /**
      * Size of the function container.
      */
@@ -352,7 +352,7 @@ export interface WebAppSlotArgs {
     /**
      * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20190801.HostNameSslState>[]>;
+    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20190801.HostNameSslStateArgs>[]>;
     /**
      * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
      *  If <code>true</code>, the app is only accessible via API management process.
@@ -361,7 +361,7 @@ export interface WebAppSlotArgs {
     /**
      * App Service Environment to use for the app.
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20190801.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20190801.HostingEnvironmentProfileArgs>;
     /**
      * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
      * http requests
@@ -374,7 +374,7 @@ export interface WebAppSlotArgs {
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20190801.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.web.v20190801.ManagedServiceIdentityArgs>;
     /**
      * Obsolete: Hyper-V sandbox.
      */
@@ -414,7 +414,7 @@ export interface WebAppSlotArgs {
     /**
      * Configuration of the app.
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20190801.SiteConfig>;
+    readonly siteConfig?: pulumi.Input<inputs.web.v20190801.SiteConfigArgs>;
     /**
      * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
      */

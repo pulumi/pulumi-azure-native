@@ -147,7 +147,7 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * Reference to the remote virtual network.
      */
-    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20201101.SubResource>;
+    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
     /**
      * The resource group name of the HubVirtualNetworkConnection.
      */
@@ -155,7 +155,7 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: pulumi.Input<inputs.network.v20201101.RoutingConfiguration>;
+    readonly routingConfiguration?: pulumi.Input<inputs.network.v20201101.RoutingConfigurationArgs>;
     /**
      * The name of the VirtualHub.
      */

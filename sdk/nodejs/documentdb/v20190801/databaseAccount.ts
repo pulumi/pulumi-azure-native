@@ -212,7 +212,7 @@ export interface DatabaseAccountArgs {
     /**
      * List of Cosmos DB capabilities for the account
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20190801.Capability>[]>;
+    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20190801.CapabilityArgs>[]>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -220,7 +220,7 @@ export interface DatabaseAccountArgs {
     /**
      * The consistency policy for the Cosmos DB account.
      */
-    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20190801.ConsistencyPolicy>;
+    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20190801.ConsistencyPolicyArgs>;
     /**
      * The offer type for the database
      */
@@ -260,7 +260,7 @@ export interface DatabaseAccountArgs {
     /**
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20190801.Location>[]>;
+    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20190801.LocationArgs>[]>;
     /**
      * Name of an Azure resource group.
      */
@@ -272,5 +272,5 @@ export interface DatabaseAccountArgs {
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20190801.VirtualNetworkRule>[]>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20190801.VirtualNetworkRuleArgs>[]>;
 }

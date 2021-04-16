@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -192,9 +192,7 @@ class Project(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_connection_info: Optional[pulumi.Input[pulumi.InputType['SqlConnectionInfoArgs']]] = None,
                  target_platform: Optional[pulumi.Input['ProjectTargetPlatform']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A project resource
 
@@ -245,15 +243,7 @@ class Project(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_connection_info: Optional[pulumi.Input[pulumi.InputType['SqlConnectionInfoArgs']]] = None,
                  target_platform: Optional[pulumi.Input['ProjectTargetPlatform']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,30 +253,30 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProjectArgs.__new__(ProjectArgs)
 
-            __props__['databases_info'] = databases_info
+            __props__.__dict__["databases_info"] = databases_info
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
-            __props__['group_name'] = group_name
-            __props__['location'] = location
-            __props__['project_name'] = project_name
+            __props__.__dict__["group_name"] = group_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["project_name"] = project_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['source_connection_info'] = source_connection_info
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["source_connection_info"] = source_connection_info
             if source_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'source_platform'")
-            __props__['source_platform'] = source_platform
-            __props__['tags'] = tags
-            __props__['target_connection_info'] = target_connection_info
+            __props__.__dict__["source_platform"] = source_platform
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_connection_info"] = target_connection_info
             if target_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'target_platform'")
-            __props__['target_platform'] = target_platform
-            __props__['creation_time'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["target_platform"] = target_platform
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-native:datamigration:Project"), pulumi.Alias(type_="azure-nextgen:datamigration:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
@@ -309,19 +299,19 @@ class Project(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProjectArgs.__new__(ProjectArgs)
 
-        __props__["creation_time"] = None
-        __props__["databases_info"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["source_connection_info"] = None
-        __props__["source_platform"] = None
-        __props__["tags"] = None
-        __props__["target_connection_info"] = None
-        __props__["target_platform"] = None
-        __props__["type"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["databases_info"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source_connection_info"] = None
+        __props__.__dict__["source_platform"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["target_connection_info"] = None
+        __props__.__dict__["target_platform"] = None
+        __props__.__dict__["type"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -411,10 +401,4 @@ class Project(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -93,9 +93,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The lock information.
 
@@ -134,15 +132,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,16 +142,16 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagementLockAtSubscriptionLevelArgs.__new__(ManagementLockAtSubscriptionLevelArgs)
 
             if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
-            __props__['level'] = level
-            __props__['lock_name'] = lock_name
-            __props__['notes'] = notes
-            __props__['owners'] = owners
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["level"] = level
+            __props__.__dict__["lock_name"] = lock_name
+            __props__.__dict__["notes"] = notes
+            __props__.__dict__["owners"] = owners
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-native:authorization:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-native:authorization/v20150101:ManagementLockAtSubscriptionLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtSubscriptionLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtSubscriptionLevel, __self__).__init__(
@@ -184,13 +174,13 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ManagementLockAtSubscriptionLevelArgs.__new__(ManagementLockAtSubscriptionLevelArgs)
 
-        __props__["level"] = None
-        __props__["name"] = None
-        __props__["notes"] = None
-        __props__["owners"] = None
-        __props__["type"] = None
+        __props__.__dict__["level"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["notes"] = None
+        __props__.__dict__["owners"] = None
+        __props__.__dict__["type"] = None
         return ManagementLockAtSubscriptionLevel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -232,10 +222,4 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         The resource type of the lock - Microsoft.Authorization/locks.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

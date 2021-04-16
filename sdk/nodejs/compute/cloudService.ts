@@ -109,7 +109,7 @@ export interface CloudServiceArgs {
     /**
      * Cloud service properties
      */
-    readonly properties?: pulumi.Input<inputs.compute.CloudServiceProperties>;
+    readonly properties?: pulumi.Input<inputs.compute.CloudServicePropertiesArgs>;
     /**
      * Name of the resource group.
      */

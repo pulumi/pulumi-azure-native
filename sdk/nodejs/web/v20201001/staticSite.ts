@@ -151,7 +151,7 @@ export interface StaticSiteArgs {
     /**
      * Build properties to configure on the repository.
      */
-    readonly buildProperties?: pulumi.Input<inputs.web.v20201001.StaticSiteBuildProperties>;
+    readonly buildProperties?: pulumi.Input<inputs.web.v20201001.StaticSiteBuildPropertiesArgs>;
     /**
      * Kind of resource.
      */
@@ -179,7 +179,7 @@ export interface StaticSiteArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20201001.SkuDescription>;
+    readonly sku?: pulumi.Input<inputs.web.v20201001.SkuDescriptionArgs>;
     /**
      * Resource tags.
      */

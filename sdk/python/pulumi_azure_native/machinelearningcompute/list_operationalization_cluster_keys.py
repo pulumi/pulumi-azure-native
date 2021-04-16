@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -42,7 +42,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="appInsights")
-    def app_insights(self) -> Optional['outputs.AppInsightsCredentialsResponseResult']:
+    def app_insights(self) -> Optional['outputs.AppInsightsCredentialsResponse']:
         """
         Credentials for Azure AppInsights.
         """
@@ -50,7 +50,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="containerRegistry")
-    def container_registry(self) -> Optional['outputs.ContainerRegistryCredentialsResponseResult']:
+    def container_registry(self) -> Optional['outputs.ContainerRegistryCredentialsResponse']:
         """
         Credentials for Azure Container Registry.
         """
@@ -58,7 +58,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="containerService")
-    def container_service(self) -> Optional['outputs.ContainerServiceCredentialsResponseResult']:
+    def container_service(self) -> Optional['outputs.ContainerServiceCredentialsResponse']:
         """
         Credentials for Azure Container Service.
         """
@@ -82,7 +82,7 @@ class ListOperationalizationClusterKeysResult:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional['outputs.StorageAccountCredentialsResponseResult']:
+    def storage_account(self) -> Optional['outputs.StorageAccountCredentialsResponse']:
         """
         Credentials for the Storage Account.
         """

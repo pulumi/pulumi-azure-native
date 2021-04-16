@@ -139,7 +139,7 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20150501preview.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.sql.v20150501preview.ResourceIdentityArgs>;
     /**
      * Resource location.
      */

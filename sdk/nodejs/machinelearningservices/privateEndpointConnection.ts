@@ -138,7 +138,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -150,7 +150,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.machinelearningservices.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.machinelearningservices.PrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -158,7 +158,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearningservices.Sku>;
+    readonly sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

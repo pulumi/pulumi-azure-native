@@ -4,7 +4,7 @@
 package v20170601
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Extended description about the product required for installing it into Azure Stack.

@@ -132,7 +132,7 @@ export interface ServiceArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: pulumi.Input<inputs.healthcareapis.ServicesResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.healthcareapis.ServicesResourceIdentityArgs>;
     /**
      * The kind of the service.
      */
@@ -144,7 +144,7 @@ export interface ServiceArgs {
     /**
      * The common properties of a service.
      */
-    readonly properties?: pulumi.Input<inputs.healthcareapis.ServicesProperties>;
+    readonly properties?: pulumi.Input<inputs.healthcareapis.ServicesPropertiesArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */

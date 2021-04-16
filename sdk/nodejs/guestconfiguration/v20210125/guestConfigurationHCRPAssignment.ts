@@ -120,7 +120,7 @@ export interface GuestConfigurationHCRPAssignmentArgs {
     /**
      * Properties of the Guest configuration assignment.
      */
-    readonly properties?: pulumi.Input<inputs.guestconfiguration.v20210125.GuestConfigurationAssignmentProperties>;
+    readonly properties?: pulumi.Input<inputs.guestconfiguration.v20210125.GuestConfigurationAssignmentPropertiesArgs>;
     /**
      * The resource group name.
      */

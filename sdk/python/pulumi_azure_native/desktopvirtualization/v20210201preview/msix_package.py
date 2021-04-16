@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -261,9 +261,7 @@ class MSIXPackage(pulumi.CustomResource):
                  package_relative_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Schema for MSIX Package properties.
 
@@ -322,15 +320,7 @@ class MSIXPackage(pulumi.CustomResource):
                  package_relative_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,28 +330,28 @@ class MSIXPackage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MSIXPackageArgs.__new__(MSIXPackageArgs)
 
-            __props__['display_name'] = display_name
+            __props__.__dict__["display_name"] = display_name
             if host_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_name'")
-            __props__['host_pool_name'] = host_pool_name
-            __props__['image_path'] = image_path
-            __props__['is_active'] = is_active
-            __props__['is_regular_registration'] = is_regular_registration
-            __props__['last_updated'] = last_updated
-            __props__['msix_package_full_name'] = msix_package_full_name
-            __props__['package_applications'] = package_applications
-            __props__['package_dependencies'] = package_dependencies
-            __props__['package_family_name'] = package_family_name
-            __props__['package_name'] = package_name
-            __props__['package_relative_path'] = package_relative_path
+            __props__.__dict__["host_pool_name"] = host_pool_name
+            __props__.__dict__["image_path"] = image_path
+            __props__.__dict__["is_active"] = is_active
+            __props__.__dict__["is_regular_registration"] = is_regular_registration
+            __props__.__dict__["last_updated"] = last_updated
+            __props__.__dict__["msix_package_full_name"] = msix_package_full_name
+            __props__.__dict__["package_applications"] = package_applications
+            __props__.__dict__["package_dependencies"] = package_dependencies
+            __props__.__dict__["package_family_name"] = package_family_name
+            __props__.__dict__["package_name"] = package_name
+            __props__.__dict__["package_relative_path"] = package_relative_path
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['version'] = version
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["version"] = version
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210201preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:MSIXPackage"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210309preview:MSIXPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MSIXPackage, __self__).__init__(
@@ -384,21 +374,21 @@ class MSIXPackage(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MSIXPackageArgs.__new__(MSIXPackageArgs)
 
-        __props__["display_name"] = None
-        __props__["image_path"] = None
-        __props__["is_active"] = None
-        __props__["is_regular_registration"] = None
-        __props__["last_updated"] = None
-        __props__["name"] = None
-        __props__["package_applications"] = None
-        __props__["package_dependencies"] = None
-        __props__["package_family_name"] = None
-        __props__["package_name"] = None
-        __props__["package_relative_path"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["image_path"] = None
+        __props__.__dict__["is_active"] = None
+        __props__.__dict__["is_regular_registration"] = None
+        __props__.__dict__["last_updated"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["package_applications"] = None
+        __props__.__dict__["package_dependencies"] = None
+        __props__.__dict__["package_family_name"] = None
+        __props__.__dict__["package_name"] = None
+        __props__.__dict__["package_relative_path"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return MSIXPackage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -504,10 +494,4 @@ class MSIXPackage(pulumi.CustomResource):
         Package Version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

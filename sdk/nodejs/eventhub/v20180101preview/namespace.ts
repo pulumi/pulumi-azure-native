@@ -176,11 +176,11 @@ export interface NamespaceArgs {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: pulumi.Input<inputs.eventhub.v20180101preview.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.eventhub.v20180101preview.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: pulumi.Input<inputs.eventhub.v20180101preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.eventhub.v20180101preview.IdentityArgs>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -208,7 +208,7 @@ export interface NamespaceArgs {
     /**
      * Properties of sku resource
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20180101preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.eventhub.v20180101preview.SkuArgs>;
     /**
      * Resource tags.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['VirtualHubBgpConnectionArgs', 'VirtualHubBgpConnection']
 
@@ -140,9 +140,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  peer_ip: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Virtual Appliance Site resource.
 
@@ -187,15 +185,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  peer_ip: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,23 +195,23 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualHubBgpConnectionArgs.__new__(VirtualHubBgpConnectionArgs)
 
-            __props__['connection_name'] = connection_name
-            __props__['id'] = id
-            __props__['name'] = name
-            __props__['peer_asn'] = peer_asn
-            __props__['peer_ip'] = peer_ip
+            __props__.__dict__["connection_name"] = connection_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["peer_asn"] = peer_asn
+            __props__.__dict__["peer_ip"] = peer_ip
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
-            __props__['virtual_hub_name'] = virtual_hub_name
-            __props__['connection_state'] = None
-            __props__['etag'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["virtual_hub_name"] = virtual_hub_name
+            __props__.__dict__["connection_state"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualHubBgpConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubBgpConnection, __self__).__init__(
@@ -244,15 +234,15 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualHubBgpConnectionArgs.__new__(VirtualHubBgpConnectionArgs)
 
-        __props__["connection_state"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["peer_asn"] = None
-        __props__["peer_ip"] = None
-        __props__["provisioning_state"] = None
-        __props__["type"] = None
+        __props__.__dict__["connection_state"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peer_asn"] = None
+        __props__.__dict__["peer_ip"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["type"] = None
         return VirtualHubBgpConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,10 +300,4 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         Connection type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -85,13 +85,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// <summary>
         /// Gets a page of Network Manager Deployment Status
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkManagerDeploymentStatusResponseResult> Value;
+        public readonly ImmutableArray<Outputs.NetworkManagerDeploymentStatusResponse> Value;
 
         [OutputConstructor]
         private ListNetworkManagerDeploymentStatusResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.NetworkManagerDeploymentStatusResponseResult> value)
+            ImmutableArray<Outputs.NetworkManagerDeploymentStatusResponse> value)
         {
             NextLink = nextLink;
             Value = value;

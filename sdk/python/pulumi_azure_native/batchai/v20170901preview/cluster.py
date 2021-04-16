@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -212,9 +212,7 @@ class Cluster(pulumi.CustomResource):
                  virtual_machine_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']]] = None,
                  vm_priority: Optional[pulumi.Input['VmPriority']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Contains information about a Cluster.
 
@@ -267,15 +265,7 @@ class Cluster(pulumi.CustomResource):
                  virtual_machine_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']]] = None,
                  vm_priority: Optional[pulumi.Input['VmPriority']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,37 +275,37 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__['cluster_name'] = cluster_name
-            __props__['location'] = location
-            __props__['node_setup'] = node_setup
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["node_setup"] = node_setup
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scale_settings'] = scale_settings
-            __props__['subnet'] = subnet
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scale_settings"] = scale_settings
+            __props__.__dict__["subnet"] = subnet
+            __props__.__dict__["tags"] = tags
             if user_account_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'user_account_settings'")
-            __props__['user_account_settings'] = user_account_settings
-            __props__['virtual_machine_configuration'] = virtual_machine_configuration
+            __props__.__dict__["user_account_settings"] = user_account_settings
+            __props__.__dict__["virtual_machine_configuration"] = virtual_machine_configuration
             if vm_priority is None:
                 vm_priority = 'dedicated'
-            __props__['vm_priority'] = vm_priority
+            __props__.__dict__["vm_priority"] = vm_priority
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
-            __props__['vm_size'] = vm_size
-            __props__['allocation_state'] = None
-            __props__['allocation_state_transition_time'] = None
-            __props__['creation_time'] = None
-            __props__['current_node_count'] = None
-            __props__['errors'] = None
-            __props__['name'] = None
-            __props__['node_state_counts'] = None
-            __props__['provisioning_state'] = None
-            __props__['provisioning_state_transition_time'] = None
-            __props__['type'] = None
+            __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["allocation_state"] = None
+            __props__.__dict__["allocation_state_transition_time"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["current_node_count"] = None
+            __props__.__dict__["errors"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["node_state_counts"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["provisioning_state_transition_time"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20170901preview:Cluster"), pulumi.Alias(type_="azure-native:batchai/v20180301:Cluster"), pulumi.Alias(type_="azure-nextgen:batchai/v20180301:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
@@ -338,27 +328,27 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ClusterArgs.__new__(ClusterArgs)
 
-        __props__["allocation_state"] = None
-        __props__["allocation_state_transition_time"] = None
-        __props__["creation_time"] = None
-        __props__["current_node_count"] = None
-        __props__["errors"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["node_setup"] = None
-        __props__["node_state_counts"] = None
-        __props__["provisioning_state"] = None
-        __props__["provisioning_state_transition_time"] = None
-        __props__["scale_settings"] = None
-        __props__["subnet"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["user_account_settings"] = None
-        __props__["virtual_machine_configuration"] = None
-        __props__["vm_priority"] = None
-        __props__["vm_size"] = None
+        __props__.__dict__["allocation_state"] = None
+        __props__.__dict__["allocation_state_transition_time"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["current_node_count"] = None
+        __props__.__dict__["errors"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["node_setup"] = None
+        __props__.__dict__["node_state_counts"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["provisioning_state_transition_time"] = None
+        __props__.__dict__["scale_settings"] = None
+        __props__.__dict__["subnet"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_account_settings"] = None
+        __props__.__dict__["virtual_machine_configuration"] = None
+        __props__.__dict__["vm_priority"] = None
+        __props__.__dict__["vm_size"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -500,10 +490,4 @@ class Cluster(pulumi.CustomResource):
         All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         return pulumi.get(self, "vm_size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

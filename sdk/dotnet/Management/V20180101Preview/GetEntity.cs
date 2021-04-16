@@ -50,13 +50,13 @@ namespace Pulumi.AzureNative.Management.V20180101Preview
         /// <summary>
         /// The list of entities.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EntityInfoResponseResult> Value;
+        public readonly ImmutableArray<Outputs.EntityInfoResponse> Value;
 
         [OutputConstructor]
         private GetEntityResult(
             string nextLink,
 
-            ImmutableArray<Outputs.EntityInfoResponseResult> value)
+            ImmutableArray<Outputs.EntityInfoResponse> value)
         {
             NextLink = nextLink;
             Value = value;

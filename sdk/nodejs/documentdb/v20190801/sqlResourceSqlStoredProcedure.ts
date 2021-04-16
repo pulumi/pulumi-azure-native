@@ -136,7 +136,7 @@ export interface SqlResourceSqlStoredProcedureArgs {
     /**
      * The standard JSON format of a storedProcedure
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlStoredProcedureResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlStoredProcedureResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

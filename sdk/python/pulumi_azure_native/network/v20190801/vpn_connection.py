@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -313,9 +313,7 @@ class VpnConnection(pulumi.CustomResource):
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         VpnConnection Resource.
 
@@ -380,15 +378,7 @@ class VpnConnection(pulumi.CustomResource):
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  vpn_link_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,34 +388,34 @@ class VpnConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
-            __props__['connection_bandwidth'] = connection_bandwidth
-            __props__['connection_name'] = connection_name
-            __props__['enable_bgp'] = enable_bgp
-            __props__['enable_internet_security'] = enable_internet_security
-            __props__['enable_rate_limiting'] = enable_rate_limiting
+            __props__.__dict__["connection_bandwidth"] = connection_bandwidth
+            __props__.__dict__["connection_name"] = connection_name
+            __props__.__dict__["enable_bgp"] = enable_bgp
+            __props__.__dict__["enable_internet_security"] = enable_internet_security
+            __props__.__dict__["enable_rate_limiting"] = enable_rate_limiting
             if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
-            __props__['gateway_name'] = gateway_name
-            __props__['id'] = id
-            __props__['ipsec_policies'] = ipsec_policies
-            __props__['name'] = name
-            __props__['remote_vpn_site'] = remote_vpn_site
+            __props__.__dict__["gateway_name"] = gateway_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ipsec_policies"] = ipsec_policies
+            __props__.__dict__["name"] = name
+            __props__.__dict__["remote_vpn_site"] = remote_vpn_site
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['routing_weight'] = routing_weight
-            __props__['shared_key'] = shared_key
-            __props__['use_local_azure_ip_address'] = use_local_azure_ip_address
-            __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
-            __props__['vpn_connection_protocol_type'] = vpn_connection_protocol_type
-            __props__['vpn_link_connections'] = vpn_link_connections
-            __props__['connection_status'] = None
-            __props__['egress_bytes_transferred'] = None
-            __props__['etag'] = None
-            __props__['ingress_bytes_transferred'] = None
-            __props__['provisioning_state'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routing_weight"] = routing_weight
+            __props__.__dict__["shared_key"] = shared_key
+            __props__.__dict__["use_local_azure_ip_address"] = use_local_azure_ip_address
+            __props__.__dict__["use_policy_based_traffic_selectors"] = use_policy_based_traffic_selectors
+            __props__.__dict__["vpn_connection_protocol_type"] = vpn_connection_protocol_type
+            __props__.__dict__["vpn_link_connections"] = vpn_link_connections
+            __props__.__dict__["connection_status"] = None
+            __props__.__dict__["egress_bytes_transferred"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["ingress_bytes_transferred"] = None
+            __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-native:network:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VpnConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnConnection, __self__).__init__(
@@ -448,26 +438,26 @@ class VpnConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VpnConnectionArgs.__new__(VpnConnectionArgs)
 
-        __props__["connection_bandwidth"] = None
-        __props__["connection_status"] = None
-        __props__["egress_bytes_transferred"] = None
-        __props__["enable_bgp"] = None
-        __props__["enable_internet_security"] = None
-        __props__["enable_rate_limiting"] = None
-        __props__["etag"] = None
-        __props__["ingress_bytes_transferred"] = None
-        __props__["ipsec_policies"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["remote_vpn_site"] = None
-        __props__["routing_weight"] = None
-        __props__["shared_key"] = None
-        __props__["use_local_azure_ip_address"] = None
-        __props__["use_policy_based_traffic_selectors"] = None
-        __props__["vpn_connection_protocol_type"] = None
-        __props__["vpn_link_connections"] = None
+        __props__.__dict__["connection_bandwidth"] = None
+        __props__.__dict__["connection_status"] = None
+        __props__.__dict__["egress_bytes_transferred"] = None
+        __props__.__dict__["enable_bgp"] = None
+        __props__.__dict__["enable_internet_security"] = None
+        __props__.__dict__["enable_rate_limiting"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["ingress_bytes_transferred"] = None
+        __props__.__dict__["ipsec_policies"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["remote_vpn_site"] = None
+        __props__.__dict__["routing_weight"] = None
+        __props__.__dict__["shared_key"] = None
+        __props__.__dict__["use_local_azure_ip_address"] = None
+        __props__.__dict__["use_policy_based_traffic_selectors"] = None
+        __props__.__dict__["vpn_connection_protocol_type"] = None
+        __props__.__dict__["vpn_link_connections"] = None
         return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -613,10 +603,4 @@ class VpnConnection(pulumi.CustomResource):
         List of all vpn site link connections to the gateway.
         """
         return pulumi.get(self, "vpn_link_connections")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

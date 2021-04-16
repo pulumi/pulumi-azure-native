@@ -158,7 +158,7 @@ export interface VolumeArgs {
     /**
      * Export policy rule
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20170815.VolumePropertiesExportPolicy>;
+    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20170815.VolumePropertiesExportPolicyArgs>;
     /**
      * Resource location
      */

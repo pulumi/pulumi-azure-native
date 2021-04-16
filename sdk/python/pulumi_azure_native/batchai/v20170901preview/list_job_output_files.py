@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -38,7 +38,7 @@ class ListJobOutputFilesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.FileResponseResult']:
+    def value(self) -> Sequence['outputs.FileResponse']:
         """
         The collection of returned job files.
         """

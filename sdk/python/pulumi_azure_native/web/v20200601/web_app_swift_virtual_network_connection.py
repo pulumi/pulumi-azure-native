@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['WebAppSwiftVirtualNetworkConnectionArgs', 'WebAppSwiftVirtualNetworkConnection']
 
@@ -106,9 +106,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  swift_supported: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 
@@ -149,15 +147,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_resource_id: Optional[pulumi.Input[str]] = None,
                  swift_supported: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,18 +157,18 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppSwiftVirtualNetworkConnectionArgs.__new__(WebAppSwiftVirtualNetworkConnectionArgs)
 
-            __props__['kind'] = kind
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['subnet_resource_id'] = subnet_resource_id
-            __props__['swift_supported'] = swift_supported
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subnet_resource_id"] = subnet_resource_id
+            __props__.__dict__["swift_supported"] = swift_supported
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSwiftVirtualNetworkConnection, __self__).__init__(
@@ -201,13 +191,13 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppSwiftVirtualNetworkConnectionArgs.__new__(WebAppSwiftVirtualNetworkConnectionArgs)
 
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["subnet_resource_id"] = None
-        __props__["swift_supported"] = None
-        __props__["type"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["subnet_resource_id"] = None
+        __props__.__dict__["swift_supported"] = None
+        __props__.__dict__["type"] = None
         return WebAppSwiftVirtualNetworkConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -249,10 +239,4 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

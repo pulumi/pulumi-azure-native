@@ -104,7 +104,7 @@ export interface ServerTrustGroupArgs {
     /**
      * Group members information for the server trust group.
      */
-    readonly groupMembers: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.ServerInfo>[]>;
+    readonly groupMembers: pulumi.Input<pulumi.Input<inputs.sql.v20200801preview.ServerInfoArgs>[]>;
     /**
      * The name of the region where the resource is located.
      */

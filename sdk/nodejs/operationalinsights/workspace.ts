@@ -209,7 +209,7 @@ export interface WorkspaceArgs {
     /**
      * The SKU of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.WorkspaceSku>;
+    readonly sku?: pulumi.Input<inputs.operationalinsights.WorkspaceSkuArgs>;
     /**
      * Resource tags.
      */
@@ -217,7 +217,7 @@ export interface WorkspaceArgs {
     /**
      * The daily volume cap for ingestion.
      */
-    readonly workspaceCapping?: pulumi.Input<inputs.operationalinsights.WorkspaceCapping>;
+    readonly workspaceCapping?: pulumi.Input<inputs.operationalinsights.WorkspaceCappingArgs>;
     /**
      * The name of the workspace.
      */

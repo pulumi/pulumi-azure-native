@@ -193,7 +193,7 @@ export interface MachineArgs {
     /**
      * Machine Extensions information
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20190802preview.MachineExtensionInstanceView>[]>;
+    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewArgs>[]>;
     /**
      * Resource location
      */

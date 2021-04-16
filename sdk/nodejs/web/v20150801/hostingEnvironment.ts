@@ -296,7 +296,7 @@ export interface HostingEnvironmentArgs {
     /**
      * Custom settings for changing the behavior of the hosting environment
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NameValuePair>[]>;
+    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NameValuePairArgs>[]>;
     /**
      * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
      */
@@ -312,7 +312,7 @@ export interface HostingEnvironmentArgs {
     /**
      * Current total, used, and available worker capacities
      */
-    readonly environmentCapacities?: pulumi.Input<pulumi.Input<inputs.web.v20150801.StampCapacity>[]>;
+    readonly environmentCapacities?: pulumi.Input<pulumi.Input<inputs.web.v20150801.StampCapacityArgs>[]>;
     /**
      * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
      */
@@ -368,7 +368,7 @@ export interface HostingEnvironmentArgs {
     /**
      * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
      */
-    readonly networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NetworkAccessControlEntry>[]>;
+    readonly networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.v20150801.NetworkAccessControlEntryArgs>[]>;
     /**
      * Provisioning state of the hostingEnvironment (App Service Environment)
      */
@@ -409,11 +409,11 @@ export interface HostingEnvironmentArgs {
     /**
      * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
      */
-    readonly vipMappings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VirtualIPMapping>[]>;
+    readonly vipMappings?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VirtualIPMappingArgs>[]>;
     /**
      * Description of the hostingEnvironment's (App Service Environment) virtual network
      */
-    readonly virtualNetwork?: pulumi.Input<inputs.web.v20150801.VirtualNetworkProfile>;
+    readonly virtualNetwork?: pulumi.Input<inputs.web.v20150801.VirtualNetworkProfileArgs>;
     /**
      * Name of the hostingEnvironment's (App Service Environment) virtual network
      */
@@ -429,5 +429,5 @@ export interface HostingEnvironmentArgs {
     /**
      * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
      */
-    readonly workerPools?: pulumi.Input<pulumi.Input<inputs.web.v20150801.WorkerPool>[]>;
+    readonly workerPools?: pulumi.Input<pulumi.Input<inputs.web.v20150801.WorkerPoolArgs>[]>;
 }

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -260,9 +260,7 @@ class Extension(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[pulumi.InputType['ScopeArgs']]] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The Extension Instance object.
 
@@ -321,15 +319,7 @@ class Extension(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[pulumi.InputType['ScopeArgs']]] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExtensionStatusArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -339,38 +329,38 @@ class Extension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
-            __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
+            __props__.__dict__["cluster_name"] = cluster_name
             if cluster_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_resource_name'")
-            __props__['cluster_resource_name'] = cluster_resource_name
+            __props__.__dict__["cluster_resource_name"] = cluster_resource_name
             if cluster_rp is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_rp'")
-            __props__['cluster_rp'] = cluster_rp
-            __props__['configuration_protected_settings'] = configuration_protected_settings
-            __props__['configuration_settings'] = configuration_settings
-            __props__['extension_instance_name'] = extension_instance_name
-            __props__['extension_type'] = extension_type
-            __props__['identity'] = identity
-            __props__['release_train'] = release_train
+            __props__.__dict__["cluster_rp"] = cluster_rp
+            __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
+            __props__.__dict__["configuration_settings"] = configuration_settings
+            __props__.__dict__["extension_instance_name"] = extension_instance_name
+            __props__.__dict__["extension_type"] = extension_type
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["release_train"] = release_train
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scope'] = scope
-            __props__['statuses'] = statuses
-            __props__['version'] = version
-            __props__['creation_time'] = None
-            __props__['error_info'] = None
-            __props__['install_state'] = None
-            __props__['last_modified_time'] = None
-            __props__['last_status_time'] = None
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["statuses"] = statuses
+            __props__.__dict__["version"] = version
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["error_info"] = None
+            __props__.__dict__["install_state"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["last_status_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20200701preview:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration:Extension"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
@@ -393,25 +383,25 @@ class Extension(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
-        __props__["auto_upgrade_minor_version"] = None
-        __props__["configuration_protected_settings"] = None
-        __props__["configuration_settings"] = None
-        __props__["creation_time"] = None
-        __props__["error_info"] = None
-        __props__["extension_type"] = None
-        __props__["identity"] = None
-        __props__["install_state"] = None
-        __props__["last_modified_time"] = None
-        __props__["last_status_time"] = None
-        __props__["name"] = None
-        __props__["release_train"] = None
-        __props__["scope"] = None
-        __props__["statuses"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["auto_upgrade_minor_version"] = None
+        __props__.__dict__["configuration_protected_settings"] = None
+        __props__.__dict__["configuration_settings"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["error_info"] = None
+        __props__.__dict__["extension_type"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["install_state"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["last_status_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["release_train"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["statuses"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return Extension(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -549,10 +539,4 @@ class Extension(pulumi.CustomResource):
         Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

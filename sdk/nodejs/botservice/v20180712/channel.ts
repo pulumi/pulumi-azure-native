@@ -138,7 +138,7 @@ export interface ChannelArgs {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20180712.DirectLineChannel | inputs.botservice.v20180712.EmailChannel | inputs.botservice.v20180712.FacebookChannel | inputs.botservice.v20180712.KikChannel | inputs.botservice.v20180712.MsTeamsChannel | inputs.botservice.v20180712.SkypeChannel | inputs.botservice.v20180712.SlackChannel | inputs.botservice.v20180712.SmsChannel | inputs.botservice.v20180712.TelegramChannel | inputs.botservice.v20180712.WebChatChannel>;
+    readonly properties?: pulumi.Input<inputs.botservice.v20180712.DirectLineChannelArgs | inputs.botservice.v20180712.EmailChannelArgs | inputs.botservice.v20180712.FacebookChannelArgs | inputs.botservice.v20180712.KikChannelArgs | inputs.botservice.v20180712.MsTeamsChannelArgs | inputs.botservice.v20180712.SkypeChannelArgs | inputs.botservice.v20180712.SlackChannelArgs | inputs.botservice.v20180712.SmsChannelArgs | inputs.botservice.v20180712.TelegramChannelArgs | inputs.botservice.v20180712.WebChatChannelArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
@@ -150,7 +150,7 @@ export interface ChannelArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.botservice.v20180712.Sku>;
+    readonly sku?: pulumi.Input<inputs.botservice.v20180712.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

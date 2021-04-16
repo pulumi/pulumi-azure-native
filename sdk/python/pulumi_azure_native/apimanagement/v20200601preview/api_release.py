@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['ApiReleaseArgs', 'ApiRelease']
 
@@ -105,9 +105,7 @@ class ApiRelease(pulumi.CustomResource):
                  release_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ApiRelease details.
 
@@ -148,15 +146,7 @@ class ApiRelease(pulumi.CustomResource):
                  release_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,23 +156,23 @@ class ApiRelease(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiReleaseArgs.__new__(ApiReleaseArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
-            __props__['notes'] = notes
-            __props__['release_id'] = release_id
+            __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["notes"] = notes
+            __props__.__dict__["release_id"] = release_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['created_date_time'] = None
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['updated_date_time'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["created_date_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_date_time"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:ApiRelease"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiRelease"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:ApiRelease")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiRelease, __self__).__init__(
@@ -205,14 +195,14 @@ class ApiRelease(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApiReleaseArgs.__new__(ApiReleaseArgs)
 
-        __props__["api_id"] = None
-        __props__["created_date_time"] = None
-        __props__["name"] = None
-        __props__["notes"] = None
-        __props__["type"] = None
-        __props__["updated_date_time"] = None
+        __props__.__dict__["api_id"] = None
+        __props__.__dict__["created_date_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["notes"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_date_time"] = None
         return ApiRelease(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -262,10 +252,4 @@ class ApiRelease(pulumi.CustomResource):
         The time the API release was updated.
         """
         return pulumi.get(self, "updated_date_time")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

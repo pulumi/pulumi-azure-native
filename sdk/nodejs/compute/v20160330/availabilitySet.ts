@@ -141,5 +141,5 @@ export interface AvailabilitySetArgs {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20160330.SubResource>[]>;
+    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20160330.SubResourceArgs>[]>;
 }

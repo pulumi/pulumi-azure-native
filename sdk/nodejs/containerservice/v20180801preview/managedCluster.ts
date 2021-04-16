@@ -166,15 +166,15 @@ export interface ManagedClusterArgs {
     /**
      * Profile of Azure Active Directory configuration.
      */
-    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterAADProfile>;
+    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterAADProfileArgs>;
     /**
      * Profile of managed cluster add-on.
      */
-    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterAddonProfile>}>;
+    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterAddonProfileArgs>}>;
     /**
      * Properties of the agent pool.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterAgentPoolProfile>[]>;
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterAgentPoolProfileArgs>[]>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -190,7 +190,7 @@ export interface ManagedClusterArgs {
     /**
      * Profile for Linux VMs in the container service cluster.
      */
-    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ContainerServiceLinuxProfile>;
+    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
@@ -198,7 +198,7 @@ export interface ManagedClusterArgs {
     /**
      * Profile of network configuration.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ContainerServiceNetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ContainerServiceNetworkProfileArgs>;
     /**
      * The name of the resource group.
      */
@@ -210,7 +210,7 @@ export interface ManagedClusterArgs {
     /**
      * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterServicePrincipalProfile>;
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20180801preview.ManagedClusterServicePrincipalProfileArgs>;
     /**
      * Resource tags
      */

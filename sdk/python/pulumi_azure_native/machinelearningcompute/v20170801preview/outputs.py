@@ -6,18 +6,18 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
     'AcsClusterPropertiesResponse',
-    'AppInsightsCredentialsResponseResult',
+    'AppInsightsCredentialsResponse',
     'AppInsightsPropertiesResponse',
     'AutoScaleConfigurationResponse',
-    'ContainerRegistryCredentialsResponseResult',
+    'ContainerRegistryCredentialsResponse',
     'ContainerRegistryPropertiesResponse',
-    'ContainerServiceCredentialsResponseResult',
+    'ContainerServiceCredentialsResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
     'ErrorResponseWrapperResponse',
@@ -26,7 +26,7 @@ __all__ = [
     'ServiceAuthConfigurationResponse',
     'ServicePrincipalPropertiesResponse',
     'SslConfigurationResponse',
-    'StorageAccountCredentialsResponseResult',
+    'StorageAccountCredentialsResponse',
     'StorageAccountPropertiesResponse',
     'SystemServiceResponse',
 ]
@@ -36,6 +36,35 @@ class AcsClusterPropertiesResponse(dict):
     """
     Information about the container service backing the cluster
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterFqdn":
+            suggest = "cluster_fqdn"
+        elif key == "orchestratorType":
+            suggest = "orchestrator_type"
+        elif key == "agentCount":
+            suggest = "agent_count"
+        elif key == "agentVmSize":
+            suggest = "agent_vm_size"
+        elif key == "masterCount":
+            suggest = "master_count"
+        elif key == "orchestratorProperties":
+            suggest = "orchestrator_properties"
+        elif key == "systemServices":
+            suggest = "system_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcsClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcsClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcsClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_fqdn: str,
                  orchestrator_type: str,
@@ -51,8 +80,8 @@ class AcsClusterPropertiesResponse(dict):
         :param int agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
         :param str agent_vm_size: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
         :param int master_count: The number of master nodes in the container service.
-        :param 'KubernetesClusterPropertiesResponseArgs' orchestrator_properties: Orchestrator specific properties
-        :param Sequence['SystemServiceResponseArgs'] system_services: The system services deployed to the cluster
+        :param 'KubernetesClusterPropertiesResponse' orchestrator_properties: Orchestrator specific properties
+        :param Sequence['SystemServiceResponse'] system_services: The system services deployed to the cluster
         """
         pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
         pulumi.set(__self__, "orchestrator_type", orchestrator_type)
@@ -129,12 +158,9 @@ class AcsClusterPropertiesResponse(dict):
         """
         return pulumi.get(self, "system_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class AppInsightsCredentialsResponseResult(dict):
+class AppInsightsCredentialsResponse(dict):
     """
     AppInsights credentials.
     """
@@ -173,6 +199,23 @@ class AppInsightsPropertiesResponse(dict):
     """
     Properties of App Insights.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppInsightsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppInsightsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppInsightsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None):
         """
@@ -190,15 +233,35 @@ class AppInsightsPropertiesResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoScaleConfigurationResponse(dict):
     """
     AutoScale configuration properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxReplicas":
+            suggest = "max_replicas"
+        elif key == "minReplicas":
+            suggest = "min_replicas"
+        elif key == "refreshPeriodInSeconds":
+            suggest = "refresh_period_in_seconds"
+        elif key == "targetUtilization":
+            suggest = "target_utilization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScaleConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScaleConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScaleConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_replicas: Optional[int] = None,
                  min_replicas: Optional[int] = None,
@@ -270,12 +333,9 @@ class AutoScaleConfigurationResponse(dict):
         """
         return pulumi.get(self, "target_utilization")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ContainerRegistryCredentialsResponseResult(dict):
+class ContainerRegistryCredentialsResponse(dict):
     """
     Information about the Azure Container Registry which contains the images deployed to the cluster.
     """
@@ -334,6 +394,23 @@ class ContainerRegistryPropertiesResponse(dict):
     """
     Properties of Azure Container Registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRegistryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRegistryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRegistryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None):
         """
@@ -351,12 +428,9 @@ class ContainerRegistryPropertiesResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ContainerServiceCredentialsResponseResult(dict):
+class ContainerServiceCredentialsResponse(dict):
     """
     Information about the Azure Container Registry which contains the images deployed to the cluster.
     """
@@ -368,7 +442,7 @@ class ContainerServiceCredentialsResponseResult(dict):
         Information about the Azure Container Registry which contains the images deployed to the cluster.
         :param str acs_kube_config: The ACS kube config file.
         :param str image_pull_secret_name: The ACR image pull secret name which was created in Kubernetes.
-        :param 'ServicePrincipalPropertiesResponseArgs' service_principal_configuration: Service principal configuration used by Kubernetes.
+        :param 'ServicePrincipalPropertiesResponse' service_principal_configuration: Service principal configuration used by Kubernetes.
         """
         pulumi.set(__self__, "acs_kube_config", acs_kube_config)
         pulumi.set(__self__, "image_pull_secret_name", image_pull_secret_name)
@@ -431,9 +505,6 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorResponseResponse(dict):
@@ -448,7 +519,7 @@ class ErrorResponseResponse(dict):
         Error response information.
         :param str code: Error code.
         :param str message: Error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -479,9 +550,6 @@ class ErrorResponseResponse(dict):
         """
         return pulumi.get(self, "details")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorResponseWrapperResponse(dict):
@@ -492,7 +560,7 @@ class ErrorResponseWrapperResponse(dict):
                  error: Optional['outputs.ErrorResponseResponse'] = None):
         """
         Wrapper for error response to follow ARM guidelines.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         if error is not None:
             pulumi.set(__self__, "error", error)
@@ -505,15 +573,31 @@ class ErrorResponseWrapperResponse(dict):
         """
         return pulumi.get(self, "error")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GlobalServiceConfigurationResponse(dict):
     """
     Global configuration for services in the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScale":
+            suggest = "auto_scale"
+        elif key == "serviceAuth":
+            suggest = "service_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalServiceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalServiceConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalServiceConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_scale: Optional['outputs.AutoScaleConfigurationResponse'] = None,
                  etag: Optional[str] = None,
@@ -521,10 +605,10 @@ class GlobalServiceConfigurationResponse(dict):
                  ssl: Optional['outputs.SslConfigurationResponse'] = None):
         """
         Global configuration for services in the cluster.
-        :param 'AutoScaleConfigurationResponseArgs' auto_scale: The auto-scale configuration
+        :param 'AutoScaleConfigurationResponse' auto_scale: The auto-scale configuration
         :param str etag: The configuration ETag for updates.
-        :param 'ServiceAuthConfigurationResponseArgs' service_auth: Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
-        :param 'SslConfigurationResponseArgs' ssl: The SSL configuration properties
+        :param 'ServiceAuthConfigurationResponse' service_auth: Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+        :param 'SslConfigurationResponse' ssl: The SSL configuration properties
         """
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
@@ -567,20 +651,34 @@ class GlobalServiceConfigurationResponse(dict):
         """
         return pulumi.get(self, "ssl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterPropertiesResponse(dict):
     """
     Kubernetes cluster specific properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "servicePrincipal":
+            suggest = "service_principal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_principal: Optional['outputs.ServicePrincipalPropertiesResponse'] = None):
         """
         Kubernetes cluster specific properties
-        :param 'ServicePrincipalPropertiesResponseArgs' service_principal: The Azure Service Principal used by Kubernetes
+        :param 'ServicePrincipalPropertiesResponse' service_principal: The Azure Service Principal used by Kubernetes
         """
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
@@ -593,15 +691,31 @@ class KubernetesClusterPropertiesResponse(dict):
         """
         return pulumi.get(self, "service_principal")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAuthConfigurationResponse(dict):
     """
     Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryAuthKeyHash":
+            suggest = "primary_auth_key_hash"
+        elif key == "secondaryAuthKeyHash":
+            suggest = "secondary_auth_key_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAuthConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAuthConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAuthConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  primary_auth_key_hash: str,
                  secondary_auth_key_hash: str):
@@ -629,15 +743,29 @@ class ServiceAuthConfigurationResponse(dict):
         """
         return pulumi.get(self, "secondary_auth_key_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServicePrincipalPropertiesResponse(dict):
     """
     The Azure service principal used by Kubernetes for configuring load balancers
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  secret: str):
@@ -664,9 +792,6 @@ class ServicePrincipalPropertiesResponse(dict):
         The service principal secret. This is not returned in response of GET/PUT on the resource. To see this please call listKeys.
         """
         return pulumi.get(self, "secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -729,12 +854,9 @@ class SslConfigurationResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class StorageAccountCredentialsResponseResult(dict):
+class StorageAccountCredentialsResponse(dict):
     """
     Access information for the storage account.
     """
@@ -782,6 +904,23 @@ class StorageAccountPropertiesResponse(dict):
     """
     Properties of Storage Account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None):
         """
@@ -799,15 +938,31 @@ class StorageAccountPropertiesResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemServiceResponse(dict):
     """
     Information about a system service deployed in the cluster
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddress":
+            suggest = "public_ip_address"
+        elif key == "systemServiceType":
+            suggest = "system_service_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ip_address: str,
                  system_service_type: str,
@@ -845,8 +1000,5 @@ class SystemServiceResponse(dict):
         The state of the system service
         """
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

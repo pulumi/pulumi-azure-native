@@ -191,11 +191,11 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination?: pulumi.Input<inputs.network.v20201101.ConnectionMonitorDestination>;
+    readonly destination?: pulumi.Input<inputs.network.v20201101.ConnectionMonitorDestinationArgs>;
     /**
      * List of connection monitor endpoints.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorEndpoint>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorEndpointArgs>[]>;
     /**
      * Connection monitor location.
      */
@@ -219,7 +219,7 @@ export interface ConnectionMonitorArgs {
     /**
      * List of connection monitor outputs.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorOutput>[]>;
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorOutputArgs>[]>;
     /**
      * The name of the resource group containing Network Watcher.
      */
@@ -227,7 +227,7 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the source of connection monitor.
      */
-    readonly source?: pulumi.Input<inputs.network.v20201101.ConnectionMonitorSource>;
+    readonly source?: pulumi.Input<inputs.network.v20201101.ConnectionMonitorSourceArgs>;
     /**
      * Connection monitor tags.
      */
@@ -235,9 +235,9 @@ export interface ConnectionMonitorArgs {
     /**
      * List of connection monitor test configurations.
      */
-    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorTestConfiguration>[]>;
+    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorTestConfigurationArgs>[]>;
     /**
      * List of connection monitor test groups.
      */
-    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorTestGroup>[]>;
+    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.v20201101.ConnectionMonitorTestGroupArgs>[]>;
 }

@@ -128,7 +128,7 @@ export interface IotDpsResourceArgs {
     /**
      * The managed identities for the IotDps instance.
      */
-    readonly identity?: pulumi.Input<inputs.devices.v20200901preview.ArmIdentity>;
+    readonly identity?: pulumi.Input<inputs.devices.v20200901preview.ArmIdentityArgs>;
     /**
      * The resource location.
      */
@@ -136,7 +136,7 @@ export interface IotDpsResourceArgs {
     /**
      * Service specific properties for a provisioning service
      */
-    readonly properties: pulumi.Input<inputs.devices.v20200901preview.IotDpsPropertiesDescription>;
+    readonly properties: pulumi.Input<inputs.devices.v20200901preview.IotDpsPropertiesDescriptionArgs>;
     /**
      * Name of provisioning service to create or update.
      */
@@ -148,7 +148,7 @@ export interface IotDpsResourceArgs {
     /**
      * Sku info for a provisioning Service.
      */
-    readonly sku: pulumi.Input<inputs.devices.v20200901preview.IotDpsSkuInfo>;
+    readonly sku: pulumi.Input<inputs.devices.v20200901preview.IotDpsSkuInfoArgs>;
     /**
      * The resource tags.
      */

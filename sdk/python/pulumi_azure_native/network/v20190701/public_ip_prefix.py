@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -263,9 +263,7 @@ class PublicIPPrefix(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Public IP prefix resource.
 
@@ -324,15 +322,7 @@ class PublicIPPrefix(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['PublicIPPrefixSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,28 +332,28 @@ class PublicIPPrefix(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PublicIPPrefixArgs.__new__(PublicIPPrefixArgs)
 
-            __props__['etag'] = etag
-            __props__['id'] = id
-            __props__['ip_prefix'] = ip_prefix
-            __props__['ip_tags'] = ip_tags
-            __props__['location'] = location
-            __props__['prefix_length'] = prefix_length
-            __props__['public_ip_address_version'] = public_ip_address_version
-            __props__['public_ip_addresses'] = public_ip_addresses
-            __props__['public_ip_prefix_name'] = public_ip_prefix_name
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ip_prefix"] = ip_prefix
+            __props__.__dict__["ip_tags"] = ip_tags
+            __props__.__dict__["location"] = location
+            __props__.__dict__["prefix_length"] = prefix_length
+            __props__.__dict__["public_ip_address_version"] = public_ip_address_version
+            __props__.__dict__["public_ip_addresses"] = public_ip_addresses
+            __props__.__dict__["public_ip_prefix_name"] = public_ip_prefix_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_guid'] = resource_guid
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['zones'] = zones
-            __props__['load_balancer_frontend_ip_configuration'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_guid"] = resource_guid
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zones"] = zones
+            __props__.__dict__["load_balancer_frontend_ip_configuration"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PublicIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:PublicIPPrefix"), pulumi.Alias(type_="azure-nextgen:network/v20201101:PublicIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublicIPPrefix, __self__).__init__(
@@ -386,23 +376,23 @@ class PublicIPPrefix(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PublicIPPrefixArgs.__new__(PublicIPPrefixArgs)
 
-        __props__["etag"] = None
-        __props__["ip_prefix"] = None
-        __props__["ip_tags"] = None
-        __props__["load_balancer_frontend_ip_configuration"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["prefix_length"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_ip_address_version"] = None
-        __props__["public_ip_addresses"] = None
-        __props__["resource_guid"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["zones"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["ip_prefix"] = None
+        __props__.__dict__["ip_tags"] = None
+        __props__.__dict__["load_balancer_frontend_ip_configuration"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["prefix_length"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_ip_address_version"] = None
+        __props__.__dict__["public_ip_addresses"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["zones"] = None
         return PublicIPPrefix(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -524,10 +514,4 @@ class PublicIPPrefix(pulumi.CustomResource):
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

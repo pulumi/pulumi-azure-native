@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -208,9 +208,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  ssl_status: Optional[pulumi.Input[Union[str, 'SSLStatus']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The storage account credential.
 
@@ -263,15 +261,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  ssl_status: Optional[pulumi.Input[Union[str, 'SSLStatus']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,30 +271,30 @@ class StorageAccountCredential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-            __props__['account_key'] = account_key
+            __props__.__dict__["account_key"] = account_key
             if account_type is None and not opts.urn:
                 raise TypeError("Missing required property 'account_type'")
-            __props__['account_type'] = account_type
+            __props__.__dict__["account_type"] = account_type
             if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")
-            __props__['alias'] = alias
-            __props__['blob_domain_name'] = blob_domain_name
-            __props__['connection_string'] = connection_string
+            __props__.__dict__["alias"] = alias
+            __props__.__dict__["blob_domain_name"] = blob_domain_name
+            __props__.__dict__["connection_string"] = connection_string
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['name'] = name
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if ssl_status is None and not opts.urn:
                 raise TypeError("Missing required property 'ssl_status'")
-            __props__['ssl_status'] = ssl_status
-            __props__['storage_account_id'] = storage_account_id
-            __props__['user_name'] = user_name
-            __props__['type'] = None
+            __props__.__dict__["ssl_status"] = ssl_status
+            __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201preview:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
@@ -327,18 +317,18 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-        __props__["account_key"] = None
-        __props__["account_type"] = None
-        __props__["alias"] = None
-        __props__["blob_domain_name"] = None
-        __props__["connection_string"] = None
-        __props__["name"] = None
-        __props__["ssl_status"] = None
-        __props__["storage_account_id"] = None
-        __props__["type"] = None
-        __props__["user_name"] = None
+        __props__.__dict__["account_key"] = None
+        __props__.__dict__["account_type"] = None
+        __props__.__dict__["alias"] = None
+        __props__.__dict__["blob_domain_name"] = None
+        __props__.__dict__["connection_string"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["ssl_status"] = None
+        __props__.__dict__["storage_account_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_name"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -420,10 +410,4 @@ class StorageAccountCredential(pulumi.CustomResource):
         Username for the storage account.
         """
         return pulumi.get(self, "user_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

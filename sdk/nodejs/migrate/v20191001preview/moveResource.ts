@@ -100,7 +100,7 @@ export interface MoveResourceArgs {
     /**
      * Defines the move resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.v20191001preview.MoveResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.v20191001preview.MoveResourcePropertiesArgs>;
     /**
      * The Resource Group Name.
      */

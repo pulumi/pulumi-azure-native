@@ -125,11 +125,11 @@ export interface NetworkProfileArgs {
     /**
      * List of chid container network interface configurations.
      */
-    readonly containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ContainerNetworkInterfaceConfiguration>[]>;
+    readonly containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ContainerNetworkInterfaceConfigurationArgs>[]>;
     /**
      * List of child container network interfaces.
      */
-    readonly containerNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ContainerNetworkInterface>[]>;
+    readonly containerNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ContainerNetworkInterfaceArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

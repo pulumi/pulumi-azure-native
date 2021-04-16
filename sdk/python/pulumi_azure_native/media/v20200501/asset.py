@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['AssetArgs', 'Asset']
@@ -141,9 +141,7 @@ class Asset(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Asset.
 
@@ -188,15 +186,7 @@ class Asset(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,26 +196,26 @@ class Asset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssetArgs.__new__(AssetArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['alternate_id'] = alternate_id
-            __props__['asset_name'] = asset_name
-            __props__['container'] = container
-            __props__['description'] = description
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["alternate_id"] = alternate_id
+            __props__.__dict__["asset_name"] = asset_name
+            __props__.__dict__["container"] = container
+            __props__.__dict__["description"] = description
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_account_name'] = storage_account_name
-            __props__['asset_id'] = None
-            __props__['created'] = None
-            __props__['last_modified'] = None
-            __props__['name'] = None
-            __props__['storage_encryption_format'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["asset_id"] = None
+            __props__.__dict__["created"] = None
+            __props__.__dict__["last_modified"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["storage_encryption_format"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20200501:Asset"), pulumi.Alias(type_="azure-native:media:Asset"), pulumi.Alias(type_="azure-nextgen:media:Asset"), pulumi.Alias(type_="azure-native:media/v20180330preview:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Asset"), pulumi.Alias(type_="azure-native:media/v20180601preview:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Asset"), pulumi.Alias(type_="azure-native:media/v20180701:Asset"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Asset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Asset, __self__).__init__(
@@ -248,19 +238,19 @@ class Asset(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AssetArgs.__new__(AssetArgs)
 
-        __props__["alternate_id"] = None
-        __props__["asset_id"] = None
-        __props__["container"] = None
-        __props__["created"] = None
-        __props__["description"] = None
-        __props__["last_modified"] = None
-        __props__["name"] = None
-        __props__["storage_account_name"] = None
-        __props__["storage_encryption_format"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["alternate_id"] = None
+        __props__.__dict__["asset_id"] = None
+        __props__.__dict__["container"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["last_modified"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["storage_account_name"] = None
+        __props__.__dict__["storage_encryption_format"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return Asset(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -350,10 +340,4 @@ class Asset(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

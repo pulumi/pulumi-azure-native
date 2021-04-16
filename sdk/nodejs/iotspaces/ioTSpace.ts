@@ -114,7 +114,7 @@ export interface IoTSpaceArgs {
     /**
      * The common properties of a IoTSpaces service.
      */
-    readonly properties?: pulumi.Input<inputs.iotspaces.IoTSpacesProperties>;
+    readonly properties?: pulumi.Input<inputs.iotspaces.IoTSpacesPropertiesArgs>;
     /**
      * The name of the resource group that contains the IoTSpaces instance.
      */
@@ -126,7 +126,7 @@ export interface IoTSpaceArgs {
     /**
      * A valid instance SKU.
      */
-    readonly sku: pulumi.Input<inputs.iotspaces.IoTSpacesSkuInfo>;
+    readonly sku: pulumi.Input<inputs.iotspaces.IoTSpacesSkuInfoArgs>;
     /**
      * The resource tags.
      */

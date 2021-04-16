@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The authorization properties for accessing the source code repository.
         /// </summary>
-        public readonly Outputs.SourceControlAuthInfoResponseResult? SourceControlAuthProperties;
+        public readonly Outputs.SourceControlAuthInfoResponse? SourceControlAuthProperties;
         /// <summary>
         /// The type of source control service.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string repositoryUrl,
 
-            Outputs.SourceControlAuthInfoResponseResult? sourceControlAuthProperties,
+            Outputs.SourceControlAuthInfoResponse? sourceControlAuthProperties,
 
             string sourceControlType)
         {

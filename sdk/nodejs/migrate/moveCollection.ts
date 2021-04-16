@@ -113,7 +113,7 @@ export interface MoveCollectionArgs {
     /**
      * Defines the MSI properties of the Move Collection.
      */
-    readonly identity?: pulumi.Input<inputs.migrate.Identity>;
+    readonly identity?: pulumi.Input<inputs.migrate.IdentityArgs>;
     /**
      * The geo-location where the resource lives.
      */
@@ -125,7 +125,7 @@ export interface MoveCollectionArgs {
     /**
      * Defines the move collection properties.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.MoveCollectionProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.MoveCollectionPropertiesArgs>;
     /**
      * The Resource Group Name.
      */

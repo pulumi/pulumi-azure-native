@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -177,9 +177,7 @@ class VirtualRouter(pulumi.CustomResource):
                  virtual_router_asn: Optional[pulumi.Input[float]] = None,
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         VirtualRouter Resource.
 
@@ -228,15 +226,7 @@ class VirtualRouter(pulumi.CustomResource):
                  virtual_router_asn: Optional[pulumi.Input[float]] = None,
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,24 +236,24 @@ class VirtualRouter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualRouterArgs.__new__(VirtualRouterArgs)
 
-            __props__['hosted_gateway'] = hosted_gateway
-            __props__['hosted_subnet'] = hosted_subnet
-            __props__['id'] = id
-            __props__['location'] = location
+            __props__.__dict__["hosted_gateway"] = hosted_gateway
+            __props__.__dict__["hosted_subnet"] = hosted_subnet
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['virtual_router_asn'] = virtual_router_asn
-            __props__['virtual_router_ips'] = virtual_router_ips
-            __props__['virtual_router_name'] = virtual_router_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['peerings'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_router_asn"] = virtual_router_asn
+            __props__.__dict__["virtual_router_ips"] = virtual_router_ips
+            __props__.__dict__["virtual_router_name"] = virtual_router_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["peerings"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualRouter"), pulumi.Alias(type_="azure-native:network:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualRouter"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualRouter"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualRouter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualRouter, __self__).__init__(
@@ -286,19 +276,19 @@ class VirtualRouter(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualRouterArgs.__new__(VirtualRouterArgs)
 
-        __props__["etag"] = None
-        __props__["hosted_gateway"] = None
-        __props__["hosted_subnet"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["peerings"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_router_asn"] = None
-        __props__["virtual_router_ips"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["hosted_gateway"] = None
+        __props__.__dict__["hosted_subnet"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peerings"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_router_asn"] = None
+        __props__.__dict__["virtual_router_ips"] = None
         return VirtualRouter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -388,10 +378,4 @@ class VirtualRouter(pulumi.CustomResource):
         VirtualRouter IPs
         """
         return pulumi.get(self, "virtual_router_ips")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

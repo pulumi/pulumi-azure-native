@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -190,9 +190,7 @@ class RelationshipLink(pulumi.CustomResource):
                  relationship_link_name: Optional[pulumi.Input[str]] = None,
                  relationship_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The relationship link resource format.
 
@@ -243,15 +241,7 @@ class RelationshipLink(pulumi.CustomResource):
                  relationship_link_name: Optional[pulumi.Input[str]] = None,
                  relationship_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,36 +251,36 @@ class RelationshipLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RelationshipLinkArgs.__new__(RelationshipLinkArgs)
 
-            __props__['description'] = description
-            __props__['display_name'] = display_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
-            __props__['hub_name'] = hub_name
+            __props__.__dict__["hub_name"] = hub_name
             if interaction_type is None and not opts.urn:
                 raise TypeError("Missing required property 'interaction_type'")
-            __props__['interaction_type'] = interaction_type
-            __props__['mappings'] = mappings
+            __props__.__dict__["interaction_type"] = interaction_type
+            __props__.__dict__["mappings"] = mappings
             if profile_property_references is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_property_references'")
-            __props__['profile_property_references'] = profile_property_references
+            __props__.__dict__["profile_property_references"] = profile_property_references
             if related_profile_property_references is None and not opts.urn:
                 raise TypeError("Missing required property 'related_profile_property_references'")
-            __props__['related_profile_property_references'] = related_profile_property_references
-            __props__['relationship_link_name'] = relationship_link_name
+            __props__.__dict__["related_profile_property_references"] = related_profile_property_references
+            __props__.__dict__["relationship_link_name"] = relationship_link_name
             if relationship_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relationship_name'")
-            __props__['relationship_name'] = relationship_name
+            __props__.__dict__["relationship_name"] = relationship_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['link_name'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['relationship_guid_id'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["link_name"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["relationship_guid_id"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:RelationshipLink"), pulumi.Alias(type_="azure-native:customerinsights:RelationshipLink"), pulumi.Alias(type_="azure-nextgen:customerinsights:RelationshipLink"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:RelationshipLink"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:RelationshipLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RelationshipLink, __self__).__init__(
@@ -313,21 +303,21 @@ class RelationshipLink(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RelationshipLinkArgs.__new__(RelationshipLinkArgs)
 
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["interaction_type"] = None
-        __props__["link_name"] = None
-        __props__["mappings"] = None
-        __props__["name"] = None
-        __props__["profile_property_references"] = None
-        __props__["provisioning_state"] = None
-        __props__["related_profile_property_references"] = None
-        __props__["relationship_guid_id"] = None
-        __props__["relationship_name"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["interaction_type"] = None
+        __props__.__dict__["link_name"] = None
+        __props__.__dict__["mappings"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["profile_property_references"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["related_profile_property_references"] = None
+        __props__.__dict__["relationship_guid_id"] = None
+        __props__.__dict__["relationship_name"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
         return RelationshipLink(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -433,10 +423,4 @@ class RelationshipLink(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

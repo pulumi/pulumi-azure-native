@@ -252,7 +252,7 @@ export interface WorkspaceArgs {
     /**
      * The encryption settings of Azure ML workspace.
      */
-    readonly encryption?: pulumi.Input<inputs.machinelearningservices.v20210101.EncryptionProperty>;
+    readonly encryption?: pulumi.Input<inputs.machinelearningservices.v20210101.EncryptionPropertyArgs>;
     /**
      * The friendly name for this workspace. This name in mutable
      */
@@ -264,7 +264,7 @@ export interface WorkspaceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20210101.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20210101.IdentityArgs>;
     /**
      * The compute name for image build
      */
@@ -288,15 +288,15 @@ export interface WorkspaceArgs {
     /**
      * The service managed resource settings.
      */
-    readonly serviceManagedResourcesSettings?: pulumi.Input<inputs.machinelearningservices.v20210101.ServiceManagedResourcesSettings>;
+    readonly serviceManagedResourcesSettings?: pulumi.Input<inputs.machinelearningservices.v20210101.ServiceManagedResourcesSettingsArgs>;
     /**
      * The list of shared private link resources in this workspace.
      */
-    readonly sharedPrivateLinkResources?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.v20210101.SharedPrivateLinkResource>[]>;
+    readonly sharedPrivateLinkResources?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.v20210101.SharedPrivateLinkResourceArgs>[]>;
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20210101.Sku>;
+    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20210101.SkuArgs>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -54,6 +54,27 @@ class ApplicationGetEndpointResponse(dict):
     """
     Gets the application SSH endpoint
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "publicPort":
+            suggest = "public_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGetEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGetEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGetEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_port: Optional[int] = None,
                  location: Optional[str] = None,
@@ -107,15 +128,39 @@ class ApplicationGetEndpointResponse(dict):
         """
         return pulumi.get(self, "public_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationGetHttpsEndpointResponse(dict):
     """
     Gets the application HTTP endpoints.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicPort":
+            suggest = "public_port"
+        elif key == "accessModes":
+            suggest = "access_modes"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "disableGatewayAuth":
+            suggest = "disable_gateway_auth"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "subDomainSuffix":
+            suggest = "sub_domain_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGetHttpsEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGetHttpsEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGetHttpsEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: str,
                  public_port: int,
@@ -203,15 +248,47 @@ class ApplicationGetHttpsEndpointResponse(dict):
         """
         return pulumi.get(self, "sub_domain_suffix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationPropertiesResponse(dict):
     """
     The HDInsight cluster application GET response.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationState":
+            suggest = "application_state"
+        elif key == "createdDate":
+            suggest = "created_date"
+        elif key == "marketplaceIdentifier":
+            suggest = "marketplace_identifier"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "applicationType":
+            suggest = "application_type"
+        elif key == "computeProfile":
+            suggest = "compute_profile"
+        elif key == "httpsEndpoints":
+            suggest = "https_endpoints"
+        elif key == "installScriptActions":
+            suggest = "install_script_actions"
+        elif key == "sshEndpoints":
+            suggest = "ssh_endpoints"
+        elif key == "uninstallScriptActions":
+            suggest = "uninstall_script_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_state: str,
                  created_date: str,
@@ -231,12 +308,12 @@ class ApplicationPropertiesResponse(dict):
         :param str marketplace_identifier: The marketplace identifier.
         :param str provisioning_state: The provisioning state of the application.
         :param str application_type: The application type.
-        :param 'ComputeProfileResponseArgs' compute_profile: The list of roles in the cluster.
-        :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
-        :param Sequence['ApplicationGetHttpsEndpointResponseArgs'] https_endpoints: The list of application HTTPS endpoints.
-        :param Sequence['RuntimeScriptActionResponseArgs'] install_script_actions: The list of install script actions.
-        :param Sequence['ApplicationGetEndpointResponseArgs'] ssh_endpoints: The list of application SSH endpoints.
-        :param Sequence['RuntimeScriptActionResponseArgs'] uninstall_script_actions: The list of uninstall script actions.
+        :param 'ComputeProfileResponse' compute_profile: The list of roles in the cluster.
+        :param Sequence['ErrorsResponse'] errors: The list of errors.
+        :param Sequence['ApplicationGetHttpsEndpointResponse'] https_endpoints: The list of application HTTPS endpoints.
+        :param Sequence['RuntimeScriptActionResponse'] install_script_actions: The list of install script actions.
+        :param Sequence['ApplicationGetEndpointResponse'] ssh_endpoints: The list of application SSH endpoints.
+        :param Sequence['RuntimeScriptActionResponse'] uninstall_script_actions: The list of uninstall script actions.
         """
         pulumi.set(__self__, "application_state", application_state)
         pulumi.set(__self__, "created_date", created_date)
@@ -345,15 +422,31 @@ class ApplicationPropertiesResponse(dict):
         """
         return pulumi.get(self, "uninstall_script_actions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleCapacityResponse(dict):
     """
     The load-based autoscale request parameters
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxInstanceCount":
+            suggest = "max_instance_count"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleCapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleCapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleCapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_instance_count: Optional[int] = None,
                  min_instance_count: Optional[int] = None):
@@ -383,21 +476,35 @@ class AutoscaleCapacityResponse(dict):
         """
         return pulumi.get(self, "min_instance_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleRecurrenceResponse(dict):
     """
     Schedule-based autoscale request parameters
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schedule: Optional[Sequence['outputs.AutoscaleScheduleResponse']] = None,
                  time_zone: Optional[str] = None):
         """
         Schedule-based autoscale request parameters
-        :param Sequence['AutoscaleScheduleResponseArgs'] schedule: Array of schedule-based autoscale rules
+        :param Sequence['AutoscaleScheduleResponse'] schedule: Array of schedule-based autoscale rules
         :param str time_zone: The time zone for the autoscale schedule times
         """
         if schedule is not None:
@@ -421,9 +528,6 @@ class AutoscaleRecurrenceResponse(dict):
         """
         return pulumi.get(self, "time_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleResponse(dict):
@@ -435,8 +539,8 @@ class AutoscaleResponse(dict):
                  recurrence: Optional['outputs.AutoscaleRecurrenceResponse'] = None):
         """
         The autoscale request parameters
-        :param 'AutoscaleCapacityResponseArgs' capacity: Parameters for load-based autoscale
-        :param 'AutoscaleRecurrenceResponseArgs' recurrence: Parameters for schedule-based autoscale
+        :param 'AutoscaleCapacityResponse' capacity: Parameters for load-based autoscale
+        :param 'AutoscaleRecurrenceResponse' recurrence: Parameters for schedule-based autoscale
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -459,22 +563,36 @@ class AutoscaleResponse(dict):
         """
         return pulumi.get(self, "recurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleScheduleResponse(dict):
     """
     Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeAndCapacity":
+            suggest = "time_and_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days: Optional[Sequence[str]] = None,
                  time_and_capacity: Optional['outputs.AutoscaleTimeAndCapacityResponse'] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
         :param Sequence[str] days: Days of the week for a schedule-based autoscale rule
-        :param 'AutoscaleTimeAndCapacityResponseArgs' time_and_capacity: Time and capacity for a schedule-based autoscale rule
+        :param 'AutoscaleTimeAndCapacityResponse' time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -497,15 +615,31 @@ class AutoscaleScheduleResponse(dict):
         """
         return pulumi.get(self, "time_and_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleTimeAndCapacityResponse(dict):
     """
     Time and capacity request parameters
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxInstanceCount":
+            suggest = "max_instance_count"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleTimeAndCapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleTimeAndCapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleTimeAndCapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_instance_count: Optional[int] = None,
                  min_instance_count: Optional[int] = None,
@@ -547,15 +681,31 @@ class AutoscaleTimeAndCapacityResponse(dict):
         """
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClientGroupInfoResponse(dict):
     """
     The information of AAD security group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "groupName":
+            suggest = "group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientGroupInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientGroupInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientGroupInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_id: Optional[str] = None,
                  group_name: Optional[str] = None):
@@ -585,15 +735,29 @@ class ClientGroupInfoResponse(dict):
         """
         return pulumi.get(self, "group_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterDefinitionResponse(dict):
     """
     The cluster definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentVersion":
+            suggest = "component_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blueprint: Optional[str] = None,
                  component_version: Optional[Mapping[str, str]] = None,
@@ -647,15 +811,67 @@ class ClusterDefinitionResponse(dict):
         """
         return pulumi.get(self, "kind")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterGetPropertiesResponse(dict):
     """
     The properties of cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterDefinition":
+            suggest = "cluster_definition"
+        elif key == "clusterHdpVersion":
+            suggest = "cluster_hdp_version"
+        elif key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "clusterState":
+            suggest = "cluster_state"
+        elif key == "clusterVersion":
+            suggest = "cluster_version"
+        elif key == "computeIsolationProperties":
+            suggest = "compute_isolation_properties"
+        elif key == "computeProfile":
+            suggest = "compute_profile"
+        elif key == "connectivityEndpoints":
+            suggest = "connectivity_endpoints"
+        elif key == "createdDate":
+            suggest = "created_date"
+        elif key == "diskEncryptionProperties":
+            suggest = "disk_encryption_properties"
+        elif key == "encryptionInTransitProperties":
+            suggest = "encryption_in_transit_properties"
+        elif key == "excludedServicesConfig":
+            suggest = "excluded_services_config"
+        elif key == "kafkaRestProperties":
+            suggest = "kafka_rest_properties"
+        elif key == "minSupportedTlsVersion":
+            suggest = "min_supported_tls_version"
+        elif key == "networkProperties":
+            suggest = "network_properties"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "quotaInfo":
+            suggest = "quota_info"
+        elif key == "securityProfile":
+            suggest = "security_profile"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterGetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterGetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterGetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_definition: 'outputs.ClusterDefinitionResponse',
                  cluster_hdp_version: Optional[str] = None,
@@ -681,27 +897,27 @@ class ClusterGetPropertiesResponse(dict):
                  tier: Optional[str] = None):
         """
         The properties of cluster.
-        :param 'ClusterDefinitionResponseArgs' cluster_definition: The cluster definition.
+        :param 'ClusterDefinitionResponse' cluster_definition: The cluster definition.
         :param str cluster_hdp_version: The hdp version of the cluster.
         :param str cluster_id: The cluster id.
         :param str cluster_state: The state of the cluster.
         :param str cluster_version: The version of the cluster.
-        :param 'ComputeIsolationPropertiesResponseArgs' compute_isolation_properties: The compute isolation properties.
-        :param 'ComputeProfileResponseArgs' compute_profile: The compute profile.
-        :param Sequence['ConnectivityEndpointResponseArgs'] connectivity_endpoints: The list of connectivity endpoints.
+        :param 'ComputeIsolationPropertiesResponse' compute_isolation_properties: The compute isolation properties.
+        :param 'ComputeProfileResponse' compute_profile: The compute profile.
+        :param Sequence['ConnectivityEndpointResponse'] connectivity_endpoints: The list of connectivity endpoints.
         :param str created_date: The date on which the cluster was created.
-        :param 'DiskEncryptionPropertiesResponseArgs' disk_encryption_properties: The disk encryption properties.
-        :param 'EncryptionInTransitPropertiesResponseArgs' encryption_in_transit_properties: The encryption-in-transit properties.
-        :param Sequence['ErrorsResponseArgs'] errors: The list of errors.
-        :param 'ExcludedServicesConfigResponseArgs' excluded_services_config: The excluded services config.
-        :param 'KafkaRestPropertiesResponseArgs' kafka_rest_properties: The cluster kafka rest proxy configuration.
+        :param 'DiskEncryptionPropertiesResponse' disk_encryption_properties: The disk encryption properties.
+        :param 'EncryptionInTransitPropertiesResponse' encryption_in_transit_properties: The encryption-in-transit properties.
+        :param Sequence['ErrorsResponse'] errors: The list of errors.
+        :param 'ExcludedServicesConfigResponse' excluded_services_config: The excluded services config.
+        :param 'KafkaRestPropertiesResponse' kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param str min_supported_tls_version: The minimal supported tls version.
-        :param 'NetworkPropertiesResponseArgs' network_properties: The network properties.
+        :param 'NetworkPropertiesResponse' network_properties: The network properties.
         :param str os_type: The type of operating system.
         :param str provisioning_state: The provisioning state, which only appears in the response.
-        :param 'QuotaInfoResponseArgs' quota_info: The quota information.
-        :param 'SecurityProfileResponseArgs' security_profile: The security profile.
-        :param 'StorageProfileResponseArgs' storage_profile: The storage profile.
+        :param 'QuotaInfoResponse' quota_info: The quota information.
+        :param 'SecurityProfileResponse' security_profile: The security profile.
+        :param 'StorageProfileResponse' storage_profile: The storage profile.
         :param str tier: The cluster tier.
         """
         pulumi.set(__self__, "cluster_definition", cluster_definition)
@@ -924,15 +1140,33 @@ class ClusterGetPropertiesResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterIdentityResponse(dict):
     """
     Identity for the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -943,7 +1177,7 @@ class ClusterIdentityResponse(dict):
         :param str principal_id: The principal id of cluster identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-        :param Mapping[str, 'ClusterIdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'ClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -984,12 +1218,30 @@ class ClusterIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterIdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str,
@@ -1028,15 +1280,31 @@ class ClusterIdentityResponseUserAssignedIdentities(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeIsolationPropertiesResponse(dict):
     """
     The compute isolation properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableComputeIsolation":
+            suggest = "enable_compute_isolation"
+        elif key == "hostSku":
+            suggest = "host_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeIsolationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeIsolationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeIsolationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_compute_isolation: Optional[bool] = None,
                  host_sku: Optional[str] = None):
@@ -1068,9 +1336,6 @@ class ComputeIsolationPropertiesResponse(dict):
         """
         return pulumi.get(self, "host_sku")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeProfileResponse(dict):
@@ -1081,7 +1346,7 @@ class ComputeProfileResponse(dict):
                  roles: Optional[Sequence['outputs.RoleResponse']] = None):
         """
         Describes the compute profile.
-        :param Sequence['RoleResponseArgs'] roles: The list of roles in the cluster.
+        :param Sequence['RoleResponse'] roles: The list of roles in the cluster.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -1094,15 +1359,29 @@ class ComputeProfileResponse(dict):
         """
         return pulumi.get(self, "roles")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectivityEndpointResponse(dict):
     """
     The connectivity properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectivityEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectivityEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectivityEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  location: Optional[str] = None,
                  name: Optional[str] = None,
@@ -1168,15 +1447,33 @@ class ConnectivityEndpointResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataDisksGroupsResponse(dict):
     """
     The data disks groups for the role.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGB":
+            suggest = "disk_size_gb"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "disksPerNode":
+            suggest = "disks_per_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDisksGroupsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDisksGroupsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDisksGroupsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_size_gb: int,
                  storage_account_type: str,
@@ -1216,15 +1513,39 @@ class DataDisksGroupsResponse(dict):
         """
         return pulumi.get(self, "disks_per_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskEncryptionPropertiesResponse(dict):
     """
     The disk encryption properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionAtHost":
+            suggest = "encryption_at_host"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVersion":
+            suggest = "key_version"
+        elif key == "msiResourceId":
+            suggest = "msi_resource_id"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskEncryptionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskEncryptionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskEncryptionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encryption_algorithm: Optional[str] = None,
                  encryption_at_host: Optional[bool] = None,
@@ -1304,15 +1625,29 @@ class DiskEncryptionPropertiesResponse(dict):
         """
         return pulumi.get(self, "vault_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionInTransitPropertiesResponse(dict):
     """
     The encryption-in-transit properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEncryptionInTransitEnabled":
+            suggest = "is_encryption_in_transit_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionInTransitPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionInTransitPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionInTransitPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_encryption_in_transit_enabled: Optional[bool] = None):
         """
@@ -1331,9 +1666,6 @@ class EncryptionInTransitPropertiesResponse(dict):
         Indicates whether or not inter cluster node communication is encrypted in transit.
         """
         return pulumi.get(self, "is_encryption_in_transit_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1370,15 +1702,31 @@ class ErrorsResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExcludedServicesConfigResponse(dict):
     """
     The configuration that services will be excluded when creating cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedServicesConfigId":
+            suggest = "excluded_services_config_id"
+        elif key == "excludedServicesList":
+            suggest = "excluded_services_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExcludedServicesConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExcludedServicesConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExcludedServicesConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  excluded_services_config_id: Optional[str] = None,
                  excluded_services_list: Optional[str] = None):
@@ -1408,15 +1756,29 @@ class ExcludedServicesConfigResponse(dict):
         """
         return pulumi.get(self, "excluded_services_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HardwareProfileResponse(dict):
     """
     The hardware profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HardwareProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HardwareProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HardwareProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vm_size: Optional[str] = None):
         """
@@ -1434,21 +1796,37 @@ class HardwareProfileResponse(dict):
         """
         return pulumi.get(self, "vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaRestPropertiesResponse(dict):
     """
     The kafka rest proxy configuration which contains AAD security group information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientGroupInfo":
+            suggest = "client_group_info"
+        elif key == "configurationOverride":
+            suggest = "configuration_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaRestPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaRestPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaRestPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_group_info: Optional['outputs.ClientGroupInfoResponse'] = None,
                  configuration_override: Optional[Mapping[str, str]] = None):
         """
         The kafka rest proxy configuration which contains AAD security group information.
-        :param 'ClientGroupInfoResponseArgs' client_group_info: The information of AAD security group.
+        :param 'ClientGroupInfoResponse' client_group_info: The information of AAD security group.
         :param Mapping[str, str] configuration_override: The configurations that need to be overriden.
         """
         if client_group_info is not None:
@@ -1472,15 +1850,29 @@ class KafkaRestPropertiesResponse(dict):
         """
         return pulumi.get(self, "configuration_override")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxOperatingSystemProfileResponse(dict):
     """
     The ssh username, password, and ssh public key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sshProfile":
+            suggest = "ssh_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxOperatingSystemProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxOperatingSystemProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxOperatingSystemProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  ssh_profile: Optional['outputs.SshProfileResponse'] = None,
@@ -1488,7 +1880,7 @@ class LinuxOperatingSystemProfileResponse(dict):
         """
         The ssh username, password, and ssh public key.
         :param str password: The password.
-        :param 'SshProfileResponseArgs' ssh_profile: The SSH profile.
+        :param 'SshProfileResponse' ssh_profile: The SSH profile.
         :param str username: The username.
         """
         if password is not None:
@@ -1522,15 +1914,31 @@ class LinuxOperatingSystemProfileResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkPropertiesResponse(dict):
     """
     The network properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLink":
+            suggest = "private_link"
+        elif key == "resourceProviderConnection":
+            suggest = "resource_provider_connection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_link: Optional[str] = None,
                  resource_provider_connection: Optional[str] = None):
@@ -1560,20 +1968,34 @@ class NetworkPropertiesResponse(dict):
         """
         return pulumi.get(self, "resource_provider_connection")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OsProfileResponse(dict):
     """
     The Linux operation systems profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linuxOperatingSystemProfile":
+            suggest = "linux_operating_system_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linux_operating_system_profile: Optional['outputs.LinuxOperatingSystemProfileResponse'] = None):
         """
         The Linux operation systems profile.
-        :param 'LinuxOperatingSystemProfileResponseArgs' linux_operating_system_profile: The Linux OS profile.
+        :param 'LinuxOperatingSystemProfileResponse' linux_operating_system_profile: The Linux OS profile.
         """
         if linux_operating_system_profile is not None:
             pulumi.set(__self__, "linux_operating_system_profile", linux_operating_system_profile)
@@ -1586,15 +2008,29 @@ class OsProfileResponse(dict):
         """
         return pulumi.get(self, "linux_operating_system_profile")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class QuotaInfoResponse(dict):
     """
     The quota properties for the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coresUsed":
+            suggest = "cores_used"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuotaInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuotaInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuotaInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cores_used: Optional[int] = None):
         """
@@ -1612,15 +2048,47 @@ class QuotaInfoResponse(dict):
         """
         return pulumi.get(self, "cores_used")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoleResponse(dict):
     """
     Describes a role on the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscaleConfiguration":
+            suggest = "autoscale_configuration"
+        elif key == "dataDisksGroups":
+            suggest = "data_disks_groups"
+        elif key == "encryptDataDisks":
+            suggest = "encrypt_data_disks"
+        elif key == "hardwareProfile":
+            suggest = "hardware_profile"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "scriptActions":
+            suggest = "script_actions"
+        elif key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vMGroupName":
+            suggest = "v_m_group_name"
+        elif key == "virtualNetworkProfile":
+            suggest = "virtual_network_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  autoscale_configuration: Optional['outputs.AutoscaleResponse'] = None,
                  data_disks_groups: Optional[Sequence['outputs.DataDisksGroupsResponse']] = None,
@@ -1635,17 +2103,17 @@ class RoleResponse(dict):
                  virtual_network_profile: Optional['outputs.VirtualNetworkProfileResponse'] = None):
         """
         Describes a role on the cluster.
-        :param 'AutoscaleResponseArgs' autoscale_configuration: The autoscale configurations.
-        :param Sequence['DataDisksGroupsResponseArgs'] data_disks_groups: The data disks groups for the role.
+        :param 'AutoscaleResponse' autoscale_configuration: The autoscale configurations.
+        :param Sequence['DataDisksGroupsResponse'] data_disks_groups: The data disks groups for the role.
         :param bool encrypt_data_disks: Indicates whether encrypt the data disks.
-        :param 'HardwareProfileResponseArgs' hardware_profile: The hardware profile.
+        :param 'HardwareProfileResponse' hardware_profile: The hardware profile.
         :param int min_instance_count: The minimum instance count of the cluster.
         :param str name: The name of the role.
-        :param 'OsProfileResponseArgs' os_profile: The operating system profile.
-        :param Sequence['ScriptActionResponseArgs'] script_actions: The list of script actions on the role.
+        :param 'OsProfileResponse' os_profile: The operating system profile.
+        :param Sequence['ScriptActionResponse'] script_actions: The list of script actions on the role.
         :param int target_instance_count: The instance count of the cluster.
         :param str v_m_group_name: The name of the virtual machine group.
-        :param 'VirtualNetworkProfileResponseArgs' virtual_network_profile: The virtual network profile.
+        :param 'VirtualNetworkProfileResponse' virtual_network_profile: The virtual network profile.
         """
         if autoscale_configuration is not None:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
@@ -1760,15 +2228,29 @@ class RoleResponse(dict):
         """
         return pulumi.get(self, "virtual_network_profile")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuntimeScriptActionResponse(dict):
     """
     Describes a script action on a running cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationName":
+            suggest = "application_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeScriptActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeScriptActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeScriptActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_name: str,
                  name: str,
@@ -1830,9 +2312,6 @@ class RuntimeScriptActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScriptActionResponse(dict):
@@ -1877,15 +2356,43 @@ class ScriptActionResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityProfileResponse(dict):
     """
     The security profile which contains Ssh public key for the HDInsight cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aaddsResourceId":
+            suggest = "aadds_resource_id"
+        elif key == "clusterUsersGroupDNs":
+            suggest = "cluster_users_group_dns"
+        elif key == "directoryType":
+            suggest = "directory_type"
+        elif key == "domainUserPassword":
+            suggest = "domain_user_password"
+        elif key == "domainUsername":
+            suggest = "domain_username"
+        elif key == "ldapsUrls":
+            suggest = "ldaps_urls"
+        elif key == "msiResourceId":
+            suggest = "msi_resource_id"
+        elif key == "organizationalUnitDN":
+            suggest = "organizational_unit_dn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aadds_resource_id: Optional[str] = None,
                  cluster_users_group_dns: Optional[Sequence[str]] = None,
@@ -1999,20 +2506,34 @@ class SecurityProfileResponse(dict):
         """
         return pulumi.get(self, "organizational_unit_dn")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SshProfileResponse(dict):
     """
     The list of SSH public keys.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKeys":
+            suggest = "public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         The list of SSH public keys.
-        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys.
+        :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
@@ -2025,15 +2546,29 @@ class SshProfileResponse(dict):
         """
         return pulumi.get(self, "public_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SshPublicKeyResponse(dict):
     """
     The SSH public key for the cluster nodes.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateData":
+            suggest = "certificate_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshPublicKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_data: Optional[str] = None):
         """
@@ -2051,15 +2586,35 @@ class SshPublicKeyResponse(dict):
         """
         return pulumi.get(self, "certificate_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageAccountResponse(dict):
     """
     The storage Account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystem":
+            suggest = "file_system"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "msiResourceId":
+            suggest = "msi_resource_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container: Optional[str] = None,
                  file_system: Optional[str] = None,
@@ -2173,9 +2728,6 @@ class StorageAccountResponse(dict):
         """
         return pulumi.get(self, "saskey")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageProfileResponse(dict):
@@ -2186,7 +2738,7 @@ class StorageProfileResponse(dict):
                  storageaccounts: Optional[Sequence['outputs.StorageAccountResponse']] = None):
         """
         The storage profile.
-        :param Sequence['StorageAccountResponseArgs'] storageaccounts: The list of storage accounts in the cluster.
+        :param Sequence['StorageAccountResponse'] storageaccounts: The list of storage accounts in the cluster.
         """
         if storageaccounts is not None:
             pulumi.set(__self__, "storageaccounts", storageaccounts)
@@ -2198,9 +2750,6 @@ class StorageProfileResponse(dict):
         The list of storage accounts in the cluster.
         """
         return pulumi.get(self, "storageaccounts")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2236,8 +2785,5 @@ class VirtualNetworkProfileResponse(dict):
         The name of the subnet.
         """
         return pulumi.get(self, "subnet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -146,7 +146,7 @@ export interface AvailabilitySetArgs {
     /**
      * Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20180401.SubResource>;
+    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20180401.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
@@ -154,7 +154,7 @@ export interface AvailabilitySetArgs {
     /**
      * Sku of the availability set
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20180401.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20180401.SkuArgs>;
     /**
      * Resource tags
      */
@@ -162,5 +162,5 @@ export interface AvailabilitySetArgs {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20180401.SubResource>[]>;
+    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20180401.SubResourceArgs>[]>;
 }

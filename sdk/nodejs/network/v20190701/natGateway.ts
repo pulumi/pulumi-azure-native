@@ -169,11 +169,11 @@ export interface NatGatewayArgs {
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */
-    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20190701.SubResource>[]>;
+    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20190701.SubResourceArgs>[]>;
     /**
      * An array of public ip prefixes associated with the nat gateway resource.
      */
-    readonly publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.v20190701.SubResource>[]>;
+    readonly publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.v20190701.SubResourceArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -185,7 +185,7 @@ export interface NatGatewayArgs {
     /**
      * The nat gateway SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20190701.NatGatewaySku>;
+    readonly sku?: pulumi.Input<inputs.network.v20190701.NatGatewaySkuArgs>;
     /**
      * Resource tags.
      */

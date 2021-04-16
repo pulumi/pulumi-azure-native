@@ -112,7 +112,7 @@ export interface EventSubscriptionArgs {
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20180101.EventHubEventSubscriptionDestination | inputs.eventgrid.v20180101.WebHookEventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20180101.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20180101.WebHookEventSubscriptionDestinationArgs>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */
@@ -120,7 +120,7 @@ export interface EventSubscriptionArgs {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.v20180101.EventSubscriptionFilter>;
+    readonly filter?: pulumi.Input<inputs.eventgrid.v20180101.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */

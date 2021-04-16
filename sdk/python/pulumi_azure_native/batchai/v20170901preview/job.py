@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -373,9 +373,7 @@ class Job(pulumi.CustomResource):
                  std_out_err_path_prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tensor_flow_settings: Optional[pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Contains information about the job.
 
@@ -446,15 +444,7 @@ class Job(pulumi.CustomResource):
                  std_out_err_path_prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tensor_flow_settings: Optional[pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,48 +454,48 @@ class Job(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = JobArgs.__new__(JobArgs)
 
-            __props__['caffe2_settings'] = caffe2_settings
-            __props__['caffe_settings'] = caffe_settings
-            __props__['chainer_settings'] = chainer_settings
+            __props__.__dict__["caffe2_settings"] = caffe2_settings
+            __props__.__dict__["caffe_settings"] = caffe_settings
+            __props__.__dict__["chainer_settings"] = chainer_settings
             if cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster'")
-            __props__['cluster'] = cluster
-            __props__['cntk_settings'] = cntk_settings
-            __props__['constraints'] = constraints
-            __props__['container_settings'] = container_settings
-            __props__['custom_toolkit_settings'] = custom_toolkit_settings
-            __props__['environment_variables'] = environment_variables
-            __props__['experiment_name'] = experiment_name
-            __props__['input_directories'] = input_directories
-            __props__['job_name'] = job_name
-            __props__['job_preparation'] = job_preparation
-            __props__['location'] = location
+            __props__.__dict__["cluster"] = cluster
+            __props__.__dict__["cntk_settings"] = cntk_settings
+            __props__.__dict__["constraints"] = constraints
+            __props__.__dict__["container_settings"] = container_settings
+            __props__.__dict__["custom_toolkit_settings"] = custom_toolkit_settings
+            __props__.__dict__["environment_variables"] = environment_variables
+            __props__.__dict__["experiment_name"] = experiment_name
+            __props__.__dict__["input_directories"] = input_directories
+            __props__.__dict__["job_name"] = job_name
+            __props__.__dict__["job_preparation"] = job_preparation
+            __props__.__dict__["location"] = location
             if node_count is None and not opts.urn:
                 raise TypeError("Missing required property 'node_count'")
-            __props__['node_count'] = node_count
-            __props__['output_directories'] = output_directories
+            __props__.__dict__["node_count"] = node_count
+            __props__.__dict__["output_directories"] = output_directories
             if priority is None:
                 priority = 0
-            __props__['priority'] = priority
+            __props__.__dict__["priority"] = priority
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if std_out_err_path_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'std_out_err_path_prefix'")
-            __props__['std_out_err_path_prefix'] = std_out_err_path_prefix
-            __props__['tags'] = tags
-            __props__['tensor_flow_settings'] = tensor_flow_settings
-            __props__['creation_time'] = None
-            __props__['execution_info'] = None
-            __props__['execution_state'] = None
-            __props__['execution_state_transition_time'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['provisioning_state_transition_time'] = None
-            __props__['tool_type'] = None
-            __props__['type'] = None
+            __props__.__dict__["std_out_err_path_prefix"] = std_out_err_path_prefix
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tensor_flow_settings"] = tensor_flow_settings
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["execution_info"] = None
+            __props__.__dict__["execution_state"] = None
+            __props__.__dict__["execution_state_transition_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["provisioning_state_transition_time"] = None
+            __props__.__dict__["tool_type"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20170901preview:Job"), pulumi.Alias(type_="azure-native:batchai/v20180301:Job"), pulumi.Alias(type_="azure-nextgen:batchai/v20180301:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
@@ -528,35 +518,35 @@ class Job(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = JobArgs.__new__(JobArgs)
 
-        __props__["caffe_settings"] = None
-        __props__["chainer_settings"] = None
-        __props__["cluster"] = None
-        __props__["cntk_settings"] = None
-        __props__["constraints"] = None
-        __props__["container_settings"] = None
-        __props__["creation_time"] = None
-        __props__["custom_toolkit_settings"] = None
-        __props__["environment_variables"] = None
-        __props__["execution_info"] = None
-        __props__["execution_state"] = None
-        __props__["execution_state_transition_time"] = None
-        __props__["experiment_name"] = None
-        __props__["input_directories"] = None
-        __props__["job_preparation"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["node_count"] = None
-        __props__["output_directories"] = None
-        __props__["priority"] = None
-        __props__["provisioning_state"] = None
-        __props__["provisioning_state_transition_time"] = None
-        __props__["std_out_err_path_prefix"] = None
-        __props__["tags"] = None
-        __props__["tensor_flow_settings"] = None
-        __props__["tool_type"] = None
-        __props__["type"] = None
+        __props__.__dict__["caffe_settings"] = None
+        __props__.__dict__["chainer_settings"] = None
+        __props__.__dict__["cluster"] = None
+        __props__.__dict__["cntk_settings"] = None
+        __props__.__dict__["constraints"] = None
+        __props__.__dict__["container_settings"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["custom_toolkit_settings"] = None
+        __props__.__dict__["environment_variables"] = None
+        __props__.__dict__["execution_info"] = None
+        __props__.__dict__["execution_state"] = None
+        __props__.__dict__["execution_state_transition_time"] = None
+        __props__.__dict__["experiment_name"] = None
+        __props__.__dict__["input_directories"] = None
+        __props__.__dict__["job_preparation"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["node_count"] = None
+        __props__.__dict__["output_directories"] = None
+        __props__.__dict__["priority"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["provisioning_state_transition_time"] = None
+        __props__.__dict__["std_out_err_path_prefix"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tensor_flow_settings"] = None
+        __props__.__dict__["tool_type"] = None
+        __props__.__dict__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -768,10 +758,4 @@ class Job(pulumi.CustomResource):
         The type of the resource
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

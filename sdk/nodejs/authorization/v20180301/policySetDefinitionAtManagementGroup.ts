@@ -141,7 +141,7 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20180301.PolicyDefinitionReference>[]>;
+    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20180301.PolicyDefinitionReferenceArgs>[]>;
     /**
      * The name of the policy set definition to create.
      */

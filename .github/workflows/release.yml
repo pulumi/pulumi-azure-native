@@ -3,6 +3,7 @@ name: release
   push:
     tags:
       - v*.*.*
+      - '!v*.*.*-**'
 env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -335,6 +336,7 @@ jobs:
         run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
       - name: Install Node deps
         run:  yarn global add typescript
+      - run: dotnet nuget add source ${{ github.workspace }}/nuget
       - name: Install Python deps
         run: |-
           pip3 install virtualenv==20.0.23

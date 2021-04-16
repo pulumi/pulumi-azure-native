@@ -216,7 +216,7 @@ export interface ExtensionArgs {
     /**
      * The identity of the configuration.
      */
-    readonly identity?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ConfigurationIdentity>;
+    readonly identity?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ConfigurationIdentityArgs>;
     /**
      * ReleaseTrain this extension instance participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
@@ -228,11 +228,11 @@ export interface ExtensionArgs {
     /**
      * Scope at which the extension instance is installed.
      */
-    readonly scope?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.Scope>;
+    readonly scope?: pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ScopeArgs>;
     /**
      * Status from this instance of the extension.
      */
-    readonly statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ExtensionStatus>[]>;
+    readonly statuses?: pulumi.Input<pulumi.Input<inputs.kubernetesconfiguration.v20200701preview.ExtensionStatusArgs>[]>;
     /**
      * Version of the extension for this extension instance, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
      */

@@ -160,7 +160,7 @@ export interface VolumeContainerArgs {
     /**
      * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
      */
-    readonly encryptionKey?: pulumi.Input<inputs.storsimple.AsymmetricEncryptedSecret>;
+    readonly encryptionKey?: pulumi.Input<inputs.storsimple.AsymmetricEncryptedSecretArgs>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -227,9 +227,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
                  site_name: Optional[pulumi.Input[str]] = None,
                  ssl_state: Optional[pulumi.Input['SslState']] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A hostname binding object.
 
@@ -284,15 +282,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
                  site_name: Optional[pulumi.Input[str]] = None,
                  ssl_state: Optional[pulumi.Input['SslState']] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,27 +292,27 @@ class WebAppHostNameBinding(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppHostNameBindingArgs.__new__(WebAppHostNameBindingArgs)
 
-            __props__['azure_resource_name'] = azure_resource_name
-            __props__['azure_resource_type'] = azure_resource_type
-            __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
-            __props__['domain_id'] = domain_id
-            __props__['host_name'] = host_name
-            __props__['host_name_type'] = host_name_type
-            __props__['kind'] = kind
+            __props__.__dict__["azure_resource_name"] = azure_resource_name
+            __props__.__dict__["azure_resource_type"] = azure_resource_type
+            __props__.__dict__["custom_host_name_dns_record_type"] = custom_host_name_dns_record_type
+            __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["host_name"] = host_name
+            __props__.__dict__["host_name_type"] = host_name_type
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['site_name'] = site_name
-            __props__['ssl_state'] = ssl_state
-            __props__['thumbprint'] = thumbprint
-            __props__['system_data'] = None
-            __props__['type'] = None
-            __props__['virtual_ip'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["site_name"] = site_name
+            __props__.__dict__["ssl_state"] = ssl_state
+            __props__.__dict__["thumbprint"] = thumbprint
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_ip"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHostNameBinding"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppHostNameBinding"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppHostNameBinding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHostNameBinding, __self__).__init__(
@@ -345,21 +335,21 @@ class WebAppHostNameBinding(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppHostNameBindingArgs.__new__(WebAppHostNameBindingArgs)
 
-        __props__["azure_resource_name"] = None
-        __props__["azure_resource_type"] = None
-        __props__["custom_host_name_dns_record_type"] = None
-        __props__["domain_id"] = None
-        __props__["host_name_type"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["site_name"] = None
-        __props__["ssl_state"] = None
-        __props__["system_data"] = None
-        __props__["thumbprint"] = None
-        __props__["type"] = None
-        __props__["virtual_ip"] = None
+        __props__.__dict__["azure_resource_name"] = None
+        __props__.__dict__["azure_resource_type"] = None
+        __props__.__dict__["custom_host_name_dns_record_type"] = None
+        __props__.__dict__["domain_id"] = None
+        __props__.__dict__["host_name_type"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["site_name"] = None
+        __props__.__dict__["ssl_state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["thumbprint"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_ip"] = None
         return WebAppHostNameBinding(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -465,10 +455,4 @@ class WebAppHostNameBinding(pulumi.CustomResource):
         Virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
         return pulumi.get(self, "virtual_ip")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

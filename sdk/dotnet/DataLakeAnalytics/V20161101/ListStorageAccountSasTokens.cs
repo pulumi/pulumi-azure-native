@@ -61,13 +61,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// <summary>
         /// The results of the list operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SasTokenInformationResponseResult> Value;
+        public readonly ImmutableArray<Outputs.SasTokenInformationResponse> Value;
 
         [OutputConstructor]
         private ListStorageAccountSasTokensResult(
             string nextLink,
 
-            ImmutableArray<Outputs.SasTokenInformationResponseResult> value)
+            ImmutableArray<Outputs.SasTokenInformationResponse> value)
         {
             NextLink = nextLink;
             Value = value;

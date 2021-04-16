@@ -135,7 +135,7 @@ export interface NatRuleArgs {
     /**
      * The private IP address external mapping for NAT.
      */
-    readonly externalMappings?: pulumi.Input<pulumi.Input<inputs.network.v20200801.VpnNatRuleMapping>[]>;
+    readonly externalMappings?: pulumi.Input<pulumi.Input<inputs.network.v20200801.VpnNatRuleMappingArgs>[]>;
     /**
      * The name of the gateway.
      */
@@ -147,7 +147,7 @@ export interface NatRuleArgs {
     /**
      * The private IP address internal mapping for NAT.
      */
-    readonly internalMappings?: pulumi.Input<pulumi.Input<inputs.network.v20200801.VpnNatRuleMapping>[]>;
+    readonly internalMappings?: pulumi.Input<pulumi.Input<inputs.network.v20200801.VpnNatRuleMappingArgs>[]>;
     /**
      * The IP Configuration ID this NAT rule applies to.
      */

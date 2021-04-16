@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['ScopeMapArgs', 'ScopeMap']
@@ -110,9 +110,7 @@ class ScopeMap(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_map_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An object that represents a scope map for a container registry.
 
@@ -155,15 +153,7 @@ class ScopeMap(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_map_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -173,24 +163,24 @@ class ScopeMap(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScopeMapArgs.__new__(ScopeMapArgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
-            __props__['actions'] = actions
-            __props__['description'] = description
+            __props__.__dict__["actions"] = actions
+            __props__.__dict__["description"] = description
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
-            __props__['registry_name'] = registry_name
+            __props__.__dict__["registry_name"] = registry_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scope_map_name'] = scope_map_name
-            __props__['creation_date'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scope_map_name"] = scope_map_name
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501preview:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry:ScopeMap"), pulumi.Alias(type_="azure-nextgen:containerregistry:ScopeMap"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:ScopeMap"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:ScopeMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScopeMap, __self__).__init__(
@@ -213,15 +203,15 @@ class ScopeMap(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ScopeMapArgs.__new__(ScopeMapArgs)
 
-        __props__["actions"] = None
-        __props__["creation_date"] = None
-        __props__["description"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["actions"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return ScopeMap(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -281,10 +271,4 @@ class ScopeMap(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -173,11 +173,11 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * External References
      */
-    readonly externalReferences?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceExternalReference>[]>;
+    readonly externalReferences?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceExternalReferenceArgs>[]>;
     /**
      * Granular Markings
      */
-    readonly granularMarkings?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceGranularMarkingModel>[]>;
+    readonly granularMarkings?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceGranularMarkingModelArgs>[]>;
     /**
      * Indicator types of threat intelligence entities
      */
@@ -185,7 +185,7 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Kill chain phases
      */
-    readonly killChainPhases?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceKillChainPhase>[]>;
+    readonly killChainPhases?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceKillChainPhaseArgs>[]>;
     /**
      * The kind of the entity.
      */
@@ -221,7 +221,7 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Parsed patterns
      */
-    readonly parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceParsedPattern>[]>;
+    readonly parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceParsedPatternArgs>[]>;
     /**
      * Pattern of a threat intelligence entity
      */

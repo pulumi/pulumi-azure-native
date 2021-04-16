@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -194,9 +194,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
         API Version: 2020-02-14.
@@ -249,15 +247,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -267,33 +257,33 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualMachineImageTemplateArgs.__new__(VirtualMachineImageTemplateArgs)
 
             if build_timeout_in_minutes is None:
                 build_timeout_in_minutes = 0
-            __props__['build_timeout_in_minutes'] = build_timeout_in_minutes
-            __props__['customize'] = customize
+            __props__.__dict__["build_timeout_in_minutes"] = build_timeout_in_minutes
+            __props__.__dict__["customize"] = customize
             if distribute is None and not opts.urn:
                 raise TypeError("Missing required property 'distribute'")
-            __props__['distribute'] = distribute
+            __props__.__dict__["distribute"] = distribute
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
-            __props__['identity'] = identity
-            __props__['image_template_name'] = image_template_name
-            __props__['location'] = location
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["image_template_name"] = image_template_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
-            __props__['tags'] = tags
-            __props__['vm_profile'] = vm_profile
-            __props__['last_run_status'] = None
-            __props__['name'] = None
-            __props__['provisioning_error'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["source"] = source
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vm_profile"] = vm_profile
+            __props__.__dict__["last_run_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_error"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineImageTemplate, __self__).__init__(
@@ -316,21 +306,21 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualMachineImageTemplateArgs.__new__(VirtualMachineImageTemplateArgs)
 
-        __props__["build_timeout_in_minutes"] = None
-        __props__["customize"] = None
-        __props__["distribute"] = None
-        __props__["identity"] = None
-        __props__["last_run_status"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_error"] = None
-        __props__["provisioning_state"] = None
-        __props__["source"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vm_profile"] = None
+        __props__.__dict__["build_timeout_in_minutes"] = None
+        __props__.__dict__["customize"] = None
+        __props__.__dict__["distribute"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["last_run_status"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_error"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vm_profile"] = None
         return VirtualMachineImageTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -436,10 +426,4 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         Describes how virtual machine is set up to build images
         """
         return pulumi.get(self, "vm_profile")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

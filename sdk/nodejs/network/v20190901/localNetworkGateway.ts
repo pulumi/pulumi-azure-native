@@ -131,7 +131,7 @@ export interface LocalNetworkGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.v20190901.BgpSettings>;
+    readonly bgpSettings?: pulumi.Input<inputs.network.v20190901.BgpSettingsArgs>;
     /**
      * IP address of local network gateway.
      */
@@ -143,7 +143,7 @@ export interface LocalNetworkGatewayArgs {
     /**
      * Local network site address space.
      */
-    readonly localNetworkAddressSpace?: pulumi.Input<inputs.network.v20190901.AddressSpace>;
+    readonly localNetworkAddressSpace?: pulumi.Input<inputs.network.v20190901.AddressSpaceArgs>;
     /**
      * The name of the local network gateway.
      */

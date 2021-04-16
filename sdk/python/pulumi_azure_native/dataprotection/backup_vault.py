@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -143,9 +143,7 @@ class BackupVault(pulumi.CustomResource):
                  storage_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSettingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Backup Vault Resource
         API Version: 2021-01-01.
@@ -192,15 +190,7 @@ class BackupVault(pulumi.CustomResource):
                  storage_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSettingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,23 +200,23 @@ class BackupVault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BackupVaultArgs.__new__(BackupVaultArgs)
 
-            __props__['e_tag'] = e_tag
-            __props__['identity'] = identity
-            __props__['location'] = location
+            __props__.__dict__["e_tag"] = e_tag
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_settings'")
-            __props__['storage_settings'] = storage_settings
-            __props__['tags'] = tags
-            __props__['vault_name'] = vault_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["storage_settings"] = storage_settings
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupVault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupVault, __self__).__init__(
@@ -249,17 +239,17 @@ class BackupVault(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BackupVaultArgs.__new__(BackupVaultArgs)
 
-        __props__["e_tag"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["storage_settings"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["storage_settings"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return BackupVault(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -333,10 +323,4 @@ class BackupVault(pulumi.CustomResource):
         Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['FileShareArgs', 'FileShare']
@@ -202,9 +202,7 @@ class FileShare(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input['ShareStatus']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The File Share.
 
@@ -257,15 +255,7 @@ class FileShare(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input['ShareStatus']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,41 +265,41 @@ class FileShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FileShareArgs.__new__(FileShareArgs)
 
             if admin_user is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_user'")
-            __props__['admin_user'] = admin_user
+            __props__.__dict__["admin_user"] = admin_user
             if data_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_policy'")
-            __props__['data_policy'] = data_policy
-            __props__['description'] = description
+            __props__.__dict__["data_policy"] = data_policy
+            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
+            __props__.__dict__["device_name"] = device_name
             if file_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_server_name'")
-            __props__['file_server_name'] = file_server_name
+            __props__.__dict__["file_server_name"] = file_server_name
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
-            __props__['monitoring_status'] = monitoring_status
+            __props__.__dict__["monitoring_status"] = monitoring_status
             if provisioned_capacity_in_bytes is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
-            __props__['provisioned_capacity_in_bytes'] = provisioned_capacity_in_bytes
+            __props__.__dict__["provisioned_capacity_in_bytes"] = provisioned_capacity_in_bytes
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['share_name'] = share_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["share_name"] = share_name
             if share_status is None and not opts.urn:
                 raise TypeError("Missing required property 'share_status'")
-            __props__['share_status'] = share_status
-            __props__['local_used_capacity_in_bytes'] = None
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['used_capacity_in_bytes'] = None
+            __props__.__dict__["share_status"] = share_status
+            __props__.__dict__["local_used_capacity_in_bytes"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["used_capacity_in_bytes"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
@@ -332,18 +322,18 @@ class FileShare(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FileShareArgs.__new__(FileShareArgs)
 
-        __props__["admin_user"] = None
-        __props__["data_policy"] = None
-        __props__["description"] = None
-        __props__["local_used_capacity_in_bytes"] = None
-        __props__["monitoring_status"] = None
-        __props__["name"] = None
-        __props__["provisioned_capacity_in_bytes"] = None
-        __props__["share_status"] = None
-        __props__["type"] = None
-        __props__["used_capacity_in_bytes"] = None
+        __props__.__dict__["admin_user"] = None
+        __props__.__dict__["data_policy"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["local_used_capacity_in_bytes"] = None
+        __props__.__dict__["monitoring_status"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioned_capacity_in_bytes"] = None
+        __props__.__dict__["share_status"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["used_capacity_in_bytes"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -425,10 +415,4 @@ class FileShare(pulumi.CustomResource):
         The used capacity in Bytes.
         """
         return pulumi.get(self, "used_capacity_in_bytes")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

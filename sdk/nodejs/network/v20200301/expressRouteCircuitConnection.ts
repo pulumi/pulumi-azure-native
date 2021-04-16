@@ -155,7 +155,7 @@ export interface ExpressRouteCircuitConnectionArgs {
     /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */
-    readonly expressRouteCircuitPeering?: pulumi.Input<inputs.network.v20200301.SubResource>;
+    readonly expressRouteCircuitPeering?: pulumi.Input<inputs.network.v20200301.SubResourceArgs>;
     /**
      * Resource ID.
      */
@@ -163,7 +163,7 @@ export interface ExpressRouteCircuitConnectionArgs {
     /**
      * IPv6 Address PrefixProperties of the express route circuit connection.
      */
-    readonly ipv6CircuitConnectionConfig?: pulumi.Input<inputs.network.v20200301.Ipv6CircuitConnectionConfig>;
+    readonly ipv6CircuitConnectionConfig?: pulumi.Input<inputs.network.v20200301.Ipv6CircuitConnectionConfigArgs>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -171,7 +171,7 @@ export interface ExpressRouteCircuitConnectionArgs {
     /**
      * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */
-    readonly peerExpressRouteCircuitPeering?: pulumi.Input<inputs.network.v20200301.SubResource>;
+    readonly peerExpressRouteCircuitPeering?: pulumi.Input<inputs.network.v20200301.SubResourceArgs>;
     /**
      * The name of the peering.
      */

@@ -116,7 +116,7 @@ export interface SiteArgs {
     /**
      * Nested properties of VMWare site.
      */
-    readonly properties?: pulumi.Input<inputs.offazure.SiteProperties>;
+    readonly properties?: pulumi.Input<inputs.offazure.SitePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

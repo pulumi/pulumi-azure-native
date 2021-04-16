@@ -117,11 +117,11 @@ export interface DatastoreArgs {
     /**
      * An iSCSI volume
      */
-    readonly diskPoolVolume?: pulumi.Input<inputs.avs.DiskPoolVolume>;
+    readonly diskPoolVolume?: pulumi.Input<inputs.avs.DiskPoolVolumeArgs>;
     /**
      * An Azure NetApp Files volume
      */
-    readonly netAppVolume?: pulumi.Input<inputs.avs.NetAppVolume>;
+    readonly netAppVolume?: pulumi.Input<inputs.avs.NetAppVolumeArgs>;
     /**
      * Name of the private cloud
      */

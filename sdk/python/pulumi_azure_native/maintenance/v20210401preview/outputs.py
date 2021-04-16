@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,27 @@ class InputLinuxParametersResponse(dict):
     """
     Input properties for patching a Linux machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationsToInclude":
+            suggest = "classifications_to_include"
+        elif key == "packageNameMasksToExclude":
+            suggest = "package_name_masks_to_exclude"
+        elif key == "packageNameMasksToInclude":
+            suggest = "package_name_masks_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InputLinuxParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InputLinuxParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InputLinuxParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  classifications_to_include: Optional[Sequence[str]] = None,
                  package_name_masks_to_exclude: Optional[Sequence[str]] = None,
@@ -64,15 +85,37 @@ class InputLinuxParametersResponse(dict):
         """
         return pulumi.get(self, "package_name_masks_to_include")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InputPatchConfigurationResponse(dict):
     """
     Input configuration for a patch run
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linuxParameters":
+            suggest = "linux_parameters"
+        elif key == "postTasks":
+            suggest = "post_tasks"
+        elif key == "preTasks":
+            suggest = "pre_tasks"
+        elif key == "rebootSetting":
+            suggest = "reboot_setting"
+        elif key == "windowsParameters":
+            suggest = "windows_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InputPatchConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InputPatchConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InputPatchConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linux_parameters: Optional['outputs.InputLinuxParametersResponse'] = None,
                  post_tasks: Optional[Sequence['outputs.TaskPropertiesResponse']] = None,
@@ -81,11 +124,11 @@ class InputPatchConfigurationResponse(dict):
                  windows_parameters: Optional['outputs.InputWindowsParametersResponse'] = None):
         """
         Input configuration for a patch run
-        :param 'InputLinuxParametersResponseArgs' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-        :param Sequence['TaskPropertiesResponseArgs'] post_tasks: List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        :param Sequence['TaskPropertiesResponseArgs'] pre_tasks: List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
+        :param 'InputLinuxParametersResponse' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
+        :param Sequence['TaskPropertiesResponse'] post_tasks: List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
+        :param Sequence['TaskPropertiesResponse'] pre_tasks: List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
         :param str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-        :param 'InputWindowsParametersResponseArgs' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
+        :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
         """
         if linux_parameters is not None:
             pulumi.set(__self__, "linux_parameters", linux_parameters)
@@ -138,15 +181,33 @@ class InputPatchConfigurationResponse(dict):
         """
         return pulumi.get(self, "windows_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InputWindowsParametersResponse(dict):
     """
     Input properties for patching a Windows machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationsToInclude":
+            suggest = "classifications_to_include"
+        elif key == "kbNumbersToExclude":
+            suggest = "kb_numbers_to_exclude"
+        elif key == "kbNumbersToInclude":
+            suggest = "kb_numbers_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InputWindowsParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InputWindowsParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InputWindowsParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  classifications_to_include: Optional[Sequence[str]] = None,
                  kb_numbers_to_exclude: Optional[Sequence[str]] = None,
@@ -188,15 +249,39 @@ class InputWindowsParametersResponse(dict):
         """
         return pulumi.get(self, "kb_numbers_to_include")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -274,15 +359,29 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskPropertiesResponse(dict):
     """
     Task properties of the software update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskScope":
+            suggest = "task_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameters: Optional[Mapping[str, str]] = None,
                  source: Optional[str] = None,
@@ -325,8 +424,5 @@ class TaskPropertiesResponse(dict):
         Global Task execute once when schedule trigger. Resource task execute for each VM.
         """
         return pulumi.get(self, "task_scope")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

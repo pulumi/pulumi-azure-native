@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -349,9 +349,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  schedule_definition_id: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Access Review Schedule Definition.
 
@@ -420,15 +418,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  schedule_definition_id: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -438,36 +428,36 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccessReviewScheduleDefinitionByIdArgs.__new__(AccessReviewScheduleDefinitionByIdArgs)
 
-            __props__['auto_apply_decisions_enabled'] = auto_apply_decisions_enabled
-            __props__['default_decision'] = default_decision
-            __props__['default_decision_enabled'] = default_decision_enabled
-            __props__['description_for_admins'] = description_for_admins
-            __props__['description_for_reviewers'] = description_for_reviewers
-            __props__['display_name'] = display_name
-            __props__['end_date'] = end_date
-            __props__['instance_duration_in_days'] = instance_duration_in_days
-            __props__['instances'] = instances
-            __props__['interval'] = interval
-            __props__['justification_required_on_approval'] = justification_required_on_approval
-            __props__['mail_notifications_enabled'] = mail_notifications_enabled
-            __props__['number_of_occurrences'] = number_of_occurrences
-            __props__['recommendations_enabled'] = recommendations_enabled
-            __props__['reminder_notifications_enabled'] = reminder_notifications_enabled
-            __props__['reviewers'] = reviewers
-            __props__['schedule_definition_id'] = schedule_definition_id
-            __props__['start_date'] = start_date
-            __props__['type'] = type
-            __props__['name'] = None
-            __props__['principal_id'] = None
-            __props__['principal_name'] = None
-            __props__['principal_type'] = None
-            __props__['resource_id'] = None
-            __props__['reviewers_type'] = None
-            __props__['role_definition_id'] = None
-            __props__['status'] = None
-            __props__['user_principal_name'] = None
+            __props__.__dict__["auto_apply_decisions_enabled"] = auto_apply_decisions_enabled
+            __props__.__dict__["default_decision"] = default_decision
+            __props__.__dict__["default_decision_enabled"] = default_decision_enabled
+            __props__.__dict__["description_for_admins"] = description_for_admins
+            __props__.__dict__["description_for_reviewers"] = description_for_reviewers
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["end_date"] = end_date
+            __props__.__dict__["instance_duration_in_days"] = instance_duration_in_days
+            __props__.__dict__["instances"] = instances
+            __props__.__dict__["interval"] = interval
+            __props__.__dict__["justification_required_on_approval"] = justification_required_on_approval
+            __props__.__dict__["mail_notifications_enabled"] = mail_notifications_enabled
+            __props__.__dict__["number_of_occurrences"] = number_of_occurrences
+            __props__.__dict__["recommendations_enabled"] = recommendations_enabled
+            __props__.__dict__["reminder_notifications_enabled"] = reminder_notifications_enabled
+            __props__.__dict__["reviewers"] = reviewers
+            __props__.__dict__["schedule_definition_id"] = schedule_definition_id
+            __props__.__dict__["start_date"] = start_date
+            __props__.__dict__["type"] = type
+            __props__.__dict__["name"] = None
+            __props__.__dict__["principal_id"] = None
+            __props__.__dict__["principal_name"] = None
+            __props__.__dict__["principal_type"] = None
+            __props__.__dict__["resource_id"] = None
+            __props__.__dict__["reviewers_type"] = None
+            __props__.__dict__["role_definition_id"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["user_principal_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById"), pulumi.Alias(type_="azure-native:authorization:AccessReviewScheduleDefinitionById"), pulumi.Alias(type_="azure-nextgen:authorization:AccessReviewScheduleDefinitionById"), pulumi.Alias(type_="azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById"), pulumi.Alias(type_="azure-nextgen:authorization/v20210301preview:AccessReviewScheduleDefinitionById")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessReviewScheduleDefinitionById, __self__).__init__(
@@ -490,35 +480,35 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AccessReviewScheduleDefinitionByIdArgs.__new__(AccessReviewScheduleDefinitionByIdArgs)
 
-        __props__["auto_apply_decisions_enabled"] = None
-        __props__["default_decision"] = None
-        __props__["default_decision_enabled"] = None
-        __props__["description_for_admins"] = None
-        __props__["description_for_reviewers"] = None
-        __props__["display_name"] = None
-        __props__["end_date"] = None
-        __props__["instance_duration_in_days"] = None
-        __props__["instances"] = None
-        __props__["interval"] = None
-        __props__["justification_required_on_approval"] = None
-        __props__["mail_notifications_enabled"] = None
-        __props__["name"] = None
-        __props__["number_of_occurrences"] = None
-        __props__["principal_id"] = None
-        __props__["principal_name"] = None
-        __props__["principal_type"] = None
-        __props__["recommendations_enabled"] = None
-        __props__["reminder_notifications_enabled"] = None
-        __props__["resource_id"] = None
-        __props__["reviewers"] = None
-        __props__["reviewers_type"] = None
-        __props__["role_definition_id"] = None
-        __props__["start_date"] = None
-        __props__["status"] = None
-        __props__["type"] = None
-        __props__["user_principal_name"] = None
+        __props__.__dict__["auto_apply_decisions_enabled"] = None
+        __props__.__dict__["default_decision"] = None
+        __props__.__dict__["default_decision_enabled"] = None
+        __props__.__dict__["description_for_admins"] = None
+        __props__.__dict__["description_for_reviewers"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["end_date"] = None
+        __props__.__dict__["instance_duration_in_days"] = None
+        __props__.__dict__["instances"] = None
+        __props__.__dict__["interval"] = None
+        __props__.__dict__["justification_required_on_approval"] = None
+        __props__.__dict__["mail_notifications_enabled"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["number_of_occurrences"] = None
+        __props__.__dict__["principal_id"] = None
+        __props__.__dict__["principal_name"] = None
+        __props__.__dict__["principal_type"] = None
+        __props__.__dict__["recommendations_enabled"] = None
+        __props__.__dict__["reminder_notifications_enabled"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["reviewers"] = None
+        __props__.__dict__["reviewers_type"] = None
+        __props__.__dict__["role_definition_id"] = None
+        __props__.__dict__["start_date"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_principal_name"] = None
         return AccessReviewScheduleDefinitionById(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -736,10 +726,4 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         The user principal name(if valid)
         """
         return pulumi.get(self, "user_principal_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

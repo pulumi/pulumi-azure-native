@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -163,9 +163,7 @@ class EventChannel(pulumi.CustomResource):
                  partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['EventChannelSourceArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Event Channel.
 
@@ -214,15 +212,7 @@ class EventChannel(pulumi.CustomResource):
                  partner_topic_friendly_description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['EventChannelSourceArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,25 +222,25 @@ class EventChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventChannelArgs.__new__(EventChannelArgs)
 
-            __props__['destination'] = destination
-            __props__['event_channel_name'] = event_channel_name
-            __props__['expiration_time_if_not_activated_utc'] = expiration_time_if_not_activated_utc
-            __props__['filter'] = filter
+            __props__.__dict__["destination"] = destination
+            __props__.__dict__["event_channel_name"] = event_channel_name
+            __props__.__dict__["expiration_time_if_not_activated_utc"] = expiration_time_if_not_activated_utc
+            __props__.__dict__["filter"] = filter
             if partner_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_name'")
-            __props__['partner_namespace_name'] = partner_namespace_name
-            __props__['partner_topic_friendly_description'] = partner_topic_friendly_description
+            __props__.__dict__["partner_namespace_name"] = partner_namespace_name
+            __props__.__dict__["partner_topic_friendly_description"] = partner_topic_friendly_description
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['source'] = source
-            __props__['name'] = None
-            __props__['partner_topic_readiness_state'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["source"] = source
+            __props__.__dict__["name"] = None
+            __props__.__dict__["partner_topic_readiness_state"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:EventChannel"), pulumi.Alias(type_="azure-native:eventgrid:EventChannel"), pulumi.Alias(type_="azure-nextgen:eventgrid:EventChannel"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:EventChannel"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:EventChannel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventChannel, __self__).__init__(
@@ -273,18 +263,18 @@ class EventChannel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EventChannelArgs.__new__(EventChannelArgs)
 
-        __props__["destination"] = None
-        __props__["expiration_time_if_not_activated_utc"] = None
-        __props__["filter"] = None
-        __props__["name"] = None
-        __props__["partner_topic_friendly_description"] = None
-        __props__["partner_topic_readiness_state"] = None
-        __props__["provisioning_state"] = None
-        __props__["source"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["destination"] = None
+        __props__.__dict__["expiration_time_if_not_activated_utc"] = None
+        __props__.__dict__["filter"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["partner_topic_friendly_description"] = None
+        __props__.__dict__["partner_topic_readiness_state"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return EventChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -368,10 +358,4 @@ class EventChannel(pulumi.CustomResource):
         Type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['WebAppPremierAddOnSlotArgs', 'WebAppPremierAddOnSlot']
 
@@ -224,9 +224,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Premier add-on.
         API Version: 2020-12-01.
@@ -283,15 +281,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,27 +291,27 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppPremierAddOnSlotArgs.__new__(WebAppPremierAddOnSlotArgs)
 
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['marketplace_offer'] = marketplace_offer
-            __props__['marketplace_publisher'] = marketplace_publisher
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["marketplace_offer"] = marketplace_offer
+            __props__.__dict__["marketplace_publisher"] = marketplace_publisher
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['premier_add_on_name'] = premier_add_on_name
-            __props__['product'] = product
+            __props__.__dict__["name"] = name
+            __props__.__dict__["premier_add_on_name"] = premier_add_on_name
+            __props__.__dict__["product"] = product
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
-            __props__['tags'] = tags
-            __props__['vendor'] = vendor
-            __props__['type'] = None
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vendor"] = vendor
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppPremierAddOnSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOnSlot, __self__).__init__(
@@ -344,18 +334,18 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppPremierAddOnSlotArgs.__new__(WebAppPremierAddOnSlotArgs)
 
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["marketplace_offer"] = None
-        __props__["marketplace_publisher"] = None
-        __props__["name"] = None
-        __props__["product"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vendor"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["marketplace_offer"] = None
+        __props__.__dict__["marketplace_publisher"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["product"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vendor"] = None
         return WebAppPremierAddOnSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -437,10 +427,4 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         Premier add on Vendor.
         """
         return pulumi.get(self, "vendor")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

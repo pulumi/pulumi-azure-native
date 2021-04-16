@@ -203,11 +203,11 @@ export interface StaticSiteArgs {
     /**
      * Build properties to configure on the repository.
      */
-    readonly buildProperties?: pulumi.Input<inputs.web.v20201201.StaticSiteBuildProperties>;
+    readonly buildProperties?: pulumi.Input<inputs.web.v20201201.StaticSiteBuildPropertiesArgs>;
     /**
      * Managed service identity.
      */
-    readonly identity?: pulumi.Input<inputs.web.v20201201.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.web.v20201201.ManagedServiceIdentityArgs>;
     /**
      * Kind of resource.
      */
@@ -235,7 +235,7 @@ export interface StaticSiteArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    readonly sku?: pulumi.Input<inputs.web.v20201201.SkuDescription>;
+    readonly sku?: pulumi.Input<inputs.web.v20201201.SkuDescriptionArgs>;
     /**
      * State indicating whether staging environments are allowed or not allowed for a static web app.
      */
@@ -247,5 +247,5 @@ export interface StaticSiteArgs {
     /**
      * Template options for generating a new repository.
      */
-    readonly templateProperties?: pulumi.Input<inputs.web.v20201201.StaticSiteTemplateOptions>;
+    readonly templateProperties?: pulumi.Input<inputs.web.v20201201.StaticSiteTemplateOptionsArgs>;
 }

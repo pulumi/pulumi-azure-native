@@ -105,7 +105,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.synapse.v20210301.ManagedIntegrationRuntime | inputs.synapse.v20210301.SelfHostedIntegrationRuntime>;
+    readonly properties: pulumi.Input<inputs.synapse.v20210301.ManagedIntegrationRuntimeArgs | inputs.synapse.v20210301.SelfHostedIntegrationRuntimeArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

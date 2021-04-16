@@ -141,9 +141,9 @@ export interface JobScheduleArgs {
     /**
      * Gets or sets the runbook.
      */
-    readonly runbook: pulumi.Input<inputs.automation.v20151031.RunbookAssociationProperty>;
+    readonly runbook: pulumi.Input<inputs.automation.v20151031.RunbookAssociationPropertyArgs>;
     /**
      * Gets or sets the schedule.
      */
-    readonly schedule: pulumi.Input<inputs.automation.v20151031.ScheduleAssociationProperty>;
+    readonly schedule: pulumi.Input<inputs.automation.v20151031.ScheduleAssociationPropertyArgs>;
 }

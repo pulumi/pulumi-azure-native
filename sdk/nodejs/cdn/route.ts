@@ -181,11 +181,11 @@ export interface RouteArgs {
     /**
      * compression settings.
      */
-    readonly compressionSettings?: pulumi.Input<pulumi.Input<inputs.cdn.CompressionSettings>[]>;
+    readonly compressionSettings?: pulumi.Input<pulumi.Input<inputs.cdn.CompressionSettingsArgs>[]>;
     /**
      * Domains referenced by this endpoint.
      */
-    readonly customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReference>[]>;
+    readonly customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
@@ -209,7 +209,7 @@ export interface RouteArgs {
     /**
      * A reference to the origin group.
      */
-    readonly originGroup: pulumi.Input<inputs.cdn.ResourceReference>;
+    readonly originGroup: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
      */
@@ -237,7 +237,7 @@ export interface RouteArgs {
     /**
      * rule sets referenced by this endpoint.
      */
-    readonly ruleSets?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReference>[]>;
+    readonly ruleSets?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
      * List of supported protocols for this route.
      */

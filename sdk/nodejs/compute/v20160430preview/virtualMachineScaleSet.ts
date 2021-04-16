@@ -141,7 +141,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetIdentity>;
+    readonly identity?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetIdentityArgs>;
     /**
      * Resource location
      */
@@ -157,7 +157,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: pulumi.Input<inputs.compute.v20160430preview.Plan>;
+    readonly plan?: pulumi.Input<inputs.compute.v20160430preview.PlanArgs>;
     /**
      * The name of the resource group.
      */
@@ -169,7 +169,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The virtual machine scale set sku.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20160430preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20160430preview.SkuArgs>;
     /**
      * Resource tags
      */
@@ -177,9 +177,9 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The upgrade policy.
      */
-    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20160430preview.UpgradePolicy>;
+    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20160430preview.UpgradePolicyArgs>;
     /**
      * The virtual machine profile.
      */
-    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetVMProfile>;
+    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20160430preview.VirtualMachineScaleSetVMProfileArgs>;
 }

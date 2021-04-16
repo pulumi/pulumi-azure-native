@@ -130,7 +130,7 @@ export interface EmailTemplateArgs {
     /**
      * Email Template Parameter values.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.EmailTemplateParametersContractProperties>[]>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20190101.EmailTemplateParametersContractPropertiesArgs>[]>;
     /**
      * The name of the resource group.
      */

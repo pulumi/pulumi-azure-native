@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -41,6 +41,47 @@ class AzureBackupServerContainerResponse(dict):
     """
     AzureBackupServer (DPMVenus) workload-specific protection container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "canReRegister":
+            suggest = "can_re_register"
+        elif key == "containerId":
+            suggest = "container_id"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "dpmAgentVersion":
+            suggest = "dpm_agent_version"
+        elif key == "dpmServers":
+            suggest = "dpm_servers"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "protectedItemCount":
+            suggest = "protected_item_count"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "upgradeAvailable":
+            suggest = "upgrade_available"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBackupServerContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBackupServerContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBackupServerContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
@@ -67,7 +108,7 @@ class AzureBackupServerContainerResponse(dict):
                Expected value is 'DPMContainer'.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -210,15 +251,43 @@ class AzureBackupServerContainerResponse(dict):
         """
         return pulumi.get(self, "upgrade_available")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureIaaSClassicComputeVMContainerResponse(dict):
     """
     IaaS VM workload-specific backup item representing a classic virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "virtualMachineVersion":
+            suggest = "virtual_machine_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIaaSClassicComputeVMContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIaaSClassicComputeVMContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIaaSClassicComputeVMContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -328,15 +397,43 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         """
         return pulumi.get(self, "virtual_machine_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureIaaSComputeVMContainerResponse(dict):
     """
     IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "virtualMachineVersion":
+            suggest = "virtual_machine_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIaaSComputeVMContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIaaSComputeVMContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIaaSComputeVMContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -446,15 +543,47 @@ class AzureIaaSComputeVMContainerResponse(dict):
         """
         return pulumi.get(self, "virtual_machine_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
     """
     Container for SQL workloads under SQL Availability Group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "operationType":
+            suggest = "operation_type"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSQLAGWorkloadContainerProtectionContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSQLAGWorkloadContainerProtectionContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSQLAGWorkloadContainerProtectionContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -474,7 +603,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -588,15 +717,37 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlContainerResponse(dict):
     """
     Azure Sql workload-specific container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -670,15 +821,45 @@ class AzureSqlContainerResponse(dict):
         """
         return pulumi.get(self, "registration_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureStorageContainerResponse(dict):
     """
     Azure Storage Account workload-specific container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "protectedItemCount":
+            suggest = "protected_item_count"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "storageAccountVersion":
+            suggest = "storage_account_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureStorageContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureStorageContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureStorageContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -800,15 +981,47 @@ class AzureStorageContainerResponse(dict):
         """
         return pulumi.get(self, "storage_account_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureVMAppContainerProtectionContainerResponse(dict):
     """
     Container for SQL workloads under Azure Virtual Machines.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "operationType":
+            suggest = "operation_type"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVMAppContainerProtectionContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVMAppContainerProtectionContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVMAppContainerProtectionContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -828,7 +1041,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -942,15 +1155,33 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureWorkloadContainerExtendedInfoResponse(dict):
     """
     Extended information of the container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostServerName":
+            suggest = "host_server_name"
+        elif key == "inquiryInfo":
+            suggest = "inquiry_info"
+        elif key == "nodesList":
+            suggest = "nodes_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureWorkloadContainerExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureWorkloadContainerExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureWorkloadContainerExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_server_name: Optional[str] = None,
                  inquiry_info: Optional['outputs.InquiryInfoResponse'] = None,
@@ -958,8 +1189,8 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
         """
         Extended information of the container.
         :param str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        :param 'InquiryInfoResponseArgs' inquiry_info: Inquiry Status for the container.
-        :param Sequence['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
+        :param 'InquiryInfoResponse' inquiry_info: Inquiry Status for the container.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -992,15 +1223,47 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "nodes_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureWorkloadContainerResponse(dict):
     """
     Container for the workloads running inside Azure Compute or Classic Compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "operationType":
+            suggest = "operation_type"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureWorkloadContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureWorkloadContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureWorkloadContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -1020,7 +1283,7 @@ class AzureWorkloadContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'AzureWorkloadContainer'.
-        :param 'AzureWorkloadContainerExtendedInfoResponseArgs' extended_info: Additional details of a workload container.
+        :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
@@ -1134,15 +1397,33 @@ class AzureWorkloadContainerResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerIdentityInfoResponse(dict):
     """
     Container identity information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadTenantId":
+            suggest = "aad_tenant_id"
+        elif key == "servicePrincipalClientId":
+            suggest = "service_principal_client_id"
+        elif key == "uniqueName":
+            suggest = "unique_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerIdentityInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerIdentityInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerIdentityInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aad_tenant_id: Optional[str] = None,
                  audience: Optional[str] = None,
@@ -1196,15 +1477,29 @@ class ContainerIdentityInfoResponse(dict):
         """
         return pulumi.get(self, "unique_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DPMContainerExtendedInfoResponse(dict):
     """
     Additional information of the DPMContainer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastRefreshedAt":
+            suggest = "last_refreshed_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DPMContainerExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DPMContainerExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DPMContainerExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_refreshed_at: Optional[str] = None):
         """
@@ -1222,22 +1517,38 @@ class DPMContainerExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "last_refreshed_at")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DistributedNodesInfoResponse(dict):
     """
     This is used to represent the various nodes of the distributed container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDetail":
+            suggest = "error_detail"
+        elif key == "nodeName":
+            suggest = "node_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributedNodesInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributedNodesInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributedNodesInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
                  node_name: Optional[str] = None,
                  status: Optional[str] = None):
         """
         This is used to represent the various nodes of the distributed container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param str node_name: Name of the node under a distributed container.
         :param str status: Status of this Node.
                Failed | Succeeded
@@ -1274,15 +1585,53 @@ class DistributedNodesInfoResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DpmContainerResponse(dict):
     """
     DPM workload-specific protection container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "canReRegister":
+            suggest = "can_re_register"
+        elif key == "containerId":
+            suggest = "container_id"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "dpmAgentVersion":
+            suggest = "dpm_agent_version"
+        elif key == "dpmServers":
+            suggest = "dpm_servers"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "protectedItemCount":
+            suggest = "protected_item_count"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "upgradeAvailable":
+            suggest = "upgrade_available"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DpmContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DpmContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DpmContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
@@ -1309,7 +1658,7 @@ class DpmContainerResponse(dict):
                Expected value is 'DPMContainer'.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
-        :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
+        :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param float protected_item_count: Number of protected items in the BackupEngine
@@ -1452,9 +1801,6 @@ class DpmContainerResponse(dict):
         """
         return pulumi.get(self, "upgrade_available")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorDetailResponse(dict):
@@ -1499,22 +1845,40 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "recommendations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GenericContainerExtendedInfoResponse(dict):
     """
     Container extended information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerIdentityInfo":
+            suggest = "container_identity_info"
+        elif key == "rawCertData":
+            suggest = "raw_cert_data"
+        elif key == "serviceEndpoints":
+            suggest = "service_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GenericContainerExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GenericContainerExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GenericContainerExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_identity_info: Optional['outputs.ContainerIdentityInfoResponse'] = None,
                  raw_cert_data: Optional[str] = None,
                  service_endpoints: Optional[Mapping[str, str]] = None):
         """
         Container extended information
-        :param 'ContainerIdentityInfoResponseArgs' container_identity_info: Container identity information
+        :param 'ContainerIdentityInfoResponse' container_identity_info: Container identity information
         :param str raw_cert_data: Public key of container cert
         :param Mapping[str, str] service_endpoints: Azure Backup Service Endpoints for the container
         """
@@ -1549,15 +1913,41 @@ class GenericContainerExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "service_endpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GenericContainerResponse(dict):
     """
     Base class for generic container of backup items
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "extendedInformation":
+            suggest = "extended_information"
+        elif key == "fabricName":
+            suggest = "fabric_name"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GenericContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GenericContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GenericContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -1574,7 +1964,7 @@ class GenericContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'GenericContainer'.
-        :param 'GenericContainerExtendedInfoResponseArgs' extended_information: Extended information (not returned in List container API calls)
+        :param 'GenericContainerExtendedInfoResponse' extended_information: Extended information (not returned in List container API calls)
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -1655,15 +2045,43 @@ class GenericContainerResponse(dict):
         """
         return pulumi.get(self, "registration_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IaaSVMContainerResponse(dict):
     """
     IaaS VM workload-specific container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "virtualMachineVersion":
+            suggest = "virtual_machine_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IaaSVMContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IaaSVMContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IaaSVMContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
                  container_type: Optional[str] = None,
@@ -1773,23 +2191,39 @@ class IaaSVMContainerResponse(dict):
         """
         return pulumi.get(self, "virtual_machine_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InquiryInfoResponse(dict):
     """
     Details about inquired protectable items under a given container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDetail":
+            suggest = "error_detail"
+        elif key == "inquiryDetails":
+            suggest = "inquiry_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InquiryInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InquiryInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InquiryInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
                  inquiry_details: Optional[Sequence['outputs.WorkloadInquiryDetailsResponse']] = None,
                  status: Optional[str] = None):
         """
         Details about inquired protectable items under a given container.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
-        :param Sequence['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
+        :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
+        :param Sequence['WorkloadInquiryDetailsResponse'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param str status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -1827,15 +2261,31 @@ class InquiryInfoResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InquiryValidationResponse(dict):
     """
     Validation for inquired protectable items under a given container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalDetail":
+            suggest = "additional_detail"
+        elif key == "errorDetail":
+            suggest = "error_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InquiryValidationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InquiryValidationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InquiryValidationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_detail: str,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
@@ -1843,7 +2293,7 @@ class InquiryValidationResponse(dict):
         """
         Validation for inquired protectable items under a given container.
         :param str additional_detail: Error Additional Detail in case the status is non-success.
-        :param 'ErrorDetailResponseArgs' error_detail: Error Detail in case the status is non-success.
+        :param 'ErrorDetailResponse' error_detail: Error Detail in case the status is non-success.
         :param str status: Status for the Inquiry Validation.
         """
         pulumi.set(__self__, "additional_detail", additional_detail)
@@ -1875,9 +2325,6 @@ class InquiryValidationResponse(dict):
         Status for the Inquiry Validation.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1938,15 +2385,37 @@ class MABContainerHealthDetailsResponse(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MabContainerExtendedInfoResponse(dict):
     """
     Additional information of the container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupItemType":
+            suggest = "backup_item_type"
+        elif key == "backupItems":
+            suggest = "backup_items"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastRefreshedAt":
+            suggest = "last_refreshed_at"
+        elif key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MabContainerExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MabContainerExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MabContainerExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_item_type: Optional[str] = None,
                  backup_items: Optional[Sequence[str]] = None,
@@ -2012,15 +2481,51 @@ class MabContainerExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "policy_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MabContainerResponse(dict):
     """
     Container with items backed up using MAB backup engine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentVersion":
+            suggest = "agent_version"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "canReRegister":
+            suggest = "can_re_register"
+        elif key == "containerHealthState":
+            suggest = "container_health_state"
+        elif key == "containerId":
+            suggest = "container_id"
+        elif key == "containerType":
+            suggest = "container_type"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "mabContainerHealthDetails":
+            suggest = "mab_container_health_details"
+        elif key == "protectedItemCount":
+            suggest = "protected_item_count"
+        elif key == "registrationStatus":
+            suggest = "registration_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MabContainerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MabContainerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MabContainerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agent_version: Optional[str] = None,
                  backup_management_type: Optional[str] = None,
@@ -2046,10 +2551,10 @@ class MabContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'Windows'.
-        :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
+        :param 'MabContainerExtendedInfoResponse' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
+        :param Sequence['MABContainerHealthDetailsResponse'] mab_container_health_details: Health details on this mab container.
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
@@ -2178,22 +2683,38 @@ class MabContainerResponse(dict):
         """
         return pulumi.get(self, "registration_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkloadInquiryDetailsResponse(dict):
     """
     Details of an inquired protectable item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inquiryValidation":
+            suggest = "inquiry_validation"
+        elif key == "itemCount":
+            suggest = "item_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInquiryDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInquiryDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInquiryDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  inquiry_validation: Optional['outputs.InquiryValidationResponse'] = None,
                  item_count: Optional[float] = None,
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
-        :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
+        :param 'InquiryValidationResponse' inquiry_validation: Inquiry validation such as permissions and other backup validations.
         :param float item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
@@ -2227,8 +2748,5 @@ class WorkloadInquiryDetailsResponse(dict):
         Type of the Workload such as SQL, Oracle etc.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

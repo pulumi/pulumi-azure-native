@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -48,12 +48,30 @@ class ContentHashResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentLinkResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentHash":
+            suggest = "content_hash"
+        elif key == "contentSize":
+            suggest = "content_size"
+        elif key == "contentVersion":
+            suggest = "content_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
                  content_size: Optional[float] = None,
@@ -61,7 +79,7 @@ class ContentLinkResponse(dict):
                  metadata: Optional[Any] = None,
                  uri: Optional[str] = None):
         """
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the content hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the content hash.
         :param float content_size: Gets or sets the content size.
         :param str content_version: Gets or sets the content version.
         :param Any metadata: Gets or sets the metadata.
@@ -118,9 +136,6 @@ class ContentLinkResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceReferenceResponse(dict):
@@ -162,9 +177,6 @@ class ResourceReferenceResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -173,7 +185,7 @@ class SkuResponse(dict):
                  plan: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         :param str name: Gets or sets the name.
-        :param 'ResourceReferenceResponseArgs' plan: Gets or sets the reference to plan.
+        :param 'ResourceReferenceResponse' plan: Gets or sets the reference to plan.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -195,9 +207,6 @@ class SkuResponse(dict):
         Gets or sets the reference to plan.
         """
         return pulumi.get(self, "plan")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -241,8 +250,5 @@ class WorkflowParameterResponse(dict):
         Gets or sets the value.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

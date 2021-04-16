@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -193,9 +193,7 @@ class AnalyticsItem(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[Union[str, 'ItemScope']]] = None,
                  scope_path: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ItemType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
 
@@ -246,15 +244,7 @@ class AnalyticsItem(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[Union[str, 'ItemScope']]] = None,
                  scope_path: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ItemType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,27 +254,27 @@ class AnalyticsItem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AnalyticsItemArgs.__new__(AnalyticsItemArgs)
 
-            __props__['content'] = content
-            __props__['id'] = id
-            __props__['name'] = name
-            __props__['override_item'] = override_item
-            __props__['properties'] = properties
+            __props__.__dict__["content"] = content
+            __props__.__dict__["id"] = id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["override_item"] = override_item
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
-            __props__['resource_name'] = resource_name_
-            __props__['scope'] = scope
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["scope"] = scope
             if scope_path is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_path'")
-            __props__['scope_path'] = scope_path
-            __props__['type'] = type
-            __props__['time_created'] = None
-            __props__['time_modified'] = None
-            __props__['version'] = None
+            __props__.__dict__["scope_path"] = scope_path
+            __props__.__dict__["type"] = type
+            __props__.__dict__["time_created"] = None
+            __props__.__dict__["time_modified"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:AnalyticsItem"), pulumi.Alias(type_="azure-native:insights:AnalyticsItem"), pulumi.Alias(type_="azure-nextgen:insights:AnalyticsItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AnalyticsItem, __self__).__init__(
@@ -307,16 +297,16 @@ class AnalyticsItem(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AnalyticsItemArgs.__new__(AnalyticsItemArgs)
 
-        __props__["content"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["scope"] = None
-        __props__["time_created"] = None
-        __props__["time_modified"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["content"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["time_created"] = None
+        __props__.__dict__["time_modified"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return AnalyticsItem(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -382,10 +372,4 @@ class AnalyticsItem(pulumi.CustomResource):
         This instance's version of the data model. This can change as new features are added.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

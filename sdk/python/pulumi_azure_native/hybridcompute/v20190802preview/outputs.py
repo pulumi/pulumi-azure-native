@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -27,7 +27,7 @@ class ErrorDetailResponse(dict):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponse'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)
@@ -69,15 +69,29 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MachineExtensionInstanceViewResponse(dict):
     """
     Describes the Machine Extension Instance View.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineExtensionInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineExtensionInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None,
@@ -86,7 +100,7 @@ class MachineExtensionInstanceViewResponse(dict):
         """
         Describes the Machine Extension Instance View.
         :param str name: The machine extension name.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -131,15 +145,29 @@ class MachineExtensionInstanceViewResponse(dict):
         """
         return pulumi.get(self, "type_handler_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MachineExtensionInstanceViewResponseStatus(dict):
     """
     Instance view status.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionInstanceViewResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineExtensionInstanceViewResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineExtensionInstanceViewResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  display_status: Optional[str] = None,
@@ -205,15 +233,29 @@ class MachineExtensionInstanceViewResponseStatus(dict):
         """
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the hybrid machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computerName":
+            suggest = "computer_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  computer_name: str):
         """
@@ -229,8 +271,5 @@ class OSProfileResponse(dict):
         Specifies the host OS name of the hybrid machine.
         """
         return pulumi.get(self, "computer_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

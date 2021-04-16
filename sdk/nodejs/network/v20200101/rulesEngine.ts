@@ -106,7 +106,7 @@ export interface RulesEngineArgs {
     /**
      * A list of rules that define a particular Rules Engine Configuration.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20200101.RulesEngineRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20200101.RulesEngineRuleArgs>[]>;
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */

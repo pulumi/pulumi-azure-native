@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -159,9 +159,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a link to virtual network for a Private DNS zone.
         API Version: 2020-06-01.
@@ -210,15 +208,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  virtual_network_link_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,24 +218,24 @@ class VirtualNetworkLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkLinkArgs.__new__(VirtualNetworkLinkArgs)
 
-            __props__['etag'] = etag
-            __props__['location'] = location
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["location"] = location
             if private_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_zone_name'")
-            __props__['private_zone_name'] = private_zone_name
-            __props__['registration_enabled'] = registration_enabled
+            __props__.__dict__["private_zone_name"] = private_zone_name
+            __props__.__dict__["registration_enabled"] = registration_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['virtual_network'] = virtual_network
-            __props__['virtual_network_link_name'] = virtual_network_link_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
-            __props__['virtual_network_link_state'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network"] = virtual_network
+            __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_network_link_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20180901:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20180901:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20200101:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20200101:VirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkLink"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkLink, __self__).__init__(
@@ -268,17 +258,17 @@ class VirtualNetworkLink(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualNetworkLinkArgs.__new__(VirtualNetworkLinkArgs)
 
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["registration_enabled"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_network"] = None
-        __props__["virtual_network_link_state"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["registration_enabled"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_network"] = None
+        __props__.__dict__["virtual_network_link_state"] = None
         return VirtualNetworkLink(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -352,10 +342,4 @@ class VirtualNetworkLink(pulumi.CustomResource):
         The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
         """
         return pulumi.get(self, "virtual_network_link_state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

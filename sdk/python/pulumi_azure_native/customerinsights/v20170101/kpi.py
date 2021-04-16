@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -308,9 +308,7 @@ class Kpi(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thres_holds: Optional[pulumi.Input[pulumi.InputType['KpiThresholdsArgs']]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The KPI resource format.
 
@@ -375,15 +373,7 @@ class Kpi(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thres_holds: Optional[pulumi.Input[pulumi.InputType['KpiThresholdsArgs']]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,45 +383,45 @@ class Kpi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = KpiArgs.__new__(KpiArgs)
 
-            __props__['aliases'] = aliases
+            __props__.__dict__["aliases"] = aliases
             if calculation_window is None and not opts.urn:
                 raise TypeError("Missing required property 'calculation_window'")
-            __props__['calculation_window'] = calculation_window
-            __props__['calculation_window_field_name'] = calculation_window_field_name
-            __props__['description'] = description
-            __props__['display_name'] = display_name
+            __props__.__dict__["calculation_window"] = calculation_window
+            __props__.__dict__["calculation_window_field_name"] = calculation_window_field_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
             if entity_type is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_type'")
-            __props__['entity_type'] = entity_type
+            __props__.__dict__["entity_type"] = entity_type
             if entity_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_type_name'")
-            __props__['entity_type_name'] = entity_type_name
+            __props__.__dict__["entity_type_name"] = entity_type_name
             if expression is None and not opts.urn:
                 raise TypeError("Missing required property 'expression'")
-            __props__['expression'] = expression
-            __props__['extracts'] = extracts
-            __props__['filter'] = filter
+            __props__.__dict__["expression"] = expression
+            __props__.__dict__["extracts"] = extracts
+            __props__.__dict__["filter"] = filter
             if function is None and not opts.urn:
                 raise TypeError("Missing required property 'function'")
-            __props__['function'] = function
-            __props__['group_by'] = group_by
+            __props__.__dict__["function"] = function
+            __props__.__dict__["group_by"] = group_by
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
-            __props__['hub_name'] = hub_name
-            __props__['kpi_name'] = kpi_name
+            __props__.__dict__["hub_name"] = hub_name
+            __props__.__dict__["kpi_name"] = kpi_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['thres_holds'] = thres_holds
-            __props__['unit'] = unit
-            __props__['group_by_metadata'] = None
-            __props__['name'] = None
-            __props__['participant_profiles_metadata'] = None
-            __props__['provisioning_state'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["thres_holds"] = thres_holds
+            __props__.__dict__["unit"] = unit
+            __props__.__dict__["group_by_metadata"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["participant_profiles_metadata"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights/v20170101:Kpi"), pulumi.Alias(type_="azure-native:customerinsights:Kpi"), pulumi.Alias(type_="azure-nextgen:customerinsights:Kpi"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:Kpi"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Kpi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Kpi, __self__).__init__(
@@ -454,29 +444,29 @@ class Kpi(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = KpiArgs.__new__(KpiArgs)
 
-        __props__["aliases"] = None
-        __props__["calculation_window"] = None
-        __props__["calculation_window_field_name"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["entity_type"] = None
-        __props__["entity_type_name"] = None
-        __props__["expression"] = None
-        __props__["extracts"] = None
-        __props__["filter"] = None
-        __props__["function"] = None
-        __props__["group_by"] = None
-        __props__["group_by_metadata"] = None
-        __props__["kpi_name"] = None
-        __props__["name"] = None
-        __props__["participant_profiles_metadata"] = None
-        __props__["provisioning_state"] = None
-        __props__["tenant_id"] = None
-        __props__["thres_holds"] = None
-        __props__["type"] = None
-        __props__["unit"] = None
+        __props__.__dict__["aliases"] = None
+        __props__.__dict__["calculation_window"] = None
+        __props__.__dict__["calculation_window_field_name"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["entity_type"] = None
+        __props__.__dict__["entity_type_name"] = None
+        __props__.__dict__["expression"] = None
+        __props__.__dict__["extracts"] = None
+        __props__.__dict__["filter"] = None
+        __props__.__dict__["function"] = None
+        __props__.__dict__["group_by"] = None
+        __props__.__dict__["group_by_metadata"] = None
+        __props__.__dict__["kpi_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["participant_profiles_metadata"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["thres_holds"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unit"] = None
         return Kpi(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -646,10 +636,4 @@ class Kpi(pulumi.CustomResource):
         The unit of measurement for the KPI.
         """
         return pulumi.get(self, "unit")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

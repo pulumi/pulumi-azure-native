@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -326,9 +326,7 @@ class NodeType(pulumi.CustomResource):
                  vm_instance_count: Optional[pulumi.Input[int]] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
         API Version: 2020-01-01-preview.
@@ -397,15 +395,7 @@ class NodeType(pulumi.CustomResource):
                  vm_instance_count: Optional[pulumi.Input[int]] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -415,39 +405,39 @@ class NodeType(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
-            __props__['application_ports'] = application_ports
-            __props__['capacities'] = capacities
+            __props__.__dict__["application_ports"] = application_ports
+            __props__.__dict__["capacities"] = capacities
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
+            __props__.__dict__["cluster_name"] = cluster_name
             if data_disk_size_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'data_disk_size_gb'")
-            __props__['data_disk_size_gb'] = data_disk_size_gb
-            __props__['ephemeral_ports'] = ephemeral_ports
+            __props__.__dict__["data_disk_size_gb"] = data_disk_size_gb
+            __props__.__dict__["ephemeral_ports"] = ephemeral_ports
             if is_primary is None and not opts.urn:
                 raise TypeError("Missing required property 'is_primary'")
-            __props__['is_primary'] = is_primary
-            __props__['node_type_name'] = node_type_name
-            __props__['placement_properties'] = placement_properties
+            __props__.__dict__["is_primary"] = is_primary
+            __props__.__dict__["node_type_name"] = node_type_name
+            __props__.__dict__["placement_properties"] = placement_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['vm_extensions'] = vm_extensions
-            __props__['vm_image_offer'] = vm_image_offer
-            __props__['vm_image_publisher'] = vm_image_publisher
-            __props__['vm_image_sku'] = vm_image_sku
-            __props__['vm_image_version'] = vm_image_version
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vm_extensions"] = vm_extensions
+            __props__.__dict__["vm_image_offer"] = vm_image_offer
+            __props__.__dict__["vm_image_publisher"] = vm_image_publisher
+            __props__.__dict__["vm_image_sku"] = vm_image_sku
+            __props__.__dict__["vm_image_version"] = vm_image_version
             if vm_instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_instance_count'")
-            __props__['vm_instance_count'] = vm_instance_count
-            __props__['vm_secrets'] = vm_secrets
-            __props__['vm_size'] = vm_size
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["vm_instance_count"] = vm_instance_count
+            __props__.__dict__["vm_secrets"] = vm_secrets
+            __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200101preview:NodeType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NodeType, __self__).__init__(
@@ -470,26 +460,26 @@ class NodeType(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
-        __props__["application_ports"] = None
-        __props__["capacities"] = None
-        __props__["data_disk_size_gb"] = None
-        __props__["ephemeral_ports"] = None
-        __props__["is_primary"] = None
-        __props__["name"] = None
-        __props__["placement_properties"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vm_extensions"] = None
-        __props__["vm_image_offer"] = None
-        __props__["vm_image_publisher"] = None
-        __props__["vm_image_sku"] = None
-        __props__["vm_image_version"] = None
-        __props__["vm_instance_count"] = None
-        __props__["vm_secrets"] = None
-        __props__["vm_size"] = None
+        __props__.__dict__["application_ports"] = None
+        __props__.__dict__["capacities"] = None
+        __props__.__dict__["data_disk_size_gb"] = None
+        __props__.__dict__["ephemeral_ports"] = None
+        __props__.__dict__["is_primary"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["placement_properties"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vm_extensions"] = None
+        __props__.__dict__["vm_image_offer"] = None
+        __props__.__dict__["vm_image_publisher"] = None
+        __props__.__dict__["vm_image_sku"] = None
+        __props__.__dict__["vm_image_version"] = None
+        __props__.__dict__["vm_instance_count"] = None
+        __props__.__dict__["vm_secrets"] = None
+        __props__.__dict__["vm_size"] = None
         return NodeType(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -635,10 +625,4 @@ class NodeType(pulumi.CustomResource):
         The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
         return pulumi.get(self, "vm_size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -263,9 +263,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Maintenance configuration record type
 
@@ -324,15 +322,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,27 +332,27 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
-            __props__['duration'] = duration
-            __props__['expiration_date_time'] = expiration_date_time
-            __props__['extension_properties'] = extension_properties
-            __props__['install_patches'] = install_patches
-            __props__['location'] = location
-            __props__['maintenance_scope'] = maintenance_scope
-            __props__['namespace'] = namespace
-            __props__['recur_every'] = recur_every
+            __props__.__dict__["duration"] = duration
+            __props__.__dict__["expiration_date_time"] = expiration_date_time
+            __props__.__dict__["extension_properties"] = extension_properties
+            __props__.__dict__["install_patches"] = install_patches
+            __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_scope"] = maintenance_scope
+            __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["recur_every"] = recur_every
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_name'] = resource_name_
-            __props__['start_date_time'] = start_date_time
-            __props__['tags'] = tags
-            __props__['time_zone'] = time_zone
-            __props__['visibility'] = visibility
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["start_date_time"] = start_date_time
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["time_zone"] = time_zone
+            __props__.__dict__["visibility"] = visibility
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20180601preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20200401:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"), pulumi.Alias(type_="azure-native:maintenance/v20200701preview:MaintenanceConfiguration"), pulumi.Alias(type_="azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MaintenanceConfiguration, __self__).__init__(
@@ -385,23 +375,23 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
-        __props__["duration"] = None
-        __props__["expiration_date_time"] = None
-        __props__["extension_properties"] = None
-        __props__["install_patches"] = None
-        __props__["location"] = None
-        __props__["maintenance_scope"] = None
-        __props__["name"] = None
-        __props__["namespace"] = None
-        __props__["recur_every"] = None
-        __props__["start_date_time"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["time_zone"] = None
-        __props__["type"] = None
-        __props__["visibility"] = None
+        __props__.__dict__["duration"] = None
+        __props__.__dict__["expiration_date_time"] = None
+        __props__.__dict__["extension_properties"] = None
+        __props__.__dict__["install_patches"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maintenance_scope"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["namespace"] = None
+        __props__.__dict__["recur_every"] = None
+        __props__.__dict__["start_date_time"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["time_zone"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["visibility"] = None
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -523,10 +513,4 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         Gets or sets the visibility of the configuration
         """
         return pulumi.get(self, "visibility")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

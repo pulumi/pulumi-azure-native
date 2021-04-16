@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,25 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
     """
     Configuration properties of an Azure Monitor workspace that receives change notifications.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceId":
+            suggest = "workspace_id"
+        elif key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorWorkspacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorWorkspacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  workspace_id: Optional[str] = None,
                  workspace_resource_id: Optional[str] = None):
@@ -52,9 +71,6 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
         """
         return pulumi.get(self, "workspace_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConfigurationProfileResourcePropertiesResponse(dict):
@@ -65,7 +81,7 @@ class ConfigurationProfileResourcePropertiesResponse(dict):
                  notifications: Optional['outputs.NotificationSettingsResponse'] = None):
         """
         The properties of a configuration profile.
-        :param 'NotificationSettingsResponseArgs' notifications: Settings of change notification configuration for a subscription.
+        :param 'NotificationSettingsResponse' notifications: Settings of change notification configuration for a subscription.
         """
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
@@ -78,22 +94,38 @@ class ConfigurationProfileResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "notifications")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationSettingsResponse(dict):
     """
     Settings of change notification configuration for a subscription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activationState":
+            suggest = "activation_state"
+        elif key == "azureMonitorWorkspaceProperties":
+            suggest = "azure_monitor_workspace_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  activation_state: Optional[str] = None,
                  azure_monitor_workspace_properties: Optional['outputs.AzureMonitorWorkspacePropertiesResponse'] = None):
         """
         Settings of change notification configuration for a subscription.
         :param str activation_state: The state of notifications feature.
-        :param 'AzureMonitorWorkspacePropertiesResponseArgs' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
+        :param 'AzureMonitorWorkspacePropertiesResponse' azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
         if activation_state is not None:
             pulumi.set(__self__, "activation_state", activation_state)
@@ -116,15 +148,31 @@ class NotificationSettingsResponse(dict):
         """
         return pulumi.get(self, "azure_monitor_workspace_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceIdentityResponse(dict):
     """
     The identity block returned by ARM resource that supports managed identity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -164,15 +212,39 @@ class ResourceIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: str,
                  created_by: str,
@@ -243,8 +315,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource: user, application, managedIdentity, key
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

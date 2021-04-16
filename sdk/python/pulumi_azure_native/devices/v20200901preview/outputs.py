@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -33,6 +33,29 @@ class ArmIdentityResponse(dict):
     """
     The set of ARM identities associated with the IoT DPS resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -43,7 +66,7 @@ class ArmIdentityResponse(dict):
         :param str principal_id: Principal Id
         :param str tenant_id: Tenant Id
         :param str identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-        :param Mapping[str, 'ArmUserIdentityResponseArgs'] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
+        :param Mapping[str, 'ArmUserIdentityResponse'] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -84,15 +107,31 @@ class ArmIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArmUserIdentityResponse(dict):
     """
     The ARM UserAssigned identity information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmUserIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmUserIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmUserIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str):
@@ -120,15 +159,29 @@ class ArmUserIdentityResponse(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificatePropertiesResponse(dict):
     """
     The description of an X509 CA Certificate.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isVerified":
+            suggest = "is_verified"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created: str,
                  expiry: str,
@@ -200,15 +253,29 @@ class CertificatePropertiesResponse(dict):
         """
         return pulumi.get(self, "updated")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionKeyIdentityResponse(dict):
     """
     The properties of the identity used to access the key encryption key in KeyVault.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionKeyIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionKeyIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionKeyIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_assigned_identity: Optional[str] = None):
         """
@@ -226,24 +293,40 @@ class EncryptionKeyIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionPropertiesDescriptionResponse(dict):
     """
     The customer-managed encryption key (CMK) properties for the IoT DPS instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertiesDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertiesDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity: Optional['outputs.EncryptionKeyIdentityResponse'] = None,
                  key_source: Optional[str] = None,
                  key_vault_properties: Optional[Sequence['outputs.KeyVaultKeyPropertiesResponse']] = None):
         """
         The customer-managed encryption key (CMK) properties for the IoT DPS instance.
-        :param 'EncryptionKeyIdentityResponseArgs' identity: The identity used to access the encryption key in KeyVault.
+        :param 'EncryptionKeyIdentityResponse' identity: The identity used to access the encryption key in KeyVault.
         :param str key_source: The source of the encryption key. Typically, Microsoft.KeyVault
-        :param Sequence['KeyVaultKeyPropertiesResponseArgs'] key_vault_properties: The properties of the encryption key configured in KeyVault.
+        :param Sequence['KeyVaultKeyPropertiesResponse'] key_vault_properties: The properties of the encryption key configured in KeyVault.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -276,15 +359,47 @@ class EncryptionPropertiesDescriptionResponse(dict):
         """
         return pulumi.get(self, "key_vault_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotDpsPropertiesDescriptionResponse(dict):
     """
     the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceProvisioningHostName":
+            suggest = "device_provisioning_host_name"
+        elif key == "idScope":
+            suggest = "id_scope"
+        elif key == "serviceOperationsHostName":
+            suggest = "service_operations_host_name"
+        elif key == "allocationPolicy":
+            suggest = "allocation_policy"
+        elif key == "authorizationPolicies":
+            suggest = "authorization_policies"
+        elif key == "iotHubs":
+            suggest = "iot_hubs"
+        elif key == "ipFilterRules":
+            suggest = "ip_filter_rules"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotDpsPropertiesDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotDpsPropertiesDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotDpsPropertiesDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_provisioning_host_name: str,
                  id_scope: str,
@@ -304,11 +419,11 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
-        :param 'EncryptionPropertiesDescriptionResponseArgs' encryption: The encryption properties for the IoT DPS instance.
-        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
-        :param Sequence['TargetIpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
-        :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
+        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse'] authorization_policies: List of authorization keys for a provisioning service.
+        :param 'EncryptionPropertiesDescriptionResponse' encryption: The encryption properties for the IoT DPS instance.
+        :param Sequence['IotHubDefinitionDescriptionResponse'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['TargetIpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str public_network_access: Whether requests from Public Network are allowed
         :param str state: Current state of the provisioning service.
@@ -431,9 +546,6 @@ class IotDpsPropertiesDescriptionResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotDpsSkuInfoResponse(dict):
@@ -480,15 +592,33 @@ class IotDpsSkuInfoResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotHubDefinitionDescriptionResponse(dict):
     """
     Description of the IoT hub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "allocationWeight":
+            suggest = "allocation_weight"
+        elif key == "applyAllocationPolicy":
+            suggest = "apply_allocation_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubDefinitionDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubDefinitionDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubDefinitionDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  location: str,
@@ -551,15 +681,29 @@ class IotHubDefinitionDescriptionResponse(dict):
         """
         return pulumi.get(self, "apply_allocation_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultKeyPropertiesResponse(dict):
     """
     The properties of the KeyVault key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyIdentifier":
+            suggest = "key_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultKeyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultKeyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultKeyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_identifier: Optional[str] = None):
         """
@@ -577,22 +721,38 @@ class KeyVaultKeyPropertiesResponse(dict):
         """
         return pulumi.get(self, "key_identifier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionPropertiesResponse(dict):
     """
     The properties of a private endpoint connection
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The properties of a private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: The current state of a private endpoint connection
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The private endpoint property of a private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The current state of a private endpoint connection
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint property of a private endpoint connection
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if private_endpoint is not None:
@@ -614,9 +774,6 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         """
         return pulumi.get(self, "private_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
@@ -632,7 +789,7 @@ class PrivateEndpointConnectionResponse(dict):
         The private endpoint connection of a provisioning service
         :param str id: The resource identifier.
         :param str name: The resource name.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: The properties of a private endpoint connection
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: The properties of a private endpoint connection
         :param str type: The resource type.
         """
         pulumi.set(__self__, "id", id)
@@ -672,9 +829,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -697,15 +851,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     The current state of a private endpoint connection
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: str,
                  status: str,
@@ -745,15 +913,33 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "actions_required")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict):
     """
     Description of the shared access key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_name: str,
                  rights: str,
@@ -805,15 +991,31 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict
         """
         return pulumi.get(self, "secondary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetIpFilterRuleResponse(dict):
     """
     The IP filter rules for a provisioning Service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterName":
+            suggest = "filter_name"
+        elif key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetIpFilterRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetIpFilterRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetIpFilterRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  filter_name: str,
@@ -863,8 +1065,5 @@ class TargetIpFilterRuleResponse(dict):
         Target for requests captured by this rule.
         """
         return pulumi.get(self, "target")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

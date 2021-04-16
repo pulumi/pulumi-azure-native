@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -20,6 +20,25 @@ class MediaGraphAssetSinkResponse(dict):
     """
     Asset sink
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assetName":
+            suggest = "asset_name"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphAssetSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphAssetSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphAssetSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asset_name: str,
                  inputs: Sequence[str],
@@ -71,15 +90,31 @@ class MediaGraphAssetSinkResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphRtspSourceResponse(dict):
     """
     RTSP source
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "rtspUrl":
+            suggest = "rtsp_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphRtspSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphRtspSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphRtspSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  odata_type: str,
@@ -91,7 +126,7 @@ class MediaGraphRtspSourceResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param str rtsp_url: RTSP URL
-        :param 'MediaGraphUserCredentialsResponseArgs' credentials: RTSP Credentials
+        :param 'MediaGraphUserCredentialsResponse' credentials: RTSP Credentials
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
@@ -132,9 +167,6 @@ class MediaGraphRtspSourceResponse(dict):
         """
         return pulumi.get(self, "credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphUserCredentialsResponse(dict):
@@ -167,8 +199,5 @@ class MediaGraphUserCredentialsResponse(dict):
         User name
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

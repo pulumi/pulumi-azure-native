@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -27,6 +27,25 @@ class ContainerServiceAgentPoolProfileResponse(dict):
     """
     Profile for the container service agent pool.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPrefix":
+            suggest = "dns_prefix"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceAgentPoolProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceAgentPoolProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceAgentPoolProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_prefix: str,
                  fqdn: str,
@@ -88,16 +107,30 @@ class ContainerServiceAgentPoolProfileResponse(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceDiagnosticsProfileResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmDiagnostics":
+            suggest = "vm_diagnostics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceDiagnosticsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceDiagnosticsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceDiagnosticsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  vm_diagnostics: 'outputs.ContainerServiceVMDiagnosticsResponse'):
         """
-        :param 'ContainerServiceVMDiagnosticsResponseArgs' vm_diagnostics: Profile for the container service VM diagnostic agent.
+        :param 'ContainerServiceVMDiagnosticsResponse' vm_diagnostics: Profile for the container service VM diagnostic agent.
         """
         pulumi.set(__self__, "vm_diagnostics", vm_diagnostics)
 
@@ -109,22 +142,36 @@ class ContainerServiceDiagnosticsProfileResponse(dict):
         """
         return pulumi.get(self, "vm_diagnostics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceLinuxProfileResponse(dict):
     """
     Profile for Linux VMs in the container service cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceLinuxProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceLinuxProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceLinuxProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  ssh: 'outputs.ContainerServiceSshConfigurationResponse'):
         """
         Profile for Linux VMs in the container service cluster.
         :param str admin_username: The administrator username to use for all Linux VMs
-        :param 'ContainerServiceSshConfigurationResponseArgs' ssh: The ssh key configuration for Linux VMs.
+        :param 'ContainerServiceSshConfigurationResponse' ssh: The ssh key configuration for Linux VMs.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh", ssh)
@@ -145,15 +192,29 @@ class ContainerServiceLinuxProfileResponse(dict):
         """
         return pulumi.get(self, "ssh")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceMasterProfileResponse(dict):
     """
     Profile for the container service master.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPrefix":
+            suggest = "dns_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceMasterProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceMasterProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceMasterProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_prefix: str,
                  fqdn: str,
@@ -195,15 +256,29 @@ class ContainerServiceMasterProfileResponse(dict):
         """
         return pulumi.get(self, "count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceOrchestratorProfileResponse(dict):
     """
     Profile for the container service orchestrator.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orchestratorType":
+            suggest = "orchestrator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceOrchestratorProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceOrchestratorProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceOrchestratorProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  orchestrator_type: str):
         """
@@ -220,20 +295,34 @@ class ContainerServiceOrchestratorProfileResponse(dict):
         """
         return pulumi.get(self, "orchestrator_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceSshConfigurationResponse(dict):
     """
     SSH configuration for Linux-based VMs running on Azure.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKeys":
+            suggest = "public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceSshConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceSshConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceSshConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: the list of SSH public keys used to authenticate with Linux-based VMs.
+        :param Sequence['ContainerServiceSshPublicKeyResponse'] public_keys: the list of SSH public keys used to authenticate with Linux-based VMs.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
@@ -245,15 +334,29 @@ class ContainerServiceSshConfigurationResponse(dict):
         """
         return pulumi.get(self, "public_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceSshPublicKeyResponse(dict):
     """
     Contains information about SSH certificate public key data.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceSshPublicKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceSshPublicKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceSshPublicKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_data: str):
         """
@@ -270,15 +373,29 @@ class ContainerServiceSshPublicKeyResponse(dict):
         """
         return pulumi.get(self, "key_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceVMDiagnosticsResponse(dict):
     """
     Profile for diagnostics on the container service VMs.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageUri":
+            suggest = "storage_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceVMDiagnosticsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceVMDiagnosticsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceVMDiagnosticsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  storage_uri: str):
@@ -306,15 +423,31 @@ class ContainerServiceVMDiagnosticsResponse(dict):
         """
         return pulumi.get(self, "storage_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerServiceWindowsProfileResponse(dict):
     """
     Profile for Windows VMs in the container service cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "adminUsername":
+            suggest = "admin_username"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerServiceWindowsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerServiceWindowsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerServiceWindowsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_password: str,
                  admin_username: str):
@@ -341,8 +474,5 @@ class ContainerServiceWindowsProfileResponse(dict):
         The administrator username to use for Windows VMs
         """
         return pulumi.get(self, "admin_username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

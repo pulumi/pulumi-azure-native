@@ -163,7 +163,7 @@ export interface DiskArgs {
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    readonly creationData: pulumi.Input<inputs.compute.v20180601.CreationData>;
+    readonly creationData: pulumi.Input<inputs.compute.v20180601.CreationDataArgs>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
      */
@@ -183,7 +183,7 @@ export interface DiskArgs {
     /**
      * Encryption settings for disk or snapshot
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20180601.EncryptionSettings>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20180601.EncryptionSettingsArgs>;
     /**
      * Resource location
      */
@@ -199,7 +199,7 @@ export interface DiskArgs {
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20180601.DiskSku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20180601.DiskSkuArgs>;
     /**
      * Resource tags
      */

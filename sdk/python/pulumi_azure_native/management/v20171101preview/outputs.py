@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -20,6 +20,27 @@ class ManagementGroupChildInfoResponse(dict):
     """
     The child information of a management group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "childId":
+            suggest = "child_id"
+        elif key == "childType":
+            suggest = "child_type"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementGroupChildInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementGroupChildInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementGroupChildInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  child_id: Optional[str] = None,
                  child_type: Optional[str] = None,
@@ -29,7 +50,7 @@ class ManagementGroupChildInfoResponse(dict):
         The child information of a management group.
         :param str child_id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param str child_type: The type of child resource.
-        :param Sequence['ManagementGroupChildInfoResponseArgs'] children: The list of children.
+        :param Sequence['ManagementGroupChildInfoResponse'] children: The list of children.
         :param str display_name: The friendly name of the child resource.
         """
         if child_id is not None:
@@ -73,15 +94,31 @@ class ManagementGroupChildInfoResponse(dict):
         """
         return pulumi.get(self, "display_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementGroupDetailsResponse(dict):
     """
     The details of a management group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updatedBy":
+            suggest = "updated_by"
+        elif key == "updatedTime":
+            suggest = "updated_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementGroupDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementGroupDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementGroupDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parent: Optional['outputs.ParentGroupInfoResponse'] = None,
                  updated_by: Optional[str] = None,
@@ -89,7 +126,7 @@ class ManagementGroupDetailsResponse(dict):
                  version: Optional[float] = None):
         """
         The details of a management group.
-        :param 'ParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param str updated_by: The identity of the principal or process that updated the object.
         :param str updated_time: The date and time when this object was last updated.
         :param float version: The version number of the object.
@@ -135,15 +172,31 @@ class ManagementGroupDetailsResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParentGroupInfoResponse(dict):
     """
     (Optional) The ID of the parent management group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "parentId":
+            suggest = "parent_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParentGroupInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParentGroupInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParentGroupInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  parent_id: Optional[str] = None):
@@ -172,8 +225,5 @@ class ParentGroupInfoResponse(dict):
         The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         return pulumi.get(self, "parent_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

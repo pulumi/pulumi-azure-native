@@ -134,7 +134,7 @@ export interface SecurityConfigurationArgs {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.NetworkManagerSecurityGroupItem>[]>;
+    readonly appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.NetworkManagerSecurityGroupItemArgs>[]>;
     /**
      * The name of the network manager security Configuration.
      */

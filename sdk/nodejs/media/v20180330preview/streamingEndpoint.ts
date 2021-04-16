@@ -195,7 +195,7 @@ export interface StreamingEndpointArgs {
     /**
      * The access control definition of the StreamingEndpoint.
      */
-    readonly accessControl?: pulumi.Input<inputs.media.v20180330preview.StreamingEndpointAccessControl>;
+    readonly accessControl?: pulumi.Input<inputs.media.v20180330preview.StreamingEndpointAccessControlArgs>;
     /**
      * The Media Services account name.
      */
@@ -223,7 +223,7 @@ export interface StreamingEndpointArgs {
     /**
      * The StreamingEndpoint access policies.
      */
-    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180330preview.CrossSiteAccessPolicies>;
+    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180330preview.CrossSiteAccessPoliciesArgs>;
     /**
      * The custom host names of the StreamingEndpoint
      */

@@ -126,7 +126,7 @@ export interface IntegrationAccountPartnerArgs {
     /**
      * The partner content.
      */
-    readonly content?: pulumi.Input<inputs.logic.v20150801preview.PartnerContent>;
+    readonly content?: pulumi.Input<inputs.logic.v20150801preview.PartnerContentArgs>;
     /**
      * The resource id.
      */

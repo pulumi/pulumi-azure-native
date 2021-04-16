@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -22,6 +22,29 @@ class IncidentAdditionalDataResponse(dict):
     """
     Incident additional data property bag.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertProductNames":
+            suggest = "alert_product_names"
+        elif key == "alertsCount":
+            suggest = "alerts_count"
+        elif key == "bookmarksCount":
+            suggest = "bookmarks_count"
+        elif key == "commentsCount":
+            suggest = "comments_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentAdditionalDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentAdditionalDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentAdditionalDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_product_names: Sequence[str],
                  alerts_count: int,
@@ -82,15 +105,31 @@ class IncidentAdditionalDataResponse(dict):
         """
         return pulumi.get(self, "tactics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IncidentInfoResponse(dict):
     """
     Describes related incident information for the bookmark
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentId":
+            suggest = "incident_id"
+        elif key == "relationName":
+            suggest = "relation_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  incident_id: Optional[str] = None,
                  relation_name: Optional[str] = None,
@@ -144,15 +183,31 @@ class IncidentInfoResponse(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IncidentLabelResponse(dict):
     """
     Represents an incident label
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelName":
+            suggest = "label_name"
+        elif key == "labelType":
+            suggest = "label_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentLabelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentLabelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentLabelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  label_name: str,
                  label_type: str):
@@ -180,15 +235,33 @@ class IncidentLabelResponse(dict):
         """
         return pulumi.get(self, "label_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IncidentOwnerInfoResponse(dict):
     """
     Information on the user an incident is assigned to
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedTo":
+            suggest = "assigned_to"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userPrincipalName":
+            suggest = "user_principal_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentOwnerInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentOwnerInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentOwnerInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assigned_to: Optional[str] = None,
                  email: Optional[str] = None,
@@ -242,15 +315,29 @@ class IncidentOwnerInfoResponse(dict):
         """
         return pulumi.get(self, "user_principal_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserInfoResponse(dict):
     """
     User information that made some action
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: str,
                  name: str,
@@ -288,8 +375,5 @@ class UserInfoResponse(dict):
         The object id of the user.
         """
         return pulumi.get(self, "object_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

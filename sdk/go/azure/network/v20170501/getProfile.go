@@ -4,7 +4,7 @@
 package v20170501
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Class representing a Traffic Manager profile.

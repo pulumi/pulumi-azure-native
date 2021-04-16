@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -158,9 +158,7 @@ class FailoverGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A failover group.
         API Version: 2020-11-01-preview.
@@ -209,15 +207,7 @@ class FailoverGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -227,29 +217,29 @@ class FailoverGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FailoverGroupArgs.__new__(FailoverGroupArgs)
 
-            __props__['databases'] = databases
-            __props__['failover_group_name'] = failover_group_name
+            __props__.__dict__["databases"] = databases
+            __props__.__dict__["failover_group_name"] = failover_group_name
             if partner_servers is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_servers'")
-            __props__['partner_servers'] = partner_servers
-            __props__['read_only_endpoint'] = read_only_endpoint
+            __props__.__dict__["partner_servers"] = partner_servers
+            __props__.__dict__["read_only_endpoint"] = read_only_endpoint
             if read_write_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint'")
-            __props__['read_write_endpoint'] = read_write_endpoint
+            __props__.__dict__["read_write_endpoint"] = read_write_endpoint
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['tags'] = tags
-            __props__['location'] = None
-            __props__['name'] = None
-            __props__['replication_role'] = None
-            __props__['replication_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["location"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["replication_role"] = None
+            __props__.__dict__["replication_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:FailoverGroup"), pulumi.Alias(type_="azure-native:sql/v20150501preview:FailoverGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:FailoverGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:FailoverGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:FailoverGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:FailoverGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:FailoverGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:FailoverGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:FailoverGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FailoverGroup, __self__).__init__(
@@ -272,18 +262,18 @@ class FailoverGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FailoverGroupArgs.__new__(FailoverGroupArgs)
 
-        __props__["databases"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["partner_servers"] = None
-        __props__["read_only_endpoint"] = None
-        __props__["read_write_endpoint"] = None
-        __props__["replication_role"] = None
-        __props__["replication_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["databases"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["partner_servers"] = None
+        __props__.__dict__["read_only_endpoint"] = None
+        __props__.__dict__["read_write_endpoint"] = None
+        __props__.__dict__["replication_role"] = None
+        __props__.__dict__["replication_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return FailoverGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -365,10 +355,4 @@ class FailoverGroup(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

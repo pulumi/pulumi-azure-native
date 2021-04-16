@@ -146,11 +146,11 @@ export interface RemoteRenderingAccountArgs {
     /**
      * The identity associated with this account
      */
-    readonly identity?: pulumi.Input<inputs.mixedreality.v20200406preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.mixedreality.v20200406preview.IdentityArgs>;
     /**
      * The kind of account, if supported
      */
-    readonly kind?: pulumi.Input<inputs.mixedreality.v20200406preview.Sku>;
+    readonly kind?: pulumi.Input<inputs.mixedreality.v20200406preview.SkuArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -158,7 +158,7 @@ export interface RemoteRenderingAccountArgs {
     /**
      * The plan associated with this account
      */
-    readonly plan?: pulumi.Input<inputs.mixedreality.v20200406preview.Identity>;
+    readonly plan?: pulumi.Input<inputs.mixedreality.v20200406preview.IdentityArgs>;
     /**
      * Name of an Azure resource group.
      */
@@ -166,7 +166,7 @@ export interface RemoteRenderingAccountArgs {
     /**
      * The sku associated with this account
      */
-    readonly sku?: pulumi.Input<inputs.mixedreality.v20200406preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.mixedreality.v20200406preview.SkuArgs>;
     /**
      * The name of the storage account associated with this accountId
      */

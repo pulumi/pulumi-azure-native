@@ -132,11 +132,11 @@ export interface AFDOriginGroupArgs {
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.HealthProbeParameters>;
+    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.HealthProbeParametersArgs>;
     /**
      * Load balancing settings for a backend pool
      */
-    readonly loadBalancingSettings?: pulumi.Input<inputs.cdn.LoadBalancingSettingsParameters>;
+    readonly loadBalancingSettings?: pulumi.Input<inputs.cdn.LoadBalancingSettingsParametersArgs>;
     /**
      * Name of the origin group which is unique within the endpoint.
      */
@@ -152,7 +152,7 @@ export interface AFDOriginGroupArgs {
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    readonly responseBasedAfdOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.ResponseBasedOriginErrorDetectionParameters>;
+    readonly responseBasedAfdOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.ResponseBasedOriginErrorDetectionParametersArgs>;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */

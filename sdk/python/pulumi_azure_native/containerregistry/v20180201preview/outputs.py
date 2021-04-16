@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -89,15 +89,29 @@ class BaseImageDependencyResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildArgumentResponse(dict):
     """
     Properties of a build argument.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isSecret":
+            suggest = "is_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildArgumentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildArgumentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildArgumentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -150,15 +164,45 @@ class BuildArgumentResponse(dict):
         """
         return pulumi.get(self, "is_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DockerBuildStepResponse(dict):
     """
     The Docker build step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseImageDependencies":
+            suggest = "base_image_dependencies"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "baseImageTrigger":
+            suggest = "base_image_trigger"
+        elif key == "buildArguments":
+            suggest = "build_arguments"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "dockerFilePath":
+            suggest = "docker_file_path"
+        elif key == "imageNames":
+            suggest = "image_names"
+        elif key == "isPushEnabled":
+            suggest = "is_push_enabled"
+        elif key == "noCache":
+            suggest = "no_cache"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DockerBuildStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DockerBuildStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DockerBuildStepResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  provisioning_state: str,
@@ -173,13 +217,13 @@ class DockerBuildStepResponse(dict):
                  no_cache: Optional[bool] = None):
         """
         The Docker build step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str provisioning_state: The provisioning state of the build step.
         :param str type: The type of the step.
                Expected value is 'Docker'.
         :param str base_image_trigger: The type of the auto trigger for base image dependency updates.
         :param str branch: The repository branch name.
-        :param Sequence['BuildArgumentResponseArgs'] build_arguments: The custom arguments for building this build step.
+        :param Sequence['BuildArgumentResponse'] build_arguments: The custom arguments for building this build step.
         :param str context_path: The relative context path for a docker build in the source.
         :param str docker_file_path: The Docker file path relative to the source control root.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
@@ -299,15 +343,29 @@ class DockerBuildStepResponse(dict):
         """
         return pulumi.get(self, "no_cache")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlatformPropertiesResponse(dict):
     """
     The platform properties against which the build has to happen.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlatformPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlatformPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlatformPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  os_type: str,
                  cpu: Optional[int] = None):
@@ -336,15 +394,33 @@ class PlatformPropertiesResponse(dict):
         """
         return pulumi.get(self, "cpu")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceControlAuthInfoResponse(dict):
     """
     The authorization properties for accessing the source code repository.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiresIn":
+            suggest = "expires_in"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "tokenType":
+            suggest = "token_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceControlAuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceControlAuthInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceControlAuthInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  token: str,
                  expires_in: Optional[int] = None,
@@ -409,15 +485,35 @@ class SourceControlAuthInfoResponse(dict):
         """
         return pulumi.get(self, "token_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceRepositoryPropertiesResponse(dict):
     """
     The properties of the source code repository.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+        elif key == "sourceControlType":
+            suggest = "source_control_type"
+        elif key == "isCommitTriggerEnabled":
+            suggest = "is_commit_trigger_enabled"
+        elif key == "sourceControlAuthProperties":
+            suggest = "source_control_auth_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceRepositoryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceRepositoryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceRepositoryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  repository_url: str,
                  source_control_type: str,
@@ -428,7 +524,7 @@ class SourceRepositoryPropertiesResponse(dict):
         :param str repository_url: The full URL to the source code repository
         :param str source_control_type: The type of source control service.
         :param bool is_commit_trigger_enabled: The value of this property indicates whether the source control commit trigger is enabled or not.
-        :param 'SourceControlAuthInfoResponseArgs' source_control_auth_properties: The authorization properties for accessing the source code repository.
+        :param 'SourceControlAuthInfoResponse' source_control_auth_properties: The authorization properties for accessing the source code repository.
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_control_type", source_control_type)
@@ -470,8 +566,5 @@ class SourceRepositoryPropertiesResponse(dict):
         The authorization properties for accessing the source code repository.
         """
         return pulumi.get(self, "source_control_auth_properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

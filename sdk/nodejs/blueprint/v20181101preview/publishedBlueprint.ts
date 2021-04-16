@@ -149,11 +149,11 @@ export interface PublishedBlueprintArgs {
     /**
      * Parameters required by this blueprint definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ParameterDefinition>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ParameterDefinitionArgs>}>;
     /**
      * Resource group placeholders defined by this blueprint definition.
      */
-    readonly resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ResourceGroupDefinition>}>;
+    readonly resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20181101preview.ResourceGroupDefinitionArgs>}>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

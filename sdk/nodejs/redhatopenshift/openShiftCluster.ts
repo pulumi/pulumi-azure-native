@@ -149,19 +149,19 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster API server profile.
      */
-    readonly apiserverProfile?: pulumi.Input<inputs.redhatopenshift.APIServerProfile>;
+    readonly apiserverProfile?: pulumi.Input<inputs.redhatopenshift.APIServerProfileArgs>;
     /**
      * The cluster profile.
      */
-    readonly clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterProfile>;
+    readonly clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterProfileArgs>;
     /**
      * The console profile.
      */
-    readonly consoleProfile?: pulumi.Input<inputs.redhatopenshift.ConsoleProfile>;
+    readonly consoleProfile?: pulumi.Input<inputs.redhatopenshift.ConsoleProfileArgs>;
     /**
      * The cluster ingress profiles.
      */
-    readonly ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.IngressProfile>[]>;
+    readonly ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.IngressProfileArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -169,11 +169,11 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster master profile.
      */
-    readonly masterProfile?: pulumi.Input<inputs.redhatopenshift.MasterProfile>;
+    readonly masterProfile?: pulumi.Input<inputs.redhatopenshift.MasterProfileArgs>;
     /**
      * The cluster network profile.
      */
-    readonly networkProfile?: pulumi.Input<inputs.redhatopenshift.NetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.redhatopenshift.NetworkProfileArgs>;
     /**
      * The cluster provisioning state (immutable).
      */
@@ -189,7 +189,7 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster service principal profile.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.ServicePrincipalProfile>;
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.ServicePrincipalProfileArgs>;
     /**
      * Resource tags.
      */
@@ -197,5 +197,5 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster worker profiles.
      */
-    readonly workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.WorkerProfile>[]>;
+    readonly workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.WorkerProfileArgs>[]>;
 }

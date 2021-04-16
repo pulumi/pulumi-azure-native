@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -55,6 +55,27 @@ class AddRemoveReplicaScalingMechanismResponse(dict):
     """
     Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCount":
+            suggest = "max_count"
+        elif key == "minCount":
+            suggest = "min_count"
+        elif key == "scaleIncrement":
+            suggest = "scale_increment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddRemoveReplicaScalingMechanismResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddRemoveReplicaScalingMechanismResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddRemoveReplicaScalingMechanismResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
                  max_count: int,
@@ -106,15 +127,29 @@ class AddRemoveReplicaScalingMechanismResponse(dict):
         """
         return pulumi.get(self, "scale_increment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse(dict):
     """
     Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeDisk":
+            suggest = "size_disk"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
                  size_disk: str,
@@ -156,15 +191,33 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse(d
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationScopedVolumeResponse(dict):
     """
     Describes a volume whose lifetime is scoped to the application's lifetime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationParameters":
+            suggest = "creation_parameters"
+        elif key == "destinationPath":
+            suggest = "destination_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationScopedVolumeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationScopedVolumeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationScopedVolumeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_parameters: 'outputs.ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse',
                  destination_path: str,
@@ -172,7 +225,7 @@ class ApplicationScopedVolumeResponse(dict):
                  read_only: Optional[bool] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
-        :param 'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs' creation_parameters: Describes parameters for creating application-scoped volumes.
+        :param 'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse' creation_parameters: Describes parameters for creating application-scoped volumes.
         :param str destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param str name: Name of the volume being referenced.
         :param bool read_only: The flag indicating whether the volume is read only. Default is 'false'.
@@ -215,9 +268,6 @@ class ApplicationScopedVolumeResponse(dict):
         """
         return pulumi.get(self, "read_only")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoScalingPolicyResponse(dict):
@@ -230,9 +280,9 @@ class AutoScalingPolicyResponse(dict):
                  trigger: 'outputs.AverageLoadScalingTriggerResponse'):
         """
         Describes the auto scaling policy
-        :param 'AddRemoveReplicaScalingMechanismResponseArgs' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
+        :param 'AddRemoveReplicaScalingMechanismResponse' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
         :param str name: The name of the auto scaling policy.
-        :param 'AverageLoadScalingTriggerResponseArgs' trigger: Determines when auto scaling operation will be invoked.
+        :param 'AverageLoadScalingTriggerResponse' trigger: Determines when auto scaling operation will be invoked.
         """
         pulumi.set(__self__, "mechanism", mechanism)
         pulumi.set(__self__, "name", name)
@@ -261,9 +311,6 @@ class AutoScalingPolicyResponse(dict):
         Determines when auto scaling operation will be invoked.
         """
         return pulumi.get(self, "trigger")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -300,15 +347,33 @@ class AutoScalingResourceMetricResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AverageLoadScalingTriggerResponse(dict):
     """
     Describes the average load trigger used for auto scaling.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lowerLoadThreshold":
+            suggest = "lower_load_threshold"
+        elif key == "scaleIntervalInSeconds":
+            suggest = "scale_interval_in_seconds"
+        elif key == "upperLoadThreshold":
+            suggest = "upper_load_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AverageLoadScalingTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AverageLoadScalingTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AverageLoadScalingTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
                  lower_load_threshold: float,
@@ -320,7 +385,7 @@ class AverageLoadScalingTriggerResponse(dict):
         :param str kind: The type of auto scaling trigger
                Expected value is 'AverageLoad'.
         :param float lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
-        :param 'AutoScalingResourceMetricResponseArgs' metric: Description of the metric that is used for scaling.
+        :param 'AutoScalingResourceMetricResponse' metric: Description of the metric that is used for scaling.
         :param int scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
         :param float upper_load_threshold: Upper load threshold (if average load is above this threshold, service will scale up).
         """
@@ -371,15 +436,35 @@ class AverageLoadScalingTriggerResponse(dict):
         """
         return pulumi.get(self, "upper_load_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
     """
     Diagnostics settings for Geneva.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "autoKeyConfigUrl":
+            suggest = "auto_key_config_url"
+        elif key == "fluentdConfigUrl":
+            suggest = "fluentd_config_url"
+        elif key == "maConfigUrl":
+            suggest = "ma_config_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureInternalMonitoringPipelineSinkDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureInternalMonitoringPipelineSinkDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureInternalMonitoringPipelineSinkDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
                  account_name: Optional[str] = None,
@@ -482,15 +567,37 @@ class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
         """
         return pulumi.get(self, "namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerCodePackagePropertiesResponse(dict):
     """
     Describes a container and its runtime properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceView":
+            suggest = "instance_view"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "imageRegistryCredential":
+            suggest = "image_registry_credential"
+        elif key == "reliableCollectionsRefs":
+            suggest = "reliable_collections_refs"
+        elif key == "volumeRefs":
+            suggest = "volume_refs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerCodePackagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerCodePackagePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerCodePackagePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image: str,
                  instance_view: 'outputs.ContainerInstanceViewResponse',
@@ -510,20 +617,20 @@ class ContainerCodePackagePropertiesResponse(dict):
         """
         Describes a container and its runtime properties.
         :param str image: The Container image to use.
-        :param 'ContainerInstanceViewResponseArgs' instance_view: Runtime information of a container instance.
+        :param 'ContainerInstanceViewResponse' instance_view: Runtime information of a container instance.
         :param str name: The name of the code package.
-        :param 'ResourceRequirementsResponseArgs' resources: The resources required by this container.
+        :param 'ResourceRequirementsResponse' resources: The resources required by this container.
         :param Sequence[str] commands: Command array to execute within the container in exec form.
-        :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param Sequence['EndpointPropertiesResponseArgs'] endpoints: The endpoints exposed by this container.
+        :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
+        :param Sequence['EndpointPropertiesResponse'] endpoints: The endpoints exposed by this container.
         :param str entrypoint: Override for the default entry point in the container.
-        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in this container
-        :param 'ImageRegistryCredentialResponseArgs' image_registry_credential: Image registry credential.
-        :param Sequence['ContainerLabelResponseArgs'] labels: The labels to set in this container.
-        :param Sequence['ReliableCollectionsRefResponseArgs'] reliable_collections_refs: A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-        :param Sequence['SettingResponseArgs'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-        :param Sequence['VolumeReferenceResponseArgs'] volume_refs: Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-        :param Sequence['ApplicationScopedVolumeResponseArgs'] volumes: Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in this container
+        :param 'ImageRegistryCredentialResponse' image_registry_credential: Image registry credential.
+        :param Sequence['ContainerLabelResponse'] labels: The labels to set in this container.
+        :param Sequence['ReliableCollectionsRefResponse'] reliable_collections_refs: A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
+        :param Sequence['SettingResponse'] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
+        :param Sequence['VolumeReferenceResponse'] volume_refs: Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
+        :param Sequence['ApplicationScopedVolumeResponse'] volumes: Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
@@ -672,15 +779,31 @@ class ContainerCodePackagePropertiesResponse(dict):
         """
         return pulumi.get(self, "volumes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerEventResponse(dict):
     """
     A container event.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstTimestamp":
+            suggest = "first_timestamp"
+        elif key == "lastTimestamp":
+            suggest = "last_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerEventResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerEventResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerEventResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  first_timestamp: Optional[str] = None,
@@ -758,15 +881,33 @@ class ContainerEventResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerInstanceViewResponse(dict):
     """
     Runtime information of a container instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentState":
+            suggest = "current_state"
+        elif key == "previousState":
+            suggest = "previous_state"
+        elif key == "restartCount":
+            suggest = "restart_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  current_state: Optional['outputs.ContainerStateResponse'] = None,
                  events: Optional[Sequence['outputs.ContainerEventResponse']] = None,
@@ -774,9 +915,9 @@ class ContainerInstanceViewResponse(dict):
                  restart_count: Optional[int] = None):
         """
         Runtime information of a container instance.
-        :param 'ContainerStateResponseArgs' current_state: Current container instance state.
-        :param Sequence['ContainerEventResponseArgs'] events: The events of this container instance.
-        :param 'ContainerStateResponseArgs' previous_state: Previous container instance state.
+        :param 'ContainerStateResponse' current_state: Current container instance state.
+        :param Sequence['ContainerEventResponse'] events: The events of this container instance.
+        :param 'ContainerStateResponse' previous_state: Previous container instance state.
         :param int restart_count: The number of times the container has been restarted.
         """
         if current_state is not None:
@@ -820,9 +961,6 @@ class ContainerInstanceViewResponse(dict):
         """
         return pulumi.get(self, "restart_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerLabelResponse(dict):
@@ -856,15 +994,35 @@ class ContainerLabelResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerStateResponse(dict):
     """
     The container state.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailStatus":
+            suggest = "detail_status"
+        elif key == "exitCode":
+            suggest = "exit_code"
+        elif key == "finishTime":
+            suggest = "finish_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  detail_status: Optional[str] = None,
                  exit_code: Optional[str] = None,
@@ -930,15 +1088,29 @@ class ContainerStateResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticsDescriptionResponse(dict):
     """
     Describes the diagnostics options available
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSinkRefs":
+            suggest = "default_sink_refs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_sink_refs: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None,
@@ -947,7 +1119,7 @@ class DiagnosticsDescriptionResponse(dict):
         Describes the diagnostics options available
         :param Sequence[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
+        :param Sequence['AzureInternalMonitoringPipelineSinkDescriptionResponse'] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -980,15 +1152,29 @@ class DiagnosticsDescriptionResponse(dict):
         """
         return pulumi.get(self, "sinks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticsRefResponse(dict):
     """
     Reference to sinks in DiagnosticsDescription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sinkRefs":
+            suggest = "sink_refs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsRefResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  sink_refs: Optional[Sequence[str]] = None):
@@ -1017,9 +1203,6 @@ class DiagnosticsRefResponse(dict):
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "sink_refs")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1055,9 +1238,6 @@ class EndpointPropertiesResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointRefResponse(dict):
@@ -1080,9 +1260,6 @@ class EndpointRefResponse(dict):
         Name of the endpoint.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1119,15 +1296,33 @@ class EnvironmentVariableResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GatewayDestinationResponse(dict):
     """
     Describes destination endpoint for routing traffic.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationName":
+            suggest = "application_name"
+        elif key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_name: str,
                  endpoint_name: str,
@@ -1166,9 +1361,6 @@ class GatewayDestinationResponse(dict):
         """
         return pulumi.get(self, "service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpConfigResponse(dict):
@@ -1181,7 +1373,7 @@ class HttpConfigResponse(dict):
                  port: int):
         """
         Describes the http configuration for external connectivity for this network.
-        :param Sequence['HttpHostConfigResponseArgs'] hosts: description for routing.
+        :param Sequence['HttpHostConfigResponse'] hosts: description for routing.
         :param str name: http gateway config name.
         :param int port: Specifies the port at which the service endpoint below needs to be exposed.
         """
@@ -1213,9 +1405,6 @@ class HttpConfigResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpHostConfigResponse(dict):
@@ -1228,7 +1417,7 @@ class HttpHostConfigResponse(dict):
         """
         Describes the hostname properties for http routing.
         :param str name: http hostname config name.
-        :param Sequence['HttpRouteConfigResponseArgs'] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+        :param Sequence['HttpRouteConfigResponse'] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "routes", routes)
@@ -1249,9 +1438,6 @@ class HttpHostConfigResponse(dict):
         """
         return pulumi.get(self, "routes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpRouteConfigResponse(dict):
@@ -1264,8 +1450,8 @@ class HttpRouteConfigResponse(dict):
                  name: str):
         """
         Describes the hostname properties for http routing.
-        :param 'GatewayDestinationResponseArgs' destination: Describes destination endpoint for routing traffic.
-        :param 'HttpRouteMatchRuleResponseArgs' match: Describes a rule for http route matching.
+        :param 'GatewayDestinationResponse' destination: Describes destination endpoint for routing traffic.
+        :param 'HttpRouteMatchRuleResponse' match: Describes a rule for http route matching.
         :param str name: http route name.
         """
         pulumi.set(__self__, "destination", destination)
@@ -1295,9 +1481,6 @@ class HttpRouteConfigResponse(dict):
         http route name.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1345,9 +1528,6 @@ class HttpRouteMatchHeaderResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpRouteMatchPathResponse(dict):
@@ -1393,9 +1573,6 @@ class HttpRouteMatchPathResponse(dict):
         """
         return pulumi.get(self, "rewrite")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpRouteMatchRuleResponse(dict):
@@ -1407,8 +1584,8 @@ class HttpRouteMatchRuleResponse(dict):
                  headers: Optional[Sequence['outputs.HttpRouteMatchHeaderResponse']] = None):
         """
         Describes a rule for http route matching.
-        :param 'HttpRouteMatchPathResponseArgs' path: Path to match for routing.
-        :param Sequence['HttpRouteMatchHeaderResponseArgs'] headers: headers and their values to match in request.
+        :param 'HttpRouteMatchPathResponse' path: Path to match for routing.
+        :param Sequence['HttpRouteMatchHeaderResponse'] headers: headers and their values to match in request.
         """
         pulumi.set(__self__, "path", path)
         if headers is not None:
@@ -1429,9 +1606,6 @@ class HttpRouteMatchRuleResponse(dict):
         headers and their values to match in request.
         """
         return pulumi.get(self, "headers")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1478,21 +1652,35 @@ class ImageRegistryCredentialResponse(dict):
         """
         return pulumi.get(self, "password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkRefResponse(dict):
     """
     Describes a network reference in a service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointRefs":
+            suggest = "endpoint_refs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRefResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_refs: Optional[Sequence['outputs.EndpointRefResponse']] = None,
                  name: Optional[str] = None):
         """
         Describes a network reference in a service.
-        :param Sequence['EndpointRefResponseArgs'] endpoint_refs: A list of endpoints that are exposed on this network.
+        :param Sequence['EndpointRefResponse'] endpoint_refs: A list of endpoints that are exposed on this network.
         :param str name: Name of the network
         """
         if endpoint_refs is not None:
@@ -1516,15 +1704,31 @@ class NetworkRefResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkResourcePropertiesResponse(dict):
     """
     Describes properties of a network resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "statusDetails":
+            suggest = "status_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
                  provisioning_state: str,
@@ -1588,15 +1792,29 @@ class NetworkResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReliableCollectionsRefResponse(dict):
     """
     Specifying this parameter adds support for reliable collections
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "doNotPersistState":
+            suggest = "do_not_persist_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReliableCollectionsRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReliableCollectionsRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReliableCollectionsRefResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  do_not_persist_state: Optional[bool] = None):
@@ -1625,15 +1843,29 @@ class ReliableCollectionsRefResponse(dict):
         """
         return pulumi.get(self, "do_not_persist_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceLimitsResponse(dict):
     """
     This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryInGB":
+            suggest = "memory_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLimitsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLimitsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLimitsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cpu: Optional[float] = None,
                  memory_in_gb: Optional[float] = None):
@@ -1663,15 +1895,29 @@ class ResourceLimitsResponse(dict):
         """
         return pulumi.get(self, "memory_in_gb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceRequestsResponse(dict):
     """
     This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryInGB":
+            suggest = "memory_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceRequestsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceRequestsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceRequestsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cpu: float,
                  memory_in_gb: float):
@@ -1699,9 +1945,6 @@ class ResourceRequestsResponse(dict):
         """
         return pulumi.get(self, "memory_in_gb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceRequirementsResponse(dict):
@@ -1713,8 +1956,8 @@ class ResourceRequirementsResponse(dict):
                  limits: Optional['outputs.ResourceLimitsResponse'] = None):
         """
         This type describes the resource requirements for a container or a service.
-        :param 'ResourceRequestsResponseArgs' requests: Describes the requested resources for a given container.
-        :param 'ResourceLimitsResponseArgs' limits: Describes the maximum limits on the resources for a given container.
+        :param 'ResourceRequestsResponse' requests: Describes the requested resources for a given container.
+        :param 'ResourceLimitsResponse' limits: Describes the maximum limits on the resources for a given container.
         """
         pulumi.set(__self__, "requests", requests)
         if limits is not None:
@@ -1736,15 +1979,33 @@ class ResourceRequirementsResponse(dict):
         """
         return pulumi.get(self, "limits")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecretResourcePropertiesResponse(dict):
     """
     Describes the properties of a secret resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "statusDetails":
+            suggest = "status_details"
+        elif key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
                  provisioning_state: str,
@@ -1820,15 +2081,45 @@ class SecretResourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceResourceDescriptionResponse(dict):
     """
     This type describes a service resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codePackages":
+            suggest = "code_packages"
+        elif key == "healthState":
+            suggest = "health_state"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "statusDetails":
+            suggest = "status_details"
+        elif key == "unhealthyEvaluation":
+            suggest = "unhealthy_evaluation"
+        elif key == "autoScalingPolicies":
+            suggest = "auto_scaling_policies"
+        elif key == "networkRefs":
+            suggest = "network_refs"
+        elif key == "replicaCount":
+            suggest = "replica_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceResourceDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceResourceDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceResourceDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code_packages: Sequence['outputs.ContainerCodePackagePropertiesResponse'],
                  health_state: str,
@@ -1847,7 +2138,7 @@ class ServiceResourceDescriptionResponse(dict):
                  replica_count: Optional[int] = None):
         """
         This type describes a service resource.
-        :param Sequence['ContainerCodePackagePropertiesResponseArgs'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+        :param Sequence['ContainerCodePackagePropertiesResponse'] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param str health_state: Describes the health state of an application resource.
         :param str id: Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str os_type: The operation system required by the code in service.
@@ -1856,11 +2147,11 @@ class ServiceResourceDescriptionResponse(dict):
         :param str status_details: Gives additional information about the current status of the service.
         :param str type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         :param str unhealthy_evaluation: When the service's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the service is marked unhealthy.
-        :param Sequence['AutoScalingPolicyResponseArgs'] auto_scaling_policies: Auto scaling policies
+        :param Sequence['AutoScalingPolicyResponse'] auto_scaling_policies: Auto scaling policies
         :param str description: User readable description of the service.
-        :param 'DiagnosticsRefResponseArgs' diagnostics: Reference to sinks in DiagnosticsDescription.
+        :param 'DiagnosticsRefResponse' diagnostics: Reference to sinks in DiagnosticsDescription.
         :param str name: The name of the resource
-        :param Sequence['NetworkRefResponseArgs'] network_refs: The names of the private networks that this service needs to be part of.
+        :param Sequence['NetworkRefResponse'] network_refs: The names of the private networks that this service needs to be part of.
         :param int replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)
@@ -2005,9 +2296,6 @@ class ServiceResourceDescriptionResponse(dict):
         """
         return pulumi.get(self, "replica_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SettingResponse(dict):
@@ -2043,9 +2331,6 @@ class SettingResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TcpConfigResponse(dict):
@@ -2058,7 +2343,7 @@ class TcpConfigResponse(dict):
                  port: int):
         """
         Describes the tcp configuration for external connectivity for this network.
-        :param 'GatewayDestinationResponseArgs' destination: Describes destination endpoint for routing traffic.
+        :param 'GatewayDestinationResponse' destination: Describes destination endpoint for routing traffic.
         :param str name: tcp gateway config name.
         :param int port: Specifies the port at which the service endpoint below needs to be exposed.
         """
@@ -2090,15 +2375,33 @@ class TcpConfigResponse(dict):
         """
         return pulumi.get(self, "port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeProviderParametersAzureFileResponse(dict):
     """
     This type describes a volume provided by an Azure Files file share.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "shareName":
+            suggest = "share_name"
+        elif key == "accountKey":
+            suggest = "account_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeProviderParametersAzureFileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeProviderParametersAzureFileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeProviderParametersAzureFileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  share_name: str,
@@ -2138,15 +2441,31 @@ class VolumeProviderParametersAzureFileResponse(dict):
         """
         return pulumi.get(self, "account_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeReferenceResponse(dict):
     """
     Describes a reference to a volume resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPath":
+            suggest = "destination_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination_path: str,
                  name: str,
@@ -2185,8 +2504,5 @@ class VolumeReferenceResponse(dict):
         The flag indicating whether the volume is read only. Default is 'false'.
         """
         return pulumi.get(self, "read_only")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

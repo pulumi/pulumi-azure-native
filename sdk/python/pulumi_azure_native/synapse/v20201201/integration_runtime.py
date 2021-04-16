@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -91,9 +91,7 @@ class IntegrationRuntime(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIntegrationRuntimeArgs'], pulumi.InputType['SelfHostedIntegrationRuntimeArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Integration runtime resource type.
 
@@ -132,15 +130,7 @@ class IntegrationRuntime(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIntegrationRuntimeArgs'], pulumi.InputType['SelfHostedIntegrationRuntimeArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -150,21 +140,21 @@ class IntegrationRuntime(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationRuntimeArgs.__new__(IntegrationRuntimeArgs)
 
-            __props__['integration_runtime_name'] = integration_runtime_name
+            __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/v20210301:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:IntegrationRuntime")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationRuntime, __self__).__init__(
@@ -187,12 +177,12 @@ class IntegrationRuntime(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = IntegrationRuntimeArgs.__new__(IntegrationRuntimeArgs)
 
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["type"] = None
         return IntegrationRuntime(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -226,10 +216,4 @@ class IntegrationRuntime(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

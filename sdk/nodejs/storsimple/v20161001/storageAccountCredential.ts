@@ -134,7 +134,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The details of the storage account password
      */
-    readonly accessKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecret>;
+    readonly accessKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
     /**
      * The cloud service provider
      */

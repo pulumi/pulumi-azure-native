@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -243,9 +243,7 @@ class JobDefinition(pulumi.CustomResource):
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
                  state: Optional[pulumi.Input['State']] = None,
                  user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Job Definition.
         API Version: 2019-06-01.
@@ -304,15 +302,7 @@ class JobDefinition(pulumi.CustomResource):
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
                  state: Optional[pulumi.Input['State']] = None,
                  user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,37 +312,37 @@ class JobDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-            __props__['customer_secrets'] = customer_secrets
+            __props__.__dict__["customer_secrets"] = customer_secrets
             if data_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_name'")
-            __props__['data_manager_name'] = data_manager_name
-            __props__['data_service_input'] = data_service_input
+            __props__.__dict__["data_manager_name"] = data_manager_name
+            __props__.__dict__["data_service_input"] = data_service_input
             if data_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_service_name'")
-            __props__['data_service_name'] = data_service_name
+            __props__.__dict__["data_service_name"] = data_service_name
             if data_sink_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_sink_id'")
-            __props__['data_sink_id'] = data_sink_id
+            __props__.__dict__["data_sink_id"] = data_sink_id
             if data_source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_id'")
-            __props__['data_source_id'] = data_source_id
-            __props__['job_definition_name'] = job_definition_name
-            __props__['last_modified_time'] = last_modified_time
+            __props__.__dict__["data_source_id"] = data_source_id
+            __props__.__dict__["job_definition_name"] = job_definition_name
+            __props__.__dict__["last_modified_time"] = last_modified_time
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['run_location'] = run_location
-            __props__['schedules'] = schedules
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["run_location"] = run_location
+            __props__.__dict__["schedules"] = schedules
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
-            __props__['state'] = state
+            __props__.__dict__["state"] = state
             if user_confirmation is None:
                 user_confirmation = 'NotRequired'
-            __props__['user_confirmation'] = user_confirmation
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["user_confirmation"] = user_confirmation
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybriddata:JobDefinition"), pulumi.Alias(type_="azure-native:hybriddata/v20160601:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20160601:JobDefinition"), pulumi.Alias(type_="azure-native:hybriddata/v20190601:JobDefinition"), pulumi.Alias(type_="azure-nextgen:hybriddata/v20190601:JobDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobDefinition, __self__).__init__(
@@ -375,19 +365,19 @@ class JobDefinition(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-        __props__["customer_secrets"] = None
-        __props__["data_service_input"] = None
-        __props__["data_sink_id"] = None
-        __props__["data_source_id"] = None
-        __props__["last_modified_time"] = None
-        __props__["name"] = None
-        __props__["run_location"] = None
-        __props__["schedules"] = None
-        __props__["state"] = None
-        __props__["type"] = None
-        __props__["user_confirmation"] = None
+        __props__.__dict__["customer_secrets"] = None
+        __props__.__dict__["data_service_input"] = None
+        __props__.__dict__["data_sink_id"] = None
+        __props__.__dict__["data_source_id"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["run_location"] = None
+        __props__.__dict__["schedules"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_confirmation"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -477,10 +467,4 @@ class JobDefinition(pulumi.CustomResource):
         Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
         return pulumi.get(self, "user_confirmation")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

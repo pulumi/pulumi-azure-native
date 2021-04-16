@@ -127,19 +127,19 @@ export interface SiteLogsConfigArgs {
     /**
      * Application logs configuration
      */
-    readonly applicationLogs?: pulumi.Input<inputs.web.v20150801.ApplicationLogsConfig>;
+    readonly applicationLogs?: pulumi.Input<inputs.web.v20150801.ApplicationLogsConfigArgs>;
     /**
      * Detailed error messages configuration
      */
-    readonly detailedErrorMessages?: pulumi.Input<inputs.web.v20150801.EnabledConfig>;
+    readonly detailedErrorMessages?: pulumi.Input<inputs.web.v20150801.EnabledConfigArgs>;
     /**
      * Failed requests tracing configuration
      */
-    readonly failedRequestsTracing?: pulumi.Input<inputs.web.v20150801.EnabledConfig>;
+    readonly failedRequestsTracing?: pulumi.Input<inputs.web.v20150801.EnabledConfigArgs>;
     /**
      * Http logs configuration
      */
-    readonly httpLogs?: pulumi.Input<inputs.web.v20150801.HttpLogsConfig>;
+    readonly httpLogs?: pulumi.Input<inputs.web.v20150801.HttpLogsConfigArgs>;
     /**
      * Resource Id
      */

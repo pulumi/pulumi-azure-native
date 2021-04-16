@@ -136,7 +136,7 @@ export interface DigitalTwinArgs {
     /**
      * This property is reserved for future use, and will be ignored/omitted
      */
-    readonly sku?: pulumi.Input<inputs.digitaltwins.v20200301preview.DigitalTwinsSkuInfo>;
+    readonly sku?: pulumi.Input<inputs.digitaltwins.v20200301preview.DigitalTwinsSkuInfoArgs>;
     /**
      * The resource tags.
      */

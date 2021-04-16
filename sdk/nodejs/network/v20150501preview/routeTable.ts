@@ -138,11 +138,11 @@ export interface RouteTableArgs {
     /**
      * Gets or sets Routes in a Route Table
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.Route>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.RouteArgs>[]>;
     /**
      * Gets collection of references to subnets
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.SubResource>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20150501preview.SubResourceArgs>[]>;
     /**
      * Resource tags
      */

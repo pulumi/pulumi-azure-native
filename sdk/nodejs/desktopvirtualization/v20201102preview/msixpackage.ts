@@ -180,11 +180,11 @@ export interface MSIXPackageArgs {
     /**
      * List of package applications. 
      */
-    readonly packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageApplications>[]>;
+    readonly packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageApplicationsArgs>[]>;
     /**
      * List of package dependencies. 
      */
-    readonly packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageDependencies>[]>;
+    readonly packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20201102preview.MsixPackageDependenciesArgs>[]>;
     /**
      * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
      */

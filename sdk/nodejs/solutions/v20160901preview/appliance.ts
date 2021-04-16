@@ -171,7 +171,7 @@ export interface ApplianceArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20160901preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.solutions.v20160901preview.IdentityArgs>;
     /**
      * The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -195,7 +195,7 @@ export interface ApplianceArgs {
     /**
      * The plan information.
      */
-    readonly plan?: pulumi.Input<inputs.solutions.v20160901preview.Plan>;
+    readonly plan?: pulumi.Input<inputs.solutions.v20160901preview.PlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -203,7 +203,7 @@ export interface ApplianceArgs {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20160901preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.solutions.v20160901preview.SkuArgs>;
     /**
      * Resource tags
      */

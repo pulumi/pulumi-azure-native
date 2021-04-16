@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -159,9 +159,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_url: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of a backup which will be performed.
         API Version: 2020-12-01.
@@ -210,15 +208,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_url: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,23 +218,23 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppBackupConfigurationArgs.__new__(WebAppBackupConfigurationArgs)
 
-            __props__['backup_name'] = backup_name
-            __props__['backup_schedule'] = backup_schedule
-            __props__['databases'] = databases
-            __props__['enabled'] = enabled
-            __props__['kind'] = kind
+            __props__.__dict__["backup_name"] = backup_name
+            __props__.__dict__["backup_schedule"] = backup_schedule
+            __props__.__dict__["databases"] = databases
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_account_url is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_url'")
-            __props__['storage_account_url'] = storage_account_url
-            __props__['type'] = None
+            __props__.__dict__["storage_account_url"] = storage_account_url
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppBackupConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppBackupConfiguration, __self__).__init__(
@@ -267,16 +257,16 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppBackupConfigurationArgs.__new__(WebAppBackupConfigurationArgs)
 
-        __props__["backup_name"] = None
-        __props__["backup_schedule"] = None
-        __props__["databases"] = None
-        __props__["enabled"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["storage_account_url"] = None
-        __props__["type"] = None
+        __props__.__dict__["backup_name"] = None
+        __props__.__dict__["backup_schedule"] = None
+        __props__.__dict__["databases"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["storage_account_url"] = None
+        __props__.__dict__["type"] = None
         return WebAppBackupConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -342,10 +332,4 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -25,6 +25,25 @@ class MediaGraphAssetSinkResponse(dict):
     """
     Asset sink.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assetName":
+            suggest = "asset_name"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphAssetSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphAssetSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphAssetSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asset_name: str,
                  inputs: Sequence[str],
@@ -76,15 +95,29 @@ class MediaGraphAssetSinkResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphClearEndpointResponse(dict):
     """
     An endpoint to connect to with no encryption in transit.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphClearEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphClearEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphClearEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  url: str,
@@ -94,7 +127,7 @@ class MediaGraphClearEndpointResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
         :param str url: Url for the endpoint.
-        :param 'MediaGraphUsernamePasswordCredentialsResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
+        :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
         pulumi.set(__self__, "url", url)
@@ -126,15 +159,29 @@ class MediaGraphClearEndpointResponse(dict):
         """
         return pulumi.get(self, "credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphPemCertificateListResponse(dict):
     """
     A list of PEM formatted certificates.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphPemCertificateListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphPemCertificateListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphPemCertificateListResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificates: Sequence[str],
                  odata_type: str):
@@ -164,15 +211,29 @@ class MediaGraphPemCertificateListResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphRtspSourceResponse(dict):
     """
     RTSP source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphRtspSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphRtspSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphRtspSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: Any,
                  name: str,
@@ -180,7 +241,7 @@ class MediaGraphRtspSourceResponse(dict):
                  transport: str):
         """
         RTSP source.
-        :param Union['MediaGraphClearEndpointResponseArgs', 'MediaGraphTlsEndpointResponseArgs'] endpoint: RTSP endpoint of the stream being connected to.
+        :param Union['MediaGraphClearEndpointResponse', 'MediaGraphTlsEndpointResponse'] endpoint: RTSP endpoint of the stream being connected to.
         :param str name: Source name.
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
@@ -224,15 +285,33 @@ class MediaGraphRtspSourceResponse(dict):
         """
         return pulumi.get(self, "transport")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphTlsEndpointResponse(dict):
     """
     An endpoint which must be connected over TLS/SSL.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "trustedCertificates":
+            suggest = "trusted_certificates"
+        elif key == "validationOptions":
+            suggest = "validation_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphTlsEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphTlsEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphTlsEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  url: str,
@@ -244,9 +323,9 @@ class MediaGraphTlsEndpointResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
         :param str url: Url for the endpoint.
-        :param 'MediaGraphUsernamePasswordCredentialsResponseArgs' credentials: Polymorphic credentials to present to the endpoint.
-        :param 'MediaGraphPemCertificateListResponseArgs' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-        :param 'MediaGraphTlsValidationOptionsResponseArgs' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
+        :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
+        :param 'MediaGraphPemCertificateListResponse' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
+        :param 'MediaGraphTlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
         pulumi.set(__self__, "url", url)
@@ -298,15 +377,31 @@ class MediaGraphTlsEndpointResponse(dict):
         """
         return pulumi.get(self, "validation_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphTlsValidationOptionsResponse(dict):
     """
     Options for controlling the authentication of TLS endpoints.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreHostname":
+            suggest = "ignore_hostname"
+        elif key == "ignoreSignature":
+            suggest = "ignore_signature"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphTlsValidationOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphTlsValidationOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphTlsValidationOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ignore_hostname: bool,
                  ignore_signature: bool):
@@ -334,15 +429,29 @@ class MediaGraphTlsValidationOptionsResponse(dict):
         """
         return pulumi.get(self, "ignore_signature")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MediaGraphUsernamePasswordCredentialsResponse(dict):
     """
     Username/password credential pair.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaGraphUsernamePasswordCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaGraphUsernamePasswordCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaGraphUsernamePasswordCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  password: str,
@@ -382,8 +491,5 @@ class MediaGraphUsernamePasswordCredentialsResponse(dict):
         Username for a username/password pair.
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

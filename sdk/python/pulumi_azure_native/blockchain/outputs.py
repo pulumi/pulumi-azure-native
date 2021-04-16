@@ -6,19 +6,19 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ApiKeyResponseResult',
+    'ApiKeyResponse',
     'BlockchainMemberNodesSkuResponse',
-    'ConsortiumResponseResult',
+    'ConsortiumResponse',
     'FirewallRuleResponse',
     'SkuResponse',
 ]
 
 @pulumi.output_type
-class ApiKeyResponseResult(dict):
+class ApiKeyResponse(dict):
     """
     API key payload which is exposed in the request/response of the resource provider.
     """
@@ -74,12 +74,9 @@ class BlockchainMemberNodesSkuResponse(dict):
         """
         return pulumi.get(self, "capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ConsortiumResponseResult(dict):
+class ConsortiumResponse(dict):
     """
     Consortium payload
     """
@@ -118,6 +115,27 @@ class FirewallRuleResponse(dict):
     """
     Ip range for firewall rules
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIpAddress":
+            suggest = "end_ip_address"
+        elif key == "ruleName":
+            suggest = "rule_name"
+        elif key == "startIpAddress":
+            suggest = "start_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_ip_address: Optional[str] = None,
                  rule_name: Optional[str] = None,
@@ -159,9 +177,6 @@ class FirewallRuleResponse(dict):
         """
         return pulumi.get(self, "start_ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -196,8 +211,5 @@ class SkuResponse(dict):
         Gets or sets Sku tier
         """
         return pulumi.get(self, "tier")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

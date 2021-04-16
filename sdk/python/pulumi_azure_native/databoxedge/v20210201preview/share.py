@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -225,9 +225,7 @@ class Share(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
                  user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
 
@@ -282,15 +280,7 @@ class Share(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
                  user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -300,33 +290,33 @@ class Share(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ShareArgs.__new__(ShareArgs)
 
             if access_protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'access_protocol'")
-            __props__['access_protocol'] = access_protocol
-            __props__['azure_container_info'] = azure_container_info
-            __props__['client_access_rights'] = client_access_rights
-            __props__['data_policy'] = data_policy
-            __props__['description'] = description
+            __props__.__dict__["access_protocol"] = access_protocol
+            __props__.__dict__["azure_container_info"] = azure_container_info
+            __props__.__dict__["client_access_rights"] = client_access_rights
+            __props__.__dict__["data_policy"] = data_policy
+            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
+            __props__.__dict__["device_name"] = device_name
             if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
-            __props__['monitoring_status'] = monitoring_status
-            __props__['name'] = name
-            __props__['refresh_details'] = refresh_details
+            __props__.__dict__["monitoring_status"] = monitoring_status
+            __props__.__dict__["name"] = name
+            __props__.__dict__["refresh_details"] = refresh_details
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if share_status is None and not opts.urn:
                 raise TypeError("Missing required property 'share_status'")
-            __props__['share_status'] = share_status
-            __props__['user_access_rights'] = user_access_rights
-            __props__['share_mappings'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["share_status"] = share_status
+            __props__.__dict__["user_access_rights"] = user_access_rights
+            __props__.__dict__["share_mappings"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201preview:Share"), pulumi.Alias(type_="azure-native:databoxedge:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Share"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Share"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Share")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Share, __self__).__init__(
@@ -349,21 +339,21 @@ class Share(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ShareArgs.__new__(ShareArgs)
 
-        __props__["access_protocol"] = None
-        __props__["azure_container_info"] = None
-        __props__["client_access_rights"] = None
-        __props__["data_policy"] = None
-        __props__["description"] = None
-        __props__["monitoring_status"] = None
-        __props__["name"] = None
-        __props__["refresh_details"] = None
-        __props__["share_mappings"] = None
-        __props__["share_status"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
-        __props__["user_access_rights"] = None
+        __props__.__dict__["access_protocol"] = None
+        __props__.__dict__["azure_container_info"] = None
+        __props__.__dict__["client_access_rights"] = None
+        __props__.__dict__["data_policy"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["monitoring_status"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["refresh_details"] = None
+        __props__.__dict__["share_mappings"] = None
+        __props__.__dict__["share_status"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_access_rights"] = None
         return Share(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -469,10 +459,4 @@ class Share(pulumi.CustomResource):
         Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
         return pulumi.get(self, "user_access_rights")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -112,7 +112,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The resource of private endpoint.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.appconfiguration.PrivateEndpoint>;
+    readonly privateEndpoint?: pulumi.Input<inputs.appconfiguration.PrivateEndpointArgs>;
     /**
      * Private endpoint connection name
      */
@@ -120,7 +120,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.appconfiguration.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.appconfiguration.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

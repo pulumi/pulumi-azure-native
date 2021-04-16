@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -245,9 +245,7 @@ class VpnSite(pulumi.CustomResource):
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
                  vpn_site_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         VpnSite Resource.
 
@@ -304,15 +302,7 @@ class VpnSite(pulumi.CustomResource):
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_site_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
                  vpn_site_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,27 +312,27 @@ class VpnSite(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VpnSiteArgs.__new__(VpnSiteArgs)
 
-            __props__['address_space'] = address_space
-            __props__['bgp_properties'] = bgp_properties
-            __props__['device_properties'] = device_properties
-            __props__['id'] = id
-            __props__['ip_address'] = ip_address
-            __props__['is_security_site'] = is_security_site
-            __props__['location'] = location
+            __props__.__dict__["address_space"] = address_space
+            __props__.__dict__["bgp_properties"] = bgp_properties
+            __props__.__dict__["device_properties"] = device_properties
+            __props__.__dict__["id"] = id
+            __props__.__dict__["ip_address"] = ip_address
+            __props__.__dict__["is_security_site"] = is_security_site
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['site_key'] = site_key
-            __props__['tags'] = tags
-            __props__['virtual_wan'] = virtual_wan
-            __props__['vpn_site_links'] = vpn_site_links
-            __props__['vpn_site_name'] = vpn_site_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["site_key"] = site_key
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_wan"] = virtual_wan
+            __props__.__dict__["vpn_site_links"] = vpn_site_links
+            __props__.__dict__["vpn_site_name"] = vpn_site_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnSite"), pulumi.Alias(type_="azure-native:network:VpnSite"), pulumi.Alias(type_="azure-nextgen:network:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnSite"), pulumi.Alias(type_="azure-native:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200601:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200701:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnSite"), pulumi.Alias(type_="azure-native:network/v20200801:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VpnSite"), pulumi.Alias(type_="azure-native:network/v20201101:VpnSite"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VpnSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnSite, __self__).__init__(
@@ -365,22 +355,22 @@ class VpnSite(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VpnSiteArgs.__new__(VpnSiteArgs)
 
-        __props__["address_space"] = None
-        __props__["bgp_properties"] = None
-        __props__["device_properties"] = None
-        __props__["etag"] = None
-        __props__["ip_address"] = None
-        __props__["is_security_site"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["site_key"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_wan"] = None
-        __props__["vpn_site_links"] = None
+        __props__.__dict__["address_space"] = None
+        __props__.__dict__["bgp_properties"] = None
+        __props__.__dict__["device_properties"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["ip_address"] = None
+        __props__.__dict__["is_security_site"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["site_key"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_wan"] = None
+        __props__.__dict__["vpn_site_links"] = None
         return VpnSite(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -494,10 +484,4 @@ class VpnSite(pulumi.CustomResource):
         List of all vpn site links.
         """
         return pulumi.get(self, "vpn_site_links")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

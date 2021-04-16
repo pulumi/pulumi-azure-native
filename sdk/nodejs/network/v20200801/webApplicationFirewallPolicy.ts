@@ -152,7 +152,7 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The custom rules inside the policy.
      */
-    readonly customRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.WebApplicationFirewallCustomRule>[]>;
+    readonly customRules?: pulumi.Input<pulumi.Input<inputs.network.v20200801.WebApplicationFirewallCustomRuleArgs>[]>;
     /**
      * Resource ID.
      */
@@ -164,7 +164,7 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * Describes the managedRules structure.
      */
-    readonly managedRules: pulumi.Input<inputs.network.v20200801.ManagedRulesDefinition>;
+    readonly managedRules: pulumi.Input<inputs.network.v20200801.ManagedRulesDefinitionArgs>;
     /**
      * The name of the policy.
      */
@@ -172,7 +172,7 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The PolicySettings for policy.
      */
-    readonly policySettings?: pulumi.Input<inputs.network.v20200801.PolicySettings>;
+    readonly policySettings?: pulumi.Input<inputs.network.v20200801.PolicySettingsArgs>;
     /**
      * The name of the resource group.
      */

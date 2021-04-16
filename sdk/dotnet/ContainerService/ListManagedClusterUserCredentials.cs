@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// Base64-encoded Kubernetes configuration file.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CredentialResultResponseResult> Kubeconfigs;
+        public readonly ImmutableArray<Outputs.CredentialResultResponse> Kubeconfigs;
 
         [OutputConstructor]
-        private ListManagedClusterUserCredentialsResult(ImmutableArray<Outputs.CredentialResultResponseResult> kubeconfigs)
+        private ListManagedClusterUserCredentialsResult(ImmutableArray<Outputs.CredentialResultResponse> kubeconfigs)
         {
             Kubeconfigs = kubeconfigs;
         }

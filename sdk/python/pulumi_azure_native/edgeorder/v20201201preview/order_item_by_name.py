@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -141,9 +141,7 @@ class OrderItemByName(pulumi.CustomResource):
                  order_item_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents order item contract
 
@@ -188,15 +186,7 @@ class OrderItemByName(pulumi.CustomResource):
                  order_item_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,27 +196,27 @@ class OrderItemByName(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OrderItemByNameArgs.__new__(OrderItemByNameArgs)
 
             if address_details is None and not opts.urn:
                 raise TypeError("Missing required property 'address_details'")
-            __props__['address_details'] = address_details
-            __props__['location'] = location
+            __props__.__dict__["address_details"] = address_details
+            __props__.__dict__["location"] = location
             if order_id is None and not opts.urn:
                 raise TypeError("Missing required property 'order_id'")
-            __props__['order_id'] = order_id
+            __props__.__dict__["order_id"] = order_id
             if order_item_details is None and not opts.urn:
                 raise TypeError("Missing required property 'order_item_details'")
-            __props__['order_item_details'] = order_item_details
-            __props__['order_item_name'] = order_item_name
+            __props__.__dict__["order_item_details"] = order_item_details
+            __props__.__dict__["order_item_name"] = order_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['start_time'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["start_time"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:edgeorder/v20201201preview:OrderItemByName"), pulumi.Alias(type_="azure-native:edgeorder:OrderItemByName"), pulumi.Alias(type_="azure-nextgen:edgeorder:OrderItemByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrderItemByName, __self__).__init__(
@@ -249,17 +239,17 @@ class OrderItemByName(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OrderItemByNameArgs.__new__(OrderItemByNameArgs)
 
-        __props__["address_details"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["order_id"] = None
-        __props__["order_item_details"] = None
-        __props__["start_time"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["address_details"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["order_id"] = None
+        __props__.__dict__["order_item_details"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return OrderItemByName(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -333,10 +323,4 @@ class OrderItemByName(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

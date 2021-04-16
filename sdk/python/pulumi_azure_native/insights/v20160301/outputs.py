@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -28,6 +28,29 @@ class LocationThresholdRuleConditionResponse(dict):
     """
     A rule condition based on a certain number of locations failing.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failedLocationCount":
+            suggest = "failed_location_count"
+        elif key == "odataType":
+            suggest = "odata_type"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "windowSize":
+            suggest = "window_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationThresholdRuleConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationThresholdRuleConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationThresholdRuleConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failed_location_count: int,
                  odata_type: str,
@@ -38,7 +61,7 @@ class LocationThresholdRuleConditionResponse(dict):
         :param int failed_location_count: the number of locations that must fail to activate the alert.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
                Expected value is 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition'.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         pulumi.set(__self__, "failed_location_count", failed_location_count)
@@ -81,15 +104,29 @@ class LocationThresholdRuleConditionResponse(dict):
         """
         return pulumi.get(self, "window_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementEventAggregationConditionResponse(dict):
     """
     How the data that is collected should be combined over time.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowSize":
+            suggest = "window_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementEventAggregationConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementEventAggregationConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementEventAggregationConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: Optional[str] = None,
                  threshold: Optional[float] = None,
@@ -131,15 +168,31 @@ class ManagementEventAggregationConditionResponse(dict):
         """
         return pulumi.get(self, "window_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementEventRuleConditionResponse(dict):
     """
     A management event rule condition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementEventRuleConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementEventRuleConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementEventRuleConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  aggregation: Optional['outputs.ManagementEventAggregationConditionResponse'] = None,
@@ -148,8 +201,8 @@ class ManagementEventRuleConditionResponse(dict):
         A management event rule condition.
         :param str odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
                Expected value is 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition'.
-        :param 'ManagementEventAggregationConditionResponseArgs' aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param 'ManagementEventAggregationConditionResponse' aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition')
         if aggregation is not None:
@@ -181,9 +234,6 @@ class ManagementEventRuleConditionResponse(dict):
         the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         """
         return pulumi.get(self, "data_source")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -218,15 +268,33 @@ class RetentionPolicyResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleEmailActionResponse(dict):
     """
     Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "customEmails":
+            suggest = "custom_emails"
+        elif key == "sendToServiceOwners":
+            suggest = "send_to_service_owners"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleEmailActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleEmailActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleEmailActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  custom_emails: Optional[Sequence[str]] = None,
@@ -269,15 +337,29 @@ class RuleEmailActionResponse(dict):
         """
         return pulumi.get(self, "send_to_service_owners")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleManagementEventClaimsDataSourceResponse(dict):
     """
     The claims for a rule management event data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleManagementEventClaimsDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleManagementEventClaimsDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleManagementEventClaimsDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: Optional[str] = None):
         """
@@ -295,15 +377,49 @@ class RuleManagementEventClaimsDataSourceResponse(dict):
         """
         return pulumi.get(self, "email_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleManagementEventDataSourceResponse(dict):
     """
     A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "eventName":
+            suggest = "event_name"
+        elif key == "eventSource":
+            suggest = "event_source"
+        elif key == "legacyResourceId":
+            suggest = "legacy_resource_id"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "operationName":
+            suggest = "operation_name"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "resourceLocation":
+            suggest = "resource_location"
+        elif key == "resourceProviderName":
+            suggest = "resource_provider_name"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "subStatus":
+            suggest = "sub_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleManagementEventDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleManagementEventDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleManagementEventDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  claims: Optional['outputs.RuleManagementEventClaimsDataSourceResponse'] = None,
@@ -323,7 +439,7 @@ class RuleManagementEventDataSourceResponse(dict):
         A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
         :param str odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
                Expected value is 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource'.
-        :param 'RuleManagementEventClaimsDataSourceResponseArgs' claims: the claims.
+        :param 'RuleManagementEventClaimsDataSourceResponse' claims: the claims.
         :param str event_name: the event name.
         :param str event_source: the event source.
         :param str legacy_resource_id: the legacy resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -478,15 +594,39 @@ class RuleManagementEventDataSourceResponse(dict):
         """
         return pulumi.get(self, "sub_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleMetricDataSourceResponse(dict):
     """
     A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "legacyResourceId":
+            suggest = "legacy_resource_id"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "resourceLocation":
+            suggest = "resource_location"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleMetricDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleMetricDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleMetricDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  legacy_resource_id: Optional[str] = None,
@@ -565,15 +705,31 @@ class RuleMetricDataSourceResponse(dict):
         """
         return pulumi.get(self, "resource_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RuleWebhookActionResponse(dict):
     """
     Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleWebhookActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleWebhookActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleWebhookActionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  properties: Optional[Mapping[str, str]] = None,
@@ -616,15 +772,35 @@ class RuleWebhookActionResponse(dict):
         """
         return pulumi.get(self, "service_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ThresholdRuleConditionResponse(dict):
     """
     A rule condition based on a metric crossing a threshold.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "timeAggregation":
+            suggest = "time_aggregation"
+        elif key == "windowSize":
+            suggest = "window_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThresholdRuleConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThresholdRuleConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThresholdRuleConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -638,7 +814,7 @@ class ThresholdRuleConditionResponse(dict):
                Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
         :param str operator: the operator used to compare the data and the threshold.
         :param float threshold: the threshold value that activates the alert.
-        :param Union['RuleManagementEventDataSourceResponseArgs', 'RuleMetricDataSourceResponseArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param Union['RuleManagementEventDataSourceResponse', 'RuleMetricDataSourceResponse'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param str time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         :param str window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
@@ -700,8 +876,5 @@ class ThresholdRuleConditionResponse(dict):
         the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         return pulumi.get(self, "window_size")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

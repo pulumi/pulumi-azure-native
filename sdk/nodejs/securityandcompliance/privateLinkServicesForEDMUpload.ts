@@ -132,7 +132,7 @@ export interface PrivateLinkServicesForEDMUploadArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: pulumi.Input<inputs.securityandcompliance.ServicesResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.securityandcompliance.ServicesResourceIdentityArgs>;
     /**
      * The kind of the service.
      */
@@ -144,7 +144,7 @@ export interface PrivateLinkServicesForEDMUploadArgs {
     /**
      * The common properties of a service.
      */
-    readonly properties?: pulumi.Input<inputs.securityandcompliance.ServicesProperties>;
+    readonly properties?: pulumi.Input<inputs.securityandcompliance.ServicesPropertiesArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */

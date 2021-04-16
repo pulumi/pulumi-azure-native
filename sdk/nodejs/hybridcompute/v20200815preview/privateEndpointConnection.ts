@@ -104,7 +104,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.hybridcompute.v20200815preview.PrivateEndpointProperty>;
+    readonly privateEndpoint?: pulumi.Input<inputs.hybridcompute.v20200815preview.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
@@ -112,7 +112,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Connection state of the private endpoint connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.hybridcompute.v20200815preview.PrivateLinkServiceConnectionStateProperty>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.hybridcompute.v20200815preview.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group.
      */

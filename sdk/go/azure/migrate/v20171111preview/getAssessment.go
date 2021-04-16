@@ -4,7 +4,7 @@
 package v20171111preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An assessment created for a group in the Migration project.

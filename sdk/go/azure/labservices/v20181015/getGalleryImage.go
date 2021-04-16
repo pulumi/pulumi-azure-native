@@ -4,7 +4,7 @@
 package v20181015
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents an image from the Azure Marketplace

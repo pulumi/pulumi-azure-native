@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['OpenIdConnectProviderArgs', 'OpenIdConnectProvider']
 
@@ -154,9 +154,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         OpenId Connect Provider details.
 
@@ -203,15 +201,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -221,28 +211,28 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OpenIdConnectProviderArgs.__new__(OpenIdConnectProviderArgs)
 
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
-            __props__['client_secret'] = client_secret
-            __props__['description'] = description
+            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
+            __props__.__dict__["display_name"] = display_name
             if metadata_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'metadata_endpoint'")
-            __props__['metadata_endpoint'] = metadata_endpoint
-            __props__['opid'] = opid
+            __props__.__dict__["metadata_endpoint"] = metadata_endpoint
+            __props__.__dict__["opid"] = opid
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:OpenIdConnectProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenIdConnectProvider, __self__).__init__(
@@ -265,15 +255,15 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OpenIdConnectProviderArgs.__new__(OpenIdConnectProviderArgs)
 
-        __props__["client_id"] = None
-        __props__["client_secret"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["metadata_endpoint"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["client_id"] = None
+        __props__.__dict__["client_secret"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["metadata_endpoint"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return OpenIdConnectProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -331,10 +321,4 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

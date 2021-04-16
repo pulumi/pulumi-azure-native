@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,7 +24,7 @@ class ListKeyByAutomationAccountResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[Sequence['outputs.KeyResponseResult']]:
+    def keys(self) -> Optional[Sequence['outputs.KeyResponse']]:
         """
         Lists the automation keys.
         """

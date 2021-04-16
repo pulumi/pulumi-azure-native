@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -108,9 +108,7 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AzureStorageInfoValueArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         AzureStorageInfo dictionary resource.
 
@@ -151,15 +149,7 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AzureStorageInfoValueArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,20 +159,20 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppAzureStorageAccountsSlotArgs.__new__(WebAppAzureStorageAccountsSlotArgs)
 
-            __props__['kind'] = kind
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['properties'] = properties
+            __props__.__dict__["name"] = name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
-            __props__['type'] = None
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAzureStorageAccountsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppAzureStorageAccountsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAzureStorageAccountsSlot, __self__).__init__(
@@ -205,12 +195,12 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppAzureStorageAccountsSlotArgs.__new__(WebAppAzureStorageAccountsSlotArgs)
 
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["type"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["type"] = None
         return WebAppAzureStorageAccountsSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -244,10 +234,4 @@ class WebAppAzureStorageAccountsSlot(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = [
     'ArmRoleReceiverResponse',
@@ -26,6 +26,25 @@ class ArmRoleReceiverResponse(dict):
     """
     An arm role receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleId":
+            suggest = "role_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmRoleReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmRoleReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmRoleReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  role_id: str,
@@ -64,15 +83,39 @@ class ArmRoleReceiverResponse(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationRunbookReceiverResponse(dict):
     """
     The Azure Automation Runbook notification receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automationAccountId":
+            suggest = "automation_account_id"
+        elif key == "isGlobalRunbook":
+            suggest = "is_global_runbook"
+        elif key == "runbookName":
+            suggest = "runbook_name"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+        elif key == "webhookResourceId":
+            suggest = "webhook_resource_id"
+        elif key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRunbookReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRunbookReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRunbookReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automation_account_id: str,
                  is_global_runbook: bool,
@@ -157,15 +200,29 @@ class AutomationRunbookReceiverResponse(dict):
         """
         return pulumi.get(self, "service_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureAppPushReceiverResponse(dict):
     """
     The Azure mobile App push notification receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureAppPushReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureAppPushReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureAppPushReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: str,
                  name: str):
@@ -193,15 +250,35 @@ class AzureAppPushReceiverResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFunctionReceiverResponse(dict):
     """
     An azure function receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionAppResourceId":
+            suggest = "function_app_resource_id"
+        elif key == "functionName":
+            suggest = "function_name"
+        elif key == "httpTriggerUrl":
+            suggest = "http_trigger_url"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFunctionReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFunctionReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFunctionReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_app_resource_id: str,
                  function_name: str,
@@ -262,15 +339,31 @@ class AzureFunctionReceiverResponse(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EmailReceiverResponse(dict):
     """
     An email receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EmailReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EmailReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EmailReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: str,
                  name: str,
@@ -320,15 +413,33 @@ class EmailReceiverResponse(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ItsmReceiverResponse(dict):
     """
     An Itsm receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionId":
+            suggest = "connection_id"
+        elif key == "ticketConfiguration":
+            suggest = "ticket_configuration"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ItsmReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ItsmReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ItsmReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_id: str,
                  name: str,
@@ -389,15 +500,33 @@ class ItsmReceiverResponse(dict):
         """
         return pulumi.get(self, "workspace_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogicAppReceiverResponse(dict):
     """
     A logic app receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "callbackUrl":
+            suggest = "callback_url"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogicAppReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogicAppReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogicAppReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  callback_url: str,
                  name: str,
@@ -447,15 +576,31 @@ class LogicAppReceiverResponse(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SmsReceiverResponse(dict):
     """
     An SMS receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmsReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmsReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmsReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -505,15 +650,31 @@ class SmsReceiverResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VoiceReceiverResponse(dict):
     """
     A voice receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VoiceReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VoiceReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VoiceReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -552,15 +713,31 @@ class VoiceReceiverResponse(dict):
         """
         return pulumi.get(self, "phone_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebhookReceiverResponse(dict):
     """
     A webhook receiver.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  service_uri: str,
@@ -598,8 +775,5 @@ class WebhookReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

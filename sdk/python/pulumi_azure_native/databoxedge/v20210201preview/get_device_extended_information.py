@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -92,7 +92,7 @@ class GetDeviceExtendedInformationResult:
 
     @property
     @pulumi.getter(name="deviceSecrets")
-    def device_secrets(self) -> Mapping[str, 'outputs.SecretResponseResult']:
+    def device_secrets(self) -> Mapping[str, 'outputs.SecretResponse']:
         """
         Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
         """

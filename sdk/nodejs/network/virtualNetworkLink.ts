@@ -153,7 +153,7 @@ export interface VirtualNetworkLinkArgs {
     /**
      * The reference of the virtual network.
      */
-    readonly virtualNetwork?: pulumi.Input<inputs.network.SubResource>;
+    readonly virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The name of the virtual network link.
      */

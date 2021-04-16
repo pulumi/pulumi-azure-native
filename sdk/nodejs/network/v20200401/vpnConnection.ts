@@ -227,7 +227,7 @@ export interface VpnConnectionArgs {
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200401.IpsecPolicy>[]>;
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20200401.IpsecPolicyArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -235,7 +235,7 @@ export interface VpnConnectionArgs {
     /**
      * Id of the connected vpn site.
      */
-    readonly remoteVpnSite?: pulumi.Input<inputs.network.v20200401.SubResource>;
+    readonly remoteVpnSite?: pulumi.Input<inputs.network.v20200401.SubResourceArgs>;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -243,7 +243,7 @@ export interface VpnConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200401.RoutingConfiguration>;
+    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200401.RoutingConfigurationArgs>;
     /**
      * Routing weight for vpn connection.
      */
@@ -267,5 +267,5 @@ export interface VpnConnectionArgs {
     /**
      * List of all vpn site link connections to the gateway.
      */
-    readonly vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200401.VpnSiteLinkConnection>[]>;
+    readonly vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20200401.VpnSiteLinkConnectionArgs>[]>;
 }

@@ -128,7 +128,7 @@ export interface EnvironmentArgs {
     /**
      * The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.Sku>;
+    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20180815preview.SkuArgs>;
     /**
      * Key-value pairs of additional properties for the resource.
      */

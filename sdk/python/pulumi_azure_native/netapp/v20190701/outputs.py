@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,6 +22,27 @@ class ActiveDirectoryResponse(dict):
     """
     Active Directory
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryId":
+            suggest = "active_directory_id"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+        elif key == "smbServerName":
+            suggest = "smb_server_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActiveDirectoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActiveDirectoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_directory_id: Optional[str] = None,
                  dns: Optional[str] = None,
@@ -123,15 +144,35 @@ class ActiveDirectoryResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExportPolicyRuleResponse(dict):
     """
     Volume Export Policy Rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "ruleIndex":
+            suggest = "rule_index"
+        elif key == "unixReadOnly":
+            suggest = "unix_read_only"
+        elif key == "unixReadWrite":
+            suggest = "unix_read_write"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExportPolicyRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExportPolicyRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExportPolicyRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_clients: Optional[str] = None,
                  cifs: Optional[bool] = None,
@@ -221,15 +262,41 @@ class ExportPolicyRuleResponse(dict):
         """
         return pulumi.get(self, "unix_read_write")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MountTargetPropertiesResponse(dict):
     """
     Mount target properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "mountTargetId":
+            suggest = "mount_target_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "endIp":
+            suggest = "end_ip"
+        elif key == "smbServerFqdn":
+            suggest = "smb_server_fqdn"
+        elif key == "startIp":
+            suggest = "start_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MountTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MountTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MountTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_system_id: str,
                  ip_address: str,
@@ -351,9 +418,6 @@ class MountTargetPropertiesResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumePropertiesResponseExportPolicy(dict):
@@ -364,7 +428,7 @@ class VolumePropertiesResponseExportPolicy(dict):
                  rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Set of export policy rules
-        :param Sequence['ExportPolicyRuleResponseArgs'] rules: Export policy rule
+        :param Sequence['ExportPolicyRuleResponse'] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -376,8 +440,5 @@ class VolumePropertiesResponseExportPolicy(dict):
         Export policy rule
         """
         return pulumi.get(self, "rules")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

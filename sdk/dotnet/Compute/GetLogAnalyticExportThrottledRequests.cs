@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// LogAnalyticsOutput
         /// </summary>
-        public readonly Outputs.LogAnalyticsOutputResponseResult Properties;
+        public readonly Outputs.LogAnalyticsOutputResponse Properties;
 
         [OutputConstructor]
-        private GetLogAnalyticExportThrottledRequestsResult(Outputs.LogAnalyticsOutputResponseResult properties)
+        private GetLogAnalyticExportThrottledRequestsResult(Outputs.LogAnalyticsOutputResponse properties)
         {
             Properties = properties;
         }

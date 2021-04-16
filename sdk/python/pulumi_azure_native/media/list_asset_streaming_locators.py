@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,7 +27,7 @@ class ListAssetStreamingLocatorsResult:
 
     @property
     @pulumi.getter(name="streamingLocators")
-    def streaming_locators(self) -> Sequence['outputs.AssetStreamingLocatorResponseResult']:
+    def streaming_locators(self) -> Sequence['outputs.AssetStreamingLocatorResponse']:
         """
         The list of Streaming Locators.
         """

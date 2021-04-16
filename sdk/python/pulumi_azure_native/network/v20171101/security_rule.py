@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -395,9 +395,7 @@ class SecurityRule(pulumi.CustomResource):
                  source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Network security rule.
 
@@ -472,15 +470,7 @@ class SecurityRule(pulumi.CustomResource):
                  source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -490,40 +480,40 @@ class SecurityRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecurityRuleArgs.__new__(SecurityRuleArgs)
 
             if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
-            __props__['access'] = access
-            __props__['description'] = description
-            __props__['destination_address_prefix'] = destination_address_prefix
-            __props__['destination_address_prefixes'] = destination_address_prefixes
-            __props__['destination_application_security_groups'] = destination_application_security_groups
-            __props__['destination_port_range'] = destination_port_range
-            __props__['destination_port_ranges'] = destination_port_ranges
+            __props__.__dict__["access"] = access
+            __props__.__dict__["description"] = description
+            __props__.__dict__["destination_address_prefix"] = destination_address_prefix
+            __props__.__dict__["destination_address_prefixes"] = destination_address_prefixes
+            __props__.__dict__["destination_application_security_groups"] = destination_application_security_groups
+            __props__.__dict__["destination_port_range"] = destination_port_range
+            __props__.__dict__["destination_port_ranges"] = destination_port_ranges
             if direction is None and not opts.urn:
                 raise TypeError("Missing required property 'direction'")
-            __props__['direction'] = direction
-            __props__['etag'] = etag
-            __props__['id'] = id
-            __props__['name'] = name
+            __props__.__dict__["direction"] = direction
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["id"] = id
+            __props__.__dict__["name"] = name
             if network_security_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_name'")
-            __props__['network_security_group_name'] = network_security_group_name
-            __props__['priority'] = priority
+            __props__.__dict__["network_security_group_name"] = network_security_group_name
+            __props__.__dict__["priority"] = priority
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
-            __props__['protocol'] = protocol
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['security_rule_name'] = security_rule_name
-            __props__['source_address_prefix'] = source_address_prefix
-            __props__['source_address_prefixes'] = source_address_prefixes
-            __props__['source_application_security_groups'] = source_application_security_groups
-            __props__['source_port_range'] = source_port_range
-            __props__['source_port_ranges'] = source_port_ranges
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_rule_name"] = security_rule_name
+            __props__.__dict__["source_address_prefix"] = source_address_prefix
+            __props__.__dict__["source_address_prefixes"] = source_address_prefixes
+            __props__.__dict__["source_application_security_groups"] = source_application_security_groups
+            __props__.__dict__["source_port_range"] = source_port_range
+            __props__.__dict__["source_port_ranges"] = source_port_ranges
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-native:network:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20201101:SecurityRule"), pulumi.Alias(type_="azure-nextgen:network/v20201101:SecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityRule, __self__).__init__(
@@ -546,26 +536,26 @@ class SecurityRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SecurityRuleArgs.__new__(SecurityRuleArgs)
 
-        __props__["access"] = None
-        __props__["description"] = None
-        __props__["destination_address_prefix"] = None
-        __props__["destination_address_prefixes"] = None
-        __props__["destination_application_security_groups"] = None
-        __props__["destination_port_range"] = None
-        __props__["destination_port_ranges"] = None
-        __props__["direction"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["priority"] = None
-        __props__["protocol"] = None
-        __props__["provisioning_state"] = None
-        __props__["source_address_prefix"] = None
-        __props__["source_address_prefixes"] = None
-        __props__["source_application_security_groups"] = None
-        __props__["source_port_range"] = None
-        __props__["source_port_ranges"] = None
+        __props__.__dict__["access"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["destination_address_prefix"] = None
+        __props__.__dict__["destination_address_prefixes"] = None
+        __props__.__dict__["destination_application_security_groups"] = None
+        __props__.__dict__["destination_port_range"] = None
+        __props__.__dict__["destination_port_ranges"] = None
+        __props__.__dict__["direction"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["priority"] = None
+        __props__.__dict__["protocol"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source_address_prefix"] = None
+        __props__.__dict__["source_address_prefixes"] = None
+        __props__.__dict__["source_application_security_groups"] = None
+        __props__.__dict__["source_port_range"] = None
+        __props__.__dict__["source_port_ranges"] = None
         return SecurityRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -711,10 +701,4 @@ class SecurityRule(pulumi.CustomResource):
         The source port ranges.
         """
         return pulumi.get(self, "source_port_ranges")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

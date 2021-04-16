@@ -139,7 +139,7 @@ export interface JobAgentArgs {
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20200801preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.v20200801preview.SkuArgs>;
     /**
      * Resource tags.
      */

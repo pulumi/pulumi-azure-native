@@ -109,7 +109,7 @@ export interface DataFlowArgs {
     /**
      * Data flow properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.MappingDataFlow>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.MappingDataFlowArgs>;
     /**
      * The resource group name.
      */

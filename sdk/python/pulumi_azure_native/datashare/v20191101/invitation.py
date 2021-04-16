@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['InvitationArgs', 'Invitation']
 
@@ -143,9 +143,7 @@ class Invitation(pulumi.CustomResource):
                  target_active_directory_id: Optional[pulumi.Input[str]] = None,
                  target_email: Optional[pulumi.Input[str]] = None,
                  target_object_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Invitation data transfer object.
 
@@ -192,15 +190,7 @@ class Invitation(pulumi.CustomResource):
                  target_active_directory_id: Optional[pulumi.Input[str]] = None,
                  target_email: Optional[pulumi.Input[str]] = None,
                  target_object_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,29 +200,29 @@ class Invitation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InvitationArgs.__new__(InvitationArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['invitation_name'] = invitation_name
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["invitation_name"] = invitation_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
-            __props__['share_name'] = share_name
-            __props__['target_active_directory_id'] = target_active_directory_id
-            __props__['target_email'] = target_email
-            __props__['target_object_id'] = target_object_id
-            __props__['invitation_id'] = None
-            __props__['invitation_status'] = None
-            __props__['name'] = None
-            __props__['responded_at'] = None
-            __props__['sent_at'] = None
-            __props__['type'] = None
-            __props__['user_email'] = None
-            __props__['user_name'] = None
+            __props__.__dict__["share_name"] = share_name
+            __props__.__dict__["target_active_directory_id"] = target_active_directory_id
+            __props__.__dict__["target_email"] = target_email
+            __props__.__dict__["target_object_id"] = target_object_id
+            __props__.__dict__["invitation_id"] = None
+            __props__.__dict__["invitation_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["responded_at"] = None
+            __props__.__dict__["sent_at"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["user_email"] = None
+            __props__.__dict__["user_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20191101:Invitation"), pulumi.Alias(type_="azure-native:datashare:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare:Invitation"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:Invitation"), pulumi.Alias(type_="azure-native:datashare/v20200901:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:Invitation"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:Invitation"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:Invitation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Invitation, __self__).__init__(
@@ -255,19 +245,19 @@ class Invitation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = InvitationArgs.__new__(InvitationArgs)
 
-        __props__["invitation_id"] = None
-        __props__["invitation_status"] = None
-        __props__["name"] = None
-        __props__["responded_at"] = None
-        __props__["sent_at"] = None
-        __props__["target_active_directory_id"] = None
-        __props__["target_email"] = None
-        __props__["target_object_id"] = None
-        __props__["type"] = None
-        __props__["user_email"] = None
-        __props__["user_name"] = None
+        __props__.__dict__["invitation_id"] = None
+        __props__.__dict__["invitation_status"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["responded_at"] = None
+        __props__.__dict__["sent_at"] = None
+        __props__.__dict__["target_active_directory_id"] = None
+        __props__.__dict__["target_email"] = None
+        __props__.__dict__["target_object_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_email"] = None
+        __props__.__dict__["user_name"] = None
         return Invitation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -359,10 +349,4 @@ class Invitation(pulumi.CustomResource):
         Name of the user who created the resource
         """
         return pulumi.get(self, "user_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

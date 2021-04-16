@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -68,6 +68,23 @@ class BlobShareResponse(dict):
     """
     Blob container storage information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sasUri":
+            suggest = "sas_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobShareResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobShareResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobShareResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sas_uri: str):
         """
@@ -84,15 +101,35 @@ class BlobShareResponse(dict):
         """
         return pulumi.get(self, "sas_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToSourceSqlServerTaskInputResponse(dict):
     """
     Input for the task that validates connection to SQL Server and also validates source server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceConnectionInfo":
+            suggest = "source_connection_info"
+        elif key == "checkPermissionsGroup":
+            suggest = "check_permissions_group"
+        elif key == "collectAgentJobs":
+            suggest = "collect_agent_jobs"
+        elif key == "collectLogins":
+            suggest = "collect_logins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToSourceSqlServerTaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToSourceSqlServerTaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_connection_info: 'outputs.SqlConnectionInfoResponse',
                  check_permissions_group: Optional[str] = None,
@@ -100,7 +137,7 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
                  collect_logins: Optional[bool] = None):
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Connection information for Source SQL Server
+        :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for Source SQL Server
         :param str check_permissions_group: Permission group for validations
         :param bool collect_agent_jobs: Flag for whether to collect agent jobs from source server.
         :param bool collect_logins: Flag for whether to collect logins from source server.
@@ -149,15 +186,39 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
         """
         return pulumi.get(self, "collect_logins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
     """
     AgentJob level output for the task that validates connection to SQL Server and also validates source server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "jobCategory":
+            suggest = "job_category"
+        elif key == "jobOwner":
+            suggest = "job_owner"
+        elif key == "lastExecutedOn":
+            suggest = "last_executed_on"
+        elif key == "migrationEligibility":
+            suggest = "migration_eligibility"
+        elif key == "resultType":
+            suggest = "result_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  is_enabled: bool,
@@ -174,7 +235,7 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
         :param str job_category: The type of AgentJob.
         :param str job_owner: The owner of the AgentJob
         :param str last_executed_on: UTC Date and time when the AgentJob was last executed.
-        :param 'MigrationEligibilityInfoResponseArgs' migration_eligibility: Information about eligibility of agent job for migration.
+        :param 'MigrationEligibilityInfoResponse' migration_eligibility: Information about eligibility of agent job for migration.
         :param str name: AgentJob name
         :param str result_type: Type of result - database level or task level
                Expected value is 'AgentJobLevelOutput'.
@@ -253,15 +314,37 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
         """
         return pulumi.get(self, "result_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
     """
     Database level output for the task that validates connection to SQL Server and also validates source server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compatibilityLevel":
+            suggest = "compatibility_level"
+        elif key == "databaseFiles":
+            suggest = "database_files"
+        elif key == "databaseState":
+            suggest = "database_state"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "sizeMB":
+            suggest = "size_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compatibility_level: str,
                  database_files: Sequence['outputs.DatabaseFileInfoResponse'],
@@ -273,7 +356,7 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
         """
         Database level output for the task that validates connection to SQL Server and also validates source server requirements
         :param str compatibility_level: SQL Server compatibility level of database
-        :param Sequence['DatabaseFileInfoResponseArgs'] database_files: The list of database files
+        :param Sequence['DatabaseFileInfoResponse'] database_files: The list of database files
         :param str database_state: State of the database
         :param str id: Result identifier
         :param str name: Database name
@@ -346,15 +429,37 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
         """
         return pulumi.get(self, "size_mb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
     """
     Login level output for the task that validates connection to SQL Server and also validates source server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDatabase":
+            suggest = "default_database"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "loginType":
+            suggest = "login_type"
+        elif key == "migrationEligibility":
+            suggest = "migration_eligibility"
+        elif key == "resultType":
+            suggest = "result_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskOutputLoginLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToSourceSqlServerTaskOutputLoginLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToSourceSqlServerTaskOutputLoginLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_database: str,
                  id: str,
@@ -369,7 +474,7 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
         :param str id: Result identifier
         :param bool is_enabled: The state of the login.
         :param str login_type: The type of login.
-        :param 'MigrationEligibilityInfoResponseArgs' migration_eligibility: Information about eligibility of login for migration.
+        :param 'MigrationEligibilityInfoResponse' migration_eligibility: Information about eligibility of login for migration.
         :param str name: Login name.
         :param str result_type: Type of result - database level or task level
                Expected value is 'LoginLevelOutput'.
@@ -439,15 +544,37 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
         """
         return pulumi.get(self, "result_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
     """
     Task level output for the task that validates connection to SQL Server and also validates source server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentJobs":
+            suggest = "agent_jobs"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "sourceServerBrandVersion":
+            suggest = "source_server_brand_version"
+        elif key == "sourceServerVersion":
+            suggest = "source_server_version"
+        elif key == "validationErrors":
+            suggest = "validation_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskOutputTaskLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToSourceSqlServerTaskOutputTaskLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToSourceSqlServerTaskOutputTaskLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agent_jobs: Mapping[str, str],
                  databases: Mapping[str, str],
@@ -467,7 +594,7 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
                Expected value is 'TaskLevelOutput'.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "agent_jobs", agent_jobs)
         pulumi.set(__self__, "databases", databases)
@@ -543,15 +670,29 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
         """
         return pulumi.get(self, "validation_errors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
     """
     Properties for the task that validates connection to SQL Server and also validates source server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToSourceSqlServerTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToSourceSqlServerTaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToSourceSqlServerTaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence[Any],
@@ -560,12 +701,12 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL Server and also validates source server requirements
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse', 'ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse', 'ConnectToSourceSqlServerTaskOutputLoginLevelResponse', 'ConnectToSourceSqlServerTaskOutputTaskLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToSource.SqlServer'.
-        :param 'ConnectToSourceSqlServerTaskInputResponseArgs' input: Task input
+        :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -615,20 +756,34 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToTargetSqlDbTaskInputResponse(dict):
     """
     Input for the task that validates connection to SQL DB and target server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetConnectionInfo":
+            suggest = "target_connection_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlDbTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToTargetSqlDbTaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToTargetSqlDbTaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to SQL DB and target server requirements
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Connection information for target SQL DB
+        :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
 
@@ -640,15 +795,31 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
         """
         return pulumi.get(self, "target_connection_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToTargetSqlDbTaskOutputResponse(dict):
     """
     Output for the task that validates connection to SQL DB and target server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetServerBrandVersion":
+            suggest = "target_server_brand_version"
+        elif key == "targetServerVersion":
+            suggest = "target_server_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlDbTaskOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToTargetSqlDbTaskOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToTargetSqlDbTaskOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  databases: Mapping[str, str],
                  id: str,
@@ -698,15 +869,29 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
         """
         return pulumi.get(self, "target_server_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
     """
     Properties for the task that validates connection to SQL DB and target server requirements
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlDbTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToTargetSqlDbTaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToTargetSqlDbTaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence['outputs.ConnectToTargetSqlDbTaskOutputResponse'],
@@ -715,12 +900,12 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlDbTaskInputResponse'] = None):
         """
         Properties for the task that validates connection to SQL DB and target server requirements
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetSqlDbTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlDbTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.SqlDb'.
-        :param 'ConnectToTargetSqlDbTaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetSqlDbTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -770,20 +955,34 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToTargetSqlMITaskInputResponse(dict):
     """
     Input for the task that validates connection to Azure SQL Database Managed Instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetConnectionInfo":
+            suggest = "target_connection_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlMITaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToTargetSqlMITaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToTargetSqlMITaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_connection_info: 'outputs.SqlConnectionInfoResponse'):
         """
         Input for the task that validates connection to Azure SQL Database Managed Instance.
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Connection information for target SQL Server
+        :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL Server
         """
         pulumi.set(__self__, "target_connection_info", target_connection_info)
 
@@ -795,15 +994,35 @@ class ConnectToTargetSqlMITaskInputResponse(dict):
         """
         return pulumi.get(self, "target_connection_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToTargetSqlMITaskOutputResponse(dict):
     """
     Output for the task that validates connection to Azure SQL Database Managed Instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentJobs":
+            suggest = "agent_jobs"
+        elif key == "targetServerBrandVersion":
+            suggest = "target_server_brand_version"
+        elif key == "targetServerVersion":
+            suggest = "target_server_version"
+        elif key == "validationErrors":
+            suggest = "validation_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlMITaskOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToTargetSqlMITaskOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToTargetSqlMITaskOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agent_jobs: Sequence[str],
                  id: str,
@@ -818,7 +1037,7 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
         :param Sequence[str] logins: List of logins on the target server.
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "agent_jobs", agent_jobs)
         pulumi.set(__self__, "id", id)
@@ -875,15 +1094,29 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
         """
         return pulumi.get(self, "validation_errors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectToTargetSqlMITaskPropertiesResponse(dict):
     """
     Properties for the task that validates connection to Azure SQL Database Managed Instance
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectToTargetSqlMITaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectToTargetSqlMITaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectToTargetSqlMITaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence['outputs.ConnectToTargetSqlMITaskOutputResponse'],
@@ -892,12 +1125,12 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.ConnectToTargetSqlMITaskInputResponse'] = None):
         """
         Properties for the task that validates connection to Azure SQL Database Managed Instance
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ConnectToTargetSqlMITaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ConnectToTargetSqlMITaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ConnectToTarget.AzureSqlDbMI'.
-        :param 'ConnectToTargetSqlMITaskInputResponseArgs' input: Task input
+        :param 'ConnectToTargetSqlMITaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -947,15 +1180,41 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataItemMigrationSummaryResultResponse(dict):
     """
     Basic summary of a data item migration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "errorPrefix":
+            suggest = "error_prefix"
+        elif key == "itemsCompletedCount":
+            suggest = "items_completed_count"
+        elif key == "itemsCount":
+            suggest = "items_count"
+        elif key == "resultPrefix":
+            suggest = "result_prefix"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataItemMigrationSummaryResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataItemMigrationSummaryResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataItemMigrationSummaryResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
@@ -1060,15 +1319,39 @@ class DataItemMigrationSummaryResultResponse(dict):
         """
         return pulumi.get(self, "status_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseFileInfoResponse(dict):
     """
     Database file specific information
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "fileType":
+            suggest = "file_type"
+        elif key == "logicalName":
+            suggest = "logical_name"
+        elif key == "physicalFullName":
+            suggest = "physical_full_name"
+        elif key == "restoreFullName":
+            suggest = "restore_full_name"
+        elif key == "sizeMB":
+            suggest = "size_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseFileInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseFileInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseFileInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: Optional[str] = None,
                  file_type: Optional[str] = None,
@@ -1158,15 +1441,29 @@ class DatabaseFileInfoResponse(dict):
         """
         return pulumi.get(self, "size_mb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseInfoResponse(dict):
     """
     Project Database Details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceDatabaseName":
+            suggest = "source_database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_database_name: str):
         """
@@ -1183,15 +1480,43 @@ class DatabaseInfoResponse(dict):
         """
         return pulumi.get(self, "source_database_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseSummaryResultResponse(dict):
     """
     Summary of database results in the migration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "errorPrefix":
+            suggest = "error_prefix"
+        elif key == "itemsCompletedCount":
+            suggest = "items_completed_count"
+        elif key == "itemsCount":
+            suggest = "items_count"
+        elif key == "resultPrefix":
+            suggest = "result_prefix"
+        elif key == "sizeMB":
+            suggest = "size_mb"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseSummaryResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseSummaryResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseSummaryResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
@@ -1307,15 +1632,29 @@ class DatabaseSummaryResultResponse(dict):
         """
         return pulumi.get(self, "status_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseTableResponse(dict):
     """
     Table properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hasRows":
+            suggest = "has_rows"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseTableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseTableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseTableResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  has_rows: bool,
                  name: str):
@@ -1343,15 +1682,29 @@ class DatabaseTableResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileShareResponse(dict):
     """
     File share information with Path, Username, and Password.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileShareResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileShareResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileShareResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: str,
                  password: Optional[str] = None,
@@ -1392,21 +1745,37 @@ class FileShareResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GetUserTablesSqlTaskInputResponse(dict):
     """
     Input for the task that collects user tables for the given list of databases
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionInfo":
+            suggest = "connection_info"
+        elif key == "selectedDatabases":
+            suggest = "selected_databases"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GetUserTablesSqlTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GetUserTablesSqlTaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GetUserTablesSqlTaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_info: 'outputs.SqlConnectionInfoResponse',
                  selected_databases: Sequence[str]):
         """
         Input for the task that collects user tables for the given list of databases
-        :param 'SqlConnectionInfoResponseArgs' connection_info: Connection information for SQL Server
+        :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[str] selected_databases: List of database names to collect tables for
         """
         pulumi.set(__self__, "connection_info", connection_info)
@@ -1428,24 +1797,40 @@ class GetUserTablesSqlTaskInputResponse(dict):
         """
         return pulumi.get(self, "selected_databases")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GetUserTablesSqlTaskOutputResponse(dict):
     """
     Output of the task that collects user tables for the given list of databases
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databasesToTables":
+            suggest = "databases_to_tables"
+        elif key == "validationErrors":
+            suggest = "validation_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GetUserTablesSqlTaskOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GetUserTablesSqlTaskOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GetUserTablesSqlTaskOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  databases_to_tables: Mapping[str, Sequence['outputs.DatabaseTableResponse']],
                  id: str,
                  validation_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output of the task that collects user tables for the given list of databases
-        :param Mapping[str, Sequence['DatabaseTableResponseArgs']] databases_to_tables: Mapping from database name to list of tables
+        :param Mapping[str, Sequence['DatabaseTableResponse']] databases_to_tables: Mapping from database name to list of tables
         :param str id: Result identifier
-        :param Sequence['ReportableExceptionResponseArgs'] validation_errors: Validation errors
+        :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
         pulumi.set(__self__, "databases_to_tables", databases_to_tables)
         pulumi.set(__self__, "id", id)
@@ -1475,15 +1860,29 @@ class GetUserTablesSqlTaskOutputResponse(dict):
         """
         return pulumi.get(self, "validation_errors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GetUserTablesSqlTaskPropertiesResponse(dict):
     """
     Properties for the task that collects user tables for the given list of databases
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GetUserTablesSqlTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GetUserTablesSqlTaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GetUserTablesSqlTaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence['outputs.GetUserTablesSqlTaskOutputResponse'],
@@ -1492,12 +1891,12 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
                  input: Optional['outputs.GetUserTablesSqlTaskInputResponse'] = None):
         """
         Properties for the task that collects user tables for the given list of databases
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['GetUserTablesSqlTaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['GetUserTablesSqlTaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'GetUserTables.Sql'.
-        :param 'GetUserTablesSqlTaskInputResponseArgs' input: Task input
+        :param 'GetUserTablesSqlTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -1547,15 +1946,33 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
     """
     Database specific information for SQL to Azure SQL DB migration task inputs
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "makeSourceDbReadOnly":
+            suggest = "make_source_db_read_only"
+        elif key == "tableMap":
+            suggest = "table_map"
+        elif key == "targetDatabaseName":
+            suggest = "target_database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbDatabaseInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbDatabaseInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbDatabaseInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  make_source_db_read_only: Optional[bool] = None,
                  name: Optional[str] = None,
@@ -1609,15 +2026,35 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
         """
         return pulumi.get(self, "target_database_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskInputResponse(dict):
     """
     Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectedDatabases":
+            suggest = "selected_databases"
+        elif key == "sourceConnectionInfo":
+            suggest = "source_connection_info"
+        elif key == "targetConnectionInfo":
+            suggest = "target_connection_info"
+        elif key == "validationOptions":
+            suggest = "validation_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  selected_databases: Sequence['outputs.MigrateSqlServerSqlDbDatabaseInputResponse'],
                  source_connection_info: 'outputs.SqlConnectionInfoResponse',
@@ -1625,10 +2062,10 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
                  validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
-        :param Sequence['MigrateSqlServerSqlDbDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
-        :param 'MigrationValidationOptionsResponseArgs' validation_options: Options for enabling various post migration validations. Available options, 
+        :param Sequence['MigrateSqlServerSqlDbDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param 'MigrationValidationOptionsResponse' validation_options: Options for enabling various post migration validations. Available options, 
                 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
@@ -1672,12 +2109,48 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
         """
         return pulumi.get(self, "validation_options")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "endedOn":
+            suggest = "ended_on"
+        elif key == "errorCount":
+            suggest = "error_count"
+        elif key == "errorPrefix":
+            suggest = "error_prefix"
+        elif key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+        elif key == "numberOfObjects":
+            suggest = "number_of_objects"
+        elif key == "numberOfObjectsCompleted":
+            suggest = "number_of_objects_completed"
+        elif key == "objectSummary":
+            suggest = "object_summary"
+        elif key == "resultPrefix":
+            suggest = "result_prefix"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  ended_on: str,
@@ -1700,12 +2173,12 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         :param str ended_on: Migration end time
         :param float error_count: Number of database/object errors.
         :param str error_prefix: Wildcard string prefix to use for querying all errors of the item
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
         :param float number_of_objects: Number of objects
         :param float number_of_objects_completed: Number of successfully completed objects
-        :param Mapping[str, 'DataItemMigrationSummaryResultResponseArgs'] object_summary: Summary of object results in the migration
+        :param Mapping[str, 'DataItemMigrationSummaryResultResponse'] object_summary: Summary of object results in the migration
         :param str result_prefix: Wildcard string prefix to use for querying all sub-tem results of the item
         :param str result_type: Result type
                Expected value is 'DatabaseLevelOutput'.
@@ -1860,12 +2333,26 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         """
         return pulumi.get(self, "status_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultType":
+            suggest = "result_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  result_type: str):
@@ -1894,18 +2381,32 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict)
         """
         return pulumi.get(self, "result_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultType":
+            suggest = "result_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskOutputErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskOutputErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskOutputErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error: 'outputs.ReportableExceptionResponse',
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -1939,12 +2440,48 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
         """
         return pulumi.get(self, "result_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseSummary":
+            suggest = "database_summary"
+        elif key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+        elif key == "endedOn":
+            suggest = "ended_on"
+        elif key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "sourceServerBrandVersion":
+            suggest = "source_server_brand_version"
+        elif key == "sourceServerVersion":
+            suggest = "source_server_version"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "statusMessage":
+            suggest = "status_message"
+        elif key == "targetServerBrandVersion":
+            suggest = "target_server_brand_version"
+        elif key == "targetServerVersion":
+            suggest = "target_server_version"
+        elif key == "migrationReportResult":
+            suggest = "migration_report_result"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_summary: Mapping[str, 'outputs.DatabaseSummaryResultResponse'],
                  databases: Mapping[str, str],
@@ -1963,11 +2500,11 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
                  target_server_version: str,
                  migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None):
         """
-        :param Mapping[str, 'DatabaseSummaryResultResponseArgs'] database_summary: Summary of database results in the migration
+        :param Mapping[str, 'DatabaseSummaryResultResponse'] database_summary: Summary of database results in the migration
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param float duration_in_seconds: Duration of task execution in seconds.
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
@@ -1979,7 +2516,7 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         :param str status_message: Migration status message
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
-        :param 'MigrationReportResultResponseArgs' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
+        :param 'MigrationReportResultResponse' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
         """
         pulumi.set(__self__, "database_summary", database_summary)
         pulumi.set(__self__, "databases", databases)
@@ -2128,12 +2665,42 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         """
         return pulumi.get(self, "migration_report_result")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "errorPrefix":
+            suggest = "error_prefix"
+        elif key == "itemsCompletedCount":
+            suggest = "items_completed_count"
+        elif key == "itemsCount":
+            suggest = "items_count"
+        elif key == "objectName":
+            suggest = "object_name"
+        elif key == "resultPrefix":
+            suggest = "result_prefix"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskOutputTableLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskOutputTableLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskOutputTableLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ended_on: str,
                  error_prefix: str,
@@ -2261,12 +2828,26 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
         """
         return pulumi.get(self, "status_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultType":
+            suggest = "result_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskOutputValidationResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskOutputValidationResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskOutputValidationResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  result_type: str):
@@ -2295,15 +2876,29 @@ class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
         """
         return pulumi.get(self, "result_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
     """
     Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlDbTaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlDbTaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlDbTaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence[Any],
@@ -2312,12 +2907,12 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse'] = None):
         """
         Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs', 'MigrateSqlServerSqlDbTaskOutputErrorResponseArgs', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs', 'MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse', 'MigrateSqlServerSqlDbTaskOutputErrorResponse', 'MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse', 'MigrateSqlServerSqlDbTaskOutputTableLevelResponse', 'MigrateSqlServerSqlDbTaskOutputValidationResultResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.SqlDb'.
-        :param 'MigrateSqlServerSqlDbTaskInputResponseArgs' input: Task input
+        :param 'MigrateSqlServerSqlDbTaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -2367,15 +2962,31 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
     """
     Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restoreDatabaseName":
+            suggest = "restore_database_name"
+        elif key == "backupFileShare":
+            suggest = "backup_file_share"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMIDatabaseInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMIDatabaseInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMIDatabaseInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  restore_database_name: str,
@@ -2384,7 +2995,7 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
         Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
         :param str name: Name of the database
         :param str restore_database_name: Name of the database at destination
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for backing up this database.
+        :param 'FileShareResponse' backup_file_share: Backup file share information for backing up this database.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "restore_database_name", restore_database_name)
@@ -2415,15 +3026,41 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
         """
         return pulumi.get(self, "backup_file_share")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskInputResponse(dict):
     """
     Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupBlobShare":
+            suggest = "backup_blob_share"
+        elif key == "selectedDatabases":
+            suggest = "selected_databases"
+        elif key == "sourceConnectionInfo":
+            suggest = "source_connection_info"
+        elif key == "targetConnectionInfo":
+            suggest = "target_connection_info"
+        elif key == "backupFileShare":
+            suggest = "backup_file_share"
+        elif key == "selectedAgentJobs":
+            suggest = "selected_agent_jobs"
+        elif key == "selectedLogins":
+            suggest = "selected_logins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_blob_share: 'outputs.BlobShareResponse',
                  selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse'],
@@ -2434,11 +3071,11 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
                  selected_logins: Optional[Sequence[str]] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
-        :param 'BlobShareResponseArgs' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
-        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' source_connection_info: Information for connecting to source
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         :param Sequence[str] selected_agent_jobs: Agent Jobs to migrate.
         :param Sequence[str] selected_logins: Logins to migrate.
         """
@@ -2509,12 +3146,34 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
         """
         return pulumi.get(self, "selected_logins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "startedOn":
+            suggest = "started_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ended_on: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
@@ -2527,7 +3186,7 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
                  state: str):
         """
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration errors and warnings per job
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration errors and warnings per job
         :param str id: Result identifier
         :param bool is_enabled: The state of the original AgentJob.
         :param str message: Migration progress message
@@ -2620,12 +3279,36 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "endedOn":
+            suggest = "ended_on"
+        elif key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "sizeMB":
+            suggest = "size_mb"
+        elif key == "startedOn":
+            suggest = "started_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  ended_on: str,
@@ -2640,7 +3323,7 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
         """
         :param str database_name: Name of the database
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings
         :param str id: Result identifier
         :param str message: Migration progress message
         :param str result_type: Result type
@@ -2742,18 +3425,32 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultType":
+            suggest = "result_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskOutputErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskOutputErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskOutputErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error: 'outputs.ReportableExceptionResponse',
                  id: str,
                  result_type: str):
         """
-        :param 'ReportableExceptionResponseArgs' error: Migration error
+        :param 'ReportableExceptionResponse' error: Migration error
         :param str id: Result identifier
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
@@ -2787,12 +3484,34 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
         """
         return pulumi.get(self, "result_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+        elif key == "loginName":
+            suggest = "login_name"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "startedOn":
+            suggest = "started_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskOutputLoginLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskOutputLoginLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskOutputLoginLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ended_on: str,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
@@ -2805,7 +3524,7 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
                  state: str):
         """
         :param str ended_on: Login migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Login migration errors and warnings per login
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Login migration errors and warnings per login
         :param str id: Result identifier
         :param str login_name: Login name.
         :param str message: Login migration progress message
@@ -2898,12 +3617,46 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentJobs":
+            suggest = "agent_jobs"
+        elif key == "endedOn":
+            suggest = "ended_on"
+        elif key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+        elif key == "orphanedUsers":
+            suggest = "orphaned_users"
+        elif key == "resultType":
+            suggest = "result_type"
+        elif key == "serverRoleResults":
+            suggest = "server_role_results"
+        elif key == "sourceServerBrandVersion":
+            suggest = "source_server_brand_version"
+        elif key == "sourceServerVersion":
+            suggest = "source_server_version"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "targetServerBrandVersion":
+            suggest = "target_server_brand_version"
+        elif key == "targetServerVersion":
+            suggest = "target_server_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskOutputMigrationLevelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskOutputMigrationLevelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskOutputMigrationLevelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agent_jobs: Mapping[str, str],
                  databases: Mapping[str, str],
@@ -2926,14 +3679,14 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
         :param Mapping[str, str] agent_jobs: Selected agent jobs as a map from name to id
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param str ended_on: Migration end time
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str id: Result identifier
         :param Mapping[str, str] logins: Selected logins as a map from name to id
         :param str message: Migration progress message
         :param Mapping[str, str] orphaned_users: Map of users to database name of orphaned users.
         :param str result_type: Result type
                Expected value is 'MigrationLevelOutput'.
-        :param Mapping[str, 'StartMigrationScenarioServerRoleResultResponseArgs'] server_role_results: Map of server role migration results.
+        :param Mapping[str, 'StartMigrationScenarioServerRoleResultResponse'] server_role_results: Map of server role migration results.
         :param str source_server_brand_version: Source server brand version
         :param str source_server_version: Source server version
         :param str started_on: Migration start time
@@ -3097,15 +3850,29 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
         """
         return pulumi.get(self, "target_server_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
     """
     Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateSqlServerSqlMITaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateSqlServerSqlMITaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateSqlServerSqlMITaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence[Any],
@@ -3114,12 +3881,12 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.MigrateSqlServerSqlMITaskInputResponse'] = None):
         """
         Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence[Union['MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputErrorResponseArgs', 'MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs', 'MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs']] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence[Union['MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse', 'MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse', 'MigrateSqlServerSqlMITaskOutputErrorResponse', 'MigrateSqlServerSqlMITaskOutputLoginLevelResponse', 'MigrateSqlServerSqlMITaskOutputMigrationLevelResponse']] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'Migrate.SqlServer.AzureSqlDbMI'.
-        :param 'MigrateSqlServerSqlMITaskInputResponseArgs' input: Task input
+        :param 'MigrateSqlServerSqlMITaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -3169,15 +3936,31 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "input")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrationEligibilityInfoResponse(dict):
     """
     Information about migration eligibility of a server object
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEligibleForMigration":
+            suggest = "is_eligible_for_migration"
+        elif key == "validationMessages":
+            suggest = "validation_messages"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationEligibilityInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationEligibilityInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationEligibilityInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_eligible_for_migration: bool,
                  validation_messages: Sequence[str]):
@@ -3205,15 +3988,29 @@ class MigrationEligibilityInfoResponse(dict):
         """
         return pulumi.get(self, "validation_messages")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrationReportResultResponse(dict):
     """
     Migration validation report result, contains the url for downloading the generated report.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportUrl":
+            suggest = "report_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationReportResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationReportResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationReportResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  report_url: Optional[str] = None):
@@ -3243,15 +4040,33 @@ class MigrationReportResultResponse(dict):
         """
         return pulumi.get(self, "report_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MigrationValidationOptionsResponse(dict):
     """
     Types of validations to run after the migration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDataIntegrityValidation":
+            suggest = "enable_data_integrity_validation"
+        elif key == "enableQueryAnalysisValidation":
+            suggest = "enable_query_analysis_validation"
+        elif key == "enableSchemaValidation":
+            suggest = "enable_schema_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationValidationOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationValidationOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationValidationOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable_data_integrity_validation: Optional[bool] = None,
                  enable_query_analysis_validation: Optional[bool] = None,
@@ -3293,9 +4108,6 @@ class MigrationValidationOptionsResponse(dict):
         """
         return pulumi.get(self, "enable_schema_validation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ODataErrorResponse(dict):
@@ -3309,7 +4121,7 @@ class ODataErrorResponse(dict):
         """
         Error information in OData format.
         :param str code: The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
-        :param Sequence['ODataErrorResponseArgs'] details: Inner errors that caused this error
+        :param Sequence['ODataErrorResponse'] details: Inner errors that caused this error
         :param str message: The human-readable description of the error
         """
         if code is not None:
@@ -3343,15 +4155,35 @@ class ODataErrorResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReportableExceptionResponse(dict):
     """
     Exception object for all custom exceptions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePath":
+            suggest = "file_path"
+        elif key == "hResult":
+            suggest = "h_result"
+        elif key == "lineNumber":
+            suggest = "line_number"
+        elif key == "stackTrace":
+            suggest = "stack_trace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportableExceptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportableExceptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportableExceptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  file_path: Optional[str] = None,
                  h_result: Optional[int] = None,
@@ -3416,9 +4248,6 @@ class ReportableExceptionResponse(dict):
         Stack trace
         """
         return pulumi.get(self, "stack_trace")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3491,15 +4320,37 @@ class ServiceSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlConnectionInfoResponse(dict):
     """
     Information for connecting to SQL database server
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "additionalSettings":
+            suggest = "additional_settings"
+        elif key == "encryptConnection":
+            suggest = "encrypt_connection"
+        elif key == "trustServerCertificate":
+            suggest = "trust_server_certificate"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlConnectionInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlConnectionInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlConnectionInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source: str,
                  type: str,
@@ -3605,22 +4456,36 @@ class SqlConnectionInfoResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StartMigrationScenarioServerRoleResultResponse(dict):
     """
     Server role migration result
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exceptionsAndWarnings":
+            suggest = "exceptions_and_warnings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StartMigrationScenarioServerRoleResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StartMigrationScenarioServerRoleResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StartMigrationScenarioServerRoleResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  exceptions_and_warnings: Sequence['outputs.ReportableExceptionResponse'],
                  name: str,
                  state: str):
         """
         Server role migration result
-        :param Sequence['ReportableExceptionResponseArgs'] exceptions_and_warnings: Migration exceptions and warnings.
+        :param Sequence['ReportableExceptionResponse'] exceptions_and_warnings: Migration exceptions and warnings.
         :param str name: Name of server role.
         :param str state: Current state of migration
         """
@@ -3652,15 +4517,35 @@ class StartMigrationScenarioServerRoleResultResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
     """
     Input for task that validates migration input for SQL to Azure SQL Managed Instance
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupBlobShare":
+            suggest = "backup_blob_share"
+        elif key == "selectedDatabases":
+            suggest = "selected_databases"
+        elif key == "targetConnectionInfo":
+            suggest = "target_connection_info"
+        elif key == "backupFileShare":
+            suggest = "backup_file_share"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ValidateMigrationInputSqlServerSqlMITaskInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ValidateMigrationInputSqlServerSqlMITaskInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ValidateMigrationInputSqlServerSqlMITaskInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_blob_share: 'outputs.BlobShareResponse',
                  selected_databases: Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse'],
@@ -3668,10 +4553,10 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
                  backup_file_share: Optional['outputs.FileShareResponse'] = None):
         """
         Input for task that validates migration input for SQL to Azure SQL Managed Instance
-        :param 'BlobShareResponseArgs' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
-        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponseArgs'] selected_databases: Databases to migrate
-        :param 'SqlConnectionInfoResponseArgs' target_connection_info: Information for connecting to target
-        :param 'FileShareResponseArgs' backup_file_share: Backup file share information for all selected databases.
+        :param 'BlobShareResponse' backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
+        :param Sequence['MigrateSqlServerSqlMIDatabaseInputResponse'] selected_databases: Databases to migrate
+        :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
+        :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         """
         pulumi.set(__self__, "backup_blob_share", backup_blob_share)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -3711,15 +4596,35 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
         """
         return pulumi.get(self, "backup_file_share")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
     """
     Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupFolderErrors":
+            suggest = "backup_folder_errors"
+        elif key == "backupShareCredentialsErrors":
+            suggest = "backup_share_credentials_errors"
+        elif key == "backupStorageAccountErrors":
+            suggest = "backup_storage_account_errors"
+        elif key == "restoreDatabaseNameErrors":
+            suggest = "restore_database_name_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ValidateMigrationInputSqlServerSqlMITaskOutputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ValidateMigrationInputSqlServerSqlMITaskOutputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ValidateMigrationInputSqlServerSqlMITaskOutputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backup_folder_errors: Sequence['outputs.ReportableExceptionResponse'],
                  backup_share_credentials_errors: Sequence['outputs.ReportableExceptionResponse'],
@@ -3729,12 +4634,12 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
                  restore_database_name_errors: Sequence['outputs.ReportableExceptionResponse']):
         """
         Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
-        :param Sequence['ReportableExceptionResponseArgs'] backup_folder_errors: Errors associated with the BackupFolder path
-        :param Sequence['ReportableExceptionResponseArgs'] backup_share_credentials_errors: Errors associated with backup share user name and password credentials
-        :param Sequence['ReportableExceptionResponseArgs'] backup_storage_account_errors: Errors associated with the storage account provided.
+        :param Sequence['ReportableExceptionResponse'] backup_folder_errors: Errors associated with the BackupFolder path
+        :param Sequence['ReportableExceptionResponse'] backup_share_credentials_errors: Errors associated with backup share user name and password credentials
+        :param Sequence['ReportableExceptionResponse'] backup_storage_account_errors: Errors associated with the storage account provided.
         :param str id: Result identifier
         :param str name: Name of database
-        :param Sequence['ReportableExceptionResponseArgs'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
+        :param Sequence['ReportableExceptionResponse'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
         """
         pulumi.set(__self__, "backup_folder_errors", backup_folder_errors)
         pulumi.set(__self__, "backup_share_credentials_errors", backup_share_credentials_errors)
@@ -3791,15 +4696,29 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
         """
         return pulumi.get(self, "restore_database_name_errors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
     """
     Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  errors: Sequence['outputs.ODataErrorResponse'],
                  output: Sequence['outputs.ValidateMigrationInputSqlServerSqlMITaskOutputResponse'],
@@ -3808,12 +4727,12 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
                  input: Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputResponse'] = None):
         """
         Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
-        :param Sequence['ODataErrorResponseArgs'] errors: Array of errors. This is ignored if submitted.
-        :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs'] output: Task output. This is ignored if submitted.
+        :param Sequence['ODataErrorResponse'] errors: Array of errors. This is ignored if submitted.
+        :param Sequence['ValidateMigrationInputSqlServerSqlMITaskOutputResponse'] output: Task output. This is ignored if submitted.
         :param str state: The state of the task. This is ignored if submitted.
         :param str task_type: Task type.
                Expected value is 'ValidateMigrationInput.SqlServer.AzureSqlDbMI'.
-        :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs' input: Task input
+        :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponse' input: Task input
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "output", output)
@@ -3862,8 +4781,5 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
         Task input
         """
         return pulumi.get(self, "input")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

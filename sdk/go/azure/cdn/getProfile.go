@@ -4,7 +4,7 @@
 package cdn
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.

@@ -136,7 +136,7 @@ export interface SqlResourceSqlTriggerArgs {
     /**
      * The standard JSON format of a trigger
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlTriggerResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20190801.SqlTriggerResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

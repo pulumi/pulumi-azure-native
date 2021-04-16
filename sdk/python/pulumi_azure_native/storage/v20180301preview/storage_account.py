@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -248,9 +248,7 @@ class StorageAccount(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The storage account.
 
@@ -307,15 +305,7 @@ class StorageAccount(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,42 +315,42 @@ class StorageAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
-            __props__['access_tier'] = access_tier
-            __props__['account_name'] = account_name
-            __props__['custom_domain'] = custom_domain
+            __props__.__dict__["access_tier"] = access_tier
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["custom_domain"] = custom_domain
             if enable_https_traffic_only is None:
                 enable_https_traffic_only = False
-            __props__['enable_https_traffic_only'] = enable_https_traffic_only
-            __props__['encryption'] = encryption
-            __props__['identity'] = identity
+            __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["identity"] = identity
             if is_hns_enabled is None:
                 is_hns_enabled = False
-            __props__['is_hns_enabled'] = is_hns_enabled
+            __props__.__dict__["is_hns_enabled"] = is_hns_enabled
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['network_rule_set'] = network_rule_set
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_rule_set"] = network_rule_set
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['creation_time'] = None
-            __props__['last_geo_failover_time'] = None
-            __props__['name'] = None
-            __props__['primary_endpoints'] = None
-            __props__['primary_location'] = None
-            __props__['provisioning_state'] = None
-            __props__['secondary_endpoints'] = None
-            __props__['secondary_location'] = None
-            __props__['status_of_primary'] = None
-            __props__['status_of_secondary'] = None
-            __props__['type'] = None
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["last_geo_failover_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["primary_endpoints"] = None
+            __props__.__dict__["primary_location"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["secondary_endpoints"] = None
+            __props__.__dict__["secondary_location"] = None
+            __props__.__dict__["status_of_primary"] = None
+            __props__.__dict__["status_of_secondary"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
@@ -383,30 +373,30 @@ class StorageAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
-        __props__["access_tier"] = None
-        __props__["creation_time"] = None
-        __props__["custom_domain"] = None
-        __props__["enable_https_traffic_only"] = None
-        __props__["encryption"] = None
-        __props__["identity"] = None
-        __props__["is_hns_enabled"] = None
-        __props__["kind"] = None
-        __props__["last_geo_failover_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["network_rule_set"] = None
-        __props__["primary_endpoints"] = None
-        __props__["primary_location"] = None
-        __props__["provisioning_state"] = None
-        __props__["secondary_endpoints"] = None
-        __props__["secondary_location"] = None
-        __props__["sku"] = None
-        __props__["status_of_primary"] = None
-        __props__["status_of_secondary"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["access_tier"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["custom_domain"] = None
+        __props__.__dict__["enable_https_traffic_only"] = None
+        __props__.__dict__["encryption"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["is_hns_enabled"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_geo_failover_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_rule_set"] = None
+        __props__.__dict__["primary_endpoints"] = None
+        __props__.__dict__["primary_location"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["secondary_endpoints"] = None
+        __props__.__dict__["secondary_location"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["status_of_primary"] = None
+        __props__.__dict__["status_of_secondary"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -584,10 +574,4 @@ class StorageAccount(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['WCFRelayArgs', 'WCFRelay']
@@ -141,9 +141,7 @@ class WCFRelay(pulumi.CustomResource):
                  requires_transport_security: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of WcfRelays Resource.
 
@@ -188,15 +186,7 @@ class WCFRelay(pulumi.CustomResource):
                  requires_transport_security: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,25 +196,25 @@ class WCFRelay(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WCFRelayArgs.__new__(WCFRelayArgs)
 
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
-            __props__['relay_name'] = relay_name
-            __props__['relay_type'] = relay_type
-            __props__['requires_client_authorization'] = requires_client_authorization
-            __props__['requires_transport_security'] = requires_transport_security
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["relay_name"] = relay_name
+            __props__.__dict__["relay_type"] = relay_type
+            __props__.__dict__["requires_client_authorization"] = requires_client_authorization
+            __props__.__dict__["requires_transport_security"] = requires_transport_security
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['user_metadata'] = user_metadata
-            __props__['created_at'] = None
-            __props__['is_dynamic'] = None
-            __props__['listener_count'] = None
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["user_metadata"] = user_metadata
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["is_dynamic"] = None
+            __props__.__dict__["listener_count"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay/v20160701:WCFRelay"), pulumi.Alias(type_="azure-native:relay:WCFRelay"), pulumi.Alias(type_="azure-nextgen:relay:WCFRelay"), pulumi.Alias(type_="azure-native:relay/v20170401:WCFRelay"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:WCFRelay")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WCFRelay, __self__).__init__(
@@ -247,18 +237,18 @@ class WCFRelay(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WCFRelayArgs.__new__(WCFRelayArgs)
 
-        __props__["created_at"] = None
-        __props__["is_dynamic"] = None
-        __props__["listener_count"] = None
-        __props__["name"] = None
-        __props__["relay_type"] = None
-        __props__["requires_client_authorization"] = None
-        __props__["requires_transport_security"] = None
-        __props__["type"] = None
-        __props__["updated_at"] = None
-        __props__["user_metadata"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["is_dynamic"] = None
+        __props__.__dict__["listener_count"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["relay_type"] = None
+        __props__.__dict__["requires_client_authorization"] = None
+        __props__.__dict__["requires_transport_security"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_at"] = None
+        __props__.__dict__["user_metadata"] = None
         return WCFRelay(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -340,10 +330,4 @@ class WCFRelay(pulumi.CustomResource):
         usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
         return pulumi.get(self, "user_metadata")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

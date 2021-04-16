@@ -114,7 +114,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Properties of the private endpoint endpoint connection.
      */
-    readonly properties: pulumi.Input<inputs.migrate.PrivateEndpointConnectionProperties>;
+    readonly properties: pulumi.Input<inputs.migrate.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

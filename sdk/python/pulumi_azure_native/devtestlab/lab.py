@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -233,9 +233,7 @@ class Lab(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  support: Optional[pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A lab.
         API Version: 2018-09-15.
@@ -294,15 +292,7 @@ class Lab(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  support: Optional[pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,35 +302,35 @@ class Lab(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LabArgs.__new__(LabArgs)
 
-            __props__['announcement'] = announcement
-            __props__['environment_permission'] = environment_permission
-            __props__['extended_properties'] = extended_properties
-            __props__['lab_storage_type'] = lab_storage_type
-            __props__['location'] = location
-            __props__['mandatory_artifacts_resource_ids_linux'] = mandatory_artifacts_resource_ids_linux
-            __props__['mandatory_artifacts_resource_ids_windows'] = mandatory_artifacts_resource_ids_windows
-            __props__['name'] = name
-            __props__['premium_data_disks'] = premium_data_disks
+            __props__.__dict__["announcement"] = announcement
+            __props__.__dict__["environment_permission"] = environment_permission
+            __props__.__dict__["extended_properties"] = extended_properties
+            __props__.__dict__["lab_storage_type"] = lab_storage_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["mandatory_artifacts_resource_ids_linux"] = mandatory_artifacts_resource_ids_linux
+            __props__.__dict__["mandatory_artifacts_resource_ids_windows"] = mandatory_artifacts_resource_ids_windows
+            __props__.__dict__["name"] = name
+            __props__.__dict__["premium_data_disks"] = premium_data_disks
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['support'] = support
-            __props__['tags'] = tags
-            __props__['artifacts_storage_account'] = None
-            __props__['created_date'] = None
-            __props__['default_premium_storage_account'] = None
-            __props__['default_storage_account'] = None
-            __props__['load_balancer_id'] = None
-            __props__['network_security_group_id'] = None
-            __props__['premium_data_disk_storage_account'] = None
-            __props__['provisioning_state'] = None
-            __props__['public_ip_id'] = None
-            __props__['type'] = None
-            __props__['unique_identifier'] = None
-            __props__['vault_name'] = None
-            __props__['vm_creation_resource_group'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["support"] = support
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["artifacts_storage_account"] = None
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["default_premium_storage_account"] = None
+            __props__.__dict__["default_storage_account"] = None
+            __props__.__dict__["load_balancer_id"] = None
+            __props__.__dict__["network_security_group_id"] = None
+            __props__.__dict__["premium_data_disk_storage_account"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_ip_id"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["unique_identifier"] = None
+            __props__.__dict__["vault_name"] = None
+            __props__.__dict__["vm_creation_resource_group"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:Lab"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:Lab"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Lab"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
@@ -363,32 +353,32 @@ class Lab(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = LabArgs.__new__(LabArgs)
 
-        __props__["announcement"] = None
-        __props__["artifacts_storage_account"] = None
-        __props__["created_date"] = None
-        __props__["default_premium_storage_account"] = None
-        __props__["default_storage_account"] = None
-        __props__["environment_permission"] = None
-        __props__["extended_properties"] = None
-        __props__["lab_storage_type"] = None
-        __props__["load_balancer_id"] = None
-        __props__["location"] = None
-        __props__["mandatory_artifacts_resource_ids_linux"] = None
-        __props__["mandatory_artifacts_resource_ids_windows"] = None
-        __props__["name"] = None
-        __props__["network_security_group_id"] = None
-        __props__["premium_data_disk_storage_account"] = None
-        __props__["premium_data_disks"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_ip_id"] = None
-        __props__["support"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["unique_identifier"] = None
-        __props__["vault_name"] = None
-        __props__["vm_creation_resource_group"] = None
+        __props__.__dict__["announcement"] = None
+        __props__.__dict__["artifacts_storage_account"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["default_premium_storage_account"] = None
+        __props__.__dict__["default_storage_account"] = None
+        __props__.__dict__["environment_permission"] = None
+        __props__.__dict__["extended_properties"] = None
+        __props__.__dict__["lab_storage_type"] = None
+        __props__.__dict__["load_balancer_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["mandatory_artifacts_resource_ids_linux"] = None
+        __props__.__dict__["mandatory_artifacts_resource_ids_windows"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_security_group_id"] = None
+        __props__.__dict__["premium_data_disk_storage_account"] = None
+        __props__.__dict__["premium_data_disks"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_ip_id"] = None
+        __props__.__dict__["support"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unique_identifier"] = None
+        __props__.__dict__["vault_name"] = None
+        __props__.__dict__["vm_creation_resource_group"] = None
         return Lab(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -584,10 +574,4 @@ class Lab(pulumi.CustomResource):
         The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
         """
         return pulumi.get(self, "vm_creation_resource_group")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -182,7 +182,7 @@ export interface ServerFarmArgs {
     /**
      * Specification for the hosting environment (App Service Environment) to use for the App Service Plan
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
     /**
      * Resource Id
      */
@@ -219,7 +219,7 @@ export interface ServerFarmArgs {
     /**
      * Describes a sku for a scalable resource
      */
-    readonly sku?: pulumi.Input<inputs.web.v20150801.SkuDescription>;
+    readonly sku?: pulumi.Input<inputs.web.v20150801.SkuDescriptionArgs>;
     /**
      * Resource tags
      */

@@ -193,7 +193,7 @@ export interface ApplicationGroupArgs {
      * HostPool arm path of ApplicationGroup.
      */
     readonly hostPoolArmPath: pulumi.Input<string>;
-    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentity>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
@@ -209,13 +209,13 @@ export interface ApplicationGroupArgs {
     /**
      * The registration info of HostPool.
      */
-    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.MigrationRequestProperties>;
-    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlan>;
+    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.MigrationRequestPropertiesArgs>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSku>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */

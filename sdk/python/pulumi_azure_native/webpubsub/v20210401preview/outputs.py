@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -39,7 +39,7 @@ class EventHandlerSettingsResponse(dict):
                  items: Optional[Mapping[str, Sequence['outputs.EventHandlerTemplateResponse']]] = None):
         """
         The settings for event handler in webpubsub service
-        :param Mapping[str, Sequence['EventHandlerTemplateResponseArgs']] items: Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
+        :param Mapping[str, Sequence['EventHandlerTemplateResponse']] items: Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
         """
         if items is not None:
             pulumi.set(__self__, "items", items)
@@ -52,15 +52,33 @@ class EventHandlerSettingsResponse(dict):
         """
         return pulumi.get(self, "items")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventHandlerTemplateResponse(dict):
     """
     EventHandler template item settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "urlTemplate":
+            suggest = "url_template"
+        elif key == "systemEventPattern":
+            suggest = "system_event_pattern"
+        elif key == "userEventPattern":
+            suggest = "user_event_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHandlerTemplateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHandlerTemplateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHandlerTemplateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url_template: str,
                  auth: Optional['outputs.UpstreamAuthSettingsResponse'] = None,
@@ -70,7 +88,7 @@ class EventHandlerTemplateResponse(dict):
         EventHandler template item settings.
         :param str url_template: Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.
                For example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters.
-        :param 'UpstreamAuthSettingsResponseArgs' auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
+        :param 'UpstreamAuthSettingsResponse' auth: Gets or sets the auth settings for an event handler. If not set, no auth is used.
         :param str system_event_pattern: Gets ot sets the system event pattern.
                There are 2 kind of patterns supported:
                    1. The single event name, for example, "connect", it matches "connect"
@@ -129,15 +147,33 @@ class EventHandlerTemplateResponse(dict):
         """
         return pulumi.get(self, "user_event_pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedIdentityResponse(dict):
     """
     A class represent managed identities used for request and response
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -150,7 +186,7 @@ class ManagedIdentityResponse(dict):
         :param str tenant_id: Get the tenant id for the system assigned identity.
                Only be used in response
         :param str type: Represent the identity type: systemAssigned, userAssigned, None
-        :param Mapping[str, 'UserAssignedIdentityPropertyResponseArgs'] user_assigned_identities: Get or set the user assigned identities
+        :param Mapping[str, 'UserAssignedIdentityPropertyResponse'] user_assigned_identities: Get or set the user assigned identities
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -193,9 +229,6 @@ class ManagedIdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedIdentitySettingsResponse(dict):
@@ -220,9 +253,6 @@ class ManagedIdentitySettingsResponse(dict):
         It also appears in the aud (audience) claim of the issued token.
         """
         return pulumi.get(self, "resource")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -258,9 +288,6 @@ class NetworkACLResponse(dict):
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "deny")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -308,15 +335,35 @@ class PrivateEndpointACLResponse(dict):
         """
         return pulumi.get(self, "deny")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection to an azure resource
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -330,10 +377,10 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: Fully qualified resource Id for the resource.
         :param str name: The name of the resource.
         :param str provisioning_state: Provisioning state of the private endpoint connection
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        :param 'PrivateEndpointResponseArgs' private_endpoint: Private endpoint associated with the private endpoint connection
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: Connection state
+        :param 'PrivateEndpointResponse' private_endpoint: Private endpoint associated with the private endpoint connection
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -401,9 +448,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -427,15 +471,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     Connection state of the private endpoint connection
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -476,9 +534,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -564,15 +619,37 @@ class ResourceSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedPrivateLinkResourceResponse(dict):
     """
     Describes a Shared Private Link Resource
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "privateLinkResourceId":
+            suggest = "private_link_resource_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedPrivateLinkResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedPrivateLinkResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedPrivateLinkResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_id: str,
                  id: str,
@@ -591,7 +668,7 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str private_link_resource_id: The resource id of the resource the shared private link resource is for
         :param str provisioning_state: Provisioning state of the shared private link resource
         :param str status: Status of the shared private link resource
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         :param str request_message: The request message for requesting approval of the shared private link resource
         """
@@ -678,15 +755,39 @@ class SharedPrivateLinkResourceResponse(dict):
         """
         return pulumi.get(self, "request_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -764,21 +865,35 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UpstreamAuthSettingsResponse(dict):
     """
     Upstream auth settings.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedIdentity":
+            suggest = "managed_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamAuthSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamAuthSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamAuthSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_identity: Optional['outputs.ManagedIdentitySettingsResponse'] = None,
                  type: Optional[str] = None):
         """
         Upstream auth settings.
-        :param 'ManagedIdentitySettingsResponseArgs' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
+        :param 'ManagedIdentitySettingsResponse' managed_identity: Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
         :param str type: Gets or sets the type of auth. None or ManagedIdentity is supported now.
         """
         if managed_identity is not None:
@@ -802,15 +917,31 @@ class UpstreamAuthSettingsResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserAssignedIdentityPropertyResponse(dict):
     """
     Properties of user assigned identity.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str):
@@ -837,9 +968,6 @@ class UserAssignedIdentityPropertyResponse(dict):
         Get the principal id for the user assigned identity
         """
         return pulumi.get(self, "principal_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -894,15 +1022,33 @@ class WebPubSubFeatureResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebPubSubNetworkACLsResponse(dict):
     """
     Network ACLs for the resource
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "privateEndpoints":
+            suggest = "private_endpoints"
+        elif key == "publicNetwork":
+            suggest = "public_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebPubSubNetworkACLsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebPubSubNetworkACLsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebPubSubNetworkACLsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
                  private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLResponse']] = None,
@@ -910,8 +1056,8 @@ class WebPubSubNetworkACLsResponse(dict):
         """
         Network ACLs for the resource
         :param str default_action: Default action when no other rule matches
-        :param Sequence['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
-        :param 'NetworkACLResponseArgs' public_network: ACL for requests from public network
+        :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
+        :param 'NetworkACLResponse' public_network: ACL for requests from public network
         """
         if default_action is None:
             default_action = 'Deny'
@@ -946,15 +1092,29 @@ class WebPubSubNetworkACLsResponse(dict):
         """
         return pulumi.get(self, "public_network")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebPubSubTlsSettingsResponse(dict):
     """
     TLS settings for the resource
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertEnabled":
+            suggest = "client_cert_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebPubSubTlsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebPubSubTlsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebPubSubTlsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_cert_enabled: Optional[bool] = None):
         """
@@ -971,8 +1131,5 @@ class WebPubSubTlsSettingsResponse(dict):
         Request client certificate during TLS handshake if enabled
         """
         return pulumi.get(self, "client_cert_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

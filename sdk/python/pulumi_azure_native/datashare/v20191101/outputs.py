@@ -6,15 +6,15 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentityResponse',
-    'ScheduledSourceSynchronizationSettingResponseResult',
-    'ShareSubscriptionSynchronizationResponseResult',
-    'ShareSynchronizationResponseResult',
-    'SynchronizationDetailsResponseResult',
+    'ScheduledSourceSynchronizationSettingResponse',
+    'ShareSubscriptionSynchronizationResponse',
+    'ShareSynchronizationResponse',
+    'SynchronizationDetailsResponse',
 ]
 
 @pulumi.output_type
@@ -22,6 +22,25 @@ class IdentityResponse(dict):
     """
     Identity of resource
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -61,12 +80,9 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ScheduledSourceSynchronizationSettingResponseResult(dict):
+class ScheduledSourceSynchronizationSettingResponse(dict):
     """
     A type of synchronization setting based on schedule
     """
@@ -114,7 +130,7 @@ class ScheduledSourceSynchronizationSettingResponseResult(dict):
 
 
 @pulumi.output_type
-class ShareSubscriptionSynchronizationResponseResult(dict):
+class ShareSubscriptionSynchronizationResponse(dict):
     """
     A ShareSubscriptionSynchronization data transfer object.
     """
@@ -202,7 +218,7 @@ class ShareSubscriptionSynchronizationResponseResult(dict):
 
 
 @pulumi.output_type
-class ShareSynchronizationResponseResult(dict):
+class ShareSynchronizationResponse(dict):
     """
     A ShareSynchronization data transfer object.
     """
@@ -332,7 +348,7 @@ class ShareSynchronizationResponseResult(dict):
 
 
 @pulumi.output_type
-class SynchronizationDetailsResponseResult(dict):
+class SynchronizationDetailsResponse(dict):
     """
     Synchronization details at data set level
     """

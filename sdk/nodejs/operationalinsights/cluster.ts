@@ -170,7 +170,7 @@ export interface ClusterArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.operationalinsights.Identity>;
+    readonly identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs>;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
@@ -182,7 +182,7 @@ export interface ClusterArgs {
     /**
      * The associated key properties.
      */
-    readonly keyVaultProperties?: pulumi.Input<inputs.operationalinsights.KeyVaultProperties>;
+    readonly keyVaultProperties?: pulumi.Input<inputs.operationalinsights.KeyVaultPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -194,7 +194,7 @@ export interface ClusterArgs {
     /**
      * The sku properties.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.ClusterSku>;
+    readonly sku?: pulumi.Input<inputs.operationalinsights.ClusterSkuArgs>;
     /**
      * Resource tags.
      */

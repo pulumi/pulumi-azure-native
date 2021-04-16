@@ -157,11 +157,11 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Configuration of OpenShift cluster VMs.
      */
-    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftManagedClusterAgentPoolProfile>[]>;
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftManagedClusterAgentPoolProfileArgs>[]>;
     /**
      * Configures OpenShift authentication.
      */
-    readonly authProfile?: pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftManagedClusterAuthProfile>;
+    readonly authProfile?: pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftManagedClusterAuthProfileArgs>;
     /**
      * User-specified FQDN for OpenShift API server loadbalancer internal hostname.
      */
@@ -173,11 +173,11 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Configuration for OpenShift master VMs.
      */
-    readonly masterPoolProfile?: pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftManagedClusterMasterPoolProfile>;
+    readonly masterPoolProfile?: pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftManagedClusterMasterPoolProfileArgs>;
     /**
      * Configuration for OpenShift networking.
      */
-    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20180930preview.NetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20180930preview.NetworkProfileArgs>;
     /**
      * Version of OpenShift specified when creating the cluster.
      */
@@ -185,7 +185,7 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    readonly plan?: pulumi.Input<inputs.containerservice.v20180930preview.PurchasePlan>;
+    readonly plan?: pulumi.Input<inputs.containerservice.v20180930preview.PurchasePlanArgs>;
     /**
      * Optional user-specified FQDN for OpenShift API server.
      */
@@ -201,7 +201,7 @@ export interface OpenShiftManagedClusterArgs {
     /**
      * Configuration for OpenShift router(s).
      */
-    readonly routerProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftRouterProfile>[]>;
+    readonly routerProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20180930preview.OpenShiftRouterProfileArgs>[]>;
     /**
      * Resource tags
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ProjectArgs', 'Project']
@@ -159,9 +159,7 @@ class Project(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Azure Migrate Project.
 
@@ -208,15 +206,7 @@ class Project(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,29 +216,29 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProjectArgs.__new__(ProjectArgs)
 
-            __props__['customer_workspace_id'] = customer_workspace_id
-            __props__['customer_workspace_location'] = customer_workspace_location
-            __props__['e_tag'] = e_tag
-            __props__['location'] = location
-            __props__['project_name'] = project_name
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["customer_workspace_id"] = customer_workspace_id
+            __props__.__dict__["customer_workspace_location"] = customer_workspace_location
+            __props__.__dict__["e_tag"] = e_tag
+            __props__.__dict__["location"] = location
+            __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['created_timestamp'] = None
-            __props__['discovery_status'] = None
-            __props__['last_assessment_timestamp'] = None
-            __props__['last_discovery_session_id'] = None
-            __props__['last_discovery_timestamp'] = None
-            __props__['name'] = None
-            __props__['number_of_assessments'] = None
-            __props__['number_of_groups'] = None
-            __props__['number_of_machines'] = None
-            __props__['type'] = None
-            __props__['updated_timestamp'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["created_timestamp"] = None
+            __props__.__dict__["discovery_status"] = None
+            __props__.__dict__["last_assessment_timestamp"] = None
+            __props__.__dict__["last_discovery_session_id"] = None
+            __props__.__dict__["last_discovery_timestamp"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["number_of_assessments"] = None
+            __props__.__dict__["number_of_groups"] = None
+            __props__.__dict__["number_of_machines"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_timestamp"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20180202:Project"), pulumi.Alias(type_="azure-native:migrate/v20171111preview:Project"), pulumi.Alias(type_="azure-nextgen:migrate/v20171111preview:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
@@ -271,25 +261,25 @@ class Project(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProjectArgs.__new__(ProjectArgs)
 
-        __props__["created_timestamp"] = None
-        __props__["customer_workspace_id"] = None
-        __props__["customer_workspace_location"] = None
-        __props__["discovery_status"] = None
-        __props__["e_tag"] = None
-        __props__["last_assessment_timestamp"] = None
-        __props__["last_discovery_session_id"] = None
-        __props__["last_discovery_timestamp"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["number_of_assessments"] = None
-        __props__["number_of_groups"] = None
-        __props__["number_of_machines"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["updated_timestamp"] = None
+        __props__.__dict__["created_timestamp"] = None
+        __props__.__dict__["customer_workspace_id"] = None
+        __props__.__dict__["customer_workspace_location"] = None
+        __props__.__dict__["discovery_status"] = None
+        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["last_assessment_timestamp"] = None
+        __props__.__dict__["last_discovery_session_id"] = None
+        __props__.__dict__["last_discovery_timestamp"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["number_of_assessments"] = None
+        __props__.__dict__["number_of_groups"] = None
+        __props__.__dict__["number_of_machines"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_timestamp"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -427,10 +417,4 @@ class Project(pulumi.CustomResource):
         Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
         return pulumi.get(self, "updated_timestamp")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

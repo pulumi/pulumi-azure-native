@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -178,9 +178,7 @@ class CloudConnector(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  report_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The Connector model definition
 
@@ -229,15 +227,7 @@ class CloudConnector(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  report_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,27 +237,27 @@ class CloudConnector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CloudConnectorArgs.__new__(CloudConnectorArgs)
 
-            __props__['billing_model'] = billing_model
-            __props__['connector_name'] = connector_name
-            __props__['credentials_key'] = credentials_key
-            __props__['credentials_secret'] = credentials_secret
-            __props__['default_management_group_id'] = default_management_group_id
-            __props__['display_name'] = display_name
-            __props__['kind'] = kind
-            __props__['report_id'] = report_id
-            __props__['subscription_id'] = subscription_id
-            __props__['collection_info'] = None
-            __props__['created_on'] = None
-            __props__['days_trial_remaining'] = None
-            __props__['external_billing_account_id'] = None
-            __props__['modified_on'] = None
-            __props__['name'] = None
-            __props__['provider_billing_account_display_name'] = None
-            __props__['provider_billing_account_id'] = None
-            __props__['status'] = None
-            __props__['type'] = None
+            __props__.__dict__["billing_model"] = billing_model
+            __props__.__dict__["connector_name"] = connector_name
+            __props__.__dict__["credentials_key"] = credentials_key
+            __props__.__dict__["credentials_secret"] = credentials_secret
+            __props__.__dict__["default_management_group_id"] = default_management_group_id
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["report_id"] = report_id
+            __props__.__dict__["subscription_id"] = subscription_id
+            __props__.__dict__["collection_info"] = None
+            __props__.__dict__["created_on"] = None
+            __props__.__dict__["days_trial_remaining"] = None
+            __props__.__dict__["external_billing_account_id"] = None
+            __props__.__dict__["modified_on"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provider_billing_account_display_name"] = None
+            __props__.__dict__["provider_billing_account_id"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20190301preview:CloudConnector"), pulumi.Alias(type_="azure-native:costmanagement:CloudConnector"), pulumi.Alias(type_="azure-nextgen:costmanagement:CloudConnector"), pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:CloudConnector"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20180801preview:CloudConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudConnector, __self__).__init__(
@@ -290,25 +280,25 @@ class CloudConnector(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CloudConnectorArgs.__new__(CloudConnectorArgs)
 
-        __props__["billing_model"] = None
-        __props__["collection_info"] = None
-        __props__["created_on"] = None
-        __props__["credentials_key"] = None
-        __props__["days_trial_remaining"] = None
-        __props__["default_management_group_id"] = None
-        __props__["display_name"] = None
-        __props__["external_billing_account_id"] = None
-        __props__["kind"] = None
-        __props__["modified_on"] = None
-        __props__["name"] = None
-        __props__["provider_billing_account_display_name"] = None
-        __props__["provider_billing_account_id"] = None
-        __props__["report_id"] = None
-        __props__["status"] = None
-        __props__["subscription_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["billing_model"] = None
+        __props__.__dict__["collection_info"] = None
+        __props__.__dict__["created_on"] = None
+        __props__.__dict__["credentials_key"] = None
+        __props__.__dict__["days_trial_remaining"] = None
+        __props__.__dict__["default_management_group_id"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["external_billing_account_id"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["modified_on"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provider_billing_account_display_name"] = None
+        __props__.__dict__["provider_billing_account_id"] = None
+        __props__.__dict__["report_id"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["type"] = None
         return CloudConnector(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -446,10 +436,4 @@ class CloudConnector(pulumi.CustomResource):
         Connector type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

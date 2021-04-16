@@ -136,7 +136,7 @@ export interface ClusterArgs {
     /**
      * Properties of the cluster SKU.
      */
-    readonly sku?: pulumi.Input<inputs.eventhub.v20180101preview.ClusterSku>;
+    readonly sku?: pulumi.Input<inputs.eventhub.v20180101preview.ClusterSkuArgs>;
     /**
      * Resource tags.
      */

@@ -110,7 +110,7 @@ export interface UserArgs {
     /**
      * The password details.
      */
-    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.v20190801.AsymmetricEncryptedSecret>;
+    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.v20190801.AsymmetricEncryptedSecretArgs>;
     /**
      * The user name.
      */
@@ -122,7 +122,7 @@ export interface UserArgs {
     /**
      * List of shares that the user has rights on. This field should not be specified during user creation.
      */
-    readonly shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.ShareAccessRight>[]>;
+    readonly shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.ShareAccessRightArgs>[]>;
     /**
      * Type of the user.
      */

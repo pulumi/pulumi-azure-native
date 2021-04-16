@@ -115,5 +115,5 @@ export interface BackupScheduleGroupArgs {
     /**
      * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */
-    readonly startTime: pulumi.Input<inputs.storsimple.v20161001.Time>;
+    readonly startTime: pulumi.Input<inputs.storsimple.v20161001.TimeArgs>;
 }

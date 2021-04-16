@@ -120,7 +120,7 @@ export interface MachineLearningComputeArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20200901preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20200901preview.IdentityArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -128,7 +128,7 @@ export interface MachineLearningComputeArgs {
     /**
      * Compute properties
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200901preview.AKS | inputs.machinelearningservices.v20200901preview.AmlCompute | inputs.machinelearningservices.v20200901preview.ComputeInstance | inputs.machinelearningservices.v20200901preview.DataFactory | inputs.machinelearningservices.v20200901preview.DataLakeAnalytics | inputs.machinelearningservices.v20200901preview.Databricks | inputs.machinelearningservices.v20200901preview.HDInsight | inputs.machinelearningservices.v20200901preview.VirtualMachine>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200901preview.AKSArgs | inputs.machinelearningservices.v20200901preview.AmlComputeArgs | inputs.machinelearningservices.v20200901preview.ComputeInstanceArgs | inputs.machinelearningservices.v20200901preview.DataFactoryArgs | inputs.machinelearningservices.v20200901preview.DataLakeAnalyticsArgs | inputs.machinelearningservices.v20200901preview.DatabricksArgs | inputs.machinelearningservices.v20200901preview.HDInsightArgs | inputs.machinelearningservices.v20200901preview.VirtualMachineArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -136,7 +136,7 @@ export interface MachineLearningComputeArgs {
     /**
      * The sku of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20200901preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.machinelearningservices.v20200901preview.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

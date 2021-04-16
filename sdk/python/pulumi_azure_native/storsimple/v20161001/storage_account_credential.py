@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -173,9 +173,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  login: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The storage account credential
 
@@ -224,15 +222,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  login: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,31 +232,31 @@ class StorageAccountCredential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-            __props__['access_key'] = access_key
+            __props__.__dict__["access_key"] = access_key
             if cloud_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_type'")
-            __props__['cloud_type'] = cloud_type
-            __props__['credential_name'] = credential_name
+            __props__.__dict__["cloud_type"] = cloud_type
+            __props__.__dict__["credential_name"] = credential_name
             if enable_ssl is None and not opts.urn:
                 raise TypeError("Missing required property 'enable_ssl'")
-            __props__['enable_ssl'] = enable_ssl
+            __props__.__dict__["enable_ssl"] = enable_ssl
             if end_point is None and not opts.urn:
                 raise TypeError("Missing required property 'end_point'")
-            __props__['end_point'] = end_point
-            __props__['location'] = location
+            __props__.__dict__["end_point"] = end_point
+            __props__.__dict__["location"] = location
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
-            __props__['login'] = login
+            __props__.__dict__["login"] = login
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:StorageAccountCredential"), pulumi.Alias(type_="azure-native:storsimple:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:storsimple:StorageAccountCredential"), pulumi.Alias(type_="azure-native:storsimple/v20170601:StorageAccountCredential"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
@@ -289,16 +279,16 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
-        __props__["access_key"] = None
-        __props__["cloud_type"] = None
-        __props__["enable_ssl"] = None
-        __props__["end_point"] = None
-        __props__["location"] = None
-        __props__["login"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["access_key"] = None
+        __props__.__dict__["cloud_type"] = None
+        __props__.__dict__["enable_ssl"] = None
+        __props__.__dict__["end_point"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["login"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -364,10 +354,4 @@ class StorageAccountCredential(pulumi.CustomResource):
         The type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

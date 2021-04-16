@@ -4,7 +4,7 @@
 package v20160801
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.

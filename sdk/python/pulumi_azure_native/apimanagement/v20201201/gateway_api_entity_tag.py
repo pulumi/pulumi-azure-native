@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -107,9 +107,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input['ProvisioningState']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Api details.
 
@@ -150,15 +148,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input['ProvisioningState']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,39 +158,39 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GatewayApiEntityTagArgs.__new__(GatewayApiEntityTagArgs)
 
-            __props__['api_id'] = api_id
+            __props__.__dict__["api_id"] = api_id
             if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")
-            __props__['gateway_id'] = gateway_id
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["gateway_id"] = gateway_id
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['api_revision'] = None
-            __props__['api_revision_description'] = None
-            __props__['api_type'] = None
-            __props__['api_version'] = None
-            __props__['api_version_description'] = None
-            __props__['api_version_set'] = None
-            __props__['api_version_set_id'] = None
-            __props__['authentication_settings'] = None
-            __props__['description'] = None
-            __props__['display_name'] = None
-            __props__['is_current'] = None
-            __props__['is_online'] = None
-            __props__['name'] = None
-            __props__['path'] = None
-            __props__['protocols'] = None
-            __props__['service_url'] = None
-            __props__['source_api_id'] = None
-            __props__['subscription_key_parameter_names'] = None
-            __props__['subscription_required'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["api_revision"] = None
+            __props__.__dict__["api_revision_description"] = None
+            __props__.__dict__["api_type"] = None
+            __props__.__dict__["api_version"] = None
+            __props__.__dict__["api_version_description"] = None
+            __props__.__dict__["api_version_set"] = None
+            __props__.__dict__["api_version_set_id"] = None
+            __props__.__dict__["authentication_settings"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["display_name"] = None
+            __props__.__dict__["is_current"] = None
+            __props__.__dict__["is_online"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["path"] = None
+            __props__.__dict__["protocols"] = None
+            __props__.__dict__["service_url"] = None
+            __props__.__dict__["source_api_id"] = None
+            __props__.__dict__["subscription_key_parameter_names"] = None
+            __props__.__dict__["subscription_required"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:GatewayApiEntityTag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayApiEntityTag, __self__).__init__(
@@ -223,28 +213,28 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = GatewayApiEntityTagArgs.__new__(GatewayApiEntityTagArgs)
 
-        __props__["api_revision"] = None
-        __props__["api_revision_description"] = None
-        __props__["api_type"] = None
-        __props__["api_version"] = None
-        __props__["api_version_description"] = None
-        __props__["api_version_set"] = None
-        __props__["api_version_set_id"] = None
-        __props__["authentication_settings"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["is_current"] = None
-        __props__["is_online"] = None
-        __props__["name"] = None
-        __props__["path"] = None
-        __props__["protocols"] = None
-        __props__["service_url"] = None
-        __props__["source_api_id"] = None
-        __props__["subscription_key_parameter_names"] = None
-        __props__["subscription_required"] = None
-        __props__["type"] = None
+        __props__.__dict__["api_revision"] = None
+        __props__.__dict__["api_revision_description"] = None
+        __props__.__dict__["api_type"] = None
+        __props__.__dict__["api_version"] = None
+        __props__.__dict__["api_version_description"] = None
+        __props__.__dict__["api_version_set"] = None
+        __props__.__dict__["api_version_set_id"] = None
+        __props__.__dict__["authentication_settings"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["is_current"] = None
+        __props__.__dict__["is_online"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["path"] = None
+        __props__.__dict__["protocols"] = None
+        __props__.__dict__["service_url"] = None
+        __props__.__dict__["source_api_id"] = None
+        __props__.__dict__["subscription_key_parameter_names"] = None
+        __props__.__dict__["subscription_required"] = None
+        __props__.__dict__["type"] = None
         return GatewayApiEntityTag(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -406,10 +396,4 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

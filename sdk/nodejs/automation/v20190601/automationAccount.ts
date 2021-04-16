@@ -152,7 +152,7 @@ export interface AutomationAccountArgs {
     /**
      * Gets or sets account SKU.
      */
-    readonly sku?: pulumi.Input<inputs.automation.v20190601.Sku>;
+    readonly sku?: pulumi.Input<inputs.automation.v20190601.SkuArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */

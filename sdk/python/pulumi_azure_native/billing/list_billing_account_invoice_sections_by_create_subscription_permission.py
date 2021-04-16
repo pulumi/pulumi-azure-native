@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -38,7 +38,7 @@ class ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.InvoiceSectionWithCreateSubPermissionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.InvoiceSectionWithCreateSubPermissionResponse']]:
         """
         The list of invoice section properties with create subscription permission.
         """

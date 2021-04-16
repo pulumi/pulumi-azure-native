@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -19,6 +19,25 @@ class AccessReviewInstanceResponse(dict):
     """
     Access Review Instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDateTime":
+            suggest = "end_date_time"
+        elif key == "startDateTime":
+            suggest = "start_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessReviewInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessReviewInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessReviewInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -92,15 +111,31 @@ class AccessReviewInstanceResponse(dict):
         """
         return pulumi.get(self, "start_date_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccessReviewReviewerResponse(dict):
     """
     Descriptor for what needs to be reviewed
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalType":
+            suggest = "principal_type"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessReviewReviewerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessReviewReviewerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessReviewReviewerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_type: str,
                  principal_id: Optional[str] = None):
@@ -128,8 +163,5 @@ class AccessReviewReviewerResponse(dict):
         The id of the reviewer(user/servicePrincipal)
         """
         return pulumi.get(self, "principal_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

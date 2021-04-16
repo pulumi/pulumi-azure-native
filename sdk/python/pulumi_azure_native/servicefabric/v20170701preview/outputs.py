@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -42,6 +42,27 @@ class ApplicationMetricDescriptionResponse(dict):
     """
     Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumCapacity":
+            suggest = "maximum_capacity"
+        elif key == "reservationCapacity":
+            suggest = "reservation_capacity"
+        elif key == "totalApplicationCapacity":
+            suggest = "total_application_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMetricDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMetricDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMetricDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  maximum_capacity: Optional[float] = None,
                  name: Optional[str] = None,
@@ -116,15 +137,35 @@ class ApplicationMetricDescriptionResponse(dict):
         """
         return pulumi.get(self, "total_application_capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationUpgradePolicyResponse(dict):
     """
     Describes the policy for a monitored application upgrade.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationHealthPolicy":
+            suggest = "application_health_policy"
+        elif key == "forceRestart":
+            suggest = "force_restart"
+        elif key == "rollingUpgradeMonitoringPolicy":
+            suggest = "rolling_upgrade_monitoring_policy"
+        elif key == "upgradeReplicaSetCheckTimeout":
+            suggest = "upgrade_replica_set_check_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationUpgradePolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationUpgradePolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationUpgradePolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_health_policy: Optional['outputs.ArmApplicationHealthPolicyResponse'] = None,
                  force_restart: Optional[bool] = None,
@@ -132,9 +173,9 @@ class ApplicationUpgradePolicyResponse(dict):
                  upgrade_replica_set_check_timeout: Optional[str] = None):
         """
         Describes the policy for a monitored application upgrade.
-        :param 'ArmApplicationHealthPolicyResponseArgs' application_health_policy: Defines a health policy used to evaluate the health of an application or one of its children entities.
+        :param 'ArmApplicationHealthPolicyResponse' application_health_policy: Defines a health policy used to evaluate the health of an application or one of its children entities.
         :param bool force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-        :param 'ArmRollingUpgradeMonitoringPolicyResponseArgs' rolling_upgrade_monitoring_policy: The policy used for monitoring the application upgrade
+        :param 'ArmRollingUpgradeMonitoringPolicyResponse' rolling_upgrade_monitoring_policy: The policy used for monitoring the application upgrade
         :param str upgrade_replica_set_check_timeout: The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
         """
         if application_health_policy is not None:
@@ -178,15 +219,35 @@ class ApplicationUpgradePolicyResponse(dict):
         """
         return pulumi.get(self, "upgrade_replica_set_check_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArmApplicationHealthPolicyResponse(dict):
     """
     Defines a health policy used to evaluate the health of an application or one of its children entities.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "considerWarningAsError":
+            suggest = "consider_warning_as_error"
+        elif key == "defaultServiceTypeHealthPolicy":
+            suggest = "default_service_type_health_policy"
+        elif key == "maxPercentUnhealthyDeployedApplications":
+            suggest = "max_percent_unhealthy_deployed_applications"
+        elif key == "serviceTypeHealthPolicyMap":
+            suggest = "service_type_health_policy_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmApplicationHealthPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmApplicationHealthPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmApplicationHealthPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consider_warning_as_error: Optional[bool] = None,
                  default_service_type_health_policy: Optional['outputs.ArmServiceTypeHealthPolicyResponse'] = None,
@@ -196,12 +257,12 @@ class ArmApplicationHealthPolicyResponse(dict):
         Defines a health policy used to evaluate the health of an application or one of its children entities.
 
         :param bool consider_warning_as_error: Indicates whether warnings are treated with the same severity as errors.
-        :param 'ArmServiceTypeHealthPolicyResponseArgs' default_service_type_health_policy: The health policy used by default to evaluate the health of a service type.
+        :param 'ArmServiceTypeHealthPolicyResponse' default_service_type_health_policy: The health policy used by default to evaluate the health of a service type.
         :param int max_percent_unhealthy_deployed_applications: The maximum allowed percentage of unhealthy deployed applications. Allowed values are Byte values from zero to 100.
                The percentage represents the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error.
                This is calculated by dividing the number of unhealthy deployed applications over the number of nodes where the application is currently deployed on in the cluster.
                The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-        :param Mapping[str, 'ArmServiceTypeHealthPolicyResponseArgs'] service_type_health_policy_map: The map with service type health policy per service type name. The map is empty by default.
+        :param Mapping[str, 'ArmServiceTypeHealthPolicyResponse'] service_type_health_policy_map: The map with service type health policy per service type name. The map is empty by default.
         """
         if consider_warning_as_error is None:
             consider_warning_as_error = False
@@ -251,15 +312,39 @@ class ArmApplicationHealthPolicyResponse(dict):
         """
         return pulumi.get(self, "service_type_health_policy_map")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArmRollingUpgradeMonitoringPolicyResponse(dict):
     """
     The policy used for monitoring the application upgrade
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureAction":
+            suggest = "failure_action"
+        elif key == "healthCheckRetryTimeout":
+            suggest = "health_check_retry_timeout"
+        elif key == "healthCheckStableDuration":
+            suggest = "health_check_stable_duration"
+        elif key == "healthCheckWaitDuration":
+            suggest = "health_check_wait_duration"
+        elif key == "upgradeDomainTimeout":
+            suggest = "upgrade_domain_timeout"
+        elif key == "upgradeTimeout":
+            suggest = "upgrade_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmRollingUpgradeMonitoringPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmRollingUpgradeMonitoringPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmRollingUpgradeMonitoringPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failure_action: Optional[str] = None,
                  health_check_retry_timeout: Optional[str] = None,
@@ -337,15 +422,33 @@ class ArmRollingUpgradeMonitoringPolicyResponse(dict):
         """
         return pulumi.get(self, "upgrade_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArmServiceTypeHealthPolicyResponse(dict):
     """
     Represents the health policy used to evaluate the health of services belonging to a service type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPercentUnhealthyPartitionsPerService":
+            suggest = "max_percent_unhealthy_partitions_per_service"
+        elif key == "maxPercentUnhealthyReplicasPerPartition":
+            suggest = "max_percent_unhealthy_replicas_per_partition"
+        elif key == "maxPercentUnhealthyServices":
+            suggest = "max_percent_unhealthy_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmServiceTypeHealthPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmServiceTypeHealthPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmServiceTypeHealthPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_percent_unhealthy_partitions_per_service: Optional[int] = None,
                  max_percent_unhealthy_replicas_per_partition: Optional[int] = None,
@@ -394,15 +497,33 @@ class ArmServiceTypeHealthPolicyResponse(dict):
         """
         return pulumi.get(self, "max_percent_unhealthy_services")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureActiveDirectoryResponse(dict):
     """
     The settings to enable AAD authentication on the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientApplication":
+            suggest = "client_application"
+        elif key == "clusterApplication":
+            suggest = "cluster_application"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureActiveDirectoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureActiveDirectoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureActiveDirectoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_application: Optional[str] = None,
                  cluster_application: Optional[str] = None,
@@ -444,15 +565,31 @@ class AzureActiveDirectoryResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateDescriptionResponse(dict):
     """
     Describes the certificate details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thumbprintSecondary":
+            suggest = "thumbprint_secondary"
+        elif key == "x509StoreName":
+            suggest = "x509_store_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  thumbprint: str,
                  thumbprint_secondary: Optional[str] = None,
@@ -493,15 +630,33 @@ class CertificateDescriptionResponse(dict):
         """
         return pulumi.get(self, "x509_store_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClientCertificateCommonNameResponse(dict):
     """
     Describes the client certificate details using common name.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateCommonName":
+            suggest = "certificate_common_name"
+        elif key == "certificateIssuerThumbprint":
+            suggest = "certificate_issuer_thumbprint"
+        elif key == "isAdmin":
+            suggest = "is_admin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientCertificateCommonNameResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientCertificateCommonNameResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientCertificateCommonNameResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_common_name: str,
                  certificate_issuer_thumbprint: str,
@@ -540,15 +695,31 @@ class ClientCertificateCommonNameResponse(dict):
         """
         return pulumi.get(self, "is_admin")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClientCertificateThumbprintResponse(dict):
     """
     Describes the client certificate details using thumbprint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateThumbprint":
+            suggest = "certificate_thumbprint"
+        elif key == "isAdmin":
+            suggest = "is_admin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientCertificateThumbprintResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientCertificateThumbprintResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientCertificateThumbprintResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_thumbprint: str,
                  is_admin: bool):
@@ -576,15 +747,31 @@ class ClientCertificateThumbprintResponse(dict):
         """
         return pulumi.get(self, "is_admin")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterHealthPolicyResponse(dict):
     """
     Defines a health policy used to evaluate the health of the cluster or of a cluster node.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPercentUnhealthyApplications":
+            suggest = "max_percent_unhealthy_applications"
+        elif key == "maxPercentUnhealthyNodes":
+            suggest = "max_percent_unhealthy_nodes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterHealthPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterHealthPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterHealthPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_percent_unhealthy_applications: Optional[int] = None,
                  max_percent_unhealthy_nodes: Optional[int] = None):
@@ -614,15 +801,33 @@ class ClusterHealthPolicyResponse(dict):
         """
         return pulumi.get(self, "max_percent_unhealthy_nodes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradeDeltaHealthPolicyResponse(dict):
     """
     Describes the delta health policies for the cluster upgrade.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPercentDeltaUnhealthyApplications":
+            suggest = "max_percent_delta_unhealthy_applications"
+        elif key == "maxPercentDeltaUnhealthyNodes":
+            suggest = "max_percent_delta_unhealthy_nodes"
+        elif key == "maxPercentUpgradeDomainDeltaUnhealthyNodes":
+            suggest = "max_percent_upgrade_domain_delta_unhealthy_nodes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradeDeltaHealthPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradeDeltaHealthPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradeDeltaHealthPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_percent_delta_unhealthy_applications: int,
                  max_percent_delta_unhealthy_nodes: int,
@@ -661,15 +866,45 @@ class ClusterUpgradeDeltaHealthPolicyResponse(dict):
         """
         return pulumi.get(self, "max_percent_upgrade_domain_delta_unhealthy_nodes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradePolicyResponse(dict):
     """
     Describes the policy used when upgrading the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthCheckRetryTimeout":
+            suggest = "health_check_retry_timeout"
+        elif key == "healthCheckStableDuration":
+            suggest = "health_check_stable_duration"
+        elif key == "healthCheckWaitDuration":
+            suggest = "health_check_wait_duration"
+        elif key == "healthPolicy":
+            suggest = "health_policy"
+        elif key == "upgradeDomainTimeout":
+            suggest = "upgrade_domain_timeout"
+        elif key == "upgradeReplicaSetCheckTimeout":
+            suggest = "upgrade_replica_set_check_timeout"
+        elif key == "upgradeTimeout":
+            suggest = "upgrade_timeout"
+        elif key == "deltaHealthPolicy":
+            suggest = "delta_health_policy"
+        elif key == "forceRestart":
+            suggest = "force_restart"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  health_check_retry_timeout: str,
                  health_check_stable_duration: str,
@@ -685,11 +920,11 @@ class ClusterUpgradePolicyResponse(dict):
         :param str health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param str health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param str health_check_wait_duration: The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param 'ClusterHealthPolicyResponseArgs' health_policy: The cluster health policy used when upgrading the cluster.
+        :param 'ClusterHealthPolicyResponse' health_policy: The cluster health policy used when upgrading the cluster.
         :param str upgrade_domain_timeout: The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param str upgrade_replica_set_check_timeout: The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
         :param str upgrade_timeout: The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-        :param 'ClusterUpgradeDeltaHealthPolicyResponseArgs' delta_health_policy: The delta health policy used when upgrading the cluster.
+        :param 'ClusterUpgradeDeltaHealthPolicyResponse' delta_health_policy: The delta health policy used when upgrading the cluster.
         :param bool force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         """
         pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
@@ -776,15 +1011,31 @@ class ClusterUpgradePolicyResponse(dict):
         """
         return pulumi.get(self, "force_restart")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterVersionDetailsResponse(dict):
     """
     The detail of the Service Fabric runtime version result
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeVersion":
+            suggest = "code_version"
+        elif key == "supportExpiryUtc":
+            suggest = "support_expiry_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterVersionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterVersionDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterVersionDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code_version: Optional[str] = None,
                  environment: Optional[str] = None,
@@ -826,15 +1077,37 @@ class ClusterVersionDetailsResponse(dict):
         """
         return pulumi.get(self, "support_expiry_utc")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticsStorageAccountConfigResponse(dict):
     """
     The storage account information for storing Service Fabric diagnostic logs.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobEndpoint":
+            suggest = "blob_endpoint"
+        elif key == "protectedAccountKeyName":
+            suggest = "protected_account_key_name"
+        elif key == "queueEndpoint":
+            suggest = "queue_endpoint"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "tableEndpoint":
+            suggest = "table_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsStorageAccountConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsStorageAccountConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsStorageAccountConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_endpoint: str,
                  protected_account_key_name: str,
@@ -895,15 +1168,31 @@ class DiagnosticsStorageAccountConfigResponse(dict):
         """
         return pulumi.get(self, "table_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointRangeDescriptionResponse(dict):
     """
     Port range details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPort":
+            suggest = "end_port"
+        elif key == "startPort":
+            suggest = "start_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRangeDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRangeDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRangeDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_port: int,
                  start_port: int):
@@ -931,15 +1220,29 @@ class EndpointRangeDescriptionResponse(dict):
         """
         return pulumi.get(self, "start_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NamedPartitionSchemeDescriptionResponse(dict):
     """
     Describes the named partition scheme of the service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionScheme":
+            suggest = "partition_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamedPartitionSchemeDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamedPartitionSchemeDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamedPartitionSchemeDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
                  names: Sequence[str],
@@ -980,15 +1283,45 @@ class NamedPartitionSchemeDescriptionResponse(dict):
         """
         return pulumi.get(self, "partition_scheme")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeTypeDescriptionResponse(dict):
     """
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientConnectionEndpointPort":
+            suggest = "client_connection_endpoint_port"
+        elif key == "httpGatewayEndpointPort":
+            suggest = "http_gateway_endpoint_port"
+        elif key == "isPrimary":
+            suggest = "is_primary"
+        elif key == "vmInstanceCount":
+            suggest = "vm_instance_count"
+        elif key == "applicationPorts":
+            suggest = "application_ports"
+        elif key == "durabilityLevel":
+            suggest = "durability_level"
+        elif key == "ephemeralPorts":
+            suggest = "ephemeral_ports"
+        elif key == "placementProperties":
+            suggest = "placement_properties"
+        elif key == "reverseProxyEndpointPort":
+            suggest = "reverse_proxy_endpoint_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeTypeDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeTypeDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeTypeDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_connection_endpoint_port: int,
                  http_gateway_endpoint_port: int,
@@ -1008,14 +1341,14 @@ class NodeTypeDescriptionResponse(dict):
         :param bool is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         :param str name: The name of the node type.
         :param int vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-        :param 'EndpointRangeDescriptionResponseArgs' application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
+        :param 'EndpointRangeDescriptionResponse' application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param str durability_level: The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
                
                  - Bronze - No privileges. This is the default.
                  - Silver - The infrastructure jobs can be paused for a duration of 30 minutes per UD.
                  - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-        :param 'EndpointRangeDescriptionResponseArgs' ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
+        :param 'EndpointRangeDescriptionResponse' ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param int reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         """
@@ -1129,15 +1462,29 @@ class NodeTypeDescriptionResponse(dict):
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceCorrelationDescriptionResponse(dict):
     """
     Creates a particular correlation between services.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCorrelationDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCorrelationDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCorrelationDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scheme: str,
                  service_name: str):
@@ -1165,15 +1512,33 @@ class ServiceCorrelationDescriptionResponse(dict):
         """
         return pulumi.get(self, "service_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceLoadMetricDescriptionResponse(dict):
     """
     Specifies a metric to load balance a service during runtime.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultLoad":
+            suggest = "default_load"
+        elif key == "primaryDefaultLoad":
+            suggest = "primary_default_load"
+        elif key == "secondaryDefaultLoad":
+            suggest = "secondary_default_load"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLoadMetricDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLoadMetricDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLoadMetricDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  default_load: Optional[int] = None,
@@ -1238,9 +1603,6 @@ class ServiceLoadMetricDescriptionResponse(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServicePlacementPolicyDescriptionResponse(dict):
@@ -1262,9 +1624,6 @@ class ServicePlacementPolicyDescriptionResponse(dict):
         The type of placement policy for a service fabric service. Following are the possible values.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1299,9 +1658,6 @@ class SettingsParameterDescriptionResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SettingsSectionDescriptionResponse(dict):
@@ -1314,7 +1670,7 @@ class SettingsSectionDescriptionResponse(dict):
         """
         Describes a section in the fabric settings of the cluster.
         :param str name: The section name of the fabric settings.
-        :param Sequence['SettingsParameterDescriptionResponseArgs'] parameters: The collection of parameters in the section.
+        :param Sequence['SettingsParameterDescriptionResponse'] parameters: The collection of parameters in the section.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -1335,15 +1691,29 @@ class SettingsSectionDescriptionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SingletonPartitionSchemeDescriptionResponse(dict):
     """
     Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionScheme":
+            suggest = "partition_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SingletonPartitionSchemeDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SingletonPartitionSchemeDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SingletonPartitionSchemeDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  partition_scheme: str):
         """
@@ -1362,15 +1732,33 @@ class SingletonPartitionSchemeDescriptionResponse(dict):
         """
         return pulumi.get(self, "partition_scheme")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UniformInt64RangePartitionSchemeDescriptionResponse(dict):
     """
     Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highKey":
+            suggest = "high_key"
+        elif key == "lowKey":
+            suggest = "low_key"
+        elif key == "partitionScheme":
+            suggest = "partition_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UniformInt64RangePartitionSchemeDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UniformInt64RangePartitionSchemeDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UniformInt64RangePartitionSchemeDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  count: int,
                  high_key: str,
@@ -1425,8 +1813,5 @@ class UniformInt64RangePartitionSchemeDescriptionResponse(dict):
         Expected value is 'UniformInt64Range'.
         """
         return pulumi.get(self, "partition_scheme")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

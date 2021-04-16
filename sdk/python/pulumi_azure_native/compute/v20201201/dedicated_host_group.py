@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['DedicatedHostGroupArgs', 'DedicatedHostGroup']
@@ -141,9 +141,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  support_automatic_placement: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
 
@@ -188,15 +186,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  support_automatic_placement: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,23 +196,23 @@ class DedicatedHostGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
-            __props__['host_group_name'] = host_group_name
-            __props__['location'] = location
+            __props__.__dict__["host_group_name"] = host_group_name
+            __props__.__dict__["location"] = location
             if platform_fault_domain_count is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
-            __props__['platform_fault_domain_count'] = platform_fault_domain_count
+            __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['support_automatic_placement'] = support_automatic_placement
-            __props__['tags'] = tags
-            __props__['zones'] = zones
-            __props__['hosts'] = None
-            __props__['instance_view'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["support_automatic_placement"] = support_automatic_placement
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zones"] = zones
+            __props__.__dict__["hosts"] = None
+            __props__.__dict__["instance_view"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20201201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:DedicatedHostGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHostGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:DedicatedHostGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHostGroup, __self__).__init__(
@@ -245,17 +235,17 @@ class DedicatedHostGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
-        __props__["hosts"] = None
-        __props__["instance_view"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["platform_fault_domain_count"] = None
-        __props__["support_automatic_placement"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["zones"] = None
+        __props__.__dict__["hosts"] = None
+        __props__.__dict__["instance_view"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["platform_fault_domain_count"] = None
+        __props__.__dict__["support_automatic_placement"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["zones"] = None
         return DedicatedHostGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -329,10 +319,4 @@ class DedicatedHostGroup(pulumi.CustomResource):
         Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

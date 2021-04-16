@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['BlobContainerImmutabilityPolicyArgs', 'BlobContainerImmutabilityPolicy']
 
@@ -104,9 +104,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 
@@ -147,15 +145,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -165,25 +155,25 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BlobContainerImmutabilityPolicyArgs.__new__(BlobContainerImmutabilityPolicyArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
+            __props__.__dict__["account_name"] = account_name
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")
-            __props__['container_name'] = container_name
+            __props__.__dict__["container_name"] = container_name
             if immutability_period_since_creation_in_days is None and not opts.urn:
                 raise TypeError("Missing required property 'immutability_period_since_creation_in_days'")
-            __props__['immutability_period_since_creation_in_days'] = immutability_period_since_creation_in_days
-            __props__['immutability_policy_name'] = immutability_policy_name
+            __props__.__dict__["immutability_period_since_creation_in_days"] = immutability_period_since_creation_in_days
+            __props__.__dict__["immutability_policy_name"] = immutability_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:BlobContainerImmutabilityPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobContainerImmutabilityPolicy, __self__).__init__(
@@ -206,13 +196,13 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BlobContainerImmutabilityPolicyArgs.__new__(BlobContainerImmutabilityPolicyArgs)
 
-        __props__["etag"] = None
-        __props__["immutability_period_since_creation_in_days"] = None
-        __props__["name"] = None
-        __props__["state"] = None
-        __props__["type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["immutability_period_since_creation_in_days"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["type"] = None
         return BlobContainerImmutabilityPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -254,10 +244,4 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

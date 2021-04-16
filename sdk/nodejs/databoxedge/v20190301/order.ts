@@ -133,11 +133,11 @@ export interface OrderArgs {
     /**
      * The contact details.
      */
-    readonly contactInformation: pulumi.Input<inputs.databoxedge.v20190301.ContactDetails>;
+    readonly contactInformation: pulumi.Input<inputs.databoxedge.v20190301.ContactDetailsArgs>;
     /**
      * Current status of the order.
      */
-    readonly currentStatus?: pulumi.Input<inputs.databoxedge.v20190301.OrderStatus>;
+    readonly currentStatus?: pulumi.Input<inputs.databoxedge.v20190301.OrderStatusArgs>;
     /**
      * The device name.
      */
@@ -149,5 +149,5 @@ export interface OrderArgs {
     /**
      * The shipping address.
      */
-    readonly shippingAddress: pulumi.Input<inputs.databoxedge.v20190301.Address>;
+    readonly shippingAddress: pulumi.Input<inputs.databoxedge.v20190301.AddressArgs>;
 }

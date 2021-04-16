@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -27,6 +27,27 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     """
     Properties of a private endpoint connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
@@ -34,8 +55,8 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         """
         Properties of a private endpoint connection.
         :param str provisioning_state: State of the private endpoint connection.
-        :param 'PrivateEndpointPropertyResponseArgs' private_endpoint: Private endpoint which the connection belongs to.
-        :param 'PrivateLinkServiceConnectionStatePropertyResponseArgs' private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
@@ -67,9 +88,6 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointPropertyResponse(dict):
@@ -89,12 +107,26 @@ class PrivateEndpointPropertyResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStatePropertyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStatePropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: str,
                  description: str,
@@ -132,15 +164,31 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceIdentityResponse(dict):
     """
     Azure Active Directory identity configuration for a resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -180,9 +228,6 @@ class ResourceIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerPrivateEndpointConnectionResponse(dict):
@@ -195,7 +240,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
         """
         A private endpoint connection under a server
         :param str id: Resource ID.
-        :param 'PrivateEndpointConnectionPropertiesResponseArgs' properties: Private endpoint connection properties
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "properties", properties)
@@ -215,9 +260,6 @@ class ServerPrivateEndpointConnectionResponse(dict):
         Private endpoint connection properties
         """
         return pulumi.get(self, "properties")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -289,22 +331,36 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyncGroupSchemaResponse(dict):
     """
     Properties of sync group schema.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "masterSyncMemberName":
+            suggest = "master_sync_member_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyncGroupSchemaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyncGroupSchemaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyncGroupSchemaResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  master_sync_member_name: Optional[str] = None,
                  tables: Optional[Sequence['outputs.SyncGroupSchemaTableResponse']] = None):
         """
         Properties of sync group schema.
         :param str master_sync_member_name: Name of master sync member where the schema is from.
-        :param Sequence['SyncGroupSchemaTableResponseArgs'] tables: List of tables in sync group schema.
+        :param Sequence['SyncGroupSchemaTableResponse'] tables: List of tables in sync group schema.
         """
         if master_sync_member_name is not None:
             pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
@@ -327,15 +383,33 @@ class SyncGroupSchemaResponse(dict):
         """
         return pulumi.get(self, "tables")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyncGroupSchemaTableColumnResponse(dict):
     """
     Properties of column in sync group table.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSize":
+            suggest = "data_size"
+        elif key == "dataType":
+            suggest = "data_type"
+        elif key == "quotedName":
+            suggest = "quoted_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyncGroupSchemaTableColumnResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyncGroupSchemaTableColumnResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyncGroupSchemaTableColumnResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_size: Optional[str] = None,
                  data_type: Optional[str] = None,
@@ -377,21 +451,35 @@ class SyncGroupSchemaTableColumnResponse(dict):
         """
         return pulumi.get(self, "quoted_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyncGroupSchemaTableResponse(dict):
     """
     Properties of table in sync group schema.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "quotedName":
+            suggest = "quoted_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyncGroupSchemaTableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyncGroupSchemaTableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyncGroupSchemaTableResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  columns: Optional[Sequence['outputs.SyncGroupSchemaTableColumnResponse']] = None,
                  quoted_name: Optional[str] = None):
         """
         Properties of table in sync group schema.
-        :param Sequence['SyncGroupSchemaTableColumnResponseArgs'] columns: List of columns in sync group schema.
+        :param Sequence['SyncGroupSchemaTableColumnResponse'] columns: List of columns in sync group schema.
         :param str quoted_name: Quoted name of sync group schema table.
         """
         if columns is not None:
@@ -414,8 +502,5 @@ class SyncGroupSchemaTableResponse(dict):
         Quoted name of sync group schema table.
         """
         return pulumi.get(self, "quoted_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

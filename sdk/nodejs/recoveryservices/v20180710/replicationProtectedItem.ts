@@ -110,7 +110,7 @@ export interface ReplicationProtectedItemArgs {
     /**
      * Enable protection input properties.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.EnableProtectionInputProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20180710.EnableProtectionInputPropertiesArgs>;
     /**
      * Protection container name.
      */

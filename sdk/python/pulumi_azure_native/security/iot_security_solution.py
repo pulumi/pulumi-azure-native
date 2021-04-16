@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -265,9 +265,7 @@ class IotSecuritySolution(pulumi.CustomResource):
                  unmasked_ip_logging_status: Optional[pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']]] = None,
                  user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         IoT Security solution configuration and resource information.
         API Version: 2019-08-01.
@@ -328,15 +326,7 @@ class IotSecuritySolution(pulumi.CustomResource):
                  unmasked_ip_logging_status: Optional[pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']]] = None,
                  user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,36 +336,36 @@ class IotSecuritySolution(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IotSecuritySolutionArgs.__new__(IotSecuritySolutionArgs)
 
-            __props__['additional_workspaces'] = additional_workspaces
-            __props__['disabled_data_sources'] = disabled_data_sources
+            __props__.__dict__["additional_workspaces"] = additional_workspaces
+            __props__.__dict__["disabled_data_sources"] = disabled_data_sources
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['export'] = export
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["export"] = export
             if iot_hubs is None and not opts.urn:
                 raise TypeError("Missing required property 'iot_hubs'")
-            __props__['iot_hubs'] = iot_hubs
-            __props__['location'] = location
-            __props__['recommendations_configuration'] = recommendations_configuration
+            __props__.__dict__["iot_hubs"] = iot_hubs
+            __props__.__dict__["location"] = location
+            __props__.__dict__["recommendations_configuration"] = recommendations_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['solution_name'] = solution_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["solution_name"] = solution_name
             if status is None:
                 status = 'Enabled'
-            __props__['status'] = status
-            __props__['tags'] = tags
+            __props__.__dict__["status"] = status
+            __props__.__dict__["tags"] = tags
             if unmasked_ip_logging_status is None:
                 unmasked_ip_logging_status = 'Disabled'
-            __props__['unmasked_ip_logging_status'] = unmasked_ip_logging_status
-            __props__['user_defined_resources'] = user_defined_resources
-            __props__['workspace'] = workspace
-            __props__['auto_discovered_resources'] = None
-            __props__['name'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["unmasked_ip_logging_status"] = unmasked_ip_logging_status
+            __props__.__dict__["user_defined_resources"] = user_defined_resources
+            __props__.__dict__["workspace"] = workspace
+            __props__.__dict__["auto_discovered_resources"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:IotSecuritySolution"), pulumi.Alias(type_="azure-native:security/v20170801preview:IotSecuritySolution"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:IotSecuritySolution"), pulumi.Alias(type_="azure-native:security/v20190801:IotSecuritySolution"), pulumi.Alias(type_="azure-nextgen:security/v20190801:IotSecuritySolution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotSecuritySolution, __self__).__init__(
@@ -398,24 +388,24 @@ class IotSecuritySolution(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = IotSecuritySolutionArgs.__new__(IotSecuritySolutionArgs)
 
-        __props__["additional_workspaces"] = None
-        __props__["auto_discovered_resources"] = None
-        __props__["disabled_data_sources"] = None
-        __props__["display_name"] = None
-        __props__["export"] = None
-        __props__["iot_hubs"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["recommendations_configuration"] = None
-        __props__["status"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["unmasked_ip_logging_status"] = None
-        __props__["user_defined_resources"] = None
-        __props__["workspace"] = None
+        __props__.__dict__["additional_workspaces"] = None
+        __props__.__dict__["auto_discovered_resources"] = None
+        __props__.__dict__["disabled_data_sources"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["export"] = None
+        __props__.__dict__["iot_hubs"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["recommendations_configuration"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unmasked_ip_logging_status"] = None
+        __props__.__dict__["user_defined_resources"] = None
+        __props__.__dict__["workspace"] = None
         return IotSecuritySolution(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -545,10 +535,4 @@ class IotSecuritySolution(pulumi.CustomResource):
         Workspace resource ID
         """
         return pulumi.get(self, "workspace")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

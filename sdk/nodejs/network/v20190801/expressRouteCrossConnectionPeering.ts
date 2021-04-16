@@ -189,7 +189,7 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The IPv6 peering configuration.
      */
-    readonly ipv6PeeringConfig?: pulumi.Input<inputs.network.v20190801.Ipv6ExpressRouteCircuitPeeringConfig>;
+    readonly ipv6PeeringConfig?: pulumi.Input<inputs.network.v20190801.Ipv6ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * Who was the last to modify the peering.
      */
@@ -197,7 +197,7 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The Microsoft peering configuration.
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeeringConfig>;
+    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeeringConfigArgs>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */

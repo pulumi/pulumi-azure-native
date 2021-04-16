@@ -4,7 +4,7 @@
 package v20160501preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Instance of an Azure ML web service resource.

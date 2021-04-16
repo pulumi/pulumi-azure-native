@@ -155,7 +155,7 @@ export interface PublicIPAddressArgs {
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20170601.PublicIPAddressDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20170601.PublicIPAddressDnsSettingsArgs>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

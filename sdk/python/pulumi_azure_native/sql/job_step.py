@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -206,9 +206,7 @@ class JobStep(pulumi.CustomResource):
                  step_id: Optional[pulumi.Input[int]] = None,
                  step_name: Optional[pulumi.Input[str]] = None,
                  target_group: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A job step.
         API Version: 2020-11-01-preview.
@@ -263,15 +261,7 @@ class JobStep(pulumi.CustomResource):
                  step_id: Optional[pulumi.Input[int]] = None,
                  step_name: Optional[pulumi.Input[str]] = None,
                  target_group: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,35 +271,35 @@ class JobStep(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = JobStepArgs.__new__(JobStepArgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
-            __props__['action'] = action
+            __props__.__dict__["action"] = action
             if credential is None and not opts.urn:
                 raise TypeError("Missing required property 'credential'")
-            __props__['credential'] = credential
-            __props__['execution_options'] = execution_options
+            __props__.__dict__["credential"] = credential
+            __props__.__dict__["execution_options"] = execution_options
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
-            __props__['job_agent_name'] = job_agent_name
+            __props__.__dict__["job_agent_name"] = job_agent_name
             if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
-            __props__['job_name'] = job_name
-            __props__['output'] = output
+            __props__.__dict__["job_name"] = job_name
+            __props__.__dict__["output"] = output
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['step_id'] = step_id
-            __props__['step_name'] = step_name
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["step_id"] = step_id
+            __props__.__dict__["step_name"] = step_name
             if target_group is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group'")
-            __props__['target_group'] = target_group
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["target_group"] = target_group
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:JobStep"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:JobStep"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobStep"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:JobStep")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobStep, __self__).__init__(
@@ -332,16 +322,16 @@ class JobStep(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = JobStepArgs.__new__(JobStepArgs)
 
-        __props__["action"] = None
-        __props__["credential"] = None
-        __props__["execution_options"] = None
-        __props__["name"] = None
-        __props__["output"] = None
-        __props__["step_id"] = None
-        __props__["target_group"] = None
-        __props__["type"] = None
+        __props__.__dict__["action"] = None
+        __props__.__dict__["credential"] = None
+        __props__.__dict__["execution_options"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["output"] = None
+        __props__.__dict__["step_id"] = None
+        __props__.__dict__["target_group"] = None
+        __props__.__dict__["type"] = None
         return JobStep(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -407,10 +397,4 @@ class JobStep(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

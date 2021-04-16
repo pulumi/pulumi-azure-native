@@ -197,7 +197,7 @@ export interface JobArgs {
     /**
      * Delivery Info of Job.
      */
-    readonly deliveryInfo?: pulumi.Input<inputs.databox.JobDeliveryInfo>;
+    readonly deliveryInfo?: pulumi.Input<inputs.databox.JobDeliveryInfoArgs>;
     /**
      * Delivery type of Job.
      */
@@ -205,11 +205,11 @@ export interface JobArgs {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: pulumi.Input<inputs.databox.DataBoxDiskJobDetails | inputs.databox.DataBoxHeavyJobDetails | inputs.databox.DataBoxJobDetails>;
+    readonly details?: pulumi.Input<inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs>;
     /**
      * Msi identity of the resource
      */
-    readonly identity?: pulumi.Input<inputs.databox.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.databox.ResourceIdentityArgs>;
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
@@ -225,7 +225,7 @@ export interface JobArgs {
     /**
      * The sku type.
      */
-    readonly sku: pulumi.Input<inputs.databox.Sku>;
+    readonly sku: pulumi.Input<inputs.databox.SkuArgs>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */

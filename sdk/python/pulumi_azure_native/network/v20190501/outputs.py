@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -32,6 +32,27 @@ class BackendPoolResponse(dict):
     """
     A backend pool is a collection of backends that can be routed to.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceState":
+            suggest = "resource_state"
+        elif key == "healthProbeSettings":
+            suggest = "health_probe_settings"
+        elif key == "loadBalancingSettings":
+            suggest = "load_balancing_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_state: str,
                  type: str,
@@ -44,10 +65,10 @@ class BackendPoolResponse(dict):
         A backend pool is a collection of backends that can be routed to.
         :param str resource_state: Resource status.
         :param str type: Resource type.
-        :param Sequence['BackendResponseArgs'] backends: The set of backends for this pool
-        :param 'SubResourceResponseArgs' health_probe_settings: L7 health probe settings for a backend pool
+        :param Sequence['BackendResponse'] backends: The set of backends for this pool
+        :param 'SubResourceResponse' health_probe_settings: L7 health probe settings for a backend pool
         :param str id: Resource ID.
-        :param 'SubResourceResponseArgs' load_balancing_settings: Load balancing settings for a backend pool
+        :param 'SubResourceResponse' load_balancing_settings: Load balancing settings for a backend pool
         :param str name: Resource name.
         """
         pulumi.set(__self__, "resource_state", resource_state)
@@ -119,15 +140,31 @@ class BackendPoolResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackendPoolsSettingsResponse(dict):
     """
     Settings that apply to all backend pools.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enforceCertificateNameCheck":
+            suggest = "enforce_certificate_name_check"
+        elif key == "sendRecvTimeoutSeconds":
+            suggest = "send_recv_timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendPoolsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendPoolsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendPoolsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enforce_certificate_name_check: Optional[str] = None,
                  send_recv_timeout_seconds: Optional[int] = None):
@@ -159,15 +196,35 @@ class BackendPoolsSettingsResponse(dict):
         """
         return pulumi.get(self, "send_recv_timeout_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BackendResponse(dict):
     """
     Backend address of a frontDoor load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendHostHeader":
+            suggest = "backend_host_header"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  backend_host_header: Optional[str] = None,
@@ -257,15 +314,31 @@ class BackendResponse(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CacheConfigurationResponse(dict):
     """
     Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamicCompression":
+            suggest = "dynamic_compression"
+        elif key == "queryParameterStripDirective":
+            suggest = "query_parameter_strip_directive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dynamic_compression: Optional[str] = None,
                  query_parameter_strip_directive: Optional[str] = None):
@@ -295,15 +368,39 @@ class CacheConfigurationResponse(dict):
         """
         return pulumi.get(self, "query_parameter_strip_directive")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomHttpsConfigurationResponse(dict):
     """
     Https settings for a domain
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "minimumTlsVersion":
+            suggest = "minimum_tls_version"
+        elif key == "protocolType":
+            suggest = "protocol_type"
+        elif key == "certificateType":
+            suggest = "certificate_type"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomHttpsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomHttpsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomHttpsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_source: str,
                  minimum_tls_version: str,
@@ -320,7 +417,7 @@ class CustomHttpsConfigurationResponse(dict):
         :param str certificate_type: Defines the type of the certificate used for secure connections to a frontendEndpoint
         :param str secret_name: The name of the Key Vault secret representing the full certificate PFX
         :param str secret_version: The version of the Key Vault secret representing the full certificate PFX
-        :param 'KeyVaultCertificateSourceParametersResponseVaultArgs' vault: The Key Vault containing the SSL certificate
+        :param 'KeyVaultCertificateSourceParametersResponseVault' vault: The Key Vault containing the SSL certificate
         """
         pulumi.set(__self__, "certificate_source", certificate_source)
         pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
@@ -390,15 +487,37 @@ class CustomHttpsConfigurationResponse(dict):
         """
         return pulumi.get(self, "vault")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ForwardingConfigurationResponse(dict):
     """
     Describes Forwarding Route.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "backendPool":
+            suggest = "backend_pool"
+        elif key == "cacheConfiguration":
+            suggest = "cache_configuration"
+        elif key == "customForwardingPath":
+            suggest = "custom_forwarding_path"
+        elif key == "forwardingProtocol":
+            suggest = "forwarding_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ForwardingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ForwardingConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ForwardingConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  backend_pool: Optional['outputs.SubResourceResponse'] = None,
@@ -409,8 +528,8 @@ class ForwardingConfigurationResponse(dict):
         Describes Forwarding Route.
         :param str odata_type: 
                Expected value is '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration'.
-        :param 'SubResourceResponseArgs' backend_pool: A reference to the BackendPool which this rule routes to.
-        :param 'CacheConfigurationResponseArgs' cache_configuration: The caching configuration associated with this rule.
+        :param 'SubResourceResponse' backend_pool: A reference to the BackendPool which this rule routes to.
+        :param 'CacheConfigurationResponse' cache_configuration: The caching configuration associated with this rule.
         :param str custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
         :param str forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         """
@@ -465,15 +584,43 @@ class ForwardingConfigurationResponse(dict):
         """
         return pulumi.get(self, "forwarding_protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontendEndpointResponse(dict):
     """
     A frontend endpoint used for routing.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHttpsConfiguration":
+            suggest = "custom_https_configuration"
+        elif key == "customHttpsProvisioningState":
+            suggest = "custom_https_provisioning_state"
+        elif key == "customHttpsProvisioningSubstate":
+            suggest = "custom_https_provisioning_substate"
+        elif key == "resourceState":
+            suggest = "resource_state"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "sessionAffinityEnabledState":
+            suggest = "session_affinity_enabled_state"
+        elif key == "sessionAffinityTtlSeconds":
+            suggest = "session_affinity_ttl_seconds"
+        elif key == "webApplicationFirewallPolicyLink":
+            suggest = "web_application_firewall_policy_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontendEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontendEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontendEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_https_configuration: 'outputs.CustomHttpsConfigurationResponse',
                  custom_https_provisioning_state: str,
@@ -488,7 +635,7 @@ class FrontendEndpointResponse(dict):
                  web_application_firewall_policy_link: Optional['outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink'] = None):
         """
         A frontend endpoint used for routing.
-        :param 'CustomHttpsConfigurationResponseArgs' custom_https_configuration: The configuration specifying how to enable HTTPS
+        :param 'CustomHttpsConfigurationResponse' custom_https_configuration: The configuration specifying how to enable HTTPS
         :param str custom_https_provisioning_state: Provisioning status of Custom Https of the frontendEndpoint.
         :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
         :param str resource_state: Resource status.
@@ -498,7 +645,7 @@ class FrontendEndpointResponse(dict):
         :param str name: Resource name.
         :param str session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param int session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
+        :param 'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink' web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
         pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
@@ -606,9 +753,6 @@ class FrontendEndpointResponse(dict):
         """
         return pulumi.get(self, "web_application_firewall_policy_link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
@@ -632,15 +776,35 @@ class FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink(d
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthProbeSettingsModelResponse(dict):
     """
     Load balancing settings for a backend pool
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceState":
+            suggest = "resource_state"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "healthProbeMethod":
+            suggest = "health_probe_method"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthProbeSettingsModelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthProbeSettingsModelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthProbeSettingsModelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_state: str,
                  type: str,
@@ -754,9 +918,6 @@ class HealthProbeSettingsModelResponse(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultCertificateSourceParametersResponseVault(dict):
@@ -780,15 +941,35 @@ class KeyVaultCertificateSourceParametersResponseVault(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancingSettingsModelResponse(dict):
     """
     Load balancing settings for a backend pool
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceState":
+            suggest = "resource_state"
+        elif key == "additionalLatencyMilliseconds":
+            suggest = "additional_latency_milliseconds"
+        elif key == "sampleSize":
+            suggest = "sample_size"
+        elif key == "successfulSamplesRequired":
+            suggest = "successful_samples_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancingSettingsModelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancingSettingsModelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancingSettingsModelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_state: str,
                  type: str,
@@ -876,15 +1057,41 @@ class LoadBalancingSettingsModelResponse(dict):
         """
         return pulumi.get(self, "successful_samples_required")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RedirectConfigurationResponse(dict):
     """
     Describes Redirect Route.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "customFragment":
+            suggest = "custom_fragment"
+        elif key == "customHost":
+            suggest = "custom_host"
+        elif key == "customPath":
+            suggest = "custom_path"
+        elif key == "customQueryString":
+            suggest = "custom_query_string"
+        elif key == "redirectProtocol":
+            suggest = "redirect_protocol"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedirectConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedirectConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedirectConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  custom_fragment: Optional[str] = None,
@@ -975,15 +1182,39 @@ class RedirectConfigurationResponse(dict):
         """
         return pulumi.get(self, "redirect_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingRuleResponse(dict):
     """
     A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceState":
+            suggest = "resource_state"
+        elif key == "acceptedProtocols":
+            suggest = "accepted_protocols"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+        elif key == "frontendEndpoints":
+            suggest = "frontend_endpoints"
+        elif key == "patternsToMatch":
+            suggest = "patterns_to_match"
+        elif key == "routeConfiguration":
+            suggest = "route_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_state: str,
                  type: str,
@@ -1000,11 +1231,11 @@ class RoutingRuleResponse(dict):
         :param str type: Resource type.
         :param Sequence[str] accepted_protocols: Protocol schemes to match for this rule
         :param str enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-        :param Sequence['SubResourceResponseArgs'] frontend_endpoints: Frontend endpoints associated with this rule
+        :param Sequence['SubResourceResponse'] frontend_endpoints: Frontend endpoints associated with this rule
         :param str id: Resource ID.
         :param str name: Resource name.
         :param Sequence[str] patterns_to_match: The route patterns of the rule.
-        :param Union['ForwardingConfigurationResponseArgs', 'RedirectConfigurationResponseArgs'] route_configuration: A reference to the routing configuration.
+        :param Union['ForwardingConfigurationResponse', 'RedirectConfigurationResponse'] route_configuration: A reference to the routing configuration.
         """
         pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "type", type)
@@ -1095,9 +1326,6 @@ class RoutingRuleResponse(dict):
         """
         return pulumi.get(self, "route_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubResourceResponse(dict):
@@ -1120,8 +1348,5 @@ class SubResourceResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

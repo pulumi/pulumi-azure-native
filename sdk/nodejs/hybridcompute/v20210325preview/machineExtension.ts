@@ -122,7 +122,7 @@ export interface MachineExtensionArgs {
     /**
      * Describes Machine Extension Properties.
      */
-    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.MachineExtensionProperties>;
+    readonly properties?: pulumi.Input<inputs.hybridcompute.v20210325preview.MachineExtensionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

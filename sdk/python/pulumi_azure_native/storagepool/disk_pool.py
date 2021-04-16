@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -175,9 +175,7 @@ class DiskPool(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'DiskPoolTier']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Response for Disk pool request.
         API Version: 2020-03-15-preview.
@@ -228,15 +226,7 @@ class DiskPool(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'DiskPoolTier']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,30 +236,30 @@ class DiskPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DiskPoolArgs.__new__(DiskPoolArgs)
 
-            __props__['additional_capabilities'] = additional_capabilities
+            __props__.__dict__["additional_capabilities"] = additional_capabilities
             if availability_zones is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zones'")
-            __props__['availability_zones'] = availability_zones
-            __props__['disk_pool_name'] = disk_pool_name
-            __props__['disks'] = disks
-            __props__['location'] = location
+            __props__.__dict__["availability_zones"] = availability_zones
+            __props__.__dict__["disk_pool_name"] = disk_pool_name
+            __props__.__dict__["disks"] = disks
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
-            __props__['tier'] = tier
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['status'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["tier"] = tier
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagepool:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20200315preview:DiskPool"), pulumi.Alias(type_="azure-nextgen:storagepool/v20200315preview:DiskPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskPool, __self__).__init__(
@@ -292,20 +282,20 @@ class DiskPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DiskPoolArgs.__new__(DiskPoolArgs)
 
-        __props__["additional_capabilities"] = None
-        __props__["availability_zones"] = None
-        __props__["disks"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["status"] = None
-        __props__["subnet_id"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["tier"] = None
-        __props__["type"] = None
+        __props__.__dict__["additional_capabilities"] = None
+        __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["disks"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tier"] = None
+        __props__.__dict__["type"] = None
         return DiskPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -403,10 +393,4 @@ class DiskPool(pulumi.CustomResource):
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

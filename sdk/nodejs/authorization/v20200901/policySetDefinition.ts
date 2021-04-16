@@ -135,15 +135,15 @@ export interface PolicySetDefinitionArgs {
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterDefinitionsValue>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterDefinitionsValueArgs>}>;
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */
-    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionGroup>[]>;
+    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionGroupArgs>[]>;
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionReference>[]>;
+    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.PolicyDefinitionReferenceArgs>[]>;
     /**
      * The name of the policy set definition to create.
      */

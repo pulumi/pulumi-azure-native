@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -144,9 +144,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         FirewallPolicy Resource.
 
@@ -191,15 +189,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -209,24 +199,24 @@ class FirewallPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
-            __props__['base_policy'] = base_policy
-            __props__['firewall_policy_name'] = firewall_policy_name
-            __props__['id'] = id
-            __props__['location'] = location
+            __props__.__dict__["base_policy"] = base_policy
+            __props__.__dict__["firewall_policy_name"] = firewall_policy_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['threat_intel_mode'] = threat_intel_mode
-            __props__['child_policies'] = None
-            __props__['etag'] = None
-            __props__['firewalls'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['rule_groups'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            __props__.__dict__["child_policies"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["firewalls"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["rule_groups"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-native:network:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:FirewallPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicy, __self__).__init__(
@@ -249,19 +239,19 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
-        __props__["base_policy"] = None
-        __props__["child_policies"] = None
-        __props__["etag"] = None
-        __props__["firewalls"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["rule_groups"] = None
-        __props__["tags"] = None
-        __props__["threat_intel_mode"] = None
-        __props__["type"] = None
+        __props__.__dict__["base_policy"] = None
+        __props__.__dict__["child_policies"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["firewalls"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["rule_groups"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["threat_intel_mode"] = None
+        __props__.__dict__["type"] = None
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +341,4 @@ class FirewallPolicy(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -156,7 +156,7 @@ export interface AutomationRuleArgs {
     /**
      * The actions to execute when the automation rule is triggered
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleModifyPropertiesAction | inputs.securityinsights.v20190101preview.AutomationRuleRunPlaybookAction>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionArgs>[]>;
     /**
      * Automation rule ID
      */
@@ -184,7 +184,7 @@ export interface AutomationRuleArgs {
     /**
      * The triggering logic of the automation rule
      */
-    readonly triggeringLogic: pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleTriggeringLogic>;
+    readonly triggeringLogic: pulumi.Input<inputs.securityinsights.v20190101preview.AutomationRuleTriggeringLogicArgs>;
     /**
      * The name of the workspace.
      */

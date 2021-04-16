@@ -201,7 +201,7 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbformysql.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.dbformysql.ResourceIdentityArgs>;
     /**
      * The location the resource resides in.
      */
@@ -209,7 +209,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformysql.ServerPropertiesForDefaultCreate | inputs.dbformysql.ServerPropertiesForGeoRestore | inputs.dbformysql.ServerPropertiesForReplica | inputs.dbformysql.ServerPropertiesForRestore>;
+    readonly properties: pulumi.Input<inputs.dbformysql.ServerPropertiesForDefaultCreateArgs | inputs.dbformysql.ServerPropertiesForGeoRestoreArgs | inputs.dbformysql.ServerPropertiesForReplicaArgs | inputs.dbformysql.ServerPropertiesForRestoreArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -221,7 +221,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbformysql.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbformysql.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -31,6 +31,23 @@ class AddressSpaceResponse(dict):
     """
     AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressSpaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressSpaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressSpaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefixes: Optional[Sequence[str]] = None):
         """
@@ -48,15 +65,29 @@ class AddressSpaceResponse(dict):
         """
         return pulumi.get(self, "address_prefixes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CreatedByResponse(dict):
     """
     Provides details of the entity that created/updated the workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreatedByResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreatedByResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreatedByResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_id: str,
                  oid: str,
@@ -95,15 +126,35 @@ class CreatedByResponse(dict):
         """
         return pulumi.get(self, "puid")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionResponse(dict):
     """
     The object that contains details of encryption used on the workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_name: Optional[str] = None,
                  key_source: Optional[str] = None,
@@ -159,15 +210,31 @@ class EncryptionResponse(dict):
         """
         return pulumi.get(self, "key_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedIdentityConfigurationResponse(dict):
     """
     The Managed Identity details for storage account.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -206,9 +273,6 @@ class ManagedIdentityConfigurationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -243,9 +307,6 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict):
@@ -269,9 +330,6 @@ class VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork(dict
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork(dict):
@@ -294,9 +352,6 @@ class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork(dict):
         The Id of the remote virtual network.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -331,9 +386,6 @@ class WorkspaceCustomBooleanParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceCustomObjectParameterResponse(dict):
@@ -367,15 +419,57 @@ class WorkspaceCustomObjectParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceCustomParametersResponse(dict):
     """
     Custom Parameters used for Cluster Creation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTags":
+            suggest = "resource_tags"
+        elif key == "amlWorkspaceId":
+            suggest = "aml_workspace_id"
+        elif key == "customPrivateSubnetName":
+            suggest = "custom_private_subnet_name"
+        elif key == "customPublicSubnetName":
+            suggest = "custom_public_subnet_name"
+        elif key == "customVirtualNetworkId":
+            suggest = "custom_virtual_network_id"
+        elif key == "enableNoPublicIp":
+            suggest = "enable_no_public_ip"
+        elif key == "loadBalancerBackendPoolName":
+            suggest = "load_balancer_backend_pool_name"
+        elif key == "loadBalancerId":
+            suggest = "load_balancer_id"
+        elif key == "natGatewayName":
+            suggest = "nat_gateway_name"
+        elif key == "prepareEncryption":
+            suggest = "prepare_encryption"
+        elif key == "publicIpName":
+            suggest = "public_ip_name"
+        elif key == "requireInfrastructureEncryption":
+            suggest = "require_infrastructure_encryption"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "storageAccountSkuName":
+            suggest = "storage_account_sku_name"
+        elif key == "vnetAddressPrefix":
+            suggest = "vnet_address_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceCustomParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceCustomParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceCustomParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_tags: 'outputs.WorkspaceCustomObjectParameterResponse',
                  aml_workspace_id: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
@@ -395,22 +489,22 @@ class WorkspaceCustomParametersResponse(dict):
                  vnet_address_prefix: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None):
         """
         Custom Parameters used for Cluster Creation.
-        :param 'WorkspaceCustomObjectParameterResponseArgs' resource_tags: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
-        :param 'WorkspaceCustomStringParameterResponseArgs' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
-        :param 'WorkspaceCustomStringParameterResponseArgs' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
-        :param 'WorkspaceCustomStringParameterResponseArgs' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
-        :param 'WorkspaceCustomStringParameterResponseArgs' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
-        :param 'WorkspaceCustomBooleanParameterResponseArgs' enable_no_public_ip: Should the Public IP be Disabled?
-        :param 'WorkspaceEncryptionParameterResponseArgs' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
-        :param 'WorkspaceCustomStringParameterResponseArgs' load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
-        :param 'WorkspaceCustomStringParameterResponseArgs' load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
-        :param 'WorkspaceCustomStringParameterResponseArgs' nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
-        :param 'WorkspaceCustomBooleanParameterResponseArgs' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
-        :param 'WorkspaceCustomStringParameterResponseArgs' public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet.
-        :param 'WorkspaceCustomBooleanParameterResponseArgs' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
-        :param 'WorkspaceCustomStringParameterResponseArgs' storage_account_name: Default DBFS storage account name.
-        :param 'WorkspaceCustomStringParameterResponseArgs' storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
-        :param 'WorkspaceCustomStringParameterResponseArgs' vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139.
+        :param 'WorkspaceCustomObjectParameterResponse' resource_tags: Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level.
+        :param 'WorkspaceCustomStringParameterResponse' aml_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace
+        :param 'WorkspaceCustomStringParameterResponse' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
+        :param 'WorkspaceCustomStringParameterResponse' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
+        :param 'WorkspaceCustomStringParameterResponse' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
+        :param 'WorkspaceCustomBooleanParameterResponse' enable_no_public_ip: Should the Public IP be Disabled?
+        :param 'WorkspaceEncryptionParameterResponse' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        :param 'WorkspaceCustomStringParameterResponse' load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
+        :param 'WorkspaceCustomStringParameterResponse' load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
+        :param 'WorkspaceCustomStringParameterResponse' nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
+        :param 'WorkspaceCustomBooleanParameterResponse' prepare_encryption: Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+        :param 'WorkspaceCustomStringParameterResponse' public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet.
+        :param 'WorkspaceCustomBooleanParameterResponse' require_infrastructure_encryption: A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+        :param 'WorkspaceCustomStringParameterResponse' storage_account_name: Default DBFS storage account name.
+        :param 'WorkspaceCustomStringParameterResponse' storage_account_sku_name: Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
+        :param 'WorkspaceCustomStringParameterResponse' vnet_address_prefix: Address prefix for Managed virtual network. Default value for this input is 10.139.
         """
         pulumi.set(__self__, "resource_tags", resource_tags)
         if aml_workspace_id is not None:
@@ -572,9 +666,6 @@ class WorkspaceCustomParametersResponse(dict):
         """
         return pulumi.get(self, "vnet_address_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceCustomStringParameterResponse(dict):
@@ -608,9 +699,6 @@ class WorkspaceCustomStringParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceEncryptionParameterResponse(dict):
@@ -623,7 +711,7 @@ class WorkspaceEncryptionParameterResponse(dict):
         """
         The object that contains details of encryption used on the workspace.
         :param str type: The type of variable that this is
-        :param 'EncryptionResponseArgs' value: The value which should be used for this field.
+        :param 'EncryptionResponse' value: The value which should be used for this field.
         """
         pulumi.set(__self__, "type", type)
         if value is not None:
@@ -645,15 +733,31 @@ class WorkspaceEncryptionParameterResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceProviderAuthorizationResponse(dict):
     """
     The workspace provider authorization.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceProviderAuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceProviderAuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceProviderAuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  role_definition_id: str):
@@ -680,8 +784,5 @@ class WorkspaceProviderAuthorizationResponse(dict):
         The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
         """
         return pulumi.get(self, "role_definition_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

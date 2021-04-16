@@ -186,7 +186,7 @@ export interface ClusterArgs {
     /**
      * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */
-    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20180301.NodeSetup>;
+    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20180301.NodeSetupArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -194,11 +194,11 @@ export interface ClusterArgs {
     /**
      * At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
      */
-    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20180301.ScaleSettings>;
+    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20180301.ScaleSettingsArgs>;
     /**
      * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
      */
-    readonly subnet?: pulumi.Input<inputs.batchai.v20180301.ResourceId>;
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180301.ResourceIdArgs>;
     /**
      * The user specified tags associated with the Cluster.
      */
@@ -206,11 +206,11 @@ export interface ClusterArgs {
     /**
      * Settings for user account that gets created on each on the nodes of a cluster.
      */
-    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20180301.UserAccountSettings>;
+    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20180301.UserAccountSettingsArgs>;
     /**
      * Settings for OS image.
      */
-    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20180301.VirtualMachineConfiguration>;
+    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20180301.VirtualMachineConfigurationArgs>;
     /**
      * Default is dedicated.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = [
     'ApiEndpointResponse',
@@ -18,6 +18,23 @@ class ApiEndpointResponse(dict):
     """
     The properties for a Media Services REST API endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "majorVersion":
+            suggest = "major_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: Optional[str] = None,
                  major_version: Optional[str] = None):
@@ -47,15 +64,29 @@ class ApiEndpointResponse(dict):
         """
         return pulumi.get(self, "major_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageAccountResponse(dict):
     """
     The properties of a storage account associated with this resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPrimary":
+            suggest = "is_primary"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageAccountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageAccountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageAccountResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  is_primary: bool):
@@ -82,8 +113,5 @@ class StorageAccountResponse(dict):
         Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
         """
         return pulumi.get(self, "is_primary")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

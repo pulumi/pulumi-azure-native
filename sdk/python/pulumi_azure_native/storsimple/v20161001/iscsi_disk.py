@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['IscsiDiskArgs', 'IscsiDisk']
@@ -202,9 +202,7 @@ class IscsiDisk(pulumi.CustomResource):
                  monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
                  provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The iSCSI disk.
 
@@ -257,15 +255,7 @@ class IscsiDisk(pulumi.CustomResource):
                  monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
                  provisioned_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,41 +265,41 @@ class IscsiDisk(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IscsiDiskArgs.__new__(IscsiDiskArgs)
 
             if access_control_records is None and not opts.urn:
                 raise TypeError("Missing required property 'access_control_records'")
-            __props__['access_control_records'] = access_control_records
+            __props__.__dict__["access_control_records"] = access_control_records
             if data_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_policy'")
-            __props__['data_policy'] = data_policy
-            __props__['description'] = description
+            __props__.__dict__["data_policy"] = data_policy
+            __props__.__dict__["description"] = description
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['disk_name'] = disk_name
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["disk_name"] = disk_name
             if disk_status is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_status'")
-            __props__['disk_status'] = disk_status
+            __props__.__dict__["disk_status"] = disk_status
             if iscsi_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iscsi_server_name'")
-            __props__['iscsi_server_name'] = iscsi_server_name
+            __props__.__dict__["iscsi_server_name"] = iscsi_server_name
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
-            __props__['monitoring_status'] = monitoring_status
+            __props__.__dict__["monitoring_status"] = monitoring_status
             if provisioned_capacity_in_bytes is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
-            __props__['provisioned_capacity_in_bytes'] = provisioned_capacity_in_bytes
+            __props__.__dict__["provisioned_capacity_in_bytes"] = provisioned_capacity_in_bytes
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['local_used_capacity_in_bytes'] = None
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['used_capacity_in_bytes'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["local_used_capacity_in_bytes"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["used_capacity_in_bytes"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:IscsiDisk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IscsiDisk, __self__).__init__(
@@ -332,18 +322,18 @@ class IscsiDisk(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = IscsiDiskArgs.__new__(IscsiDiskArgs)
 
-        __props__["access_control_records"] = None
-        __props__["data_policy"] = None
-        __props__["description"] = None
-        __props__["disk_status"] = None
-        __props__["local_used_capacity_in_bytes"] = None
-        __props__["monitoring_status"] = None
-        __props__["name"] = None
-        __props__["provisioned_capacity_in_bytes"] = None
-        __props__["type"] = None
-        __props__["used_capacity_in_bytes"] = None
+        __props__.__dict__["access_control_records"] = None
+        __props__.__dict__["data_policy"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["disk_status"] = None
+        __props__.__dict__["local_used_capacity_in_bytes"] = None
+        __props__.__dict__["monitoring_status"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioned_capacity_in_bytes"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["used_capacity_in_bytes"] = None
         return IscsiDisk(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -425,10 +415,4 @@ class IscsiDisk(pulumi.CustomResource):
         The used capacity in bytes.
         """
         return pulumi.get(self, "used_capacity_in_bytes")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -348,9 +348,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a Virtual Machine Scale Set.
 
@@ -419,15 +417,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -437,33 +427,33 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualMachineScaleSetArgs.__new__(VirtualMachineScaleSetArgs)
 
-            __props__['additional_capabilities'] = additional_capabilities
-            __props__['automatic_repairs_policy'] = automatic_repairs_policy
-            __props__['do_not_run_extensions_on_overprovisioned_vms'] = do_not_run_extensions_on_overprovisioned_vms
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['overprovision'] = overprovision
-            __props__['plan'] = plan
-            __props__['platform_fault_domain_count'] = platform_fault_domain_count
-            __props__['proximity_placement_group'] = proximity_placement_group
+            __props__.__dict__["additional_capabilities"] = additional_capabilities
+            __props__.__dict__["automatic_repairs_policy"] = automatic_repairs_policy
+            __props__.__dict__["do_not_run_extensions_on_overprovisioned_vms"] = do_not_run_extensions_on_overprovisioned_vms
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["overprovision"] = overprovision
+            __props__.__dict__["plan"] = plan
+            __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
+            __props__.__dict__["proximity_placement_group"] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scale_in_policy'] = scale_in_policy
-            __props__['single_placement_group'] = single_placement_group
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['upgrade_policy'] = upgrade_policy
-            __props__['virtual_machine_profile'] = virtual_machine_profile
-            __props__['vm_scale_set_name'] = vm_scale_set_name
-            __props__['zone_balance'] = zone_balance
-            __props__['zones'] = zones
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
-            __props__['unique_id'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scale_in_policy"] = scale_in_policy
+            __props__.__dict__["single_placement_group"] = single_placement_group
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_policy"] = upgrade_policy
+            __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
+            __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
+            __props__.__dict__["zone_balance"] = zone_balance
+            __props__.__dict__["zones"] = zones
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["unique_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineScaleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSet, __self__).__init__(
@@ -486,29 +476,29 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualMachineScaleSetArgs.__new__(VirtualMachineScaleSetArgs)
 
-        __props__["additional_capabilities"] = None
-        __props__["automatic_repairs_policy"] = None
-        __props__["do_not_run_extensions_on_overprovisioned_vms"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["overprovision"] = None
-        __props__["plan"] = None
-        __props__["platform_fault_domain_count"] = None
-        __props__["provisioning_state"] = None
-        __props__["proximity_placement_group"] = None
-        __props__["scale_in_policy"] = None
-        __props__["single_placement_group"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["unique_id"] = None
-        __props__["upgrade_policy"] = None
-        __props__["virtual_machine_profile"] = None
-        __props__["zone_balance"] = None
-        __props__["zones"] = None
+        __props__.__dict__["additional_capabilities"] = None
+        __props__.__dict__["automatic_repairs_policy"] = None
+        __props__.__dict__["do_not_run_extensions_on_overprovisioned_vms"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["overprovision"] = None
+        __props__.__dict__["plan"] = None
+        __props__.__dict__["platform_fault_domain_count"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["proximity_placement_group"] = None
+        __props__.__dict__["scale_in_policy"] = None
+        __props__.__dict__["single_placement_group"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unique_id"] = None
+        __props__.__dict__["upgrade_policy"] = None
+        __props__.__dict__["virtual_machine_profile"] = None
+        __props__.__dict__["zone_balance"] = None
+        __props__.__dict__["zones"] = None
         return VirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -678,10 +668,4 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

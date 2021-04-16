@@ -154,5 +154,5 @@ export interface AlertsSuppressionRuleArgs {
     /**
      * The suppression conditions
      */
-    readonly suppressionAlertsScope?: pulumi.Input<inputs.security.SuppressionAlertsScope>;
+    readonly suppressionAlertsScope?: pulumi.Input<inputs.security.SuppressionAlertsScopeArgs>;
 }

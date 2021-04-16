@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -160,9 +160,7 @@ class Pipeline(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Pipeline resource type.
 
@@ -209,15 +207,7 @@ class Pipeline(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterSpecificationArgs']]]]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -227,23 +217,23 @@ class Pipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            __props__['activities'] = activities
-            __props__['annotations'] = annotations
-            __props__['concurrency'] = concurrency
-            __props__['description'] = description
+            __props__.__dict__["activities"] = activities
+            __props__.__dict__["annotations"] = annotations
+            __props__.__dict__["concurrency"] = concurrency
+            __props__.__dict__["description"] = description
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
-            __props__['factory_name'] = factory_name
-            __props__['parameters'] = parameters
-            __props__['pipeline_name'] = pipeline_name
+            __props__.__dict__["factory_name"] = factory_name
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["pipeline_name"] = pipeline_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Pipeline"), pulumi.Alias(type_="azure-native:datafactory:Pipeline"), pulumi.Alias(type_="azure-nextgen:datafactory:Pipeline"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Pipeline"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Pipeline")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pipeline, __self__).__init__(
@@ -266,16 +256,16 @@ class Pipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PipelineArgs.__new__(PipelineArgs)
 
-        __props__["activities"] = None
-        __props__["annotations"] = None
-        __props__["concurrency"] = None
-        __props__["description"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["parameters"] = None
-        __props__["type"] = None
+        __props__.__dict__["activities"] = None
+        __props__.__dict__["annotations"] = None
+        __props__.__dict__["concurrency"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["parameters"] = None
+        __props__.__dict__["type"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -341,10 +331,4 @@ class Pipeline(pulumi.CustomResource):
         The resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

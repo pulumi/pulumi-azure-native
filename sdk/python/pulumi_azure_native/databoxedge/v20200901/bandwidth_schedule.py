@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -138,9 +138,7 @@ class BandwidthSchedule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None,
                  stop: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The bandwidth schedule details.
 
@@ -185,15 +183,7 @@ class BandwidthSchedule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None,
                  stop: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,29 +193,29 @@ class BandwidthSchedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BandwidthScheduleArgs.__new__(BandwidthScheduleArgs)
 
             if days is None and not opts.urn:
                 raise TypeError("Missing required property 'days'")
-            __props__['days'] = days
+            __props__.__dict__["days"] = days
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['name'] = name
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["name"] = name
             if rate_in_mbps is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_in_mbps'")
-            __props__['rate_in_mbps'] = rate_in_mbps
+            __props__.__dict__["rate_in_mbps"] = rate_in_mbps
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if start is None and not opts.urn:
                 raise TypeError("Missing required property 'start'")
-            __props__['start'] = start
+            __props__.__dict__["start"] = start
             if stop is None and not opts.urn:
                 raise TypeError("Missing required property 'stop'")
-            __props__['stop'] = stop
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["stop"] = stop
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201preview:BandwidthSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSchedule, __self__).__init__(
@@ -248,15 +238,15 @@ class BandwidthSchedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BandwidthScheduleArgs.__new__(BandwidthScheduleArgs)
 
-        __props__["days"] = None
-        __props__["name"] = None
-        __props__["rate_in_mbps"] = None
-        __props__["start"] = None
-        __props__["stop"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["days"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["rate_in_mbps"] = None
+        __props__.__dict__["start"] = None
+        __props__.__dict__["stop"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return BandwidthSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -314,10 +304,4 @@ class BandwidthSchedule(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

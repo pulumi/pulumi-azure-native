@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['VolumeArgs', 'Volume']
@@ -202,9 +202,7 @@ class Volume(pulumi.CustomResource):
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_status: Optional[pulumi.Input['VolumeStatus']] = None,
                  volume_type: Optional[pulumi.Input['VolumeType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The volume.
 
@@ -257,15 +255,7 @@ class Volume(pulumi.CustomResource):
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_status: Optional[pulumi.Input['VolumeStatus']] = None,
                  volume_type: Optional[pulumi.Input['VolumeType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,43 +265,43 @@ class Volume(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VolumeArgs.__new__(VolumeArgs)
 
             if access_control_record_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'access_control_record_ids'")
-            __props__['access_control_record_ids'] = access_control_record_ids
+            __props__.__dict__["access_control_record_ids"] = access_control_record_ids
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['kind'] = kind
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
-            __props__['monitoring_status'] = monitoring_status
+            __props__.__dict__["monitoring_status"] = monitoring_status
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if size_in_bytes is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_bytes'")
-            __props__['size_in_bytes'] = size_in_bytes
+            __props__.__dict__["size_in_bytes"] = size_in_bytes
             if volume_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_container_name'")
-            __props__['volume_container_name'] = volume_container_name
-            __props__['volume_name'] = volume_name
+            __props__.__dict__["volume_container_name"] = volume_container_name
+            __props__.__dict__["volume_name"] = volume_name
             if volume_status is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_status'")
-            __props__['volume_status'] = volume_status
+            __props__.__dict__["volume_status"] = volume_status
             if volume_type is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_type'")
-            __props__['volume_type'] = volume_type
-            __props__['backup_policy_ids'] = None
-            __props__['backup_status'] = None
-            __props__['name'] = None
-            __props__['operation_status'] = None
-            __props__['type'] = None
-            __props__['volume_container_id'] = None
+            __props__.__dict__["volume_type"] = volume_type
+            __props__.__dict__["backup_policy_ids"] = None
+            __props__.__dict__["backup_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["operation_status"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["volume_container_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:Volume"), pulumi.Alias(type_="azure-native:storsimple:Volume"), pulumi.Alias(type_="azure-nextgen:storsimple:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
@@ -334,20 +324,20 @@ class Volume(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VolumeArgs.__new__(VolumeArgs)
 
-        __props__["access_control_record_ids"] = None
-        __props__["backup_policy_ids"] = None
-        __props__["backup_status"] = None
-        __props__["kind"] = None
-        __props__["monitoring_status"] = None
-        __props__["name"] = None
-        __props__["operation_status"] = None
-        __props__["size_in_bytes"] = None
-        __props__["type"] = None
-        __props__["volume_container_id"] = None
-        __props__["volume_status"] = None
-        __props__["volume_type"] = None
+        __props__.__dict__["access_control_record_ids"] = None
+        __props__.__dict__["backup_policy_ids"] = None
+        __props__.__dict__["backup_status"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["monitoring_status"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["operation_status"] = None
+        __props__.__dict__["size_in_bytes"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["volume_container_id"] = None
+        __props__.__dict__["volume_status"] = None
+        __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -445,10 +435,4 @@ class Volume(pulumi.CustomResource):
         The type of the volume.
         """
         return pulumi.get(self, "volume_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

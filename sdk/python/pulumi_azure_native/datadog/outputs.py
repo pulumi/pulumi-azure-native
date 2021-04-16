@@ -6,28 +6,28 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DatadogApiKeyResponseResult',
-    'DatadogHostMetadataResponseResult',
-    'DatadogHostResponseResult',
-    'DatadogInstallMethodResponseResult',
-    'DatadogLogsAgentResponseResult',
+    'DatadogApiKeyResponse',
+    'DatadogHostMetadataResponse',
+    'DatadogHostResponse',
+    'DatadogInstallMethodResponse',
+    'DatadogLogsAgentResponse',
     'DatadogOrganizationPropertiesResponse',
     'IdentityPropertiesResponse',
-    'LinkedResourceResponseResult',
+    'LinkedResourceResponse',
     'MonitorPropertiesResponse',
-    'MonitoredResourceResponseResult',
+    'MonitoredResourceResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
     'UserInfoResponse',
 ]
 
 @pulumi.output_type
-class DatadogApiKeyResponseResult(dict):
+class DatadogApiKeyResponse(dict):
     def __init__(__self__, *,
                  key: str,
                  created: Optional[str] = None,
@@ -81,11 +81,11 @@ class DatadogApiKeyResponseResult(dict):
 
 
 @pulumi.output_type
-class DatadogHostMetadataResponseResult(dict):
+class DatadogHostMetadataResponse(dict):
     def __init__(__self__, *,
                  agent_version: Optional[str] = None,
-                 install_method: Optional['outputs.DatadogInstallMethodResponseResult'] = None,
-                 logs_agent: Optional['outputs.DatadogLogsAgentResponseResult'] = None):
+                 install_method: Optional['outputs.DatadogInstallMethodResponse'] = None,
+                 logs_agent: Optional['outputs.DatadogLogsAgentResponse'] = None):
         """
         :param str agent_version: The agent version.
         """
@@ -106,21 +106,21 @@ class DatadogHostMetadataResponseResult(dict):
 
     @property
     @pulumi.getter(name="installMethod")
-    def install_method(self) -> Optional['outputs.DatadogInstallMethodResponseResult']:
+    def install_method(self) -> Optional['outputs.DatadogInstallMethodResponse']:
         return pulumi.get(self, "install_method")
 
     @property
     @pulumi.getter(name="logsAgent")
-    def logs_agent(self) -> Optional['outputs.DatadogLogsAgentResponseResult']:
+    def logs_agent(self) -> Optional['outputs.DatadogLogsAgentResponse']:
         return pulumi.get(self, "logs_agent")
 
 
 @pulumi.output_type
-class DatadogHostResponseResult(dict):
+class DatadogHostResponse(dict):
     def __init__(__self__, *,
                  aliases: Optional[Sequence[str]] = None,
                  apps: Optional[Sequence[str]] = None,
-                 meta: Optional['outputs.DatadogHostMetadataResponseResult'] = None,
+                 meta: Optional['outputs.DatadogHostMetadataResponse'] = None,
                  name: Optional[str] = None):
         """
         :param Sequence[str] aliases: The aliases for the host.
@@ -154,7 +154,7 @@ class DatadogHostResponseResult(dict):
 
     @property
     @pulumi.getter
-    def meta(self) -> Optional['outputs.DatadogHostMetadataResponseResult']:
+    def meta(self) -> Optional['outputs.DatadogHostMetadataResponse']:
         return pulumi.get(self, "meta")
 
     @property
@@ -167,7 +167,7 @@ class DatadogHostResponseResult(dict):
 
 
 @pulumi.output_type
-class DatadogInstallMethodResponseResult(dict):
+class DatadogInstallMethodResponse(dict):
     def __init__(__self__, *,
                  installer_version: Optional[str] = None,
                  tool: Optional[str] = None,
@@ -210,7 +210,7 @@ class DatadogInstallMethodResponseResult(dict):
 
 
 @pulumi.output_type
-class DatadogLogsAgentResponseResult(dict):
+class DatadogLogsAgentResponse(dict):
     def __init__(__self__, *,
                  transport: Optional[str] = None):
         """
@@ -260,12 +260,28 @@ class DatadogOrganizationPropertiesResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -304,12 +320,9 @@ class IdentityPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class LinkedResourceResponseResult(dict):
+class LinkedResourceResponse(dict):
     """
     The definition of a linked resource.
     """
@@ -336,6 +349,35 @@ class MonitorPropertiesResponse(dict):
     """
     Properties specific to the monitor resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liftrResourceCategory":
+            suggest = "liftr_resource_category"
+        elif key == "liftrResourcePreference":
+            suggest = "liftr_resource_preference"
+        elif key == "marketplaceSubscriptionStatus":
+            suggest = "marketplace_subscription_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "datadogOrganizationProperties":
+            suggest = "datadog_organization_properties"
+        elif key == "monitoringStatus":
+            suggest = "monitoring_status"
+        elif key == "userInfo":
+            suggest = "user_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  liftr_resource_category: str,
                  liftr_resource_preference: int,
@@ -348,9 +390,9 @@ class MonitorPropertiesResponse(dict):
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param 'DatadogOrganizationPropertiesResponseArgs' datadog_organization_properties: Datadog organization properties
+        :param 'DatadogOrganizationPropertiesResponse' datadog_organization_properties: Datadog organization properties
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
-        :param 'UserInfoResponseArgs' user_info: User info
+        :param 'UserInfoResponse' user_info: User info
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
@@ -413,12 +455,9 @@ class MonitorPropertiesResponse(dict):
         """
         return pulumi.get(self, "user_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class MonitoredResourceResponseResult(dict):
+class MonitoredResourceResponse(dict):
     """
     The properties of a resource currently being monitored by the Datadog monitor resource.
     """
@@ -505,15 +544,39 @@ class ResourceSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -591,15 +654,31 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserInfoResponse(dict):
     """
     User info
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: Optional[str] = None,
                  name: Optional[str] = None,
@@ -640,8 +719,5 @@ class UserInfoResponse(dict):
         Phone number of the user used by Datadog for contacting them if needed
         """
         return pulumi.get(self, "phone_number")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

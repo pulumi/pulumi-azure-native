@@ -183,7 +183,7 @@ export interface ExpressRoutePortArgs {
     /**
      * The set of physical links of the ExpressRoutePort resource
      */
-    readonly links?: pulumi.Input<pulumi.Input<inputs.network.v20180801.ExpressRouteLink>[]>;
+    readonly links?: pulumi.Input<pulumi.Input<inputs.network.v20180801.ExpressRouteLinkArgs>[]>;
     /**
      * Resource location.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -288,9 +288,7 @@ class Prediction(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_expression: Optional[pulumi.Input[str]] = None,
                  score_label: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The prediction resource format.
         API Version: 2017-04-26.
@@ -355,15 +353,7 @@ class Prediction(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_expression: Optional[pulumi.Input[str]] = None,
                  score_label: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -373,47 +363,47 @@ class Prediction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PredictionArgs.__new__(PredictionArgs)
 
             if auto_analyze is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_analyze'")
-            __props__['auto_analyze'] = auto_analyze
-            __props__['description'] = description
-            __props__['display_name'] = display_name
-            __props__['grades'] = grades
+            __props__.__dict__["auto_analyze"] = auto_analyze
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["grades"] = grades
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
-            __props__['hub_name'] = hub_name
-            __props__['involved_interaction_types'] = involved_interaction_types
-            __props__['involved_kpi_types'] = involved_kpi_types
-            __props__['involved_relationships'] = involved_relationships
+            __props__.__dict__["hub_name"] = hub_name
+            __props__.__dict__["involved_interaction_types"] = involved_interaction_types
+            __props__.__dict__["involved_kpi_types"] = involved_kpi_types
+            __props__.__dict__["involved_relationships"] = involved_relationships
             if mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'mappings'")
-            __props__['mappings'] = mappings
+            __props__.__dict__["mappings"] = mappings
             if negative_outcome_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'negative_outcome_expression'")
-            __props__['negative_outcome_expression'] = negative_outcome_expression
+            __props__.__dict__["negative_outcome_expression"] = negative_outcome_expression
             if positive_outcome_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'positive_outcome_expression'")
-            __props__['positive_outcome_expression'] = positive_outcome_expression
-            __props__['prediction_name'] = prediction_name
+            __props__.__dict__["positive_outcome_expression"] = positive_outcome_expression
+            __props__.__dict__["prediction_name"] = prediction_name
             if primary_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_profile_type'")
-            __props__['primary_profile_type'] = primary_profile_type
+            __props__.__dict__["primary_profile_type"] = primary_profile_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if scope_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_expression'")
-            __props__['scope_expression'] = scope_expression
+            __props__.__dict__["scope_expression"] = scope_expression
             if score_label is None and not opts.urn:
                 raise TypeError("Missing required property 'score_label'")
-            __props__['score_label'] = score_label
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_generated_entities'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["score_label"] = score_label
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_generated_entities"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:customerinsights:Prediction"), pulumi.Alias(type_="azure-native:customerinsights/v20170426:Prediction"), pulumi.Alias(type_="azure-nextgen:customerinsights/v20170426:Prediction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Prediction, __self__).__init__(
@@ -436,27 +426,27 @@ class Prediction(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PredictionArgs.__new__(PredictionArgs)
 
-        __props__["auto_analyze"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["grades"] = None
-        __props__["involved_interaction_types"] = None
-        __props__["involved_kpi_types"] = None
-        __props__["involved_relationships"] = None
-        __props__["mappings"] = None
-        __props__["name"] = None
-        __props__["negative_outcome_expression"] = None
-        __props__["positive_outcome_expression"] = None
-        __props__["prediction_name"] = None
-        __props__["primary_profile_type"] = None
-        __props__["provisioning_state"] = None
-        __props__["scope_expression"] = None
-        __props__["score_label"] = None
-        __props__["system_generated_entities"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["auto_analyze"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["grades"] = None
+        __props__.__dict__["involved_interaction_types"] = None
+        __props__.__dict__["involved_kpi_types"] = None
+        __props__.__dict__["involved_relationships"] = None
+        __props__.__dict__["mappings"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["negative_outcome_expression"] = None
+        __props__.__dict__["positive_outcome_expression"] = None
+        __props__.__dict__["prediction_name"] = None
+        __props__.__dict__["primary_profile_type"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["scope_expression"] = None
+        __props__.__dict__["score_label"] = None
+        __props__.__dict__["system_generated_entities"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
         return Prediction(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -610,10 +600,4 @@ class Prediction(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

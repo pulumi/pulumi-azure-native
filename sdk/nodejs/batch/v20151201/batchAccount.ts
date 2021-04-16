@@ -134,7 +134,7 @@ export interface BatchAccountArgs {
     /**
      * The properties related to auto storage account.
      */
-    readonly autoStorage?: pulumi.Input<inputs.batch.v20151201.AutoStorageBaseProperties>;
+    readonly autoStorage?: pulumi.Input<inputs.batch.v20151201.AutoStorageBasePropertiesArgs>;
     /**
      * The region in which to create the account.
      */

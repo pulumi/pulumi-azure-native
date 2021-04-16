@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// <summary>
         /// List of products.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProductResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ProductResponse> Value;
 
         [OutputConstructor]
         private GetProductsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ProductResponseResult> value)
+            ImmutableArray<Outputs.ProductResponse> value)
         {
             NextLink = nextLink;
             Value = value;

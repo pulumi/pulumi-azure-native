@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -294,9 +294,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  scale_units: Optional[pulumi.Input[int]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The streaming endpoint.
         API Version: 2020-05-01.
@@ -361,15 +359,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  scale_units: Optional[pulumi.Input[int]] = None,
                  streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,39 +369,39 @@ class StreamingEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StreamingEndpointArgs.__new__(StreamingEndpointArgs)
 
-            __props__['access_control'] = access_control
+            __props__.__dict__["access_control"] = access_control
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['auto_start'] = auto_start
-            __props__['availability_set_name'] = availability_set_name
-            __props__['cdn_enabled'] = cdn_enabled
-            __props__['cdn_profile'] = cdn_profile
-            __props__['cdn_provider'] = cdn_provider
-            __props__['cross_site_access_policies'] = cross_site_access_policies
-            __props__['custom_host_names'] = custom_host_names
-            __props__['description'] = description
-            __props__['location'] = location
-            __props__['max_cache_age'] = max_cache_age
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["auto_start"] = auto_start
+            __props__.__dict__["availability_set_name"] = availability_set_name
+            __props__.__dict__["cdn_enabled"] = cdn_enabled
+            __props__.__dict__["cdn_profile"] = cdn_profile
+            __props__.__dict__["cdn_provider"] = cdn_provider
+            __props__.__dict__["cross_site_access_policies"] = cross_site_access_policies
+            __props__.__dict__["custom_host_names"] = custom_host_names
+            __props__.__dict__["description"] = description
+            __props__.__dict__["location"] = location
+            __props__.__dict__["max_cache_age"] = max_cache_age
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if scale_units is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_units'")
-            __props__['scale_units'] = scale_units
-            __props__['streaming_endpoint_name'] = streaming_endpoint_name
-            __props__['tags'] = tags
-            __props__['created'] = None
-            __props__['free_trial_end_time'] = None
-            __props__['host_name'] = None
-            __props__['last_modified'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["scale_units"] = scale_units
+            __props__.__dict__["streaming_endpoint_name"] = streaming_endpoint_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["created"] = None
+            __props__.__dict__["free_trial_end_time"] = None
+            __props__.__dict__["host_name"] = None
+            __props__.__dict__["last_modified"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media:StreamingEndpoint"), pulumi.Alias(type_="azure-native:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:StreamingEndpoint"), pulumi.Alias(type_="azure-native:media/v20180601preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180601preview:StreamingEndpoint"), pulumi.Alias(type_="azure-native:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20180701:StreamingEndpoint"), pulumi.Alias(type_="azure-native:media/v20190501preview:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20190501preview:StreamingEndpoint"), pulumi.Alias(type_="azure-native:media/v20200501:StreamingEndpoint"), pulumi.Alias(type_="azure-nextgen:media/v20200501:StreamingEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingEndpoint, __self__).__init__(
@@ -434,29 +424,29 @@ class StreamingEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StreamingEndpointArgs.__new__(StreamingEndpointArgs)
 
-        __props__["access_control"] = None
-        __props__["availability_set_name"] = None
-        __props__["cdn_enabled"] = None
-        __props__["cdn_profile"] = None
-        __props__["cdn_provider"] = None
-        __props__["created"] = None
-        __props__["cross_site_access_policies"] = None
-        __props__["custom_host_names"] = None
-        __props__["description"] = None
-        __props__["free_trial_end_time"] = None
-        __props__["host_name"] = None
-        __props__["last_modified"] = None
-        __props__["location"] = None
-        __props__["max_cache_age"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_state"] = None
-        __props__["scale_units"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["access_control"] = None
+        __props__.__dict__["availability_set_name"] = None
+        __props__.__dict__["cdn_enabled"] = None
+        __props__.__dict__["cdn_profile"] = None
+        __props__.__dict__["cdn_provider"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["cross_site_access_policies"] = None
+        __props__.__dict__["custom_host_names"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["free_trial_end_time"] = None
+        __props__.__dict__["host_name"] = None
+        __props__.__dict__["last_modified"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["max_cache_age"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_state"] = None
+        __props__.__dict__["scale_units"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return StreamingEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -626,10 +616,4 @@ class StreamingEndpoint(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

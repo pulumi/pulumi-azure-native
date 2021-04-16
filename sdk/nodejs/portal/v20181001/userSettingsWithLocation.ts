@@ -83,7 +83,7 @@ export interface UserSettingsWithLocationArgs {
     /**
      * The cloud shell user settings properties.
      */
-    readonly properties: pulumi.Input<inputs.portal.v20181001.UserProperties>;
+    readonly properties: pulumi.Input<inputs.portal.v20181001.UserPropertiesArgs>;
     /**
      * The name of the user settings
      */

@@ -6,18 +6,18 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
     'ActivationPropertiesResponse',
-    'ActorResponseResult',
+    'ActorResponse',
     'EncryptionPropertyResponse',
-    'EventContentResponseResult',
-    'EventRequestMessageResponseResult',
-    'EventResponseResult',
-    'EventResponseMessageResponseResult',
+    'EventContentResponse',
+    'EventRequestMessageResponse',
+    'EventResponse',
+    'EventResponseMessageResponse',
     'ExportPipelineTargetPropertiesResponse',
     'IPRuleResponse',
     'IdentityPropertiesResponse',
@@ -41,16 +41,16 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'ProgressPropertiesResponse',
     'QuarantinePolicyResponse',
-    'RegistryPasswordResponseResult',
-    'RequestResponseResult',
+    'RegistryPasswordResponse',
+    'RequestResponse',
     'RetentionPolicyResponse',
     'SkuResponse',
-    'SourceResponseResult',
+    'SourceResponse',
     'StatusDetailPropertiesResponse',
     'StatusResponse',
     'SyncPropertiesResponse',
     'SystemDataResponse',
-    'TargetResponseResult',
+    'TargetResponse',
     'TlsCertificatePropertiesResponse',
     'TlsPropertiesResponse',
     'TokenCertificateResponse',
@@ -82,12 +82,9 @@ class ActivationPropertiesResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ActorResponseResult(dict):
+class ActorResponse(dict):
     """
     The agent that initiated the event. For most situations, this could be from the authorization context of the request.
     """
@@ -111,11 +108,28 @@ class ActorResponseResult(dict):
 
 @pulumi.output_type
 class EncryptionPropertyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
                  status: Optional[str] = None):
         """
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Key vault properties.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
         :param str status: Indicates whether or not the encryption is enabled for container registry.
         """
         if key_vault_properties is not None:
@@ -139,31 +153,28 @@ class EncryptionPropertyResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class EventContentResponseResult(dict):
+class EventContentResponse(dict):
     """
     The content of the event request message.
     """
     def __init__(__self__, *,
                  action: Optional[str] = None,
-                 actor: Optional['outputs.ActorResponseResult'] = None,
+                 actor: Optional['outputs.ActorResponse'] = None,
                  id: Optional[str] = None,
-                 request: Optional['outputs.RequestResponseResult'] = None,
-                 source: Optional['outputs.SourceResponseResult'] = None,
-                 target: Optional['outputs.TargetResponseResult'] = None,
+                 request: Optional['outputs.RequestResponse'] = None,
+                 source: Optional['outputs.SourceResponse'] = None,
+                 target: Optional['outputs.TargetResponse'] = None,
                  timestamp: Optional[str] = None):
         """
         The content of the event request message.
         :param str action: The action that encompasses the provided event.
-        :param 'ActorResponseArgs' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+        :param 'ActorResponse' actor: The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         :param str id: The event ID.
-        :param 'RequestResponseArgs' request: The request that generated the event.
-        :param 'SourceResponseArgs' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-        :param 'TargetResponseArgs' target: The target of the event.
+        :param 'RequestResponse' request: The request that generated the event.
+        :param 'SourceResponse' source: The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+        :param 'TargetResponse' target: The target of the event.
         :param str timestamp: The time at which the event occurred.
         """
         if action is not None:
@@ -191,7 +202,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def actor(self) -> Optional['outputs.ActorResponseResult']:
+    def actor(self) -> Optional['outputs.ActorResponse']:
         """
         The agent that initiated the event. For most situations, this could be from the authorization context of the request.
         """
@@ -207,7 +218,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def request(self) -> Optional['outputs.RequestResponseResult']:
+    def request(self) -> Optional['outputs.RequestResponse']:
         """
         The request that generated the event.
         """
@@ -215,7 +226,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional['outputs.SourceResponseResult']:
+    def source(self) -> Optional['outputs.SourceResponse']:
         """
         The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
         """
@@ -223,7 +234,7 @@ class EventContentResponseResult(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.TargetResponseResult']:
+    def target(self) -> Optional['outputs.TargetResponse']:
         """
         The target of the event.
         """
@@ -239,19 +250,19 @@ class EventContentResponseResult(dict):
 
 
 @pulumi.output_type
-class EventRequestMessageResponseResult(dict):
+class EventRequestMessageResponse(dict):
     """
     The event request message sent to the service URI.
     """
     def __init__(__self__, *,
-                 content: Optional['outputs.EventContentResponseResult'] = None,
+                 content: Optional['outputs.EventContentResponse'] = None,
                  headers: Optional[Mapping[str, str]] = None,
                  method: Optional[str] = None,
                  request_uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The event request message sent to the service URI.
-        :param 'EventContentResponseArgs' content: The content of the event request message.
+        :param 'EventContentResponse' content: The content of the event request message.
         :param Mapping[str, str] headers: The headers of the event request message.
         :param str method: The HTTP method used to send the event request message.
         :param str request_uri: The URI used to send the event request message.
@@ -270,7 +281,7 @@ class EventRequestMessageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional['outputs.EventContentResponseResult']:
+    def content(self) -> Optional['outputs.EventContentResponse']:
         """
         The content of the event request message.
         """
@@ -310,18 +321,18 @@ class EventRequestMessageResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseResult(dict):
+class EventResponse(dict):
     """
     The event for a webhook.
     """
     def __init__(__self__, *,
-                 event_request_message: Optional['outputs.EventRequestMessageResponseResult'] = None,
-                 event_response_message: Optional['outputs.EventResponseMessageResponseResult'] = None,
+                 event_request_message: Optional['outputs.EventRequestMessageResponse'] = None,
+                 event_response_message: Optional['outputs.EventResponseMessageResponse'] = None,
                  id: Optional[str] = None):
         """
         The event for a webhook.
-        :param 'EventRequestMessageResponseArgs' event_request_message: The event request message sent to the service URI.
-        :param 'EventResponseMessageResponseArgs' event_response_message: The event response message received from the service URI.
+        :param 'EventRequestMessageResponse' event_request_message: The event request message sent to the service URI.
+        :param 'EventResponseMessageResponse' event_response_message: The event response message received from the service URI.
         :param str id: The event ID.
         """
         if event_request_message is not None:
@@ -333,7 +344,7 @@ class EventResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventRequestMessage")
-    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponseResult']:
+    def event_request_message(self) -> Optional['outputs.EventRequestMessageResponse']:
         """
         The event request message sent to the service URI.
         """
@@ -341,7 +352,7 @@ class EventResponseResult(dict):
 
     @property
     @pulumi.getter(name="eventResponseMessage")
-    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponseResult']:
+    def event_response_message(self) -> Optional['outputs.EventResponseMessageResponse']:
         """
         The event response message received from the service URI.
         """
@@ -357,7 +368,7 @@ class EventResponseResult(dict):
 
 
 @pulumi.output_type
-class EventResponseMessageResponseResult(dict):
+class EventResponseMessageResponse(dict):
     """
     The event response message received from the service URI.
     """
@@ -432,6 +443,23 @@ class ExportPipelineTargetPropertiesResponse(dict):
     """
     The properties of the export pipeline target.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultUri":
+            suggest = "key_vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExportPipelineTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExportPipelineTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExportPipelineTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_uri: str,
                  type: Optional[str] = None,
@@ -476,15 +504,29 @@ class ExportPipelineTargetPropertiesResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPRuleResponse(dict):
     """
     IP rule with specific IP or IP range in CIDR format.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iPAddressOrRange":
+            suggest = "i_p_address_or_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  i_p_address_or_range: str,
                  action: Optional[str] = None):
@@ -515,15 +557,33 @@ class IPRuleResponse(dict):
         """
         return pulumi.get(self, "action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityPropertiesResponse(dict):
     """
     Managed identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -534,7 +594,7 @@ class IdentityPropertiesResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserIdentityPropertiesResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
                dictionary key references will be ARM resource ids in the form: 
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -583,15 +643,29 @@ class IdentityPropertiesResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImportPipelineSourcePropertiesResponse(dict):
     """
     The properties of the import pipeline source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultUri":
+            suggest = "key_vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImportPipelineSourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImportPipelineSourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImportPipelineSourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_uri: str,
                  type: Optional[str] = None,
@@ -638,12 +712,32 @@ class ImportPipelineSourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyRotationEnabled":
+            suggest = "key_rotation_enabled"
+        elif key == "lastKeyRotationTimestamp":
+            suggest = "last_key_rotation_timestamp"
+        elif key == "versionedKeyIdentifier":
+            suggest = "versioned_key_identifier"
+        elif key == "keyIdentifier":
+            suggest = "key_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_rotation_enabled: bool,
                  last_key_rotation_timestamp: str,
@@ -705,15 +799,31 @@ class KeyVaultPropertiesResponse(dict):
         """
         return pulumi.get(self, "key_identifier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoggingPropertiesResponse(dict):
     """
     The logging properties of the connected registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "auditLogStatus":
+            suggest = "audit_log_status"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audit_log_status: Optional[str] = None,
                  log_level: Optional[str] = None):
@@ -747,9 +857,6 @@ class LoggingPropertiesResponse(dict):
         """
         return pulumi.get(self, "log_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoginServerPropertiesResponse(dict):
@@ -762,7 +869,7 @@ class LoginServerPropertiesResponse(dict):
         """
         The login server properties of the connected registry.
         :param str host: The host of the connected registry. Can be FQDN or IP.
-        :param 'TlsPropertiesResponseArgs' tls: The TLS properties of the connected registry login server.
+        :param 'TlsPropertiesResponse' tls: The TLS properties of the connected registry login server.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "tls", tls)
@@ -783,15 +890,33 @@ class LoginServerPropertiesResponse(dict):
         """
         return pulumi.get(self, "tls")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     The network rule set for a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "virtualNetworkRules":
+            suggest = "virtual_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: str,
                  ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
@@ -799,8 +924,8 @@ class NetworkRuleSetResponse(dict):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
-        :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
-        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
+        :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
         """
         if default_action is None:
             default_action = 'Allow'
@@ -834,21 +959,35 @@ class NetworkRuleSetResponse(dict):
         """
         return pulumi.get(self, "virtual_network_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParentPropertiesResponse(dict):
     """
     The properties of the connected registry parent.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "syncProperties":
+            suggest = "sync_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sync_properties: 'outputs.SyncPropertiesResponse',
                  id: Optional[str] = None):
         """
         The properties of the connected registry parent.
-        :param 'SyncPropertiesResponseArgs' sync_properties: The sync properties of the connected registry with its parent.
+        :param 'SyncPropertiesResponse' sync_properties: The sync properties of the connected registry with its parent.
         :param str id: The resource ID of the parent to which the connected registry will be associated.
         """
         pulumi.set(__self__, "sync_properties", sync_properties)
@@ -871,15 +1010,31 @@ class ParentPropertiesResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineRunRequestResponse(dict):
     """
     The request properties provided for a pipeline run.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogDigest":
+            suggest = "catalog_digest"
+        elif key == "pipelineResourceId":
+            suggest = "pipeline_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineRunRequestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineRunRequestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineRunRequestResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifacts: Optional[Sequence[str]] = None,
                  catalog_digest: Optional[str] = None,
@@ -894,8 +1049,8 @@ class PipelineRunRequestResponse(dict):
                Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
         :param str catalog_digest: The digest of the tar used to transfer the artifacts.
         :param str pipeline_resource_id: The resource ID of the pipeline to run.
-        :param 'PipelineRunSourcePropertiesResponseArgs' source: The source properties of the pipeline run.
-        :param 'PipelineRunTargetPropertiesResponseArgs' target: The target properties of the pipeline run.
+        :param 'PipelineRunSourcePropertiesResponse' source: The source properties of the pipeline run.
+        :param 'PipelineRunTargetPropertiesResponse' target: The target properties of the pipeline run.
         """
         if artifacts is not None:
             pulumi.set(__self__, "artifacts", artifacts)
@@ -951,15 +1106,37 @@ class PipelineRunRequestResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineRunResponseResponse(dict):
     """
     The response properties returned for a pipeline run.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogDigest":
+            suggest = "catalog_digest"
+        elif key == "finishTime":
+            suggest = "finish_time"
+        elif key == "importedArtifacts":
+            suggest = "imported_artifacts"
+        elif key == "pipelineRunErrorMessage":
+            suggest = "pipeline_run_error_message"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineRunResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineRunResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineRunResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  catalog_digest: Optional[str] = None,
                  finish_time: Optional[str] = None,
@@ -977,12 +1154,12 @@ class PipelineRunResponseResponse(dict):
         :param str finish_time: The time the pipeline run finished.
         :param Sequence[str] imported_artifacts: The artifacts imported in the pipeline run.
         :param str pipeline_run_error_message: The detailed error message for the pipeline run in the case of failure.
-        :param 'ProgressPropertiesResponseArgs' progress: The current progress of the copy operation.
-        :param 'ImportPipelineSourcePropertiesResponseArgs' source: The source of the pipeline run.
+        :param 'ProgressPropertiesResponse' progress: The current progress of the copy operation.
+        :param 'ImportPipelineSourcePropertiesResponse' source: The source of the pipeline run.
         :param str start_time: The time the pipeline run started.
         :param str status: The current status of the pipeline run.
-        :param 'ExportPipelineTargetPropertiesResponseArgs' target: The target of the pipeline run.
-        :param 'PipelineTriggerDescriptorResponseArgs' trigger: The trigger that caused the pipeline run.
+        :param 'ExportPipelineTargetPropertiesResponse' target: The target of the pipeline run.
+        :param 'PipelineTriggerDescriptorResponse' trigger: The trigger that caused the pipeline run.
         """
         if catalog_digest is not None:
             pulumi.set(__self__, "catalog_digest", catalog_digest)
@@ -1085,9 +1262,6 @@ class PipelineRunResponseResponse(dict):
         """
         return pulumi.get(self, "trigger")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineRunSourcePropertiesResponse(dict):
@@ -1120,9 +1294,6 @@ class PipelineRunSourcePropertiesResponse(dict):
         The type of the source.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1157,9 +1328,6 @@ class PipelineRunTargetPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineSourceTriggerDescriptorResponse(dict):
@@ -1178,9 +1346,6 @@ class PipelineSourceTriggerDescriptorResponse(dict):
         The timestamp when the source update happened.
         """
         return pulumi.get(self, "timestamp")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1202,16 +1367,30 @@ class PipelineSourceTriggerPropertiesResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineTriggerDescriptorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceTrigger":
+            suggest = "source_trigger"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerDescriptorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerDescriptorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerDescriptorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_trigger: Optional['outputs.PipelineSourceTriggerDescriptorResponse'] = None):
         """
-        :param 'PipelineSourceTriggerDescriptorResponseArgs' source_trigger: The source trigger that caused the pipeline run.
+        :param 'PipelineSourceTriggerDescriptorResponse' source_trigger: The source trigger that caused the pipeline run.
         """
         if source_trigger is not None:
             pulumi.set(__self__, "source_trigger", source_trigger)
@@ -1224,16 +1403,30 @@ class PipelineTriggerDescriptorResponse(dict):
         """
         return pulumi.get(self, "source_trigger")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineTriggerPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceTrigger":
+            suggest = "source_trigger"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_trigger: Optional['outputs.PipelineSourceTriggerPropertiesResponse'] = None):
         """
-        :param 'PipelineSourceTriggerPropertiesResponseArgs' source_trigger: The source trigger properties of the pipeline.
+        :param 'PipelineSourceTriggerPropertiesResponse' source_trigger: The source trigger properties of the pipeline.
         """
         if source_trigger is not None:
             pulumi.set(__self__, "source_trigger", source_trigger)
@@ -1246,24 +1439,42 @@ class PipelineTriggerPropertiesResponse(dict):
         """
         return pulumi.get(self, "source_trigger")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoliciesResponse(dict):
     """
     The policies for a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "quarantinePolicy":
+            suggest = "quarantine_policy"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+        elif key == "trustPolicy":
+            suggest = "trust_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoliciesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoliciesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoliciesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  quarantine_policy: Optional['outputs.QuarantinePolicyResponse'] = None,
                  retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
                  trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
         """
         The policies for a container registry.
-        :param 'QuarantinePolicyResponseArgs' quarantine_policy: The quarantine policy for a container registry.
-        :param 'RetentionPolicyResponseArgs' retention_policy: The retention policy for a container registry.
-        :param 'TrustPolicyResponseArgs' trust_policy: The content trust policy for a container registry.
+        :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
+        :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
+        :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
@@ -1296,15 +1507,35 @@ class PoliciesResponse(dict):
         """
         return pulumi.get(self, "trust_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     An object that represents a private endpoint connection for a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -1318,10 +1549,10 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: The resource ID.
         :param str name: The name of the resource.
         :param str provisioning_state: The provisioning state of private endpoint connection resource.
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private endpoint.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private endpoint.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1389,9 +1620,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -1415,15 +1643,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     The state of a private link service connection.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1465,9 +1707,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProgressPropertiesResponse(dict):
@@ -1486,9 +1725,6 @@ class ProgressPropertiesResponse(dict):
         The percentage complete of the copy operation.
         """
         return pulumi.get(self, "percentage")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1515,12 +1751,9 @@ class QuarantinePolicyResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class RegistryPasswordResponseResult(dict):
+class RegistryPasswordResponse(dict):
     """
     The login password for the container registry.
     """
@@ -1555,7 +1788,7 @@ class RegistryPasswordResponseResult(dict):
 
 
 @pulumi.output_type
-class RequestResponseResult(dict):
+class RequestResponse(dict):
     """
     The request that generated the event.
     """
@@ -1630,6 +1863,23 @@ class RetentionPolicyResponse(dict):
     """
     The retention policy for a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetentionPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetentionPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetentionPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_updated_time: str,
                  days: Optional[int] = None,
@@ -1674,9 +1924,6 @@ class RetentionPolicyResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -1710,12 +1957,9 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class SourceResponseResult(dict):
+class SourceResponse(dict):
     """
     The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
     """
@@ -1754,6 +1998,23 @@ class StatusDetailPropertiesResponse(dict):
     """
     The status detail properties of the connected registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "correlationId":
+            suggest = "correlation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusDetailPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusDetailPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusDetailPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: str,
                  correlation_id: str,
@@ -1814,15 +2075,29 @@ class StatusDetailPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StatusResponse(dict):
     """
     The status of an Azure resource at the time the operation was called.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_status: str,
                  message: str,
@@ -1861,15 +2136,37 @@ class StatusResponse(dict):
         """
         return pulumi.get(self, "timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyncPropertiesResponse(dict):
     """
     The sync properties of the connected registry with its parent.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gatewayEndpoint":
+            suggest = "gateway_endpoint"
+        elif key == "lastSyncTime":
+            suggest = "last_sync_time"
+        elif key == "messageTtl":
+            suggest = "message_ttl"
+        elif key == "tokenId":
+            suggest = "token_id"
+        elif key == "syncWindow":
+            suggest = "sync_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyncPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyncPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyncPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  gateway_endpoint: str,
                  last_sync_time: str,
@@ -1943,15 +2240,39 @@ class SyncPropertiesResponse(dict):
         """
         return pulumi.get(self, "sync_window")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -2029,12 +2350,9 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class TargetResponseResult(dict):
+class TargetResponse(dict):
     """
     The target of the event.
     """
@@ -2184,9 +2502,6 @@ class TlsCertificatePropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TlsPropertiesResponse(dict):
@@ -2198,7 +2513,7 @@ class TlsPropertiesResponse(dict):
                  status: str):
         """
         The TLS properties of the connected registry login server.
-        :param 'TlsCertificatePropertiesResponseArgs' certificate: The certificate used to configure HTTPS for the login server.
+        :param 'TlsCertificatePropertiesResponse' certificate: The certificate used to configure HTTPS for the login server.
         :param str status: Indicates whether HTTPS is enabled for the login server.
         """
         pulumi.set(__self__, "certificate", certificate)
@@ -2220,15 +2535,29 @@ class TlsPropertiesResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TokenCertificateResponse(dict):
     """
     The properties of a certificate used for authenticating a token.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodedPemCertificate":
+            suggest = "encoded_pem_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TokenCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TokenCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TokenCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encoded_pem_certificate: Optional[str] = None,
                  expiry: Optional[str] = None,
@@ -2278,9 +2607,6 @@ class TokenCertificateResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TokenCredentialsPropertiesResponse(dict):
@@ -2308,15 +2634,29 @@ class TokenCredentialsPropertiesResponse(dict):
     def passwords(self) -> Optional[Sequence['outputs.TokenPasswordResponse']]:
         return pulumi.get(self, "passwords")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TokenPasswordResponse(dict):
     """
     The password that will be used for authenticating the token of a container registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TokenPasswordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TokenPasswordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TokenPasswordResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value: str,
                  creation_time: Optional[str] = None,
@@ -2369,9 +2709,6 @@ class TokenPasswordResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TrustPolicyResponse(dict):
@@ -2411,12 +2748,28 @@ class TrustPolicyResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserIdentityPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  principal_id: Optional[str] = None):
@@ -2445,15 +2798,29 @@ class UserIdentityPropertiesResponse(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkRuleResponse(dict):
     """
     Virtual network rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualNetworkResourceId":
+            suggest = "virtual_network_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  virtual_network_resource_id: str,
                  action: Optional[str] = None):
@@ -2483,8 +2850,5 @@ class VirtualNetworkRuleResponse(dict):
         The action of virtual network rule.
         """
         return pulumi.get(self, "action")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

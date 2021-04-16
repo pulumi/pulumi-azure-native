@@ -226,7 +226,7 @@ export interface ServerArgs {
      * The mode to create a new PostgreSQL server.
      */
     readonly createMode?: pulumi.Input<string | enums.dbforpostgresql.v20200214privatepreview.CreateMode>;
-    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesDelegatedSubnetArguments>;
+    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesDelegatedSubnetArgumentsArgs>;
     /**
      * The display name of a server.
      */
@@ -238,7 +238,7 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.Identity>;
+    readonly identity?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -246,7 +246,7 @@ export interface ServerArgs {
     /**
      * Maintenance window of a server.
      */
-    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.MaintenanceWindow>;
+    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.MaintenanceWindowArgs>;
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
@@ -262,7 +262,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.Sku>;
+    readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.SkuArgs>;
     /**
      * The resource group name of source PostgreSQL server name to restore from.
      */
@@ -278,7 +278,7 @@ export interface ServerArgs {
     /**
      * Storage profile of a server.
      */
-    readonly storageProfile?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.StorageProfile>;
+    readonly storageProfile?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.StorageProfileArgs>;
     /**
      * Resource tags.
      */

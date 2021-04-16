@@ -112,7 +112,7 @@ export interface InstanceDetailsArgs {
     /**
      * A collection of DFP instance administrators
      */
-    readonly administration?: pulumi.Input<inputs.dynamics365fraudprotection.v20210201preview.DFPInstanceAdministrators>;
+    readonly administration?: pulumi.Input<inputs.dynamics365fraudprotection.v20210201preview.DFPInstanceAdministratorsArgs>;
     /**
      * The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
      */

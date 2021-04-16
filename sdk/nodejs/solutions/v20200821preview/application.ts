@@ -225,11 +225,11 @@ export interface ApplicationArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20200821preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.solutions.v20200821preview.IdentityArgs>;
     /**
      * The managed application Jit access policy.
      */
-    readonly jitAccessPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationJitAccessPolicy>;
+    readonly jitAccessPolicy?: pulumi.Input<inputs.solutions.v20200821preview.ApplicationJitAccessPolicyArgs>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -253,7 +253,7 @@ export interface ApplicationArgs {
     /**
      * The plan information.
      */
-    readonly plan?: pulumi.Input<inputs.solutions.v20200821preview.Plan>;
+    readonly plan?: pulumi.Input<inputs.solutions.v20200821preview.PlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -261,7 +261,7 @@ export interface ApplicationArgs {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20200821preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.solutions.v20200821preview.SkuArgs>;
     /**
      * Resource tags
      */

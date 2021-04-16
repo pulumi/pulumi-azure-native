@@ -119,7 +119,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The ExpressRoute circuit peering.
      */
-    readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.v20180801.ExpressRouteCircuitPeeringId>;
+    readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.v20180801.ExpressRouteCircuitPeeringIdArgs>;
     /**
      * The name of the ExpressRoute gateway.
      */

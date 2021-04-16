@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -53,9 +53,6 @@ class EnvironmentStateDetailsResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentStatusResponse(dict):
@@ -66,7 +63,7 @@ class EnvironmentStatusResponse(dict):
                  ingress: 'outputs.IngressEnvironmentStatusResponse'):
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        :param 'IngressEnvironmentStatusResponseArgs' ingress: An object that represents the status of ingress on an environment.
+        :param 'IngressEnvironmentStatusResponse' ingress: An object that represents the status of ingress on an environment.
         """
         pulumi.set(__self__, "ingress", ingress)
 
@@ -78,21 +75,35 @@ class EnvironmentStatusResponse(dict):
         """
         return pulumi.get(self, "ingress")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IngressEnvironmentStatusResponse(dict):
     """
     An object that represents the status of ingress on an environment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stateDetails":
+            suggest = "state_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngressEnvironmentStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngressEnvironmentStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngressEnvironmentStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  state_details: 'outputs.EnvironmentStateDetailsResponse',
                  state: Optional[str] = None):
         """
         An object that represents the status of ingress on an environment.
-        :param 'EnvironmentStateDetailsResponseArgs' state_details: An object that contains the details about an environment's state.
+        :param 'EnvironmentStateDetailsResponse' state_details: An object that contains the details about an environment's state.
         :param str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
         pulumi.set(__self__, "state_details", state_details)
@@ -114,9 +125,6 @@ class IngressEnvironmentStatusResponse(dict):
         This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
         return pulumi.get(self, "state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -153,9 +161,6 @@ class PartitionKeyPropertyResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReferenceDataSetKeyPropertyResponse(dict):
@@ -191,9 +196,6 @@ class ReferenceDataSetKeyPropertyResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -226,8 +228,5 @@ class SkuResponse(dict):
         The name of this SKU.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

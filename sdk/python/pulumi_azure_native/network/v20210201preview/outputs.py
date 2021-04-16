@@ -6,15 +6,15 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AddressPrefixItemResponse',
     'ConnectivityGroupItemResponse',
-    'EffectiveVirtualNetworkResponseResult',
+    'EffectiveVirtualNetworkResponse',
     'GroupMembersItemResponse',
-    'NetworkManagerDeploymentStatusResponseResult',
+    'NetworkManagerDeploymentStatusResponse',
     'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
     'SystemDataResponse',
@@ -25,6 +25,25 @@ class AddressPrefixItemResponse(dict):
     """
     Address prefix item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixType":
+            suggest = "address_prefix_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddressPrefixItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddressPrefixItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddressPrefixItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_prefix: Optional[str] = None,
                  address_prefix_type: Optional[str] = None):
@@ -54,12 +73,32 @@ class AddressPrefixItemResponse(dict):
         """
         return pulumi.get(self, "address_prefix_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectivityGroupItemResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupConnectivity":
+            suggest = "group_connectivity"
+        elif key == "isGlobal":
+            suggest = "is_global"
+        elif key == "networkGroupId":
+            suggest = "network_group_id"
+        elif key == "useHubGateway":
+            suggest = "use_hub_gateway"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectivityGroupItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectivityGroupItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectivityGroupItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_connectivity: Optional[str] = None,
                  is_global: Optional[bool] = None,
@@ -112,12 +151,9 @@ class ConnectivityGroupItemResponse(dict):
         """
         return pulumi.get(self, "use_hub_gateway")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class EffectiveVirtualNetworkResponseResult(dict):
+class EffectiveVirtualNetworkResponse(dict):
     """
     Effective Virtual Network
     """
@@ -168,6 +204,23 @@ class GroupMembersItemResponse(dict):
     """
     GroupMembers Item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupMembersItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupMembersItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupMembersItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None):
         """
@@ -185,12 +238,9 @@ class GroupMembersItemResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class NetworkManagerDeploymentStatusResponseResult(dict):
+class NetworkManagerDeploymentStatusResponse(dict):
     """
     Network Manager Deployment Status.
     """
@@ -277,6 +327,23 @@ class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
     """
     Scope of Network Manager.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerPropertiesResponseNetworkManagerScopes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerPropertiesResponseNetworkManagerScopes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerPropertiesResponseNetworkManagerScopes.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  management_groups: Optional[Sequence[str]] = None,
                  subscriptions: Optional[Sequence[str]] = None):
@@ -306,15 +373,29 @@ class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
         """
         return pulumi.get(self, "subscriptions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkManagerSecurityGroupItemResponse(dict):
     """
     Network manager security group item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkGroupId":
+            suggest = "network_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerSecurityGroupItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerSecurityGroupItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerSecurityGroupItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_group_id: Optional[str] = None):
         """
@@ -332,15 +413,39 @@ class NetworkManagerSecurityGroupItemResponse(dict):
         """
         return pulumi.get(self, "network_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -417,8 +522,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

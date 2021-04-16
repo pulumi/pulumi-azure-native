@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -259,9 +259,7 @@ class Application(pulumi.CustomResource):
                  msix_package_family_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  show_in_portal: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Schema for Application properties.
 
@@ -320,15 +318,7 @@ class Application(pulumi.CustomResource):
                  msix_package_family_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  show_in_portal: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,32 +328,32 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             if application_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_name'")
-            __props__['application_group_name'] = application_group_name
-            __props__['application_name'] = application_name
-            __props__['application_type'] = application_type
-            __props__['command_line_arguments'] = command_line_arguments
+            __props__.__dict__["application_group_name"] = application_group_name
+            __props__.__dict__["application_name"] = application_name
+            __props__.__dict__["application_type"] = application_type
+            __props__.__dict__["command_line_arguments"] = command_line_arguments
             if command_line_setting is None and not opts.urn:
                 raise TypeError("Missing required property 'command_line_setting'")
-            __props__['command_line_setting'] = command_line_setting
-            __props__['description'] = description
-            __props__['file_path'] = file_path
-            __props__['friendly_name'] = friendly_name
-            __props__['icon_index'] = icon_index
-            __props__['icon_path'] = icon_path
-            __props__['msix_package_application_id'] = msix_package_application_id
-            __props__['msix_package_family_name'] = msix_package_family_name
+            __props__.__dict__["command_line_setting"] = command_line_setting
+            __props__.__dict__["description"] = description
+            __props__.__dict__["file_path"] = file_path
+            __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["icon_index"] = icon_index
+            __props__.__dict__["icon_path"] = icon_path
+            __props__.__dict__["msix_package_application_id"] = msix_package_application_id
+            __props__.__dict__["msix_package_family_name"] = msix_package_family_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['show_in_portal'] = show_in_portal
-            __props__['icon_content'] = None
-            __props__['icon_hash'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["show_in_portal"] = show_in_portal
+            __props__.__dict__["icon_content"] = None
+            __props__.__dict__["icon_hash"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201110preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210114preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210201preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210309preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
@@ -386,23 +376,23 @@ class Application(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-        __props__["application_type"] = None
-        __props__["command_line_arguments"] = None
-        __props__["command_line_setting"] = None
-        __props__["description"] = None
-        __props__["file_path"] = None
-        __props__["friendly_name"] = None
-        __props__["icon_content"] = None
-        __props__["icon_hash"] = None
-        __props__["icon_index"] = None
-        __props__["icon_path"] = None
-        __props__["msix_package_application_id"] = None
-        __props__["msix_package_family_name"] = None
-        __props__["name"] = None
-        __props__["show_in_portal"] = None
-        __props__["type"] = None
+        __props__.__dict__["application_type"] = None
+        __props__.__dict__["command_line_arguments"] = None
+        __props__.__dict__["command_line_setting"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["file_path"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["icon_content"] = None
+        __props__.__dict__["icon_hash"] = None
+        __props__.__dict__["icon_index"] = None
+        __props__.__dict__["icon_path"] = None
+        __props__.__dict__["msix_package_application_id"] = None
+        __props__.__dict__["msix_package_family_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["show_in_portal"] = None
+        __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -524,10 +514,4 @@ class Application(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

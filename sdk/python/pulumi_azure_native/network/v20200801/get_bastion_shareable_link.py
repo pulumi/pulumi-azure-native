@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -39,7 +39,7 @@ class GetBastionShareableLinkResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.BastionShareableLinkResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.BastionShareableLinkResponse']]:
         """
         List of Bastion Shareable Links for the request.
         """
@@ -58,7 +58,7 @@ class AwaitableGetBastionShareableLinkResult(GetBastionShareableLinkResult):
 
 def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
-                               vms: Optional[Sequence[pulumi.InputType['BastionShareableLinkArgs']]] = None,
+                               vms: Optional[Sequence[pulumi.InputType['BastionShareableLink']]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionShareableLinkResult:
     """
     Response for all the Bastion Shareable Link endpoints.
@@ -66,7 +66,7 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
 
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.
-    :param Sequence[pulumi.InputType['BastionShareableLinkArgs']] vms: List of VM references.
+    :param Sequence[pulumi.InputType['BastionShareableLink']] vms: List of VM references.
     """
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name

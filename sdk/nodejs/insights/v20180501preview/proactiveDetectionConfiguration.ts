@@ -150,7 +150,7 @@ export interface ProactiveDetectionConfigurationArgs {
     /**
      * Static definitions of the ProactiveDetection configuration rule (same values for all components).
      */
-    readonly ruleDefinitions?: pulumi.Input<inputs.insights.v20180501preview.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitions>;
+    readonly ruleDefinitions?: pulumi.Input<inputs.insights.v20180501preview.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs>;
     /**
      * A flag that indicated whether notifications on this rule should be sent to subscription owners
      */

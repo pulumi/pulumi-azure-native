@@ -206,7 +206,7 @@ export interface EnvironmentArgs {
     /**
      * The set of a VM and the setting id it was created for
      */
-    readonly resourceSets?: pulumi.Input<inputs.labservices.v20181015.ResourceSet>;
+    readonly resourceSets?: pulumi.Input<inputs.labservices.v20181015.ResourceSetArgs>;
     /**
      * The tags of the resource.
      */

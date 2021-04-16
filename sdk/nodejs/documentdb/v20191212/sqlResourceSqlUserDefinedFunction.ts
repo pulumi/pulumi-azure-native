@@ -132,11 +132,11 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.v20191212.CreateUpdateOptions>;
+    readonly options: pulumi.Input<inputs.documentdb.v20191212.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a userDefinedFunction
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20191212.SqlUserDefinedFunctionResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20191212.SqlUserDefinedFunctionResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

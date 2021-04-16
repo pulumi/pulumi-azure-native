@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// List of all the environments
         /// </summary>
-        public readonly ImmutableArray<Outputs.EnvironmentDetailsResponseResult> Environments;
+        public readonly ImmutableArray<Outputs.EnvironmentDetailsResponse> Environments;
 
         [OutputConstructor]
-        private ListGlobalUserEnvironmentsResult(ImmutableArray<Outputs.EnvironmentDetailsResponseResult> environments)
+        private ListGlobalUserEnvironmentsResult(ImmutableArray<Outputs.EnvironmentDetailsResponse> environments)
         {
             Environments = environments;
         }

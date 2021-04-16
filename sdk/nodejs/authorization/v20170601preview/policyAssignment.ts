@@ -161,5 +161,5 @@ export interface PolicyAssignmentArgs {
     /**
      * The policy sku.
      */
-    readonly sku?: pulumi.Input<inputs.authorization.v20170601preview.PolicySku>;
+    readonly sku?: pulumi.Input<inputs.authorization.v20170601preview.PolicySkuArgs>;
 }

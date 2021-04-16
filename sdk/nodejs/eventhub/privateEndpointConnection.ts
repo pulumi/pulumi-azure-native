@@ -109,7 +109,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The Private Endpoint resource for this Connection.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.eventhub.PrivateEndpoint>;
+    readonly privateEndpoint?: pulumi.Input<inputs.eventhub.PrivateEndpointArgs>;
     /**
      * The PrivateEndpointConnection name
      */
@@ -117,7 +117,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Details about the state of the connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.eventhub.ConnectionState>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.eventhub.ConnectionStateArgs>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */

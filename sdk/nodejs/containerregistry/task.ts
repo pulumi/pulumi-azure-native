@@ -184,7 +184,7 @@ export interface TaskArgs {
     /**
      * The machine configuration of the run agent.
      */
-    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentProperties>;
+    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentPropertiesArgs>;
     /**
      * The dedicated agent pool for the task.
      */
@@ -192,11 +192,11 @@ export interface TaskArgs {
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    readonly credentials?: pulumi.Input<inputs.containerregistry.Credentials>;
+    readonly credentials?: pulumi.Input<inputs.containerregistry.CredentialsArgs>;
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
@@ -212,7 +212,7 @@ export interface TaskArgs {
     /**
      * The platform properties against which the run has to happen.
      */
-    readonly platform?: pulumi.Input<inputs.containerregistry.PlatformProperties>;
+    readonly platform?: pulumi.Input<inputs.containerregistry.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
@@ -228,7 +228,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step?: pulumi.Input<inputs.containerregistry.DockerBuildStep | inputs.containerregistry.EncodedTaskStep | inputs.containerregistry.FileTaskStep>;
+    readonly step?: pulumi.Input<inputs.containerregistry.DockerBuildStepArgs | inputs.containerregistry.EncodedTaskStepArgs | inputs.containerregistry.FileTaskStepArgs>;
     /**
      * The tags of the resource.
      */
@@ -244,5 +244,5 @@ export interface TaskArgs {
     /**
      * The properties that describe all triggers for the task.
      */
-    readonly trigger?: pulumi.Input<inputs.containerregistry.TriggerProperties>;
+    readonly trigger?: pulumi.Input<inputs.containerregistry.TriggerPropertiesArgs>;
 }

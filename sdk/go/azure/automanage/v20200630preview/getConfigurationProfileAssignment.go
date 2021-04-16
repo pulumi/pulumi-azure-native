@@ -4,7 +4,7 @@
 package v20200630preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Configuration profile assignment is an association between a VM and automanage profile configuration.

@@ -114,7 +114,7 @@ export interface ReplicationProtectionContainerMappingArgs {
     /**
      * Configure protection input properties.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.CreateProtectionContainerMappingInputProperties>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.CreateProtectionContainerMappingInputPropertiesArgs>;
     /**
      * Protection container name.
      */

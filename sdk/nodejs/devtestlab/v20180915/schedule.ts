@@ -163,11 +163,11 @@ export interface ScheduleArgs {
     /**
      * If the schedule will occur once each day of the week, specify the daily recurrence.
      */
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.DayDetails>;
+    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.DayDetailsArgs>;
     /**
      * If the schedule will occur multiple times a day, specify the hourly recurrence.
      */
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.HourDetails>;
+    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.HourDetailsArgs>;
     /**
      * The name of the lab.
      */
@@ -183,7 +183,7 @@ export interface ScheduleArgs {
     /**
      * Notification settings.
      */
-    readonly notificationSettings?: pulumi.Input<inputs.devtestlab.v20180915.NotificationSettings>;
+    readonly notificationSettings?: pulumi.Input<inputs.devtestlab.v20180915.NotificationSettingsArgs>;
     /**
      * The name of the resource group.
      */
@@ -211,5 +211,5 @@ export interface ScheduleArgs {
     /**
      * If the schedule will occur only some days of the week, specify the weekly recurrence.
      */
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.WeekDetails>;
+    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20180915.WeekDetailsArgs>;
 }

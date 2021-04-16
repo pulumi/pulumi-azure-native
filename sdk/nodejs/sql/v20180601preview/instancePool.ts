@@ -143,7 +143,7 @@ export interface InstancePoolArgs {
     /**
      * The name and tier of the SKU.
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20180601preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.v20180601preview.SkuArgs>;
     /**
      * Resource ID of the subnet to place this instance pool in.
      */

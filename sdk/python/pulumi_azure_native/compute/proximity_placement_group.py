@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -127,9 +127,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  proximity_placement_group_type: Optional[pulumi.Input[Union[str, 'ProximityPlacementGroupType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Specifies information about the proximity placement group.
         API Version: 2020-12-01.
@@ -174,15 +172,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  proximity_placement_group_type: Optional[pulumi.Input[Union[str, 'ProximityPlacementGroupType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,21 +182,21 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProximityPlacementGroupArgs.__new__(ProximityPlacementGroupArgs)
 
-            __props__['colocation_status'] = colocation_status
-            __props__['location'] = location
-            __props__['proximity_placement_group_name'] = proximity_placement_group_name
-            __props__['proximity_placement_group_type'] = proximity_placement_group_type
+            __props__.__dict__["colocation_status"] = colocation_status
+            __props__.__dict__["location"] = location
+            __props__.__dict__["proximity_placement_group_name"] = proximity_placement_group_name
+            __props__.__dict__["proximity_placement_group_type"] = proximity_placement_group_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['availability_sets'] = None
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['virtual_machine_scale_sets'] = None
-            __props__['virtual_machines'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["availability_sets"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_machine_scale_sets"] = None
+            __props__.__dict__["virtual_machines"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20191201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20191201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20200601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:ProximityPlacementGroup"), pulumi.Alias(type_="azure-native:compute/v20201201:ProximityPlacementGroup"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:ProximityPlacementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProximityPlacementGroup, __self__).__init__(
@@ -229,17 +219,17 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ProximityPlacementGroupArgs.__new__(ProximityPlacementGroupArgs)
 
-        __props__["availability_sets"] = None
-        __props__["colocation_status"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["proximity_placement_group_type"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_machine_scale_sets"] = None
-        __props__["virtual_machines"] = None
+        __props__.__dict__["availability_sets"] = None
+        __props__.__dict__["colocation_status"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["proximity_placement_group_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_machine_scale_sets"] = None
+        __props__.__dict__["virtual_machines"] = None
         return ProximityPlacementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -313,10 +303,4 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         A list of references to all virtual machines in the proximity placement group.
         """
         return pulumi.get(self, "virtual_machines")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

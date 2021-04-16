@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,7 +22,7 @@ __all__ = [
     'DscConfigurationParameterResponse',
     'ErrorResponseResponse',
     'FieldDefinitionResponse',
-    'KeyResponseResult',
+    'KeyResponse',
     'LinuxPropertiesResponse',
     'ModuleErrorInfoResponse',
     'NonAzureQueryPropertiesResponse',
@@ -74,15 +74,33 @@ class AdvancedScheduleMonthlyOccurrenceResponse(dict):
         """
         return pulumi.get(self, "occurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AdvancedScheduleResponse(dict):
     """
     The properties of the create Advanced Schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthDays":
+            suggest = "month_days"
+        elif key == "monthlyOccurrences":
+            suggest = "monthly_occurrences"
+        elif key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdvancedScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdvancedScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdvancedScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  month_days: Optional[Sequence[int]] = None,
                  monthly_occurrences: Optional[Sequence['outputs.AdvancedScheduleMonthlyOccurrenceResponse']] = None,
@@ -90,7 +108,7 @@ class AdvancedScheduleResponse(dict):
         """
         The properties of the create Advanced Schedule.
         :param Sequence[int] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
+        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponse'] monthly_occurrences: Occurrences of days within a month.
         :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
@@ -124,15 +142,29 @@ class AdvancedScheduleResponse(dict):
         """
         return pulumi.get(self, "week_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureQueryPropertiesResponse(dict):
     """
     Azure query for the update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagSettings":
+            suggest = "tag_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureQueryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureQueryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureQueryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  locations: Optional[Sequence[str]] = None,
                  scope: Optional[Sequence[str]] = None,
@@ -141,7 +173,7 @@ class AzureQueryPropertiesResponse(dict):
         Azure query for the update configuration.
         :param Sequence[str] locations: List of locations to scope the query to.
         :param Sequence[str] scope: List of Subscription or Resource Group ARM Ids.
-        :param 'TagSettingsPropertiesResponseArgs' tag_settings: Tag settings for the VM.
+        :param 'TagSettingsPropertiesResponse' tag_settings: Tag settings for the VM.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -174,9 +206,6 @@ class AzureQueryPropertiesResponse(dict):
         """
         return pulumi.get(self, "tag_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectionTypeAssociationPropertyResponse(dict):
@@ -199,9 +228,6 @@ class ConnectionTypeAssociationPropertyResponse(dict):
         Gets or sets the name of the connection type.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -236,22 +262,36 @@ class ContentHashResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentLinkResponse(dict):
     """
     Definition of the content link.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentHash":
+            suggest = "content_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
                  uri: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Definition of the content link.
-        :param 'ContentHashResponseArgs' content_hash: Gets or sets the hash.
+        :param 'ContentHashResponse' content_hash: Gets or sets the hash.
         :param str uri: Gets or sets the uri of the runbook content.
         :param str version: Gets or sets the version of the content.
         """
@@ -286,9 +326,6 @@ class ContentLinkResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentSourceResponse(dict):
@@ -302,7 +339,7 @@ class ContentSourceResponse(dict):
                  version: Optional[str] = None):
         """
         Definition of the content source.
-        :param 'ContentHashResponseArgs' hash: Gets or sets the hash.
+        :param 'ContentHashResponse' hash: Gets or sets the hash.
         :param str type: Gets or sets the content source type.
         :param str value: Gets or sets the value of the content. This is based on the content source type.
         :param str version: Gets or sets the version of the content.
@@ -348,9 +385,6 @@ class ContentSourceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DscConfigurationAssociationPropertyResponse(dict):
@@ -374,15 +408,31 @@ class DscConfigurationAssociationPropertyResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DscConfigurationParameterResponse(dict):
     """
     Definition of the configuration parameter type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "isMandatory":
+            suggest = "is_mandatory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DscConfigurationParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DscConfigurationParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DscConfigurationParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  is_mandatory: Optional[bool] = None,
@@ -436,9 +486,6 @@ class DscConfigurationParameterResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorResponseResponse(dict):
@@ -474,15 +521,31 @@ class ErrorResponseResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FieldDefinitionResponse(dict):
     """
     Definition of the connection fields.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEncrypted":
+            suggest = "is_encrypted"
+        elif key == "isOptional":
+            suggest = "is_optional"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  is_encrypted: Optional[bool] = None,
@@ -523,12 +586,9 @@ class FieldDefinitionResponse(dict):
         """
         return pulumi.get(self, "is_optional")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class KeyResponseResult(dict):
+class KeyResponse(dict):
     """
     Automation key which is used to register a DSC Node
     """
@@ -576,6 +636,29 @@ class LinuxPropertiesResponse(dict):
     """
     Linux specific update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedPackageNameMasks":
+            suggest = "excluded_package_name_masks"
+        elif key == "includedPackageClassifications":
+            suggest = "included_package_classifications"
+        elif key == "includedPackageNameMasks":
+            suggest = "included_package_name_masks"
+        elif key == "rebootSetting":
+            suggest = "reboot_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  excluded_package_name_masks: Optional[Sequence[str]] = None,
                  included_package_classifications: Optional[str] = None,
@@ -629,9 +712,6 @@ class LinuxPropertiesResponse(dict):
         """
         return pulumi.get(self, "reboot_setting")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModuleErrorInfoResponse(dict):
@@ -667,15 +747,31 @@ class ModuleErrorInfoResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NonAzureQueryPropertiesResponse(dict):
     """
     Non Azure query for the update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionAlias":
+            suggest = "function_alias"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NonAzureQueryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NonAzureQueryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NonAzureQueryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_alias: Optional[str] = None,
                  workspace_id: Optional[str] = None):
@@ -705,9 +801,6 @@ class NonAzureQueryPropertiesResponse(dict):
         """
         return pulumi.get(self, "workspace_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunbookAssociationPropertyResponse(dict):
@@ -731,12 +824,34 @@ class RunbookAssociationPropertyResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunbookDraftResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "draftContentLink":
+            suggest = "draft_content_link"
+        elif key == "inEdit":
+            suggest = "in_edit"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "outputTypes":
+            suggest = "output_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunbookDraftResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunbookDraftResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunbookDraftResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_time: Optional[str] = None,
                  draft_content_link: Optional['outputs.ContentLinkResponse'] = None,
@@ -746,11 +861,11 @@ class RunbookDraftResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
-        :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
+        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[str] output_types: Gets or sets the runbook output types.
-        :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
+        :param Mapping[str, 'RunbookParameterResponse'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -813,15 +928,31 @@ class RunbookDraftResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunbookParameterResponse(dict):
     """
     Definition of the runbook parameter type.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "isMandatory":
+            suggest = "is_mandatory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunbookParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunbookParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunbookParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  is_mandatory: Optional[bool] = None,
@@ -875,15 +1006,49 @@ class RunbookParameterResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SUCSchedulePropertiesResponse(dict):
     """
     Definition of schedule parameters.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTimeOffsetMinutes":
+            suggest = "start_time_offset_minutes"
+        elif key == "advancedSchedule":
+            suggest = "advanced_schedule"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "expiryTimeOffsetMinutes":
+            suggest = "expiry_time_offset_minutes"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "nextRun":
+            suggest = "next_run"
+        elif key == "nextRunOffsetMinutes":
+            suggest = "next_run_offset_minutes"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SUCSchedulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SUCSchedulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SUCSchedulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  start_time_offset_minutes: float,
                  advanced_schedule: Optional['outputs.AdvancedScheduleResponse'] = None,
@@ -902,7 +1067,7 @@ class SUCSchedulePropertiesResponse(dict):
         """
         Definition of schedule parameters.
         :param float start_time_offset_minutes: Gets the start time's offset in minutes.
-        :param 'AdvancedScheduleResponseArgs' advanced_schedule: Gets or sets the advanced schedule.
+        :param 'AdvancedScheduleResponse' advanced_schedule: Gets or sets the advanced schedule.
         :param str creation_time: Gets or sets the creation time.
         :param str description: Gets or sets the description.
         :param str expiry_time: Gets or sets the end time of the schedule.
@@ -1058,9 +1223,6 @@ class SUCSchedulePropertiesResponse(dict):
         """
         return pulumi.get(self, "time_zone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleAssociationPropertyResponse(dict):
@@ -1083,9 +1245,6 @@ class ScheduleAssociationPropertyResponse(dict):
         Gets or sets the name of the Schedule.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1133,22 +1292,38 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "family")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SoftwareUpdateConfigurationTasksResponse(dict):
     """
     Task properties of the software update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postTask":
+            suggest = "post_task"
+        elif key == "preTask":
+            suggest = "pre_task"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationTasksResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationTasksResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationTasksResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  post_task: Optional['outputs.TaskPropertiesResponse'] = None,
                  pre_task: Optional['outputs.TaskPropertiesResponse'] = None):
         """
         Task properties of the software update configuration.
-        :param 'TaskPropertiesResponseArgs' post_task: Post task properties.
-        :param 'TaskPropertiesResponseArgs' pre_task: Pre task properties.
+        :param 'TaskPropertiesResponse' post_task: Post task properties.
+        :param 'TaskPropertiesResponse' pre_task: Pre task properties.
         """
         if post_task is not None:
             pulumi.set(__self__, "post_task", post_task)
@@ -1171,15 +1346,29 @@ class SoftwareUpdateConfigurationTasksResponse(dict):
         """
         return pulumi.get(self, "pre_task")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TagSettingsPropertiesResponse(dict):
     """
     Tag filter information for the VM.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterOperator":
+            suggest = "filter_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagSettingsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagSettingsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagSettingsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filter_operator: Optional[str] = None,
                  tags: Optional[Mapping[str, Sequence[str]]] = None):
@@ -1209,22 +1398,38 @@ class TagSettingsPropertiesResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetPropertiesResponse(dict):
     """
     Group specific to the update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureQueries":
+            suggest = "azure_queries"
+        elif key == "nonAzureQueries":
+            suggest = "non_azure_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_queries: Optional[Sequence['outputs.AzureQueryPropertiesResponse']] = None,
                  non_azure_queries: Optional[Sequence['outputs.NonAzureQueryPropertiesResponse']] = None):
         """
         Group specific to the update configuration.
-        :param Sequence['AzureQueryPropertiesResponseArgs'] azure_queries: List of Azure queries in the software update configuration.
-        :param Sequence['NonAzureQueryPropertiesResponseArgs'] non_azure_queries: List of non Azure queries in the software update configuration.
+        :param Sequence['AzureQueryPropertiesResponse'] azure_queries: List of Azure queries in the software update configuration.
+        :param Sequence['NonAzureQueryPropertiesResponse'] non_azure_queries: List of non Azure queries in the software update configuration.
         """
         if azure_queries is not None:
             pulumi.set(__self__, "azure_queries", azure_queries)
@@ -1246,9 +1451,6 @@ class TargetPropertiesResponse(dict):
         List of non Azure queries in the software update configuration.
         """
         return pulumi.get(self, "non_azure_queries")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1285,15 +1487,33 @@ class TaskPropertiesResponse(dict):
         """
         return pulumi.get(self, "source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UpdateConfigurationResponse(dict):
     """
     Update specific properties of the software update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatingSystem":
+            suggest = "operating_system"
+        elif key == "azureVirtualMachines":
+            suggest = "azure_virtual_machines"
+        elif key == "nonAzureComputerNames":
+            suggest = "non_azure_computer_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operating_system: str,
                  azure_virtual_machines: Optional[Sequence[str]] = None,
@@ -1307,10 +1527,10 @@ class UpdateConfigurationResponse(dict):
         :param str operating_system: operating system of target machines
         :param Sequence[str] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         :param str duration: Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
-        :param 'LinuxPropertiesResponseArgs' linux: Linux specific update configuration.
+        :param 'LinuxPropertiesResponse' linux: Linux specific update configuration.
         :param Sequence[str] non_azure_computer_names: List of names of non-azure machines targeted by the software update configuration.
-        :param 'TargetPropertiesResponseArgs' targets: Group targets for the software update configuration.
-        :param 'WindowsPropertiesResponseArgs' windows: Windows specific update configuration.
+        :param 'TargetPropertiesResponse' targets: Group targets for the software update configuration.
+        :param 'WindowsPropertiesResponse' windows: Windows specific update configuration.
         """
         pulumi.set(__self__, "operating_system", operating_system)
         if azure_virtual_machines is not None:
@@ -1382,15 +1602,35 @@ class UpdateConfigurationResponse(dict):
         """
         return pulumi.get(self, "windows")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsPropertiesResponse(dict):
     """
     Windows specific update configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedKbNumbers":
+            suggest = "excluded_kb_numbers"
+        elif key == "includedKbNumbers":
+            suggest = "included_kb_numbers"
+        elif key == "includedUpdateClassifications":
+            suggest = "included_update_classifications"
+        elif key == "rebootSetting":
+            suggest = "reboot_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  excluded_kb_numbers: Optional[Sequence[str]] = None,
                  included_kb_numbers: Optional[Sequence[str]] = None,
@@ -1443,8 +1683,5 @@ class WindowsPropertiesResponse(dict):
         Reboot setting for the software update configuration.
         """
         return pulumi.get(self, "reboot_setting")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

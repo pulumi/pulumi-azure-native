@@ -130,11 +130,11 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20180501preview.StorageBlobDeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20180501preview.StorageBlobDeadLetterDestinationArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20180501preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20180501preview.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20180501preview.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20180501preview.WebHookEventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20180501preview.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20180501preview.WebHookEventSubscriptionDestinationArgs>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -146,7 +146,7 @@ export interface EventSubscriptionArgs {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.v20180501preview.EventSubscriptionFilter>;
+    readonly filter?: pulumi.Input<inputs.eventgrid.v20180501preview.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */
@@ -154,7 +154,7 @@ export interface EventSubscriptionArgs {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20180501preview.RetryPolicy>;
+    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20180501preview.RetryPolicyArgs>;
     /**
      * The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */

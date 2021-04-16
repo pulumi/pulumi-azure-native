@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -140,9 +140,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Create a WebAppAuthSettingsV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -182,15 +180,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,21 +190,21 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppAuthSettingsV2Args.__new__(WebAppAuthSettingsV2Args)
 
-            __props__['global_validation'] = global_validation
-            __props__['http_settings'] = http_settings
-            __props__['identity_providers'] = identity_providers
-            __props__['kind'] = kind
-            __props__['login'] = login
+            __props__.__dict__["global_validation"] = global_validation
+            __props__.__dict__["http_settings"] = http_settings
+            __props__.__dict__["identity_providers"] = identity_providers
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["login"] = login
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['platform'] = platform
+            __props__.__dict__["name"] = name
+            __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppAuthSettingsV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsV2, __self__).__init__(
@@ -237,16 +227,16 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppAuthSettingsV2Args.__new__(WebAppAuthSettingsV2Args)
 
-        __props__["global_validation"] = None
-        __props__["http_settings"] = None
-        __props__["identity_providers"] = None
-        __props__["kind"] = None
-        __props__["login"] = None
-        __props__["name"] = None
-        __props__["platform"] = None
-        __props__["type"] = None
+        __props__.__dict__["global_validation"] = None
+        __props__.__dict__["http_settings"] = None
+        __props__.__dict__["identity_providers"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["login"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["platform"] = None
+        __props__.__dict__["type"] = None
         return WebAppAuthSettingsV2(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -297,10 +287,4 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

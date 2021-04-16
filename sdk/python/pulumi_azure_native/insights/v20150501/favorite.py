@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['FavoriteArgs', 'Favorite']
@@ -209,9 +209,7 @@ class Favorite(pulumi.CustomResource):
                  source_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Properties that define a favorite that is associated to an Application Insights component.
 
@@ -264,15 +262,7 @@ class Favorite(pulumi.CustomResource):
                  source_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,25 +272,25 @@ class Favorite(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FavoriteArgs.__new__(FavoriteArgs)
 
-            __props__['category'] = category
-            __props__['config'] = config
-            __props__['favorite_id'] = favorite_id
-            __props__['favorite_type'] = favorite_type
-            __props__['is_generated_from_template'] = is_generated_from_template
-            __props__['name'] = name
+            __props__.__dict__["category"] = category
+            __props__.__dict__["config"] = config
+            __props__.__dict__["favorite_id"] = favorite_id
+            __props__.__dict__["favorite_type"] = favorite_type
+            __props__.__dict__["is_generated_from_template"] = is_generated_from_template
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
-            __props__['resource_name'] = resource_name_
-            __props__['source_type'] = source_type
-            __props__['tags'] = tags
-            __props__['version'] = version
-            __props__['time_modified'] = None
-            __props__['user_id'] = None
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["source_type"] = source_type
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
+            __props__.__dict__["time_modified"] = None
+            __props__.__dict__["user_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:Favorite"), pulumi.Alias(type_="azure-native:insights:Favorite"), pulumi.Alias(type_="azure-nextgen:insights:Favorite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Favorite, __self__).__init__(
@@ -323,19 +313,19 @@ class Favorite(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FavoriteArgs.__new__(FavoriteArgs)
 
-        __props__["category"] = None
-        __props__["config"] = None
-        __props__["favorite_id"] = None
-        __props__["favorite_type"] = None
-        __props__["is_generated_from_template"] = None
-        __props__["name"] = None
-        __props__["source_type"] = None
-        __props__["tags"] = None
-        __props__["time_modified"] = None
-        __props__["user_id"] = None
-        __props__["version"] = None
+        __props__.__dict__["category"] = None
+        __props__.__dict__["config"] = None
+        __props__.__dict__["favorite_id"] = None
+        __props__.__dict__["favorite_type"] = None
+        __props__.__dict__["is_generated_from_template"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["source_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["time_modified"] = None
+        __props__.__dict__["user_id"] = None
+        __props__.__dict__["version"] = None
         return Favorite(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -425,10 +415,4 @@ class Favorite(pulumi.CustomResource):
         This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -143,7 +143,7 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * The reference to the public IP resource.
      */
-    readonly publicIPAddress?: pulumi.Input<inputs.network.v20200701.PublicIPAddress>;
+    readonly publicIPAddress?: pulumi.Input<inputs.network.v20200701.PublicIPAddressArgs>;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -151,7 +151,7 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * The reference to the subnet resource.
      */
-    readonly subnet?: pulumi.Input<inputs.network.v20200701.Subnet>;
+    readonly subnet?: pulumi.Input<inputs.network.v20200701.SubnetArgs>;
     /**
      * The name of the VirtualHub.
      */

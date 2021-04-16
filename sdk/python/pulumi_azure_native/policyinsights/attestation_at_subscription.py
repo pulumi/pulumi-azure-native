@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -161,9 +161,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  owner: Optional[pulumi.Input[str]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An attestation resource.
         API Version: 2021-01-01.
@@ -212,15 +210,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  owner: Optional[pulumi.Input[str]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,23 +220,23 @@ class AttestationAtSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AttestationAtSubscriptionArgs.__new__(AttestationAtSubscriptionArgs)
 
-            __props__['attestation_name'] = attestation_name
-            __props__['comments'] = comments
-            __props__['compliance_state'] = compliance_state
-            __props__['evidence'] = evidence
-            __props__['expires_on'] = expires_on
-            __props__['owner'] = owner
+            __props__.__dict__["attestation_name"] = attestation_name
+            __props__.__dict__["comments"] = comments
+            __props__.__dict__["compliance_state"] = compliance_state
+            __props__.__dict__["evidence"] = evidence
+            __props__.__dict__["expires_on"] = expires_on
+            __props__.__dict__["owner"] = owner
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
-            __props__['policy_assignment_id'] = policy_assignment_id
-            __props__['policy_definition_reference_id'] = policy_definition_reference_id
-            __props__['last_compliance_state_change_at'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["policy_assignment_id"] = policy_assignment_id
+            __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
+            __props__.__dict__["last_compliance_state_change_at"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights:AttestationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20210101:AttestationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20210101:AttestationAtSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationAtSubscription, __self__).__init__(
@@ -269,20 +259,20 @@ class AttestationAtSubscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AttestationAtSubscriptionArgs.__new__(AttestationAtSubscriptionArgs)
 
-        __props__["comments"] = None
-        __props__["compliance_state"] = None
-        __props__["evidence"] = None
-        __props__["expires_on"] = None
-        __props__["last_compliance_state_change_at"] = None
-        __props__["name"] = None
-        __props__["owner"] = None
-        __props__["policy_assignment_id"] = None
-        __props__["policy_definition_reference_id"] = None
-        __props__["provisioning_state"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["comments"] = None
+        __props__.__dict__["compliance_state"] = None
+        __props__.__dict__["evidence"] = None
+        __props__.__dict__["expires_on"] = None
+        __props__.__dict__["last_compliance_state_change_at"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["owner"] = None
+        __props__.__dict__["policy_assignment_id"] = None
+        __props__.__dict__["policy_definition_reference_id"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return AttestationAtSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -380,10 +370,4 @@ class AttestationAtSubscription(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

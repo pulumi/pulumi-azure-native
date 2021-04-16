@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['WebAppHybridConnectionArgs', 'WebAppHybridConnection']
 
@@ -226,9 +226,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  send_key_value: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  service_bus_suffix: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
 
@@ -284,15 +282,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  send_key_value: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  service_bus_suffix: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,27 +292,27 @@ class WebAppHybridConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppHybridConnectionArgs.__new__(WebAppHybridConnectionArgs)
 
-            __props__['hostname'] = hostname
-            __props__['kind'] = kind
+            __props__.__dict__["hostname"] = hostname
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
-            __props__['port'] = port
-            __props__['relay_arm_uri'] = relay_arm_uri
-            __props__['relay_name'] = relay_name
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["port"] = port
+            __props__.__dict__["relay_arm_uri"] = relay_arm_uri
+            __props__.__dict__["relay_name"] = relay_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['send_key_name'] = send_key_name
-            __props__['send_key_value'] = send_key_value
-            __props__['service_bus_namespace'] = service_bus_namespace
-            __props__['service_bus_suffix'] = service_bus_suffix
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["send_key_name"] = send_key_name
+            __props__.__dict__["send_key_value"] = send_key_value
+            __props__.__dict__["service_bus_namespace"] = service_bus_namespace
+            __props__.__dict__["service_bus_suffix"] = service_bus_suffix
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppHybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnection, __self__).__init__(
@@ -345,19 +335,19 @@ class WebAppHybridConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppHybridConnectionArgs.__new__(WebAppHybridConnectionArgs)
 
-        __props__["hostname"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["port"] = None
-        __props__["relay_arm_uri"] = None
-        __props__["relay_name"] = None
-        __props__["send_key_name"] = None
-        __props__["send_key_value"] = None
-        __props__["service_bus_namespace"] = None
-        __props__["service_bus_suffix"] = None
-        __props__["type"] = None
+        __props__.__dict__["hostname"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["port"] = None
+        __props__.__dict__["relay_arm_uri"] = None
+        __props__.__dict__["relay_name"] = None
+        __props__.__dict__["send_key_name"] = None
+        __props__.__dict__["send_key_value"] = None
+        __props__.__dict__["service_bus_namespace"] = None
+        __props__.__dict__["service_bus_suffix"] = None
+        __props__.__dict__["type"] = None
         return WebAppHybridConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -448,10 +438,4 @@ class WebAppHybridConnection(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

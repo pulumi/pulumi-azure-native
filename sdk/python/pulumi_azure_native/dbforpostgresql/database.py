@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DatabaseArgs', 'Database']
 
@@ -106,9 +106,7 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a Database.
         API Version: 2017-12-01.
@@ -151,15 +149,7 @@ class Database(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,19 +159,19 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-            __props__['charset'] = charset
-            __props__['collation'] = collation
-            __props__['database_name'] = database_name
+            __props__.__dict__["charset"] = charset
+            __props__.__dict__["collation"] = collation
+            __props__.__dict__["database_name"] = database_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Database"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:Database"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
@@ -204,12 +194,12 @@ class Database(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-        __props__["charset"] = None
-        __props__["collation"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["charset"] = None
+        __props__.__dict__["collation"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,10 +233,4 @@ class Database(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

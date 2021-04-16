@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ApiIssueArgs', 'ApiIssue']
@@ -171,9 +171,7 @@ class ApiIssue(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'State']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Issue Contract details.
 
@@ -222,15 +220,7 @@ class ApiIssue(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'State']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,31 +230,31 @@ class ApiIssue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiIssueArgs.__new__(ApiIssueArgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
-            __props__['api_id'] = api_id
-            __props__['created_date'] = created_date
+            __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["created_date"] = created_date
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
-            __props__['description'] = description
-            __props__['issue_id'] = issue_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["issue_id"] = issue_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['state'] = state
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["state"] = state
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
-            __props__['title'] = title
+            __props__.__dict__["title"] = title
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["user_id"] = user_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssue"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:ApiIssue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssue, __self__).__init__(
@@ -287,16 +277,16 @@ class ApiIssue(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApiIssueArgs.__new__(ApiIssueArgs)
 
-        __props__["api_id"] = None
-        __props__["created_date"] = None
-        __props__["description"] = None
-        __props__["name"] = None
-        __props__["state"] = None
-        __props__["title"] = None
-        __props__["type"] = None
-        __props__["user_id"] = None
+        __props__.__dict__["api_id"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["title"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_id"] = None
         return ApiIssue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +352,4 @@ class ApiIssue(pulumi.CustomResource):
         A resource identifier for the user created the issue.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

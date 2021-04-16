@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -245,9 +245,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_extension_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a Virtual Machine Extension.
 
@@ -304,15 +302,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  vm_extension_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,27 +312,27 @@ class VirtualMachineExtension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualMachineExtensionArgs.__new__(VirtualMachineExtensionArgs)
 
-            __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
-            __props__['force_update_tag'] = force_update_tag
-            __props__['instance_view'] = instance_view
-            __props__['location'] = location
-            __props__['protected_settings'] = protected_settings
-            __props__['publisher'] = publisher
+            __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+            __props__.__dict__["force_update_tag"] = force_update_tag
+            __props__.__dict__["instance_view"] = instance_view
+            __props__.__dict__["location"] = location
+            __props__.__dict__["protected_settings"] = protected_settings
+            __props__.__dict__["publisher"] = publisher
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['settings'] = settings
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['type_handler_version'] = type_handler_version
-            __props__['vm_extension_name'] = vm_extension_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["settings"] = settings
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["type_handler_version"] = type_handler_version
+            __props__.__dict__["vm_extension_name"] = vm_extension_name
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
-            __props__['vm_name'] = vm_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
+            __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20191201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20150615:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20160330:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20171201:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20181001:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20200601:VirtualMachineExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineExtension"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:VirtualMachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineExtension, __self__).__init__(
@@ -365,20 +355,20 @@ class VirtualMachineExtension(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualMachineExtensionArgs.__new__(VirtualMachineExtensionArgs)
 
-        __props__["auto_upgrade_minor_version"] = None
-        __props__["force_update_tag"] = None
-        __props__["instance_view"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["protected_settings"] = None
-        __props__["provisioning_state"] = None
-        __props__["publisher"] = None
-        __props__["settings"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["type_handler_version"] = None
+        __props__.__dict__["auto_upgrade_minor_version"] = None
+        __props__.__dict__["force_update_tag"] = None
+        __props__.__dict__["instance_view"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["protected_settings"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["publisher"] = None
+        __props__.__dict__["settings"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["type_handler_version"] = None
         return VirtualMachineExtension(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -476,10 +466,4 @@ class VirtualMachineExtension(pulumi.CustomResource):
         Specifies the version of the script handler.
         """
         return pulumi.get(self, "type_handler_version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

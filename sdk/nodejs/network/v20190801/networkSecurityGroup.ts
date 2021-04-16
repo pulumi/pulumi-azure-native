@@ -137,7 +137,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * The default security rules of network security group.
      */
-    readonly defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.SecurityRule>[]>;
+    readonly defaultSecurityRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.SecurityRuleArgs>[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -165,7 +165,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * A collection of security rules of the network security group.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.SecurityRule>[]>;
+    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.SecurityRuleArgs>[]>;
     /**
      * Resource tags.
      */

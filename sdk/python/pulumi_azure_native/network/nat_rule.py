@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -194,9 +194,7 @@ class NatRule(pulumi.CustomResource):
                  nat_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         VpnGatewayNatRule Resource.
         API Version: 2020-11-01.
@@ -249,15 +247,7 @@ class NatRule(pulumi.CustomResource):
                  nat_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -267,26 +257,26 @@ class NatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NatRuleArgs.__new__(NatRuleArgs)
 
-            __props__['external_mappings'] = external_mappings
+            __props__.__dict__["external_mappings"] = external_mappings
             if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
-            __props__['gateway_name'] = gateway_name
-            __props__['id'] = id
-            __props__['internal_mappings'] = internal_mappings
-            __props__['ip_configuration_id'] = ip_configuration_id
-            __props__['mode'] = mode
-            __props__['name'] = name
-            __props__['nat_rule_name'] = nat_rule_name
+            __props__.__dict__["gateway_name"] = gateway_name
+            __props__.__dict__["id"] = id
+            __props__.__dict__["internal_mappings"] = internal_mappings
+            __props__.__dict__["ip_configuration_id"] = ip_configuration_id
+            __props__.__dict__["mode"] = mode
+            __props__.__dict__["name"] = name
+            __props__.__dict__["nat_rule_name"] = nat_rule_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['type'] = type
-            __props__['egress_vpn_site_link_connections'] = None
-            __props__['etag'] = None
-            __props__['ingress_vpn_site_link_connections'] = None
-            __props__['provisioning_state'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["type"] = type
+            __props__.__dict__["egress_vpn_site_link_connections"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["ingress_vpn_site_link_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NatRule"), pulumi.Alias(type_="azure-native:network/v20200801:NatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NatRule"), pulumi.Alias(type_="azure-native:network/v20201101:NatRule"), pulumi.Alias(type_="azure-nextgen:network/v20201101:NatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NatRule, __self__).__init__(
@@ -309,18 +299,18 @@ class NatRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NatRuleArgs.__new__(NatRuleArgs)
 
-        __props__["egress_vpn_site_link_connections"] = None
-        __props__["etag"] = None
-        __props__["external_mappings"] = None
-        __props__["ingress_vpn_site_link_connections"] = None
-        __props__["internal_mappings"] = None
-        __props__["ip_configuration_id"] = None
-        __props__["mode"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["type"] = None
+        __props__.__dict__["egress_vpn_site_link_connections"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["external_mappings"] = None
+        __props__.__dict__["ingress_vpn_site_link_connections"] = None
+        __props__.__dict__["internal_mappings"] = None
+        __props__.__dict__["ip_configuration_id"] = None
+        __props__.__dict__["mode"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["type"] = None
         return NatRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -402,10 +392,4 @@ class NatRule(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

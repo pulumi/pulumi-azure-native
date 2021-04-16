@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -234,9 +234,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validity_in_years: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         SSL certificate purchase order.
 
@@ -291,15 +289,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validity_in_years: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,45 +299,45 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AppServiceCertificateOrderArgs.__new__(AppServiceCertificateOrderArgs)
 
             if auto_renew is None:
                 auto_renew = True
-            __props__['auto_renew'] = auto_renew
-            __props__['certificate_order_name'] = certificate_order_name
-            __props__['certificates'] = certificates
-            __props__['csr'] = csr
-            __props__['distinguished_name'] = distinguished_name
+            __props__.__dict__["auto_renew"] = auto_renew
+            __props__.__dict__["certificate_order_name"] = certificate_order_name
+            __props__.__dict__["certificates"] = certificates
+            __props__.__dict__["csr"] = csr
+            __props__.__dict__["distinguished_name"] = distinguished_name
             if key_size is None:
                 key_size = 2048
-            __props__['key_size'] = key_size
-            __props__['kind'] = kind
-            __props__['location'] = location
+            __props__.__dict__["key_size"] = key_size
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
             if product_type is None and not opts.urn:
                 raise TypeError("Missing required property 'product_type'")
-            __props__['product_type'] = product_type
+            __props__.__dict__["product_type"] = product_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if validity_in_years is None:
                 validity_in_years = 1
-            __props__['validity_in_years'] = validity_in_years
-            __props__['app_service_certificate_not_renewable_reasons'] = None
-            __props__['contact'] = None
-            __props__['domain_verification_token'] = None
-            __props__['expiration_time'] = None
-            __props__['intermediate'] = None
-            __props__['is_private_key_external'] = None
-            __props__['last_certificate_issuance_time'] = None
-            __props__['name'] = None
-            __props__['next_auto_renewal_time_stamp'] = None
-            __props__['provisioning_state'] = None
-            __props__['root'] = None
-            __props__['serial_number'] = None
-            __props__['signed_certificate'] = None
-            __props__['status'] = None
-            __props__['type'] = None
+            __props__.__dict__["validity_in_years"] = validity_in_years
+            __props__.__dict__["app_service_certificate_not_renewable_reasons"] = None
+            __props__.__dict__["contact"] = None
+            __props__.__dict__["domain_verification_token"] = None
+            __props__.__dict__["expiration_time"] = None
+            __props__.__dict__["intermediate"] = None
+            __props__.__dict__["is_private_key_external"] = None
+            __props__.__dict__["last_certificate_issuance_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["next_auto_renewal_time_stamp"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["root"] = None
+            __props__.__dict__["serial_number"] = None
+            __props__.__dict__["signed_certificate"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceCertificateOrder, __self__).__init__(
@@ -370,33 +360,33 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AppServiceCertificateOrderArgs.__new__(AppServiceCertificateOrderArgs)
 
-        __props__["app_service_certificate_not_renewable_reasons"] = None
-        __props__["auto_renew"] = None
-        __props__["certificates"] = None
-        __props__["contact"] = None
-        __props__["csr"] = None
-        __props__["distinguished_name"] = None
-        __props__["domain_verification_token"] = None
-        __props__["expiration_time"] = None
-        __props__["intermediate"] = None
-        __props__["is_private_key_external"] = None
-        __props__["key_size"] = None
-        __props__["kind"] = None
-        __props__["last_certificate_issuance_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["next_auto_renewal_time_stamp"] = None
-        __props__["product_type"] = None
-        __props__["provisioning_state"] = None
-        __props__["root"] = None
-        __props__["serial_number"] = None
-        __props__["signed_certificate"] = None
-        __props__["status"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["validity_in_years"] = None
+        __props__.__dict__["app_service_certificate_not_renewable_reasons"] = None
+        __props__.__dict__["auto_renew"] = None
+        __props__.__dict__["certificates"] = None
+        __props__.__dict__["contact"] = None
+        __props__.__dict__["csr"] = None
+        __props__.__dict__["distinguished_name"] = None
+        __props__.__dict__["domain_verification_token"] = None
+        __props__.__dict__["expiration_time"] = None
+        __props__.__dict__["intermediate"] = None
+        __props__.__dict__["is_private_key_external"] = None
+        __props__.__dict__["key_size"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_certificate_issuance_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["next_auto_renewal_time_stamp"] = None
+        __props__.__dict__["product_type"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["root"] = None
+        __props__.__dict__["serial_number"] = None
+        __props__.__dict__["signed_certificate"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["validity_in_years"] = None
         return AppServiceCertificateOrder(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -598,10 +588,4 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         Duration in years (must be 1).
         """
         return pulumi.get(self, "validity_in_years")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

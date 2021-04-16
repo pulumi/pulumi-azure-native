@@ -119,11 +119,11 @@ export interface MongoDBResourceMongoDBDatabaseArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.v20210115.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.v20210115.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a MongoDB database
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20210115.MongoDBDatabaseResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20210115.MongoDBDatabaseResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

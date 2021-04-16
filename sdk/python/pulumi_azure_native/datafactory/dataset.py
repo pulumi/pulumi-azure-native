@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -91,9 +91,7 @@ class Dataset(pulumi.CustomResource):
                  factory_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['AmazonMWSObjectDatasetArgs'], pulumi.InputType['AmazonRedshiftTableDatasetArgs'], pulumi.InputType['AmazonS3DatasetArgs'], pulumi.InputType['AvroDatasetArgs'], pulumi.InputType['AzureBlobDatasetArgs'], pulumi.InputType['AzureBlobFSDatasetArgs'], pulumi.InputType['AzureDataExplorerTableDatasetArgs'], pulumi.InputType['AzureDataLakeStoreDatasetArgs'], pulumi.InputType['AzureDatabricksDeltaLakeDatasetArgs'], pulumi.InputType['AzureMariaDBTableDatasetArgs'], pulumi.InputType['AzureMySqlTableDatasetArgs'], pulumi.InputType['AzurePostgreSqlTableDatasetArgs'], pulumi.InputType['AzureSearchIndexDatasetArgs'], pulumi.InputType['AzureSqlDWTableDatasetArgs'], pulumi.InputType['AzureSqlMITableDatasetArgs'], pulumi.InputType['AzureSqlTableDatasetArgs'], pulumi.InputType['AzureTableDatasetArgs'], pulumi.InputType['BinaryDatasetArgs'], pulumi.InputType['CassandraTableDatasetArgs'], pulumi.InputType['CommonDataServiceForAppsEntityDatasetArgs'], pulumi.InputType['ConcurObjectDatasetArgs'], pulumi.InputType['CosmosDbMongoDbApiCollectionDatasetArgs'], pulumi.InputType['CosmosDbSqlApiCollectionDatasetArgs'], pulumi.InputType['CouchbaseTableDatasetArgs'], pulumi.InputType['CustomDatasetArgs'], pulumi.InputType['Db2TableDatasetArgs'], pulumi.InputType['DelimitedTextDatasetArgs'], pulumi.InputType['DocumentDbCollectionDatasetArgs'], pulumi.InputType['DrillTableDatasetArgs'], pulumi.InputType['DynamicsAXResourceDatasetArgs'], pulumi.InputType['DynamicsCrmEntityDatasetArgs'], pulumi.InputType['DynamicsEntityDatasetArgs'], pulumi.InputType['EloquaObjectDatasetArgs'], pulumi.InputType['ExcelDatasetArgs'], pulumi.InputType['FileShareDatasetArgs'], pulumi.InputType['GoogleAdWordsObjectDatasetArgs'], pulumi.InputType['GoogleBigQueryObjectDatasetArgs'], pulumi.InputType['GreenplumTableDatasetArgs'], pulumi.InputType['HBaseObjectDatasetArgs'], pulumi.InputType['HiveObjectDatasetArgs'], pulumi.InputType['HttpDatasetArgs'], pulumi.InputType['HubspotObjectDatasetArgs'], pulumi.InputType['ImpalaObjectDatasetArgs'], pulumi.InputType['InformixTableDatasetArgs'], pulumi.InputType['JiraObjectDatasetArgs'], pulumi.InputType['JsonDatasetArgs'], pulumi.InputType['MagentoObjectDatasetArgs'], pulumi.InputType['MariaDBTableDatasetArgs'], pulumi.InputType['MarketoObjectDatasetArgs'], pulumi.InputType['MicrosoftAccessTableDatasetArgs'], pulumi.InputType['MongoDbAtlasCollectionDatasetArgs'], pulumi.InputType['MongoDbCollectionDatasetArgs'], pulumi.InputType['MongoDbV2CollectionDatasetArgs'], pulumi.InputType['MySqlTableDatasetArgs'], pulumi.InputType['NetezzaTableDatasetArgs'], pulumi.InputType['ODataResourceDatasetArgs'], pulumi.InputType['OdbcTableDatasetArgs'], pulumi.InputType['Office365DatasetArgs'], pulumi.InputType['OracleServiceCloudObjectDatasetArgs'], pulumi.InputType['OracleTableDatasetArgs'], pulumi.InputType['OrcDatasetArgs'], pulumi.InputType['ParquetDatasetArgs'], pulumi.InputType['PaypalObjectDatasetArgs'], pulumi.InputType['PhoenixObjectDatasetArgs'], pulumi.InputType['PostgreSqlTableDatasetArgs'], pulumi.InputType['PrestoObjectDatasetArgs'], pulumi.InputType['QuickBooksObjectDatasetArgs'], pulumi.InputType['RelationalTableDatasetArgs'], pulumi.InputType['ResponsysObjectDatasetArgs'], pulumi.InputType['RestResourceDatasetArgs'], pulumi.InputType['SalesforceMarketingCloudObjectDatasetArgs'], pulumi.InputType['SalesforceObjectDatasetArgs'], pulumi.InputType['SalesforceServiceCloudObjectDatasetArgs'], pulumi.InputType['SapBwCubeDatasetArgs'], pulumi.InputType['SapCloudForCustomerResourceDatasetArgs'], pulumi.InputType['SapEccResourceDatasetArgs'], pulumi.InputType['SapHanaTableDatasetArgs'], pulumi.InputType['SapOpenHubTableDatasetArgs'], pulumi.InputType['SapTableResourceDatasetArgs'], pulumi.InputType['ServiceNowObjectDatasetArgs'], pulumi.InputType['SharePointOnlineListResourceDatasetArgs'], pulumi.InputType['ShopifyObjectDatasetArgs'], pulumi.InputType['SnowflakeDatasetArgs'], pulumi.InputType['SparkObjectDatasetArgs'], pulumi.InputType['SqlServerTableDatasetArgs'], pulumi.InputType['SquareObjectDatasetArgs'], pulumi.InputType['SybaseTableDatasetArgs'], pulumi.InputType['TeradataTableDatasetArgs'], pulumi.InputType['VerticaTableDatasetArgs'], pulumi.InputType['WebTableDatasetArgs'], pulumi.InputType['XeroObjectDatasetArgs'], pulumi.InputType['XmlDatasetArgs'], pulumi.InputType['ZohoObjectDatasetArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Dataset resource type.
         API Version: 2018-06-01.
@@ -134,15 +132,7 @@ class Dataset(pulumi.CustomResource):
                  factory_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['AmazonMWSObjectDatasetArgs'], pulumi.InputType['AmazonRedshiftTableDatasetArgs'], pulumi.InputType['AmazonS3DatasetArgs'], pulumi.InputType['AvroDatasetArgs'], pulumi.InputType['AzureBlobDatasetArgs'], pulumi.InputType['AzureBlobFSDatasetArgs'], pulumi.InputType['AzureDataExplorerTableDatasetArgs'], pulumi.InputType['AzureDataLakeStoreDatasetArgs'], pulumi.InputType['AzureDatabricksDeltaLakeDatasetArgs'], pulumi.InputType['AzureMariaDBTableDatasetArgs'], pulumi.InputType['AzureMySqlTableDatasetArgs'], pulumi.InputType['AzurePostgreSqlTableDatasetArgs'], pulumi.InputType['AzureSearchIndexDatasetArgs'], pulumi.InputType['AzureSqlDWTableDatasetArgs'], pulumi.InputType['AzureSqlMITableDatasetArgs'], pulumi.InputType['AzureSqlTableDatasetArgs'], pulumi.InputType['AzureTableDatasetArgs'], pulumi.InputType['BinaryDatasetArgs'], pulumi.InputType['CassandraTableDatasetArgs'], pulumi.InputType['CommonDataServiceForAppsEntityDatasetArgs'], pulumi.InputType['ConcurObjectDatasetArgs'], pulumi.InputType['CosmosDbMongoDbApiCollectionDatasetArgs'], pulumi.InputType['CosmosDbSqlApiCollectionDatasetArgs'], pulumi.InputType['CouchbaseTableDatasetArgs'], pulumi.InputType['CustomDatasetArgs'], pulumi.InputType['Db2TableDatasetArgs'], pulumi.InputType['DelimitedTextDatasetArgs'], pulumi.InputType['DocumentDbCollectionDatasetArgs'], pulumi.InputType['DrillTableDatasetArgs'], pulumi.InputType['DynamicsAXResourceDatasetArgs'], pulumi.InputType['DynamicsCrmEntityDatasetArgs'], pulumi.InputType['DynamicsEntityDatasetArgs'], pulumi.InputType['EloquaObjectDatasetArgs'], pulumi.InputType['ExcelDatasetArgs'], pulumi.InputType['FileShareDatasetArgs'], pulumi.InputType['GoogleAdWordsObjectDatasetArgs'], pulumi.InputType['GoogleBigQueryObjectDatasetArgs'], pulumi.InputType['GreenplumTableDatasetArgs'], pulumi.InputType['HBaseObjectDatasetArgs'], pulumi.InputType['HiveObjectDatasetArgs'], pulumi.InputType['HttpDatasetArgs'], pulumi.InputType['HubspotObjectDatasetArgs'], pulumi.InputType['ImpalaObjectDatasetArgs'], pulumi.InputType['InformixTableDatasetArgs'], pulumi.InputType['JiraObjectDatasetArgs'], pulumi.InputType['JsonDatasetArgs'], pulumi.InputType['MagentoObjectDatasetArgs'], pulumi.InputType['MariaDBTableDatasetArgs'], pulumi.InputType['MarketoObjectDatasetArgs'], pulumi.InputType['MicrosoftAccessTableDatasetArgs'], pulumi.InputType['MongoDbAtlasCollectionDatasetArgs'], pulumi.InputType['MongoDbCollectionDatasetArgs'], pulumi.InputType['MongoDbV2CollectionDatasetArgs'], pulumi.InputType['MySqlTableDatasetArgs'], pulumi.InputType['NetezzaTableDatasetArgs'], pulumi.InputType['ODataResourceDatasetArgs'], pulumi.InputType['OdbcTableDatasetArgs'], pulumi.InputType['Office365DatasetArgs'], pulumi.InputType['OracleServiceCloudObjectDatasetArgs'], pulumi.InputType['OracleTableDatasetArgs'], pulumi.InputType['OrcDatasetArgs'], pulumi.InputType['ParquetDatasetArgs'], pulumi.InputType['PaypalObjectDatasetArgs'], pulumi.InputType['PhoenixObjectDatasetArgs'], pulumi.InputType['PostgreSqlTableDatasetArgs'], pulumi.InputType['PrestoObjectDatasetArgs'], pulumi.InputType['QuickBooksObjectDatasetArgs'], pulumi.InputType['RelationalTableDatasetArgs'], pulumi.InputType['ResponsysObjectDatasetArgs'], pulumi.InputType['RestResourceDatasetArgs'], pulumi.InputType['SalesforceMarketingCloudObjectDatasetArgs'], pulumi.InputType['SalesforceObjectDatasetArgs'], pulumi.InputType['SalesforceServiceCloudObjectDatasetArgs'], pulumi.InputType['SapBwCubeDatasetArgs'], pulumi.InputType['SapCloudForCustomerResourceDatasetArgs'], pulumi.InputType['SapEccResourceDatasetArgs'], pulumi.InputType['SapHanaTableDatasetArgs'], pulumi.InputType['SapOpenHubTableDatasetArgs'], pulumi.InputType['SapTableResourceDatasetArgs'], pulumi.InputType['ServiceNowObjectDatasetArgs'], pulumi.InputType['SharePointOnlineListResourceDatasetArgs'], pulumi.InputType['ShopifyObjectDatasetArgs'], pulumi.InputType['SnowflakeDatasetArgs'], pulumi.InputType['SparkObjectDatasetArgs'], pulumi.InputType['SqlServerTableDatasetArgs'], pulumi.InputType['SquareObjectDatasetArgs'], pulumi.InputType['SybaseTableDatasetArgs'], pulumi.InputType['TeradataTableDatasetArgs'], pulumi.InputType['VerticaTableDatasetArgs'], pulumi.InputType['WebTableDatasetArgs'], pulumi.InputType['XeroObjectDatasetArgs'], pulumi.InputType['XmlDatasetArgs'], pulumi.InputType['ZohoObjectDatasetArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,21 +142,21 @@ class Dataset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatasetArgs.__new__(DatasetArgs)
 
-            __props__['dataset_name'] = dataset_name
+            __props__.__dict__["dataset_name"] = dataset_name
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
-            __props__['factory_name'] = factory_name
+            __props__.__dict__["factory_name"] = factory_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory:Dataset"), pulumi.Alias(type_="azure-native:datafactory/v20170901preview:Dataset"), pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Dataset"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Dataset"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Dataset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dataset, __self__).__init__(
@@ -189,12 +179,12 @@ class Dataset(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DatasetArgs.__new__(DatasetArgs)
 
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["type"] = None
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -228,10 +218,4 @@ class Dataset(pulumi.CustomResource):
         The resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

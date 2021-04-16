@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -225,9 +225,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The alert rule information
 
@@ -282,15 +280,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -300,38 +290,38 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SmartDetectorAlertRuleArgs.__new__(SmartDetectorAlertRuleArgs)
 
             if action_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'action_groups'")
-            __props__['action_groups'] = action_groups
-            __props__['alert_rule_name'] = alert_rule_name
-            __props__['description'] = description
+            __props__.__dict__["action_groups"] = action_groups
+            __props__.__dict__["alert_rule_name"] = alert_rule_name
+            __props__.__dict__["description"] = description
             if detector is None and not opts.urn:
                 raise TypeError("Missing required property 'detector'")
-            __props__['detector'] = detector
+            __props__.__dict__["detector"] = detector
             if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
-            __props__['frequency'] = frequency
+            __props__.__dict__["frequency"] = frequency
             if location is None:
                 location = 'global'
-            __props__['location'] = location
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
+            __props__.__dict__["scope"] = scope
             if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
-            __props__['severity'] = severity
+            __props__.__dict__["severity"] = severity
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
-            __props__['state'] = state
-            __props__['tags'] = tags
-            __props__['throttling'] = throttling
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["state"] = state
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["throttling"] = throttling
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native:alertsmanagement:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-nextgen:alertsmanagement:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule"), pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SmartDetectorAlertRule, __self__).__init__(
@@ -354,20 +344,20 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SmartDetectorAlertRuleArgs.__new__(SmartDetectorAlertRuleArgs)
 
-        __props__["action_groups"] = None
-        __props__["description"] = None
-        __props__["detector"] = None
-        __props__["frequency"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["scope"] = None
-        __props__["severity"] = None
-        __props__["state"] = None
-        __props__["tags"] = None
-        __props__["throttling"] = None
-        __props__["type"] = None
+        __props__.__dict__["action_groups"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["detector"] = None
+        __props__.__dict__["frequency"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["scope"] = None
+        __props__.__dict__["severity"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["throttling"] = None
+        __props__.__dict__["type"] = None
         return SmartDetectorAlertRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -465,10 +455,4 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         The resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

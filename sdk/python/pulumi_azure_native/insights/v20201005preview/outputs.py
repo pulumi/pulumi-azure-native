@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -24,6 +24,25 @@ class HeaderFieldResponse(dict):
     """
     A header to add to the WebTest.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerFieldName":
+            suggest = "header_field_name"
+        elif key == "headerFieldValue":
+            suggest = "header_field_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HeaderFieldResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HeaderFieldResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HeaderFieldResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_field_name: Optional[str] = None,
                  header_field_value: Optional[str] = None):
@@ -53,9 +72,6 @@ class HeaderFieldResponse(dict):
         """
         return pulumi.get(self, "header_field_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestGeolocationResponse(dict):
@@ -79,15 +95,29 @@ class WebTestGeolocationResponse(dict):
         """
         return pulumi.get(self, "location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestPropertiesResponseConfiguration(dict):
     """
     An XML configuration specification for a WebTest.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "webTest":
+            suggest = "web_test"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTestPropertiesResponseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTestPropertiesResponseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  web_test: Optional[str] = None):
         """
@@ -105,15 +135,33 @@ class WebTestPropertiesResponseConfiguration(dict):
         """
         return pulumi.get(self, "web_test")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestPropertiesResponseContentValidation(dict):
     """
     The collection of content validation properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentMatch":
+            suggest = "content_match"
+        elif key == "ignoreCase":
+            suggest = "ignore_case"
+        elif key == "passIfTextFound":
+            suggest = "pass_if_text_found"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseContentValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTestPropertiesResponseContentValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTestPropertiesResponseContentValidation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_match: Optional[str] = None,
                  ignore_case: Optional[bool] = None,
@@ -155,15 +203,37 @@ class WebTestPropertiesResponseContentValidation(dict):
         """
         return pulumi.get(self, "pass_if_text_found")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestPropertiesResponseRequest(dict):
     """
     The collection of request properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "followRedirects":
+            suggest = "follow_redirects"
+        elif key == "httpVerb":
+            suggest = "http_verb"
+        elif key == "parseDependentRequests":
+            suggest = "parse_dependent_requests"
+        elif key == "requestBody":
+            suggest = "request_body"
+        elif key == "requestUrl":
+            suggest = "request_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTestPropertiesResponseRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTestPropertiesResponseRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  follow_redirects: Optional[bool] = None,
                  headers: Optional[Sequence['outputs.HeaderFieldResponse']] = None,
@@ -174,7 +244,7 @@ class WebTestPropertiesResponseRequest(dict):
         """
         The collection of request properties
         :param bool follow_redirects: Follow redirects for this web test.
-        :param Sequence['HeaderFieldResponseArgs'] headers: List of headers and their values to add to the WebTest call.
+        :param Sequence['HeaderFieldResponse'] headers: List of headers and their values to add to the WebTest call.
         :param str http_verb: Http verb to use for this web test.
         :param bool parse_dependent_requests: Parse Dependent request for this WebTest.
         :param str request_body: Base64 encoded string body to send with this web test.
@@ -241,15 +311,37 @@ class WebTestPropertiesResponseRequest(dict):
         """
         return pulumi.get(self, "request_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestPropertiesResponseValidationRules(dict):
     """
     The collection of validation rule properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentValidation":
+            suggest = "content_validation"
+        elif key == "expectedHttpStatusCode":
+            suggest = "expected_http_status_code"
+        elif key == "ignoreHttpsStatusCode":
+            suggest = "ignore_https_status_code"
+        elif key == "sSLCertRemainingLifetimeCheck":
+            suggest = "s_sl_cert_remaining_lifetime_check"
+        elif key == "sSLCheck":
+            suggest = "s_sl_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseValidationRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTestPropertiesResponseValidationRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTestPropertiesResponseValidationRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_validation: Optional['outputs.WebTestPropertiesResponseContentValidation'] = None,
                  expected_http_status_code: Optional[int] = None,
@@ -258,7 +350,7 @@ class WebTestPropertiesResponseValidationRules(dict):
                  s_sl_check: Optional[bool] = None):
         """
         The collection of validation rule properties
-        :param 'WebTestPropertiesResponseContentValidationArgs' content_validation: The collection of content validation properties
+        :param 'WebTestPropertiesResponseContentValidation' content_validation: The collection of content validation properties
         :param int expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param bool ignore_https_status_code: When set, validation will ignore the status code.
         :param int s_sl_cert_remaining_lifetime_check: A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
@@ -314,8 +406,5 @@ class WebTestPropertiesResponseValidationRules(dict):
         Checks to see if the SSL cert is still valid.
         """
         return pulumi.get(self, "s_sl_check")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

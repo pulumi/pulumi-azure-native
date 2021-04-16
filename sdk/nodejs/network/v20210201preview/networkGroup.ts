@@ -146,7 +146,7 @@ export interface NetworkGroupArgs {
     /**
      * Group members of network group.
      */
-    readonly groupMembers?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.GroupMembersItem>[]>;
+    readonly groupMembers?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.GroupMembersItemArgs>[]>;
     /**
      * Group member type.
      */

@@ -123,5 +123,5 @@ export interface BandwidthSettingArgs {
     /**
      * The schedules.
      */
-    readonly schedules: pulumi.Input<pulumi.Input<inputs.storsimple.v20170601.BandwidthSchedule>[]>;
+    readonly schedules: pulumi.Input<pulumi.Input<inputs.storsimple.v20170601.BandwidthScheduleArgs>[]>;
 }

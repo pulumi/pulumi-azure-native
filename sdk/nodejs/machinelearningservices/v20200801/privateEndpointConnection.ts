@@ -111,7 +111,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.machinelearningservices.v20200801.PrivateLinkServiceConnectionState>;
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.machinelearningservices.v20200801.PrivateLinkServiceConnectionStateArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

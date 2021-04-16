@@ -88,7 +88,7 @@ export interface RegistrationAssignmentArgs {
     /**
      * Properties of a registration assignment.
      */
-    readonly properties?: pulumi.Input<inputs.managedservices.v20190901.RegistrationAssignmentProperties>;
+    readonly properties?: pulumi.Input<inputs.managedservices.v20190901.RegistrationAssignmentPropertiesArgs>;
     /**
      * Guid of the registration assignment.
      */

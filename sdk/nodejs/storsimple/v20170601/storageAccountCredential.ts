@@ -122,7 +122,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The details of the storage account password.
      */
-    readonly accessKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecret>;
+    readonly accessKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecretArgs>;
     /**
      * The storage endpoint
      */

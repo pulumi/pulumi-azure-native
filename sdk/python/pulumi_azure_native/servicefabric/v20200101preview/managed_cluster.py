@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -299,9 +299,7 @@ class ManagedCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The manged cluster resource
 
@@ -364,15 +362,7 @@ class ManagedCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -382,42 +372,42 @@ class ManagedCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagedClusterArgs.__new__(ManagedClusterArgs)
 
-            __props__['addon_features'] = addon_features
-            __props__['admin_password'] = admin_password
+            __props__.__dict__["addon_features"] = addon_features
+            __props__.__dict__["admin_password"] = admin_password
             if admin_user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_user_name'")
-            __props__['admin_user_name'] = admin_user_name
-            __props__['azure_active_directory'] = azure_active_directory
+            __props__.__dict__["admin_user_name"] = admin_user_name
+            __props__.__dict__["azure_active_directory"] = azure_active_directory
             if client_connection_port is None:
                 client_connection_port = 19000
-            __props__['client_connection_port'] = client_connection_port
-            __props__['clients'] = clients
-            __props__['cluster_code_version'] = cluster_code_version
-            __props__['cluster_name'] = cluster_name
+            __props__.__dict__["client_connection_port"] = client_connection_port
+            __props__.__dict__["clients"] = clients
+            __props__.__dict__["cluster_code_version"] = cluster_code_version
+            __props__.__dict__["cluster_name"] = cluster_name
             if dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_name'")
-            __props__['dns_name'] = dns_name
-            __props__['fabric_settings'] = fabric_settings
+            __props__.__dict__["dns_name"] = dns_name
+            __props__.__dict__["fabric_settings"] = fabric_settings
             if http_gateway_connection_port is None:
                 http_gateway_connection_port = 19080
-            __props__['http_gateway_connection_port'] = http_gateway_connection_port
-            __props__['load_balancing_rules'] = load_balancing_rules
-            __props__['location'] = location
+            __props__.__dict__["http_gateway_connection_port"] = http_gateway_connection_port
+            __props__.__dict__["load_balancing_rules"] = load_balancing_rules
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['cluster_certificate_thumbprint'] = None
-            __props__['cluster_id'] = None
-            __props__['cluster_state'] = None
-            __props__['etag'] = None
-            __props__['fqdn'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["cluster_certificate_thumbprint"] = None
+            __props__.__dict__["cluster_id"] = None
+            __props__.__dict__["cluster_state"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["fqdn"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20200101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric:ManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
@@ -440,30 +430,30 @@ class ManagedCluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ManagedClusterArgs.__new__(ManagedClusterArgs)
 
-        __props__["addon_features"] = None
-        __props__["admin_password"] = None
-        __props__["admin_user_name"] = None
-        __props__["azure_active_directory"] = None
-        __props__["client_connection_port"] = None
-        __props__["clients"] = None
-        __props__["cluster_certificate_thumbprint"] = None
-        __props__["cluster_code_version"] = None
-        __props__["cluster_id"] = None
-        __props__["cluster_state"] = None
-        __props__["dns_name"] = None
-        __props__["etag"] = None
-        __props__["fabric_settings"] = None
-        __props__["fqdn"] = None
-        __props__["http_gateway_connection_port"] = None
-        __props__["load_balancing_rules"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["addon_features"] = None
+        __props__.__dict__["admin_password"] = None
+        __props__.__dict__["admin_user_name"] = None
+        __props__.__dict__["azure_active_directory"] = None
+        __props__.__dict__["client_connection_port"] = None
+        __props__.__dict__["clients"] = None
+        __props__.__dict__["cluster_certificate_thumbprint"] = None
+        __props__.__dict__["cluster_code_version"] = None
+        __props__.__dict__["cluster_id"] = None
+        __props__.__dict__["cluster_state"] = None
+        __props__.__dict__["dns_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["fabric_settings"] = None
+        __props__.__dict__["fqdn"] = None
+        __props__.__dict__["http_gateway_connection_port"] = None
+        __props__.__dict__["load_balancing_rules"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -641,10 +631,4 @@ class ManagedCluster(pulumi.CustomResource):
         Azure resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DataExportArgs', 'DataExport']
 
@@ -189,9 +189,7 @@ class DataExport(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The top level data export resource container.
         API Version: 2020-08-01.
@@ -244,15 +242,7 @@ class DataExport(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,28 +252,28 @@ class DataExport(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataExportArgs.__new__(DataExportArgs)
 
-            __props__['created_date'] = created_date
-            __props__['data_export_id'] = data_export_id
-            __props__['data_export_name'] = data_export_name
-            __props__['enable'] = enable
-            __props__['event_hub_name'] = event_hub_name
-            __props__['last_modified_date'] = last_modified_date
+            __props__.__dict__["created_date"] = created_date
+            __props__.__dict__["data_export_id"] = data_export_id
+            __props__.__dict__["data_export_name"] = data_export_name
+            __props__.__dict__["enable"] = enable
+            __props__.__dict__["event_hub_name"] = event_hub_name
+            __props__.__dict__["last_modified_date"] = last_modified_date
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
-            __props__['resource_id'] = resource_id
+            __props__.__dict__["resource_id"] = resource_id
             if table_names is None and not opts.urn:
                 raise TypeError("Missing required property 'table_names'")
-            __props__['table_names'] = table_names
+            __props__.__dict__["table_names"] = table_names
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:DataExport"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:DataExport"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:DataExport")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataExport, __self__).__init__(
@@ -306,17 +296,17 @@ class DataExport(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DataExportArgs.__new__(DataExportArgs)
 
-        __props__["created_date"] = None
-        __props__["data_export_id"] = None
-        __props__["enable"] = None
-        __props__["event_hub_name"] = None
-        __props__["last_modified_date"] = None
-        __props__["name"] = None
-        __props__["resource_id"] = None
-        __props__["table_names"] = None
-        __props__["type"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["data_export_id"] = None
+        __props__.__dict__["enable"] = None
+        __props__.__dict__["event_hub_name"] = None
+        __props__.__dict__["last_modified_date"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["table_names"] = None
+        __props__.__dict__["type"] = None
         return DataExport(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -390,10 +380,4 @@ class DataExport(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

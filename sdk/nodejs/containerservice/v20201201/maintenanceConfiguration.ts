@@ -108,7 +108,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Time slots on which upgrade is not allowed.
      */
-    readonly notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.v20201201.TimeSpan>[]>;
+    readonly notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.v20201201.TimeSpanArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -120,5 +120,5 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Weekday time slots allowed to upgrade.
      */
-    readonly timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.v20201201.TimeInWeek>[]>;
+    readonly timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.v20201201.TimeInWeekArgs>[]>;
 }

@@ -160,7 +160,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * A collection of security rules of the network security group.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.SecurityRule>[]>;
+    readonly securityRules?: pulumi.Input<pulumi.Input<inputs.network.SecurityRuleArgs>[]>;
     /**
      * Resource tags.
      */

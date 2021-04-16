@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -181,9 +181,7 @@ class PacketCapture(pulumi.CustomResource):
                  target: Optional[pulumi.Input[str]] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[float]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Information about packet capture session.
 
@@ -232,15 +230,7 @@ class PacketCapture(pulumi.CustomResource):
                  target: Optional[pulumi.Input[str]] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[float]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,34 +240,34 @@ class PacketCapture(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PacketCaptureArgs.__new__(PacketCaptureArgs)
 
             if bytes_to_capture_per_packet is None:
                 bytes_to_capture_per_packet = 0
-            __props__['bytes_to_capture_per_packet'] = bytes_to_capture_per_packet
-            __props__['filters'] = filters
+            __props__.__dict__["bytes_to_capture_per_packet"] = bytes_to_capture_per_packet
+            __props__.__dict__["filters"] = filters
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
-            __props__['network_watcher_name'] = network_watcher_name
-            __props__['packet_capture_name'] = packet_capture_name
+            __props__.__dict__["network_watcher_name"] = network_watcher_name
+            __props__.__dict__["packet_capture_name"] = packet_capture_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
-            __props__['storage_location'] = storage_location
+            __props__.__dict__["storage_location"] = storage_location
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
-            __props__['target'] = target
+            __props__.__dict__["target"] = target
             if time_limit_in_seconds is None:
                 time_limit_in_seconds = 18000
-            __props__['time_limit_in_seconds'] = time_limit_in_seconds
+            __props__.__dict__["time_limit_in_seconds"] = time_limit_in_seconds
             if total_bytes_per_session is None:
                 total_bytes_per_session = 1073741824
-            __props__['total_bytes_per_session'] = total_bytes_per_session
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
+            __props__.__dict__["total_bytes_per_session"] = total_bytes_per_session
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20201101:PacketCapture"), pulumi.Alias(type_="azure-native:network:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20160901:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20160901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20161201:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20161201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170301:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20170301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170601:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20170601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170801:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20170801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170901:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20170901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20171001:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20171001:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20171101:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20171101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180101:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20180101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180201:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20180201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180401:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20180401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180601:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20180601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180701:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20180701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180801:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20180801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181001:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20181001:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181101:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20181101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181201:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20181201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190201:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20190201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190401:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20190401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190601:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20190601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190701:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20190701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190801:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20190801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190901:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20190901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20191101:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20191101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20191201:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20191201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200301:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20200301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200401:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20200401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200501:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20200501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200601:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20200601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200701:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20200701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200801:PacketCapture"), pulumi.Alias(type_="azure-nextgen:network/v20200801:PacketCapture")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PacketCapture, __self__).__init__(
@@ -300,17 +290,17 @@ class PacketCapture(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PacketCaptureArgs.__new__(PacketCaptureArgs)
 
-        __props__["bytes_to_capture_per_packet"] = None
-        __props__["etag"] = None
-        __props__["filters"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["storage_location"] = None
-        __props__["target"] = None
-        __props__["time_limit_in_seconds"] = None
-        __props__["total_bytes_per_session"] = None
+        __props__.__dict__["bytes_to_capture_per_packet"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["filters"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["storage_location"] = None
+        __props__.__dict__["target"] = None
+        __props__.__dict__["time_limit_in_seconds"] = None
+        __props__.__dict__["total_bytes_per_session"] = None
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -384,10 +374,4 @@ class PacketCapture(pulumi.CustomResource):
         Maximum size of the capture output.
         """
         return pulumi.get(self, "total_bytes_per_session")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

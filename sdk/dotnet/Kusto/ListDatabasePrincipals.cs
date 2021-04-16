@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The list of Kusto database principals.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabasePrincipalResponseResult> Value;
+        public readonly ImmutableArray<Outputs.DatabasePrincipalResponse> Value;
 
         [OutputConstructor]
-        private ListDatabasePrincipalsResult(ImmutableArray<Outputs.DatabasePrincipalResponseResult> value)
+        private ListDatabasePrincipalsResult(ImmutableArray<Outputs.DatabasePrincipalResponse> value)
         {
             Value = value;
         }

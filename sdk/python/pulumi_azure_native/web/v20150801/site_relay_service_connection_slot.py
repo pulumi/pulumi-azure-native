@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['SiteRelayServiceConnectionSlotArgs', 'SiteRelayServiceConnectionSlot']
 
@@ -247,9 +247,7 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Class that represents a BizTalk Hybrid Connection
 
@@ -303,15 +301,7 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,29 +311,29 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SiteRelayServiceConnectionSlotArgs.__new__(SiteRelayServiceConnectionSlotArgs)
 
-            __props__['biztalk_uri'] = biztalk_uri
-            __props__['entity_connection_string'] = entity_connection_string
-            __props__['entity_name'] = entity_name
-            __props__['hostname'] = hostname
-            __props__['id'] = id
-            __props__['kind'] = kind
-            __props__['location'] = location
+            __props__.__dict__["biztalk_uri"] = biztalk_uri
+            __props__.__dict__["entity_connection_string"] = entity_connection_string
+            __props__.__dict__["entity_name"] = entity_name
+            __props__.__dict__["hostname"] = hostname
+            __props__.__dict__["id"] = id
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['port'] = port
-            __props__['resource_connection_string'] = resource_connection_string
+            __props__.__dict__["name"] = name
+            __props__.__dict__["port"] = port
+            __props__.__dict__["resource_connection_string"] = resource_connection_string
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_type'] = resource_type
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_type"] = resource_type
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
-            __props__['tags'] = tags
-            __props__['type'] = type
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:SiteRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:SiteRelayServiceConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteRelayServiceConnectionSlot, __self__).__init__(
@@ -366,20 +356,20 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SiteRelayServiceConnectionSlotArgs.__new__(SiteRelayServiceConnectionSlotArgs)
 
-        __props__["biztalk_uri"] = None
-        __props__["entity_connection_string"] = None
-        __props__["entity_name"] = None
-        __props__["hostname"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["port"] = None
-        __props__["resource_connection_string"] = None
-        __props__["resource_type"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["biztalk_uri"] = None
+        __props__.__dict__["entity_connection_string"] = None
+        __props__.__dict__["entity_name"] = None
+        __props__.__dict__["hostname"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["port"] = None
+        __props__.__dict__["resource_connection_string"] = None
+        __props__.__dict__["resource_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return SiteRelayServiceConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -456,10 +446,4 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

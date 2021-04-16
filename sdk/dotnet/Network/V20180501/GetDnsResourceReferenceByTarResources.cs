@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Network.V20180501
     public sealed class GetDnsResourceReferenceByTarResourcesArgs : Pulumi.InvokeArgs
     {
         [Input("targetResources")]
-        private List<Inputs.SubResourceArgs>? _targetResources;
+        private List<Inputs.SubResource>? _targetResources;
 
         /// <summary>
         /// A list of references to azure resources for which referencing dns records need to be queried.
         /// </summary>
-        public List<Inputs.SubResourceArgs> TargetResources
+        public List<Inputs.SubResource> TargetResources
         {
-            get => _targetResources ?? (_targetResources = new List<Inputs.SubResourceArgs>());
+            get => _targetResources ?? (_targetResources = new List<Inputs.SubResource>());
             set => _targetResources = value;
         }
 
@@ -45,10 +45,10 @@ namespace Pulumi.AzureNative.Network.V20180501
         /// <summary>
         /// The result of dns resource reference request. A list of dns resource references for each of the azure resource in the request
         /// </summary>
-        public readonly ImmutableArray<Outputs.DnsResourceReferenceResponseResult> DnsResourceReferences;
+        public readonly ImmutableArray<Outputs.DnsResourceReferenceResponse> DnsResourceReferences;
 
         [OutputConstructor]
-        private GetDnsResourceReferenceByTarResourcesResult(ImmutableArray<Outputs.DnsResourceReferenceResponseResult> dnsResourceReferences)
+        private GetDnsResourceReferenceByTarResourcesResult(ImmutableArray<Outputs.DnsResourceReferenceResponse> dnsResourceReferences)
         {
             DnsResourceReferences = dnsResourceReferences;
         }

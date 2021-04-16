@@ -168,7 +168,7 @@ export interface JobArgs {
     /**
      * The inputs for the Job.
      */
-    readonly input: pulumi.Input<inputs.media.v20180701.JobInputAsset | inputs.media.v20180701.JobInputClip | inputs.media.v20180701.JobInputHttp | inputs.media.v20180701.JobInputs>;
+    readonly input: pulumi.Input<inputs.media.v20180701.JobInputAssetArgs | inputs.media.v20180701.JobInputClipArgs | inputs.media.v20180701.JobInputHttpArgs | inputs.media.v20180701.JobInputsArgs>;
     /**
      * The Job name.
      */
@@ -176,7 +176,7 @@ export interface JobArgs {
     /**
      * The outputs for the Job.
      */
-    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20180701.JobOutputAsset>[]>;
+    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20180701.JobOutputAssetArgs>[]>;
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */

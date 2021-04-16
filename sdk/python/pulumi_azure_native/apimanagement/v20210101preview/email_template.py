@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -159,9 +159,7 @@ class EmailTemplate(pulumi.CustomResource):
                  subject: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Email Template details.
 
@@ -208,15 +206,7 @@ class EmailTemplate(pulumi.CustomResource):
                  subject: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -226,23 +216,23 @@ class EmailTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EmailTemplateArgs.__new__(EmailTemplateArgs)
 
-            __props__['body'] = body
-            __props__['description'] = description
-            __props__['parameters'] = parameters
+            __props__.__dict__["body"] = body
+            __props__.__dict__["description"] = description
+            __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['subject'] = subject
-            __props__['template_name'] = template_name
-            __props__['title'] = title
-            __props__['is_default'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["subject"] = subject
+            __props__.__dict__["template_name"] = template_name
+            __props__.__dict__["title"] = title
+            __props__.__dict__["is_default"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:EmailTemplate"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:EmailTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailTemplate, __self__).__init__(
@@ -265,16 +255,16 @@ class EmailTemplate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = EmailTemplateArgs.__new__(EmailTemplateArgs)
 
-        __props__["body"] = None
-        __props__["description"] = None
-        __props__["is_default"] = None
-        __props__["name"] = None
-        __props__["parameters"] = None
-        __props__["subject"] = None
-        __props__["title"] = None
-        __props__["type"] = None
+        __props__.__dict__["body"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["is_default"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["parameters"] = None
+        __props__.__dict__["subject"] = None
+        __props__.__dict__["title"] = None
+        __props__.__dict__["type"] = None
         return EmailTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -340,10 +330,4 @@ class EmailTemplate(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

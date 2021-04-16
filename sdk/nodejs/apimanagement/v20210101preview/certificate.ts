@@ -120,7 +120,7 @@ export interface CertificateArgs {
     /**
      * KeyVault location details of the certificate.
      */
-    readonly keyVault?: pulumi.Input<inputs.apimanagement.v20210101preview.KeyVaultContractCreateProperties>;
+    readonly keyVault?: pulumi.Input<inputs.apimanagement.v20210101preview.KeyVaultContractCreatePropertiesArgs>;
     /**
      * Password for the Certificate
      */

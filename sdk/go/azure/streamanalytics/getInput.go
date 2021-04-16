@@ -4,7 +4,7 @@
 package streamanalytics
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.

@@ -166,7 +166,7 @@ export interface WatchlistItemArgs {
     /**
      * Describes a user that created the watchlist item
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
+    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
@@ -202,7 +202,7 @@ export interface WatchlistItemArgs {
     /**
      * Describes a user that updated the watchlist item
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
+    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfoArgs>;
     /**
      * Watchlist Alias
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -30,7 +30,7 @@ class ListRegistryCredentialsResult:
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.RegistryPasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.RegistryPasswordResponse']]:
         """
         The list of passwords for a container registry.
         """

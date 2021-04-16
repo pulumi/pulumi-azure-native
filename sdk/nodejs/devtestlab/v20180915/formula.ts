@@ -149,7 +149,7 @@ export interface FormulaArgs {
     /**
      * The content of the formula.
      */
-    readonly formulaContent?: pulumi.Input<inputs.devtestlab.v20180915.LabVirtualMachineCreationParameter>;
+    readonly formulaContent?: pulumi.Input<inputs.devtestlab.v20180915.LabVirtualMachineCreationParameterArgs>;
     /**
      * The name of the lab.
      */
@@ -177,5 +177,5 @@ export interface FormulaArgs {
     /**
      * Information about a VM from which a formula is to be created.
      */
-    readonly vm?: pulumi.Input<inputs.devtestlab.v20180915.FormulaPropertiesFromVm>;
+    readonly vm?: pulumi.Input<inputs.devtestlab.v20180915.FormulaPropertiesFromVmArgs>;
 }

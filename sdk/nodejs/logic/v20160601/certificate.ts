@@ -136,7 +136,7 @@ export interface CertificateArgs {
     /**
      * The key details in the key vault.
      */
-    readonly key?: pulumi.Input<inputs.logic.v20160601.KeyVaultKeyReference>;
+    readonly key?: pulumi.Input<inputs.logic.v20160601.KeyVaultKeyReferenceArgs>;
     /**
      * The resource location.
      */

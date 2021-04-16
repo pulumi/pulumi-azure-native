@@ -187,7 +187,7 @@ export interface WorkbookArgs {
     /**
      * Identity used for BYOS
      */
-    readonly identity?: pulumi.Input<inputs.insights.ManagedIdentity>;
+    readonly identity?: pulumi.Input<inputs.insights.ManagedIdentityArgs>;
     /**
      * The kind of workbook. Choices are user and shared.
      */

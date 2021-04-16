@@ -4,7 +4,7 @@
 package v20150114privatepreview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // iOS Policy entity for Intune MAM.

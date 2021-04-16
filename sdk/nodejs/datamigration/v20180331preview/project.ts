@@ -146,7 +146,7 @@ export interface ProjectArgs {
     /**
      * List of DatabaseInfo
      */
-    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20180331preview.DatabaseInfo>[]>;
+    readonly databasesInfo?: pulumi.Input<pulumi.Input<inputs.datamigration.v20180331preview.DatabaseInfoArgs>[]>;
     /**
      * Name of the resource group
      */
@@ -166,7 +166,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfo>;
+    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfoArgs>;
     /**
      * Source platform for the project
      */
@@ -178,7 +178,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfo>;
+    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180331preview.SqlConnectionInfoArgs>;
     /**
      * Target platform for the project
      */

@@ -215,7 +215,7 @@ export interface LabArgs {
     /**
      * The properties of any lab announcement associated with this lab
      */
-    readonly announcement?: pulumi.Input<inputs.devtestlab.v20180915.LabAnnouncementProperties>;
+    readonly announcement?: pulumi.Input<inputs.devtestlab.v20180915.LabAnnouncementPropertiesArgs>;
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
@@ -257,7 +257,7 @@ export interface LabArgs {
     /**
      * The properties of any lab support message associated with this lab
      */
-    readonly support?: pulumi.Input<inputs.devtestlab.v20180915.LabSupportProperties>;
+    readonly support?: pulumi.Input<inputs.devtestlab.v20180915.LabSupportPropertiesArgs>;
     /**
      * The tags of the resource.
      */

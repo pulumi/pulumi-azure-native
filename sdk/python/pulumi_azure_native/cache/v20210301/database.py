@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -177,9 +177,7 @@ class Database(pulumi.CustomResource):
                  persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes a database on the RedisEnterprise cluster
 
@@ -228,15 +226,7 @@ class Database(pulumi.CustomResource):
                  persistence: Optional[pulumi.Input[pulumi.InputType['PersistenceArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,25 +236,25 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-            __props__['client_protocol'] = client_protocol
+            __props__.__dict__["client_protocol"] = client_protocol
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
-            __props__['clustering_policy'] = clustering_policy
-            __props__['database_name'] = database_name
-            __props__['eviction_policy'] = eviction_policy
-            __props__['modules'] = modules
-            __props__['persistence'] = persistence
-            __props__['port'] = port
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["clustering_policy"] = clustering_policy
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["modules"] = modules
+            __props__.__dict__["persistence"] = persistence
+            __props__.__dict__["port"] = port
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20210301:Database"), pulumi.Alias(type_="azure-native:cache:Database"), pulumi.Alias(type_="azure-nextgen:cache:Database"), pulumi.Alias(type_="azure-native:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-native:cache/v20210201preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20210201preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
@@ -287,18 +277,18 @@ class Database(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-        __props__["client_protocol"] = None
-        __props__["clustering_policy"] = None
-        __props__["eviction_policy"] = None
-        __props__["modules"] = None
-        __props__["name"] = None
-        __props__["persistence"] = None
-        __props__["port"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_state"] = None
-        __props__["type"] = None
+        __props__.__dict__["client_protocol"] = None
+        __props__.__dict__["clustering_policy"] = None
+        __props__.__dict__["eviction_policy"] = None
+        __props__.__dict__["modules"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["persistence"] = None
+        __props__.__dict__["port"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_state"] = None
+        __props__.__dict__["type"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -380,10 +370,4 @@ class Database(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -89,7 +89,7 @@ export interface ImportCollectorArgs {
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.migrate.v20191001.ImportCollectorProperties>;
+    readonly properties?: pulumi.Input<inputs.migrate.v20191001.ImportCollectorPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

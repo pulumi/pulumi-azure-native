@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -20,6 +20,25 @@ class RedisAccessKeysResponse(dict):
     """
     Redis cache access keys.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RedisAccessKeysResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RedisAccessKeysResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RedisAccessKeysResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  primary_key: str,
                  secondary_key: str):
@@ -47,15 +66,33 @@ class RedisAccessKeysResponse(dict):
         """
         return pulumi.get(self, "secondary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleEntryResponse(dict):
     """
     Patch schedule entry for a Premium Redis Cache.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHourUtc":
+            suggest = "start_hour_utc"
+        elif key == "maintenanceWindow":
+            suggest = "maintenance_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  day_of_week: str,
                  start_hour_utc: int,
@@ -94,9 +131,6 @@ class ScheduleEntryResponse(dict):
         ISO8601 timespan specifying how much time cache patching can take. 
         """
         return pulumi.get(self, "maintenance_window")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -141,8 +175,5 @@ class SkuResponse(dict):
         The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

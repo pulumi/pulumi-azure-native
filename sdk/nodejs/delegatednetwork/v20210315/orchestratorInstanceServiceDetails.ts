@@ -168,11 +168,11 @@ export interface OrchestratorInstanceServiceDetailsArgs {
     /**
      * Properties of the controller.
      */
-    readonly controllerDetails: pulumi.Input<inputs.delegatednetwork.v20210315.ControllerDetails>;
+    readonly controllerDetails: pulumi.Input<inputs.delegatednetwork.v20210315.ControllerDetailsArgs>;
     /**
      * The identity of the orchestrator
      */
-    readonly identity?: pulumi.Input<inputs.delegatednetwork.v20210315.OrchestratorIdentity>;
+    readonly identity?: pulumi.Input<inputs.delegatednetwork.v20210315.OrchestratorIdentityArgs>;
     /**
      * The kind of workbook. Choices are user and shared.
      */

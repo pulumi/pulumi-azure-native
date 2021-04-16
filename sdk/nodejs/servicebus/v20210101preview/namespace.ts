@@ -160,11 +160,11 @@ export interface NamespaceArgs {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: pulumi.Input<inputs.servicebus.v20210101preview.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.servicebus.v20210101preview.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: pulumi.Input<inputs.servicebus.v20210101preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.servicebus.v20210101preview.IdentityArgs>;
     /**
      * The Geo-location where the resource lives
      */
@@ -176,7 +176,7 @@ export interface NamespaceArgs {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.servicebus.v20210101preview.PrivateEndpointConnection>[]>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.servicebus.v20210101preview.PrivateEndpointConnectionArgs>[]>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -184,7 +184,7 @@ export interface NamespaceArgs {
     /**
      * Properties of SKU
      */
-    readonly sku?: pulumi.Input<inputs.servicebus.v20210101preview.SBSku>;
+    readonly sku?: pulumi.Input<inputs.servicebus.v20210101preview.SBSkuArgs>;
     /**
      * Resource tags
      */

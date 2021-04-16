@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -66,15 +66,29 @@ class AgentPropertiesResponse(dict):
         """
         return pulumi.get(self, "cpu")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArgumentResponse(dict):
     """
     The properties of a run argument.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isSecret":
+            suggest = "is_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArgumentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArgumentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArgumentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -116,15 +130,33 @@ class ArgumentResponse(dict):
         """
         return pulumi.get(self, "is_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AuthInfoResponse(dict):
     """
     The authorization properties for accessing the source code repository.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenType":
+            suggest = "token_type"
+        elif key == "expiresIn":
+            suggest = "expires_in"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  token: str,
                  token_type: str,
@@ -187,9 +219,6 @@ class AuthInfoResponse(dict):
         The scope of the access token.
         """
         return pulumi.get(self, "scope")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -262,15 +291,33 @@ class BaseImageDependencyResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BaseImageTriggerResponse(dict):
     """
     The trigger based on base image dependency.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseImageTriggerType":
+            suggest = "base_image_trigger_type"
+        elif key == "updateTriggerEndpoint":
+            suggest = "update_trigger_endpoint"
+        elif key == "updateTriggerPayloadType":
+            suggest = "update_trigger_payload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BaseImageTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BaseImageTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BaseImageTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_image_trigger_type: str,
                  name: str,
@@ -336,24 +383,40 @@ class BaseImageTriggerResponse(dict):
         """
         return pulumi.get(self, "update_trigger_payload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CredentialsResponse(dict):
     """
     The parameters that describes a set of credentials that will be used when a run is invoked.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRegistries":
+            suggest = "custom_registries"
+        elif key == "sourceRegistry":
+            suggest = "source_registry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_registries: Optional[Mapping[str, 'outputs.CustomRegistryCredentialsResponse']] = None,
                  source_registry: Optional['outputs.SourceRegistryCredentialsResponse'] = None):
         """
         The parameters that describes a set of credentials that will be used when a run is invoked.
-        :param Mapping[str, 'CustomRegistryCredentialsResponseArgs'] custom_registries: Describes the credential parameters for accessing other custom registries. The key
+        :param Mapping[str, 'CustomRegistryCredentialsResponse'] custom_registries: Describes the credential parameters for accessing other custom registries. The key
                for the dictionary item will be the registry login server (myregistry.azurecr.io) and
                the value of the item will be the registry credentials for accessing the registry.
-        :param 'SourceRegistryCredentialsResponseArgs' source_registry: Describes the credential parameters for accessing the source registry.
+        :param 'SourceRegistryCredentialsResponse' source_registry: Describes the credential parameters for accessing the source registry.
         """
         if custom_registries is not None:
             pulumi.set(__self__, "custom_registries", custom_registries)
@@ -378,15 +441,29 @@ class CredentialsResponse(dict):
         """
         return pulumi.get(self, "source_registry")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRegistryCredentialsResponse(dict):
     """
     Describes the credentials that will be used to access a custom registry during a run.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRegistryCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRegistryCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRegistryCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity: Optional[str] = None,
                  password: Optional['outputs.SecretObjectResponse'] = None,
@@ -398,9 +475,9 @@ class CustomRegistryCredentialsResponse(dict):
                the case of a system-assigned identity, the Client ID will be determined by the runner. This
                identity may be used to authenticate to key vault to retrieve credentials or it may be the only 
                source of authentication used for accessing the registry.
-        :param 'SecretObjectResponseArgs' password: The password for logging into the custom registry. The password is a secret 
+        :param 'SecretObjectResponse' password: The password for logging into the custom registry. The password is a secret 
                object that allows multiple ways of providing the value for it.
-        :param 'SecretObjectResponseArgs' user_name: The username for logging into the custom registry.
+        :param 'SecretObjectResponse' user_name: The username for logging into the custom registry.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -438,15 +515,45 @@ class CustomRegistryCredentialsResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DockerBuildRequestResponse(dict):
     """
     The parameters for a docker quick build.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dockerFilePath":
+            suggest = "docker_file_path"
+        elif key == "agentConfiguration":
+            suggest = "agent_configuration"
+        elif key == "agentPoolName":
+            suggest = "agent_pool_name"
+        elif key == "imageNames":
+            suggest = "image_names"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
+        elif key == "isPushEnabled":
+            suggest = "is_push_enabled"
+        elif key == "logTemplate":
+            suggest = "log_template"
+        elif key == "noCache":
+            suggest = "no_cache"
+        elif key == "sourceLocation":
+            suggest = "source_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DockerBuildRequestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DockerBuildRequestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DockerBuildRequestResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  docker_file_path: str,
                  platform: 'outputs.PlatformPropertiesResponse',
@@ -466,13 +573,13 @@ class DockerBuildRequestResponse(dict):
         """
         The parameters for a docker quick build.
         :param str docker_file_path: The Docker file path relative to the source location.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param str type: The type of the run request.
                Expected value is 'DockerBuildRequest'.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
-        :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing the run.
-        :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param Sequence['ArgumentResponse'] arguments: The collection of override arguments to be used when executing the run.
+        :param 'CredentialsResponse' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
@@ -641,15 +748,41 @@ class DockerBuildRequestResponse(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DockerBuildStepResponse(dict):
     """
     The Docker build step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseImageDependencies":
+            suggest = "base_image_dependencies"
+        elif key == "dockerFilePath":
+            suggest = "docker_file_path"
+        elif key == "contextAccessToken":
+            suggest = "context_access_token"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "imageNames":
+            suggest = "image_names"
+        elif key == "isPushEnabled":
+            suggest = "is_push_enabled"
+        elif key == "noCache":
+            suggest = "no_cache"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DockerBuildStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DockerBuildStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DockerBuildStepResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  docker_file_path: str,
@@ -663,11 +796,11 @@ class DockerBuildStepResponse(dict):
                  target: Optional[str] = None):
         """
         The Docker build step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str docker_file_path: The Docker file path relative to the source context.
         :param str type: The type of the step.
                Expected value is 'Docker'.
-        :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
+        :param Sequence['ArgumentResponse'] arguments: The collection of override arguments to be used when executing this build step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
@@ -778,15 +911,41 @@ class DockerBuildStepResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncodedTaskRunRequestResponse(dict):
     """
     The parameters for a quick task run request.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodedTaskContent":
+            suggest = "encoded_task_content"
+        elif key == "agentConfiguration":
+            suggest = "agent_configuration"
+        elif key == "agentPoolName":
+            suggest = "agent_pool_name"
+        elif key == "encodedValuesContent":
+            suggest = "encoded_values_content"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
+        elif key == "logTemplate":
+            suggest = "log_template"
+        elif key == "sourceLocation":
+            suggest = "source_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncodedTaskRunRequestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncodedTaskRunRequestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncodedTaskRunRequestResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encoded_task_content: str,
                  platform: 'outputs.PlatformPropertiesResponse',
@@ -803,19 +962,19 @@ class EncodedTaskRunRequestResponse(dict):
         """
         The parameters for a quick task run request.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param str type: The type of the run request.
                Expected value is 'EncodedTaskRunRequest'.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
-        :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param 'CredentialsResponse' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param int timeout: Run timeout in seconds.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         """
         pulumi.set(__self__, "encoded_task_content", encoded_task_content)
         pulumi.set(__self__, "platform", platform)
@@ -941,15 +1100,37 @@ class EncodedTaskRunRequestResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncodedTaskStepResponse(dict):
     """
     The properties of a encoded task step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseImageDependencies":
+            suggest = "base_image_dependencies"
+        elif key == "encodedTaskContent":
+            suggest = "encoded_task_content"
+        elif key == "contextAccessToken":
+            suggest = "context_access_token"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "encodedValuesContent":
+            suggest = "encoded_values_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncodedTaskStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncodedTaskStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncodedTaskStepResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  encoded_task_content: str,
@@ -960,14 +1141,14 @@ class EncodedTaskStepResponse(dict):
                  values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
         The properties of a encoded task step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param str type: The type of the step.
                Expected value is 'EncodedTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
         pulumi.set(__self__, "encoded_task_content", encoded_task_content)
@@ -1038,15 +1219,41 @@ class EncodedTaskStepResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileTaskRunRequestResponse(dict):
     """
     The request parameters for a scheduling run against a task file.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskFilePath":
+            suggest = "task_file_path"
+        elif key == "agentConfiguration":
+            suggest = "agent_configuration"
+        elif key == "agentPoolName":
+            suggest = "agent_pool_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
+        elif key == "logTemplate":
+            suggest = "log_template"
+        elif key == "sourceLocation":
+            suggest = "source_location"
+        elif key == "valuesFilePath":
+            suggest = "values_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileTaskRunRequestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileTaskRunRequestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileTaskRunRequestResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  platform: 'outputs.PlatformPropertiesResponse',
                  task_file_path: str,
@@ -1062,19 +1269,19 @@ class FileTaskRunRequestResponse(dict):
                  values_file_path: Optional[str] = None):
         """
         The request parameters for a scheduling run against a task file.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run has to happen.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run has to happen.
         :param str task_file_path: The template/definition file path relative to the source.
         :param str type: The type of the run request.
                Expected value is 'FileTaskRunRequest'.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
-        :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
+        :param 'CredentialsResponse' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param int timeout: Run timeout in seconds.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         :param str values_file_path: The values/parameters file path relative to the source.
         """
         pulumi.set(__self__, "platform", platform)
@@ -1201,15 +1408,37 @@ class FileTaskRunRequestResponse(dict):
         """
         return pulumi.get(self, "values_file_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FileTaskStepResponse(dict):
     """
     The properties of a task step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseImageDependencies":
+            suggest = "base_image_dependencies"
+        elif key == "taskFilePath":
+            suggest = "task_file_path"
+        elif key == "contextAccessToken":
+            suggest = "context_access_token"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "valuesFilePath":
+            suggest = "values_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileTaskStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileTaskStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileTaskStepResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  task_file_path: str,
@@ -1220,13 +1449,13 @@ class FileTaskStepResponse(dict):
                  values_file_path: Optional[str] = None):
         """
         The properties of a task step.
-        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponse'] base_image_dependencies: List of base image dependencies for a step.
         :param str task_file_path: The task template/definition file path relative to the source context.
         :param str type: The type of the step.
                Expected value is 'FileTask'.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a task.
         :param str values_file_path: The task values/parameters file path relative to the source context.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
@@ -1298,15 +1527,33 @@ class FileTaskStepResponse(dict):
         """
         return pulumi.get(self, "values_file_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityPropertiesResponse(dict):
     """
     Managed identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -1317,7 +1564,7 @@ class IdentityPropertiesResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserIdentityPropertiesResponseArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
                dictionary key references will be ARM resource ids in the form: 
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
                    providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -1365,9 +1612,6 @@ class IdentityPropertiesResponse(dict):
             providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1428,9 +1672,6 @@ class ImageDescriptorResponse(dict):
         """
         return pulumi.get(self, "tag")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageUpdateTriggerResponse(dict):
@@ -1444,7 +1685,7 @@ class ImageUpdateTriggerResponse(dict):
         """
         The image update trigger that caused a build.
         :param str id: The unique ID of the trigger.
-        :param Sequence['ImageDescriptorResponseArgs'] images: The list of image updates that caused the build.
+        :param Sequence['ImageDescriptorResponse'] images: The list of image updates that caused the build.
         :param str timestamp: The timestamp when the image update happened.
         """
         if id is not None:
@@ -1478,12 +1719,28 @@ class ImageUpdateTriggerResponse(dict):
         """
         return pulumi.get(self, "timestamp")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OverrideTaskStepPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contextPath":
+            suggest = "context_path"
+        elif key == "updateTriggerToken":
+            suggest = "update_trigger_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OverrideTaskStepPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OverrideTaskStepPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OverrideTaskStepPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arguments: Optional[Sequence['outputs.ArgumentResponse']] = None,
                  context_path: Optional[str] = None,
@@ -1492,13 +1749,13 @@ class OverrideTaskStepPropertiesResponse(dict):
                  update_trigger_token: Optional[str] = None,
                  values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
-        :param Sequence['ArgumentResponseArgs'] arguments: Gets or sets the collection of override arguments to be used when
+        :param Sequence['ArgumentResponse'] arguments: Gets or sets the collection of override arguments to be used when
                executing a build step.
         :param str context_path: The source context against which run has to be queued.
         :param str file: The file against which run has to be queued.
         :param str target: The name of the target build stage for the docker build.
         :param str update_trigger_token: Base64 encoded update trigger token that will be attached with the base image trigger webhook.
-        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a Task.
+        :param Sequence['SetValueResponse'] values: The collection of overridable values that can be passed when running a Task.
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -1562,9 +1819,6 @@ class OverrideTaskStepPropertiesResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlatformPropertiesResponse(dict):
@@ -1611,15 +1865,67 @@ class PlatformPropertiesResponse(dict):
         """
         return pulumi.get(self, "variant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunResponse(dict):
     """
     Run resource properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logArtifact":
+            suggest = "log_artifact"
+        elif key == "runErrorMessage":
+            suggest = "run_error_message"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "agentConfiguration":
+            suggest = "agent_configuration"
+        elif key == "agentPoolName":
+            suggest = "agent_pool_name"
+        elif key == "createTime":
+            suggest = "create_time"
+        elif key == "customRegistries":
+            suggest = "custom_registries"
+        elif key == "finishTime":
+            suggest = "finish_time"
+        elif key == "imageUpdateTrigger":
+            suggest = "image_update_trigger"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "outputImages":
+            suggest = "output_images"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "runId":
+            suggest = "run_id"
+        elif key == "runType":
+            suggest = "run_type"
+        elif key == "sourceRegistryAuth":
+            suggest = "source_registry_auth"
+        elif key == "sourceTrigger":
+            suggest = "source_trigger"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "timerTrigger":
+            suggest = "timer_trigger"
+        elif key == "updateTriggerToken":
+            suggest = "update_trigger_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  log_artifact: 'outputs.ImageDescriptorResponse',
@@ -1650,30 +1956,30 @@ class RunResponse(dict):
         """
         Run resource properties
         :param str id: The resource ID.
-        :param 'ImageDescriptorResponseArgs' log_artifact: The image description for the log artifact.
+        :param 'ImageDescriptorResponse' log_artifact: The image description for the log artifact.
         :param str name: The name of the resource.
         :param str run_error_message: The error message received from backend systems after the run is scheduled.
-        :param 'SystemDataResponseArgs' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource.
-        :param 'AgentPropertiesResponseArgs' agent_configuration: The machine configuration of the run agent.
+        :param 'AgentPropertiesResponse' agent_configuration: The machine configuration of the run agent.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param str create_time: The time the run was scheduled.
         :param Sequence[str] custom_registries: The list of custom registries that were logged in during this run.
         :param str finish_time: The time the run finished.
-        :param 'ImageUpdateTriggerResponseArgs' image_update_trigger: The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
+        :param 'ImageUpdateTriggerResponse' image_update_trigger: The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled or not.
         :param str last_updated_time: The last updated time for the run.
-        :param Sequence['ImageDescriptorResponseArgs'] output_images: The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
-        :param 'PlatformPropertiesResponseArgs' platform: The platform properties against which the run will happen.
+        :param Sequence['ImageDescriptorResponse'] output_images: The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
+        :param 'PlatformPropertiesResponse' platform: The platform properties against which the run will happen.
         :param str provisioning_state: The provisioning state of a run.
         :param str run_id: The unique identifier for the run.
         :param str run_type: The type of run.
         :param str source_registry_auth: The scope of the credentials that were used to login to the source registry during this run.
-        :param 'SourceTriggerDescriptorResponseArgs' source_trigger: The source trigger that caused the run.
+        :param 'SourceTriggerDescriptorResponse' source_trigger: The source trigger that caused the run.
         :param str start_time: The time the run started.
         :param str status: The current status of the run.
         :param str task: The task against which run was scheduled.
-        :param 'TimerTriggerDescriptorResponseArgs' timer_trigger: The timer trigger that caused the run.
+        :param 'TimerTriggerDescriptorResponse' timer_trigger: The timer trigger that caused the run.
         :param str update_trigger_token: The update trigger token passed for the Run.
         """
         pulumi.set(__self__, "id", id)
@@ -1933,9 +2239,6 @@ class RunResponse(dict):
         """
         return pulumi.get(self, "update_trigger_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecretObjectResponse(dict):
@@ -1977,15 +2280,29 @@ class SecretObjectResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SetValueResponse(dict):
     """
     The properties of a overridable value that can be passed to a task template.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isSecret":
+            suggest = "is_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SetValueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SetValueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SetValueResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -2027,15 +2344,33 @@ class SetValueResponse(dict):
         """
         return pulumi.get(self, "is_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourcePropertiesResponse(dict):
     """
     The properties of the source code repository.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+        elif key == "sourceControlType":
+            suggest = "source_control_type"
+        elif key == "sourceControlAuthProperties":
+            suggest = "source_control_auth_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  repository_url: str,
                  source_control_type: str,
@@ -2046,7 +2381,7 @@ class SourcePropertiesResponse(dict):
         :param str repository_url: The full URL to the source code repository
         :param str source_control_type: The type of source control service.
         :param str branch: The branch name of the source code.
-        :param 'AuthInfoResponseArgs' source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
+        :param 'AuthInfoResponse' source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
                webhooks for notifications.
         """
         pulumi.set(__self__, "repository_url", repository_url)
@@ -2089,15 +2424,29 @@ class SourcePropertiesResponse(dict):
         """
         return pulumi.get(self, "source_control_auth_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceRegistryCredentialsResponse(dict):
     """
     Describes the credential parameters for accessing the source registry.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginMode":
+            suggest = "login_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceRegistryCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceRegistryCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceRegistryCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  login_mode: Optional[str] = None):
         """
@@ -2119,15 +2468,39 @@ class SourceRegistryCredentialsResponse(dict):
         """
         return pulumi.get(self, "login_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceTriggerDescriptorResponse(dict):
     """
     The source trigger that caused a run.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchName":
+            suggest = "branch_name"
+        elif key == "commitId":
+            suggest = "commit_id"
+        elif key == "eventType":
+            suggest = "event_type"
+        elif key == "providerType":
+            suggest = "provider_type"
+        elif key == "pullRequestId":
+            suggest = "pull_request_id"
+        elif key == "repositoryUrl":
+            suggest = "repository_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceTriggerDescriptorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceTriggerDescriptorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceTriggerDescriptorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  branch_name: Optional[str] = None,
                  commit_id: Optional[str] = None,
@@ -2217,15 +2590,31 @@ class SourceTriggerDescriptorResponse(dict):
         """
         return pulumi.get(self, "repository_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SourceTriggerResponse(dict):
     """
     The properties of a source based trigger.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRepository":
+            suggest = "source_repository"
+        elif key == "sourceTriggerEvents":
+            suggest = "source_trigger_events"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceTriggerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceTriggerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceTriggerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  source_repository: 'outputs.SourcePropertiesResponse',
@@ -2234,7 +2623,7 @@ class SourceTriggerResponse(dict):
         """
         The properties of a source based trigger.
         :param str name: The name of the trigger.
-        :param 'SourcePropertiesResponseArgs' source_repository: The properties that describes the source(code) for the task.
+        :param 'SourcePropertiesResponse' source_repository: The properties that describes the source(code) for the task.
         :param Sequence[str] source_trigger_events: The source event corresponding to the trigger.
         :param str status: The current status of trigger.
         """
@@ -2278,15 +2667,39 @@ class SourceTriggerResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -2364,15 +2777,37 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TaskRunRequestResponse(dict):
     """
     The parameters for a task run request.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskId":
+            suggest = "task_id"
+        elif key == "agentPoolName":
+            suggest = "agent_pool_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
+        elif key == "logTemplate":
+            suggest = "log_template"
+        elif key == "overrideTaskStepProperties":
+            suggest = "override_task_step_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskRunRequestResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskRunRequestResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskRunRequestResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  task_id: str,
                  type: str,
@@ -2388,7 +2823,7 @@ class TaskRunRequestResponse(dict):
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param str log_template: The template that describes the repository and tag information for run log artifact.
-        :param 'OverrideTaskStepPropertiesResponseArgs' override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
+        :param 'OverrideTaskStepPropertiesResponse' override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
         """
         pulumi.set(__self__, "task_id", task_id)
         pulumi.set(__self__, "type", 'TaskRunRequest')
@@ -2452,12 +2887,28 @@ class TaskRunRequestResponse(dict):
         """
         return pulumi.get(self, "override_task_step_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimerTriggerDescriptorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleOccurrence":
+            suggest = "schedule_occurrence"
+        elif key == "timerTriggerName":
+            suggest = "timer_trigger_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimerTriggerDescriptorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimerTriggerDescriptorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimerTriggerDescriptorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schedule_occurrence: Optional[str] = None,
                  timer_trigger_name: Optional[str] = None):
@@ -2485,9 +2936,6 @@ class TimerTriggerDescriptorResponse(dict):
         The timer trigger name that caused the run.
         """
         return pulumi.get(self, "timer_trigger_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2536,24 +2984,42 @@ class TimerTriggerResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TriggerPropertiesResponse(dict):
     """
     The properties of a trigger.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseImageTrigger":
+            suggest = "base_image_trigger"
+        elif key == "sourceTriggers":
+            suggest = "source_triggers"
+        elif key == "timerTriggers":
+            suggest = "timer_triggers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_image_trigger: Optional['outputs.BaseImageTriggerResponse'] = None,
                  source_triggers: Optional[Sequence['outputs.SourceTriggerResponse']] = None,
                  timer_triggers: Optional[Sequence['outputs.TimerTriggerResponse']] = None):
         """
         The properties of a trigger.
-        :param 'BaseImageTriggerResponseArgs' base_image_trigger: The trigger based on base image dependencies.
-        :param Sequence['SourceTriggerResponseArgs'] source_triggers: The collection of triggers based on source code repository.
-        :param Sequence['TimerTriggerResponseArgs'] timer_triggers: The collection of timer triggers.
+        :param 'BaseImageTriggerResponse' base_image_trigger: The trigger based on base image dependencies.
+        :param Sequence['SourceTriggerResponse'] source_triggers: The collection of triggers based on source code repository.
+        :param Sequence['TimerTriggerResponse'] timer_triggers: The collection of timer triggers.
         """
         if base_image_trigger is not None:
             pulumi.set(__self__, "base_image_trigger", base_image_trigger)
@@ -2586,12 +3052,28 @@ class TriggerPropertiesResponse(dict):
         """
         return pulumi.get(self, "timer_triggers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserIdentityPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  principal_id: Optional[str] = None):
@@ -2619,8 +3101,5 @@ class UserIdentityPropertiesResponse(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -93,7 +93,7 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
      */
-    readonly properties?: pulumi.Input<inputs.search.SharedPrivateLinkResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.search.SharedPrivateLinkResourcePropertiesArgs>;
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */

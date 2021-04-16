@@ -4,7 +4,7 @@
 package v20190701
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Specifies information about the Shared Image Gallery that you want to create or update.

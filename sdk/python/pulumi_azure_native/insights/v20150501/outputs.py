@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -23,6 +23,23 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesResponse(dict):
     """
     A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionAlias":
+            suggest = "function_alias"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsComponentAnalyticsItemPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInsightsComponentAnalyticsItemPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInsightsComponentAnalyticsItemPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_alias: Optional[str] = None):
         """
@@ -40,15 +57,37 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesResponse(dict):
         """
         return pulumi.get(self, "function_alias")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationInsightsComponentDataVolumeCapResponse(dict):
     """
     An Application Insights component daily data volume cap
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxHistoryCap":
+            suggest = "max_history_cap"
+        elif key == "resetTime":
+            suggest = "reset_time"
+        elif key == "stopSendNotificationWhenHitCap":
+            suggest = "stop_send_notification_when_hit_cap"
+        elif key == "stopSendNotificationWhenHitThreshold":
+            suggest = "stop_send_notification_when_hit_threshold"
+        elif key == "warningThreshold":
+            suggest = "warning_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsComponentDataVolumeCapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInsightsComponentDataVolumeCapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInsightsComponentDataVolumeCapResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_history_cap: float,
                  reset_time: int,
@@ -124,15 +163,39 @@ class ApplicationInsightsComponentDataVolumeCapResponse(dict):
         """
         return pulumi.get(self, "warning_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions(dict):
     """
     Static definitions of the ProactiveDetection configuration rule (same values for all components).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "helpUrl":
+            suggest = "help_url"
+        elif key == "isEnabledByDefault":
+            suggest = "is_enabled_by_default"
+        elif key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "isInPreview":
+            suggest = "is_in_preview"
+        elif key == "supportsEmailNotifications":
+            suggest = "supports_email_notifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
@@ -234,15 +297,31 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDef
         """
         return pulumi.get(self, "supports_email_notifications")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkScopedResourceResponse(dict):
     """
     The private link scope resource reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "scopeId":
+            suggest = "scope_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkScopedResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkScopedResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkScopedResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
                  scope_id: Optional[str] = None):
@@ -272,9 +351,6 @@ class PrivateLinkScopedResourceResponse(dict):
         """
         return pulumi.get(self, "scope_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestGeolocationResponse(dict):
@@ -298,15 +374,29 @@ class WebTestGeolocationResponse(dict):
         """
         return pulumi.get(self, "location")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebTestPropertiesResponseConfiguration(dict):
     """
     An XML configuration specification for a WebTest.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "webTest":
+            suggest = "web_test"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebTestPropertiesResponseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebTestPropertiesResponseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebTestPropertiesResponseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  web_test: Optional[str] = None):
         """
@@ -323,8 +413,5 @@ class WebTestPropertiesResponseConfiguration(dict):
         The XML specification of a WebTest to run against an application.
         """
         return pulumi.get(self, "web_test")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

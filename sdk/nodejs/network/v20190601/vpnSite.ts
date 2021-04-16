@@ -155,15 +155,15 @@ export interface VpnSiteArgs {
     /**
      * The AddressSpace that contains an array of IP address ranges.
      */
-    readonly addressSpace?: pulumi.Input<inputs.network.v20190601.AddressSpace>;
+    readonly addressSpace?: pulumi.Input<inputs.network.v20190601.AddressSpaceArgs>;
     /**
      * The set of bgp properties.
      */
-    readonly bgpProperties?: pulumi.Input<inputs.network.v20190601.BgpSettings>;
+    readonly bgpProperties?: pulumi.Input<inputs.network.v20190601.BgpSettingsArgs>;
     /**
      * The device properties.
      */
-    readonly deviceProperties?: pulumi.Input<inputs.network.v20190601.DeviceProperties>;
+    readonly deviceProperties?: pulumi.Input<inputs.network.v20190601.DevicePropertiesArgs>;
     /**
      * Resource ID.
      */
@@ -195,11 +195,11 @@ export interface VpnSiteArgs {
     /**
      * The VirtualWAN to which the vpnSite belongs.
      */
-    readonly virtualWan?: pulumi.Input<inputs.network.v20190601.SubResource>;
+    readonly virtualWan?: pulumi.Input<inputs.network.v20190601.SubResourceArgs>;
     /**
      * List of all vpn site links
      */
-    readonly vpnSiteLinks?: pulumi.Input<pulumi.Input<inputs.network.v20190601.VpnSiteLink>[]>;
+    readonly vpnSiteLinks?: pulumi.Input<pulumi.Input<inputs.network.v20190601.VpnSiteLinkArgs>[]>;
     /**
      * The name of the VpnSite being created or updated.
      */

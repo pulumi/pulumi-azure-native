@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -28,7 +28,7 @@ class ListConnectionConsentLinksResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ConsentLinkDefinitionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ConsentLinkDefinitionResponse']]:
         """
         Collection of resources
         """
@@ -45,7 +45,7 @@ class AwaitableListConnectionConsentLinksResult(ListConnectionConsentLinksResult
 
 
 def list_connection_consent_links(connection_name: Optional[str] = None,
-                                  parameters: Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']]] = None,
+                                  parameters: Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinition']]] = None,
                                   resource_group_name: Optional[str] = None,
                                   subscription_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
@@ -55,7 +55,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
 
     :param str connection_name: Connection name
-    :param Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']] parameters: Collection of resources
+    :param Sequence[pulumi.InputType['ConsentLinkParameterDefinition']] parameters: Collection of resources
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """

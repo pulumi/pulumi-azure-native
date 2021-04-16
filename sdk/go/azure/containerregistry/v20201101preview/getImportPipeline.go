@@ -4,7 +4,7 @@
 package v20201101preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An object that represents an import pipeline for a container registry.

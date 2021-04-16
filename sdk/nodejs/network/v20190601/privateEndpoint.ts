@@ -143,7 +143,7 @@ export interface PrivateEndpointArgs {
     /**
      * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
      */
-    readonly manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190601.PrivateLinkServiceConnection>[]>;
+    readonly manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190601.PrivateLinkServiceConnectionArgs>[]>;
     /**
      * The name of the private endpoint.
      */
@@ -151,7 +151,7 @@ export interface PrivateEndpointArgs {
     /**
      * A grouping of information about the connection to the remote resource.
      */
-    readonly privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190601.PrivateLinkServiceConnection>[]>;
+    readonly privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190601.PrivateLinkServiceConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -159,7 +159,7 @@ export interface PrivateEndpointArgs {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    readonly subnet?: pulumi.Input<inputs.network.v20190601.Subnet>;
+    readonly subnet?: pulumi.Input<inputs.network.v20190601.SubnetArgs>;
     /**
      * Resource tags.
      */

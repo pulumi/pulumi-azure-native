@@ -51,10 +51,10 @@ namespace Pulumi.AzureNative.Media.V20200501
         /// <summary>
         /// The list of Streaming Locators.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AssetStreamingLocatorResponseResult> StreamingLocators;
+        public readonly ImmutableArray<Outputs.AssetStreamingLocatorResponse> StreamingLocators;
 
         [OutputConstructor]
-        private ListAssetStreamingLocatorsResult(ImmutableArray<Outputs.AssetStreamingLocatorResponseResult> streamingLocators)
+        private ListAssetStreamingLocatorsResult(ImmutableArray<Outputs.AssetStreamingLocatorResponse> streamingLocators)
         {
             StreamingLocators = streamingLocators;
         }

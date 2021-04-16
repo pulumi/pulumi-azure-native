@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = ['DataMaskingPolicyArgs', 'DataMaskingPolicy']
@@ -122,9 +122,7 @@ class DataMaskingPolicy(pulumi.CustomResource):
                  exempt_principals: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a database data masking policy.
         API Version: 2014-04-01.
@@ -169,15 +167,7 @@ class DataMaskingPolicy(pulumi.CustomResource):
                  exempt_principals: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,28 +177,28 @@ class DataMaskingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataMaskingPolicyArgs.__new__(DataMaskingPolicyArgs)
 
-            __props__['data_masking_policy_name'] = data_masking_policy_name
+            __props__.__dict__["data_masking_policy_name"] = data_masking_policy_name
             if data_masking_state is None and not opts.urn:
                 raise TypeError("Missing required property 'data_masking_state'")
-            __props__['data_masking_state'] = data_masking_state
+            __props__.__dict__["data_masking_state"] = data_masking_state
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
-            __props__['database_name'] = database_name
-            __props__['exempt_principals'] = exempt_principals
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["exempt_principals"] = exempt_principals
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['application_principals'] = None
-            __props__['kind'] = None
-            __props__['location'] = None
-            __props__['masking_level'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["application_principals"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["location"] = None
+            __props__.__dict__["masking_level"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:DataMaskingPolicy"), pulumi.Alias(type_="azure-native:sql/v20140401:DataMaskingPolicy"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:DataMaskingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataMaskingPolicy, __self__).__init__(
@@ -231,16 +221,16 @@ class DataMaskingPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DataMaskingPolicyArgs.__new__(DataMaskingPolicyArgs)
 
-        __props__["application_principals"] = None
-        __props__["data_masking_state"] = None
-        __props__["exempt_principals"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["masking_level"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["application_principals"] = None
+        __props__.__dict__["data_masking_state"] = None
+        __props__.__dict__["exempt_principals"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["masking_level"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return DataMaskingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -306,10 +296,4 @@ class DataMaskingPolicy(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

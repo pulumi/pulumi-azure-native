@@ -163,7 +163,7 @@ export interface OperationalizationClusterArgs {
     /**
      * AppInsights configuration.
      */
-    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.AppInsightsProperties>;
+    readonly appInsights?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.AppInsightsPropertiesArgs>;
     /**
      * The name of the cluster.
      */
@@ -175,11 +175,11 @@ export interface OperationalizationClusterArgs {
     /**
      * Container Registry properties.
      */
-    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.ContainerRegistryProperties>;
+    readonly containerRegistry?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.ContainerRegistryPropertiesArgs>;
     /**
      * Parameters for the Azure Container Service cluster.
      */
-    readonly containerService?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.AcsClusterProperties>;
+    readonly containerService?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.AcsClusterPropertiesArgs>;
     /**
      * The description of the cluster.
      */
@@ -187,7 +187,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Contains global configuration for the web services in the cluster.
      */
-    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.GlobalServiceConfiguration>;
+    readonly globalServiceConfiguration?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.GlobalServiceConfigurationArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -199,7 +199,7 @@ export interface OperationalizationClusterArgs {
     /**
      * Storage Account properties.
      */
-    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.StorageAccountProperties>;
+    readonly storageAccount?: pulumi.Input<inputs.machinelearningcompute.v20170801preview.StorageAccountPropertiesArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

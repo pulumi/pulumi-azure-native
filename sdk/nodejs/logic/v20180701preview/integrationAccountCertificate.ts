@@ -136,7 +136,7 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The key details in the key vault.
      */
-    readonly key?: pulumi.Input<inputs.logic.v20180701preview.KeyVaultKeyReference>;
+    readonly key?: pulumi.Input<inputs.logic.v20180701preview.KeyVaultKeyReferenceArgs>;
     /**
      * The resource location.
      */

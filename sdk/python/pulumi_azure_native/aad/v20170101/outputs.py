@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -22,6 +22,27 @@ class DomainSecuritySettingsResponse(dict):
     """
     Domain Security Settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ntlmV1":
+            suggest = "ntlm_v1"
+        elif key == "syncNtlmPasswords":
+            suggest = "sync_ntlm_passwords"
+        elif key == "tlsV1":
+            suggest = "tls_v1"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSecuritySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSecuritySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSecuritySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ntlm_v1: Optional[str] = None,
                  sync_ntlm_passwords: Optional[str] = None,
@@ -63,15 +84,31 @@ class DomainSecuritySettingsResponse(dict):
         """
         return pulumi.get(self, "tls_v1")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthAlertResponse(dict):
     """
     Health Alert Description
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastDetected":
+            suggest = "last_detected"
+        elif key == "resolutionUri":
+            suggest = "resolution_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthAlertResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthAlertResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthAlertResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  issue: str,
@@ -154,9 +191,6 @@ class HealthAlertResponse(dict):
         """
         return pulumi.get(self, "severity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthMonitorResponse(dict):
@@ -201,15 +235,41 @@ class HealthMonitorResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LdapsSettingsResponse(dict):
     """
     Secure LDAP Settings
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateNotAfter":
+            suggest = "certificate_not_after"
+        elif key == "certificateThumbprint":
+            suggest = "certificate_thumbprint"
+        elif key == "externalAccessIpAddress":
+            suggest = "external_access_ip_address"
+        elif key == "publicCertificate":
+            suggest = "public_certificate"
+        elif key == "externalAccess":
+            suggest = "external_access"
+        elif key == "pfxCertificate":
+            suggest = "pfx_certificate"
+        elif key == "pfxCertificatePassword":
+            suggest = "pfx_certificate_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LdapsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LdapsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LdapsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_not_after: str,
                  certificate_thumbprint: str,
@@ -307,15 +367,33 @@ class LdapsSettingsResponse(dict):
         """
         return pulumi.get(self, "pfx_certificate_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationSettingsResponse(dict):
     """
     Settings for notification
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalRecipients":
+            suggest = "additional_recipients"
+        elif key == "notifyDcAdmins":
+            suggest = "notify_dc_admins"
+        elif key == "notifyGlobalAdmins":
+            suggest = "notify_global_admins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_recipients: Optional[Sequence[str]] = None,
                  notify_dc_admins: Optional[str] = None,
@@ -356,8 +434,5 @@ class NotificationSettingsResponse(dict):
         Should global admins be notified
         """
         return pulumi.get(self, "notify_global_admins")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

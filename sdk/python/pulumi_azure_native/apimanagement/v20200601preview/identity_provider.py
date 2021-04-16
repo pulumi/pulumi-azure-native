@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['IdentityProviderArgs', 'IdentityProvider']
@@ -241,9 +241,7 @@ class IdentityProvider(pulumi.CustomResource):
                  signin_tenant: Optional[pulumi.Input[str]] = None,
                  signup_policy_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'IdentityProviderType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Identity Provider details.
 
@@ -300,15 +298,7 @@ class IdentityProvider(pulumi.CustomResource):
                  signin_tenant: Optional[pulumi.Input[str]] = None,
                  signup_policy_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'IdentityProviderType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,30 +308,30 @@ class IdentityProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IdentityProviderArgs.__new__(IdentityProviderArgs)
 
-            __props__['allowed_tenants'] = allowed_tenants
-            __props__['authority'] = authority
+            __props__.__dict__["allowed_tenants"] = allowed_tenants
+            __props__.__dict__["authority"] = authority
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__['client_secret'] = client_secret
-            __props__['identity_provider_name'] = identity_provider_name
-            __props__['password_reset_policy_name'] = password_reset_policy_name
-            __props__['profile_editing_policy_name'] = profile_editing_policy_name
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["identity_provider_name"] = identity_provider_name
+            __props__.__dict__["password_reset_policy_name"] = password_reset_policy_name
+            __props__.__dict__["profile_editing_policy_name"] = profile_editing_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['signin_policy_name'] = signin_policy_name
-            __props__['signin_tenant'] = signin_tenant
-            __props__['signup_policy_name'] = signup_policy_name
-            __props__['type'] = type
-            __props__['name'] = None
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["signin_policy_name"] = signin_policy_name
+            __props__.__dict__["signin_tenant"] = signin_tenant
+            __props__.__dict__["signup_policy_name"] = signup_policy_name
+            __props__.__dict__["type"] = type
+            __props__.__dict__["name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:IdentityProvider"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:IdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IdentityProvider, __self__).__init__(
@@ -364,19 +354,19 @@ class IdentityProvider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = IdentityProviderArgs.__new__(IdentityProviderArgs)
 
-        __props__["allowed_tenants"] = None
-        __props__["authority"] = None
-        __props__["client_id"] = None
-        __props__["client_secret"] = None
-        __props__["name"] = None
-        __props__["password_reset_policy_name"] = None
-        __props__["profile_editing_policy_name"] = None
-        __props__["signin_policy_name"] = None
-        __props__["signin_tenant"] = None
-        __props__["signup_policy_name"] = None
-        __props__["type"] = None
+        __props__.__dict__["allowed_tenants"] = None
+        __props__.__dict__["authority"] = None
+        __props__.__dict__["client_id"] = None
+        __props__.__dict__["client_secret"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["password_reset_policy_name"] = None
+        __props__.__dict__["profile_editing_policy_name"] = None
+        __props__.__dict__["signin_policy_name"] = None
+        __props__.__dict__["signin_tenant"] = None
+        __props__.__dict__["signup_policy_name"] = None
+        __props__.__dict__["type"] = None
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -466,10 +456,4 @@ class IdentityProvider(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

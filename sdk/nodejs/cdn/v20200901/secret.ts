@@ -107,7 +107,7 @@ export interface SecretArgs {
     /**
      * object which contains secret parameters
      */
-    readonly parameters?: pulumi.Input<inputs.cdn.v20200901.CustomerCertificateParameters | inputs.cdn.v20200901.ManagedCertificateParameters | inputs.cdn.v20200901.UrlSigningKeyParameters>;
+    readonly parameters?: pulumi.Input<inputs.cdn.v20200901.CustomerCertificateParametersArgs | inputs.cdn.v20200901.ManagedCertificateParametersArgs | inputs.cdn.v20200901.UrlSigningKeyParametersArgs>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

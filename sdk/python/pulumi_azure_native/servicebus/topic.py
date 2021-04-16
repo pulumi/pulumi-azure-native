@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -244,9 +244,7 @@ class Topic(pulumi.CustomResource):
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of topic resource.
         API Version: 2017-04-01.
@@ -305,15 +303,7 @@ class Topic(pulumi.CustomResource):
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,33 +313,33 @@ class Topic(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TopicArgs.__new__(TopicArgs)
 
-            __props__['auto_delete_on_idle'] = auto_delete_on_idle
-            __props__['default_message_time_to_live'] = default_message_time_to_live
-            __props__['duplicate_detection_history_time_window'] = duplicate_detection_history_time_window
-            __props__['enable_batched_operations'] = enable_batched_operations
-            __props__['enable_express'] = enable_express
-            __props__['enable_partitioning'] = enable_partitioning
-            __props__['max_size_in_megabytes'] = max_size_in_megabytes
+            __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            __props__.__dict__["default_message_time_to_live"] = default_message_time_to_live
+            __props__.__dict__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
+            __props__.__dict__["enable_batched_operations"] = enable_batched_operations
+            __props__.__dict__["enable_express"] = enable_express
+            __props__.__dict__["enable_partitioning"] = enable_partitioning
+            __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
-            __props__['requires_duplicate_detection'] = requires_duplicate_detection
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['status'] = status
-            __props__['support_ordering'] = support_ordering
-            __props__['topic_name'] = topic_name
-            __props__['accessed_at'] = None
-            __props__['count_details'] = None
-            __props__['created_at'] = None
-            __props__['name'] = None
-            __props__['size_in_bytes'] = None
-            __props__['subscription_count'] = None
-            __props__['type'] = None
-            __props__['updated_at'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["status"] = status
+            __props__.__dict__["support_ordering"] = support_ordering
+            __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["accessed_at"] = None
+            __props__.__dict__["count_details"] = None
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["size_in_bytes"] = None
+            __props__.__dict__["subscription_count"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["updated_at"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20140901:Topic"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20150801:Topic"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20170401:Topic"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Topic"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Topic"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Topic"), pulumi.Alias(type_="azure-nextgen:servicebus/v20210101preview:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
@@ -372,26 +362,26 @@ class Topic(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TopicArgs.__new__(TopicArgs)
 
-        __props__["accessed_at"] = None
-        __props__["auto_delete_on_idle"] = None
-        __props__["count_details"] = None
-        __props__["created_at"] = None
-        __props__["default_message_time_to_live"] = None
-        __props__["duplicate_detection_history_time_window"] = None
-        __props__["enable_batched_operations"] = None
-        __props__["enable_express"] = None
-        __props__["enable_partitioning"] = None
-        __props__["max_size_in_megabytes"] = None
-        __props__["name"] = None
-        __props__["requires_duplicate_detection"] = None
-        __props__["size_in_bytes"] = None
-        __props__["status"] = None
-        __props__["subscription_count"] = None
-        __props__["support_ordering"] = None
-        __props__["type"] = None
-        __props__["updated_at"] = None
+        __props__.__dict__["accessed_at"] = None
+        __props__.__dict__["auto_delete_on_idle"] = None
+        __props__.__dict__["count_details"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["default_message_time_to_live"] = None
+        __props__.__dict__["duplicate_detection_history_time_window"] = None
+        __props__.__dict__["enable_batched_operations"] = None
+        __props__.__dict__["enable_express"] = None
+        __props__.__dict__["enable_partitioning"] = None
+        __props__.__dict__["max_size_in_megabytes"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["requires_duplicate_detection"] = None
+        __props__.__dict__["size_in_bytes"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["subscription_count"] = None
+        __props__.__dict__["support_ordering"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated_at"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -537,10 +527,4 @@ class Topic(pulumi.CustomResource):
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

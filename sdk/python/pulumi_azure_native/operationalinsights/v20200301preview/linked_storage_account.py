@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
 
@@ -89,9 +89,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Linked storage accounts top level resource container.
 
@@ -130,15 +128,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -148,18 +138,18 @@ class LinkedStorageAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LinkedStorageAccountArgs.__new__(LinkedStorageAccountArgs)
 
-            __props__['data_source_type'] = data_source_type
+            __props__.__dict__["data_source_type"] = data_source_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_account_ids'] = storage_account_ids
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_account_ids"] = storage_account_ids
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:LinkedStorageAccount"), pulumi.Alias(type_="azure-nextgen:operationalinsights/v20200801:LinkedStorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedStorageAccount, __self__).__init__(
@@ -182,12 +172,12 @@ class LinkedStorageAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = LinkedStorageAccountArgs.__new__(LinkedStorageAccountArgs)
 
-        __props__["data_source_type"] = None
-        __props__["name"] = None
-        __props__["storage_account_ids"] = None
-        __props__["type"] = None
+        __props__.__dict__["data_source_type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["storage_account_ids"] = None
+        __props__.__dict__["type"] = None
         return LinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -221,10 +211,4 @@ class LinkedStorageAccount(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

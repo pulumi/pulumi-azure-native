@@ -50,13 +50,13 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Array of deployments for the remediation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RemediationDeploymentResponseResult> Value;
+        public readonly ImmutableArray<Outputs.RemediationDeploymentResponse> Value;
 
         [OutputConstructor]
         private ListRemediationDeploymentsAtSubscriptionResult(
             string nextLink,
 
-            ImmutableArray<Outputs.RemediationDeploymentResponseResult> value)
+            ImmutableArray<Outputs.RemediationDeploymentResponse> value)
         {
             NextLink = nextLink;
             Value = value;

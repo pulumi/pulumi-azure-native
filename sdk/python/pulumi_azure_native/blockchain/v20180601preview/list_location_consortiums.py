@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,7 +27,7 @@ class ListLocationConsortiumsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ConsortiumResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ConsortiumResponse']]:
         """
         Gets or sets the collection of consortiums.
         """

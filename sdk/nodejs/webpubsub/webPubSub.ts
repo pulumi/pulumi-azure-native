@@ -198,7 +198,7 @@ export interface WebPubSubArgs {
     /**
      * The settings for event handler in webpubsub service.
      */
-    readonly eventHandler?: pulumi.Input<inputs.webpubsub.EventHandlerSettings>;
+    readonly eventHandler?: pulumi.Input<inputs.webpubsub.EventHandlerSettingsArgs>;
     /**
      * List of the featureFlags.
      * 
@@ -207,11 +207,11 @@ export interface WebPubSubArgs {
      * When a featureFlag is not explicitly set, its globally default value will be used
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.webpubsub.WebPubSubFeature>[]>;
+    readonly features?: pulumi.Input<pulumi.Input<inputs.webpubsub.WebPubSubFeatureArgs>[]>;
     /**
      * The managed identity response
      */
-    readonly identity?: pulumi.Input<inputs.webpubsub.ManagedIdentity>;
+    readonly identity?: pulumi.Input<inputs.webpubsub.ManagedIdentityArgs>;
     /**
      * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
@@ -219,7 +219,7 @@ export interface WebPubSubArgs {
     /**
      * Network ACLs
      */
-    readonly networkACLs?: pulumi.Input<inputs.webpubsub.WebPubSubNetworkACLs>;
+    readonly networkACLs?: pulumi.Input<inputs.webpubsub.WebPubSubNetworkACLsArgs>;
     /**
      * Enable or disable public network access. Default to "Enabled".
      * When it's Enabled, network ACLs still apply.
@@ -237,7 +237,7 @@ export interface WebPubSubArgs {
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
-    readonly sku?: pulumi.Input<inputs.webpubsub.ResourceSku>;
+    readonly sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
@@ -245,5 +245,5 @@ export interface WebPubSubArgs {
     /**
      * TLS settings.
      */
-    readonly tls?: pulumi.Input<inputs.webpubsub.WebPubSubTlsSettings>;
+    readonly tls?: pulumi.Input<inputs.webpubsub.WebPubSubTlsSettingsArgs>;
 }

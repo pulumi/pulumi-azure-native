@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -290,9 +290,7 @@ class Domain(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_dns_type: Optional[pulumi.Input['DnsType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Information about a domain.
         API Version: 2020-10-01.
@@ -356,15 +354,7 @@ class Domain(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_dns_type: Optional[pulumi.Input['DnsType']] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -374,50 +364,50 @@ class Domain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainArgs.__new__(DomainArgs)
 
-            __props__['auth_code'] = auth_code
+            __props__.__dict__["auth_code"] = auth_code
             if auto_renew is None:
                 auto_renew = True
-            __props__['auto_renew'] = auto_renew
+            __props__.__dict__["auto_renew"] = auto_renew
             if consent is None and not opts.urn:
                 raise TypeError("Missing required property 'consent'")
-            __props__['consent'] = consent
+            __props__.__dict__["consent"] = consent
             if contact_admin is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_admin'")
-            __props__['contact_admin'] = contact_admin
+            __props__.__dict__["contact_admin"] = contact_admin
             if contact_billing is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_billing'")
-            __props__['contact_billing'] = contact_billing
+            __props__.__dict__["contact_billing"] = contact_billing
             if contact_registrant is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_registrant'")
-            __props__['contact_registrant'] = contact_registrant
+            __props__.__dict__["contact_registrant"] = contact_registrant
             if contact_tech is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_tech'")
-            __props__['contact_tech'] = contact_tech
-            __props__['dns_type'] = dns_type
-            __props__['dns_zone_id'] = dns_zone_id
-            __props__['domain_name'] = domain_name
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['privacy'] = privacy
+            __props__.__dict__["contact_tech"] = contact_tech
+            __props__.__dict__["dns_type"] = dns_type
+            __props__.__dict__["dns_zone_id"] = dns_zone_id
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["privacy"] = privacy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['target_dns_type'] = target_dns_type
-            __props__['created_time'] = None
-            __props__['domain_not_renewable_reasons'] = None
-            __props__['expiration_time'] = None
-            __props__['last_renewed_time'] = None
-            __props__['managed_host_names'] = None
-            __props__['name'] = None
-            __props__['name_servers'] = None
-            __props__['provisioning_state'] = None
-            __props__['ready_for_dns_record_management'] = None
-            __props__['registration_status'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_dns_type"] = target_dns_type
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["domain_not_renewable_reasons"] = None
+            __props__.__dict__["expiration_time"] = None
+            __props__.__dict__["last_renewed_time"] = None
+            __props__.__dict__["managed_host_names"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["name_servers"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["ready_for_dns_record_management"] = None
+            __props__.__dict__["registration_status"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201001:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201201:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
@@ -440,29 +430,29 @@ class Domain(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DomainArgs.__new__(DomainArgs)
 
-        __props__["auth_code"] = None
-        __props__["auto_renew"] = None
-        __props__["created_time"] = None
-        __props__["dns_type"] = None
-        __props__["dns_zone_id"] = None
-        __props__["domain_not_renewable_reasons"] = None
-        __props__["expiration_time"] = None
-        __props__["kind"] = None
-        __props__["last_renewed_time"] = None
-        __props__["location"] = None
-        __props__["managed_host_names"] = None
-        __props__["name"] = None
-        __props__["name_servers"] = None
-        __props__["privacy"] = None
-        __props__["provisioning_state"] = None
-        __props__["ready_for_dns_record_management"] = None
-        __props__["registration_status"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["target_dns_type"] = None
-        __props__["type"] = None
+        __props__.__dict__["auth_code"] = None
+        __props__.__dict__["auto_renew"] = None
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["dns_type"] = None
+        __props__.__dict__["dns_zone_id"] = None
+        __props__.__dict__["domain_not_renewable_reasons"] = None
+        __props__.__dict__["expiration_time"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_renewed_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_host_names"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["name_servers"] = None
+        __props__.__dict__["privacy"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["ready_for_dns_record_management"] = None
+        __props__.__dict__["registration_status"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["target_dns_type"] = None
+        __props__.__dict__["type"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -630,10 +620,4 @@ class Domain(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

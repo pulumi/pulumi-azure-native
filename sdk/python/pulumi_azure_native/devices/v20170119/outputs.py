@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -35,6 +35,25 @@ class CloudToDevicePropertiesResponse(dict):
     """
     The IoT hub cloud-to-device messaging properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultTtlAsIso8601":
+            suggest = "default_ttl_as_iso8601"
+        elif key == "maxDeliveryCount":
+            suggest = "max_delivery_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudToDevicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudToDevicePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudToDevicePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_ttl_as_iso8601: Optional[str] = None,
                  feedback: Optional['outputs.FeedbackPropertiesResponse'] = None,
@@ -42,7 +61,7 @@ class CloudToDevicePropertiesResponse(dict):
         """
         The IoT hub cloud-to-device messaging properties.
         :param str default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        :param 'FeedbackPropertiesResponseArgs' feedback: The properties of the feedback queue for cloud-to-device messages.
+        :param 'FeedbackPropertiesResponse' feedback: The properties of the feedback queue for cloud-to-device messages.
         :param int max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if default_ttl_as_iso8601 is not None:
@@ -76,15 +95,33 @@ class CloudToDevicePropertiesResponse(dict):
         """
         return pulumi.get(self, "max_delivery_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventHubPropertiesResponse(dict):
     """
     The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionIds":
+            suggest = "partition_ids"
+        elif key == "partitionCount":
+            suggest = "partition_count"
+        elif key == "retentionTimeInDays":
+            suggest = "retention_time_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  partition_ids: Sequence[str],
@@ -147,15 +184,31 @@ class EventHubPropertiesResponse(dict):
         """
         return pulumi.get(self, "retention_time_in_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FallbackRoutePropertiesResponse(dict):
     """
     The properties related to the fallback route based on which the IoT hub routes messages to the fallback endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointNames":
+            suggest = "endpoint_names"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FallbackRoutePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FallbackRoutePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FallbackRoutePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_names: Sequence[str],
                  is_enabled: bool,
@@ -206,15 +259,33 @@ class FallbackRoutePropertiesResponse(dict):
         """
         return pulumi.get(self, "condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FeedbackPropertiesResponse(dict):
     """
     The properties of the feedback queue for cloud-to-device messages.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lockDurationAsIso8601":
+            suggest = "lock_duration_as_iso8601"
+        elif key == "maxDeliveryCount":
+            suggest = "max_delivery_count"
+        elif key == "ttlAsIso8601":
+            suggest = "ttl_as_iso8601"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeedbackPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeedbackPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeedbackPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[str] = None,
                  max_delivery_count: Optional[int] = None,
@@ -256,15 +327,47 @@ class FeedbackPropertiesResponse(dict):
         """
         return pulumi.get(self, "ttl_as_iso8601")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotHubPropertiesResponse(dict):
     """
     The properties of an IoT hub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "authorizationPolicies":
+            suggest = "authorization_policies"
+        elif key == "cloudToDevice":
+            suggest = "cloud_to_device"
+        elif key == "enableFileUploadNotifications":
+            suggest = "enable_file_upload_notifications"
+        elif key == "eventHubEndpoints":
+            suggest = "event_hub_endpoints"
+        elif key == "ipFilterRules":
+            suggest = "ip_filter_rules"
+        elif key == "messagingEndpoints":
+            suggest = "messaging_endpoints"
+        elif key == "operationsMonitoringProperties":
+            suggest = "operations_monitoring_properties"
+        elif key == "storageEndpoints":
+            suggest = "storage_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_name: str,
                  provisioning_state: str,
@@ -283,17 +386,17 @@ class IotHubPropertiesResponse(dict):
         The properties of an IoT hub.
         :param str host_name: The name of the host.
         :param str provisioning_state: The provisioning state.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleResponseArgs'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
-        :param 'CloudToDevicePropertiesResponseArgs' cloud_to_device: The IoT hub cloud-to-device messaging properties.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleResponse'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
+        :param 'CloudToDevicePropertiesResponse' cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param str comments: Comments.
         :param bool enable_file_upload_notifications: If True, file upload notifications are enabled.
-        :param Mapping[str, 'EventHubPropertiesResponseArgs'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
+        :param Mapping[str, 'EventHubPropertiesResponse'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
-        :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
-        :param Mapping[str, 'MessagingEndpointPropertiesResponseArgs'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
-        :param 'OperationsMonitoringPropertiesResponseArgs' operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations, Routes, D2CTwinOperations, C2DTwinOperations, TwinQueries, JobsOperations, DirectMethods.
-        :param 'RoutingPropertiesResponseArgs' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-        :param Mapping[str, 'StorageEndpointPropertiesResponseArgs'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+        :param Sequence['IpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
+        :param Mapping[str, 'MessagingEndpointPropertiesResponse'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
+        :param 'OperationsMonitoringPropertiesResponse' operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations, Routes, D2CTwinOperations, C2DTwinOperations, TwinQueries, JobsOperations, DirectMethods.
+        :param 'RoutingPropertiesResponse' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
+        :param Mapping[str, 'StorageEndpointPropertiesResponse'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -424,9 +527,6 @@ class IotHubPropertiesResponse(dict):
         """
         return pulumi.get(self, "storage_endpoints")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotHubSkuInfoResponse(dict):
@@ -471,15 +571,31 @@ class IotHubSkuInfoResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IpFilterRuleResponse(dict):
     """
     The IP filter rules for the IoT hub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterName":
+            suggest = "filter_name"
+        elif key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpFilterRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpFilterRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpFilterRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  filter_name: str,
@@ -518,15 +634,33 @@ class IpFilterRuleResponse(dict):
         """
         return pulumi.get(self, "ip_mask")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MessagingEndpointPropertiesResponse(dict):
     """
     The properties of the messaging endpoints used by this IoT hub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lockDurationAsIso8601":
+            suggest = "lock_duration_as_iso8601"
+        elif key == "maxDeliveryCount":
+            suggest = "max_delivery_count"
+        elif key == "ttlAsIso8601":
+            suggest = "ttl_as_iso8601"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MessagingEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MessagingEndpointPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MessagingEndpointPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[str] = None,
                  max_delivery_count: Optional[int] = None,
@@ -568,9 +702,6 @@ class MessagingEndpointPropertiesResponse(dict):
         """
         return pulumi.get(self, "ttl_as_iso8601")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OperationsMonitoringPropertiesResponse(dict):
@@ -590,15 +721,31 @@ class OperationsMonitoringPropertiesResponse(dict):
     def events(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "events")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutePropertiesResponse(dict):
     """
     The properties of a routing rule that your IoT hub uses to route messages to endpoints.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointNames":
+            suggest = "endpoint_names"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_names: Sequence[str],
                  is_enabled: bool,
@@ -660,24 +807,42 @@ class RoutePropertiesResponse(dict):
         """
         return pulumi.get(self, "condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingEndpointsResponse(dict):
     """
     The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubs":
+            suggest = "event_hubs"
+        elif key == "serviceBusQueues":
+            suggest = "service_bus_queues"
+        elif key == "serviceBusTopics":
+            suggest = "service_bus_topics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingEndpointsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingEndpointsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingEndpointsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_hubs: Optional[Sequence['outputs.RoutingEventHubPropertiesResponse']] = None,
                  service_bus_queues: Optional[Sequence['outputs.RoutingServiceBusQueueEndpointPropertiesResponse']] = None,
                  service_bus_topics: Optional[Sequence['outputs.RoutingServiceBusTopicEndpointPropertiesResponse']] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param Sequence['RoutingEventHubPropertiesResponseArgs'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-        :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponseArgs'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-        :param Sequence['RoutingServiceBusTopicEndpointPropertiesResponseArgs'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
+        :param Sequence['RoutingEventHubPropertiesResponse'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
+        :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponse'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
+        :param Sequence['RoutingServiceBusTopicEndpointPropertiesResponse'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
         """
         if event_hubs is not None:
             pulumi.set(__self__, "event_hubs", event_hubs)
@@ -710,15 +875,33 @@ class RoutingEndpointsResponse(dict):
         """
         return pulumi.get(self, "service_bus_topics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingEventHubPropertiesResponse(dict):
     """
     The properties related to an event hub endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingEventHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingEventHubPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingEventHubPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  name: str,
@@ -770,24 +953,38 @@ class RoutingEventHubPropertiesResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingPropertiesResponse(dict):
     """
     The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackRoute":
+            suggest = "fallback_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoints: Optional['outputs.RoutingEndpointsResponse'] = None,
                  fallback_route: Optional['outputs.FallbackRoutePropertiesResponse'] = None,
                  routes: Optional[Sequence['outputs.RoutePropertiesResponse']] = None):
         """
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-        :param 'RoutingEndpointsResponseArgs' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param 'FallbackRoutePropertiesResponseArgs' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
-        :param Sequence['RoutePropertiesResponseArgs'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
+        :param 'RoutingEndpointsResponse' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
+        :param 'FallbackRoutePropertiesResponse' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        :param Sequence['RoutePropertiesResponse'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
@@ -820,15 +1017,33 @@ class RoutingPropertiesResponse(dict):
         """
         return pulumi.get(self, "routes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
     """
     The properties related to service bus queue endpoint types.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingServiceBusQueueEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingServiceBusQueueEndpointPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingServiceBusQueueEndpointPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  name: str,
@@ -880,15 +1095,33 @@ class RoutingServiceBusQueueEndpointPropertiesResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
     """
     The properties related to service bus topic endpoint types.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingServiceBusTopicEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingServiceBusTopicEndpointPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingServiceBusTopicEndpointPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  name: str,
@@ -940,15 +1173,33 @@ class RoutingServiceBusTopicEndpointPropertiesResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedAccessSignatureAuthorizationRuleResponse(dict):
     """
     The properties of an IoT hub shared access policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedAccessSignatureAuthorizationRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedAccessSignatureAuthorizationRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedAccessSignatureAuthorizationRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_name: str,
                  rights: str,
@@ -1000,15 +1251,33 @@ class SharedAccessSignatureAuthorizationRuleResponse(dict):
         """
         return pulumi.get(self, "secondary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageEndpointPropertiesResponse(dict):
     """
     The properties of the Azure Storage endpoint for file upload.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "sasTtlAsIso8601":
+            suggest = "sas_ttl_as_iso8601"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageEndpointPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageEndpointPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  container_name: str,
@@ -1047,8 +1316,5 @@ class StorageEndpointPropertiesResponse(dict):
         The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
         """
         return pulumi.get(self, "sas_ttl_as_iso8601")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

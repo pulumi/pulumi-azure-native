@@ -119,7 +119,7 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * The batch configuration properties.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20180701preview.BatchConfigurationProperties>;
+    readonly properties: pulumi.Input<inputs.logic.v20180701preview.BatchConfigurationPropertiesArgs>;
     /**
      * The resource group name.
      */

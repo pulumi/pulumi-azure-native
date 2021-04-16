@@ -160,7 +160,7 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule actions.
      */
-    readonly actionGroups: pulumi.Input<inputs.alertsmanagement.v20190601.ActionGroupsInformation>;
+    readonly actionGroups: pulumi.Input<inputs.alertsmanagement.v20190601.ActionGroupsInformationArgs>;
     /**
      * The name of the alert rule.
      */
@@ -172,7 +172,7 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule's detector.
      */
-    readonly detector: pulumi.Input<inputs.alertsmanagement.v20190601.Detector>;
+    readonly detector: pulumi.Input<inputs.alertsmanagement.v20190601.DetectorArgs>;
     /**
      * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
      */
@@ -204,5 +204,5 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule throttling information.
      */
-    readonly throttling?: pulumi.Input<inputs.alertsmanagement.v20190601.ThrottlingInformation>;
+    readonly throttling?: pulumi.Input<inputs.alertsmanagement.v20190601.ThrottlingInformationArgs>;
 }

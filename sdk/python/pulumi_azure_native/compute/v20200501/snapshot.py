@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -262,9 +262,7 @@ class Snapshot(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Snapshot resource.
 
@@ -323,15 +321,7 @@ class Snapshot(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,33 +331,33 @@ class Snapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
-            __props__['creation_data'] = creation_data
-            __props__['disk_access_id'] = disk_access_id
-            __props__['disk_size_gb'] = disk_size_gb
-            __props__['encryption'] = encryption
-            __props__['encryption_settings_collection'] = encryption_settings_collection
-            __props__['hyper_v_generation'] = hyper_v_generation
-            __props__['incremental'] = incremental
-            __props__['location'] = location
-            __props__['network_access_policy'] = network_access_policy
-            __props__['os_type'] = os_type
+            __props__.__dict__["creation_data"] = creation_data
+            __props__.__dict__["disk_access_id"] = disk_access_id
+            __props__.__dict__["disk_size_gb"] = disk_size_gb
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["encryption_settings_collection"] = encryption_settings_collection
+            __props__.__dict__["hyper_v_generation"] = hyper_v_generation
+            __props__.__dict__["incremental"] = incremental
+            __props__.__dict__["location"] = location
+            __props__.__dict__["network_access_policy"] = network_access_policy
+            __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['snapshot_name'] = snapshot_name
-            __props__['tags'] = tags
-            __props__['disk_size_bytes'] = None
-            __props__['managed_by'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['time_created'] = None
-            __props__['type'] = None
-            __props__['unique_id'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["snapshot_name"] = snapshot_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["disk_size_bytes"] = None
+            __props__.__dict__["managed_by"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["time_created"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["unique_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-native:compute:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20201201:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
@@ -390,27 +380,27 @@ class Snapshot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
-        __props__["creation_data"] = None
-        __props__["disk_access_id"] = None
-        __props__["disk_size_bytes"] = None
-        __props__["disk_size_gb"] = None
-        __props__["encryption"] = None
-        __props__["encryption_settings_collection"] = None
-        __props__["hyper_v_generation"] = None
-        __props__["incremental"] = None
-        __props__["location"] = None
-        __props__["managed_by"] = None
-        __props__["name"] = None
-        __props__["network_access_policy"] = None
-        __props__["os_type"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["time_created"] = None
-        __props__["type"] = None
-        __props__["unique_id"] = None
+        __props__.__dict__["creation_data"] = None
+        __props__.__dict__["disk_access_id"] = None
+        __props__.__dict__["disk_size_bytes"] = None
+        __props__.__dict__["disk_size_gb"] = None
+        __props__.__dict__["encryption"] = None
+        __props__.__dict__["encryption_settings_collection"] = None
+        __props__.__dict__["hyper_v_generation"] = None
+        __props__.__dict__["incremental"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_access_policy"] = None
+        __props__.__dict__["os_type"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unique_id"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -564,10 +554,4 @@ class Snapshot(pulumi.CustomResource):
         Unique Guid identifying the resource.
         """
         return pulumi.get(self, "unique_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -158,9 +158,7 @@ class FileServer(pulumi.CustomResource):
                  subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Contains information about the File Server.
 
@@ -207,15 +205,7 @@ class FileServer(pulumi.CustomResource):
                  subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,30 +215,30 @@ class FileServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FileServerArgs.__new__(FileServerArgs)
 
             if data_disks is None and not opts.urn:
                 raise TypeError("Missing required property 'data_disks'")
-            __props__['data_disks'] = data_disks
-            __props__['file_server_name'] = file_server_name
-            __props__['location'] = location
+            __props__.__dict__["data_disks"] = data_disks
+            __props__.__dict__["file_server_name"] = file_server_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if ssh_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ssh_configuration'")
-            __props__['ssh_configuration'] = ssh_configuration
-            __props__['subnet'] = subnet
-            __props__['tags'] = tags
+            __props__.__dict__["ssh_configuration"] = ssh_configuration
+            __props__.__dict__["subnet"] = subnet
+            __props__.__dict__["tags"] = tags
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
-            __props__['vm_size'] = vm_size
-            __props__['creation_time'] = None
-            __props__['mount_settings'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['provisioning_state_transition_time'] = None
-            __props__['type'] = None
+            __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["mount_settings"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["provisioning_state_transition_time"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20180301:FileServer"), pulumi.Alias(type_="azure-native:batchai/v20170901preview:FileServer"), pulumi.Alias(type_="azure-nextgen:batchai/v20170901preview:FileServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServer, __self__).__init__(
@@ -271,20 +261,20 @@ class FileServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FileServerArgs.__new__(FileServerArgs)
 
-        __props__["creation_time"] = None
-        __props__["data_disks"] = None
-        __props__["location"] = None
-        __props__["mount_settings"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["provisioning_state_transition_time"] = None
-        __props__["ssh_configuration"] = None
-        __props__["subnet"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vm_size"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["data_disks"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["mount_settings"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["provisioning_state_transition_time"] = None
+        __props__.__dict__["ssh_configuration"] = None
+        __props__.__dict__["subnet"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vm_size"] = None
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -376,10 +366,4 @@ class FileServer(pulumi.CustomResource):
         For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
         """
         return pulumi.get(self, "vm_size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

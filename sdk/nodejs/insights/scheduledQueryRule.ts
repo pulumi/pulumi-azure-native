@@ -173,7 +173,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Action needs to be taken on rule execution.
      */
-    readonly action: pulumi.Input<inputs.insights.AlertingAction | inputs.insights.LogToMetricAction>;
+    readonly action: pulumi.Input<inputs.insights.AlertingActionArgs | inputs.insights.LogToMetricActionArgs>;
     /**
      * The description of the Log Search rule.
      */
@@ -201,11 +201,11 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
      */
-    readonly schedule?: pulumi.Input<inputs.insights.Schedule>;
+    readonly schedule?: pulumi.Input<inputs.insights.ScheduleArgs>;
     /**
      * Data Source against which rule will Query Data
      */
-    readonly source: pulumi.Input<inputs.insights.Source>;
+    readonly source: pulumi.Input<inputs.insights.SourceArgs>;
     /**
      * Resource tags
      */

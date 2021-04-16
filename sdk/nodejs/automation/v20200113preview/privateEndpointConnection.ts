@@ -102,7 +102,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    readonly privateEndpoint?: pulumi.Input<inputs.automation.v20200113preview.PrivateEndpointProperty>;
+    readonly privateEndpoint?: pulumi.Input<inputs.automation.v20200113preview.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
@@ -110,7 +110,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.automation.v20200113preview.PrivateLinkServiceConnectionStateProperty>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.automation.v20200113preview.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * Name of an Azure Resource group.
      */

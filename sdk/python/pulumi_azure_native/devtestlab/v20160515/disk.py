@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['DiskArgs', 'Disk']
@@ -276,9 +276,7 @@ class Disk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Disk.
 
@@ -339,15 +337,7 @@ class Disk(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,31 +347,31 @@ class Disk(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DiskArgs.__new__(DiskArgs)
 
-            __props__['disk_blob_name'] = disk_blob_name
-            __props__['disk_size_gi_b'] = disk_size_gi_b
-            __props__['disk_type'] = disk_type
-            __props__['disk_uri'] = disk_uri
-            __props__['host_caching'] = host_caching
+            __props__.__dict__["disk_blob_name"] = disk_blob_name
+            __props__.__dict__["disk_size_gi_b"] = disk_size_gi_b
+            __props__.__dict__["disk_type"] = disk_type
+            __props__.__dict__["disk_uri"] = disk_uri
+            __props__.__dict__["host_caching"] = host_caching
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
-            __props__['lab_name'] = lab_name
-            __props__['leased_by_lab_vm_id'] = leased_by_lab_vm_id
-            __props__['location'] = location
-            __props__['managed_disk_id'] = managed_disk_id
-            __props__['name'] = name
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["lab_name"] = lab_name
+            __props__.__dict__["leased_by_lab_vm_id"] = leased_by_lab_vm_id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_disk_id"] = managed_disk_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['unique_identifier'] = unique_identifier
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["unique_identifier"] = unique_identifier
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
-            __props__['user_name'] = user_name
-            __props__['created_date'] = None
-            __props__['type'] = None
+            __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["created_date"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Disk"), pulumi.Alias(type_="azure-native:devtestlab:Disk"), pulumi.Alias(type_="azure-nextgen:devtestlab:Disk"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Disk"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
@@ -404,22 +394,22 @@ class Disk(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DiskArgs.__new__(DiskArgs)
 
-        __props__["created_date"] = None
-        __props__["disk_blob_name"] = None
-        __props__["disk_size_gi_b"] = None
-        __props__["disk_type"] = None
-        __props__["disk_uri"] = None
-        __props__["host_caching"] = None
-        __props__["leased_by_lab_vm_id"] = None
-        __props__["location"] = None
-        __props__["managed_disk_id"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["unique_identifier"] = None
+        __props__.__dict__["created_date"] = None
+        __props__.__dict__["disk_blob_name"] = None
+        __props__.__dict__["disk_size_gi_b"] = None
+        __props__.__dict__["disk_type"] = None
+        __props__.__dict__["disk_uri"] = None
+        __props__.__dict__["host_caching"] = None
+        __props__.__dict__["leased_by_lab_vm_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_disk_id"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unique_identifier"] = None
         return Disk(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -533,10 +523,4 @@ class Disk(pulumi.CustomResource):
         The unique immutable identifier of a resource (Guid).
         """
         return pulumi.get(self, "unique_identifier")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -34,6 +34,23 @@ class CustomProfileResponse(dict):
     """
     Specifies the custom settings for the virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataConfigurationPath":
+            suggest = "metadata_configuration_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metadata_configuration_path: Optional[str] = None):
         """
@@ -51,15 +68,31 @@ class CustomProfileResponse(dict):
         """
         return pulumi.get(self, "metadata_configuration_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataDiskResponse(dict):
     """
     Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "diskSizeGB":
+            suggest = "disk_size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: Optional[str] = None,
                  disk_size_gb: Optional[int] = None,
@@ -101,15 +134,29 @@ class DataDiskResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageReferenceResponse(dict):
     """
     The image reference properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exactVersion":
+            suggest = "exact_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  exact_version: Optional[str] = None,
                  offer: Optional[str] = None,
@@ -175,9 +222,6 @@ class ImageReferenceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxConfigurationResponse(dict):
@@ -188,7 +232,7 @@ class LinuxConfigurationResponse(dict):
                  ssh: Optional['outputs.SshConfigurationResponse'] = None):
         """
         Specifies the Linux operating system settings on the virtual machine.
-        :param 'SshConfigurationResponseArgs' ssh: Specifies the ssh key configuration for a Linux OS.
+        :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
         if ssh is not None:
             pulumi.set(__self__, "ssh", ssh)
@@ -201,15 +245,45 @@ class LinuxConfigurationResponse(dict):
         """
         return pulumi.get(self, "ssh")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkFunctionRoleConfigurationResponse(dict):
     """
     Network function role configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customProfile":
+            suggest = "custom_profile"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "roleName":
+            suggest = "role_name"
+        elif key == "roleType":
+            suggest = "role_type"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+        elif key == "userDataParameters":
+            suggest = "user_data_parameters"
+        elif key == "userDataTemplate":
+            suggest = "user_data_template"
+        elif key == "virtualMachineSize":
+            suggest = "virtual_machine_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionRoleConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkFunctionRoleConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkFunctionRoleConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_profile: Optional['outputs.CustomProfileResponse'] = None,
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
@@ -222,12 +296,12 @@ class NetworkFunctionRoleConfigurationResponse(dict):
                  virtual_machine_size: Optional[str] = None):
         """
         Network function role configuration.
-        :param 'CustomProfileResponseArgs' custom_profile: Specifies the custom settings for the virtual machine.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configurations.
-        :param 'OsProfileResponseArgs' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+        :param 'CustomProfileResponse' custom_profile: Specifies the custom settings for the virtual machine.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: The network interface configurations.
+        :param 'OsProfileResponse' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
         :param str role_name: The name of the network function role.
         :param str role_type: Role type.
-        :param 'StorageProfileResponseArgs' storage_profile: Specifies the storage settings for the virtual machine disks.
+        :param 'StorageProfileResponse' storage_profile: Specifies the storage settings for the virtual machine disks.
         :param Any user_data_parameters: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
         :param Any user_data_template: The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
         :param str virtual_machine_size: The size of the virtual machine.
@@ -323,20 +397,34 @@ class NetworkFunctionRoleConfigurationResponse(dict):
         """
         return pulumi.get(self, "virtual_machine_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkFunctionTemplateResponse(dict):
     """
     The network function template.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkFunctionRoleConfigurations":
+            suggest = "network_function_role_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionTemplateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkFunctionTemplateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkFunctionTemplateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_function_role_configurations: Optional[Sequence['outputs.NetworkFunctionRoleConfigurationResponse']] = None):
         """
         The network function template.
-        :param Sequence['NetworkFunctionRoleConfigurationResponseArgs'] network_function_role_configurations: An array of network function role definitions.
+        :param Sequence['NetworkFunctionRoleConfigurationResponse'] network_function_role_configurations: An array of network function role definitions.
         """
         if network_function_role_configurations is not None:
             pulumi.set(__self__, "network_function_role_configurations", network_function_role_configurations)
@@ -349,15 +437,35 @@ class NetworkFunctionTemplateResponse(dict):
         """
         return pulumi.get(self, "network_function_role_configurations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkFunctionUserConfigurationResponse(dict):
     """
     The network function user configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "osProfile":
+            suggest = "os_profile"
+        elif key == "roleName":
+            suggest = "role_name"
+        elif key == "userDataParameters":
+            suggest = "user_data_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionUserConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkFunctionUserConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkFunctionUserConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None,
                  os_profile: Optional['outputs.NetworkFunctionUserConfigurationResponseOsProfile'] = None,
@@ -365,8 +473,8 @@ class NetworkFunctionUserConfigurationResponse(dict):
                  user_data_parameters: Optional[Any] = None):
         """
         The network function user configuration.
-        :param Sequence['NetworkInterfaceResponseArgs'] network_interfaces: The network interface configuration.
-        :param 'NetworkFunctionUserConfigurationResponseOsProfileArgs' os_profile: Specifies the operating system settings for the role instance.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: The network interface configuration.
+        :param 'NetworkFunctionUserConfigurationResponseOsProfile' os_profile: Specifies the operating system settings for the role instance.
         :param str role_name: The name of the network function role.
         :param Any user_data_parameters: The user data parameters from the customer.
         """
@@ -411,15 +519,29 @@ class NetworkFunctionUserConfigurationResponse(dict):
         """
         return pulumi.get(self, "user_data_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkFunctionUserConfigurationResponseOsProfile(dict):
     """
     Specifies the operating system settings for the role instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customData":
+            suggest = "custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkFunctionUserConfigurationResponseOsProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkFunctionUserConfigurationResponseOsProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkFunctionUserConfigurationResponseOsProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_data: Optional[str] = None):
         """
@@ -437,15 +559,35 @@ class NetworkFunctionUserConfigurationResponseOsProfile(dict):
         """
         return pulumi.get(self, "custom_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceIPConfigurationResponse(dict):
     """
     Network interface IP configuration properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "ipAllocationMethod":
+            suggest = "ip_allocation_method"
+        elif key == "ipVersion":
+            suggest = "ip_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_servers: Optional[Sequence[str]] = None,
                  gateway: Optional[str] = None,
@@ -523,15 +665,35 @@ class NetworkInterfaceIPConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfaceResponse(dict):
     """
     Network interface properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "networkInterfaceName":
+            suggest = "network_interface_name"
+        elif key == "vmSwitchType":
+            suggest = "vm_switch_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
                  mac_address: Optional[str] = None,
@@ -539,7 +701,7 @@ class NetworkInterfaceResponse(dict):
                  vm_switch_type: Optional[str] = None):
         """
         Network interface properties.
-        :param Sequence['NetworkInterfaceIPConfigurationResponseArgs'] ip_configurations: A list of IP configurations of the network interface.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] ip_configurations: A list of IP configurations of the network interface.
         :param str mac_address: The MAC address of the network interface.
         :param str network_interface_name: The name of the network interface.
         :param str vm_switch_type: The type of the VM switch.
@@ -585,15 +747,31 @@ class NetworkInterfaceResponse(dict):
         """
         return pulumi.get(self, "vm_switch_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OsDiskResponse(dict):
     """
     Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGB":
+            suggest = "disk_size_gb"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None,
@@ -635,15 +813,35 @@ class OsDiskResponse(dict):
         """
         return pulumi.get(self, "os_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OsProfileResponse(dict):
     """
     Specifies the operating system settings for the role instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "customData":
+            suggest = "custom_data"
+        elif key == "customDataRequired":
+            suggest = "custom_data_required"
+        elif key == "linuxConfiguration":
+            suggest = "linux_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: Optional[str] = None,
                  custom_data: Optional[str] = None,
@@ -654,7 +852,7 @@ class OsProfileResponse(dict):
         :param str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param bool custom_data_required: Indicates if custom data is required to deploy this role.
-        :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+        :param 'LinuxConfigurationResponse' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         """
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
@@ -699,20 +897,34 @@ class OsProfileResponse(dict):
         """
         return pulumi.get(self, "linux_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SshConfigurationResponse(dict):
     """
     SSH configuration for Linux based VMs running on Azure
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKeys":
+            suggest = "public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
@@ -725,15 +937,29 @@ class SshConfigurationResponse(dict):
         """
         return pulumi.get(self, "public_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SshPublicKeyResponse(dict):
     """
     Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshPublicKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_data: Optional[str] = None,
                  path: Optional[str] = None):
@@ -763,24 +989,42 @@ class SshPublicKeyResponse(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageProfileResponse(dict):
     """
     Specifies the storage settings for the virtual machine disks.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDisks":
+            suggest = "data_disks"
+        elif key == "imageReference":
+            suggest = "image_reference"
+        elif key == "osDisk":
+            suggest = "os_disk"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_disks: Optional[Sequence['outputs.DataDiskResponse']] = None,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
                  os_disk: Optional['outputs.OsDiskResponse'] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param Sequence['DataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine.
-        :param 'ImageReferenceResponseArgs' image_reference: The image reference properties.
-        :param 'OsDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine.
+        :param Sequence['DataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine.
+        :param 'ImageReferenceResponse' image_reference: The image reference properties.
+        :param 'OsDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine.
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -813,9 +1057,6 @@ class StorageProfileResponse(dict):
         """
         return pulumi.get(self, "os_disk")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubResourceResponse(dict):
@@ -838,8 +1079,5 @@ class SubResourceResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

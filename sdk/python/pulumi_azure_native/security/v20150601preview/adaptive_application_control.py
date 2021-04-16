@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -118,9 +118,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
                  protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
                  vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -159,15 +157,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  path_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PathRecommendationArgs']]]]] = None,
                  protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
                  vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -177,23 +167,23 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AdaptiveApplicationControlArgs.__new__(AdaptiveApplicationControlArgs)
 
             if asc_location is None and not opts.urn:
                 raise TypeError("Missing required property 'asc_location'")
-            __props__['asc_location'] = asc_location
-            __props__['enforcement_mode'] = enforcement_mode
-            __props__['group_name'] = group_name
-            __props__['path_recommendations'] = path_recommendations
-            __props__['protection_mode'] = protection_mode
-            __props__['vm_recommendations'] = vm_recommendations
-            __props__['configuration_status'] = None
-            __props__['issues'] = None
-            __props__['location'] = None
-            __props__['name'] = None
-            __props__['recommendation_status'] = None
-            __props__['source_system'] = None
-            __props__['type'] = None
+            __props__.__dict__["asc_location"] = asc_location
+            __props__.__dict__["enforcement_mode"] = enforcement_mode
+            __props__.__dict__["group_name"] = group_name
+            __props__.__dict__["path_recommendations"] = path_recommendations
+            __props__.__dict__["protection_mode"] = protection_mode
+            __props__.__dict__["vm_recommendations"] = vm_recommendations
+            __props__.__dict__["configuration_status"] = None
+            __props__.__dict__["issues"] = None
+            __props__.__dict__["location"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["recommendation_status"] = None
+            __props__.__dict__["source_system"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-native:security:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-nextgen:security:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-native:security/v20200101:AdaptiveApplicationControl"), pulumi.Alias(type_="azure-nextgen:security/v20200101:AdaptiveApplicationControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AdaptiveApplicationControl, __self__).__init__(
@@ -216,19 +206,19 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AdaptiveApplicationControlArgs.__new__(AdaptiveApplicationControlArgs)
 
-        __props__["configuration_status"] = None
-        __props__["enforcement_mode"] = None
-        __props__["issues"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["path_recommendations"] = None
-        __props__["protection_mode"] = None
-        __props__["recommendation_status"] = None
-        __props__["source_system"] = None
-        __props__["type"] = None
-        __props__["vm_recommendations"] = None
+        __props__.__dict__["configuration_status"] = None
+        __props__.__dict__["enforcement_mode"] = None
+        __props__.__dict__["issues"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["path_recommendations"] = None
+        __props__.__dict__["protection_mode"] = None
+        __props__.__dict__["recommendation_status"] = None
+        __props__.__dict__["source_system"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vm_recommendations"] = None
         return AdaptiveApplicationControl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -309,10 +299,4 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
     @pulumi.getter(name="vmRecommendations")
     def vm_recommendations(self) -> pulumi.Output[Optional[Sequence['outputs.VmRecommendationResponse']]]:
         return pulumi.get(self, "vm_recommendations")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

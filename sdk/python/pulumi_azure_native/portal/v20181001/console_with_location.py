@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = ['ConsoleWithLocationArgs', 'ConsoleWithLocation']
@@ -57,9 +57,7 @@ class ConsoleWithLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Cloud shell console
 
@@ -94,15 +92,7 @@ class ConsoleWithLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  console_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -112,13 +102,13 @@ class ConsoleWithLocation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConsoleWithLocationArgs.__new__(ConsoleWithLocationArgs)
 
-            __props__['console_name'] = console_name
+            __props__.__dict__["console_name"] = console_name
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
-            __props__['properties'] = None
+            __props__.__dict__["location"] = location
+            __props__.__dict__["properties"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/v20181001:ConsoleWithLocation"), pulumi.Alias(type_="azure-native:portal:ConsoleWithLocation"), pulumi.Alias(type_="azure-nextgen:portal:ConsoleWithLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConsoleWithLocation, __self__).__init__(
@@ -141,9 +131,9 @@ class ConsoleWithLocation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ConsoleWithLocationArgs.__new__(ConsoleWithLocationArgs)
 
-        __props__["properties"] = None
+        __props__.__dict__["properties"] = None
         return ConsoleWithLocation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -153,10 +143,4 @@ class ConsoleWithLocation(pulumi.CustomResource):
         Cloud shell console properties.
         """
         return pulumi.get(self, "properties")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -194,7 +194,7 @@ export interface SqlPoolArgs {
     /**
      * SQL pool SKU
      */
-    readonly sku?: pulumi.Input<inputs.synapse.v20190601preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.synapse.v20190601preview.SkuArgs>;
     /**
      * Source database to create from
      */

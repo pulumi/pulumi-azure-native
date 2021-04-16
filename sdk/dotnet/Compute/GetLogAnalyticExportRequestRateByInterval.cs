@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// LogAnalyticsOutput
         /// </summary>
-        public readonly Outputs.LogAnalyticsOutputResponseResult Properties;
+        public readonly Outputs.LogAnalyticsOutputResponse Properties;
 
         [OutputConstructor]
-        private GetLogAnalyticExportRequestRateByIntervalResult(Outputs.LogAnalyticsOutputResponseResult properties)
+        private GetLogAnalyticExportRequestRateByIntervalResult(Outputs.LogAnalyticsOutputResponse properties)
         {
             Properties = properties;
         }

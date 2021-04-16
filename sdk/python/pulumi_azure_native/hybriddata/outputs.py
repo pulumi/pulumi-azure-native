@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = [
@@ -20,6 +20,25 @@ class CustomerSecretResponse(dict):
     """
     The pair of customer secret.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyIdentifier":
+            suggest = "key_identifier"
+        elif key == "keyValue":
+            suggest = "key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerSecretResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerSecretResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerSecretResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  algorithm: str,
                  key_identifier: str,
@@ -58,15 +77,29 @@ class CustomerSecretResponse(dict):
         """
         return pulumi.get(self, "key_value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleResponse(dict):
     """
     Schedule for the job run.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyList":
+            suggest = "policy_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  policy_list: Optional[Sequence[str]] = None):
@@ -95,9 +128,6 @@ class ScheduleResponse(dict):
         A list of repetition intervals in ISO 8601 format.
         """
         return pulumi.get(self, "policy_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -133,8 +163,5 @@ class SkuResponse(dict):
         The sku tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

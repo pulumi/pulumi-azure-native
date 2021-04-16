@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -228,9 +228,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
                  subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A virtual network.
 
@@ -285,15 +283,7 @@ class VirtualNetworkResource(pulumi.CustomResource):
                  subnet_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,24 +293,24 @@ class VirtualNetworkResource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkResourceArgs.__new__(VirtualNetworkResourceArgs)
 
-            __props__['allowed_subnets'] = allowed_subnets
-            __props__['description'] = description
-            __props__['external_provider_resource_id'] = external_provider_resource_id
-            __props__['id'] = id
+            __props__.__dict__["allowed_subnets"] = allowed_subnets
+            __props__.__dict__["description"] = description
+            __props__.__dict__["external_provider_resource_id"] = external_provider_resource_id
+            __props__.__dict__["id"] = id
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
-            __props__['lab_name'] = lab_name
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["lab_name"] = lab_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['subnet_overrides'] = subnet_overrides
-            __props__['tags'] = tags
-            __props__['type'] = type
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subnet_overrides"] = subnet_overrides
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualNetworkResource"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualNetworkResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualNetworkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkResource, __self__).__init__(
@@ -343,17 +333,17 @@ class VirtualNetworkResource(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualNetworkResourceArgs.__new__(VirtualNetworkResourceArgs)
 
-        __props__["allowed_subnets"] = None
-        __props__["description"] = None
-        __props__["external_provider_resource_id"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["subnet_overrides"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["allowed_subnets"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["external_provider_resource_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["subnet_overrides"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return VirtualNetworkResource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -427,10 +417,4 @@ class VirtualNetworkResource(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -155,7 +155,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Gets or sets DNS Settings in  NetworkInterface
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20160330.NetworkInterfaceDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20160330.NetworkInterfaceDnsSettingsArgs>;
     /**
      * Gets or sets whether IPForwarding is enabled on the NIC
      */
@@ -171,7 +171,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Gets or sets list of IPConfigurations of the NetworkInterface
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160330.NetworkInterfaceIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160330.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location
      */
@@ -187,7 +187,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20160330.NetworkSecurityGroup>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20160330.NetworkSecurityGroupArgs>;
     /**
      * Gets whether this is a primary NIC on a virtual machine
      */
@@ -211,5 +211,5 @@ export interface NetworkInterfaceArgs {
     /**
      * Gets or sets the reference of a VirtualMachine
      */
-    readonly virtualMachine?: pulumi.Input<inputs.network.v20160330.SubResource>;
+    readonly virtualMachine?: pulumi.Input<inputs.network.v20160330.SubResourceArgs>;
 }

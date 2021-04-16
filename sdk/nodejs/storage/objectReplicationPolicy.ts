@@ -139,7 +139,7 @@ export interface ObjectReplicationPolicyArgs {
     /**
      * The storage account object replication rules.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationPolicyRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationPolicyRuleArgs>[]>;
     /**
      * Required. Source account name.
      */

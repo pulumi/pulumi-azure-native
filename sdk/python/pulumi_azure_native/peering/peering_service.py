@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -177,9 +177,7 @@ class PeeringService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Peering Service
         API Version: 2021-01-01.
@@ -230,15 +228,7 @@ class PeeringService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,22 +238,22 @@ class PeeringService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PeeringServiceArgs.__new__(PeeringServiceArgs)
 
-            __props__['location'] = location
-            __props__['peering_service_location'] = peering_service_location
-            __props__['peering_service_name'] = peering_service_name
-            __props__['peering_service_provider'] = peering_service_provider
-            __props__['provider_backup_peering_location'] = provider_backup_peering_location
-            __props__['provider_primary_peering_location'] = provider_primary_peering_location
+            __props__.__dict__["location"] = location
+            __props__.__dict__["peering_service_location"] = peering_service_location
+            __props__.__dict__["peering_service_name"] = peering_service_name
+            __props__.__dict__["peering_service_provider"] = peering_service_provider
+            __props__.__dict__["provider_backup_peering_location"] = provider_backup_peering_location
+            __props__.__dict__["provider_primary_peering_location"] = provider_primary_peering_location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:peering:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20190801preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20190801preview:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20190901preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20190901preview:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20200101preview:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20200101preview:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20200401:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20200401:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20201001:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20201001:PeeringService"), pulumi.Alias(type_="azure-native:peering/v20210101:PeeringService"), pulumi.Alias(type_="azure-nextgen:peering/v20210101:PeeringService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PeeringService, __self__).__init__(
@@ -286,18 +276,18 @@ class PeeringService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PeeringServiceArgs.__new__(PeeringServiceArgs)
 
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["peering_service_location"] = None
-        __props__["peering_service_provider"] = None
-        __props__["provider_backup_peering_location"] = None
-        __props__["provider_primary_peering_location"] = None
-        __props__["provisioning_state"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["peering_service_location"] = None
+        __props__.__dict__["peering_service_provider"] = None
+        __props__.__dict__["provider_backup_peering_location"] = None
+        __props__.__dict__["provider_primary_peering_location"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return PeeringService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -379,10 +369,4 @@ class PeeringService(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

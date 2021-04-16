@@ -133,7 +133,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * An array of policy definition references.
      */
-    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20190101.PolicyDefinitionReference>[]>;
+    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20190101.PolicyDefinitionReferenceArgs>[]>;
     /**
      * The name of the policy set definition to create.
      */

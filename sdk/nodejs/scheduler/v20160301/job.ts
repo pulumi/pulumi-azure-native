@@ -97,7 +97,7 @@ export interface JobArgs {
     /**
      * Gets or sets the job properties.
      */
-    readonly properties?: pulumi.Input<inputs.scheduler.v20160301.JobProperties>;
+    readonly properties?: pulumi.Input<inputs.scheduler.v20160301.JobPropertiesArgs>;
     /**
      * The resource group name.
      */

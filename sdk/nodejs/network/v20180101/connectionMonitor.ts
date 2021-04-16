@@ -157,7 +157,7 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the destination of connection monitor.
      */
-    readonly destination: pulumi.Input<inputs.network.v20180101.ConnectionMonitorDestination>;
+    readonly destination: pulumi.Input<inputs.network.v20180101.ConnectionMonitorDestinationArgs>;
     /**
      * Connection monitor location.
      */
@@ -177,7 +177,7 @@ export interface ConnectionMonitorArgs {
     /**
      * Describes the source of connection monitor.
      */
-    readonly source: pulumi.Input<inputs.network.v20180101.ConnectionMonitorSource>;
+    readonly source: pulumi.Input<inputs.network.v20180101.ConnectionMonitorSourceArgs>;
     /**
      * Connection monitor tags.
      */

@@ -88,17 +88,17 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The metadata from the get insights operation results.
         /// </summary>
-        public readonly Outputs.GetInsightsResultsMetadataResponseResult? MetaData;
+        public readonly Outputs.GetInsightsResultsMetadataResponse? MetaData;
         /// <summary>
         /// The insights result values.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EntityInsightItemResponseResult> Value;
+        public readonly ImmutableArray<Outputs.EntityInsightItemResponse> Value;
 
         [OutputConstructor]
         private GetEntityInsightsResult(
-            Outputs.GetInsightsResultsMetadataResponseResult? metaData,
+            Outputs.GetInsightsResultsMetadataResponse? metaData,
 
-            ImmutableArray<Outputs.EntityInsightItemResponseResult> value)
+            ImmutableArray<Outputs.EntityInsightItemResponse> value)
         {
             MetaData = metaData;
             Value = value;

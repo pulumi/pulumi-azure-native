@@ -105,7 +105,7 @@ export interface TriggerArgs {
     /**
      * Properties of the trigger.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.BlobEventsTrigger | inputs.datafactory.v20180601.BlobTrigger | inputs.datafactory.v20180601.ChainingTrigger | inputs.datafactory.v20180601.CustomEventsTrigger | inputs.datafactory.v20180601.MultiplePipelineTrigger | inputs.datafactory.v20180601.RerunTumblingWindowTrigger | inputs.datafactory.v20180601.ScheduleTrigger | inputs.datafactory.v20180601.TumblingWindowTrigger>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.BlobEventsTriggerArgs | inputs.datafactory.v20180601.BlobTriggerArgs | inputs.datafactory.v20180601.ChainingTriggerArgs | inputs.datafactory.v20180601.CustomEventsTriggerArgs | inputs.datafactory.v20180601.MultiplePipelineTriggerArgs | inputs.datafactory.v20180601.RerunTumblingWindowTriggerArgs | inputs.datafactory.v20180601.ScheduleTriggerArgs | inputs.datafactory.v20180601.TumblingWindowTriggerArgs>;
     /**
      * The resource group name.
      */

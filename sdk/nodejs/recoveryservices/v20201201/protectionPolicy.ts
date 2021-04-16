@@ -122,7 +122,7 @@ export interface ProtectionPolicyArgs {
     /**
      * ProtectionPolicyResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20201201.AzureFileShareProtectionPolicy | inputs.recoveryservices.v20201201.AzureIaaSVMProtectionPolicy | inputs.recoveryservices.v20201201.AzureSqlProtectionPolicy | inputs.recoveryservices.v20201201.AzureVmWorkloadProtectionPolicy | inputs.recoveryservices.v20201201.GenericProtectionPolicy | inputs.recoveryservices.v20201201.MabProtectionPolicy>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20201201.AzureFileShareProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.v20201201.AzureVmWorkloadProtectionPolicyArgs | inputs.recoveryservices.v20201201.GenericProtectionPolicyArgs | inputs.recoveryservices.v20201201.MabProtectionPolicyArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

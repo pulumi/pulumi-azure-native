@@ -162,7 +162,7 @@ export interface WorkflowArgs {
     /**
      * Gets or sets the link to definition.
      */
-    readonly definitionLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLink>;
+    readonly definitionLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLinkArgs>;
     /**
      * Gets or sets the resource id.
      */
@@ -178,11 +178,11 @@ export interface WorkflowArgs {
     /**
      * Gets or sets the parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20150201preview.WorkflowParameter>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20150201preview.WorkflowParameterArgs>}>;
     /**
      * Gets or sets the link to parameters.
      */
-    readonly parametersLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLink>;
+    readonly parametersLink?: pulumi.Input<inputs.logic.v20150201preview.ContentLinkArgs>;
     /**
      * The resource group name.
      */
@@ -190,7 +190,7 @@ export interface WorkflowArgs {
     /**
      * Gets or sets the sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20150201preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.logic.v20150201preview.SkuArgs>;
     /**
      * Gets or sets the state.
      */

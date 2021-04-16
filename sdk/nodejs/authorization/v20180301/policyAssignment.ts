@@ -161,5 +161,5 @@ export interface PolicyAssignmentArgs {
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
-    readonly sku?: pulumi.Input<inputs.authorization.v20180301.PolicySku>;
+    readonly sku?: pulumi.Input<inputs.authorization.v20180301.PolicySkuArgs>;
 }

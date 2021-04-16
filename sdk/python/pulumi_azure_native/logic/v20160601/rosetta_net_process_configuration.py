@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -239,9 +239,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                  responder_role_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']]] = None,
                  rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The integration account RosettaNet process configuration.
 
@@ -298,15 +296,7 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                  responder_role_settings: Optional[pulumi.Input[pulumi.InputType['RosettaNetPipRoleSettingsArgs']]] = None,
                  rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -316,41 +306,41 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RosettaNetProcessConfigurationArgs.__new__(RosettaNetProcessConfigurationArgs)
 
             if activity_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'activity_settings'")
-            __props__['activity_settings'] = activity_settings
-            __props__['description'] = description
+            __props__.__dict__["activity_settings"] = activity_settings
+            __props__.__dict__["description"] = description
             if initiator_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'initiator_role_settings'")
-            __props__['initiator_role_settings'] = initiator_role_settings
+            __props__.__dict__["initiator_role_settings"] = initiator_role_settings
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
-            __props__['integration_account_name'] = integration_account_name
-            __props__['location'] = location
-            __props__['metadata'] = metadata
+            __props__.__dict__["integration_account_name"] = integration_account_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["metadata"] = metadata
             if process_code is None and not opts.urn:
                 raise TypeError("Missing required property 'process_code'")
-            __props__['process_code'] = process_code
+            __props__.__dict__["process_code"] = process_code
             if process_name is None and not opts.urn:
                 raise TypeError("Missing required property 'process_name'")
-            __props__['process_name'] = process_name
+            __props__.__dict__["process_name"] = process_name
             if process_version is None and not opts.urn:
                 raise TypeError("Missing required property 'process_version'")
-            __props__['process_version'] = process_version
+            __props__.__dict__["process_version"] = process_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if responder_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'responder_role_settings'")
-            __props__['responder_role_settings'] = responder_role_settings
-            __props__['rosetta_net_process_configuration_name'] = rosetta_net_process_configuration_name
-            __props__['tags'] = tags
-            __props__['changed_time'] = None
-            __props__['created_time'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["responder_role_settings"] = responder_role_settings
+            __props__.__dict__["rosetta_net_process_configuration_name"] = rosetta_net_process_configuration_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["changed_time"] = None
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration"), pulumi.Alias(type_="azure-native:logic:RosettaNetProcessConfiguration"), pulumi.Alias(type_="azure-nextgen:logic:RosettaNetProcessConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RosettaNetProcessConfiguration, __self__).__init__(
@@ -373,22 +363,22 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RosettaNetProcessConfigurationArgs.__new__(RosettaNetProcessConfigurationArgs)
 
-        __props__["activity_settings"] = None
-        __props__["changed_time"] = None
-        __props__["created_time"] = None
-        __props__["description"] = None
-        __props__["initiator_role_settings"] = None
-        __props__["location"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["process_code"] = None
-        __props__["process_name"] = None
-        __props__["process_version"] = None
-        __props__["responder_role_settings"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["activity_settings"] = None
+        __props__.__dict__["changed_time"] = None
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["initiator_role_settings"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["process_code"] = None
+        __props__.__dict__["process_name"] = None
+        __props__.__dict__["process_version"] = None
+        __props__.__dict__["responder_role_settings"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return RosettaNetProcessConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -502,10 +492,4 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         Gets the resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

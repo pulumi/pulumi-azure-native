@@ -134,7 +134,7 @@ export interface GalleryArgs {
     /**
      * Profile for gallery sharing to subscription or tenant
      */
-    readonly sharingProfile?: pulumi.Input<inputs.compute.v20200930.SharingProfile>;
+    readonly sharingProfile?: pulumi.Input<inputs.compute.v20200930.SharingProfileArgs>;
     /**
      * Resource tags
      */

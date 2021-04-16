@@ -179,7 +179,7 @@ export interface ClusterArgs {
     /**
      * Optimized auto scale definition.
      */
-    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.v20190515.OptimizedAutoscale>;
+    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.v20190515.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -187,7 +187,7 @@ export interface ClusterArgs {
     /**
      * The SKU of the cluster.
      */
-    readonly sku: pulumi.Input<inputs.kusto.v20190515.AzureSku>;
+    readonly sku: pulumi.Input<inputs.kusto.v20190515.AzureSkuArgs>;
     /**
      * Resource tags.
      */
@@ -195,11 +195,11 @@ export interface ClusterArgs {
     /**
      * The cluster's external tenants.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190515.TrustedExternalTenant>[]>;
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190515.TrustedExternalTenantArgs>[]>;
     /**
      * Virtual network definition.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20190515.VirtualNetworkConfiguration>;
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20190515.VirtualNetworkConfigurationArgs>;
     /**
      * The availability zones of the cluster.
      */

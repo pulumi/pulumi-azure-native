@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.Blockchain
         /// <summary>
         /// Gets or sets the collection of API key.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApiKeyResponseResult> Keys;
+        public readonly ImmutableArray<Outputs.ApiKeyResponse> Keys;
 
         [OutputConstructor]
-        private ListTransactionNodeApiKeysResult(ImmutableArray<Outputs.ApiKeyResponseResult> keys)
+        private ListTransactionNodeApiKeysResult(ImmutableArray<Outputs.ApiKeyResponse> keys)
         {
             Keys = keys;
         }

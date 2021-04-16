@@ -124,11 +124,11 @@ export interface CassandraResourceCassandraTableArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options?: pulumi.Input<inputs.documentdb.CreateUpdateOptions>;
+    readonly options?: pulumi.Input<inputs.documentdb.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a Cassandra table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.CassandraTableResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.CassandraTableResourceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

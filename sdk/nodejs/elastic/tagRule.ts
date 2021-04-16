@@ -103,7 +103,7 @@ export interface TagRuleArgs {
     /**
      * Properties of the monitoring tag rules.
      */
-    readonly properties?: pulumi.Input<inputs.elastic.MonitoringTagRulesProperties>;
+    readonly properties?: pulumi.Input<inputs.elastic.MonitoringTagRulesPropertiesArgs>;
     /**
      * The name of the resource group to which the Elastic resource belongs.
      */

@@ -153,11 +153,11 @@ export interface BlueprintArgs {
     /**
      * Parameters required by this Blueprint definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterDefinition>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ParameterDefinitionArgs>}>;
     /**
      * Resource group placeholders defined by this Blueprint definition.
      */
-    readonly resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupDefinition>}>;
+    readonly resourceGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.blueprint.v20171111preview.ResourceGroupDefinitionArgs>}>;
     /**
      * The scope where this Blueprint can be applied.
      */

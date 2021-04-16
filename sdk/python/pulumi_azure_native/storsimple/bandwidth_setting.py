@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -108,9 +108,7 @@ class BandwidthSetting(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The bandwidth setting.
         API Version: 2017-06-01.
@@ -153,15 +151,7 @@ class BandwidthSetting(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,22 +161,22 @@ class BandwidthSetting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BandwidthSettingArgs.__new__(BandwidthSettingArgs)
 
-            __props__['bandwidth_setting_name'] = bandwidth_setting_name
-            __props__['kind'] = kind
+            __props__.__dict__["bandwidth_setting_name"] = bandwidth_setting_name
+            __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if schedules is None and not opts.urn:
                 raise TypeError("Missing required property 'schedules'")
-            __props__['schedules'] = schedules
-            __props__['name'] = None
-            __props__['type'] = None
-            __props__['volume_count'] = None
+            __props__.__dict__["schedules"] = schedules
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["volume_count"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:BandwidthSetting"), pulumi.Alias(type_="azure-native:storsimple/v20170601:BandwidthSetting"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BandwidthSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSetting, __self__).__init__(
@@ -209,13 +199,13 @@ class BandwidthSetting(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BandwidthSettingArgs.__new__(BandwidthSettingArgs)
 
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["schedules"] = None
-        __props__["type"] = None
-        __props__["volume_count"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["schedules"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["volume_count"] = None
         return BandwidthSetting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -257,10 +247,4 @@ class BandwidthSetting(pulumi.CustomResource):
         The number of volumes that uses the bandwidth setting.
         """
         return pulumi.get(self, "volume_count")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

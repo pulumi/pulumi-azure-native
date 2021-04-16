@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -84,6 +84,29 @@ class CacheExpirationActionParametersResponse(dict):
     """
     Defines the parameters for the cache expiration action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheBehavior":
+            suggest = "cache_behavior"
+        elif key == "cacheType":
+            suggest = "cache_type"
+        elif key == "odataType":
+            suggest = "odata_type"
+        elif key == "cacheDuration":
+            suggest = "cache_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheExpirationActionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheExpirationActionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheExpirationActionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_behavior: str,
                  cache_type: str,
@@ -130,15 +153,33 @@ class CacheExpirationActionParametersResponse(dict):
         """
         return pulumi.get(self, "cache_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CacheKeyQueryStringActionParametersResponse(dict):
     """
     Defines the parameters for the cache-key query string action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "queryStringBehavior":
+            suggest = "query_string_behavior"
+        elif key == "queryParameters":
+            suggest = "query_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheKeyQueryStringActionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheKeyQueryStringActionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheKeyQueryStringActionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  query_string_behavior: str,
@@ -174,9 +215,6 @@ class CacheKeyQueryStringActionParametersResponse(dict):
         """
         return pulumi.get(self, "query_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CdnEndpointResponse(dict):
@@ -200,15 +238,33 @@ class CdnEndpointResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CookiesMatchConditionParametersResponse(dict):
     """
     Defines the parameters for Cookies match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CookiesMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CookiesMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CookiesMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -280,9 +336,6 @@ class CookiesMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRuleListResponse(dict):
@@ -293,7 +346,7 @@ class CustomRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
-        :param Sequence['CustomRuleResponseArgs'] rules: List of rules
+        :param Sequence['CustomRuleResponse'] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -306,15 +359,31 @@ class CustomRuleListResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRuleResponse(dict):
     """
     Defines the common attributes for a custom rule that can be included in a waf policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  match_conditions: Sequence['outputs.MatchConditionResponse'],
@@ -324,7 +393,7 @@ class CustomRuleResponse(dict):
         """
         Defines the common attributes for a custom rule that can be included in a waf policy
         :param str action: Describes what action to be applied when rule matches
-        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param str name: Defines the name of the custom rule
         :param int priority: Defines in what order this rule be evaluated in the overall list of custom rules
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -376,15 +445,33 @@ class CustomRuleResponse(dict):
         """
         return pulumi.get(self, "enabled_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeepCreatedOriginGroupResponse(dict):
     """
     The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthProbeSettings":
+            suggest = "health_probe_settings"
+        elif key == "responseBasedOriginErrorDetectionSettings":
+            suggest = "response_based_origin_error_detection_settings"
+        elif key == "trafficRestorationTimeToHealedOrNewEndpointsInMinutes":
+            suggest = "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeepCreatedOriginGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeepCreatedOriginGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeepCreatedOriginGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  origins: Sequence['outputs.ResourceReferenceResponse'],
@@ -394,9 +481,9 @@ class DeepCreatedOriginGroupResponse(dict):
         """
         The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
         :param str name: Origin group name which must be unique within the endpoint.
-        :param Sequence['ResourceReferenceResponseArgs'] origins: The source of the content being delivered via CDN within given origin group.
-        :param 'HealthProbeParametersResponseArgs' health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
-        :param 'ResponseBasedOriginErrorDetectionParametersResponseArgs' response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        :param Sequence['ResourceReferenceResponse'] origins: The source of the content being delivered via CDN within given origin group.
+        :param 'HealthProbeParametersResponse' health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
+        :param 'ResponseBasedOriginErrorDetectionParametersResponse' response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
         :param int traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         pulumi.set(__self__, "name", name)
@@ -448,15 +535,43 @@ class DeepCreatedOriginGroupResponse(dict):
         """
         return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeepCreatedOriginResponse(dict):
     """
     The main origin of CDN content which is added when creating a CDN endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+        elif key == "originHostHeader":
+            suggest = "origin_host_header"
+        elif key == "privateLinkAlias":
+            suggest = "private_link_alias"
+        elif key == "privateLinkApprovalMessage":
+            suggest = "private_link_approval_message"
+        elif key == "privateLinkLocation":
+            suggest = "private_link_location"
+        elif key == "privateLinkResourceId":
+            suggest = "private_link_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeepCreatedOriginResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeepCreatedOriginResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeepCreatedOriginResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_name: str,
                  name: str,
@@ -604,9 +719,6 @@ class DeepCreatedOriginResponse(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleCacheExpirationActionResponse(dict):
@@ -620,7 +732,7 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
         Defines the cache expiration action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'CacheExpiration'.
-        :param 'CacheExpirationActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'CacheExpirationActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheExpiration')
         pulumi.set(__self__, "parameters", parameters)
@@ -642,9 +754,6 @@ class DeliveryRuleCacheExpirationActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
@@ -658,7 +767,7 @@ class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
         Defines the cache-key query string action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'CacheKeyQueryString'.
-        :param 'CacheKeyQueryStringActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'CacheKeyQueryStringActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'CacheKeyQueryString')
         pulumi.set(__self__, "parameters", parameters)
@@ -680,9 +789,6 @@ class DeliveryRuleCacheKeyQueryStringActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleCookiesConditionResponse(dict):
@@ -696,7 +802,7 @@ class DeliveryRuleCookiesConditionResponse(dict):
         Defines the Cookies condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'Cookies'.
-        :param 'CookiesMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'CookiesMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'Cookies')
         pulumi.set(__self__, "parameters", parameters)
@@ -718,9 +824,6 @@ class DeliveryRuleCookiesConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleHttpVersionConditionResponse(dict):
@@ -734,7 +837,7 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
         Defines the HttpVersion condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'HttpVersion'.
-        :param 'HttpVersionMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'HttpVersionMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'HttpVersion')
         pulumi.set(__self__, "parameters", parameters)
@@ -756,9 +859,6 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleIsDeviceConditionResponse(dict):
@@ -772,7 +872,7 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
         Defines the IsDevice condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'IsDevice'.
-        :param 'IsDeviceMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'IsDeviceMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'IsDevice')
         pulumi.set(__self__, "parameters", parameters)
@@ -794,9 +894,6 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRulePostArgsConditionResponse(dict):
@@ -810,7 +907,7 @@ class DeliveryRulePostArgsConditionResponse(dict):
         Defines the PostArgs condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'PostArgs'.
-        :param 'PostArgsMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'PostArgsMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'PostArgs')
         pulumi.set(__self__, "parameters", parameters)
@@ -832,9 +929,6 @@ class DeliveryRulePostArgsConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleQueryStringConditionResponse(dict):
@@ -848,7 +942,7 @@ class DeliveryRuleQueryStringConditionResponse(dict):
         Defines the QueryString condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'QueryString'.
-        :param 'QueryStringMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'QueryStringMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'QueryString')
         pulumi.set(__self__, "parameters", parameters)
@@ -870,9 +964,6 @@ class DeliveryRuleQueryStringConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRemoteAddressConditionResponse(dict):
@@ -886,7 +977,7 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
         Defines the RemoteAddress condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'RemoteAddress'.
-        :param 'RemoteAddressMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'RemoteAddressMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RemoteAddress')
         pulumi.set(__self__, "parameters", parameters)
@@ -908,9 +999,6 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRequestBodyConditionResponse(dict):
@@ -924,7 +1012,7 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
         Defines the RequestBody condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'RequestBody'.
-        :param 'RequestBodyMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'RequestBodyMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestBody')
         pulumi.set(__self__, "parameters", parameters)
@@ -946,9 +1034,6 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRequestHeaderActionResponse(dict):
@@ -962,7 +1047,7 @@ class DeliveryRuleRequestHeaderActionResponse(dict):
         Defines the request header action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'ModifyRequestHeader'.
-        :param 'HeaderActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'HeaderActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'ModifyRequestHeader')
         pulumi.set(__self__, "parameters", parameters)
@@ -984,9 +1069,6 @@ class DeliveryRuleRequestHeaderActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRequestHeaderConditionResponse(dict):
@@ -1000,7 +1082,7 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
         Defines the RequestHeader condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'RequestHeader'.
-        :param 'RequestHeaderMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'RequestHeaderMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestHeader')
         pulumi.set(__self__, "parameters", parameters)
@@ -1022,9 +1104,6 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRequestMethodConditionResponse(dict):
@@ -1038,7 +1117,7 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
         Defines the RequestMethod condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'RequestMethod'.
-        :param 'RequestMethodMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'RequestMethodMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestMethod')
         pulumi.set(__self__, "parameters", parameters)
@@ -1060,9 +1139,6 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRequestSchemeConditionResponse(dict):
@@ -1076,7 +1152,7 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
         Defines the RequestScheme condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'RequestScheme'.
-        :param 'RequestSchemeMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'RequestSchemeMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestScheme')
         pulumi.set(__self__, "parameters", parameters)
@@ -1098,9 +1174,6 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleRequestUriConditionResponse(dict):
@@ -1114,7 +1187,7 @@ class DeliveryRuleRequestUriConditionResponse(dict):
         Defines the RequestUri condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'RequestUri'.
-        :param 'RequestUriMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'RequestUriMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'RequestUri')
         pulumi.set(__self__, "parameters", parameters)
@@ -1136,9 +1209,6 @@ class DeliveryRuleRequestUriConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleResponse(dict):
@@ -1152,9 +1222,9 @@ class DeliveryRuleResponse(dict):
                  name: Optional[str] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param Sequence[Union['DeliveryRuleCacheExpirationActionResponseArgs', 'DeliveryRuleCacheKeyQueryStringActionResponseArgs', 'DeliveryRuleRequestHeaderActionResponseArgs', 'DeliveryRuleResponseHeaderActionResponseArgs', 'UrlRedirectActionResponseArgs', 'UrlRewriteActionResponseArgs', 'UrlSigningActionResponseArgs']] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param Sequence[Union['DeliveryRuleCacheExpirationActionResponse', 'DeliveryRuleCacheKeyQueryStringActionResponse', 'DeliveryRuleRequestHeaderActionResponse', 'DeliveryRuleResponseHeaderActionResponse', 'UrlRedirectActionResponse', 'UrlRewriteActionResponse', 'UrlSigningActionResponse']] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
         :param int order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param Sequence[Union['DeliveryRuleCookiesConditionResponseArgs', 'DeliveryRuleHttpVersionConditionResponseArgs', 'DeliveryRuleIsDeviceConditionResponseArgs', 'DeliveryRulePostArgsConditionResponseArgs', 'DeliveryRuleQueryStringConditionResponseArgs', 'DeliveryRuleRemoteAddressConditionResponseArgs', 'DeliveryRuleRequestBodyConditionResponseArgs', 'DeliveryRuleRequestHeaderConditionResponseArgs', 'DeliveryRuleRequestMethodConditionResponseArgs', 'DeliveryRuleRequestSchemeConditionResponseArgs', 'DeliveryRuleRequestUriConditionResponseArgs', 'DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlFileNameConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
+        :param Sequence[Union['DeliveryRuleCookiesConditionResponse', 'DeliveryRuleHttpVersionConditionResponse', 'DeliveryRuleIsDeviceConditionResponse', 'DeliveryRulePostArgsConditionResponse', 'DeliveryRuleQueryStringConditionResponse', 'DeliveryRuleRemoteAddressConditionResponse', 'DeliveryRuleRequestBodyConditionResponse', 'DeliveryRuleRequestHeaderConditionResponse', 'DeliveryRuleRequestMethodConditionResponse', 'DeliveryRuleRequestSchemeConditionResponse', 'DeliveryRuleRequestUriConditionResponse', 'DeliveryRuleUrlFileExtensionConditionResponse', 'DeliveryRuleUrlFileNameConditionResponse', 'DeliveryRuleUrlPathConditionResponse']] conditions: A list of conditions that must be matched for the actions to be executed
         :param str name: Name of the rule
         """
         pulumi.set(__self__, "actions", actions)
@@ -1196,9 +1266,6 @@ class DeliveryRuleResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleResponseHeaderActionResponse(dict):
@@ -1212,7 +1279,7 @@ class DeliveryRuleResponseHeaderActionResponse(dict):
         Defines the response header action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'ModifyResponseHeader'.
-        :param 'HeaderActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'HeaderActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'ModifyResponseHeader')
         pulumi.set(__self__, "parameters", parameters)
@@ -1234,9 +1301,6 @@ class DeliveryRuleResponseHeaderActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleUrlFileExtensionConditionResponse(dict):
@@ -1250,7 +1314,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
         Defines the UrlFileExtension condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'UrlFileExtension'.
-        :param 'UrlFileExtensionMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'UrlFileExtensionMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileExtension')
         pulumi.set(__self__, "parameters", parameters)
@@ -1272,9 +1336,6 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleUrlFileNameConditionResponse(dict):
@@ -1288,7 +1349,7 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
         Defines the UrlFileName condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'UrlFileName'.
-        :param 'UrlFileNameMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'UrlFileNameMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlFileName')
         pulumi.set(__self__, "parameters", parameters)
@@ -1310,9 +1371,6 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeliveryRuleUrlPathConditionResponse(dict):
@@ -1326,7 +1384,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
         Defines the UrlPath condition for the delivery rule.
         :param str name: The name of the condition for the delivery rule.
                Expected value is 'UrlPath'.
-        :param 'UrlPathMatchConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        :param 'UrlPathMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
         pulumi.set(__self__, "name", 'UrlPath')
         pulumi.set(__self__, "parameters", parameters)
@@ -1348,9 +1406,6 @@ class DeliveryRuleUrlPathConditionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
@@ -1362,7 +1417,7 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
                  description: Optional[str] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
-        :param Sequence['DeliveryRuleResponseArgs'] rules: A list of the delivery rules.
+        :param Sequence['DeliveryRuleResponse'] rules: A list of the delivery rules.
         :param str description: User-friendly description of the policy.
         """
         pulumi.set(__self__, "rules", rules)
@@ -1384,9 +1439,6 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
         User-friendly description of the policy.
         """
         return pulumi.get(self, "description")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1411,15 +1463,31 @@ class EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GeoFilterResponse(dict):
     """
     Rules defining user's geo access within a CDN endpoint.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCodes":
+            suggest = "country_codes"
+        elif key == "relativePath":
+            suggest = "relative_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeoFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeoFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeoFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  country_codes: Sequence[str],
@@ -1458,15 +1526,33 @@ class GeoFilterResponse(dict):
         """
         return pulumi.get(self, "relative_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HeaderActionParametersResponse(dict):
     """
     Defines the parameters for the request header action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerAction":
+            suggest = "header_action"
+        elif key == "headerName":
+            suggest = "header_name"
+        elif key == "odataType":
+            suggest = "odata_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HeaderActionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HeaderActionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HeaderActionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  header_action: str,
                  header_name: str,
@@ -1513,15 +1599,35 @@ class HeaderActionParametersResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HealthProbeParametersResponse(dict):
     """
     The JSON object that contains the properties to send health probes to origin.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "probeIntervalInSeconds":
+            suggest = "probe_interval_in_seconds"
+        elif key == "probePath":
+            suggest = "probe_path"
+        elif key == "probeProtocol":
+            suggest = "probe_protocol"
+        elif key == "probeRequestType":
+            suggest = "probe_request_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthProbeParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthProbeParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthProbeParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  probe_interval_in_seconds: Optional[int] = None,
                  probe_path: Optional[str] = None,
@@ -1575,9 +1681,6 @@ class HealthProbeParametersResponse(dict):
         """
         return pulumi.get(self, "probe_request_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpErrorRangeParametersResponse(dict):
@@ -1613,15 +1716,33 @@ class HttpErrorRangeParametersResponse(dict):
         """
         return pulumi.get(self, "end")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HttpVersionMatchConditionParametersResponse(dict):
     """
     Defines the parameters for HttpVersion match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpVersionMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpVersionMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpVersionMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -1669,15 +1790,33 @@ class HttpVersionMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "negate_condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IsDeviceMatchConditionParametersResponse(dict):
     """
     Defines the parameters for IsDevice match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IsDeviceMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IsDeviceMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IsDeviceMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -1737,15 +1876,39 @@ class IsDeviceMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultSigningKeyParametersResponse(dict):
     """
     Describes the parameters for using a user's KeyVault for URL Signing Key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "vaultName":
+            suggest = "vault_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultSigningKeyParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultSigningKeyParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultSigningKeyParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  resource_group_name: str,
@@ -1813,22 +1976,36 @@ class KeyVaultSigningKeyParametersResponse(dict):
         """
         return pulumi.get(self, "vault_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleGroupOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleGroupOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_group_name: str,
                  rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group within the rule set to override
-        :param Sequence['ManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -1850,15 +2027,31 @@ class ManagedRuleGroupOverrideResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_id: str,
                  action: Optional[str] = None,
@@ -1899,20 +2092,34 @@ class ManagedRuleOverrideResponse(dict):
         """
         return pulumi.get(self, "enabled_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleSetListResponse(dict):
     """
     Defines the list of managed rule sets for the policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedRuleSets":
+            suggest = "managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetListResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetListResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetListResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param Sequence['ManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
@@ -1925,15 +2132,35 @@ class ManagedRuleSetListResponse(dict):
         """
         return pulumi.get(self, "managed_rule_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedRuleSetResponse(dict):
     """
     Defines a managed rule set.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "anomalyScore":
+            suggest = "anomaly_score"
+        elif key == "ruleGroupOverrides":
+            suggest = "rule_group_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_set_type: str,
                  rule_set_version: str,
@@ -1944,7 +2171,7 @@ class ManagedRuleSetResponse(dict):
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
         :param int anomaly_score: Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
-        :param Sequence['ManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule overrides to apply to the rule set.
+        :param Sequence['ManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -1985,15 +2212,33 @@ class ManagedRuleSetResponse(dict):
         """
         return pulumi.get(self, "rule_group_overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MatchConditionResponse(dict):
     """
     Define match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValue":
+            suggest = "match_value"
+        elif key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_value: Sequence[str],
                  match_variable: str,
@@ -2068,15 +2313,35 @@ class MatchConditionResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicySettingsResponse(dict):
     """
     Defines contents of a web application firewall global configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultCustomBlockResponseBody":
+            suggest = "default_custom_block_response_body"
+        elif key == "defaultCustomBlockResponseStatusCode":
+            suggest = "default_custom_block_response_status_code"
+        elif key == "defaultRedirectUrl":
+            suggest = "default_redirect_url"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_custom_block_response_body: Optional[str] = None,
                  default_custom_block_response_status_code: Optional[int] = None,
@@ -2142,15 +2407,33 @@ class PolicySettingsResponse(dict):
         """
         return pulumi.get(self, "mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PostArgsMatchConditionParametersResponse(dict):
     """
     Defines the parameters for PostArgs match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PostArgsMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PostArgsMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PostArgsMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2222,15 +2505,33 @@ class PostArgsMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class QueryStringMatchConditionParametersResponse(dict):
     """
     Defines the parameters for QueryString match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueryStringMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueryStringMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueryStringMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2290,9 +2591,6 @@ class QueryStringMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RateLimitRuleListResponse(dict):
@@ -2303,7 +2601,7 @@ class RateLimitRuleListResponse(dict):
                  rules: Optional[Sequence['outputs.RateLimitRuleResponse']] = None):
         """
         Defines contents of rate limit rules
-        :param Sequence['RateLimitRuleResponseArgs'] rules: List of rules
+        :param Sequence['RateLimitRuleResponse'] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -2316,15 +2614,35 @@ class RateLimitRuleListResponse(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RateLimitRuleResponse(dict):
     """
     Defines a rate limiting rule that can be included in a waf policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "rateLimitDurationInMinutes":
+            suggest = "rate_limit_duration_in_minutes"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
+        elif key == "enabledState":
+            suggest = "enabled_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RateLimitRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RateLimitRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RateLimitRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  match_conditions: Sequence['outputs.MatchConditionResponse'],
@@ -2336,7 +2654,7 @@ class RateLimitRuleResponse(dict):
         """
         Defines a rate limiting rule that can be included in a waf policy
         :param str action: Describes what action to be applied when rule matches
-        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
         :param str name: Defines the name of the custom rule
         :param int priority: Defines in what order this rule be evaluated in the overall list of custom rules
         :param int rate_limit_duration_in_minutes: Defines rate limit duration. Default is 1 minute.
@@ -2408,15 +2726,33 @@ class RateLimitRuleResponse(dict):
         """
         return pulumi.get(self, "enabled_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RemoteAddressMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RemoteAddress match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteAddressMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteAddressMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteAddressMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2476,15 +2812,33 @@ class RemoteAddressMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RequestBodyMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestBody match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestBodyMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestBodyMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestBodyMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2544,15 +2898,33 @@ class RequestBodyMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RequestHeaderMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestHeader match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestHeaderMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestHeaderMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestHeaderMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2624,15 +2996,33 @@ class RequestHeaderMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RequestMethodMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestMethod match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestMethodMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestMethodMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestMethodMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2680,15 +3070,33 @@ class RequestMethodMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "negate_condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RequestSchemeMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestScheme match conditions 
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestSchemeMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestSchemeMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestSchemeMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2736,15 +3144,33 @@ class RequestSchemeMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "negate_condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RequestUriMatchConditionParametersResponse(dict):
     """
     Defines the parameters for RequestUri match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestUriMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestUriMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestUriMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2804,9 +3230,6 @@ class RequestUriMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceReferenceResponse(dict):
@@ -2830,22 +3253,40 @@ class ResourceReferenceResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponseBasedOriginErrorDetectionParametersResponse(dict):
     """
     The JSON object that contains the properties to determine origin health using real requests/responses.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpErrorRanges":
+            suggest = "http_error_ranges"
+        elif key == "responseBasedDetectedErrorTypes":
+            suggest = "response_based_detected_error_types"
+        elif key == "responseBasedFailoverThresholdPercentage":
+            suggest = "response_based_failover_threshold_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseBasedOriginErrorDetectionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseBasedOriginErrorDetectionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseBasedOriginErrorDetectionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  http_error_ranges: Optional[Sequence['outputs.HttpErrorRangeParametersResponse']] = None,
                  response_based_detected_error_types: Optional[str] = None,
                  response_based_failover_threshold_percentage: Optional[int] = None):
         """
         The JSON object that contains the properties to determine origin health using real requests/responses.
-        :param Sequence['HttpErrorRangeParametersResponseArgs'] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        :param Sequence['HttpErrorRangeParametersResponse'] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
         :param str response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
         :param int response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
         """
@@ -2880,9 +3321,6 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
         """
         return pulumi.get(self, "response_based_failover_threshold_percentage")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -2906,15 +3344,33 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlFileExtensionMatchConditionParametersResponse(dict):
     """
     Defines the parameters for UrlFileExtension match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlFileExtensionMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlFileExtensionMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlFileExtensionMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -2974,15 +3430,33 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlFileNameMatchConditionParametersResponse(dict):
     """
     Defines the parameters for UrlFilename match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlFileNameMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlFileNameMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlFileNameMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -3042,15 +3516,33 @@ class UrlFileNameMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlPathMatchConditionParametersResponse(dict):
     """
     Defines the parameters for UrlPath match conditions
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlPathMatchConditionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlPathMatchConditionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlPathMatchConditionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  operator: str,
@@ -3110,15 +3602,41 @@ class UrlPathMatchConditionParametersResponse(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlRedirectActionParametersResponse(dict):
     """
     Defines the parameters for the url redirect action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "customFragment":
+            suggest = "custom_fragment"
+        elif key == "customHostname":
+            suggest = "custom_hostname"
+        elif key == "customPath":
+            suggest = "custom_path"
+        elif key == "customQueryString":
+            suggest = "custom_query_string"
+        elif key == "destinationProtocol":
+            suggest = "destination_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlRedirectActionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlRedirectActionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlRedirectActionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  odata_type: str,
                  redirect_type: str,
@@ -3202,9 +3720,6 @@ class UrlRedirectActionParametersResponse(dict):
         """
         return pulumi.get(self, "destination_protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlRedirectActionResponse(dict):
@@ -3218,7 +3733,7 @@ class UrlRedirectActionResponse(dict):
         Defines the url redirect action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'UrlRedirect'.
-        :param 'UrlRedirectActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'UrlRedirectActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlRedirect')
         pulumi.set(__self__, "parameters", parameters)
@@ -3240,15 +3755,33 @@ class UrlRedirectActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlRewriteActionParametersResponse(dict):
     """
     Defines the parameters for the url rewrite action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "odataType":
+            suggest = "odata_type"
+        elif key == "sourcePattern":
+            suggest = "source_pattern"
+        elif key == "preserveUnmatchedPath":
+            suggest = "preserve_unmatched_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlRewriteActionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlRewriteActionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlRewriteActionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: str,
                  odata_type: str,
@@ -3295,9 +3828,6 @@ class UrlRewriteActionParametersResponse(dict):
         """
         return pulumi.get(self, "preserve_unmatched_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlRewriteActionResponse(dict):
@@ -3311,7 +3841,7 @@ class UrlRewriteActionResponse(dict):
         Defines the url rewrite action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'UrlRewrite'.
-        :param 'UrlRewriteActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'UrlRewriteActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlRewrite')
         pulumi.set(__self__, "parameters", parameters)
@@ -3333,15 +3863,35 @@ class UrlRewriteActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlSigningActionParametersResponse(dict):
     """
     Defines the parameters for the Url Signing action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+        elif key == "ipSubnets":
+            suggest = "ip_subnets"
+        elif key == "odataType":
+            suggest = "odata_type"
+        elif key == "parameterNameOverride":
+            suggest = "parameter_name_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlSigningActionParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlSigningActionParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlSigningActionParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_id: str,
                  algorithm: Optional[str] = None,
@@ -3353,7 +3903,7 @@ class UrlSigningActionParametersResponse(dict):
         :param str key_id: Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
         :param str algorithm: Algorithm to use for URL signing
         :param Sequence[str] ip_subnets: Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
-        :param Sequence['UrlSigningParamIdentifierResponseArgs'] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
+        :param Sequence['UrlSigningParamIdentifierResponse'] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
         """
         pulumi.set(__self__, "key_id", key_id)
         if algorithm is not None:
@@ -3402,9 +3952,6 @@ class UrlSigningActionParametersResponse(dict):
         """
         return pulumi.get(self, "parameter_name_override")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlSigningActionResponse(dict):
@@ -3418,7 +3965,7 @@ class UrlSigningActionResponse(dict):
         Defines the url signing action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
                Expected value is 'UrlSigning'.
-        :param 'UrlSigningActionParametersResponseArgs' parameters: Defines the parameters for the action.
+        :param 'UrlSigningActionParametersResponse' parameters: Defines the parameters for the action.
         """
         pulumi.set(__self__, "name", 'UrlSigning')
         pulumi.set(__self__, "parameters", parameters)
@@ -3440,22 +3987,38 @@ class UrlSigningActionResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlSigningKeyResponse(dict):
     """
     Url signing key
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+        elif key == "keySourceParameters":
+            suggest = "key_source_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlSigningKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlSigningKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlSigningKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_id: str,
                  key_source_parameters: 'outputs.KeyVaultSigningKeyParametersResponse'):
         """
         Url signing key
         :param str key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
-        :param 'KeyVaultSigningKeyParametersResponseArgs' key_source_parameters: Defines the parameters for using customer key vault for Url Signing Key.
+        :param 'KeyVaultSigningKeyParametersResponse' key_source_parameters: Defines the parameters for using customer key vault for Url Signing Key.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_source_parameters", key_source_parameters)
@@ -3476,15 +4039,31 @@ class UrlSigningKeyResponse(dict):
         """
         return pulumi.get(self, "key_source_parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UrlSigningParamIdentifierResponse(dict):
     """
     Defines how to identify a parameter for a specific purpose e.g. expires
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paramIndicator":
+            suggest = "param_indicator"
+        elif key == "paramName":
+            suggest = "param_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UrlSigningParamIdentifierResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UrlSigningParamIdentifierResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UrlSigningParamIdentifierResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  param_indicator: str,
                  param_name: str):
@@ -3511,8 +4090,5 @@ class UrlSigningParamIdentifierResponse(dict):
         Parameter name
         """
         return pulumi.get(self, "param_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

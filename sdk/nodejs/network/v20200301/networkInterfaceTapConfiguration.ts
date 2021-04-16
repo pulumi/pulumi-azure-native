@@ -125,5 +125,5 @@ export interface NetworkInterfaceTapConfigurationArgs {
     /**
      * The reference to the Virtual Network Tap resource.
      */
-    readonly virtualNetworkTap?: pulumi.Input<inputs.network.v20200301.VirtualNetworkTap>;
+    readonly virtualNetworkTap?: pulumi.Input<inputs.network.v20200301.VirtualNetworkTapArgs>;
 }

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -160,9 +160,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Defines the security Configuration
         API Version: 2021-02-01-preview.
@@ -211,15 +209,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,25 +219,25 @@ class SecurityConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecurityConfigurationArgs.__new__(SecurityConfigurationArgs)
 
-            __props__['applies_to_groups'] = applies_to_groups
-            __props__['configuration_name'] = configuration_name
-            __props__['delete_existing_nsgs'] = delete_existing_nsgs
-            __props__['description'] = description
-            __props__['display_name'] = display_name
+            __props__.__dict__["applies_to_groups"] = applies_to_groups
+            __props__.__dict__["configuration_name"] = configuration_name
+            __props__.__dict__["delete_existing_nsgs"] = delete_existing_nsgs
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
-            __props__['network_manager_name'] = network_manager_name
+            __props__.__dict__["network_manager_name"] = network_manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['security_type'] = security_type
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['system_data'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_type"] = security_type
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:SecurityConfiguration"), pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20210201preview:SecurityConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityConfiguration, __self__).__init__(
@@ -270,18 +260,18 @@ class SecurityConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SecurityConfigurationArgs.__new__(SecurityConfigurationArgs)
 
-        __props__["applies_to_groups"] = None
-        __props__["delete_existing_nsgs"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["security_type"] = None
-        __props__["system_data"] = None
-        __props__["type"] = None
+        __props__.__dict__["applies_to_groups"] = None
+        __props__.__dict__["delete_existing_nsgs"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["security_type"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["type"] = None
         return SecurityConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -363,10 +353,4 @@ class SecurityConfiguration(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

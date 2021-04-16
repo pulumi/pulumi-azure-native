@@ -278,15 +278,15 @@ export interface DatabaseAccountArgs {
     /**
      * API specific properties. Currently, supported only for MongoDB API.
      */
-    readonly apiProperties?: pulumi.Input<inputs.documentdb.v20210115.ApiProperties>;
+    readonly apiProperties?: pulumi.Input<inputs.documentdb.v20210115.ApiPropertiesArgs>;
     /**
      * The object representing the policy for taking backups on an account.
      */
-    readonly backupPolicy?: pulumi.Input<inputs.documentdb.v20210115.ContinuousModeBackupPolicy | inputs.documentdb.v20210115.PeriodicModeBackupPolicy>;
+    readonly backupPolicy?: pulumi.Input<inputs.documentdb.v20210115.ContinuousModeBackupPolicyArgs | inputs.documentdb.v20210115.PeriodicModeBackupPolicyArgs>;
     /**
      * List of Cosmos DB capabilities for the account
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.Capability>[]>;
+    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.CapabilityArgs>[]>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -294,11 +294,11 @@ export interface DatabaseAccountArgs {
     /**
      * The consistency policy for the Cosmos DB account.
      */
-    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20210115.ConsistencyPolicy>;
+    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20210115.ConsistencyPolicyArgs>;
     /**
      * The CORS policy for the Cosmos DB database account.
      */
-    readonly cors?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.CorsPolicy>[]>;
+    readonly cors?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.CorsPolicyArgs>[]>;
     /**
      * The offer type for the database
      */
@@ -330,11 +330,11 @@ export interface DatabaseAccountArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.v20210115.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.documentdb.v20210115.ManagedServiceIdentityArgs>;
     /**
      * List of IpRules.
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.IpAddressOrRange>[]>;
+    readonly ipRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.IpAddressOrRangeArgs>[]>;
     /**
      * Flag to indicate whether to enable/disable Virtual Network ACL rules.
      */
@@ -354,7 +354,7 @@ export interface DatabaseAccountArgs {
     /**
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
-    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.Location>[]>;
+    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.LocationArgs>[]>;
     /**
      * Indicates what services are allowed to bypass firewall checks.
      */
@@ -378,5 +378,5 @@ export interface DatabaseAccountArgs {
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.VirtualNetworkRule>[]>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20210115.VirtualNetworkRuleArgs>[]>;
 }

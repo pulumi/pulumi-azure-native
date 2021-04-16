@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -301,9 +301,7 @@ class Pool(pulumi.CustomResource):
                  task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Contains information about a pool.
 
@@ -365,15 +363,7 @@ class Pool(pulumi.CustomResource):
                  task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -383,42 +373,42 @@ class Pool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PoolArgs.__new__(PoolArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['application_licenses'] = application_licenses
-            __props__['application_packages'] = application_packages
-            __props__['certificates'] = certificates
-            __props__['deployment_configuration'] = deployment_configuration
-            __props__['display_name'] = display_name
-            __props__['inter_node_communication'] = inter_node_communication
-            __props__['max_tasks_per_node'] = max_tasks_per_node
-            __props__['metadata'] = metadata
-            __props__['network_configuration'] = network_configuration
-            __props__['pool_name'] = pool_name
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["application_licenses"] = application_licenses
+            __props__.__dict__["application_packages"] = application_packages
+            __props__.__dict__["certificates"] = certificates
+            __props__.__dict__["deployment_configuration"] = deployment_configuration
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["inter_node_communication"] = inter_node_communication
+            __props__.__dict__["max_tasks_per_node"] = max_tasks_per_node
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["network_configuration"] = network_configuration
+            __props__.__dict__["pool_name"] = pool_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scale_settings'] = scale_settings
-            __props__['start_task'] = start_task
-            __props__['task_scheduling_policy'] = task_scheduling_policy
-            __props__['user_accounts'] = user_accounts
-            __props__['vm_size'] = vm_size
-            __props__['allocation_state'] = None
-            __props__['allocation_state_transition_time'] = None
-            __props__['auto_scale_run'] = None
-            __props__['creation_time'] = None
-            __props__['current_dedicated_nodes'] = None
-            __props__['current_low_priority_nodes'] = None
-            __props__['etag'] = None
-            __props__['last_modified'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['provisioning_state_transition_time'] = None
-            __props__['resize_operation_status'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scale_settings"] = scale_settings
+            __props__.__dict__["start_task"] = start_task
+            __props__.__dict__["task_scheduling_policy"] = task_scheduling_policy
+            __props__.__dict__["user_accounts"] = user_accounts
+            __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["allocation_state"] = None
+            __props__.__dict__["allocation_state_transition_time"] = None
+            __props__.__dict__["auto_scale_run"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["current_dedicated_nodes"] = None
+            __props__.__dict__["current_low_priority_nodes"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["last_modified"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["provisioning_state_transition_time"] = None
+            __props__.__dict__["resize_operation_status"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batch/v20170901:Pool"), pulumi.Alias(type_="azure-native:batch:Pool"), pulumi.Alias(type_="azure-nextgen:batch:Pool"), pulumi.Alias(type_="azure-native:batch/v20181201:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20181201:Pool"), pulumi.Alias(type_="azure-native:batch/v20190401:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190401:Pool"), pulumi.Alias(type_="azure-native:batch/v20190801:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20190801:Pool"), pulumi.Alias(type_="azure-native:batch/v20200301:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200301:Pool"), pulumi.Alias(type_="azure-native:batch/v20200501:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200501:Pool"), pulumi.Alias(type_="azure-native:batch/v20200901:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20200901:Pool"), pulumi.Alias(type_="azure-native:batch/v20210101:Pool"), pulumi.Alias(type_="azure-nextgen:batch/v20210101:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
@@ -441,35 +431,35 @@ class Pool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PoolArgs.__new__(PoolArgs)
 
-        __props__["allocation_state"] = None
-        __props__["allocation_state_transition_time"] = None
-        __props__["application_licenses"] = None
-        __props__["application_packages"] = None
-        __props__["auto_scale_run"] = None
-        __props__["certificates"] = None
-        __props__["creation_time"] = None
-        __props__["current_dedicated_nodes"] = None
-        __props__["current_low_priority_nodes"] = None
-        __props__["deployment_configuration"] = None
-        __props__["display_name"] = None
-        __props__["etag"] = None
-        __props__["inter_node_communication"] = None
-        __props__["last_modified"] = None
-        __props__["max_tasks_per_node"] = None
-        __props__["metadata"] = None
-        __props__["name"] = None
-        __props__["network_configuration"] = None
-        __props__["provisioning_state"] = None
-        __props__["provisioning_state_transition_time"] = None
-        __props__["resize_operation_status"] = None
-        __props__["scale_settings"] = None
-        __props__["start_task"] = None
-        __props__["task_scheduling_policy"] = None
-        __props__["type"] = None
-        __props__["user_accounts"] = None
-        __props__["vm_size"] = None
+        __props__.__dict__["allocation_state"] = None
+        __props__.__dict__["allocation_state_transition_time"] = None
+        __props__.__dict__["application_licenses"] = None
+        __props__.__dict__["application_packages"] = None
+        __props__.__dict__["auto_scale_run"] = None
+        __props__.__dict__["certificates"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["current_dedicated_nodes"] = None
+        __props__.__dict__["current_low_priority_nodes"] = None
+        __props__.__dict__["deployment_configuration"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["inter_node_communication"] = None
+        __props__.__dict__["last_modified"] = None
+        __props__.__dict__["max_tasks_per_node"] = None
+        __props__.__dict__["metadata"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_configuration"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["provisioning_state_transition_time"] = None
+        __props__.__dict__["resize_operation_status"] = None
+        __props__.__dict__["scale_settings"] = None
+        __props__.__dict__["start_task"] = None
+        __props__.__dict__["task_scheduling_policy"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_accounts"] = None
+        __props__.__dict__["vm_size"] = None
         return Pool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -670,10 +660,4 @@ class Pool(pulumi.CustomResource):
         For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         return pulumi.get(self, "vm_size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

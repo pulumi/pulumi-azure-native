@@ -136,8 +136,8 @@ export interface MachineLearningDatasetArgs {
      * Specifies dataset type.
      */
     readonly datasetType: pulumi.Input<string | enums.machinelearningservices.DatasetType>;
-    readonly parameters: pulumi.Input<inputs.machinelearningservices.DatasetCreateRequestParameters>;
-    readonly registration: pulumi.Input<inputs.machinelearningservices.DatasetCreateRequestRegistration>;
+    readonly parameters: pulumi.Input<inputs.machinelearningservices.DatasetCreateRequestParametersArgs>;
+    readonly registration: pulumi.Input<inputs.machinelearningservices.DatasetCreateRequestRegistrationArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -146,7 +146,7 @@ export interface MachineLearningDatasetArgs {
      * Skip validation that ensures data can be loaded from the dataset before registration.
      */
     readonly skipValidation?: pulumi.Input<boolean>;
-    readonly timeSeries?: pulumi.Input<inputs.machinelearningservices.DatasetCreateRequestTimeSeries>;
+    readonly timeSeries?: pulumi.Input<inputs.machinelearningservices.DatasetCreateRequestTimeSeriesArgs>;
     /**
      * Name of Azure Machine Learning workspace.
      */

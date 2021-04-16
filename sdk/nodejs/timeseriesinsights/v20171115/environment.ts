@@ -166,7 +166,7 @@ export interface EnvironmentArgs {
     /**
      * The list of partition keys according to which the data in the environment will be ordered.
      */
-    readonly partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.PartitionKeyProperty>[]>;
+    readonly partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.PartitionKeyPropertyArgs>[]>;
     /**
      * Name of an Azure Resource group.
      */
@@ -174,7 +174,7 @@ export interface EnvironmentArgs {
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20171115.Sku>;
+    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20171115.SkuArgs>;
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */

@@ -208,7 +208,7 @@ export interface SecurityRuleArgs {
     /**
      * The application security group specified as destination.
      */
-    readonly destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ApplicationSecurityGroup>[]>;
+    readonly destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ApplicationSecurityGroupArgs>[]>;
     /**
      * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
@@ -268,7 +268,7 @@ export interface SecurityRuleArgs {
     /**
      * The application security group specified as source.
      */
-    readonly sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ApplicationSecurityGroup>[]>;
+    readonly sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.v20180601.ApplicationSecurityGroupArgs>[]>;
     /**
      * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */

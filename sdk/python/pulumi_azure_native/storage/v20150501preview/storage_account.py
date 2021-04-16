@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -109,9 +109,7 @@ class StorageAccount(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The storage account.
 
@@ -152,15 +150,7 @@ class StorageAccount(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,27 +160,27 @@ class StorageAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
-            __props__['account_name'] = account_name
-            __props__['account_type'] = account_type
-            __props__['location'] = location
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["account_type"] = account_type
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['creation_time'] = None
-            __props__['custom_domain'] = None
-            __props__['last_geo_failover_time'] = None
-            __props__['name'] = None
-            __props__['primary_endpoints'] = None
-            __props__['primary_location'] = None
-            __props__['provisioning_state'] = None
-            __props__['secondary_endpoints'] = None
-            __props__['secondary_location'] = None
-            __props__['status_of_primary'] = None
-            __props__['status_of_secondary'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["custom_domain"] = None
+            __props__.__dict__["last_geo_failover_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["primary_endpoints"] = None
+            __props__.__dict__["primary_location"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["secondary_endpoints"] = None
+            __props__.__dict__["secondary_location"] = None
+            __props__.__dict__["status_of_primary"] = None
+            __props__.__dict__["status_of_secondary"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
@@ -213,23 +203,23 @@ class StorageAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
-        __props__["account_type"] = None
-        __props__["creation_time"] = None
-        __props__["custom_domain"] = None
-        __props__["last_geo_failover_time"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["primary_endpoints"] = None
-        __props__["primary_location"] = None
-        __props__["provisioning_state"] = None
-        __props__["secondary_endpoints"] = None
-        __props__["secondary_location"] = None
-        __props__["status_of_primary"] = None
-        __props__["status_of_secondary"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["account_type"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["custom_domain"] = None
+        __props__.__dict__["last_geo_failover_time"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["primary_endpoints"] = None
+        __props__.__dict__["primary_location"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["secondary_endpoints"] = None
+        __props__.__dict__["secondary_location"] = None
+        __props__.__dict__["status_of_primary"] = None
+        __props__.__dict__["status_of_secondary"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +341,4 @@ class StorageAccount(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

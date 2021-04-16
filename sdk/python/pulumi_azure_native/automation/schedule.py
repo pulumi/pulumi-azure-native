@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -208,9 +208,7 @@ class Schedule(pulumi.CustomResource):
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Definition of the schedule.
         API Version: 2019-06-01.
@@ -265,15 +263,7 @@ class Schedule(pulumi.CustomResource):
                  schedule_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,37 +273,37 @@ class Schedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
-            __props__['advanced_schedule'] = advanced_schedule
+            __props__.__dict__["advanced_schedule"] = advanced_schedule
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
-            __props__['description'] = description
-            __props__['expiry_time'] = expiry_time
+            __props__.__dict__["automation_account_name"] = automation_account_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["expiry_time"] = expiry_time
             if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
-            __props__['frequency'] = frequency
-            __props__['interval'] = interval
+            __props__.__dict__["frequency"] = frequency
+            __props__.__dict__["interval"] = interval
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['schedule_name'] = schedule_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["schedule_name"] = schedule_name
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
-            __props__['start_time'] = start_time
-            __props__['time_zone'] = time_zone
-            __props__['creation_time'] = None
-            __props__['expiry_time_offset_minutes'] = None
-            __props__['is_enabled'] = None
-            __props__['last_modified_time'] = None
-            __props__['next_run'] = None
-            __props__['next_run_offset_minutes'] = None
-            __props__['start_time_offset_minutes'] = None
-            __props__['type'] = None
+            __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["time_zone"] = time_zone
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["expiry_time_offset_minutes"] = None
+            __props__.__dict__["is_enabled"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["next_run"] = None
+            __props__.__dict__["next_run_offset_minutes"] = None
+            __props__.__dict__["start_time_offset_minutes"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation:Schedule"), pulumi.Alias(type_="azure-native:automation/v20151031:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Schedule"), pulumi.Alias(type_="azure-native:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:Schedule"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Schedule"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
@@ -336,24 +326,24 @@ class Schedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
-        __props__["advanced_schedule"] = None
-        __props__["creation_time"] = None
-        __props__["description"] = None
-        __props__["expiry_time"] = None
-        __props__["expiry_time_offset_minutes"] = None
-        __props__["frequency"] = None
-        __props__["interval"] = None
-        __props__["is_enabled"] = None
-        __props__["last_modified_time"] = None
-        __props__["name"] = None
-        __props__["next_run"] = None
-        __props__["next_run_offset_minutes"] = None
-        __props__["start_time"] = None
-        __props__["start_time_offset_minutes"] = None
-        __props__["time_zone"] = None
-        __props__["type"] = None
+        __props__.__dict__["advanced_schedule"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["expiry_time"] = None
+        __props__.__dict__["expiry_time_offset_minutes"] = None
+        __props__.__dict__["frequency"] = None
+        __props__.__dict__["interval"] = None
+        __props__.__dict__["is_enabled"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["next_run"] = None
+        __props__.__dict__["next_run_offset_minutes"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["start_time_offset_minutes"] = None
+        __props__.__dict__["time_zone"] = None
+        __props__.__dict__["type"] = None
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -483,10 +473,4 @@ class Schedule(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

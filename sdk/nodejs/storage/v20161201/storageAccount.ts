@@ -198,7 +198,7 @@ export interface StorageAccountArgs {
     /**
      * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.v20161201.CustomDomain>;
+    readonly customDomain?: pulumi.Input<inputs.storage.v20161201.CustomDomainArgs>;
     /**
      * Allows https traffic only to storage service if sets to true.
      */
@@ -206,7 +206,7 @@ export interface StorageAccountArgs {
     /**
      * Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
      */
-    readonly encryption?: pulumi.Input<inputs.storage.v20161201.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.storage.v20161201.EncryptionArgs>;
     /**
      * Required. Indicates the type of storage account.
      */
@@ -222,7 +222,7 @@ export interface StorageAccountArgs {
     /**
      * Required. Gets or sets the sku name.
      */
-    readonly sku: pulumi.Input<inputs.storage.v20161201.Sku>;
+    readonly sku: pulumi.Input<inputs.storage.v20161201.SkuArgs>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */

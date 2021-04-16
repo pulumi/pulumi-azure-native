@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -285,9 +285,7 @@ class AppServicePlan(pulumi.CustomResource):
                  target_worker_count: Optional[pulumi.Input[int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[int]] = None,
                  worker_tier_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         App Service plan.
 
@@ -349,15 +347,7 @@ class AppServicePlan(pulumi.CustomResource):
                  target_worker_count: Optional[pulumi.Input[int]] = None,
                  target_worker_size_id: Optional[pulumi.Input[int]] = None,
                  worker_tier_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -367,37 +357,37 @@ class AppServicePlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
-            __props__['admin_site_name'] = admin_site_name
-            __props__['hosting_environment_profile'] = hosting_environment_profile
-            __props__['is_spot'] = is_spot
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["admin_site_name"] = admin_site_name
+            __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
+            __props__.__dict__["is_spot"] = is_spot
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if per_site_scaling is None:
                 per_site_scaling = False
-            __props__['per_site_scaling'] = per_site_scaling
+            __props__.__dict__["per_site_scaling"] = per_site_scaling
             if reserved is None:
                 reserved = False
-            __props__['reserved'] = reserved
+            __props__.__dict__["reserved"] = reserved
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['spot_expiration_time'] = spot_expiration_time
-            __props__['tags'] = tags
-            __props__['target_worker_count'] = target_worker_count
-            __props__['target_worker_size_id'] = target_worker_size_id
-            __props__['worker_tier_name'] = worker_tier_name
-            __props__['geo_region'] = None
-            __props__['maximum_number_of_workers'] = None
-            __props__['number_of_sites'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_group'] = None
-            __props__['status'] = None
-            __props__['subscription'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["spot_expiration_time"] = spot_expiration_time
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_worker_count"] = target_worker_count
+            __props__.__dict__["target_worker_size_id"] = target_worker_size_id
+            __props__.__dict__["worker_tier_name"] = worker_tier_name
+            __props__.__dict__["geo_region"] = None
+            __props__.__dict__["maximum_number_of_workers"] = None
+            __props__.__dict__["number_of_sites"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_group"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["subscription"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-native:web:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201201:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlan, __self__).__init__(
@@ -420,30 +410,30 @@ class AppServicePlan(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
-        __props__["admin_site_name"] = None
-        __props__["geo_region"] = None
-        __props__["hosting_environment_profile"] = None
-        __props__["is_spot"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["maximum_number_of_workers"] = None
-        __props__["name"] = None
-        __props__["number_of_sites"] = None
-        __props__["per_site_scaling"] = None
-        __props__["provisioning_state"] = None
-        __props__["reserved"] = None
-        __props__["resource_group"] = None
-        __props__["sku"] = None
-        __props__["spot_expiration_time"] = None
-        __props__["status"] = None
-        __props__["subscription"] = None
-        __props__["tags"] = None
-        __props__["target_worker_count"] = None
-        __props__["target_worker_size_id"] = None
-        __props__["type"] = None
-        __props__["worker_tier_name"] = None
+        __props__.__dict__["admin_site_name"] = None
+        __props__.__dict__["geo_region"] = None
+        __props__.__dict__["hosting_environment_profile"] = None
+        __props__.__dict__["is_spot"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maximum_number_of_workers"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["number_of_sites"] = None
+        __props__.__dict__["per_site_scaling"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["reserved"] = None
+        __props__.__dict__["resource_group"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["spot_expiration_time"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["subscription"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["target_worker_count"] = None
+        __props__.__dict__["target_worker_size_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["worker_tier_name"] = None
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -622,10 +612,4 @@ class AppServicePlan(pulumi.CustomResource):
         Target worker tier assigned to the App Service plan.
         """
         return pulumi.get(self, "worker_tier_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

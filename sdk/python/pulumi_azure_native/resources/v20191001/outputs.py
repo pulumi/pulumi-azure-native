@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -39,6 +39,23 @@ class AliasPathResponse(dict):
     """
     The type of the paths for alias.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersions":
+            suggest = "api_versions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasPathResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasPathResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasPathResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_versions: Optional[Sequence[str]] = None,
                  path: Optional[str] = None,
@@ -47,7 +64,7 @@ class AliasPathResponse(dict):
         The type of the paths for alias.
         :param Sequence[str] api_versions: The API versions.
         :param str path: The path of an alias.
-        :param 'AliasPatternResponseArgs' pattern: The pattern for an alias path.
+        :param 'AliasPatternResponse' pattern: The pattern for an alias path.
         """
         if api_versions is not None:
             pulumi.set(__self__, "api_versions", api_versions)
@@ -79,9 +96,6 @@ class AliasPathResponse(dict):
         The pattern for an alias path.
         """
         return pulumi.get(self, "pattern")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -130,15 +144,31 @@ class AliasPatternResponse(dict):
         """
         return pulumi.get(self, "variable")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AliasResponse(dict):
     """
     The alias type. 
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultPath":
+            suggest = "default_path"
+        elif key == "defaultPattern":
+            suggest = "default_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_path: Optional[str] = None,
                  default_pattern: Optional['outputs.AliasPatternResponse'] = None,
@@ -148,9 +178,9 @@ class AliasResponse(dict):
         """
         The alias type. 
         :param str default_path: The default path for an alias.
-        :param 'AliasPatternResponseArgs' default_pattern: The default pattern for an alias.
+        :param 'AliasPatternResponse' default_pattern: The default pattern for an alias.
         :param str name: The alias name.
-        :param Sequence['AliasPathResponseArgs'] paths: The paths for an alias.
+        :param Sequence['AliasPathResponse'] paths: The paths for an alias.
         :param str type: The type of the alias.
         """
         if default_path is not None:
@@ -204,15 +234,31 @@ class AliasResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BasicDependencyResponse(dict):
     """
     Deployment dependency information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceName":
+            suggest = "resource_name"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BasicDependencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BasicDependencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BasicDependencyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  resource_name: Optional[str] = None,
@@ -254,15 +300,29 @@ class BasicDependencyResponse(dict):
         """
         return pulumi.get(self, "resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DebugSettingResponse(dict):
     """
     The debug setting.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailLevel":
+            suggest = "detail_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DebugSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DebugSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DebugSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  detail_level: Optional[str] = None):
         """
@@ -280,15 +340,33 @@ class DebugSettingResponse(dict):
         """
         return pulumi.get(self, "detail_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DependencyResponse(dict):
     """
     Deployment dependency information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DependencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DependencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DependencyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  depends_on: Optional[Sequence['outputs.BasicDependencyResponse']] = None,
                  id: Optional[str] = None,
@@ -296,7 +374,7 @@ class DependencyResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Deployment dependency information.
-        :param Sequence['BasicDependencyResponseArgs'] depends_on: The list of dependencies.
+        :param Sequence['BasicDependencyResponse'] depends_on: The list of dependencies.
         :param str id: The ID of the dependency.
         :param str resource_name: The dependency resource name.
         :param str resource_type: The dependency resource type.
@@ -342,15 +420,45 @@ class DependencyResponse(dict):
         """
         return pulumi.get(self, "resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DeploymentPropertiesExtendedResponse(dict):
     """
     Deployment properties with additional details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "debugSetting":
+            suggest = "debug_setting"
+        elif key == "onErrorDeployment":
+            suggest = "on_error_deployment"
+        elif key == "outputResources":
+            suggest = "output_resources"
+        elif key == "parametersLink":
+            suggest = "parameters_link"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "templateHash":
+            suggest = "template_hash"
+        elif key == "templateLink":
+            suggest = "template_link"
+        elif key == "validatedResources":
+            suggest = "validated_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentPropertiesExtendedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentPropertiesExtendedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentPropertiesExtendedResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  correlation_id: str,
                  debug_setting: 'outputs.DebugSettingResponse',
@@ -372,22 +480,22 @@ class DeploymentPropertiesExtendedResponse(dict):
         """
         Deployment properties with additional details.
         :param str correlation_id: The correlation ID of the deployment.
-        :param 'DebugSettingResponseArgs' debug_setting: The debug setting of the deployment.
-        :param Sequence['DependencyResponseArgs'] dependencies: The list of deployment dependencies.
+        :param 'DebugSettingResponse' debug_setting: The debug setting of the deployment.
+        :param Sequence['DependencyResponse'] dependencies: The list of deployment dependencies.
         :param str duration: The duration of the template deployment.
-        :param 'ErrorResponseResponseArgs' error: The deployment error.
+        :param 'ErrorResponseResponse' error: The deployment error.
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
-        :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
-        :param Sequence['ResourceReferenceResponseArgs'] output_resources: Array of provisioned resources.
+        :param 'OnErrorDeploymentExtendedResponse' on_error_deployment: The deployment on error behavior.
+        :param Sequence['ResourceReferenceResponse'] output_resources: Array of provisioned resources.
         :param Any outputs: Key/value pairs that represent deployment output.
         :param Any parameters: Deployment parameters. 
-        :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. 
-        :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
+        :param 'ParametersLinkResponse' parameters_link: The URI referencing the parameters. 
+        :param Sequence['ProviderResponse'] providers: The list of resource providers needed for the deployment.
         :param str provisioning_state: The state of the provisioning.
         :param str template_hash: The hash produced for the template.
-        :param 'TemplateLinkResponseArgs' template_link: The URI referencing the template.
+        :param 'TemplateLinkResponse' template_link: The URI referencing the template.
         :param str timestamp: The timestamp of the template deployment.
-        :param Sequence['ResourceReferenceResponseArgs'] validated_resources: Array of validated resources.
+        :param Sequence['ResourceReferenceResponse'] validated_resources: Array of validated resources.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
         pulumi.set(__self__, "debug_setting", debug_setting)
@@ -543,9 +651,6 @@ class DeploymentPropertiesExtendedResponse(dict):
         """
         return pulumi.get(self, "validated_resources")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorAdditionalInfoResponse(dict):
@@ -579,15 +684,29 @@ class ErrorAdditionalInfoResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorResponseResponse(dict):
     """
     Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
                  code: str,
@@ -596,9 +715,9 @@ class ErrorResponseResponse(dict):
                  target: str):
         """
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
-        :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param str code: The error code.
-        :param Sequence['ErrorResponseResponseArgs'] details: The error details.
+        :param Sequence['ErrorResponseResponse'] details: The error details.
         :param str message: The error message.
         :param str target: The error target.
         """
@@ -648,15 +767,33 @@ class ErrorResponseResponse(dict):
         """
         return pulumi.get(self, "target")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -667,7 +804,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentitiesArgs'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -708,12 +845,28 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str):
@@ -740,15 +893,31 @@ class IdentityResponseUserAssignedIdentities(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OnErrorDeploymentExtendedResponse(dict):
     """
     Deployment on error behavior with additional details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "deploymentName":
+            suggest = "deployment_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnErrorDeploymentExtendedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnErrorDeploymentExtendedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnErrorDeploymentExtendedResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  deployment_name: Optional[str] = None,
@@ -789,15 +958,29 @@ class OnErrorDeploymentExtendedResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParametersLinkResponse(dict):
     """
     Entity representing the reference to the deployment parameters.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentVersion":
+            suggest = "content_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParametersLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParametersLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParametersLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  uri: str,
                  content_version: Optional[str] = None):
@@ -826,15 +1009,29 @@ class ParametersLinkResponse(dict):
         """
         return pulumi.get(self, "content_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanResponse(dict):
     """
     Plan for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  product: Optional[str] = None,
@@ -900,15 +1097,31 @@ class PlanResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderResourceTypeResponse(dict):
     """
     Resource type managed by the resource provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersions":
+            suggest = "api_versions"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderResourceTypeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderResourceTypeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderResourceTypeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aliases: Optional[Sequence['outputs.AliasResponse']] = None,
                  api_versions: Optional[Sequence[str]] = None,
@@ -918,7 +1131,7 @@ class ProviderResourceTypeResponse(dict):
                  resource_type: Optional[str] = None):
         """
         Resource type managed by the resource provider.
-        :param Sequence['AliasResponseArgs'] aliases: The aliases that are supported by this resource type.
+        :param Sequence['AliasResponse'] aliases: The aliases that are supported by this resource type.
         :param Sequence[str] api_versions: The API version.
         :param str capabilities: The additional capabilities offered by this resource type.
         :param Sequence[str] locations: The collection of locations where this resource type can be created.
@@ -986,15 +1199,33 @@ class ProviderResourceTypeResponse(dict):
         """
         return pulumi.get(self, "resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderResponse(dict):
     """
     Resource provider information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registrationPolicy":
+            suggest = "registration_policy"
+        elif key == "registrationState":
+            suggest = "registration_state"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  registration_policy: str,
@@ -1006,7 +1237,7 @@ class ProviderResponse(dict):
         :param str id: The provider ID.
         :param str registration_policy: The registration policy of the resource provider.
         :param str registration_state: The registration state of the resource provider.
-        :param Sequence['ProviderResourceTypeResponseArgs'] resource_types: The collection of provider resource types.
+        :param Sequence['ProviderResourceTypeResponse'] resource_types: The collection of provider resource types.
         :param str namespace: The namespace of the resource provider.
         """
         pulumi.set(__self__, "id", id)
@@ -1056,15 +1287,29 @@ class ProviderResponse(dict):
         """
         return pulumi.get(self, "namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceGroupPropertiesResponse(dict):
     """
     The resource group properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str):
         """
@@ -1080,9 +1325,6 @@ class ResourceGroupPropertiesResponse(dict):
         The provisioning state. 
         """
         return pulumi.get(self, "provisioning_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1105,9 +1347,6 @@ class ResourceReferenceResponse(dict):
         The fully qualified resource Id.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1192,9 +1431,6 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TagsResponse(dict):
@@ -1214,15 +1450,29 @@ class TagsResponse(dict):
     def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TemplateLinkResponse(dict):
     """
     Entity representing the reference to the template.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentVersion":
+            suggest = "content_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  uri: str,
                  content_version: Optional[str] = None):
@@ -1250,8 +1500,5 @@ class TemplateLinkResponse(dict):
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

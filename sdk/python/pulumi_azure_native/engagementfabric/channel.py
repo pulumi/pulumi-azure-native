@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ChannelArgs', 'Channel']
 
@@ -122,9 +122,7 @@ class Channel(pulumi.CustomResource):
                  channel_type: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The EngagementFabric channel
         API Version: 2018-09-01-preview.
@@ -169,15 +167,7 @@ class Channel(pulumi.CustomResource):
                  channel_type: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,22 +177,22 @@ class Channel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ChannelArgs.__new__(ChannelArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['channel_functions'] = channel_functions
-            __props__['channel_name'] = channel_name
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["channel_functions"] = channel_functions
+            __props__.__dict__["channel_name"] = channel_name
             if channel_type is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_type'")
-            __props__['channel_type'] = channel_type
-            __props__['credentials'] = credentials
+            __props__.__dict__["channel_type"] = channel_type
+            __props__.__dict__["credentials"] = credentials
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:engagementfabric:Channel"), pulumi.Alias(type_="azure-native:engagementfabric/v20180901preview:Channel"), pulumi.Alias(type_="azure-nextgen:engagementfabric/v20180901preview:Channel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Channel, __self__).__init__(
@@ -225,13 +215,13 @@ class Channel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ChannelArgs.__new__(ChannelArgs)
 
-        __props__["channel_functions"] = None
-        __props__["channel_type"] = None
-        __props__["credentials"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["channel_functions"] = None
+        __props__.__dict__["channel_type"] = None
+        __props__.__dict__["credentials"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -273,10 +263,4 @@ class Channel(pulumi.CustomResource):
         The fully qualified type of the resource
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

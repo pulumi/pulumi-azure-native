@@ -127,7 +127,7 @@ export interface ProfileArgs {
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */
-    readonly sku: pulumi.Input<inputs.cdn.v20200331.Sku>;
+    readonly sku: pulumi.Input<inputs.cdn.v20200331.SkuArgs>;
     /**
      * Resource tags.
      */

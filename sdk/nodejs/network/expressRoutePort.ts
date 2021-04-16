@@ -190,11 +190,11 @@ export interface ExpressRoutePortArgs {
     /**
      * The identity of ExpressRoutePort, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.network.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
     /**
      * The set of physical links of the ExpressRoutePort resource.
      */
-    readonly links?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteLink>[]>;
+    readonly links?: pulumi.Input<pulumi.Input<inputs.network.ExpressRouteLinkArgs>[]>;
     /**
      * Resource location.
      */

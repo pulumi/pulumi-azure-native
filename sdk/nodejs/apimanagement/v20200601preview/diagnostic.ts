@@ -147,7 +147,7 @@ export interface DiagnosticArgs {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    readonly backend?: pulumi.Input<inputs.apimanagement.v20200601preview.PipelineDiagnosticSettings>;
+    readonly backend?: pulumi.Input<inputs.apimanagement.v20200601preview.PipelineDiagnosticSettingsArgs>;
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
@@ -155,7 +155,7 @@ export interface DiagnosticArgs {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    readonly frontend?: pulumi.Input<inputs.apimanagement.v20200601preview.PipelineDiagnosticSettings>;
+    readonly frontend?: pulumi.Input<inputs.apimanagement.v20200601preview.PipelineDiagnosticSettingsArgs>;
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
@@ -179,7 +179,7 @@ export interface DiagnosticArgs {
     /**
      * Sampling settings for Diagnostic.
      */
-    readonly sampling?: pulumi.Input<inputs.apimanagement.v20200601preview.SamplingSettings>;
+    readonly sampling?: pulumi.Input<inputs.apimanagement.v20200601preview.SamplingSettingsArgs>;
     /**
      * The name of the API Management service.
      */

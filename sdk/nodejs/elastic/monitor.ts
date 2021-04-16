@@ -119,7 +119,7 @@ export interface MonitorArgs {
     /**
      * Identity properties of the monitor resource.
      */
-    readonly identity?: pulumi.Input<inputs.elastic.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.elastic.IdentityPropertiesArgs>;
     /**
      * The location of the monitor resource
      */
@@ -131,7 +131,7 @@ export interface MonitorArgs {
     /**
      * Properties of the monitor resource.
      */
-    readonly properties?: pulumi.Input<inputs.elastic.MonitorProperties>;
+    readonly properties?: pulumi.Input<inputs.elastic.MonitorPropertiesArgs>;
     /**
      * The name of the resource group to which the Elastic resource belongs.
      */
@@ -139,7 +139,7 @@ export interface MonitorArgs {
     /**
      * SKU of the monitor resource.
      */
-    readonly sku?: pulumi.Input<inputs.elastic.ResourceSku>;
+    readonly sku?: pulumi.Input<inputs.elastic.ResourceSkuArgs>;
     /**
      * The tags of the monitor resource.
      */

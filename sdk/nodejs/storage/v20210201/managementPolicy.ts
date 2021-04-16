@@ -109,7 +109,7 @@ export interface ManagementPolicyArgs {
     /**
      * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly policy: pulumi.Input<inputs.storage.v20210201.ManagementPolicySchema>;
+    readonly policy: pulumi.Input<inputs.storage.v20210201.ManagementPolicySchemaArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

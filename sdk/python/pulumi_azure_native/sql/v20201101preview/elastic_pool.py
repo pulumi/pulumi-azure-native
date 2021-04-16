@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -223,9 +223,7 @@ class ElasticPool(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An elastic pool.
 
@@ -284,15 +282,7 @@ class ElasticPool(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,28 +292,28 @@ class ElasticPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
-            __props__['elastic_pool_name'] = elastic_pool_name
-            __props__['license_type'] = license_type
-            __props__['location'] = location
-            __props__['maintenance_configuration_id'] = maintenance_configuration_id
-            __props__['max_size_bytes'] = max_size_bytes
-            __props__['per_database_settings'] = per_database_settings
+            __props__.__dict__["elastic_pool_name"] = elastic_pool_name
+            __props__.__dict__["license_type"] = license_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
+            __props__.__dict__["max_size_bytes"] = max_size_bytes
+            __props__.__dict__["per_database_settings"] = per_database_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['zone_redundant'] = zone_redundant
-            __props__['creation_date'] = None
-            __props__['kind'] = None
-            __props__['name'] = None
-            __props__['state'] = None
-            __props__['type'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20171001preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ElasticPool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ElasticPool"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ElasticPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ElasticPool, __self__).__init__(
@@ -346,21 +336,21 @@ class ElasticPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
-        __props__["creation_date"] = None
-        __props__["kind"] = None
-        __props__["license_type"] = None
-        __props__["location"] = None
-        __props__["maintenance_configuration_id"] = None
-        __props__["max_size_bytes"] = None
-        __props__["name"] = None
-        __props__["per_database_settings"] = None
-        __props__["sku"] = None
-        __props__["state"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["zone_redundant"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["license_type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maintenance_configuration_id"] = None
+        __props__.__dict__["max_size_bytes"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["per_database_settings"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["zone_redundant"] = None
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -472,10 +462,4 @@ class ElasticPool(pulumi.CustomResource):
         Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
         return pulumi.get(self, "zone_redundant")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

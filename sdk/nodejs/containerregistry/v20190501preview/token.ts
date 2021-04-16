@@ -122,7 +122,7 @@ export interface TokenArgs {
     /**
      * The credentials that can be used for authenticating the token.
      */
-    readonly credentials?: pulumi.Input<inputs.containerregistry.v20190501preview.TokenCredentialsProperties>;
+    readonly credentials?: pulumi.Input<inputs.containerregistry.v20190501preview.TokenCredentialsPropertiesArgs>;
     /**
      * The name of the container registry.
      */

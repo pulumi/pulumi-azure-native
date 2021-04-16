@@ -281,7 +281,7 @@ export interface SiteArgs {
      * This is only valid for web app creation. If specified, web app is cloned from 
      *             a source web app
      */
-    readonly cloningInfo?: pulumi.Input<inputs.web.v20150801.CloningInfo>;
+    readonly cloningInfo?: pulumi.Input<inputs.web.v20150801.CloningInfoArgs>;
     /**
      * Size of a function container
      */
@@ -301,7 +301,7 @@ export interface SiteArgs {
     /**
      * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
      */
-    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20150801.HostNameSslState>[]>;
+    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20150801.HostNameSslStateArgs>[]>;
     /**
      * Specifies if the public hostnames are disabled the web app.
      *             If set to true the app is only accessible via API Management process
@@ -310,7 +310,7 @@ export interface SiteArgs {
     /**
      * Specification for the hosting environment (App Service Environment) to use for the web app
      */
-    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfile>;
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfileArgs>;
     /**
      * Resource Id
      */
@@ -345,7 +345,7 @@ export interface SiteArgs {
     /**
      * Configuration of web app
      */
-    readonly siteConfig?: pulumi.Input<inputs.web.v20150801.SiteConfig>;
+    readonly siteConfig?: pulumi.Input<inputs.web.v20150801.SiteConfigArgs>;
     /**
      * If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
      */

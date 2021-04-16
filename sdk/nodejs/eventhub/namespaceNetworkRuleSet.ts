@@ -108,7 +108,7 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * List of IpRules
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetIpRules>[]>;
+    readonly ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetIpRulesArgs>[]>;
     /**
      * The Namespace name
      */
@@ -120,5 +120,5 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * List VirtualNetwork Rules
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetVirtualNetworkRules>[]>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.NWRuleSetVirtualNetworkRulesArgs>[]>;
 }

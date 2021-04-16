@@ -40,10 +40,10 @@ namespace Pulumi.AzureNative.Blockchain
         /// <summary>
         /// Gets or sets the collection of consortiums.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConsortiumResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ConsortiumResponse> Value;
 
         [OutputConstructor]
-        private ListLocationConsortiumsResult(ImmutableArray<Outputs.ConsortiumResponseResult> value)
+        private ListLocationConsortiumsResult(ImmutableArray<Outputs.ConsortiumResponse> value)
         {
             Value = value;
         }

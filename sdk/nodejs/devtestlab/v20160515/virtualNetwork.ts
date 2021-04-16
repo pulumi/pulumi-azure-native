@@ -145,7 +145,7 @@ export interface VirtualNetworkArgs {
     /**
      * The allowed subnets of the virtual network.
      */
-    readonly allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.Subnet>[]>;
+    readonly allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetArgs>[]>;
     /**
      * The description of the virtual network.
      */
@@ -157,7 +157,7 @@ export interface VirtualNetworkArgs {
     /**
      * The external subnet properties.
      */
-    readonly externalSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ExternalSubnet>[]>;
+    readonly externalSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ExternalSubnetArgs>[]>;
     /**
      * The name of the lab.
      */
@@ -181,7 +181,7 @@ export interface VirtualNetworkArgs {
     /**
      * The subnet overrides of the virtual network.
      */
-    readonly subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetOverride>[]>;
+    readonly subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetOverrideArgs>[]>;
     /**
      * The tags of the resource.
      */

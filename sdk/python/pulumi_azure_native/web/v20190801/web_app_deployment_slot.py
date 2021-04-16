@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['WebAppDeploymentSlotArgs', 'WebAppDeploymentSlot']
 
@@ -258,9 +258,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         User credentials used for publishing activity.
 
@@ -319,15 +317,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,29 +327,29 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppDeploymentSlotArgs.__new__(WebAppDeploymentSlotArgs)
 
-            __props__['active'] = active
-            __props__['author'] = author
-            __props__['author_email'] = author_email
-            __props__['deployer'] = deployer
-            __props__['details'] = details
-            __props__['end_time'] = end_time
-            __props__['id'] = id
-            __props__['kind'] = kind
-            __props__['message'] = message
+            __props__.__dict__["active"] = active
+            __props__.__dict__["author"] = author
+            __props__.__dict__["author_email"] = author_email
+            __props__.__dict__["deployer"] = deployer
+            __props__.__dict__["details"] = details
+            __props__.__dict__["end_time"] = end_time
+            __props__.__dict__["id"] = id
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["message"] = message
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
-            __props__['start_time'] = start_time
-            __props__['status'] = status
-            __props__['type'] = None
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["status"] = status
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppDeploymentSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDeploymentSlot, __self__).__init__(
@@ -382,20 +372,20 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppDeploymentSlotArgs.__new__(WebAppDeploymentSlotArgs)
 
-        __props__["active"] = None
-        __props__["author"] = None
-        __props__["author_email"] = None
-        __props__["deployer"] = None
-        __props__["details"] = None
-        __props__["end_time"] = None
-        __props__["kind"] = None
-        __props__["message"] = None
-        __props__["name"] = None
-        __props__["start_time"] = None
-        __props__["status"] = None
-        __props__["type"] = None
+        __props__.__dict__["active"] = None
+        __props__.__dict__["author"] = None
+        __props__.__dict__["author_email"] = None
+        __props__.__dict__["deployer"] = None
+        __props__.__dict__["details"] = None
+        __props__.__dict__["end_time"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["message"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["type"] = None
         return WebAppDeploymentSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -493,10 +483,4 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

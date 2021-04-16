@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,7 +27,7 @@ class ListDatabasePrincipalsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.DatabasePrincipalResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.DatabasePrincipalResponse']]:
         """
         The list of Kusto database principals.
         """

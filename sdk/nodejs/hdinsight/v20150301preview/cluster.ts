@@ -116,7 +116,7 @@ export interface ClusterArgs {
     /**
      * The identity of the cluster, if configured.
      */
-    readonly identity?: pulumi.Input<inputs.hdinsight.v20150301preview.ClusterIdentity>;
+    readonly identity?: pulumi.Input<inputs.hdinsight.v20150301preview.ClusterIdentityArgs>;
     /**
      * The location of the cluster.
      */
@@ -124,7 +124,7 @@ export interface ClusterArgs {
     /**
      * The cluster create parameters.
      */
-    readonly properties?: pulumi.Input<inputs.hdinsight.v20150301preview.ClusterCreateProperties>;
+    readonly properties?: pulumi.Input<inputs.hdinsight.v20150301preview.ClusterCreatePropertiesArgs>;
     /**
      * The name of the resource group.
      */

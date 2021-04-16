@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -174,9 +174,7 @@ class Job(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 
@@ -225,15 +223,7 @@ class Job(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,32 +233,32 @@ class Job(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = JobArgs.__new__(JobArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['correlation_data'] = correlation_data
-            __props__['description'] = description
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["correlation_data"] = correlation_data
+            __props__.__dict__["description"] = description
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
-            __props__['input'] = input
-            __props__['job_name'] = job_name
+            __props__.__dict__["input"] = input
+            __props__.__dict__["job_name"] = job_name
             if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")
-            __props__['outputs'] = outputs
-            __props__['priority'] = priority
+            __props__.__dict__["outputs"] = outputs
+            __props__.__dict__["priority"] = priority
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if transform_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transform_name'")
-            __props__['transform_name'] = transform_name
-            __props__['created'] = None
-            __props__['last_modified'] = None
-            __props__['name'] = None
-            __props__['state'] = None
-            __props__['type'] = None
+            __props__.__dict__["transform_name"] = transform_name
+            __props__.__dict__["created"] = None
+            __props__.__dict__["last_modified"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Job"), pulumi.Alias(type_="azure-native:media:Job"), pulumi.Alias(type_="azure-nextgen:media:Job"), pulumi.Alias(type_="azure-native:media/v20180330preview:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Job"), pulumi.Alias(type_="azure-native:media/v20180701:Job"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Job"), pulumi.Alias(type_="azure-native:media/v20200501:Job"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
@@ -291,18 +281,18 @@ class Job(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = JobArgs.__new__(JobArgs)
 
-        __props__["correlation_data"] = None
-        __props__["created"] = None
-        __props__["description"] = None
-        __props__["input"] = None
-        __props__["last_modified"] = None
-        __props__["name"] = None
-        __props__["outputs"] = None
-        __props__["priority"] = None
-        __props__["state"] = None
-        __props__["type"] = None
+        __props__.__dict__["correlation_data"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["input"] = None
+        __props__.__dict__["last_modified"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["outputs"] = None
+        __props__.__dict__["priority"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -384,10 +374,4 @@ class Job(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

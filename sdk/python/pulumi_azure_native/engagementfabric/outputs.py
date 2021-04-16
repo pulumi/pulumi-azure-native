@@ -6,16 +6,16 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
-    'ChannelTypeDescriptionResponseResult',
-    'KeyDescriptionResponseResult',
+    'ChannelTypeDescriptionResponse',
+    'KeyDescriptionResponse',
     'SKUResponse',
 ]
 
 @pulumi.output_type
-class ChannelTypeDescriptionResponseResult(dict):
+class ChannelTypeDescriptionResponse(dict):
     """
     EngagementFabric channel description
     """
@@ -62,7 +62,7 @@ class ChannelTypeDescriptionResponseResult(dict):
 
 
 @pulumi.output_type
-class KeyDescriptionResponseResult(dict):
+class KeyDescriptionResponse(dict):
     """
     The description of the EngagementFabric account key
     """
@@ -137,8 +137,5 @@ class SKUResponse(dict):
         The price tier of the SKU
         """
         return pulumi.get(self, "tier")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

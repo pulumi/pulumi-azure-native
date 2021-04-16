@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.Compute.V20171201
         /// <summary>
         /// Api error
         /// </summary>
-        public readonly Outputs.ApiErrorResponseResult Error;
+        public readonly Outputs.ApiErrorResponse Error;
         /// <summary>
         /// Operation ID
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Compute.V20171201
         /// <summary>
         /// LogAnalyticsOutput
         /// </summary>
-        public readonly Outputs.LogAnalyticsOutputResponseResult Properties;
+        public readonly Outputs.LogAnalyticsOutputResponse Properties;
         /// <summary>
         /// Start time of the operation
         /// </summary>
@@ -107,11 +107,11 @@ namespace Pulumi.AzureNative.Compute.V20171201
         private GetLogAnalyticExportRequestRateByIntervalResult(
             string endTime,
 
-            Outputs.ApiErrorResponseResult error,
+            Outputs.ApiErrorResponse error,
 
             string name,
 
-            Outputs.LogAnalyticsOutputResponseResult properties,
+            Outputs.LogAnalyticsOutputResponse properties,
 
             string startTime,
 

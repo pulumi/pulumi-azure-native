@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -65,7 +65,7 @@ class ListProductDetailsResult:
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Sequence['outputs.DataDiskImageResponseResult']:
+    def data_disk_images(self) -> Sequence['outputs.DataDiskImageResponse']:
         """
         List of attached data disks.
         """
@@ -89,7 +89,7 @@ class ListProductDetailsResult:
 
     @property
     @pulumi.getter(name="osDiskImage")
-    def os_disk_image(self) -> 'outputs.OsDiskImageResponseResult':
+    def os_disk_image(self) -> 'outputs.OsDiskImageResponse':
         """
         OS disk image used by product.
         """

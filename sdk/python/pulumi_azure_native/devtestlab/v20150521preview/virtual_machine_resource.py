@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -482,9 +482,7 @@ class VirtualMachineResource(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A virtual machine.
 
@@ -569,15 +567,7 @@ class VirtualMachineResource(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -587,39 +577,39 @@ class VirtualMachineResource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualMachineResourceArgs.__new__(VirtualMachineResourceArgs)
 
-            __props__['artifact_deployment_status'] = artifact_deployment_status
-            __props__['artifacts'] = artifacts
-            __props__['compute_id'] = compute_id
-            __props__['created_by_user'] = created_by_user
-            __props__['created_by_user_id'] = created_by_user_id
-            __props__['custom_image_id'] = custom_image_id
-            __props__['disallow_public_ip_address'] = disallow_public_ip_address
-            __props__['fqdn'] = fqdn
-            __props__['gallery_image_reference'] = gallery_image_reference
-            __props__['id'] = id
-            __props__['is_authentication_with_ssh_key'] = is_authentication_with_ssh_key
+            __props__.__dict__["artifact_deployment_status"] = artifact_deployment_status
+            __props__.__dict__["artifacts"] = artifacts
+            __props__.__dict__["compute_id"] = compute_id
+            __props__.__dict__["created_by_user"] = created_by_user
+            __props__.__dict__["created_by_user_id"] = created_by_user_id
+            __props__.__dict__["custom_image_id"] = custom_image_id
+            __props__.__dict__["disallow_public_ip_address"] = disallow_public_ip_address
+            __props__.__dict__["fqdn"] = fqdn
+            __props__.__dict__["gallery_image_reference"] = gallery_image_reference
+            __props__.__dict__["id"] = id
+            __props__.__dict__["is_authentication_with_ssh_key"] = is_authentication_with_ssh_key
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
-            __props__['lab_name'] = lab_name
-            __props__['lab_subnet_name'] = lab_subnet_name
-            __props__['lab_virtual_network_id'] = lab_virtual_network_id
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['notes'] = notes
-            __props__['os_type'] = os_type
-            __props__['owner_object_id'] = owner_object_id
-            __props__['password'] = password
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["lab_name"] = lab_name
+            __props__.__dict__["lab_subnet_name"] = lab_subnet_name
+            __props__.__dict__["lab_virtual_network_id"] = lab_virtual_network_id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["notes"] = notes
+            __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["owner_object_id"] = owner_object_id
+            __props__.__dict__["password"] = password
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['size'] = size
-            __props__['ssh_key'] = ssh_key
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['user_name'] = user_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["size"] = size
+            __props__.__dict__["ssh_key"] = ssh_key
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["user_name"] = user_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualMachineResource"), pulumi.Alias(type_="azure-native:devtestlab:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualMachineResource"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachineResource"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualMachineResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualMachineResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineResource, __self__).__init__(
@@ -642,32 +632,32 @@ class VirtualMachineResource(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualMachineResourceArgs.__new__(VirtualMachineResourceArgs)
 
-        __props__["artifact_deployment_status"] = None
-        __props__["artifacts"] = None
-        __props__["compute_id"] = None
-        __props__["created_by_user"] = None
-        __props__["created_by_user_id"] = None
-        __props__["custom_image_id"] = None
-        __props__["disallow_public_ip_address"] = None
-        __props__["fqdn"] = None
-        __props__["gallery_image_reference"] = None
-        __props__["is_authentication_with_ssh_key"] = None
-        __props__["lab_subnet_name"] = None
-        __props__["lab_virtual_network_id"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["notes"] = None
-        __props__["os_type"] = None
-        __props__["owner_object_id"] = None
-        __props__["password"] = None
-        __props__["provisioning_state"] = None
-        __props__["size"] = None
-        __props__["ssh_key"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["user_name"] = None
+        __props__.__dict__["artifact_deployment_status"] = None
+        __props__.__dict__["artifacts"] = None
+        __props__.__dict__["compute_id"] = None
+        __props__.__dict__["created_by_user"] = None
+        __props__.__dict__["created_by_user_id"] = None
+        __props__.__dict__["custom_image_id"] = None
+        __props__.__dict__["disallow_public_ip_address"] = None
+        __props__.__dict__["fqdn"] = None
+        __props__.__dict__["gallery_image_reference"] = None
+        __props__.__dict__["is_authentication_with_ssh_key"] = None
+        __props__.__dict__["lab_subnet_name"] = None
+        __props__.__dict__["lab_virtual_network_id"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["notes"] = None
+        __props__.__dict__["os_type"] = None
+        __props__.__dict__["owner_object_id"] = None
+        __props__.__dict__["password"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["size"] = None
+        __props__.__dict__["ssh_key"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["user_name"] = None
         return VirtualMachineResource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -861,10 +851,4 @@ class VirtualMachineResource(pulumi.CustomResource):
         The user name of the virtual machine.
         """
         return pulumi.get(self, "user_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

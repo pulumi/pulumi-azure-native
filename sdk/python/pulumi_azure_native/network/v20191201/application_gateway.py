@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -518,9 +518,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
                  web_application_firewall_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWebApplicationFirewallConfigurationArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Application gateway resource.
 
@@ -609,15 +607,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
                  web_application_firewall_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWebApplicationFirewallConfigurationArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -627,45 +617,45 @@ class ApplicationGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationGatewayArgs.__new__(ApplicationGatewayArgs)
 
-            __props__['application_gateway_name'] = application_gateway_name
-            __props__['authentication_certificates'] = authentication_certificates
-            __props__['autoscale_configuration'] = autoscale_configuration
-            __props__['backend_address_pools'] = backend_address_pools
-            __props__['backend_http_settings_collection'] = backend_http_settings_collection
-            __props__['custom_error_configurations'] = custom_error_configurations
-            __props__['enable_fips'] = enable_fips
-            __props__['enable_http2'] = enable_http2
-            __props__['firewall_policy'] = firewall_policy
-            __props__['frontend_ip_configurations'] = frontend_ip_configurations
-            __props__['frontend_ports'] = frontend_ports
-            __props__['gateway_ip_configurations'] = gateway_ip_configurations
-            __props__['http_listeners'] = http_listeners
-            __props__['id'] = id
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['probes'] = probes
-            __props__['redirect_configurations'] = redirect_configurations
-            __props__['request_routing_rules'] = request_routing_rules
+            __props__.__dict__["application_gateway_name"] = application_gateway_name
+            __props__.__dict__["authentication_certificates"] = authentication_certificates
+            __props__.__dict__["autoscale_configuration"] = autoscale_configuration
+            __props__.__dict__["backend_address_pools"] = backend_address_pools
+            __props__.__dict__["backend_http_settings_collection"] = backend_http_settings_collection
+            __props__.__dict__["custom_error_configurations"] = custom_error_configurations
+            __props__.__dict__["enable_fips"] = enable_fips
+            __props__.__dict__["enable_http2"] = enable_http2
+            __props__.__dict__["firewall_policy"] = firewall_policy
+            __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
+            __props__.__dict__["frontend_ports"] = frontend_ports
+            __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
+            __props__.__dict__["http_listeners"] = http_listeners
+            __props__.__dict__["id"] = id
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["probes"] = probes
+            __props__.__dict__["redirect_configurations"] = redirect_configurations
+            __props__.__dict__["request_routing_rules"] = request_routing_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['rewrite_rule_sets'] = rewrite_rule_sets
-            __props__['sku'] = sku
-            __props__['ssl_certificates'] = ssl_certificates
-            __props__['ssl_policy'] = ssl_policy
-            __props__['tags'] = tags
-            __props__['trusted_root_certificates'] = trusted_root_certificates
-            __props__['url_path_maps'] = url_path_maps
-            __props__['web_application_firewall_configuration'] = web_application_firewall_configuration
-            __props__['zones'] = zones
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['operational_state'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_guid'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["rewrite_rule_sets"] = rewrite_rule_sets
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["ssl_certificates"] = ssl_certificates
+            __props__.__dict__["ssl_policy"] = ssl_policy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["trusted_root_certificates"] = trusted_root_certificates
+            __props__.__dict__["url_path_maps"] = url_path_maps
+            __props__.__dict__["web_application_firewall_configuration"] = web_application_firewall_configuration
+            __props__.__dict__["zones"] = zones
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["operational_state"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGateway"), pulumi.Alias(type_="azure-nextgen:network/v20201101:ApplicationGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGateway, __self__).__init__(
@@ -688,40 +678,40 @@ class ApplicationGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ApplicationGatewayArgs.__new__(ApplicationGatewayArgs)
 
-        __props__["authentication_certificates"] = None
-        __props__["autoscale_configuration"] = None
-        __props__["backend_address_pools"] = None
-        __props__["backend_http_settings_collection"] = None
-        __props__["custom_error_configurations"] = None
-        __props__["enable_fips"] = None
-        __props__["enable_http2"] = None
-        __props__["etag"] = None
-        __props__["firewall_policy"] = None
-        __props__["frontend_ip_configurations"] = None
-        __props__["frontend_ports"] = None
-        __props__["gateway_ip_configurations"] = None
-        __props__["http_listeners"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["operational_state"] = None
-        __props__["probes"] = None
-        __props__["provisioning_state"] = None
-        __props__["redirect_configurations"] = None
-        __props__["request_routing_rules"] = None
-        __props__["resource_guid"] = None
-        __props__["rewrite_rule_sets"] = None
-        __props__["sku"] = None
-        __props__["ssl_certificates"] = None
-        __props__["ssl_policy"] = None
-        __props__["tags"] = None
-        __props__["trusted_root_certificates"] = None
-        __props__["type"] = None
-        __props__["url_path_maps"] = None
-        __props__["web_application_firewall_configuration"] = None
-        __props__["zones"] = None
+        __props__.__dict__["authentication_certificates"] = None
+        __props__.__dict__["autoscale_configuration"] = None
+        __props__.__dict__["backend_address_pools"] = None
+        __props__.__dict__["backend_http_settings_collection"] = None
+        __props__.__dict__["custom_error_configurations"] = None
+        __props__.__dict__["enable_fips"] = None
+        __props__.__dict__["enable_http2"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["firewall_policy"] = None
+        __props__.__dict__["frontend_ip_configurations"] = None
+        __props__.__dict__["frontend_ports"] = None
+        __props__.__dict__["gateway_ip_configurations"] = None
+        __props__.__dict__["http_listeners"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["operational_state"] = None
+        __props__.__dict__["probes"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["redirect_configurations"] = None
+        __props__.__dict__["request_routing_rules"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["rewrite_rule_sets"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["ssl_certificates"] = None
+        __props__.__dict__["ssl_policy"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["trusted_root_certificates"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["url_path_maps"] = None
+        __props__.__dict__["web_application_firewall_configuration"] = None
+        __props__.__dict__["zones"] = None
         return ApplicationGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -979,10 +969,4 @@ class ApplicationGateway(pulumi.CustomResource):
         A list of availability zones denoting where the resource needs to come from.
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

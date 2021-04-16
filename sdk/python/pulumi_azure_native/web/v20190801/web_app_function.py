@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['WebAppFunctionArgs', 'WebAppFunction']
 
@@ -310,9 +310,7 @@ class WebAppFunction(pulumi.CustomResource):
                  secrets_file_href: Optional[pulumi.Input[str]] = None,
                  test_data: Optional[pulumi.Input[str]] = None,
                  test_data_href: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Function information.
 
@@ -377,15 +375,7 @@ class WebAppFunction(pulumi.CustomResource):
                  secrets_file_href: Optional[pulumi.Input[str]] = None,
                  test_data: Optional[pulumi.Input[str]] = None,
                  test_data_href: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -395,30 +385,30 @@ class WebAppFunction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppFunctionArgs.__new__(WebAppFunctionArgs)
 
-            __props__['config'] = config
-            __props__['config_href'] = config_href
-            __props__['files'] = files
-            __props__['function_app_id'] = function_app_id
-            __props__['function_name'] = function_name
-            __props__['href'] = href
-            __props__['invoke_url_template'] = invoke_url_template
-            __props__['is_disabled'] = is_disabled
-            __props__['kind'] = kind
-            __props__['language'] = language
+            __props__.__dict__["config"] = config
+            __props__.__dict__["config_href"] = config_href
+            __props__.__dict__["files"] = files
+            __props__.__dict__["function_app_id"] = function_app_id
+            __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["href"] = href
+            __props__.__dict__["invoke_url_template"] = invoke_url_template
+            __props__.__dict__["is_disabled"] = is_disabled
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["language"] = language
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['script_href'] = script_href
-            __props__['script_root_path_href'] = script_root_path_href
-            __props__['secrets_file_href'] = secrets_file_href
-            __props__['test_data'] = test_data
-            __props__['test_data_href'] = test_data_href
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["script_href"] = script_href
+            __props__.__dict__["script_root_path_href"] = script_root_path_href
+            __props__.__dict__["secrets_file_href"] = secrets_file_href
+            __props__.__dict__["test_data"] = test_data
+            __props__.__dict__["test_data_href"] = test_data_href
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-native:web:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppFunction"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppFunction, __self__).__init__(
@@ -441,24 +431,24 @@ class WebAppFunction(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppFunctionArgs.__new__(WebAppFunctionArgs)
 
-        __props__["config"] = None
-        __props__["config_href"] = None
-        __props__["files"] = None
-        __props__["function_app_id"] = None
-        __props__["href"] = None
-        __props__["invoke_url_template"] = None
-        __props__["is_disabled"] = None
-        __props__["kind"] = None
-        __props__["language"] = None
-        __props__["name"] = None
-        __props__["script_href"] = None
-        __props__["script_root_path_href"] = None
-        __props__["secrets_file_href"] = None
-        __props__["test_data"] = None
-        __props__["test_data_href"] = None
-        __props__["type"] = None
+        __props__.__dict__["config"] = None
+        __props__.__dict__["config_href"] = None
+        __props__.__dict__["files"] = None
+        __props__.__dict__["function_app_id"] = None
+        __props__.__dict__["href"] = None
+        __props__.__dict__["invoke_url_template"] = None
+        __props__.__dict__["is_disabled"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["language"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["script_href"] = None
+        __props__.__dict__["script_root_path_href"] = None
+        __props__.__dict__["secrets_file_href"] = None
+        __props__.__dict__["test_data"] = None
+        __props__.__dict__["test_data_href"] = None
+        __props__.__dict__["type"] = None
         return WebAppFunction(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -588,10 +578,4 @@ class WebAppFunction(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -104,7 +104,7 @@ export interface BindingArgs {
     /**
      * Properties of the Binding resource
      */
-    readonly properties?: pulumi.Input<inputs.appplatform.v20201101preview.BindingResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.appplatform.v20201101preview.BindingResourcePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

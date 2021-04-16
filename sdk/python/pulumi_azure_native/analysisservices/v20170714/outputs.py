@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -20,6 +20,27 @@ class GatewayDetailsResponse(dict):
     """
     The gateway details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dmtsClusterUri":
+            suggest = "dmts_cluster_uri"
+        elif key == "gatewayObjectId":
+            suggest = "gateway_object_id"
+        elif key == "gatewayResourceId":
+            suggest = "gateway_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dmts_cluster_uri: str,
                  gateway_object_id: str,
@@ -59,9 +80,6 @@ class GatewayDetailsResponse(dict):
         """
         return pulumi.get(self, "gateway_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceSkuResponse(dict):
@@ -96,9 +114,6 @@ class ResourceSkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerAdministratorsResponse(dict):
@@ -121,8 +136,5 @@ class ServerAdministratorsResponse(dict):
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

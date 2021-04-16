@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['SecurityContactArgs', 'SecurityContact']
@@ -106,9 +106,7 @@ class SecurityContact(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Contact details for security issues
 
@@ -149,15 +147,7 @@ class SecurityContact(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,21 +157,21 @@ class SecurityContact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecurityContactArgs.__new__(SecurityContactArgs)
 
             if alert_notifications is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_notifications'")
-            __props__['alert_notifications'] = alert_notifications
+            __props__.__dict__["alert_notifications"] = alert_notifications
             if alerts_to_admins is None and not opts.urn:
                 raise TypeError("Missing required property 'alerts_to_admins'")
-            __props__['alerts_to_admins'] = alerts_to_admins
+            __props__.__dict__["alerts_to_admins"] = alerts_to_admins
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
-            __props__['email'] = email
-            __props__['phone'] = phone
-            __props__['security_contact_name'] = security_contact_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["email"] = email
+            __props__.__dict__["phone"] = phone
+            __props__.__dict__["security_contact_name"] = security_contact_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20170801preview:SecurityContact"), pulumi.Alias(type_="azure-native:security:SecurityContact"), pulumi.Alias(type_="azure-nextgen:security:SecurityContact"), pulumi.Alias(type_="azure-native:security/v20200101preview:SecurityContact"), pulumi.Alias(type_="azure-nextgen:security/v20200101preview:SecurityContact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityContact, __self__).__init__(
@@ -204,14 +194,14 @@ class SecurityContact(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SecurityContactArgs.__new__(SecurityContactArgs)
 
-        __props__["alert_notifications"] = None
-        __props__["alerts_to_admins"] = None
-        __props__["email"] = None
-        __props__["name"] = None
-        __props__["phone"] = None
-        __props__["type"] = None
+        __props__.__dict__["alert_notifications"] = None
+        __props__.__dict__["alerts_to_admins"] = None
+        __props__.__dict__["email"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["phone"] = None
+        __props__.__dict__["type"] = None
         return SecurityContact(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -261,10 +251,4 @@ class SecurityContact(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

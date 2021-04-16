@@ -153,7 +153,7 @@ export interface AvailabilitySetArgs {
     /**
      * Sku of the availability set
      */
-    readonly sku?: pulumi.Input<inputs.compute.v20160430preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.v20160430preview.SkuArgs>;
     /**
      * Resource tags
      */
@@ -161,5 +161,5 @@ export interface AvailabilitySetArgs {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20160430preview.SubResource>[]>;
+    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20160430preview.SubResourceArgs>[]>;
 }

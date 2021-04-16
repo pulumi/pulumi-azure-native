@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -178,9 +178,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tap_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Virtual Network Tap resource
 
@@ -229,15 +227,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tap_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,24 +237,24 @@ class VirtualNetworkTap(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkTapArgs.__new__(VirtualNetworkTapArgs)
 
-            __props__['destination_load_balancer_front_end_ip_configuration'] = destination_load_balancer_front_end_ip_configuration
-            __props__['destination_network_interface_ip_configuration'] = destination_network_interface_ip_configuration
-            __props__['destination_port'] = destination_port
-            __props__['etag'] = etag
-            __props__['id'] = id
-            __props__['location'] = location
+            __props__.__dict__["destination_load_balancer_front_end_ip_configuration"] = destination_load_balancer_front_end_ip_configuration
+            __props__.__dict__["destination_network_interface_ip_configuration"] = destination_network_interface_ip_configuration
+            __props__.__dict__["destination_port"] = destination_port
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['tap_name'] = tap_name
-            __props__['name'] = None
-            __props__['network_interface_tap_configurations'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_guid'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tap_name"] = tap_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["network_interface_tap_configurations"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20181001:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualNetworkTap"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetworkTap"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualNetworkTap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkTap, __self__).__init__(
@@ -287,19 +277,19 @@ class VirtualNetworkTap(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = VirtualNetworkTapArgs.__new__(VirtualNetworkTapArgs)
 
-        __props__["destination_load_balancer_front_end_ip_configuration"] = None
-        __props__["destination_network_interface_ip_configuration"] = None
-        __props__["destination_port"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["network_interface_tap_configurations"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_guid"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["destination_load_balancer_front_end_ip_configuration"] = None
+        __props__.__dict__["destination_network_interface_ip_configuration"] = None
+        __props__.__dict__["destination_port"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_interface_tap_configurations"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return VirtualNetworkTap(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -389,10 +379,4 @@ class VirtualNetworkTap(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -137,7 +137,7 @@ export interface ContentKeyPolicyArgs {
     /**
      * The Key Policy options.
      */
-    readonly options: pulumi.Input<pulumi.Input<inputs.media.v20200501.ContentKeyPolicyOption>[]>;
+    readonly options: pulumi.Input<pulumi.Input<inputs.media.v20200501.ContentKeyPolicyOptionArgs>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */

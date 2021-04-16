@@ -144,7 +144,7 @@ export interface ServiceEndpointPolicyArgs {
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      */
-    readonly serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPolicyDefinition>[]>;
+    readonly serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPolicyDefinitionArgs>[]>;
     /**
      * The name of the service endpoint policy.
      */

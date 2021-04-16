@@ -151,7 +151,7 @@ export interface RouteTableArgs {
     /**
      * Collection of routes contained within a route table.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20201101.Route>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20201101.RouteArgs>[]>;
     /**
      * Resource tags.
      */

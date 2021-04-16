@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -34,11 +34,28 @@ class AkamaiAccessControlResponse(dict):
     """
     Akamai access control
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "akamaiSignatureHeaderAuthenticationKeyList":
+            suggest = "akamai_signature_header_authentication_key_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkamaiAccessControlResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkamaiAccessControlResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkamaiAccessControlResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
         """
         Akamai access control
-        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
@@ -51,15 +68,29 @@ class AkamaiAccessControlResponse(dict):
         """
         return pulumi.get(self, "akamai_signature_header_authentication_key_list")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
     """
     Akamai Signature Header authentication key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "base64Key":
+            suggest = "base64_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkamaiSignatureHeaderAuthenticationKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkamaiSignatureHeaderAuthenticationKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkamaiSignatureHeaderAuthenticationKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base64_key: Optional[str] = None,
                  expiration: Optional[str] = None,
@@ -101,15 +132,31 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
         """
         return pulumi.get(self, "identifier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CrossSiteAccessPoliciesResponse(dict):
     """
     The client access policy.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAccessPolicy":
+            suggest = "client_access_policy"
+        elif key == "crossDomainPolicy":
+            suggest = "cross_domain_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrossSiteAccessPoliciesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrossSiteAccessPoliciesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrossSiteAccessPoliciesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_access_policy: Optional[str] = None,
                  cross_domain_policy: Optional[str] = None):
@@ -139,15 +186,29 @@ class CrossSiteAccessPoliciesResponse(dict):
         """
         return pulumi.get(self, "cross_domain_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HlsResponse(dict):
     """
     The HLS configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fragmentsPerTsSegment":
+            suggest = "fragments_per_ts_segment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HlsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HlsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HlsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fragments_per_ts_segment: Optional[int] = None):
         """
@@ -165,9 +226,6 @@ class HlsResponse(dict):
         """
         return pulumi.get(self, "fragments_per_ts_segment")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPAccessControlResponse(dict):
@@ -178,7 +236,7 @@ class IPAccessControlResponse(dict):
                  allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
         """
         The IP access control.
-        :param Sequence['IPRangeResponseArgs'] allow: The IP allow list.
+        :param Sequence['IPRangeResponse'] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -191,15 +249,29 @@ class IPAccessControlResponse(dict):
         """
         return pulumi.get(self, "allow")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IPRangeResponse(dict):
     """
     The IP address range in the CIDR scheme.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetPrefixLength":
+            suggest = "subnet_prefix_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPRangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPRangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPRangeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
@@ -241,15 +313,31 @@ class IPRangeResponse(dict):
         """
         return pulumi.get(self, "subnet_prefix_length")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventEncodingResponse(dict):
     """
     The Live Event encoding.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodingType":
+            suggest = "encoding_type"
+        elif key == "presetName":
+            suggest = "preset_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventEncodingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventEncodingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventEncodingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  encoding_type: Optional[str] = None,
                  preset_name: Optional[str] = None):
@@ -278,9 +366,6 @@ class LiveEventEncodingResponse(dict):
         The encoding preset name.  This value is specified at creation time and cannot be updated.
         """
         return pulumi.get(self, "preset_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -317,9 +402,6 @@ class LiveEventEndpointResponse(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInputAccessControlResponse(dict):
@@ -330,7 +412,7 @@ class LiveEventInputAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for Live Event Input.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -343,15 +425,35 @@ class LiveEventInputAccessControlResponse(dict):
         """
         return pulumi.get(self, "ip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInputResponse(dict):
     """
     The Live Event input.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamingProtocol":
+            suggest = "streaming_protocol"
+        elif key == "accessControl":
+            suggest = "access_control"
+        elif key == "accessToken":
+            suggest = "access_token"
+        elif key == "keyFrameIntervalDuration":
+            suggest = "key_frame_interval_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventInputResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventInputResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventInputResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  streaming_protocol: str,
                  access_control: Optional['outputs.LiveEventInputAccessControlResponse'] = None,
@@ -361,9 +463,9 @@ class LiveEventInputResponse(dict):
         """
         The Live Event input.
         :param str streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-        :param 'LiveEventInputAccessControlResponseArgs' access_control: The access control for LiveEvent Input.
+        :param 'LiveEventInputAccessControlResponse' access_control: The access control for LiveEvent Input.
         :param str access_token: A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The input endpoints for the Live Event.
         :param str key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -416,9 +518,6 @@ class LiveEventInputResponse(dict):
         """
         return pulumi.get(self, "key_frame_interval_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInputTrackSelectionResponse(dict):
@@ -466,15 +565,29 @@ class LiveEventInputTrackSelectionResponse(dict):
         """
         return pulumi.get(self, "property")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventOutputTranscriptionTrackResponse(dict):
     """
     Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trackName":
+            suggest = "track_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventOutputTranscriptionTrackResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventOutputTranscriptionTrackResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventOutputTranscriptionTrackResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  track_name: str):
         """
@@ -491,9 +604,6 @@ class LiveEventOutputTranscriptionTrackResponse(dict):
         """
         return pulumi.get(self, "track_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreviewAccessControlResponse(dict):
@@ -504,7 +614,7 @@ class LiveEventPreviewAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         The IP access control for Live Event preview.
-        :param 'IPAccessControlResponseArgs' ip: The IP access control properties.
+        :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -517,15 +627,35 @@ class LiveEventPreviewAccessControlResponse(dict):
         """
         return pulumi.get(self, "ip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreviewResponse(dict):
     """
     The Live Event preview.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControl":
+            suggest = "access_control"
+        elif key == "alternativeMediaId":
+            suggest = "alternative_media_id"
+        elif key == "previewLocator":
+            suggest = "preview_locator"
+        elif key == "streamingPolicyName":
+            suggest = "streaming_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventPreviewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventPreviewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventPreviewResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
                  alternative_media_id: Optional[str] = None,
@@ -534,9 +664,9 @@ class LiveEventPreviewResponse(dict):
                  streaming_policy_name: Optional[str] = None):
         """
         The Live Event preview.
-        :param 'LiveEventPreviewAccessControlResponseArgs' access_control: The access control for LiveEvent preview.
+        :param 'LiveEventPreviewAccessControlResponse' access_control: The access control for LiveEvent preview.
         :param str alternative_media_id: An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
+        :param Sequence['LiveEventEndpointResponse'] endpoints: The endpoints for preview.
         :param str preview_locator: The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
         :param str streaming_policy_name: The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
         """
@@ -591,24 +721,40 @@ class LiveEventPreviewResponse(dict):
         """
         return pulumi.get(self, "streaming_policy_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventTranscriptionResponse(dict):
     """
     Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputTrackSelection":
+            suggest = "input_track_selection"
+        elif key == "outputTranscriptionTrack":
+            suggest = "output_transcription_track"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventTranscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventTranscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventTranscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  input_track_selection: Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']] = None,
                  language: Optional[str] = None,
                  output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None):
         """
         Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
-        :param Sequence['LiveEventInputTrackSelectionResponseArgs'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+        :param Sequence['LiveEventInputTrackSelectionResponse'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
         :param str language: Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
-        :param 'LiveEventOutputTranscriptionTrackResponseArgs' output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+        :param 'LiveEventOutputTranscriptionTrackResponse' output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
         if input_track_selection is not None:
             pulumi.set(__self__, "input_track_selection", input_track_selection)
@@ -641,9 +787,6 @@ class LiveEventTranscriptionResponse(dict):
         """
         return pulumi.get(self, "output_transcription_track")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingEndpointAccessControlResponse(dict):
@@ -655,8 +798,8 @@ class StreamingEndpointAccessControlResponse(dict):
                  ip: Optional['outputs.IPAccessControlResponse'] = None):
         """
         StreamingEndpoint access control definition.
-        :param 'AkamaiAccessControlResponseArgs' akamai: The access control of Akamai
-        :param 'IPAccessControlResponseArgs' ip: The IP access control of the StreamingEndpoint.
+        :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
+        :param 'IPAccessControlResponse' ip: The IP access control of the StreamingEndpoint.
         """
         if akamai is not None:
             pulumi.set(__self__, "akamai", akamai)
@@ -678,8 +821,5 @@ class StreamingEndpointAccessControlResponse(dict):
         The IP access control of the StreamingEndpoint.
         """
         return pulumi.get(self, "ip")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

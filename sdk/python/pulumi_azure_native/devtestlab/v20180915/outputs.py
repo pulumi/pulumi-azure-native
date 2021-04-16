@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -37,7 +37,7 @@ __all__ = [
     'InboundNatRuleResponse',
     'LabAnnouncementPropertiesResponse',
     'LabSupportPropertiesResponse',
-    'LabVhdResponseResult',
+    'LabVhdResponse',
     'LabVirtualMachineCreationParameterResponse',
     'LinuxOsInfoResponse',
     'NetworkInterfacePropertiesResponse',
@@ -60,6 +60,25 @@ class ApplicableScheduleResponse(dict):
     """
     Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labVmsShutdown":
+            suggest = "lab_vms_shutdown"
+        elif key == "labVmsStartup":
+            suggest = "lab_vms_startup"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicableScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicableScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicableScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -73,8 +92,8 @@ class ApplicableScheduleResponse(dict):
         :param str id: The identifier of the resource.
         :param str name: The name of the resource.
         :param str type: The type of the resource.
-        :param 'ScheduleResponseArgs' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-        :param 'ScheduleResponseArgs' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
+        :param 'ScheduleResponse' lab_vms_shutdown: The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        :param 'ScheduleResponse' lab_vms_startup: The auto-startup schedule, if one has been set at the lab or lab resource level.
         :param str location: The location of the resource.
         :param Mapping[str, str] tags: The tags of the resource.
         """
@@ -146,9 +165,6 @@ class ApplicableScheduleResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArmTemplateParameterPropertiesResponse(dict):
@@ -184,15 +200,33 @@ class ArmTemplateParameterPropertiesResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArtifactDeploymentStatusPropertiesResponse(dict):
     """
     Properties of an artifact deployment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactsApplied":
+            suggest = "artifacts_applied"
+        elif key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "totalArtifacts":
+            suggest = "total_artifacts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactDeploymentStatusPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactDeploymentStatusPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactDeploymentStatusPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifacts_applied: Optional[int] = None,
                  deployment_status: Optional[str] = None,
@@ -234,15 +268,37 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
         """
         return pulumi.get(self, "total_artifacts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArtifactInstallPropertiesResponse(dict):
     """
     Properties of an artifact.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactId":
+            suggest = "artifact_id"
+        elif key == "artifactTitle":
+            suggest = "artifact_title"
+        elif key == "deploymentStatusMessage":
+            suggest = "deployment_status_message"
+        elif key == "installTime":
+            suggest = "install_time"
+        elif key == "vmExtensionStatusMessage":
+            suggest = "vm_extension_status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactInstallPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactInstallPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactInstallPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  artifact_id: Optional[str] = None,
                  artifact_title: Optional[str] = None,
@@ -257,7 +313,7 @@ class ArtifactInstallPropertiesResponse(dict):
         :param str artifact_title: The artifact's title.
         :param str deployment_status_message: The status message from the deployment.
         :param str install_time: The time that the artifact starts to install on the virtual machine.
-        :param Sequence['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
+        :param Sequence['ArtifactParameterPropertiesResponse'] parameters: The parameters of the artifact.
         :param str status: The status of the artifact.
         :param str vm_extension_status_message: The status message from the virtual machine extension.
         """
@@ -332,9 +388,6 @@ class ArtifactInstallPropertiesResponse(dict):
         """
         return pulumi.get(self, "vm_extension_status_message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ArtifactParameterPropertiesResponse(dict):
@@ -370,15 +423,33 @@ class ArtifactParameterPropertiesResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AttachNewDataDiskOptionsResponse(dict):
     """
     Properties to attach new disk to the Virtual Machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskName":
+            suggest = "disk_name"
+        elif key == "diskSizeGiB":
+            suggest = "disk_size_gi_b"
+        elif key == "diskType":
+            suggest = "disk_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttachNewDataDiskOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttachNewDataDiskOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttachNewDataDiskOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_name: Optional[str] = None,
                  disk_size_gi_b: Optional[int] = None,
@@ -420,15 +491,29 @@ class AttachNewDataDiskOptionsResponse(dict):
         """
         return pulumi.get(self, "disk_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BulkCreationParametersResponse(dict):
     """
     Parameters for creating multiple virtual machines as a single action.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BulkCreationParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BulkCreationParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BulkCreationParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instance_count: Optional[int] = None):
         """
@@ -446,15 +531,33 @@ class BulkCreationParametersResponse(dict):
         """
         return pulumi.get(self, "instance_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeDataDiskResponse(dict):
     """
     A data disks attached to a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGiB":
+            suggest = "disk_size_gi_b"
+        elif key == "diskUri":
+            suggest = "disk_uri"
+        elif key == "managedDiskId":
+            suggest = "managed_disk_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeDataDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeDataDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeDataDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_size_gi_b: Optional[int] = None,
                  disk_uri: Optional[str] = None,
@@ -508,15 +611,29 @@ class ComputeDataDiskResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeVmInstanceViewStatusResponse(dict):
     """
     Status information about a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeVmInstanceViewStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeVmInstanceViewStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeVmInstanceViewStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  display_status: Optional[str] = None,
@@ -558,15 +675,39 @@ class ComputeVmInstanceViewStatusResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeVmPropertiesResponse(dict):
     """
     Properties of a virtual machine returned by the Microsoft.Compute API.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDiskIds":
+            suggest = "data_disk_ids"
+        elif key == "dataDisks":
+            suggest = "data_disks"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "osDiskId":
+            suggest = "os_disk_id"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeVmPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeVmPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeVmPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_disk_ids: Optional[Sequence[str]] = None,
                  data_disks: Optional[Sequence['outputs.ComputeDataDiskResponse']] = None,
@@ -578,11 +719,11 @@ class ComputeVmPropertiesResponse(dict):
         """
         Properties of a virtual machine returned by the Microsoft.Compute API.
         :param Sequence[str] data_disk_ids: Gets data disks blob uri for the virtual machine.
-        :param Sequence['ComputeDataDiskResponseArgs'] data_disks: Gets all data disks attached to the virtual machine.
+        :param Sequence['ComputeDataDiskResponse'] data_disks: Gets all data disks attached to the virtual machine.
         :param str network_interface_id: Gets the network interface ID of the virtual machine.
         :param str os_disk_id: Gets OS disk blob uri for the virtual machine.
         :param str os_type: Gets the OS type of the virtual machine.
-        :param Sequence['ComputeVmInstanceViewStatusResponseArgs'] statuses: Gets the statuses of the virtual machine.
+        :param Sequence['ComputeVmInstanceViewStatusResponse'] statuses: Gets the statuses of the virtual machine.
         :param str vm_size: Gets the size of the virtual machine.
         """
         if data_disk_ids is not None:
@@ -656,15 +797,33 @@ class ComputeVmPropertiesResponse(dict):
         """
         return pulumi.get(self, "vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomImagePropertiesCustomResponse(dict):
     """
     Properties for creating a custom image from a VHD.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osType":
+            suggest = "os_type"
+        elif key == "imageName":
+            suggest = "image_name"
+        elif key == "sysPrep":
+            suggest = "sys_prep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomImagePropertiesCustomResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomImagePropertiesCustomResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomImagePropertiesCustomResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  os_type: str,
                  image_name: Optional[str] = None,
@@ -704,9 +863,6 @@ class CustomImagePropertiesCustomResponse(dict):
         Indicates whether sysprep has been run on the VHD.
         """
         return pulumi.get(self, "sys_prep")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -755,24 +911,42 @@ class CustomImagePropertiesFromPlanResponse(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomImagePropertiesFromVmResponse(dict):
     """
     Properties for creating a custom image from a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linuxOsInfo":
+            suggest = "linux_os_info"
+        elif key == "sourceVmId":
+            suggest = "source_vm_id"
+        elif key == "windowsOsInfo":
+            suggest = "windows_os_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomImagePropertiesFromVmResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomImagePropertiesFromVmResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomImagePropertiesFromVmResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linux_os_info: Optional['outputs.LinuxOsInfoResponse'] = None,
                  source_vm_id: Optional[str] = None,
                  windows_os_info: Optional['outputs.WindowsOsInfoResponse'] = None):
         """
         Properties for creating a custom image from a virtual machine.
-        :param 'LinuxOsInfoResponseArgs' linux_os_info: The Linux OS information of the VM.
+        :param 'LinuxOsInfoResponse' linux_os_info: The Linux OS information of the VM.
         :param str source_vm_id: The source vm identifier.
-        :param 'WindowsOsInfoResponseArgs' windows_os_info: The Windows OS information of the VM.
+        :param 'WindowsOsInfoResponse' windows_os_info: The Windows OS information of the VM.
         """
         if linux_os_info is not None:
             pulumi.set(__self__, "linux_os_info", linux_os_info)
@@ -805,22 +979,40 @@ class CustomImagePropertiesFromVmResponse(dict):
         """
         return pulumi.get(self, "windows_os_info")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataDiskPropertiesResponse(dict):
     """
     Request body for adding a new or existing data disk to a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachNewDataDiskOptions":
+            suggest = "attach_new_data_disk_options"
+        elif key == "existingLabDiskId":
+            suggest = "existing_lab_disk_id"
+        elif key == "hostCaching":
+            suggest = "host_caching"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDiskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDiskPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDiskPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  attach_new_data_disk_options: Optional['outputs.AttachNewDataDiskOptionsResponse'] = None,
                  existing_lab_disk_id: Optional[str] = None,
                  host_caching: Optional[str] = None):
         """
         Request body for adding a new or existing data disk to a virtual machine.
-        :param 'AttachNewDataDiskOptionsResponseArgs' attach_new_data_disk_options: Specifies options to attach a new disk to the virtual machine.
+        :param 'AttachNewDataDiskOptionsResponse' attach_new_data_disk_options: Specifies options to attach a new disk to the virtual machine.
         :param str existing_lab_disk_id: Specifies the existing lab disk id to attach to virtual machine.
         :param str host_caching: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         """
@@ -855,15 +1047,29 @@ class DataDiskPropertiesResponse(dict):
         """
         return pulumi.get(self, "host_caching")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataDiskStorageTypeInfoResponse(dict):
     """
     Storage information about the data disks present in the custom image
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDiskStorageTypeInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDiskStorageTypeInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDiskStorageTypeInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lun: Optional[str] = None,
                  storage_type: Optional[str] = None):
@@ -893,9 +1099,6 @@ class DataDiskStorageTypeInfoResponse(dict):
         """
         return pulumi.get(self, "storage_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DayDetailsResponse(dict):
@@ -919,22 +1122,36 @@ class DayDetailsResponse(dict):
         """
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentDeploymentPropertiesResponse(dict):
     """
     Properties of an environment deployment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "armTemplateId":
+            suggest = "arm_template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentDeploymentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentDeploymentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentDeploymentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arm_template_id: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.ArmTemplateParameterPropertiesResponse']] = None):
         """
         Properties of an environment deployment.
         :param str arm_template_id: The Azure Resource Manager template's identifier.
-        :param Sequence['ArmTemplateParameterPropertiesResponseArgs'] parameters: The parameters of the Azure Resource Manager template.
+        :param Sequence['ArmTemplateParameterPropertiesResponse'] parameters: The parameters of the Azure Resource Manager template.
         """
         if arm_template_id is not None:
             pulumi.set(__self__, "arm_template_id", arm_template_id)
@@ -957,15 +1174,29 @@ class EnvironmentDeploymentPropertiesResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventResponse(dict):
     """
     An event to be notified for.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventName":
+            suggest = "event_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_name: Optional[str] = None):
         """
@@ -982,9 +1213,6 @@ class EventResponse(dict):
         The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         return pulumi.get(self, "event_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1021,15 +1249,29 @@ class ExternalSubnetResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FormulaPropertiesFromVmResponse(dict):
     """
     Information about a VM from which a formula is to be created.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labVmId":
+            suggest = "lab_vm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FormulaPropertiesFromVmResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FormulaPropertiesFromVmResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FormulaPropertiesFromVmResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lab_vm_id: Optional[str] = None):
         """
@@ -1047,15 +1289,29 @@ class FormulaPropertiesFromVmResponse(dict):
         """
         return pulumi.get(self, "lab_vm_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GalleryImageReferenceResponse(dict):
     """
     The reference information for an Azure Marketplace image.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryImageReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryImageReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryImageReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  offer: Optional[str] = None,
                  os_type: Optional[str] = None,
@@ -1121,9 +1377,6 @@ class GalleryImageReferenceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HourDetailsResponse(dict):
@@ -1147,15 +1400,33 @@ class HourDetailsResponse(dict):
         """
         return pulumi.get(self, "minute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityPropertiesResponse(dict):
     """
     Properties of a managed identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientSecretUrl":
+            suggest = "client_secret_url"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_secret_url: Optional[str] = None,
                  principal_id: Optional[str] = None,
@@ -1209,15 +1480,33 @@ class IdentityPropertiesResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InboundNatRuleResponse(dict):
     """
     A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "transportProtocol":
+            suggest = "transport_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundNatRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundNatRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundNatRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: Optional[int] = None,
                  frontend_port: Optional[int] = None,
@@ -1259,15 +1548,33 @@ class InboundNatRuleResponse(dict):
         """
         return pulumi.get(self, "transport_protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabAnnouncementPropertiesResponse(dict):
     """
     Properties of a lab's announcement banner
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabAnnouncementPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabAnnouncementPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabAnnouncementPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  provisioning_state: str,
                  unique_identifier: str,
@@ -1355,9 +1662,6 @@ class LabAnnouncementPropertiesResponse(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabSupportPropertiesResponse(dict):
@@ -1393,12 +1697,9 @@ class LabSupportPropertiesResponse(dict):
         """
         return pulumi.get(self, "markdown")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class LabVhdResponseResult(dict):
+class LabVhdResponse(dict):
     """
     Properties of a VHD in the lab.
     """
@@ -1425,6 +1726,61 @@ class LabVirtualMachineCreationParameterResponse(dict):
     """
     Properties for creating a virtual machine.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowClaim":
+            suggest = "allow_claim"
+        elif key == "bulkCreationParameters":
+            suggest = "bulk_creation_parameters"
+        elif key == "createdDate":
+            suggest = "created_date"
+        elif key == "customImageId":
+            suggest = "custom_image_id"
+        elif key == "dataDiskParameters":
+            suggest = "data_disk_parameters"
+        elif key == "disallowPublicIpAddress":
+            suggest = "disallow_public_ip_address"
+        elif key == "environmentId":
+            suggest = "environment_id"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "galleryImageReference":
+            suggest = "gallery_image_reference"
+        elif key == "isAuthenticationWithSshKey":
+            suggest = "is_authentication_with_ssh_key"
+        elif key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "labVirtualNetworkId":
+            suggest = "lab_virtual_network_id"
+        elif key == "networkInterface":
+            suggest = "network_interface"
+        elif key == "ownerObjectId":
+            suggest = "owner_object_id"
+        elif key == "ownerUserPrincipalName":
+            suggest = "owner_user_principal_name"
+        elif key == "planId":
+            suggest = "plan_id"
+        elif key == "scheduleParameters":
+            suggest = "schedule_parameters"
+        elif key == "sshKey":
+            suggest = "ssh_key"
+        elif key == "storageType":
+            suggest = "storage_type"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabVirtualMachineCreationParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabVirtualMachineCreationParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabVirtualMachineCreationParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_claim: Optional[bool] = None,
                  artifacts: Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']] = None,
@@ -1456,27 +1812,27 @@ class LabVirtualMachineCreationParameterResponse(dict):
         """
         Properties for creating a virtual machine.
         :param bool allow_claim: Indicates whether another user can take ownership of the virtual machine
-        :param Sequence['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
-        :param 'BulkCreationParametersResponseArgs' bulk_creation_parameters: The number of virtual machine instances to create.
+        :param Sequence['ArtifactInstallPropertiesResponse'] artifacts: The artifacts to be installed on the virtual machine.
+        :param 'BulkCreationParametersResponse' bulk_creation_parameters: The number of virtual machine instances to create.
         :param str created_date: The creation date of the virtual machine.
         :param str custom_image_id: The custom image identifier of the virtual machine.
-        :param Sequence['DataDiskPropertiesResponseArgs'] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
+        :param Sequence['DataDiskPropertiesResponse'] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
         :param bool disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param str environment_id: The resource ID of the environment that contains this virtual machine, if any.
         :param str expiration_date: The expiration date for VM.
-        :param 'GalleryImageReferenceResponseArgs' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param 'GalleryImageReferenceResponse' gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
         :param bool is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
         :param str lab_subnet_name: The lab subnet name of the virtual machine.
         :param str lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param str location: The location of the new virtual machine or environment
         :param str name: The name of the virtual machine or environment
-        :param 'NetworkInterfacePropertiesResponseArgs' network_interface: The network interface properties.
+        :param 'NetworkInterfacePropertiesResponse' network_interface: The network interface properties.
         :param str notes: The notes of the virtual machine.
         :param str owner_object_id: The object identifier of the owner of the virtual machine.
         :param str owner_user_principal_name: The user principal name of the virtual machine owner.
         :param str password: The password of the virtual machine administrator.
         :param str plan_id: The id of the plan associated with the virtual machine image
-        :param Sequence['ScheduleCreationParameterResponseArgs'] schedule_parameters: Virtual Machine schedules to be created
+        :param Sequence['ScheduleCreationParameterResponse'] schedule_parameters: Virtual Machine schedules to be created
         :param str size: The size of the virtual machine.
         :param str ssh_key: The SSH key of the virtual machine administrator.
         :param str storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
@@ -1760,15 +2116,29 @@ class LabVirtualMachineCreationParameterResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxOsInfoResponse(dict):
     """
     Information about a Linux OS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linuxOsState":
+            suggest = "linux_os_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxOsInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxOsInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxOsInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linux_os_state: Optional[str] = None):
         """
@@ -1786,15 +2156,45 @@ class LinuxOsInfoResponse(dict):
         """
         return pulumi.get(self, "linux_os_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkInterfacePropertiesResponse(dict):
     """
     Properties of a network interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIpAddress":
+            suggest = "public_ip_address"
+        elif key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
+        elif key == "rdpAuthority":
+            suggest = "rdp_authority"
+        elif key == "sharedPublicIpAddressConfiguration":
+            suggest = "shared_public_ip_address_configuration"
+        elif key == "sshAuthority":
+            suggest = "ssh_authority"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_name: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
@@ -1812,7 +2212,7 @@ class NetworkInterfacePropertiesResponse(dict):
         :param str public_ip_address: The public IP address.
         :param str public_ip_address_id: The resource ID of the public IP address.
         :param str rdp_authority: The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-        :param 'SharedPublicIpAddressConfigurationResponseArgs' shared_public_ip_address_configuration: The configuration for sharing a public IP address across multiple virtual machines.
+        :param 'SharedPublicIpAddressConfigurationResponse' shared_public_ip_address_configuration: The configuration for sharing a public IP address across multiple virtual machines.
         :param str ssh_authority: The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
         :param str subnet_id: The resource ID of the sub net.
         :param str virtual_network_id: The resource ID of the virtual network.
@@ -1908,15 +2308,35 @@ class NetworkInterfacePropertiesResponse(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotificationSettingsResponse(dict):
     """
     Notification settings for a schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailRecipient":
+            suggest = "email_recipient"
+        elif key == "notificationLocale":
+            suggest = "notification_locale"
+        elif key == "timeInMinutes":
+            suggest = "time_in_minutes"
+        elif key == "webhookUrl":
+            suggest = "webhook_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_recipient: Optional[str] = None,
                  notification_locale: Optional[str] = None,
@@ -1982,15 +2402,31 @@ class NotificationSettingsResponse(dict):
         """
         return pulumi.get(self, "webhook_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PortResponse(dict):
     """
     Properties of a network port.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "transportProtocol":
+            suggest = "transport_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PortResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PortResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PortResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: Optional[int] = None,
                  transport_protocol: Optional[str] = None):
@@ -2020,15 +2456,41 @@ class PortResponse(dict):
         """
         return pulumi.get(self, "transport_protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleCreationParameterResponse(dict):
     """
     Properties for creating a schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dailyRecurrence":
+            suggest = "daily_recurrence"
+        elif key == "hourlyRecurrence":
+            suggest = "hourly_recurrence"
+        elif key == "notificationSettings":
+            suggest = "notification_settings"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "taskType":
+            suggest = "task_type"
+        elif key == "timeZoneId":
+            suggest = "time_zone_id"
+        elif key == "weeklyRecurrence":
+            suggest = "weekly_recurrence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleCreationParameterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleCreationParameterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleCreationParameterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  daily_recurrence: Optional['outputs.DayDetailsResponse'] = None,
                  hourly_recurrence: Optional['outputs.HourDetailsResponse'] = None,
@@ -2043,17 +2505,17 @@ class ScheduleCreationParameterResponse(dict):
                  weekly_recurrence: Optional['outputs.WeekDetailsResponse'] = None):
         """
         Properties for creating a schedule.
-        :param 'DayDetailsResponseArgs' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
-        :param 'HourDetailsResponseArgs' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        :param 'DayDetailsResponse' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
+        :param 'HourDetailsResponse' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param str location: The location of the new virtual machine or environment
         :param str name: The name of the virtual machine or environment
-        :param 'NotificationSettingsResponseArgs' notification_settings: Notification settings.
+        :param 'NotificationSettingsResponse' notification_settings: Notification settings.
         :param str status: The status of the schedule (i.e. Enabled, Disabled)
         :param Mapping[str, str] tags: The tags of the resource.
         :param str target_resource_id: The resource ID to which the schedule belongs
         :param str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        :param 'WeekDetailsResponseArgs' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
+        :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         if daily_recurrence is not None:
             pulumi.set(__self__, "daily_recurrence", daily_recurrence)
@@ -2166,15 +2628,47 @@ class ScheduleCreationParameterResponse(dict):
         """
         return pulumi.get(self, "weekly_recurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleResponse(dict):
     """
     A schedule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "uniqueIdentifier":
+            suggest = "unique_identifier"
+        elif key == "dailyRecurrence":
+            suggest = "daily_recurrence"
+        elif key == "hourlyRecurrence":
+            suggest = "hourly_recurrence"
+        elif key == "notificationSettings":
+            suggest = "notification_settings"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "taskType":
+            suggest = "task_type"
+        elif key == "timeZoneId":
+            suggest = "time_zone_id"
+        elif key == "weeklyRecurrence":
+            suggest = "weekly_recurrence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_date: str,
                  id: str,
@@ -2200,16 +2694,16 @@ class ScheduleResponse(dict):
         :param str provisioning_state: The provisioning status of the resource.
         :param str type: The type of the resource.
         :param str unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param 'DayDetailsResponseArgs' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
-        :param 'HourDetailsResponseArgs' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
+        :param 'DayDetailsResponse' daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
+        :param 'HourDetailsResponse' hourly_recurrence: If the schedule will occur multiple times a day, specify the hourly recurrence.
         :param str location: The location of the resource.
-        :param 'NotificationSettingsResponseArgs' notification_settings: Notification settings.
+        :param 'NotificationSettingsResponse' notification_settings: Notification settings.
         :param str status: The status of the schedule (i.e. Enabled, Disabled)
         :param Mapping[str, str] tags: The tags of the resource.
         :param str target_resource_id: The resource ID to which the schedule belongs
         :param str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
         :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        :param 'WeekDetailsResponseArgs' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
+        :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "created_date", created_date)
         pulumi.set(__self__, "id", id)
@@ -2366,20 +2860,34 @@ class ScheduleResponse(dict):
         """
         return pulumi.get(self, "weekly_recurrence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedPublicIpAddressConfigurationResponse(dict):
     """
     Properties of a virtual machine that determine how it is connected to a load balancer.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundNatRules":
+            suggest = "inbound_nat_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedPublicIpAddressConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedPublicIpAddressConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedPublicIpAddressConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None):
         """
         Properties of a virtual machine that determine how it is connected to a load balancer.
-        :param Sequence['InboundNatRuleResponseArgs'] inbound_nat_rules: The incoming NAT rules
+        :param Sequence['InboundNatRuleResponse'] inbound_nat_rules: The incoming NAT rules
         """
         if inbound_nat_rules is not None:
             pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
@@ -2392,15 +2900,39 @@ class SharedPublicIpAddressConfigurationResponse(dict):
         """
         return pulumi.get(self, "inbound_nat_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetOverrideResponse(dict):
     """
     Property overrides on a subnet of a virtual network.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "sharedPublicIpAddressConfiguration":
+            suggest = "shared_public_ip_address_configuration"
+        elif key == "useInVmCreationPermission":
+            suggest = "use_in_vm_creation_permission"
+        elif key == "usePublicIpAddressPermission":
+            suggest = "use_public_ip_address_permission"
+        elif key == "virtualNetworkPoolName":
+            suggest = "virtual_network_pool_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lab_subnet_name: Optional[str] = None,
                  resource_id: Optional[str] = None,
@@ -2412,7 +2944,7 @@ class SubnetOverrideResponse(dict):
         Property overrides on a subnet of a virtual network.
         :param str lab_subnet_name: The name given to the subnet within the lab.
         :param str resource_id: The resource ID of the subnet.
-        :param 'SubnetSharedPublicIpAddressConfigurationResponseArgs' shared_public_ip_address_configuration: Properties that virtual machines on this subnet will share.
+        :param 'SubnetSharedPublicIpAddressConfigurationResponse' shared_public_ip_address_configuration: Properties that virtual machines on this subnet will share.
         :param str use_in_vm_creation_permission: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
         :param str use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         :param str virtual_network_pool_name: The virtual network pool associated with this subnet.
@@ -2478,15 +3010,33 @@ class SubnetOverrideResponse(dict):
         """
         return pulumi.get(self, "virtual_network_pool_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetResponse(dict):
     """
     Subnet information.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPublicIp":
+            suggest = "allow_public_ip"
+        elif key == "labSubnetName":
+            suggest = "lab_subnet_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_public_ip: Optional[str] = None,
                  lab_subnet_name: Optional[str] = None,
@@ -2528,20 +3078,34 @@ class SubnetResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubnetSharedPublicIpAddressConfigurationResponse(dict):
     """
     Configuration for public IP address sharing.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPorts":
+            suggest = "allowed_ports"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetSharedPublicIpAddressConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetSharedPublicIpAddressConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetSharedPublicIpAddressConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_ports: Optional[Sequence['outputs.PortResponse']] = None):
         """
         Configuration for public IP address sharing.
-        :param Sequence['PortResponseArgs'] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
+        :param Sequence['PortResponse'] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
         """
         if allowed_ports is not None:
             pulumi.set(__self__, "allowed_ports", allowed_ports)
@@ -2554,15 +3118,37 @@ class SubnetSharedPublicIpAddressConfigurationResponse(dict):
         """
         return pulumi.get(self, "allowed_ports")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserIdentityResponse(dict):
     """
     Identity attributes of a lab user.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "principalName":
+            suggest = "principal_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_id: Optional[str] = None,
                  object_id: Optional[str] = None,
@@ -2628,15 +3214,31 @@ class UserIdentityResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserSecretStoreResponse(dict):
     """
     Properties of a user's secret store.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserSecretStoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserSecretStoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserSecretStoreResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_id: Optional[str] = None,
                  key_vault_uri: Optional[str] = None):
@@ -2665,9 +3267,6 @@ class UserSecretStoreResponse(dict):
         The URI of the user's Key vault.
         """
         return pulumi.get(self, "key_vault_uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2704,15 +3303,29 @@ class WeekDetailsResponse(dict):
         """
         return pulumi.get(self, "weekdays")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsOsInfoResponse(dict):
     """
     Information about a Windows OS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowsOsState":
+            suggest = "windows_os_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsOsInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsOsInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsOsInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  windows_os_state: Optional[str] = None):
         """
@@ -2729,8 +3342,5 @@ class WindowsOsInfoResponse(dict):
         The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         return pulumi.get(self, "windows_os_state")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

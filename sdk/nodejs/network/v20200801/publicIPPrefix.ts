@@ -179,11 +179,11 @@ export interface PublicIPPrefixArgs {
     /**
      * The customIpPrefix that this prefix is associated with.
      */
-    readonly customIPPrefix?: pulumi.Input<inputs.network.v20200801.SubResource>;
+    readonly customIPPrefix?: pulumi.Input<inputs.network.v20200801.SubResourceArgs>;
     /**
      * The extended location of the public ip address.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20200801.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.network.v20200801.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
@@ -191,7 +191,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The list of tags associated with the public IP prefix.
      */
-    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20200801.IpTag>[]>;
+    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20200801.IpTagArgs>[]>;
     /**
      * Resource location.
      */
@@ -199,7 +199,7 @@ export interface PublicIPPrefixArgs {
     /**
      * NatGateway of Public IP Prefix.
      */
-    readonly natGateway?: pulumi.Input<inputs.network.v20200801.NatGateway>;
+    readonly natGateway?: pulumi.Input<inputs.network.v20200801.NatGatewayArgs>;
     /**
      * The Length of the Public IP Prefix.
      */
@@ -219,7 +219,7 @@ export interface PublicIPPrefixArgs {
     /**
      * The public IP prefix SKU.
      */
-    readonly sku?: pulumi.Input<inputs.network.v20200801.PublicIPPrefixSku>;
+    readonly sku?: pulumi.Input<inputs.network.v20200801.PublicIPPrefixSkuArgs>;
     /**
      * Resource tags.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -178,9 +178,7 @@ class Factory(pulumi.CustomResource):
                  repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Factory resource type.
         API Version: 2018-06-01.
@@ -231,15 +229,7 @@ class Factory(pulumi.CustomResource):
                  repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,25 +239,25 @@ class Factory(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FactoryArgs.__new__(FactoryArgs)
 
-            __props__['encryption'] = encryption
-            __props__['factory_name'] = factory_name
-            __props__['global_parameters'] = global_parameters
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['public_network_access'] = public_network_access
-            __props__['repo_configuration'] = repo_configuration
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["factory_name"] = factory_name
+            __props__.__dict__["global_parameters"] = global_parameters
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["public_network_access"] = public_network_access
+            __props__.__dict__["repo_configuration"] = repo_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['create_time'] = None
-            __props__['e_tag'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["create_time"] = None
+            __props__.__dict__["e_tag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory:Factory"), pulumi.Alias(type_="azure-native:datafactory/v20170901preview:Factory"), pulumi.Alias(type_="azure-nextgen:datafactory/v20170901preview:Factory"), pulumi.Alias(type_="azure-native:datafactory/v20180601:Factory"), pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:Factory")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Factory, __self__).__init__(
@@ -290,21 +280,21 @@ class Factory(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = FactoryArgs.__new__(FactoryArgs)
 
-        __props__["create_time"] = None
-        __props__["e_tag"] = None
-        __props__["encryption"] = None
-        __props__["global_parameters"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_network_access"] = None
-        __props__["repo_configuration"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["create_time"] = None
+        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["encryption"] = None
+        __props__.__dict__["global_parameters"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["repo_configuration"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return Factory(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -410,10 +400,4 @@ class Factory(pulumi.CustomResource):
         Version of the factory.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

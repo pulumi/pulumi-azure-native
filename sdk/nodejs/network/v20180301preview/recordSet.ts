@@ -174,19 +174,19 @@ export interface RecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.ARecord>[]>;
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.ARecordArgs>[]>;
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.AaaaRecord>[]>;
+    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.AaaaRecordArgs>[]>;
     /**
      * The list of CAA records in the record set.
      */
-    readonly caaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.CaaRecord>[]>;
+    readonly caaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.CaaRecordArgs>[]>;
     /**
      * The CNAME record in the  record set.
      */
-    readonly cnameRecord?: pulumi.Input<inputs.network.v20180301preview.CnameRecord>;
+    readonly cnameRecord?: pulumi.Input<inputs.network.v20180301preview.CnameRecordArgs>;
     /**
      * The etag of the record set.
      */
@@ -198,15 +198,15 @@ export interface RecordSetArgs {
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.MxRecord>[]>;
+    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.MxRecordArgs>[]>;
     /**
      * The list of NS records in the record set.
      */
-    readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.NsRecord>[]>;
+    readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.NsRecordArgs>[]>;
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.PtrRecord>[]>;
+    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.PtrRecordArgs>[]>;
     /**
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
      */
@@ -222,11 +222,11 @@ export interface RecordSetArgs {
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: pulumi.Input<inputs.network.v20180301preview.SoaRecord>;
+    readonly soaRecord?: pulumi.Input<inputs.network.v20180301preview.SoaRecordArgs>;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.SrvRecord>[]>;
+    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.SrvRecordArgs>[]>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -234,7 +234,7 @@ export interface RecordSetArgs {
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.TxtRecord>[]>;
+    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.TxtRecordArgs>[]>;
     /**
      * The name of the DNS zone (without a terminating dot).
      */

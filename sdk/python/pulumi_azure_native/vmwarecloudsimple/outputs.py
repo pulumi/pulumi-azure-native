@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -26,6 +26,27 @@ class GuestOSCustomizationResponse(dict):
     """
     Guest OS Customization properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "policyId":
+            suggest = "policy_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestOSCustomizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestOSCustomizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestOSCustomizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_servers: Optional[Sequence[str]] = None,
                  host_name: Optional[str] = None,
@@ -91,15 +112,35 @@ class GuestOSCustomizationResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GuestOSNICCustomizationResponse(dict):
     """
     Guest OS nic customization
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "primaryWinsServer":
+            suggest = "primary_wins_server"
+        elif key == "secondaryWinsServer":
+            suggest = "secondary_wins_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestOSNICCustomizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestOSNICCustomizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestOSNICCustomizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation: Optional[str] = None,
                  dns_servers: Optional[Sequence[str]] = None,
@@ -189,15 +230,31 @@ class GuestOSNICCustomizationResponse(dict):
         """
         return pulumi.get(self, "secondary_wins_server")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourcePoolResponse(dict):
     """
     Resource pool model
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fullName":
+            suggest = "full_name"
+        elif key == "privateCloudId":
+            suggest = "private_cloud_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourcePoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourcePoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourcePoolResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  full_name: str,
                  id: str,
@@ -269,9 +326,6 @@ class ResourcePoolResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -342,15 +396,29 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualDiskControllerResponse(dict):
     """
     Virtual disk controller model
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subType":
+            suggest = "sub_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualDiskControllerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualDiskControllerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualDiskControllerResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -400,15 +468,37 @@ class VirtualDiskControllerResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualDiskResponse(dict):
     """
     Virtual disk model
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controllerId":
+            suggest = "controller_id"
+        elif key == "independenceMode":
+            suggest = "independence_mode"
+        elif key == "totalSize":
+            suggest = "total_size"
+        elif key == "virtualDiskName":
+            suggest = "virtual_disk_name"
+        elif key == "virtualDiskId":
+            suggest = "virtual_disk_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  controller_id: str,
                  independence_mode: str,
@@ -470,15 +560,29 @@ class VirtualDiskResponse(dict):
         """
         return pulumi.get(self, "virtual_disk_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkResponse(dict):
     """
     Virtual network model
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateCloudId":
+            suggest = "private_cloud_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assignable: bool,
                  id: str,
@@ -550,15 +654,39 @@ class VirtualNetworkResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNicResponse(dict):
     """
     Virtual NIC model
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nicType":
+            suggest = "nic_type"
+        elif key == "virtualNicName":
+            suggest = "virtual_nic_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "powerOnBoot":
+            suggest = "power_on_boot"
+        elif key == "virtualNicId":
+            suggest = "virtual_nic_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNicResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNicResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNicResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network: 'outputs.VirtualNetworkResponse',
                  nic_type: str,
@@ -570,10 +698,10 @@ class VirtualNicResponse(dict):
                  virtual_nic_id: Optional[str] = None):
         """
         Virtual NIC model
-        :param 'VirtualNetworkResponseArgs' network: Virtual Network
+        :param 'VirtualNetworkResponse' network: Virtual Network
         :param str nic_type: NIC type
         :param str virtual_nic_name: NIC name
-        :param 'GuestOSNICCustomizationResponseArgs' customization: guest OS customization for nic
+        :param 'GuestOSNICCustomizationResponse' customization: guest OS customization for nic
         :param Sequence[str] ip_addresses: NIC ip address
         :param str mac_address: NIC MAC address
         :param bool power_on_boot: Is NIC powered on/off on boot
@@ -656,8 +784,5 @@ class VirtualNicResponse(dict):
         NIC id
         """
         return pulumi.get(self, "virtual_nic_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -227,7 +227,7 @@ export interface HostPoolArgs {
     /**
      * The registration info of HostPool.
      */
-    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20190924preview.RegistrationInfo>;
+    readonly registrationInfo?: pulumi.Input<inputs.desktopvirtualization.v20190924preview.RegistrationInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

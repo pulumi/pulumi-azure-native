@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -263,9 +263,7 @@ class DomainService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Domain service.
 
@@ -324,15 +322,7 @@ class DomainService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,33 +332,33 @@ class DomainService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DomainServiceArgs.__new__(DomainServiceArgs)
 
-            __props__['domain_configuration_type'] = domain_configuration_type
-            __props__['domain_name'] = domain_name
-            __props__['domain_security_settings'] = domain_security_settings
-            __props__['domain_service_name'] = domain_service_name
-            __props__['etag'] = etag
-            __props__['filtered_sync'] = filtered_sync
-            __props__['ldaps_settings'] = ldaps_settings
-            __props__['location'] = location
-            __props__['notification_settings'] = notification_settings
-            __props__['replica_sets'] = replica_sets
-            __props__['resource_forest_settings'] = resource_forest_settings
+            __props__.__dict__["domain_configuration_type"] = domain_configuration_type
+            __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["domain_security_settings"] = domain_security_settings
+            __props__.__dict__["domain_service_name"] = domain_service_name
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["filtered_sync"] = filtered_sync
+            __props__.__dict__["ldaps_settings"] = ldaps_settings
+            __props__.__dict__["location"] = location
+            __props__.__dict__["notification_settings"] = notification_settings
+            __props__.__dict__["replica_sets"] = replica_sets
+            __props__.__dict__["resource_forest_settings"] = resource_forest_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['deployment_id'] = None
-            __props__['migration_properties'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['sync_owner'] = None
-            __props__['system_data'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["deployment_id"] = None
+            __props__.__dict__["migration_properties"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sync_owner"] = None
+            __props__.__dict__["system_data"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/v20210301:DomainService"), pulumi.Alias(type_="azure-native:aad:DomainService"), pulumi.Alias(type_="azure-nextgen:aad:DomainService"), pulumi.Alias(type_="azure-native:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170101:DomainService"), pulumi.Alias(type_="azure-native:aad/v20170601:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20170601:DomainService"), pulumi.Alias(type_="azure-native:aad/v20200101:DomainService"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:DomainService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainService, __self__).__init__(
@@ -391,29 +381,29 @@ class DomainService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DomainServiceArgs.__new__(DomainServiceArgs)
 
-        __props__["deployment_id"] = None
-        __props__["domain_configuration_type"] = None
-        __props__["domain_name"] = None
-        __props__["domain_security_settings"] = None
-        __props__["etag"] = None
-        __props__["filtered_sync"] = None
-        __props__["ldaps_settings"] = None
-        __props__["location"] = None
-        __props__["migration_properties"] = None
-        __props__["name"] = None
-        __props__["notification_settings"] = None
-        __props__["provisioning_state"] = None
-        __props__["replica_sets"] = None
-        __props__["resource_forest_settings"] = None
-        __props__["sku"] = None
-        __props__["sync_owner"] = None
-        __props__["system_data"] = None
-        __props__["tags"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["deployment_id"] = None
+        __props__.__dict__["domain_configuration_type"] = None
+        __props__.__dict__["domain_name"] = None
+        __props__.__dict__["domain_security_settings"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["filtered_sync"] = None
+        __props__.__dict__["ldaps_settings"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["migration_properties"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["notification_settings"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["replica_sets"] = None
+        __props__.__dict__["resource_forest_settings"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["sync_owner"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return DomainService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -583,10 +573,4 @@ class DomainService(pulumi.CustomResource):
         Data Model Version
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

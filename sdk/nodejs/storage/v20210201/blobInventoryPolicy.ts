@@ -115,7 +115,7 @@ export interface BlobInventoryPolicyArgs {
     /**
      * The storage account blob inventory policy object. It is composed of policy rules.
      */
-    readonly policy: pulumi.Input<inputs.storage.v20210201.BlobInventoryPolicySchema>;
+    readonly policy: pulumi.Input<inputs.storage.v20210201.BlobInventoryPolicySchemaArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

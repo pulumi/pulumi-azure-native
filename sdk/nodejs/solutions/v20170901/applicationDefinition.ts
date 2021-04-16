@@ -176,11 +176,11 @@ export interface ApplicationDefinitionArgs {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationArtifact>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationArtifactArgs>[]>;
     /**
      * The managed application provider authorizations.
      */
-    readonly authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationProviderAuthorization>[]>;
+    readonly authorizations: pulumi.Input<pulumi.Input<inputs.solutions.v20170901.ApplicationProviderAuthorizationArgs>[]>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -196,7 +196,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.solutions.v20170901.Identity>;
+    readonly identity?: pulumi.Input<inputs.solutions.v20170901.IdentityArgs>;
     /**
      * A value indicating whether the package is enabled or not.
      */
@@ -228,7 +228,7 @@ export interface ApplicationDefinitionArgs {
     /**
      * The SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.solutions.v20170901.Sku>;
+    readonly sku?: pulumi.Input<inputs.solutions.v20170901.SkuArgs>;
     /**
      * Resource tags
      */

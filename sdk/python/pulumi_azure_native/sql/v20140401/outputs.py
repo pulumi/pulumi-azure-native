@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,25 @@ class OperationImpactResponse(dict):
     """
     The impact of an operation, both in absolute and relative terms.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeValueAbsolute":
+            suggest = "change_value_absolute"
+        elif key == "changeValueRelative":
+            suggest = "change_value_relative"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OperationImpactResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OperationImpactResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OperationImpactResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  change_value_absolute: float,
                  change_value_relative: float,
@@ -72,15 +91,39 @@ class OperationImpactResponse(dict):
         """
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecommendedIndexResponse(dict):
     """
     Represents a database recommended index.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "estimatedImpact":
+            suggest = "estimated_impact"
+        elif key == "includedColumns":
+            suggest = "included_columns"
+        elif key == "indexScript":
+            suggest = "index_script"
+        elif key == "indexType":
+            suggest = "index_type"
+        elif key == "lastModified":
+            suggest = "last_modified"
+        elif key == "reportedImpact":
+            suggest = "reported_impact"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedIndexResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedIndexResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedIndexResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  columns: Sequence[str],
@@ -102,14 +145,14 @@ class RecommendedIndexResponse(dict):
         :param str action: The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
         :param Sequence[str] columns: Columns over which to build index
         :param str created: The UTC datetime showing when this resource was created (ISO8601 format).
-        :param Sequence['OperationImpactResponseArgs'] estimated_impact: The estimated impact of doing recommended index action.
+        :param Sequence['OperationImpactResponse'] estimated_impact: The estimated impact of doing recommended index action.
         :param str id: Resource ID.
         :param Sequence[str] included_columns: The list of column names to be included in the index
         :param str index_script: The full build index script
         :param str index_type: The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
         :param str last_modified: The UTC datetime of when was this resource last changed (ISO8601 format).
         :param str name: Resource name.
-        :param Sequence['OperationImpactResponseArgs'] reported_impact: The values reported after index action is complete.
+        :param Sequence['OperationImpactResponse'] reported_impact: The values reported after index action is complete.
         :param str schema: The schema where table to build index over resides
         :param str state: The current recommendation state.
         :param str table: The table on which to build index.
@@ -251,15 +294,63 @@ class RecommendedIndexResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceTierAdvisorResponse(dict):
     """
     Represents a Service Tier Advisor.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeTimeRatio":
+            suggest = "active_time_ratio"
+        elif key == "avgDtu":
+            suggest = "avg_dtu"
+        elif key == "currentServiceLevelObjective":
+            suggest = "current_service_level_objective"
+        elif key == "currentServiceLevelObjectiveId":
+            suggest = "current_service_level_objective_id"
+        elif key == "databaseSizeBasedRecommendationServiceLevelObjective":
+            suggest = "database_size_based_recommendation_service_level_objective"
+        elif key == "databaseSizeBasedRecommendationServiceLevelObjectiveId":
+            suggest = "database_size_based_recommendation_service_level_objective_id"
+        elif key == "disasterPlanBasedRecommendationServiceLevelObjective":
+            suggest = "disaster_plan_based_recommendation_service_level_objective"
+        elif key == "disasterPlanBasedRecommendationServiceLevelObjectiveId":
+            suggest = "disaster_plan_based_recommendation_service_level_objective_id"
+        elif key == "maxDtu":
+            suggest = "max_dtu"
+        elif key == "maxSizeInGB":
+            suggest = "max_size_in_gb"
+        elif key == "minDtu":
+            suggest = "min_dtu"
+        elif key == "observationPeriodEnd":
+            suggest = "observation_period_end"
+        elif key == "observationPeriodStart":
+            suggest = "observation_period_start"
+        elif key == "overallRecommendationServiceLevelObjective":
+            suggest = "overall_recommendation_service_level_objective"
+        elif key == "overallRecommendationServiceLevelObjectiveId":
+            suggest = "overall_recommendation_service_level_objective_id"
+        elif key == "serviceLevelObjectiveUsageMetrics":
+            suggest = "service_level_objective_usage_metrics"
+        elif key == "usageBasedRecommendationServiceLevelObjective":
+            suggest = "usage_based_recommendation_service_level_objective"
+        elif key == "usageBasedRecommendationServiceLevelObjectiveId":
+            suggest = "usage_based_recommendation_service_level_objective_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTierAdvisorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTierAdvisorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTierAdvisorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_time_ratio: float,
                  avg_dtu: float,
@@ -303,7 +394,7 @@ class ServiceTierAdvisorResponse(dict):
         :param str observation_period_start: The observation period start (ISO8601 format).
         :param str overall_recommendation_service_level_objective: Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
         :param str overall_recommendation_service_level_objective_id: Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-        :param Sequence['SloUsageMetricResponseArgs'] service_level_objective_usage_metrics: Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+        :param Sequence['SloUsageMetricResponse'] service_level_objective_usage_metrics: Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
         :param str type: Resource type.
         :param str usage_based_recommendation_service_level_objective: Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
         :param str usage_based_recommendation_service_level_objective_id: Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
@@ -507,15 +598,33 @@ class ServiceTierAdvisorResponse(dict):
         """
         return pulumi.get(self, "usage_based_recommendation_service_level_objective_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SloUsageMetricResponse(dict):
     """
     A Slo Usage Metric.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inRangeTimeRatio":
+            suggest = "in_range_time_ratio"
+        elif key == "serviceLevelObjective":
+            suggest = "service_level_objective"
+        elif key == "serviceLevelObjectiveId":
+            suggest = "service_level_objective_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SloUsageMetricResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SloUsageMetricResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SloUsageMetricResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  in_range_time_ratio: float,
                  service_level_objective: str,
@@ -553,9 +662,6 @@ class SloUsageMetricResponse(dict):
         The serviceLevelObjectiveId for SLO usage metric.
         """
         return pulumi.get(self, "service_level_objective_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -623,8 +729,5 @@ class TransparentDataEncryptionResponse(dict):
         The status of the database transparent data encryption.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -203,7 +203,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The DNS settings in network interface.
      */
-    readonly dnsSettings?: pulumi.Input<inputs.network.v20200701.NetworkInterfaceDnsSettings>;
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20200701.NetworkInterfaceDnsSettingsArgs>;
     /**
      * If the network interface is accelerated networking enabled.
      */
@@ -215,7 +215,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The extended location of the network interface.
      */
-    readonly extendedLocation?: pulumi.Input<inputs.network.v20200701.ExtendedLocation>;
+    readonly extendedLocation?: pulumi.Input<inputs.network.v20200701.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
@@ -223,7 +223,7 @@ export interface NetworkInterfaceArgs {
     /**
      * A list of IPConfigurations of the network interface.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200701.NetworkInterfaceIPConfiguration>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200701.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
@@ -235,7 +235,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20200701.NetworkSecurityGroup>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20200701.NetworkSecurityGroupArgs>;
     /**
      * Type of Network Interface resource.
      */
@@ -243,7 +243,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Privatelinkservice of the network interface resource.
      */
-    readonly privateLinkService?: pulumi.Input<inputs.network.v20200701.PrivateLinkService>;
+    readonly privateLinkService?: pulumi.Input<inputs.network.v20200701.PrivateLinkServiceArgs>;
     /**
      * The name of the resource group.
      */

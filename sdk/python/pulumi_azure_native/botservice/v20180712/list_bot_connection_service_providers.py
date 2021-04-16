@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -38,7 +38,7 @@ class ListBotConnectionServiceProvidersResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence['outputs.ServiceProviderResponseResult']:
+    def value(self) -> Sequence['outputs.ServiceProviderResponse']:
         """
         Gets the list of bot service providers and their properties.
         """

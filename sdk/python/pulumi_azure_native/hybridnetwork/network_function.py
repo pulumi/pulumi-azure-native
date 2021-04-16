@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -195,9 +195,7 @@ class NetworkFunction(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Network function resource response.
         API Version: 2020-01-01-preview.
@@ -250,15 +248,7 @@ class NetworkFunction(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,27 +258,27 @@ class NetworkFunction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkFunctionArgs.__new__(NetworkFunctionArgs)
 
-            __props__['device'] = device
-            __props__['etag'] = etag
-            __props__['location'] = location
-            __props__['managed_application_parameters'] = managed_application_parameters
-            __props__['network_function_name'] = network_function_name
-            __props__['network_function_user_configurations'] = network_function_user_configurations
+            __props__.__dict__["device"] = device
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_application_parameters"] = managed_application_parameters
+            __props__.__dict__["network_function_name"] = network_function_name
+            __props__.__dict__["network_function_user_configurations"] = network_function_user_configurations
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku_name'] = sku_name
-            __props__['tags'] = tags
-            __props__['vendor_name'] = vendor_name
-            __props__['managed_application'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['service_key'] = None
-            __props__['sku_type'] = None
-            __props__['type'] = None
-            __props__['vendor_provisioning_state'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vendor_name"] = vendor_name
+            __props__.__dict__["managed_application"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["service_key"] = None
+            __props__.__dict__["sku_type"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["vendor_provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:NetworkFunction"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFunction, __self__).__init__(
@@ -311,23 +301,23 @@ class NetworkFunction(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = NetworkFunctionArgs.__new__(NetworkFunctionArgs)
 
-        __props__["device"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["managed_application"] = None
-        __props__["managed_application_parameters"] = None
-        __props__["name"] = None
-        __props__["network_function_user_configurations"] = None
-        __props__["provisioning_state"] = None
-        __props__["service_key"] = None
-        __props__["sku_name"] = None
-        __props__["sku_type"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vendor_name"] = None
-        __props__["vendor_provisioning_state"] = None
+        __props__.__dict__["device"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_application"] = None
+        __props__.__dict__["managed_application_parameters"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["network_function_user_configurations"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["service_key"] = None
+        __props__.__dict__["sku_name"] = None
+        __props__.__dict__["sku_type"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vendor_name"] = None
+        __props__.__dict__["vendor_provisioning_state"] = None
         return NetworkFunction(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -449,10 +439,4 @@ class NetworkFunction(pulumi.CustomResource):
         The vendor provisioning state for the network function resource.
         """
         return pulumi.get(self, "vendor_provisioning_state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

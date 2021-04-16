@@ -126,5 +126,5 @@ export interface SkusNestedResourceTypeThirdArgs {
      * The SKU.
      */
     readonly sku?: pulumi.Input<string>;
-    readonly skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.SkuSetting>[]>;
+    readonly skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.SkuSettingArgs>[]>;
 }

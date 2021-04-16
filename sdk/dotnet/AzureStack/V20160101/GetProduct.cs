@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// <summary>
         /// Product compatibility with current device.
         /// </summary>
-        public readonly Outputs.CompatibilityResponseResult? Compatibility;
+        public readonly Outputs.CompatibilityResponse? Compatibility;
         /// <summary>
         /// The description of the product.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// <summary>
         /// Additional links available for this product.
         /// </summary>
-        public readonly Outputs.IconUrisResponseResult? IconUris;
+        public readonly Outputs.IconUrisResponse? IconUris;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// <summary>
         /// Additional links available for this product.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProductLinkResponseResult> Links;
+        public readonly ImmutableArray<Outputs.ProductLinkResponse> Links;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         /// <summary>
         /// Additional properties for the product.
         /// </summary>
-        public readonly Outputs.ProductPropertiesResponseResult? ProductProperties;
+        public readonly Outputs.ProductPropertiesResponse? ProductProperties;
         /// <summary>
         /// The user-friendly name of the product publisher.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
         private GetProductResult(
             string? billingPartNumber,
 
-            Outputs.CompatibilityResponseResult? compatibility,
+            Outputs.CompatibilityResponse? compatibility,
 
             string? description,
 
@@ -145,13 +145,13 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
 
             string? galleryItemIdentity,
 
-            Outputs.IconUrisResponseResult? iconUris,
+            Outputs.IconUrisResponse? iconUris,
 
             string id,
 
             string? legalTerms,
 
-            ImmutableArray<Outputs.ProductLinkResponseResult> links,
+            ImmutableArray<Outputs.ProductLinkResponse> links,
 
             string name,
 
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
 
             string? productKind,
 
-            Outputs.ProductPropertiesResponseResult? productProperties,
+            Outputs.ProductPropertiesResponse? productProperties,
 
             string? publisherDisplayName,
 

@@ -6,14 +6,14 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
     'AssignmentPrincipalResponse',
-    'CanonicalProfileDefinitionResponseResult',
-    'CanonicalProfileDefinitionResponsePropertiesResult',
+    'CanonicalProfileDefinitionResponse',
+    'CanonicalProfileDefinitionResponseProperties',
     'ConnectorMappingAvailabilityResponse',
     'ConnectorMappingCompleteOperationResponse',
     'ConnectorMappingErrorManagementResponse',
@@ -29,8 +29,8 @@ __all__ = [
     'KpiThresholdsResponse',
     'ParticipantProfilePropertyReferenceResponse',
     'ParticipantPropertyReferenceResponse',
-    'PredictionDistributionDefinitionResponseResult',
-    'PredictionDistributionDefinitionResponseDistributionsResult',
+    'PredictionDistributionDefinitionResponse',
+    'PredictionDistributionDefinitionResponseDistributions',
     'PredictionResponseGrades',
     'PredictionResponseMappings',
     'PredictionResponseSystemGeneratedEntities',
@@ -49,6 +49,27 @@ class AssignmentPrincipalResponse(dict):
     """
     The AssignmentPrincipal
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "principalType":
+            suggest = "principal_type"
+        elif key == "principalMetadata":
+            suggest = "principal_metadata"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentPrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentPrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentPrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  principal_type: str,
@@ -88,22 +109,19 @@ class AssignmentPrincipalResponse(dict):
         """
         return pulumi.get(self, "principal_metadata")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class CanonicalProfileDefinitionResponseResult(dict):
+class CanonicalProfileDefinitionResponse(dict):
     """
     Definition of canonical profile.
     """
     def __init__(__self__, *,
                  canonical_profile_id: Optional[int] = None,
-                 properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponsePropertiesResult']] = None):
+                 properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponseProperties']] = None):
         """
         Definition of canonical profile.
         :param int canonical_profile_id: Canonical profile ID.
-        :param Sequence['CanonicalProfileDefinitionResponsePropertiesArgs'] properties: Properties of the canonical profile.
+        :param Sequence['CanonicalProfileDefinitionResponseProperties'] properties: Properties of the canonical profile.
         """
         if canonical_profile_id is not None:
             pulumi.set(__self__, "canonical_profile_id", canonical_profile_id)
@@ -120,7 +138,7 @@ class CanonicalProfileDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Sequence['outputs.CanonicalProfileDefinitionResponsePropertiesResult']]:
+    def properties(self) -> Optional[Sequence['outputs.CanonicalProfileDefinitionResponseProperties']]:
         """
         Properties of the canonical profile.
         """
@@ -128,7 +146,7 @@ class CanonicalProfileDefinitionResponseResult(dict):
 
 
 @pulumi.output_type
-class CanonicalProfileDefinitionResponsePropertiesResult(dict):
+class CanonicalProfileDefinitionResponseProperties(dict):
     """
     The definition of a canonical profile property.
     """
@@ -231,15 +249,31 @@ class ConnectorMappingAvailabilityResponse(dict):
         """
         return pulumi.get(self, "frequency")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorMappingCompleteOperationResponse(dict):
     """
     The complete operation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completionOperationType":
+            suggest = "completion_operation_type"
+        elif key == "destinationFolder":
+            suggest = "destination_folder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorMappingCompleteOperationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorMappingCompleteOperationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorMappingCompleteOperationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  completion_operation_type: Optional[str] = None,
                  destination_folder: Optional[str] = None):
@@ -269,15 +303,31 @@ class ConnectorMappingCompleteOperationResponse(dict):
         """
         return pulumi.get(self, "destination_folder")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorMappingErrorManagementResponse(dict):
     """
     The error management.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorManagementType":
+            suggest = "error_management_type"
+        elif key == "errorLimit":
+            suggest = "error_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorMappingErrorManagementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorMappingErrorManagementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorMappingErrorManagementResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_management_type: str,
                  error_limit: Optional[int] = None):
@@ -306,15 +356,39 @@ class ConnectorMappingErrorManagementResponse(dict):
         """
         return pulumi.get(self, "error_limit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorMappingFormatResponse(dict):
     """
     Connector mapping property format.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatType":
+            suggest = "format_type"
+        elif key == "acceptLanguage":
+            suggest = "accept_language"
+        elif key == "arraySeparator":
+            suggest = "array_separator"
+        elif key == "columnDelimiter":
+            suggest = "column_delimiter"
+        elif key == "quoteCharacter":
+            suggest = "quote_character"
+        elif key == "quoteEscapeCharacter":
+            suggest = "quote_escape_character"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorMappingFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorMappingFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorMappingFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  format_type: str,
                  accept_language: Optional[str] = None,
@@ -391,15 +465,37 @@ class ConnectorMappingFormatResponse(dict):
         """
         return pulumi.get(self, "quote_escape_character")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorMappingPropertiesResponse(dict):
     """
     The connector mapping properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completeOperation":
+            suggest = "complete_operation"
+        elif key == "errorManagement":
+            suggest = "error_management"
+        elif key == "fileFilter":
+            suggest = "file_filter"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "hasHeader":
+            suggest = "has_header"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorMappingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorMappingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorMappingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  availability: 'outputs.ConnectorMappingAvailabilityResponse',
                  complete_operation: 'outputs.ConnectorMappingCompleteOperationResponse',
@@ -411,11 +507,11 @@ class ConnectorMappingPropertiesResponse(dict):
                  has_header: Optional[bool] = None):
         """
         The connector mapping properties.
-        :param 'ConnectorMappingAvailabilityResponseArgs' availability: The availability of mapping property.
-        :param 'ConnectorMappingCompleteOperationResponseArgs' complete_operation: The operation after import is done.
-        :param 'ConnectorMappingErrorManagementResponseArgs' error_management: The error management setting for the mapping.
-        :param 'ConnectorMappingFormatResponseArgs' format: The format of mapping property.
-        :param Sequence['ConnectorMappingStructureResponseArgs'] structure: Ingestion mapping information at property level.
+        :param 'ConnectorMappingAvailabilityResponse' availability: The availability of mapping property.
+        :param 'ConnectorMappingCompleteOperationResponse' complete_operation: The operation after import is done.
+        :param 'ConnectorMappingErrorManagementResponse' error_management: The error management setting for the mapping.
+        :param 'ConnectorMappingFormatResponse' format: The format of mapping property.
+        :param Sequence['ConnectorMappingStructureResponse'] structure: Ingestion mapping information at property level.
         :param str file_filter: The file filter for the mapping.
         :param str folder_path: The folder path for the mapping.
         :param bool has_header: If the file contains a header or not.
@@ -496,15 +592,35 @@ class ConnectorMappingPropertiesResponse(dict):
         """
         return pulumi.get(self, "has_header")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectorMappingStructureResponse(dict):
     """
     Connector mapping property structure.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "propertyName":
+            suggest = "property_name"
+        elif key == "customFormatSpecifier":
+            suggest = "custom_format_specifier"
+        elif key == "isEncrypted":
+            suggest = "is_encrypted"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorMappingStructureResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorMappingStructureResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorMappingStructureResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column_name: str,
                  property_name: str,
@@ -556,15 +672,31 @@ class ConnectorMappingStructureResponse(dict):
         """
         return pulumi.get(self, "is_encrypted")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataSourcePrecedenceResponse(dict):
     """
     The data source precedence is a way to know the precedence of each data source.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceReferenceId":
+            suggest = "data_source_reference_id"
+        elif key == "dataSourceType":
+            suggest = "data_source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourcePrecedenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourcePrecedenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourcePrecedenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_reference_id: str,
                  data_source_type: str,
@@ -637,15 +769,33 @@ class DataSourcePrecedenceResponse(dict):
         """
         return pulumi.get(self, "precedence")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubBillingInfoFormatResponse(dict):
     """
     Hub billing info.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxUnits":
+            suggest = "max_units"
+        elif key == "minUnits":
+            suggest = "min_units"
+        elif key == "skuName":
+            suggest = "sku_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubBillingInfoFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubBillingInfoFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubBillingInfoFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_units: Optional[int] = None,
                  min_units: Optional[int] = None,
@@ -687,15 +837,29 @@ class HubBillingInfoFormatResponse(dict):
         """
         return pulumi.get(self, "sku_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KpiAliasResponse(dict):
     """
     The KPI alias.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasName":
+            suggest = "alias_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KpiAliasResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KpiAliasResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KpiAliasResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alias_name: str,
                  expression: str):
@@ -723,15 +887,29 @@ class KpiAliasResponse(dict):
         """
         return pulumi.get(self, "expression")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KpiExtractResponse(dict):
     """
     The KPI extract.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extractName":
+            suggest = "extract_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KpiExtractResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KpiExtractResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KpiExtractResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  extract_name: str):
@@ -759,15 +937,33 @@ class KpiExtractResponse(dict):
         """
         return pulumi.get(self, "extract_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KpiGroupByMetadataResponse(dict):
     """
     The KPI GroupBy field metadata.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "fieldName":
+            suggest = "field_name"
+        elif key == "fieldType":
+            suggest = "field_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KpiGroupByMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KpiGroupByMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KpiGroupByMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[Mapping[str, str]] = None,
                  field_name: Optional[str] = None,
@@ -809,15 +1005,29 @@ class KpiGroupByMetadataResponse(dict):
         """
         return pulumi.get(self, "field_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KpiParticipantProfilesMetadataResponse(dict):
     """
     The KPI participant profile metadata.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeName":
+            suggest = "type_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KpiParticipantProfilesMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KpiParticipantProfilesMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KpiParticipantProfilesMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type_name: str):
         """
@@ -834,15 +1044,33 @@ class KpiParticipantProfilesMetadataResponse(dict):
         """
         return pulumi.get(self, "type_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KpiThresholdsResponse(dict):
     """
     Defines the KPI Threshold limits.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "increasingKpi":
+            suggest = "increasing_kpi"
+        elif key == "lowerLimit":
+            suggest = "lower_limit"
+        elif key == "upperLimit":
+            suggest = "upper_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KpiThresholdsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KpiThresholdsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KpiThresholdsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  increasing_kpi: bool,
                  lower_limit: float,
@@ -881,15 +1109,31 @@ class KpiThresholdsResponse(dict):
         """
         return pulumi.get(self, "upper_limit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParticipantProfilePropertyReferenceResponse(dict):
     """
     The participant profile property reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interactionPropertyName":
+            suggest = "interaction_property_name"
+        elif key == "profilePropertyName":
+            suggest = "profile_property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParticipantProfilePropertyReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParticipantProfilePropertyReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParticipantProfilePropertyReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  interaction_property_name: str,
                  profile_property_name: str):
@@ -917,15 +1161,31 @@ class ParticipantProfilePropertyReferenceResponse(dict):
         """
         return pulumi.get(self, "profile_property_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParticipantPropertyReferenceResponse(dict):
     """
     The participant property reference.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePropertyName":
+            suggest = "source_property_name"
+        elif key == "targetPropertyName":
+            suggest = "target_property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParticipantPropertyReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParticipantPropertyReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParticipantPropertyReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_property_name: str,
                  target_property_name: str):
@@ -953,22 +1213,19 @@ class ParticipantPropertyReferenceResponse(dict):
         """
         return pulumi.get(self, "target_property_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class PredictionDistributionDefinitionResponseResult(dict):
+class PredictionDistributionDefinitionResponse(dict):
     """
     The definition of the prediction distribution.
     """
     def __init__(__self__, *,
-                 distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']] = None,
+                 distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributions']] = None,
                  total_negatives: Optional[float] = None,
                  total_positives: Optional[float] = None):
         """
         The definition of the prediction distribution.
-        :param Sequence['PredictionDistributionDefinitionResponseDistributionsArgs'] distributions: Distributions of the prediction.
+        :param Sequence['PredictionDistributionDefinitionResponseDistributions'] distributions: Distributions of the prediction.
         :param float total_negatives: Total negatives in the distribution.
         :param float total_positives: Total positive in the distribution.
         """
@@ -981,7 +1238,7 @@ class PredictionDistributionDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def distributions(self) -> Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributionsResult']]:
+    def distributions(self) -> Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributions']]:
         """
         Distributions of the prediction.
         """
@@ -1005,7 +1262,7 @@ class PredictionDistributionDefinitionResponseResult(dict):
 
 
 @pulumi.output_type
-class PredictionDistributionDefinitionResponseDistributionsResult(dict):
+class PredictionDistributionDefinitionResponseDistributions(dict):
     """
     The definition of a prediction distribution.
     """
@@ -1080,6 +1337,27 @@ class PredictionResponseGrades(dict):
     """
     The definition of a prediction grade.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gradeName":
+            suggest = "grade_name"
+        elif key == "maxScoreThreshold":
+            suggest = "max_score_threshold"
+        elif key == "minScoreThreshold":
+            suggest = "min_score_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PredictionResponseGrades. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PredictionResponseGrades.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PredictionResponseGrades.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  grade_name: Optional[str] = None,
                  max_score_threshold: Optional[int] = None,
@@ -1120,9 +1398,6 @@ class PredictionResponseGrades(dict):
         Minimum score threshold.
         """
         return pulumi.get(self, "min_score_threshold")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1168,15 +1443,33 @@ class PredictionResponseMappings(dict):
         """
         return pulumi.get(self, "score")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PredictionResponseSystemGeneratedEntities(dict):
     """
     System generated entities.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "generatedInteractionTypes":
+            suggest = "generated_interaction_types"
+        elif key == "generatedKpis":
+            suggest = "generated_kpis"
+        elif key == "generatedLinks":
+            suggest = "generated_links"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PredictionResponseSystemGeneratedEntities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PredictionResponseSystemGeneratedEntities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PredictionResponseSystemGeneratedEntities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  generated_interaction_types: Optional[Sequence[str]] = None,
                  generated_kpis: Optional[Mapping[str, str]] = None,
@@ -1218,15 +1511,29 @@ class PredictionResponseSystemGeneratedEntities(dict):
         """
         return pulumi.get(self, "generated_links")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProfileEnumValidValuesFormatResponse(dict):
     """
     Valid enum values in case of an enum property.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localizedValueNames":
+            suggest = "localized_value_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProfileEnumValidValuesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProfileEnumValidValuesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProfileEnumValidValuesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  localized_value_names: Optional[Mapping[str, str]] = None,
                  value: Optional[int] = None):
@@ -1256,15 +1563,59 @@ class ProfileEnumValidValuesFormatResponse(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PropertyDefinitionResponse(dict):
     """
     Property definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourcePrecedenceRules":
+            suggest = "data_source_precedence_rules"
+        elif key == "fieldName":
+            suggest = "field_name"
+        elif key == "fieldType":
+            suggest = "field_type"
+        elif key == "arrayValueSeparator":
+            suggest = "array_value_separator"
+        elif key == "enumValidValues":
+            suggest = "enum_valid_values"
+        elif key == "isArray":
+            suggest = "is_array"
+        elif key == "isAvailableInGraph":
+            suggest = "is_available_in_graph"
+        elif key == "isEnum":
+            suggest = "is_enum"
+        elif key == "isFlagEnum":
+            suggest = "is_flag_enum"
+        elif key == "isImage":
+            suggest = "is_image"
+        elif key == "isLocalizedString":
+            suggest = "is_localized_string"
+        elif key == "isName":
+            suggest = "is_name"
+        elif key == "isRequired":
+            suggest = "is_required"
+        elif key == "maxLength":
+            suggest = "max_length"
+        elif key == "propertyId":
+            suggest = "property_id"
+        elif key == "schemaItemPropLink":
+            suggest = "schema_item_prop_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PropertyDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PropertyDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PropertyDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_source_precedence_rules: Sequence['outputs.DataSourcePrecedenceResponse'],
                  field_name: str,
@@ -1284,11 +1635,11 @@ class PropertyDefinitionResponse(dict):
                  schema_item_prop_link: Optional[str] = None):
         """
         Property definition.
-        :param Sequence['DataSourcePrecedenceResponseArgs'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+        :param Sequence['DataSourcePrecedenceResponse'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
         :param str field_name: Name of the property.
         :param str field_type: Type of the property.
         :param str array_value_separator: Array value separator for properties with isArray set.
-        :param Sequence['ProfileEnumValidValuesFormatResponseArgs'] enum_valid_values: Describes valid values for an enum property.
+        :param Sequence['ProfileEnumValidValuesFormatResponse'] enum_valid_values: Describes valid values for an enum property.
         :param bool is_array: Indicates if the property is actually an array of the fieldType above on the data api.
         :param bool is_available_in_graph: Whether property is available in graph or not.
         :param bool is_enum: Indicates if the property is an enum.
@@ -1459,15 +1810,33 @@ class PropertyDefinitionResponse(dict):
         """
         return pulumi.get(self, "schema_item_prop_link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RelationshipLinkFieldMappingResponse(dict):
     """
     The fields mapping for Relationships.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interactionFieldName":
+            suggest = "interaction_field_name"
+        elif key == "relationshipFieldName":
+            suggest = "relationship_field_name"
+        elif key == "linkType":
+            suggest = "link_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelationshipLinkFieldMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelationshipLinkFieldMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelationshipLinkFieldMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  interaction_field_name: str,
                  relationship_field_name: str,
@@ -1507,15 +1876,31 @@ class RelationshipLinkFieldMappingResponse(dict):
         """
         return pulumi.get(self, "link_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RelationshipTypeFieldMappingResponse(dict):
     """
     Map a field of profile to its corresponding StrongId in Related Profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileFieldName":
+            suggest = "profile_field_name"
+        elif key == "relatedProfileKeyProperty":
+            suggest = "related_profile_key_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelationshipTypeFieldMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelationshipTypeFieldMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelationshipTypeFieldMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  profile_field_name: str,
                  related_profile_key_property: str):
@@ -1543,20 +1928,34 @@ class RelationshipTypeFieldMappingResponse(dict):
         """
         return pulumi.get(self, "related_profile_key_property")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RelationshipTypeMappingResponse(dict):
     """
     Maps fields in Profile to their corresponding StrongIds in Related Profile.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelationshipTypeMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelationshipTypeMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelationshipTypeMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  field_mappings: Sequence['outputs.RelationshipTypeFieldMappingResponse']):
         """
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
-        :param Sequence['RelationshipTypeFieldMappingResponseArgs'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+        :param Sequence['RelationshipTypeFieldMappingResponse'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         pulumi.set(__self__, "field_mappings", field_mappings)
 
@@ -1567,9 +1966,6 @@ class RelationshipTypeMappingResponse(dict):
         Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         return pulumi.get(self, "field_mappings")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1606,15 +2002,33 @@ class ResourceSetDescriptionResponse(dict):
         """
         return pulumi.get(self, "exceptions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StrongIdResponse(dict):
     """
     Property/Properties which represent a unique ID.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyPropertyNames":
+            suggest = "key_property_names"
+        elif key == "strongIdName":
+            suggest = "strong_id_name"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StrongIdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StrongIdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StrongIdResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_property_names: Sequence[str],
                  strong_id_name: str,
@@ -1666,15 +2080,33 @@ class StrongIdResponse(dict):
         """
         return pulumi.get(self, "display_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TypePropertiesMappingResponse(dict):
     """
     Metadata for a Link's property mapping.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePropertyName":
+            suggest = "source_property_name"
+        elif key == "targetPropertyName":
+            suggest = "target_property_name"
+        elif key == "linkType":
+            suggest = "link_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TypePropertiesMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TypePropertiesMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TypePropertiesMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_property_name: str,
                  target_property_name: str,
@@ -1713,8 +2145,5 @@ class TypePropertiesMappingResponse(dict):
         Link type.
         """
         return pulumi.get(self, "link_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

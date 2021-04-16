@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.Datadog.V20210301
         /// <summary>
         /// Results of a list operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MonitoredResourceResponseResult> Value;
+        public readonly ImmutableArray<Outputs.MonitoredResourceResponse> Value;
 
         [OutputConstructor]
         private ListMonitorMonitoredResourcesResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.MonitoredResourceResponseResult> value)
+            ImmutableArray<Outputs.MonitoredResourceResponse> value)
         {
             NextLink = nextLink;
             Value = value;

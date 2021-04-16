@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -108,9 +108,7 @@ class Order(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
                  shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The order details.
 
@@ -151,15 +149,7 @@ class Order(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
                  shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,26 +159,26 @@ class Order(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OrderArgs.__new__(OrderArgs)
 
             if contact_information is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_information'")
-            __props__['contact_information'] = contact_information
+            __props__.__dict__["contact_information"] = contact_information
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
+            __props__.__dict__["device_name"] = device_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['shipment_type'] = shipment_type
-            __props__['shipping_address'] = shipping_address
-            __props__['current_status'] = None
-            __props__['delivery_tracking_info'] = None
-            __props__['name'] = None
-            __props__['order_history'] = None
-            __props__['return_tracking_info'] = None
-            __props__['serial_number'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["shipment_type"] = shipment_type
+            __props__.__dict__["shipping_address"] = shipping_address
+            __props__.__dict__["current_status"] = None
+            __props__.__dict__["delivery_tracking_info"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["order_history"] = None
+            __props__.__dict__["return_tracking_info"] = None
+            __props__.__dict__["serial_number"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Order"), pulumi.Alias(type_="azure-native:databoxedge:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201preview:Order")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Order, __self__).__init__(
@@ -211,18 +201,18 @@ class Order(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = OrderArgs.__new__(OrderArgs)
 
-        __props__["contact_information"] = None
-        __props__["current_status"] = None
-        __props__["delivery_tracking_info"] = None
-        __props__["name"] = None
-        __props__["order_history"] = None
-        __props__["return_tracking_info"] = None
-        __props__["serial_number"] = None
-        __props__["shipment_type"] = None
-        __props__["shipping_address"] = None
-        __props__["type"] = None
+        __props__.__dict__["contact_information"] = None
+        __props__.__dict__["current_status"] = None
+        __props__.__dict__["delivery_tracking_info"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["order_history"] = None
+        __props__.__dict__["return_tracking_info"] = None
+        __props__.__dict__["serial_number"] = None
+        __props__.__dict__["shipment_type"] = None
+        __props__.__dict__["shipping_address"] = None
+        __props__.__dict__["type"] = None
         return Order(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -304,10 +294,4 @@ class Order(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

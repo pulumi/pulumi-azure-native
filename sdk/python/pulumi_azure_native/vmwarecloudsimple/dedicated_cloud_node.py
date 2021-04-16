@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -205,9 +205,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Dedicated cloud node model
         API Version: 2019-04-01.
@@ -262,15 +260,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,43 +270,43 @@ class DedicatedCloudNode(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DedicatedCloudNodeArgs.__new__(DedicatedCloudNodeArgs)
 
             if availability_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone_id'")
-            __props__['availability_zone_id'] = availability_zone_id
-            __props__['dedicated_cloud_node_name'] = dedicated_cloud_node_name
+            __props__.__dict__["availability_zone_id"] = availability_zone_id
+            __props__.__dict__["dedicated_cloud_node_name"] = dedicated_cloud_node_name
             if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")
-            __props__['id'] = id
-            __props__['location'] = location
+            __props__.__dict__["id"] = id
+            __props__.__dict__["location"] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if nodes_count is None and not opts.urn:
                 raise TypeError("Missing required property 'nodes_count'")
-            __props__['nodes_count'] = nodes_count
+            __props__.__dict__["nodes_count"] = nodes_count
             if placement_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'placement_group_id'")
-            __props__['placement_group_id'] = placement_group_id
+            __props__.__dict__["placement_group_id"] = placement_group_id
             if purchase_id is None and not opts.urn:
                 raise TypeError("Missing required property 'purchase_id'")
-            __props__['purchase_id'] = purchase_id
+            __props__.__dict__["purchase_id"] = purchase_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['availability_zone_name'] = None
-            __props__['cloud_rack_name'] = None
-            __props__['created'] = None
-            __props__['placement_group_name'] = None
-            __props__['private_cloud_id'] = None
-            __props__['private_cloud_name'] = None
-            __props__['provisioning_state'] = None
-            __props__['status'] = None
-            __props__['type'] = None
-            __props__['vmware_cluster_name'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["availability_zone_name"] = None
+            __props__.__dict__["cloud_rack_name"] = None
+            __props__.__dict__["created"] = None
+            __props__.__dict__["placement_group_name"] = None
+            __props__.__dict__["private_cloud_id"] = None
+            __props__.__dict__["private_cloud_name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["vmware_cluster_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"), pulumi.Alias(type_="azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedCloudNode, __self__).__init__(
@@ -339,26 +329,26 @@ class DedicatedCloudNode(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DedicatedCloudNodeArgs.__new__(DedicatedCloudNodeArgs)
 
-        __props__["availability_zone_id"] = None
-        __props__["availability_zone_name"] = None
-        __props__["cloud_rack_name"] = None
-        __props__["created"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["nodes_count"] = None
-        __props__["placement_group_id"] = None
-        __props__["placement_group_name"] = None
-        __props__["private_cloud_id"] = None
-        __props__["private_cloud_name"] = None
-        __props__["provisioning_state"] = None
-        __props__["purchase_id"] = None
-        __props__["sku"] = None
-        __props__["status"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["vmware_cluster_name"] = None
+        __props__.__dict__["availability_zone_id"] = None
+        __props__.__dict__["availability_zone_name"] = None
+        __props__.__dict__["cloud_rack_name"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["nodes_count"] = None
+        __props__.__dict__["placement_group_id"] = None
+        __props__.__dict__["placement_group_name"] = None
+        __props__.__dict__["private_cloud_id"] = None
+        __props__.__dict__["private_cloud_name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["purchase_id"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["vmware_cluster_name"] = None
         return DedicatedCloudNode(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -504,10 +494,4 @@ class DedicatedCloudNode(pulumi.CustomResource):
         VMWare Cluster Name
         """
         return pulumi.get(self, "vmware_cluster_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

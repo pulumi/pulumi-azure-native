@@ -245,23 +245,23 @@ export interface ClusterArgs {
     /**
      * The Service Fabric runtime versions available for this cluster.
      */
-    readonly availableClusterVersions?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ClusterVersionDetails>[]>;
+    readonly availableClusterVersions?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ClusterVersionDetailsArgs>[]>;
     /**
      * The AAD authentication settings of the cluster.
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20170701preview.AzureActiveDirectory>;
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20170701preview.AzureActiveDirectoryArgs>;
     /**
      * The certificate to use for securing the cluster. The certificate provided will be used for  node to node security within the cluster, SSL certificate for cluster management endpoint and default  admin client.
      */
-    readonly certificate?: pulumi.Input<inputs.servicefabric.v20170701preview.CertificateDescription>;
+    readonly certificate?: pulumi.Input<inputs.servicefabric.v20170701preview.CertificateDescriptionArgs>;
     /**
      * The list of client certificates referenced by common name that are allowed to manage the cluster.
      */
-    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ClientCertificateCommonName>[]>;
+    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ClientCertificateCommonNameArgs>[]>;
     /**
      * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ClientCertificateThumbprint>[]>;
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.ClientCertificateThumbprintArgs>[]>;
     /**
      * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
@@ -288,11 +288,11 @@ export interface ClusterArgs {
     /**
      * The storage account information for storing Service Fabric diagnostic logs.
      */
-    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20170701preview.DiagnosticsStorageAccountConfig>;
+    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigArgs>;
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.SettingsSectionDescription>[]>;
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.SettingsSectionDescriptionArgs>[]>;
     /**
      * Resource location.
      */
@@ -304,7 +304,7 @@ export interface ClusterArgs {
     /**
      * The list of node types in the cluster.
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.NodeTypeDescription>[]>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.v20170701preview.NodeTypeDescriptionArgs>[]>;
     /**
      * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
      *
@@ -322,7 +322,7 @@ export interface ClusterArgs {
     /**
      * The server certificate used by reverse proxy.
      */
-    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20170701preview.CertificateDescription>;
+    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20170701preview.CertificateDescriptionArgs>;
     /**
      * The customer subscription identifier
      */
@@ -334,7 +334,7 @@ export interface ClusterArgs {
     /**
      * The policy to use when upgrading the cluster.
      */
-    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.v20170701preview.ClusterUpgradePolicy>;
+    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.v20170701preview.ClusterUpgradePolicyArgs>;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
      *

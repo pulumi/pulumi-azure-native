@@ -177,7 +177,7 @@ export interface IntegrationAccountMapArgs {
     /**
      * The parameters schema of integration account map.
      */
-    readonly parametersSchema?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountMapPropertiesParametersSchema>;
+    readonly parametersSchema?: pulumi.Input<inputs.logic.v20180701preview.IntegrationAccountMapPropertiesParametersSchemaArgs>;
     /**
      * The resource group name.
      */

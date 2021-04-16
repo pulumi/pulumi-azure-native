@@ -159,22 +159,22 @@ export interface EventSubscriptionArgs {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestinationArgs>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20200401preview.DeadLetterWithResourceIdentity>;
+    readonly deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20200401preview.DeadLetterWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20200401preview.DeliveryWithResourceIdentity>;
+    readonly deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20200401preview.DeliveryWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestination | inputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestination | inputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestination | inputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestinationArgs>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -190,7 +190,7 @@ export interface EventSubscriptionArgs {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.v20200401preview.EventSubscriptionFilter>;
+    readonly filter?: pulumi.Input<inputs.eventgrid.v20200401preview.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */
@@ -198,7 +198,7 @@ export interface EventSubscriptionArgs {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20200401preview.RetryPolicy>;
+    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20200401preview.RetryPolicyArgs>;
     /**
      * The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */

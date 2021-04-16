@@ -159,7 +159,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The managed identity associated with the policy assignment.
      */
-    readonly identity?: pulumi.Input<inputs.authorization.v20200901.Identity>;
+    readonly identity?: pulumi.Input<inputs.authorization.v20200901.IdentityArgs>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -171,7 +171,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The messages that describe why a resource is non-compliant with the policy.
      */
-    readonly nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.NonComplianceMessage>[]>;
+    readonly nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.v20200901.NonComplianceMessageArgs>[]>;
     /**
      * The policy's excluded scopes.
      */
@@ -179,7 +179,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterValuesValue>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20200901.ParameterValuesValueArgs>}>;
     /**
      * The name of the policy assignment.
      */

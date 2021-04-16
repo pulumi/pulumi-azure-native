@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -24,6 +24,23 @@ class DiskResponse(dict):
     """
     Specifies the disk information fo the HANA instance
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGB":
+            suggest = "disk_size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lun: int,
                  disk_size_gb: Optional[int] = None,
@@ -64,15 +81,31 @@ class DiskResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HardwareProfileResponse(dict):
     """
     Specifies the hardware settings for the HANA instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hanaInstanceSize":
+            suggest = "hana_instance_size"
+        elif key == "hardwareType":
+            suggest = "hardware_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HardwareProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HardwareProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HardwareProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hana_instance_size: Optional[str] = None,
                  hardware_type: Optional[str] = None):
@@ -102,15 +135,29 @@ class HardwareProfileResponse(dict):
         """
         return pulumi.get(self, "hardware_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IpAddressResponse(dict):
     """
     Specifies the IP address of the network interface.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_address: Optional[str] = None):
         """
@@ -128,22 +175,38 @@ class IpAddressResponse(dict):
         """
         return pulumi.get(self, "ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NetworkProfileResponse(dict):
     """
     Specifies the network settings for the HANA instance disks.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "circuitId":
+            suggest = "circuit_id"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  circuit_id: Optional[str] = None,
                  network_interfaces: Optional[Sequence['outputs.IpAddressResponse']] = None):
         """
         Specifies the network settings for the HANA instance disks.
         :param str circuit_id: Specifies the circuit id for connecting to express route.
-        :param Sequence['IpAddressResponseArgs'] network_interfaces: Specifies the network interfaces for the HANA instance.
+        :param Sequence['IpAddressResponse'] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
         if circuit_id is not None:
             pulumi.set(__self__, "circuit_id", circuit_id)
@@ -166,15 +229,33 @@ class NetworkProfileResponse(dict):
         """
         return pulumi.get(self, "network_interfaces")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the HANA instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computerName":
+            suggest = "computer_name"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "sshPublicKey":
+            suggest = "ssh_public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OSProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OSProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  computer_name: Optional[str] = None,
                  os_type: Optional[str] = None,
@@ -228,22 +309,38 @@ class OSProfileResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageProfileResponse(dict):
     """
     Specifies the storage settings for the HANA instance disks.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nfsIpAddress":
+            suggest = "nfs_ip_address"
+        elif key == "osDisks":
+            suggest = "os_disks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  nfs_ip_address: Optional[str] = None,
                  os_disks: Optional[Sequence['outputs.DiskResponse']] = None):
         """
         Specifies the storage settings for the HANA instance disks.
         :param str nfs_ip_address: IP Address to connect to storage.
-        :param Sequence['DiskResponseArgs'] os_disks: Specifies information about the operating system disk used by the hana instance.
+        :param Sequence['DiskResponse'] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
         if nfs_ip_address is not None:
             pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
@@ -265,8 +362,5 @@ class StorageProfileResponse(dict):
         Specifies information about the operating system disk used by the hana instance.
         """
         return pulumi.get(self, "os_disks")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -161,7 +161,7 @@ export interface NetworkManagerArgs {
     /**
      * Scope of Network Manager.
      */
-    readonly networkManagerScopes?: pulumi.Input<inputs.network.v20210201preview.NetworkManagerPropertiesNetworkManagerScopes>;
+    readonly networkManagerScopes?: pulumi.Input<inputs.network.v20210201preview.NetworkManagerPropertiesNetworkManagerScopesArgs>;
     /**
      * The name of the resource group.
      */

@@ -159,11 +159,11 @@ export interface BackupInstanceArgs {
     /**
      * Gets or sets the data source information.
      */
-    readonly dataSourceInfo: pulumi.Input<inputs.dataprotection.v20210101.Datasource>;
+    readonly dataSourceInfo: pulumi.Input<inputs.dataprotection.v20210101.DatasourceArgs>;
     /**
      * Gets or sets the data source set information.
      */
-    readonly dataSourceSetInfo?: pulumi.Input<inputs.dataprotection.v20210101.DatasourceSet>;
+    readonly dataSourceSetInfo?: pulumi.Input<inputs.dataprotection.v20210101.DatasourceSetArgs>;
     /**
      * Gets or sets the Backup Instance friendly name.
      */
@@ -172,7 +172,7 @@ export interface BackupInstanceArgs {
     /**
      * Gets or sets the policy information.
      */
-    readonly policyInfo: pulumi.Input<inputs.dataprotection.v20210101.PolicyInfo>;
+    readonly policyInfo: pulumi.Input<inputs.dataprotection.v20210101.PolicyInfoArgs>;
     /**
      * The name of the resource group where the backup vault is present.
      */

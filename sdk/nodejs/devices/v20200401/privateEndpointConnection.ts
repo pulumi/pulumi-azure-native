@@ -99,7 +99,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The properties of a private endpoint connection
      */
-    readonly properties: pulumi.Input<inputs.devices.v20200401.PrivateEndpointConnectionProperties>;
+    readonly properties: pulumi.Input<inputs.devices.v20200401.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

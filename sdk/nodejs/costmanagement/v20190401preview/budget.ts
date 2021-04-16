@@ -158,11 +158,11 @@ export interface BudgetArgs {
     /**
      * May be used to filter budgets.
      */
-    readonly filter?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigFilter>;
+    readonly filter?: pulumi.Input<inputs.costmanagement.v20190401preview.ReportConfigFilterArgs>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.costmanagement.v20190401preview.Notification>}>;
+    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.costmanagement.v20190401preview.NotificationArgs>}>;
     /**
      * The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
      */
@@ -174,5 +174,5 @@ export interface BudgetArgs {
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    readonly timePeriod: pulumi.Input<inputs.costmanagement.v20190401preview.BudgetTimePeriod>;
+    readonly timePeriod: pulumi.Input<inputs.costmanagement.v20190401preview.BudgetTimePeriodArgs>;
 }

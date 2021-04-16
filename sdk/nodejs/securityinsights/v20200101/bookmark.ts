@@ -184,7 +184,7 @@ export interface BookmarkArgs {
     /**
      * Describes a user that created the bookmark
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20200101.UserInfo>;
+    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20200101.UserInfoArgs>;
     /**
      * The display name of the bookmark
      */
@@ -200,7 +200,7 @@ export interface BookmarkArgs {
     /**
      * Describes an incident that relates to bookmark
      */
-    readonly incidentInfo?: pulumi.Input<inputs.securityinsights.v20200101.IncidentInfo>;
+    readonly incidentInfo?: pulumi.Input<inputs.securityinsights.v20200101.IncidentInfoArgs>;
     /**
      * List of labels relevant to this bookmark
      */
@@ -236,7 +236,7 @@ export interface BookmarkArgs {
     /**
      * Describes a user that updated the bookmark
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20200101.UserInfo>;
+    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20200101.UserInfoArgs>;
     /**
      * The name of the workspace.
      */

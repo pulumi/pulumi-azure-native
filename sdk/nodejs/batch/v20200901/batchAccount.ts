@@ -182,19 +182,19 @@ export interface BatchAccountArgs {
     /**
      * The properties related to the auto-storage account.
      */
-    readonly autoStorage?: pulumi.Input<inputs.batch.v20200901.AutoStorageBaseProperties>;
+    readonly autoStorage?: pulumi.Input<inputs.batch.v20200901.AutoStorageBasePropertiesArgs>;
     /**
      * Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
      */
-    readonly encryption?: pulumi.Input<inputs.batch.v20200901.EncryptionProperties>;
+    readonly encryption?: pulumi.Input<inputs.batch.v20200901.EncryptionPropertiesArgs>;
     /**
      * The identity of the Batch account.
      */
-    readonly identity?: pulumi.Input<inputs.batch.v20200901.BatchAccountIdentity>;
+    readonly identity?: pulumi.Input<inputs.batch.v20200901.BatchAccountIdentityArgs>;
     /**
      * A reference to the Azure key vault associated with the Batch account.
      */
-    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20200901.KeyVaultReference>;
+    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20200901.KeyVaultReferenceArgs>;
     /**
      * The region in which to create the account.
      */

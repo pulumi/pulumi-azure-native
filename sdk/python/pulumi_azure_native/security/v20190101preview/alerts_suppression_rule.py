@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -142,9 +142,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  reason: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'RuleState']]] = None,
                  suppression_alerts_scope: Optional[pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Describes the suppression rule
 
@@ -189,15 +187,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  reason: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'RuleState']]] = None,
                  suppression_alerts_scope: Optional[pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,24 +197,24 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AlertsSuppressionRuleArgs.__new__(AlertsSuppressionRuleArgs)
 
             if alert_type is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_type'")
-            __props__['alert_type'] = alert_type
-            __props__['alerts_suppression_rule_name'] = alerts_suppression_rule_name
-            __props__['comment'] = comment
-            __props__['expiration_date_utc'] = expiration_date_utc
+            __props__.__dict__["alert_type"] = alert_type
+            __props__.__dict__["alerts_suppression_rule_name"] = alerts_suppression_rule_name
+            __props__.__dict__["comment"] = comment
+            __props__.__dict__["expiration_date_utc"] = expiration_date_utc
             if reason is None and not opts.urn:
                 raise TypeError("Missing required property 'reason'")
-            __props__['reason'] = reason
+            __props__.__dict__["reason"] = reason
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
-            __props__['state'] = state
-            __props__['suppression_alerts_scope'] = suppression_alerts_scope
-            __props__['last_modified_utc'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["state"] = state
+            __props__.__dict__["suppression_alerts_scope"] = suppression_alerts_scope
+            __props__.__dict__["last_modified_utc"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20190101preview:AlertsSuppressionRule"), pulumi.Alias(type_="azure-native:security:AlertsSuppressionRule"), pulumi.Alias(type_="azure-nextgen:security:AlertsSuppressionRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertsSuppressionRule, __self__).__init__(
@@ -247,17 +237,17 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AlertsSuppressionRuleArgs.__new__(AlertsSuppressionRuleArgs)
 
-        __props__["alert_type"] = None
-        __props__["comment"] = None
-        __props__["expiration_date_utc"] = None
-        __props__["last_modified_utc"] = None
-        __props__["name"] = None
-        __props__["reason"] = None
-        __props__["state"] = None
-        __props__["suppression_alerts_scope"] = None
-        __props__["type"] = None
+        __props__.__dict__["alert_type"] = None
+        __props__.__dict__["comment"] = None
+        __props__.__dict__["expiration_date_utc"] = None
+        __props__.__dict__["last_modified_utc"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["reason"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["suppression_alerts_scope"] = None
+        __props__.__dict__["type"] = None
         return AlertsSuppressionRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -331,10 +321,4 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

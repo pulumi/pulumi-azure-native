@@ -143,11 +143,11 @@ export interface AutoScaleVCoreArgs {
     /**
      * The SKU of the auto scale v-core resource.
      */
-    readonly sku: pulumi.Input<inputs.powerbidedicated.v20210101.AutoScaleVCoreSku>;
+    readonly sku: pulumi.Input<inputs.powerbidedicated.v20210101.AutoScaleVCoreSkuArgs>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    readonly systemData?: pulumi.Input<inputs.powerbidedicated.v20210101.SystemData>;
+    readonly systemData?: pulumi.Input<inputs.powerbidedicated.v20210101.SystemDataArgs>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

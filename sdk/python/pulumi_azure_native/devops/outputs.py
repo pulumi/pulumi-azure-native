@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,23 @@ class AuthorizationResponse(dict):
     """
     Authorization info used to access a resource (like code repository).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authorization_type: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -51,22 +68,36 @@ class AuthorizationResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BootstrapConfigurationResponse(dict):
     """
     Configuration used to bootstrap a Pipeline.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRepository":
+            suggest = "source_repository"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BootstrapConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BootstrapConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BootstrapConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  template: 'outputs.PipelineTemplateResponse',
                  source_repository: Optional['outputs.CodeRepositoryResponse'] = None):
         """
         Configuration used to bootstrap a Pipeline.
-        :param 'PipelineTemplateResponseArgs' template: Template used to bootstrap the pipeline.
-        :param 'CodeRepositoryResponseArgs' source_repository: Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+        :param 'PipelineTemplateResponse' template: Template used to bootstrap the pipeline.
+        :param 'CodeRepositoryResponse' source_repository: Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
         """
         pulumi.set(__self__, "template", template)
         if source_repository is not None:
@@ -88,15 +119,31 @@ class BootstrapConfigurationResponse(dict):
         """
         return pulumi.get(self, "source_repository")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CodeRepositoryResponse(dict):
     """
     Repository containing the source code for a pipeline.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultBranch":
+            suggest = "default_branch"
+        elif key == "repositoryType":
+            suggest = "repository_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeRepositoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeRepositoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeRepositoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_branch: str,
                  id: str,
@@ -108,7 +155,7 @@ class CodeRepositoryResponse(dict):
         :param str default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
         :param str id: Unique immutable identifier of the code repository.
         :param str repository_type: Type of code repository.
-        :param 'AuthorizationResponseArgs' authorization: Authorization info to access the code repository.
+        :param 'AuthorizationResponse' authorization: Authorization info to access the code repository.
         :param Mapping[str, str] properties: Repository-specific properties.
         """
         pulumi.set(__self__, "default_branch", default_branch)
@@ -159,9 +206,6 @@ class CodeRepositoryResponse(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PipelineTemplateResponse(dict):
@@ -196,15 +240,39 @@ class PipelineTemplateResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -281,8 +349,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

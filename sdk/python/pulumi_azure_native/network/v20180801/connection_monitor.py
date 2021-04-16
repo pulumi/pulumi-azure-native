@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -178,9 +178,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Information about the connection monitor.
 
@@ -229,15 +227,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ConnectionMonitorSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,35 +237,35 @@ class ConnectionMonitor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConnectionMonitorArgs.__new__(ConnectionMonitorArgs)
 
             if auto_start is None:
                 auto_start = True
-            __props__['auto_start'] = auto_start
-            __props__['connection_monitor_name'] = connection_monitor_name
+            __props__.__dict__["auto_start"] = auto_start
+            __props__.__dict__["connection_monitor_name"] = connection_monitor_name
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
-            __props__['destination'] = destination
-            __props__['location'] = location
+            __props__.__dict__["destination"] = destination
+            __props__.__dict__["location"] = location
             if monitoring_interval_in_seconds is None:
                 monitoring_interval_in_seconds = 60
-            __props__['monitoring_interval_in_seconds'] = monitoring_interval_in_seconds
+            __props__.__dict__["monitoring_interval_in_seconds"] = monitoring_interval_in_seconds
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
-            __props__['network_watcher_name'] = network_watcher_name
+            __props__.__dict__["network_watcher_name"] = network_watcher_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
-            __props__['tags'] = tags
-            __props__['etag'] = None
-            __props__['monitoring_status'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['start_time'] = None
-            __props__['type'] = None
+            __props__.__dict__["source"] = source
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["monitoring_status"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["start_time"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20171001:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20171001:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20171101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20171101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180401:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180601:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20180701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20180701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20181001:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181001:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20181101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20181201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20181201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190401:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190601:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190801:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20190901:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20190901:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20191101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20191101:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20191201:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20191201:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200301:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200301:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200401:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200401:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200501:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200501:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200601:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200601:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200701:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200701:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20200801:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20200801:ConnectionMonitor"), pulumi.Alias(type_="azure-native:network/v20201101:ConnectionMonitor"), pulumi.Alias(type_="azure-nextgen:network/v20201101:ConnectionMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionMonitor, __self__).__init__(
@@ -298,20 +288,20 @@ class ConnectionMonitor(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ConnectionMonitorArgs.__new__(ConnectionMonitorArgs)
 
-        __props__["auto_start"] = None
-        __props__["destination"] = None
-        __props__["etag"] = None
-        __props__["location"] = None
-        __props__["monitoring_interval_in_seconds"] = None
-        __props__["monitoring_status"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["source"] = None
-        __props__["start_time"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
+        __props__.__dict__["auto_start"] = None
+        __props__.__dict__["destination"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["monitoring_interval_in_seconds"] = None
+        __props__.__dict__["monitoring_status"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return ConnectionMonitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -406,10 +396,4 @@ class ConnectionMonitor(pulumi.CustomResource):
         Connection monitor type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

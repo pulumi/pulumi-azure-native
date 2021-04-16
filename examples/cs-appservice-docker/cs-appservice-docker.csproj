@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pulumi" Version="2.*" />
     <PackageReference Include="Pulumi.Docker" Version="2.*" />
   </ItemGroup>
 

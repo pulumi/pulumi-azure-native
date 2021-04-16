@@ -224,19 +224,19 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    readonly additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilities>;
+    readonly additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
     /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
-    readonly availabilitySet?: pulumi.Input<inputs.compute.SubResource>;
+    readonly availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */
-    readonly diagnosticsProfile?: pulumi.Input<inputs.compute.DiagnosticsProfile>;
+    readonly diagnosticsProfile?: pulumi.Input<inputs.compute.DiagnosticsProfileArgs>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
-    readonly hardwareProfile?: pulumi.Input<inputs.compute.HardwareProfile>;
+    readonly hardwareProfile?: pulumi.Input<inputs.compute.HardwareProfileArgs>;
     /**
      * The instance ID of the virtual machine.
      */
@@ -252,23 +252,23 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * Specifies the network interfaces of the virtual machine.
      */
-    readonly networkProfile?: pulumi.Input<inputs.compute.NetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.compute.NetworkProfileArgs>;
     /**
      * Specifies the network profile configuration of the virtual machine.
      */
-    readonly networkProfileConfiguration?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMNetworkProfileConfiguration>;
+    readonly networkProfileConfiguration?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMNetworkProfileConfigurationArgs>;
     /**
      * Specifies the operating system settings for the virtual machine.
      */
-    readonly osProfile?: pulumi.Input<inputs.compute.OSProfile>;
+    readonly osProfile?: pulumi.Input<inputs.compute.OSProfileArgs>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    readonly plan?: pulumi.Input<inputs.compute.Plan>;
+    readonly plan?: pulumi.Input<inputs.compute.PlanArgs>;
     /**
      * Specifies the protection policy of the virtual machine.
      */
-    readonly protectionPolicy?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProtectionPolicy>;
+    readonly protectionPolicy?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProtectionPolicyArgs>;
     /**
      * The name of the resource group.
      */
@@ -276,11 +276,11 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * Specifies the Security related profile settings for the virtual machine.
      */
-    readonly securityProfile?: pulumi.Input<inputs.compute.SecurityProfile>;
+    readonly securityProfile?: pulumi.Input<inputs.compute.SecurityProfileArgs>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    readonly storageProfile?: pulumi.Input<inputs.compute.StorageProfile>;
+    readonly storageProfile?: pulumi.Input<inputs.compute.StorageProfileArgs>;
     /**
      * Resource tags
      */

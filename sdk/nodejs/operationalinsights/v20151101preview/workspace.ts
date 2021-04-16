@@ -156,7 +156,7 @@ export interface WorkspaceArgs {
     /**
      * The SKU of the workspace.
      */
-    readonly sku?: pulumi.Input<inputs.operationalinsights.v20151101preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.operationalinsights.v20151101preview.SkuArgs>;
     /**
      * Resource tags
      */

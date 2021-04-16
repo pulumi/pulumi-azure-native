@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -27,7 +27,7 @@ __all__ = [
     'AKSServiceResponseResponseLivenessProbeRequirements',
     'AKSVariantResponseResponse',
     'AksNetworkingConfigurationResponse',
-    'AmlComputeNodeInformationResponseResult',
+    'AmlComputeNodeInformationResponse',
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
     'AssignedUserResponse',
@@ -81,7 +81,7 @@ __all__ = [
     'LinkedInfoResponse',
     'LinkedServicePropsResponse',
     'LinkedWorkspacePropsResponse',
-    'ListNotebookKeysResultResponseResult',
+    'ListNotebookKeysResultResponse',
     'MLAssistConfigurationResponse',
     'MachineLearningServiceErrorResponse',
     'ModelDockerSectionResponseResponseBaseImageRegistry',
@@ -93,7 +93,7 @@ __all__ = [
     'NodeStateCountsResponse',
     'NotebookPreparationErrorResponse',
     'NotebookResourceInfoResponse',
-    'PasswordResponseResult',
+    'PasswordResponse',
     'PersonalComputeInstanceSettingsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -101,7 +101,7 @@ __all__ = [
     'ProgressMetricsResponse',
     'RCranPackageResponse',
     'RGitHubPackageResponseResponse',
-    'RegistryListCredentialsResultResponseResult',
+    'RegistryListCredentialsResultResponse',
     'ResourceIdResponse',
     'ScaleSettingsResponse',
     'ScriptReferenceResponse',
@@ -130,6 +130,57 @@ class ACIServiceResponseResponse(dict):
     """
     The response for an ACI service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "modelConfigMap":
+            suggest = "model_config_map"
+        elif key == "scoringUri":
+            suggest = "scoring_uri"
+        elif key == "swaggerUri":
+            suggest = "swagger_uri"
+        elif key == "appInsightsEnabled":
+            suggest = "app_insights_enabled"
+        elif key == "authEnabled":
+            suggest = "auth_enabled"
+        elif key == "containerResourceRequirements":
+            suggest = "container_resource_requirements"
+        elif key == "dataCollection":
+            suggest = "data_collection"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "encryptionProperties":
+            suggest = "encryption_properties"
+        elif key == "environmentImageRequest":
+            suggest = "environment_image_request"
+        elif key == "kvTags":
+            suggest = "kv_tags"
+        elif key == "publicFqdn":
+            suggest = "public_fqdn"
+        elif key == "publicIp":
+            suggest = "public_ip"
+        elif key == "sslCertificate":
+            suggest = "ssl_certificate"
+        elif key == "sslEnabled":
+            suggest = "ssl_enabled"
+        elif key == "sslKey":
+            suggest = "ssl_key"
+        elif key == "vnetConfiguration":
+            suggest = "vnet_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ACIServiceResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ACIServiceResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ACIServiceResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  error: 'outputs.ServiceResponseBaseResponseError',
@@ -160,7 +211,7 @@ class ACIServiceResponseResponse(dict):
         The response for an ACI service.
         :param str compute_type: The compute environment type for the service.
                Expected value is 'ACI'.
-        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param 'ServiceResponseBaseResponseError' error: The error details.
         :param Mapping[str, Any] model_config_map: Details on the models and configurations.
         :param str scoring_uri: The Uri for sending scoring requests.
         :param str state: The current state of the service.
@@ -168,22 +219,22 @@ class ACIServiceResponseResponse(dict):
         :param bool app_insights_enabled: Whether or not Application Insights is enabled.
         :param bool auth_enabled: Whether or not authentication is enabled on the service.
         :param str cname: The CName for the service.
-        :param 'ContainerResourceRequirementsResponseArgs' container_resource_requirements: The container resource requirements.
-        :param 'ACIServiceResponseResponseDataCollectionArgs' data_collection: Details of the data collection options specified.
+        :param 'ContainerResourceRequirementsResponse' container_resource_requirements: The container resource requirements.
+        :param 'ACIServiceResponseResponseDataCollection' data_collection: Details of the data collection options specified.
         :param str deployment_type: The deployment type for the service.
         :param str description: The service description.
-        :param 'ACIServiceResponseResponseEncryptionPropertiesArgs' encryption_properties: The encryption properties.
-        :param 'ACIServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
+        :param 'ACIServiceResponseResponseEncryptionProperties' encryption_properties: The encryption properties.
+        :param 'ACIServiceResponseResponseEnvironmentImageRequest' environment_image_request: The Environment, models and assets used for inferencing.
         :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
         :param str location: The name of the Azure location/region.
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
         :param str public_fqdn: The public Fqdn for the service.
         :param str public_ip: The public IP address for the service.
         :param str ssl_certificate: The public SSL certificate in PEM format to use if SSL is enabled.
         :param bool ssl_enabled: Whether or not SSL is enabled.
         :param str ssl_key: The public SSL key in PEM format for the certificate.
-        :param 'ACIServiceResponseResponseVnetConfigurationArgs' vnet_configuration: The virtual network configuration.
+        :param 'ACIServiceResponseResponseVnetConfiguration' vnet_configuration: The virtual network configuration.
         """
         pulumi.set(__self__, "compute_type", 'ACI')
         pulumi.set(__self__, "error", error)
@@ -431,15 +482,31 @@ class ACIServiceResponseResponse(dict):
         """
         return pulumi.get(self, "vnet_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ACIServiceResponseResponseDataCollection(dict):
     """
     Details of the data collection options specified.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubEnabled":
+            suggest = "event_hub_enabled"
+        elif key == "storageEnabled":
+            suggest = "storage_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ACIServiceResponseResponseDataCollection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ACIServiceResponseResponseDataCollection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ACIServiceResponseResponseDataCollection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_hub_enabled: Optional[bool] = None,
                  storage_enabled: Optional[bool] = None):
@@ -469,15 +536,33 @@ class ACIServiceResponseResponseDataCollection(dict):
         """
         return pulumi.get(self, "storage_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ACIServiceResponseResponseEncryptionProperties(dict):
     """
     The encryption properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVersion":
+            suggest = "key_version"
+        elif key == "vaultBaseUrl":
+            suggest = "vault_base_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ACIServiceResponseResponseEncryptionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ACIServiceResponseResponseEncryptionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ACIServiceResponseResponseEncryptionProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_name: str,
                  key_version: str,
@@ -516,15 +601,33 @@ class ACIServiceResponseResponseEncryptionProperties(dict):
         """
         return pulumi.get(self, "vault_base_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ACIServiceResponseResponseEnvironmentImageRequest(dict):
     """
     The Environment, models and assets used for inferencing.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "driverProgram":
+            suggest = "driver_program"
+        elif key == "environmentReference":
+            suggest = "environment_reference"
+        elif key == "modelIds":
+            suggest = "model_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ACIServiceResponseResponseEnvironmentImageRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ACIServiceResponseResponseEnvironmentImageRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ACIServiceResponseResponseEnvironmentImageRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assets: Optional[Sequence['outputs.ImageAssetResponse']] = None,
                  driver_program: Optional[str] = None,
@@ -534,12 +637,12 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
                  models: Optional[Sequence['outputs.ModelResponse']] = None):
         """
         The Environment, models and assets used for inferencing.
-        :param Sequence['ImageAssetResponseArgs'] assets: The list of assets.
+        :param Sequence['ImageAssetResponse'] assets: The list of assets.
         :param str driver_program: The name of the driver file.
-        :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
-        :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironment' environment: The details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironmentReference' environment_reference: The unique identifying details of the AZURE ML environment.
         :param Sequence[str] model_ids: The list of model Ids.
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -602,15 +705,31 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
         """
         return pulumi.get(self, "models")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ACIServiceResponseResponseVnetConfiguration(dict):
     """
     The virtual network configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetName":
+            suggest = "subnet_name"
+        elif key == "vnetName":
+            suggest = "vnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ACIServiceResponseResponseVnetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ACIServiceResponseResponseVnetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ACIServiceResponseResponseVnetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_name: Optional[str] = None,
                  vnet_name: Optional[str] = None):
@@ -640,9 +759,6 @@ class ACIServiceResponseResponseVnetConfiguration(dict):
         """
         return pulumi.get(self, "vnet_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSReplicaStatusResponseError(dict):
@@ -653,7 +769,7 @@ class AKSReplicaStatusResponseError(dict):
                  error: 'outputs.ErrorResponseResponse'):
         """
         The error details.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         pulumi.set(__self__, "error", error)
 
@@ -665,15 +781,39 @@ class AKSReplicaStatusResponseError(dict):
         """
         return pulumi.get(self, "error")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSResponse(dict):
     """
     A Machine Learning compute based on AKS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -688,11 +828,11 @@ class AKSResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'AKS'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AKSResponsePropertiesArgs' properties: AKS properties
+        :param 'AKSResponseProperties' properties: AKS properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'AKS')
@@ -773,15 +913,41 @@ class AKSResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSResponseProperties(dict):
     """
     AKS properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemServices":
+            suggest = "system_services"
+        elif key == "agentCount":
+            suggest = "agent_count"
+        elif key == "agentVmSize":
+            suggest = "agent_vm_size"
+        elif key == "aksNetworkingConfiguration":
+            suggest = "aks_networking_configuration"
+        elif key == "clusterFqdn":
+            suggest = "cluster_fqdn"
+        elif key == "clusterPurpose":
+            suggest = "cluster_purpose"
+        elif key == "sslConfiguration":
+            suggest = "ssl_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  system_services: Sequence['outputs.SystemServiceResponse'],
                  agent_count: Optional[int] = None,
@@ -792,13 +958,13 @@ class AKSResponseProperties(dict):
                  ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None):
         """
         AKS properties
-        :param Sequence['SystemServiceResponseArgs'] system_services: System services
+        :param Sequence['SystemServiceResponse'] system_services: System services
         :param int agent_count: Number of agents
         :param str agent_vm_size: Agent virtual machine size
-        :param 'AksNetworkingConfigurationResponseArgs' aks_networking_configuration: AKS networking configuration for vnet
+        :param 'AksNetworkingConfigurationResponse' aks_networking_configuration: AKS networking configuration for vnet
         :param str cluster_fqdn: Cluster full qualified domain name
         :param str cluster_purpose: Intended usage of the cluster
-        :param 'SslConfigurationResponseArgs' ssl_configuration: SSL configuration
+        :param 'SslConfigurationResponse' ssl_configuration: SSL configuration
         """
         pulumi.set(__self__, "system_services", system_services)
         if agent_count is not None:
@@ -872,15 +1038,71 @@ class AKSResponseProperties(dict):
         """
         return pulumi.get(self, "ssl_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSServiceResponseResponse(dict):
     """
     The response for an AKS service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "modelConfigMap":
+            suggest = "model_config_map"
+        elif key == "scoringUri":
+            suggest = "scoring_uri"
+        elif key == "swaggerUri":
+            suggest = "swagger_uri"
+        elif key == "aadAuthEnabled":
+            suggest = "aad_auth_enabled"
+        elif key == "appInsightsEnabled":
+            suggest = "app_insights_enabled"
+        elif key == "authEnabled":
+            suggest = "auth_enabled"
+        elif key == "autoScaler":
+            suggest = "auto_scaler"
+        elif key == "computeName":
+            suggest = "compute_name"
+        elif key == "containerResourceRequirements":
+            suggest = "container_resource_requirements"
+        elif key == "dataCollection":
+            suggest = "data_collection"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "environmentImageRequest":
+            suggest = "environment_image_request"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "kvTags":
+            suggest = "kv_tags"
+        elif key == "livenessProbeRequirements":
+            suggest = "liveness_probe_requirements"
+        elif key == "maxConcurrentRequestsPerContainer":
+            suggest = "max_concurrent_requests_per_container"
+        elif key == "maxQueueWaitMs":
+            suggest = "max_queue_wait_ms"
+        elif key == "numReplicas":
+            suggest = "num_replicas"
+        elif key == "scoringTimeoutMs":
+            suggest = "scoring_timeout_ms"
+        elif key == "trafficPercentile":
+            suggest = "traffic_percentile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSServiceResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSServiceResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSServiceResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  deployment_status: 'outputs.AKSServiceResponseResponseDeploymentStatus',
@@ -915,8 +1137,8 @@ class AKSServiceResponseResponse(dict):
         The response for an AKS service.
         :param str compute_type: The compute environment type for the service.
                Expected value is 'Custom'.
-        :param 'AKSServiceResponseResponseDeploymentStatusArgs' deployment_status: The deployment status.
-        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param 'AKSServiceResponseResponseDeploymentStatus' deployment_status: The deployment status.
+        :param 'ServiceResponseBaseResponseError' error: The error details.
         :param Mapping[str, Any] model_config_map: Details on the models and configurations.
         :param str scoring_uri: The Uri for sending scoring requests.
         :param str state: The current state of the service.
@@ -924,19 +1146,19 @@ class AKSServiceResponseResponse(dict):
         :param bool aad_auth_enabled: Whether or not AAD authentication is enabled.
         :param bool app_insights_enabled: Whether or not Application Insights is enabled.
         :param bool auth_enabled: Whether or not authentication is enabled.
-        :param 'AKSServiceResponseResponseAutoScalerArgs' auto_scaler: The auto scaler properties.
+        :param 'AKSServiceResponseResponseAutoScaler' auto_scaler: The auto scaler properties.
         :param str compute_name: The name of the compute resource.
-        :param 'ContainerResourceRequirementsResponseArgs' container_resource_requirements: The container resource requirements.
-        :param 'AKSServiceResponseResponseDataCollectionArgs' data_collection: Details of the data collection options specified.
+        :param 'ContainerResourceRequirementsResponse' container_resource_requirements: The container resource requirements.
+        :param 'AKSServiceResponseResponseDataCollection' data_collection: Details of the data collection options specified.
         :param str deployment_type: The deployment type for the service.
         :param str description: The service description.
-        :param 'AKSServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
+        :param 'AKSServiceResponseResponseEnvironmentImageRequest' environment_image_request: The Environment, models and assets used for inferencing.
         :param bool is_default: Is this the default variant.
         :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
-        :param 'AKSServiceResponseResponseLivenessProbeRequirementsArgs' liveness_probe_requirements: The liveness probe requirements.
+        :param 'AKSServiceResponseResponseLivenessProbeRequirements' liveness_probe_requirements: The liveness probe requirements.
         :param int max_concurrent_requests_per_container: The maximum number of concurrent requests per container.
         :param int max_queue_wait_ms: Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         :param str namespace: The Kubernetes namespace of the deployment.
         :param int num_replicas: The number of replicas on the cluster.
         :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
@@ -1229,15 +1451,37 @@ class AKSServiceResponseResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSServiceResponseResponseAutoScaler(dict):
     """
     The auto scaler properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoscaleEnabled":
+            suggest = "autoscale_enabled"
+        elif key == "maxReplicas":
+            suggest = "max_replicas"
+        elif key == "minReplicas":
+            suggest = "min_replicas"
+        elif key == "refreshPeriodInSeconds":
+            suggest = "refresh_period_in_seconds"
+        elif key == "targetUtilization":
+            suggest = "target_utilization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSServiceResponseResponseAutoScaler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSServiceResponseResponseAutoScaler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSServiceResponseResponseAutoScaler.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  autoscale_enabled: Optional[bool] = None,
                  max_replicas: Optional[int] = None,
@@ -1303,15 +1547,31 @@ class AKSServiceResponseResponseAutoScaler(dict):
         """
         return pulumi.get(self, "target_utilization")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSServiceResponseResponseDataCollection(dict):
     """
     Details of the data collection options specified.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubEnabled":
+            suggest = "event_hub_enabled"
+        elif key == "storageEnabled":
+            suggest = "storage_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSServiceResponseResponseDataCollection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSServiceResponseResponseDataCollection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSServiceResponseResponseDataCollection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_hub_enabled: Optional[bool] = None,
                  storage_enabled: Optional[bool] = None):
@@ -1341,15 +1601,33 @@ class AKSServiceResponseResponseDataCollection(dict):
         """
         return pulumi.get(self, "storage_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSServiceResponseResponseDeploymentStatus(dict):
     """
     The deployment status.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availableReplicas":
+            suggest = "available_replicas"
+        elif key == "desiredReplicas":
+            suggest = "desired_replicas"
+        elif key == "updatedReplicas":
+            suggest = "updated_replicas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSServiceResponseResponseDeploymentStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSServiceResponseResponseDeploymentStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSServiceResponseResponseDeploymentStatus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  available_replicas: Optional[int] = None,
                  desired_replicas: Optional[int] = None,
@@ -1359,7 +1637,7 @@ class AKSServiceResponseResponseDeploymentStatus(dict):
         The deployment status.
         :param int available_replicas: The number of available replicas.
         :param int desired_replicas: The desired number of replicas.
-        :param 'AKSReplicaStatusResponseErrorArgs' error: The error details.
+        :param 'AKSReplicaStatusResponseError' error: The error details.
         :param int updated_replicas: The number of updated replicas.
         """
         if available_replicas is not None:
@@ -1403,15 +1681,33 @@ class AKSServiceResponseResponseDeploymentStatus(dict):
         """
         return pulumi.get(self, "updated_replicas")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSServiceResponseResponseEnvironmentImageRequest(dict):
     """
     The Environment, models and assets used for inferencing.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "driverProgram":
+            suggest = "driver_program"
+        elif key == "environmentReference":
+            suggest = "environment_reference"
+        elif key == "modelIds":
+            suggest = "model_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSServiceResponseResponseEnvironmentImageRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSServiceResponseResponseEnvironmentImageRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSServiceResponseResponseEnvironmentImageRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assets: Optional[Sequence['outputs.ImageAssetResponse']] = None,
                  driver_program: Optional[str] = None,
@@ -1421,12 +1717,12 @@ class AKSServiceResponseResponseEnvironmentImageRequest(dict):
                  models: Optional[Sequence['outputs.ModelResponse']] = None):
         """
         The Environment, models and assets used for inferencing.
-        :param Sequence['ImageAssetResponseArgs'] assets: The list of assets.
+        :param Sequence['ImageAssetResponse'] assets: The list of assets.
         :param str driver_program: The name of the driver file.
-        :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
-        :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironment' environment: The details of the AZURE ML environment.
+        :param 'EnvironmentImageResponseResponseEnvironmentReference' environment_reference: The unique identifying details of the AZURE ML environment.
         :param Sequence[str] model_ids: The list of model Ids.
-        :param Sequence['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponse'] models: The list of models.
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -1489,15 +1785,37 @@ class AKSServiceResponseResponseEnvironmentImageRequest(dict):
         """
         return pulumi.get(self, "models")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSServiceResponseResponseLivenessProbeRequirements(dict):
     """
     The liveness probe requirements.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureThreshold":
+            suggest = "failure_threshold"
+        elif key == "initialDelaySeconds":
+            suggest = "initial_delay_seconds"
+        elif key == "periodSeconds":
+            suggest = "period_seconds"
+        elif key == "successThreshold":
+            suggest = "success_threshold"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSServiceResponseResponseLivenessProbeRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSServiceResponseResponseLivenessProbeRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSServiceResponseResponseLivenessProbeRequirements.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failure_threshold: Optional[int] = None,
                  initial_delay_seconds: Optional[int] = None,
@@ -1563,15 +1881,37 @@ class AKSServiceResponseResponseLivenessProbeRequirements(dict):
         """
         return pulumi.get(self, "timeout_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AKSVariantResponseResponse(dict):
     """
     The response for an AKS variant.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "kvTags":
+            suggest = "kv_tags"
+        elif key == "trafficPercentile":
+            suggest = "traffic_percentile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSVariantResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSVariantResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSVariantResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  error: 'outputs.ServiceResponseBaseResponseError',
@@ -1587,7 +1927,7 @@ class AKSVariantResponseResponse(dict):
         The response for an AKS variant.
         :param str compute_type: The compute environment type for the service.
                Expected value is 'Custom'.
-        :param 'ServiceResponseBaseResponseErrorArgs' error: The error details.
+        :param 'ServiceResponseBaseResponseError' error: The error details.
         :param str state: The current state of the service.
         :param str deployment_type: The deployment type for the service.
         :param str description: The service description.
@@ -1696,15 +2036,35 @@ class AKSVariantResponseResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AksNetworkingConfigurationResponse(dict):
     """
     Advance configuration for AKS networking
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServiceIP":
+            suggest = "dns_service_ip"
+        elif key == "dockerBridgeCidr":
+            suggest = "docker_bridge_cidr"
+        elif key == "serviceCidr":
+            suggest = "service_cidr"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AksNetworkingConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AksNetworkingConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AksNetworkingConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_service_ip: Optional[str] = None,
                  docker_bridge_cidr: Optional[str] = None,
@@ -1758,12 +2118,9 @@ class AksNetworkingConfigurationResponse(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class AmlComputeNodeInformationResponseResult(dict):
+class AmlComputeNodeInformationResponse(dict):
     """
     Compute node information related to a AmlCompute.
     """
@@ -1844,6 +2201,33 @@ class AmlComputeResponse(dict):
     """
     An Azure Machine Learning compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlComputeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlComputeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlComputeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -1858,11 +2242,11 @@ class AmlComputeResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'AmlCompute'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'AmlComputeResponsePropertiesArgs' properties: AML Compute properties
+        :param 'AmlComputeResponseProperties' properties: AML Compute properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'AmlCompute')
@@ -1943,15 +2327,55 @@ class AmlComputeResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AmlComputeResponseProperties(dict):
     """
     AML Compute properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationState":
+            suggest = "allocation_state"
+        elif key == "allocationStateTransitionTime":
+            suggest = "allocation_state_transition_time"
+        elif key == "currentNodeCount":
+            suggest = "current_node_count"
+        elif key == "nodeStateCounts":
+            suggest = "node_state_counts"
+        elif key == "targetNodeCount":
+            suggest = "target_node_count"
+        elif key == "enableNodePublicIp":
+            suggest = "enable_node_public_ip"
+        elif key == "isolatedNetwork":
+            suggest = "isolated_network"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "remoteLoginPortPublicAccess":
+            suggest = "remote_login_port_public_access"
+        elif key == "scaleSettings":
+            suggest = "scale_settings"
+        elif key == "userAccountCredentials":
+            suggest = "user_account_credentials"
+        elif key == "virtualMachineImage":
+            suggest = "virtual_machine_image"
+        elif key == "vmPriority":
+            suggest = "vm_priority"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlComputeResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlComputeResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlComputeResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allocation_state: str,
                  allocation_state_transition_time: str,
@@ -1974,17 +2398,17 @@ class AmlComputeResponseProperties(dict):
         :param str allocation_state: Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
         :param str allocation_state_transition_time: The time at which the compute entered its current allocation state.
         :param int current_node_count: The number of compute nodes currently assigned to the compute.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
-        :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
+        :param Sequence['MachineLearningServiceErrorResponse'] errors: Collection of errors encountered by various compute nodes during node setup.
+        :param 'NodeStateCountsResponse' node_state_counts: Counts of various node states on the compute.
         :param int target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         :param bool enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param bool isolated_network: Network is isolated or not
         :param str os_type: Compute OS Type
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
-        :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
-        :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
-        :param 'UserAccountCredentialsResponseArgs' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
-        :param 'VirtualMachineImageResponseArgs' virtual_machine_image: Virtual Machine image for AML Compute - windows only
+        :param 'ScaleSettingsResponse' scale_settings: Scale settings for AML Compute
+        :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param 'UserAccountCredentialsResponse' user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
+        :param 'VirtualMachineImageResponse' virtual_machine_image: Virtual Machine image for AML Compute - windows only
         :param str vm_priority: Virtual Machine priority
         :param str vm_size: Virtual Machine Size
         """
@@ -2149,15 +2573,31 @@ class AmlComputeResponseProperties(dict):
         """
         return pulumi.get(self, "vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AssignedUserResponse(dict):
     """
     A user that can be assigned to a compute instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignedUserResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignedUserResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignedUserResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_id: str,
                  tenant_id: str):
@@ -2185,12 +2625,46 @@ class AssignedUserResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureDataLakeSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "storeName":
+            suggest = "store_name"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDataLakeSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDataLakeSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authority_url: Optional[str] = None,
                  certificate: Optional[str] = None,
@@ -2351,12 +2825,54 @@ class AzureDataLakeSectionResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureMySqlSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "userPassword":
+            suggest = "user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMySqlSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMySqlSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMySqlSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authority_url: Optional[str] = None,
                  certificate: Optional[str] = None,
@@ -2577,12 +3093,56 @@ class AzureMySqlSectionResponse(dict):
         """
         return pulumi.get(self, "user_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzurePostgreSqlSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "enableSsl":
+            suggest = "enable_ssl"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "userPassword":
+            suggest = "user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzurePostgreSqlSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzurePostgreSqlSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authority_url: Optional[str] = None,
                  certificate: Optional[str] = None,
@@ -2815,12 +3375,54 @@ class AzurePostgreSqlSectionResponse(dict):
         """
         return pulumi.get(self, "user_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlDatabaseSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "userPassword":
+            suggest = "user_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlDatabaseSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlDatabaseSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlDatabaseSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authority_url: Optional[str] = None,
                  certificate: Optional[str] = None,
@@ -3041,12 +3643,48 @@ class AzureSqlDatabaseSectionResponse(dict):
         """
         return pulumi.get(self, "user_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureStorageSectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "areWorkspaceManagedIdentitiesAllowed":
+            suggest = "are_workspace_managed_identities_allowed"
+        elif key == "blobCacheTimeout":
+            suggest = "blob_cache_timeout"
+        elif key == "clientCredentials":
+            suggest = "client_credentials"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "credentialType":
+            suggest = "credential_type"
+        elif key == "isSas":
+            suggest = "is_sas"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "sasToken":
+            suggest = "sas_token"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureStorageSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureStorageSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureStorageSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_key: Optional[str] = None,
                  account_name: Optional[str] = None,
@@ -3227,12 +3865,42 @@ class AzureStorageSectionResponse(dict):
         """
         return pulumi.get(self, "subscription_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClientCredentialsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorityUrl":
+            suggest = "authority_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "isCertAuth":
+            suggest = "is_cert_auth"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceUri":
+            suggest = "resource_uri"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authority_url: Optional[str] = None,
                  certificate: Optional[str] = None,
@@ -3369,15 +4037,31 @@ class ClientCredentialsResponse(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeBindingResponse(dict):
     """
     Compute binding definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeId":
+            suggest = "compute_id"
+        elif key == "nodeCount":
+            suggest = "node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeBindingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeBindingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeBindingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_id: Optional[str] = None,
                  node_count: Optional[int] = None):
@@ -3407,15 +4091,31 @@ class ComputeBindingResponse(dict):
         """
         return pulumi.get(self, "node_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceApplicationResponse(dict):
     """
     Defines an Aml Instance application and its connectivity endpoint URI.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "endpointUri":
+            suggest = "endpoint_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceApplicationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceApplicationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceApplicationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  endpoint_uri: Optional[str] = None):
@@ -3445,15 +4145,31 @@ class ComputeInstanceApplicationResponse(dict):
         """
         return pulumi.get(self, "endpoint_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceConnectivityEndpointsResponse(dict):
     """
     Defines all connectivity endpoints and properties for an ComputeInstance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "publicIpAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceConnectivityEndpointsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceConnectivityEndpointsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceConnectivityEndpointsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_ip_address: str,
                  public_ip_address: str):
@@ -3481,15 +4197,33 @@ class ComputeInstanceConnectivityEndpointsResponse(dict):
         """
         return pulumi.get(self, "public_ip_address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceCreatedByResponse(dict):
     """
     Describes information on user who created this ComputeInstance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userId":
+            suggest = "user_id"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "userOrgId":
+            suggest = "user_org_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceCreatedByResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceCreatedByResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceCreatedByResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_id: str,
                  user_name: str,
@@ -3528,15 +4262,33 @@ class ComputeInstanceCreatedByResponse(dict):
         """
         return pulumi.get(self, "user_org_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceLastOperationResponse(dict):
     """
     The last operation on ComputeInstance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationName":
+            suggest = "operation_name"
+        elif key == "operationStatus":
+            suggest = "operation_status"
+        elif key == "operationTime":
+            suggest = "operation_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceLastOperationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceLastOperationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceLastOperationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operation_name: Optional[str] = None,
                  operation_status: Optional[str] = None,
@@ -3578,15 +4330,39 @@ class ComputeInstanceLastOperationResponse(dict):
         """
         return pulumi.get(self, "operation_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceResponse(dict):
     """
     An Azure Machine Learning compute instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -3601,11 +4377,11 @@ class ComputeInstanceResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'ComputeInstance'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
-        :param 'ComputeInstanceResponsePropertiesArgs' properties: Compute Instance properties
+        :param 'ComputeInstanceResponseProperties' properties: Compute Instance properties
         :param str resource_id: ARM resource id of the underlying compute
         """
         pulumi.set(__self__, "compute_type", 'ComputeInstance')
@@ -3686,15 +4462,45 @@ class ComputeInstanceResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceResponseProperties(dict):
     """
     Compute Instance properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectivityEndpoints":
+            suggest = "connectivity_endpoints"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "lastOperation":
+            suggest = "last_operation"
+        elif key == "applicationSharingPolicy":
+            suggest = "application_sharing_policy"
+        elif key == "computeInstanceAuthorizationType":
+            suggest = "compute_instance_authorization_type"
+        elif key == "personalComputeInstanceSettings":
+            suggest = "personal_compute_instance_settings"
+        elif key == "setupScripts":
+            suggest = "setup_scripts"
+        elif key == "sshSettings":
+            suggest = "ssh_settings"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  applications: Sequence['outputs.ComputeInstanceApplicationResponse'],
                  connectivity_endpoints: 'outputs.ComputeInstanceConnectivityEndpointsResponse',
@@ -3711,18 +4517,18 @@ class ComputeInstanceResponseProperties(dict):
                  vm_size: Optional[str] = None):
         """
         Compute Instance properties
-        :param Sequence['ComputeInstanceApplicationResponseArgs'] applications: Describes available applications and their endpoints on this ComputeInstance.
-        :param 'ComputeInstanceConnectivityEndpointsResponseArgs' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
-        :param 'ComputeInstanceCreatedByResponseArgs' created_by: Describes information on user who created this ComputeInstance.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered on this ComputeInstance.
-        :param 'ComputeInstanceLastOperationResponseArgs' last_operation: The last operation on ComputeInstance.
+        :param Sequence['ComputeInstanceApplicationResponse'] applications: Describes available applications and their endpoints on this ComputeInstance.
+        :param 'ComputeInstanceConnectivityEndpointsResponse' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
+        :param 'ComputeInstanceCreatedByResponse' created_by: Describes information on user who created this ComputeInstance.
+        :param Sequence['MachineLearningServiceErrorResponse'] errors: Collection of errors encountered on this ComputeInstance.
+        :param 'ComputeInstanceLastOperationResponse' last_operation: The last operation on ComputeInstance.
         :param str state: The current state of this ComputeInstance.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
-        :param 'PersonalComputeInstanceSettingsResponseArgs' personal_compute_instance_settings: Settings for a personal compute instance.
-        :param 'SetupScriptsResponseArgs' setup_scripts: Details of customized scripts to execute for setting up the cluster.
-        :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
-        :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param 'PersonalComputeInstanceSettingsResponse' personal_compute_instance_settings: Settings for a personal compute instance.
+        :param 'SetupScriptsResponse' setup_scripts: Details of customized scripts to execute for setting up the cluster.
+        :param 'ComputeInstanceSshSettingsResponse' ssh_settings: Specifies policy and settings for SSH access.
+        :param 'ResourceIdResponse' subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param str vm_size: Virtual Machine Size
         """
         pulumi.set(__self__, "applications", applications)
@@ -3854,15 +4660,35 @@ class ComputeInstanceResponseProperties(dict):
         """
         return pulumi.get(self, "vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ComputeInstanceSshSettingsResponse(dict):
     """
     Specifies policy and settings for SSH access.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUserName":
+            suggest = "admin_user_name"
+        elif key == "sshPort":
+            suggest = "ssh_port"
+        elif key == "adminPublicKey":
+            suggest = "admin_public_key"
+        elif key == "sshPublicAccess":
+            suggest = "ssh_public_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeInstanceSshSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeInstanceSshSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeInstanceSshSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_user_name: str,
                  ssh_port: int,
@@ -3916,15 +4742,33 @@ class ComputeInstanceSshSettingsResponse(dict):
         """
         return pulumi.get(self, "ssh_public_access")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContainerResourceRequirementsResponse(dict):
     """
     The resource requirements for the container (cpu and memory).
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuLimit":
+            suggest = "cpu_limit"
+        elif key == "memoryInGB":
+            suggest = "memory_in_gb"
+        elif key == "memoryInGBLimit":
+            suggest = "memory_in_gb_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerResourceRequirementsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerResourceRequirementsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerResourceRequirementsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cpu: Optional[float] = None,
                  cpu_limit: Optional[float] = None,
@@ -4010,12 +4854,26 @@ class ContainerResourceRequirementsResponse(dict):
         """
         return pulumi.get(self, "memory_in_gb_limit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CosmosDbSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionsThroughput":
+            suggest = "collections_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CosmosDbSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CosmosDbSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CosmosDbSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  collections_throughput: Optional[int] = None):
         """
@@ -4032,15 +4890,39 @@ class CosmosDbSettingsResponse(dict):
         """
         return pulumi.get(self, "collections_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataFactoryResponse(dict):
     """
     A DataFactory compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFactoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFactoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFactoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -4054,7 +4936,7 @@ class DataFactoryResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'DataFactory'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -4128,15 +5010,39 @@ class DataFactoryResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataLakeAnalyticsResponse(dict):
     """
     A DataLakeAnalytics compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataLakeAnalyticsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataLakeAnalyticsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataLakeAnalyticsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -4151,7 +5057,7 @@ class DataLakeAnalyticsResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'DataLakeAnalytics'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -4232,12 +5138,26 @@ class DataLakeAnalyticsResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataLakeAnalyticsResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakeStoreAccountName":
+            suggest = "data_lake_store_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataLakeAnalyticsResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataLakeAnalyticsResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataLakeAnalyticsResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_lake_store_account_name: Optional[str] = None):
         """
@@ -4254,15 +5174,39 @@ class DataLakeAnalyticsResponseProperties(dict):
         """
         return pulumi.get(self, "data_lake_store_account_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabricksResponse(dict):
     """
     A DataFactory compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabricksResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabricksResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabricksResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -4277,7 +5221,7 @@ class DatabricksResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'Databricks'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -4358,12 +5302,28 @@ class DatabricksResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabricksResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databricksAccessToken":
+            suggest = "databricks_access_token"
+        elif key == "workspaceUrl":
+            suggest = "workspace_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabricksResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabricksResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabricksResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  databricks_access_token: Optional[str] = None,
                  workspace_url: Optional[str] = None):
@@ -4391,9 +5351,6 @@ class DatabricksResponseProperties(dict):
         Workspace Url
         """
         return pulumi.get(self, "workspace_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4430,15 +5387,41 @@ class DatasetReferenceResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetResponse(dict):
     """
     Machine Learning dataset object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "datasetId":
+            suggest = "dataset_id"
+        elif key == "datasetType":
+            suggest = "dataset_type"
+        elif key == "defaultCompute":
+            suggest = "default_compute"
+        elif key == "isVisible":
+            suggest = "is_visible"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "datasetState":
+            suggest = "dataset_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_time: str,
                  dataset_id: str,
@@ -4464,8 +5447,8 @@ class DatasetResponse(dict):
         :param str modified_time: The dataset last modified time (UTC).
         :param str name: Unique dataset name
         :param Mapping[str, str] tags: Tags for this dataset version.
-        :param 'DatasetStateResponseArgs' dataset_state: Dataset state
-        :param 'DatasetResponseLatestArgs' latest: Last created Dataset definition.
+        :param 'DatasetStateResponse' dataset_state: Dataset state
+        :param 'DatasetResponseLatest' latest: Last created Dataset definition.
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "dataset_id", dataset_id)
@@ -4578,15 +5561,43 @@ class DatasetResponse(dict):
         """
         return pulumi.get(self, "latest")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetResponseDataPath(dict):
     """
      Datastore and reference to location of data such as relativePath, Sql Query and etc.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureFilePath":
+            suggest = "azure_file_path"
+        elif key == "datastoreName":
+            suggest = "datastore_name"
+        elif key == "httpUrl":
+            suggest = "http_url"
+        elif key == "partitionFormat":
+            suggest = "partition_format"
+        elif key == "partitionFormatIgnoreError":
+            suggest = "partition_format_ignore_error"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "additionalProperties":
+            suggest = "additional_properties"
+        elif key == "sqlDataPath":
+            suggest = "sql_data_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponseDataPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponseDataPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponseDataPath.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_file_path: str,
                  datastore_name: str,
@@ -4607,7 +5618,7 @@ class DatasetResponseDataPath(dict):
         :param Sequence[str] paths: List of files expanded from a file GLOB specified
         :param str relative_path: Relative path in the data store
         :param Mapping[str, Any] additional_properties: Additional Properties.
-        :param 'DatasetResponseSqlDataPathArgs' sql_data_path: Sql Query/Table/Stored Procedure details.
+        :param 'DatasetResponseSqlDataPath' sql_data_path: Sql Query/Table/Stored Procedure details.
         """
         pulumi.set(__self__, "azure_file_path", azure_file_path)
         pulumi.set(__self__, "datastore_name", datastore_name)
@@ -4693,15 +5704,51 @@ class DatasetResponseDataPath(dict):
         """
         return pulumi.get(self, "sql_data_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetResponseLatest(dict):
     """
     Last created Dataset definition.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "datasetId":
+            suggest = "dataset_id"
+        elif key == "fileType":
+            suggest = "file_type"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "partitionFormatInPath":
+            suggest = "partition_format_in_path"
+        elif key == "savedDatasetId":
+            suggest = "saved_dataset_id"
+        elif key == "telemetryInfo":
+            suggest = "telemetry_info"
+        elif key == "useDescriptionTagsFromDefinition":
+            suggest = "use_description_tags_from_definition"
+        elif key == "versionId":
+            suggest = "version_id"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "dataPath":
+            suggest = "data_path"
+        elif key == "datasetDefinitionState":
+            suggest = "dataset_definition_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponseLatest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponseLatest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponseLatest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_time: str,
                  dataflow: str,
@@ -4737,9 +5784,9 @@ class DatasetResponseLatest(dict):
         :param Mapping[str, str] telemetry_info:  Telemetry information about the dataset including information like which service the dataset was created from.
         :param bool use_description_tags_from_definition:  Whether to use description and tags from the definition level as opposed to dataset level (old behavior).
         :param str version_id: An identifier uniquely identifies a definition change.
-        :param 'UserInfoResponseArgs' created_by: User who created.
-        :param 'DatasetResponseDataPathArgs' data_path:  Datastore and reference to location of data such as relativePath, Sql Query and etc.
-        :param 'DatasetStateResponseArgs' dataset_definition_state: Dataset state
+        :param 'UserInfoResponse' created_by: User who created.
+        :param 'DatasetResponseDataPath' data_path:  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+        :param 'DatasetStateResponse' dataset_definition_state: Dataset state
         :param Mapping[str, Any] properties: Properties stores information like name of time series column for time series dataset.
         """
         pulumi.set(__self__, "created_time", created_time)
@@ -4909,15 +5956,35 @@ class DatasetResponseLatest(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetResponseSqlDataPath(dict):
     """
     Sql Query/Table/Stored Procedure details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryTimeout":
+            suggest = "query_timeout"
+        elif key == "sqlQuery":
+            suggest = "sql_query"
+        elif key == "sqlStoredProcedureName":
+            suggest = "sql_stored_procedure_name"
+        elif key == "sqlTableName":
+            suggest = "sql_table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponseSqlDataPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponseSqlDataPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponseSqlDataPath.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query_timeout: float,
                  sql_query: str,
@@ -4967,15 +6034,29 @@ class DatasetResponseSqlDataPath(dict):
         """
         return pulumi.get(self, "sql_table_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetStateResponse(dict):
     """
     Dataset state
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deprecatedBy":
+            suggest = "deprecated_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  deprecated_by: Optional['outputs.DatasetStateResponseDeprecatedBy'] = None,
@@ -4983,7 +6064,7 @@ class DatasetStateResponse(dict):
         """
         Dataset state
         :param str etag: eTag description
-        :param 'DatasetStateResponseDeprecatedByArgs' deprecated_by: Reference to better Dataset or a Definition
+        :param 'DatasetStateResponseDeprecatedBy' deprecated_by: Reference to better Dataset or a Definition
         :param str state: Dataset state
         """
         pulumi.set(__self__, "etag", etag)
@@ -5016,15 +6097,31 @@ class DatasetStateResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetStateResponseDeprecatedBy(dict):
     """
     Reference to better Dataset or a Definition
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetId":
+            suggest = "dataset_id"
+        elif key == "definitionVersion":
+            suggest = "definition_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetStateResponseDeprecatedBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetStateResponseDeprecatedBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetStateResponseDeprecatedBy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dataset_id: str,
                  definition_version: Optional[str] = None):
@@ -5053,15 +6150,53 @@ class DatasetStateResponseDeprecatedBy(dict):
         """
         return pulumi.get(self, "definition_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatastoreResponse(dict):
     """
     Machine Learning datastore object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "modifiedBy":
+            suggest = "modified_by"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "azureDataLakeSection":
+            suggest = "azure_data_lake_section"
+        elif key == "azureMySqlSection":
+            suggest = "azure_my_sql_section"
+        elif key == "azurePostgreSqlSection":
+            suggest = "azure_postgre_sql_section"
+        elif key == "azureSqlDatabaseSection":
+            suggest = "azure_sql_database_section"
+        elif key == "azureStorageSection":
+            suggest = "azure_storage_section"
+        elif key == "dataStoreType":
+            suggest = "data_store_type"
+        elif key == "glusterFsSection":
+            suggest = "gluster_fs_section"
+        elif key == "hasBeenValidated":
+            suggest = "has_been_validated"
+        elif key == "linkedInfo":
+            suggest = "linked_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatastoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatastoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatastoreResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_by: 'outputs.UserInfoResponse',
                  created_time: str,
@@ -5081,16 +6216,16 @@ class DatastoreResponse(dict):
                  name: Optional[str] = None):
         """
         Machine Learning datastore object.
-        :param 'UserInfoResponseArgs' created_by: The User who created the datastore.
+        :param 'UserInfoResponse' created_by: The User who created the datastore.
         :param str created_time: The date and time when the datastore was created.
-        :param 'UserInfoResponseArgs' modified_by: The User who modified the datastore.
+        :param 'UserInfoResponse' modified_by: The User who modified the datastore.
         :param str modified_time: The date and time when the datastore was last modified.
         :param Mapping[str, str] tags: Tags for this datastore.
         :param str data_store_type: The datastore type.
         :param str description: Description of the datastore.
-        :param 'GlusterFsSectionResponseArgs' gluster_fs_section: Data specific to GlusterFS.
+        :param 'GlusterFsSectionResponse' gluster_fs_section: Data specific to GlusterFS.
         :param bool has_been_validated: A read only property that denotes whether the service datastore has been validated with credentials.
-        :param 'LinkedInfoResponseArgs' linked_info: Info about origin if it is linked.
+        :param 'LinkedInfoResponse' linked_info: Info about origin if it is linked.
         :param str name: Name of the datastore.
         """
         pulumi.set(__self__, "created_by", created_by)
@@ -5236,20 +6371,34 @@ class DatastoreResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EncryptionPropertyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_properties: 'outputs.KeyVaultPropertiesResponse',
                  status: str,
                  identity: Optional['outputs.IdentityForCmkResponse'] = None):
         """
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Customer Key vault properties.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Customer Key vault properties.
         :param str status: Indicates whether or not the encryption is enabled for the workspace.
-        :param 'IdentityForCmkResponseArgs' identity: The identity that will be used to access the key vault for encryption at rest.
+        :param 'IdentityForCmkResponse' identity: The identity that will be used to access the key vault for encryption at rest.
         """
         pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         pulumi.set(__self__, "status", status)
@@ -5280,15 +6429,31 @@ class EncryptionPropertyResponse(dict):
         """
         return pulumi.get(self, "identity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentImageResponseResponseEnvironment(dict):
     """
     The details of the AZURE ML environment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "inferencingStackVersion":
+            suggest = "inferencing_stack_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentImageResponseResponseEnvironment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentImageResponseResponseEnvironment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentImageResponseResponseEnvironment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  docker: Optional['outputs.ModelEnvironmentDefinitionResponseResponseDocker'] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
@@ -5300,13 +6465,13 @@ class EnvironmentImageResponseResponseEnvironment(dict):
                  version: Optional[str] = None):
         """
         The details of the AZURE ML environment.
-        :param 'ModelEnvironmentDefinitionResponseResponseDockerArgs' docker: The definition of a Docker container.
+        :param 'ModelEnvironmentDefinitionResponseResponseDocker' docker: The definition of a Docker container.
         :param Mapping[str, str] environment_variables: Definition of environment variables to be defined in the environment.
         :param str inferencing_stack_version: The inferencing stack version added to the image. To avoid adding an inferencing stack, do not set this value. Valid values: "latest".
         :param str name: The name of the environment.
-        :param 'ModelEnvironmentDefinitionResponseResponsePythonArgs' python: Settings for a Python environment.
-        :param 'ModelEnvironmentDefinitionResponseResponseRArgs' r: Settings for a R environment.
-        :param 'ModelEnvironmentDefinitionResponseResponseSparkArgs' spark: The configuration for a Spark environment.
+        :param 'ModelEnvironmentDefinitionResponseResponsePython' python: Settings for a Python environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseR' r: Settings for a R environment.
+        :param 'ModelEnvironmentDefinitionResponseResponseSpark' spark: The configuration for a Spark environment.
         :param str version: The environment version.
         """
         if docker is not None:
@@ -5390,9 +6555,6 @@ class EnvironmentImageResponseResponseEnvironment(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentImageResponseResponseEnvironmentReference(dict):
@@ -5428,9 +6590,6 @@ class EnvironmentImageResponseResponseEnvironmentReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorDetailResponse(dict):
@@ -5464,9 +6623,6 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ErrorResponseResponse(dict):
@@ -5480,7 +6636,7 @@ class ErrorResponseResponse(dict):
         """
         Error response information.
         :param str code: Error code.
-        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponse'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -5511,15 +6667,31 @@ class ErrorResponseResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GlusterFsSectionResponse(dict):
     """
     Data specific to GlusterFS.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverAddress":
+            suggest = "server_address"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlusterFsSectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlusterFsSectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlusterFsSectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server_address: str,
                  volume_name: str):
@@ -5547,15 +6719,39 @@ class GlusterFsSectionResponse(dict):
         """
         return pulumi.get(self, "volume_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightResponse(dict):
     """
     A HDInsight compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -5570,7 +6766,7 @@ class HDInsightResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'HDInsight'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -5651,19 +6847,35 @@ class HDInsightResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HDInsightResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorAccount":
+            suggest = "administrator_account"
+        elif key == "sshPort":
+            suggest = "ssh_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HDInsightResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HDInsightResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HDInsightResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
                  ssh_port: Optional[int] = None):
         """
         :param str address: Public IP address of the master node of the cluster.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for master node of the cluster
         :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
@@ -5697,15 +6909,29 @@ class HDInsightResponseProperties(dict):
         """
         return pulumi.get(self, "ssh_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityForCmkResponse(dict):
     """
     Identity that will be used to access key vault for encryption at rest
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityForCmkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityForCmkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityForCmkResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_assigned_identity: str):
         """
@@ -5722,15 +6948,33 @@ class IdentityForCmkResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -5741,7 +6985,7 @@ class IdentityResponse(dict):
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
-        :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The user assigned identities associated with the resource.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -5782,15 +7026,29 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageAssetResponse(dict):
     """
     An Image asset.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mimeType":
+            suggest = "mime_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageAssetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageAssetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageAssetResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  mime_type: Optional[str] = None,
@@ -5844,12 +7102,30 @@ class ImageAssetResponse(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyIdentifier":
+            suggest = "key_identifier"
+        elif key == "keyVaultArmId":
+            suggest = "key_vault_arm_id"
+        elif key == "identityClientId":
+            suggest = "identity_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_identifier: str,
                  key_vault_arm_id: str,
@@ -5888,22 +7164,38 @@ class KeyVaultPropertiesResponse(dict):
         """
         return pulumi.get(self, "identity_client_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabelCategoryResponse(dict):
     """
     Represents a category of labels in a labeling job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowMultiSelect":
+            suggest = "allow_multi_select"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelCategoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelCategoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelCategoryResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  classes: Mapping[str, 'outputs.LabelClassResponse'],
                  allow_multi_select: Optional[bool] = None,
                  display_name: Optional[str] = None):
         """
         Represents a category of labels in a labeling job.
-        :param Mapping[str, 'LabelClassResponseArgs'] classes: Dictionary of label classes in this category.
+        :param Mapping[str, 'LabelClassResponse'] classes: Dictionary of label classes in this category.
         :param bool allow_multi_select: Indicates whether it is allowed to select multiple classes in this category.
         :param str display_name: Display name of the label category.
         """
@@ -5937,22 +7229,36 @@ class LabelCategoryResponse(dict):
         """
         return pulumi.get(self, "display_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabelClassResponse(dict):
     """
     Represents a label or a category of labels in a labeling job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelClassResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelClassResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelClassResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  subclasses: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None):
         """
         Represents a label or a category of labels in a labeling job.
         :param str display_name: Display name of the label class.
-        :param Mapping[str, 'LabelClassResponseArgs'] subclasses: Dictionary of subclasses of the label class.
+        :param Mapping[str, 'LabelClassResponse'] subclasses: Dictionary of subclasses of the label class.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -5975,15 +7281,33 @@ class LabelClassResponse(dict):
         """
         return pulumi.get(self, "subclasses")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabelingDatasetConfigurationResponse(dict):
     """
     Represents configuration of dataset used in a labeling job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assetName":
+            suggest = "asset_name"
+        elif key == "datasetVersion":
+            suggest = "dataset_version"
+        elif key == "enableIncrementalDatasetRefresh":
+            suggest = "enable_incremental_dataset_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingDatasetConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingDatasetConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingDatasetConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  asset_name: str,
                  dataset_version: str,
@@ -6023,12 +7347,28 @@ class LabelingDatasetConfigurationResponse(dict):
         """
         return pulumi.get(self, "enable_incremental_dataset_refresh")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabelingJobImagePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaType":
+            suggest = "media_type"
+        elif key == "annotationType":
+            suggest = "annotation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobImagePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobImagePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobImagePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  media_type: str,
                  annotation_type: Optional[str] = None):
@@ -6056,9 +7396,6 @@ class LabelingJobImagePropertiesResponse(dict):
         """
         return pulumi.get(self, "annotation_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabelingJobInstructionsResponse(dict):
@@ -6082,15 +7419,45 @@ class LabelingJobInstructionsResponse(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LabelingJobPropertiesResponse(dict):
     """
     Definition of a labeling job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimeUtc":
+            suggest = "created_time_utc"
+        elif key == "datasetConfiguration":
+            suggest = "dataset_configuration"
+        elif key == "jobInstructions":
+            suggest = "job_instructions"
+        elif key == "labelCategories":
+            suggest = "label_categories"
+        elif key == "labelingJobMediaProperties":
+            suggest = "labeling_job_media_properties"
+        elif key == "progressMetrics":
+            suggest = "progress_metrics"
+        elif key == "projectId":
+            suggest = "project_id"
+        elif key == "statusMessages":
+            suggest = "status_messages"
+        elif key == "mlAssistConfiguration":
+            suggest = "ml_assist_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_time_utc: str,
                  dataset_configuration: 'outputs.LabelingDatasetConfigurationResponse',
@@ -6107,15 +7474,15 @@ class LabelingJobPropertiesResponse(dict):
         """
         Definition of a labeling job.
         :param str created_time_utc: Created time of the job in UTC timezone.
-        :param 'LabelingDatasetConfigurationResponseArgs' dataset_configuration: Dataset configuration for the job.
-        :param 'LabelingJobInstructionsResponseArgs' job_instructions: Instructions for the job.
-        :param Mapping[str, 'LabelCategoryResponseArgs'] label_categories: Label categories of the job.
-        :param 'LabelingJobImagePropertiesResponseArgs' labeling_job_media_properties: Media specific properties in a labeling job.
-        :param 'ProgressMetricsResponseArgs' progress_metrics: Progress metrics of the job.
+        :param 'LabelingDatasetConfigurationResponse' dataset_configuration: Dataset configuration for the job.
+        :param 'LabelingJobInstructionsResponse' job_instructions: Instructions for the job.
+        :param Mapping[str, 'LabelCategoryResponse'] label_categories: Label categories of the job.
+        :param 'LabelingJobImagePropertiesResponse' labeling_job_media_properties: Media specific properties in a labeling job.
+        :param 'ProgressMetricsResponse' progress_metrics: Progress metrics of the job.
         :param str project_id: Internal id of the job(Previously called project).
         :param str status: Status of the job.
-        :param Sequence['StatusMessageResponseArgs'] status_messages: Status messages of the job.
-        :param 'MLAssistConfigurationResponseArgs' ml_assist_configuration: Machine learning assisted configuration for the job.
+        :param Sequence['StatusMessageResponse'] status_messages: Status messages of the job.
+        :param 'MLAssistConfigurationResponse' ml_assist_configuration: Machine learning assisted configuration for the job.
         :param Mapping[str, str] properties: The job property dictionary. Properties can be added, but not removed or altered.
         :param Mapping[str, str] tags: The job tag dictionary. Tags can be added, removed, and updated.
         """
@@ -6231,15 +7598,31 @@ class LabelingJobPropertiesResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedInfoResponse(dict):
     """
     Info about origin if it is linked.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedId":
+            suggest = "linked_id"
+        elif key == "linkedResourceName":
+            suggest = "linked_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_id: Optional[str] = None,
                  linked_resource_name: Optional[str] = None,
@@ -6281,15 +7664,35 @@ class LinkedInfoResponse(dict):
         """
         return pulumi.get(self, "origin")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedServicePropsResponse(dict):
     """
     LinkedService specific properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceResourceId":
+            suggest = "linked_service_resource_id"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "linkType":
+            suggest = "link_type"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServicePropsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServicePropsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServicePropsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_resource_id: str,
                  created_time: Optional[str] = None,
@@ -6342,15 +7745,31 @@ class LinkedServicePropsResponse(dict):
         """
         return pulumi.get(self, "modified_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedWorkspacePropsResponse(dict):
     """
     LinkedWorkspace specific properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedWorkspaceResourceId":
+            suggest = "linked_workspace_resource_id"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedWorkspacePropsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedWorkspacePropsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedWorkspacePropsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_workspace_resource_id: Optional[str] = None,
                  user_assigned_identity_resource_id: Optional[str] = None):
@@ -6380,12 +7799,9 @@ class LinkedWorkspacePropsResponse(dict):
         """
         return pulumi.get(self, "user_assigned_identity_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ListNotebookKeysResultResponseResult(dict):
+class ListNotebookKeysResultResponse(dict):
     def __init__(__self__, *,
                  primary_access_key: str,
                  secondary_access_key: str):
@@ -6408,6 +7824,31 @@ class MLAssistConfigurationResponse(dict):
     """
     Represents configuration for machine learning assisted features in a labeling job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inferencingComputeBinding":
+            suggest = "inferencing_compute_binding"
+        elif key == "modelNamePrefix":
+            suggest = "model_name_prefix"
+        elif key == "trainingComputeBinding":
+            suggest = "training_compute_binding"
+        elif key == "mlAssistEnabled":
+            suggest = "ml_assist_enabled"
+        elif key == "prelabelAccuracyThreshold":
+            suggest = "prelabel_accuracy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLAssistConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLAssistConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLAssistConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  inferencing_compute_binding: 'outputs.ComputeBindingResponse',
                  model_name_prefix: str,
@@ -6416,9 +7857,9 @@ class MLAssistConfigurationResponse(dict):
                  prelabel_accuracy_threshold: Optional[float] = None):
         """
         Represents configuration for machine learning assisted features in a labeling job.
-        :param 'ComputeBindingResponseArgs' inferencing_compute_binding: The compute designated for inferencing.
+        :param 'ComputeBindingResponse' inferencing_compute_binding: The compute designated for inferencing.
         :param str model_name_prefix: Name prefix to use for machine learning model. For each iteration modelName will be appended with iteration e.g.{modelName}_{i}.
-        :param 'ComputeBindingResponseArgs' training_compute_binding: The compute designated for training.
+        :param 'ComputeBindingResponse' training_compute_binding: The compute designated for training.
         :param bool ml_assist_enabled: Indicates whether MLAssist feature is enabled.
         :param float prelabel_accuracy_threshold: Prelabel accuracy threshold used in MLAssist feature.
         """
@@ -6470,9 +7911,6 @@ class MLAssistConfigurationResponse(dict):
         """
         return pulumi.get(self, "prelabel_accuracy_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MachineLearningServiceErrorResponse(dict):
@@ -6483,7 +7921,7 @@ class MachineLearningServiceErrorResponse(dict):
                  error: 'outputs.ErrorResponseResponse'):
         """
         Wrapper for error response to follow ARM guidelines.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         pulumi.set(__self__, "error", error)
 
@@ -6494,9 +7932,6 @@ class MachineLearningServiceErrorResponse(dict):
         The error response.
         """
         return pulumi.get(self, "error")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6517,15 +7952,33 @@ class ModelDockerSectionResponseResponseBaseImageRegistry(dict):
     def address(self) -> Optional[str]:
         return pulumi.get(self, "address")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelEnvironmentDefinitionResponseResponseDocker(dict):
     """
     The definition of a Docker container.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseDockerfile":
+            suggest = "base_dockerfile"
+        elif key == "baseImage":
+            suggest = "base_image"
+        elif key == "baseImageRegistry":
+            suggest = "base_image_registry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelEnvironmentDefinitionResponseResponseDocker. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelEnvironmentDefinitionResponseResponseDocker.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelEnvironmentDefinitionResponseResponseDocker.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_dockerfile: Optional[str] = None,
                  base_image: Optional[str] = None,
@@ -6534,7 +7987,7 @@ class ModelEnvironmentDefinitionResponseResponseDocker(dict):
         The definition of a Docker container.
         :param str base_dockerfile: Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
         :param str base_image: Base image used for Docker-based runs. Mutually exclusive with BaseDockerfile.
-        :param 'ModelDockerSectionResponseResponseBaseImageRegistryArgs' base_image_registry: Image registry that contains the base image.
+        :param 'ModelDockerSectionResponseResponseBaseImageRegistry' base_image_registry: Image registry that contains the base image.
         """
         if base_dockerfile is not None:
             pulumi.set(__self__, "base_dockerfile", base_dockerfile)
@@ -6567,15 +8020,35 @@ class ModelEnvironmentDefinitionResponseResponseDocker(dict):
         """
         return pulumi.get(self, "base_image_registry")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelEnvironmentDefinitionResponseResponsePython(dict):
     """
     Settings for a Python environment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseCondaEnvironment":
+            suggest = "base_conda_environment"
+        elif key == "condaDependencies":
+            suggest = "conda_dependencies"
+        elif key == "interpreterPath":
+            suggest = "interpreter_path"
+        elif key == "userManagedDependencies":
+            suggest = "user_managed_dependencies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelEnvironmentDefinitionResponseResponsePython. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelEnvironmentDefinitionResponseResponsePython.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelEnvironmentDefinitionResponseResponsePython.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_conda_environment: Optional[str] = None,
                  conda_dependencies: Optional[Any] = None,
@@ -6625,15 +8098,43 @@ class ModelEnvironmentDefinitionResponseResponsePython(dict):
         """
         return pulumi.get(self, "user_managed_dependencies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelEnvironmentDefinitionResponseResponseR(dict):
     """
     Settings for a R environment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bioConductorPackages":
+            suggest = "bio_conductor_packages"
+        elif key == "cranPackages":
+            suggest = "cran_packages"
+        elif key == "customUrlPackages":
+            suggest = "custom_url_packages"
+        elif key == "gitHubPackages":
+            suggest = "git_hub_packages"
+        elif key == "rVersion":
+            suggest = "r_version"
+        elif key == "rscriptPath":
+            suggest = "rscript_path"
+        elif key == "snapshotDate":
+            suggest = "snapshot_date"
+        elif key == "userManaged":
+            suggest = "user_managed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelEnvironmentDefinitionResponseResponseR. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelEnvironmentDefinitionResponseResponseR.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelEnvironmentDefinitionResponseResponseR.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bio_conductor_packages: Optional[Sequence[str]] = None,
                  cran_packages: Optional[Sequence['outputs.RCranPackageResponse']] = None,
@@ -6646,9 +8147,9 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
         """
         Settings for a R environment.
         :param Sequence[str] bio_conductor_packages: The packages from Bioconductor.
-        :param Sequence['RCranPackageResponseArgs'] cran_packages: The CRAN packages to use.
+        :param Sequence['RCranPackageResponse'] cran_packages: The CRAN packages to use.
         :param Sequence[str] custom_url_packages: The packages from custom urls.
-        :param Sequence['RGitHubPackageResponseResponseArgs'] git_hub_packages: The packages directly from GitHub.
+        :param Sequence['RGitHubPackageResponseResponse'] git_hub_packages: The packages directly from GitHub.
         :param str r_version: The version of R to be installed
         :param str rscript_path: The Rscript path to use if an environment build is not required.
                The path specified gets used to call the user script.
@@ -6737,22 +8238,36 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
         """
         return pulumi.get(self, "user_managed")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelEnvironmentDefinitionResponseResponseSpark(dict):
     """
     The configuration for a Spark environment.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "precachePackages":
+            suggest = "precache_packages"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelEnvironmentDefinitionResponseResponseSpark. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelEnvironmentDefinitionResponseResponseSpark.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelEnvironmentDefinitionResponseResponseSpark.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  packages: Optional[Sequence['outputs.SparkMavenPackageResponse']] = None,
                  precache_packages: Optional[bool] = None,
                  repositories: Optional[Sequence[str]] = None):
         """
         The configuration for a Spark environment.
-        :param Sequence['SparkMavenPackageResponseArgs'] packages: The Spark packages to use.
+        :param Sequence['SparkMavenPackageResponse'] packages: The Spark packages to use.
         :param bool precache_packages: Whether to precache the packages.
         :param Sequence[str] repositories: The list of spark repositories.
         """
@@ -6787,15 +8302,51 @@ class ModelEnvironmentDefinitionResponseResponseSpark(dict):
         """
         return pulumi.get(self, "repositories")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModelResponse(dict):
     """
     An Azure Machine Learning Model.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mimeType":
+            suggest = "mime_type"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "derivedModelIds":
+            suggest = "derived_model_ids"
+        elif key == "experimentName":
+            suggest = "experiment_name"
+        elif key == "frameworkVersion":
+            suggest = "framework_version"
+        elif key == "kvTags":
+            suggest = "kv_tags"
+        elif key == "modifiedTime":
+            suggest = "modified_time"
+        elif key == "parentModelId":
+            suggest = "parent_model_id"
+        elif key == "resourceRequirements":
+            suggest = "resource_requirements"
+        elif key == "runId":
+            suggest = "run_id"
+        elif key == "sampleInputData":
+            suggest = "sample_input_data"
+        elif key == "sampleOutputData":
+            suggest = "sample_output_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mime_type: str,
                  name: str,
@@ -6824,7 +8375,7 @@ class ModelResponse(dict):
         :param str name: The Model name.
         :param str url: The URL of the Model. Usually a SAS URL.
         :param str created_time: The Model creation time (UTC).
-        :param Sequence['DatasetReferenceResponseArgs'] datasets: The list of datasets associated with the model.
+        :param Sequence['DatasetReferenceResponse'] datasets: The list of datasets associated with the model.
         :param Sequence[str] derived_model_ids: Models derived from this model
         :param str description: The Model description text.
         :param str experiment_name: The name of the experiment where this model was created.
@@ -6835,7 +8386,7 @@ class ModelResponse(dict):
         :param str modified_time: The Model last modified time (UTC).
         :param str parent_model_id: The Parent Model Id.
         :param Mapping[str, str] properties: The Model property dictionary. Properties are immutable.
-        :param 'ContainerResourceRequirementsResponseArgs' resource_requirements: Resource requirements for the model
+        :param 'ContainerResourceRequirementsResponse' resource_requirements: Resource requirements for the model
         :param str run_id: The RunId that created this model.
         :param str sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param str sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
@@ -7050,15 +8601,39 @@ class ModelResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeStateCountsResponse(dict):
     """
     Counts of various compute node states on the amlCompute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleNodeCount":
+            suggest = "idle_node_count"
+        elif key == "leavingNodeCount":
+            suggest = "leaving_node_count"
+        elif key == "preemptedNodeCount":
+            suggest = "preempted_node_count"
+        elif key == "preparingNodeCount":
+            suggest = "preparing_node_count"
+        elif key == "runningNodeCount":
+            suggest = "running_node_count"
+        elif key == "unusableNodeCount":
+            suggest = "unusable_node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeStateCountsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeStateCountsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeStateCountsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  idle_node_count: int,
                  leaving_node_count: int,
@@ -7130,12 +8705,28 @@ class NodeStateCountsResponse(dict):
         """
         return pulumi.get(self, "unusable_node_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotebookPreparationErrorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorMessage":
+            suggest = "error_message"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotebookPreparationErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotebookPreparationErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotebookPreparationErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error_message: Optional[str] = None,
                  status_code: Optional[int] = None):
@@ -7154,18 +8745,34 @@ class NotebookPreparationErrorResponse(dict):
     def status_code(self) -> Optional[int]:
         return pulumi.get(self, "status_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NotebookResourceInfoResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notebookPreparationError":
+            suggest = "notebook_preparation_error"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotebookResourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotebookResourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotebookResourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  notebook_preparation_error: Optional['outputs.NotebookPreparationErrorResponse'] = None,
                  resource_id: Optional[str] = None):
         """
-        :param 'NotebookPreparationErrorResponseArgs' notebook_preparation_error: The error that occurs when preparing notebook.
+        :param 'NotebookPreparationErrorResponse' notebook_preparation_error: The error that occurs when preparing notebook.
         :param str resource_id: the data plane resourceId that used to initialize notebook component
         """
         if fqdn is not None:
@@ -7196,12 +8803,9 @@ class NotebookResourceInfoResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class PasswordResponseResult(dict):
+class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -7224,11 +8828,28 @@ class PersonalComputeInstanceSettingsResponse(dict):
     """
     Settings for a personal compute instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedUser":
+            suggest = "assigned_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PersonalComputeInstanceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PersonalComputeInstanceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PersonalComputeInstanceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  assigned_user: Optional['outputs.AssignedUserResponse'] = None):
         """
         Settings for a personal compute instance.
-        :param 'AssignedUserResponseArgs' assigned_user: A user explicitly assigned to a personal compute instance.
+        :param 'AssignedUserResponse' assigned_user: A user explicitly assigned to a personal compute instance.
         """
         if assigned_user is not None:
             pulumi.set(__self__, "assigned_user", assigned_user)
@@ -7241,15 +8862,35 @@ class PersonalComputeInstanceSettingsResponse(dict):
         """
         return pulumi.get(self, "assigned_user")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     The Private Endpoint Connection resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -7266,14 +8907,14 @@ class PrivateEndpointConnectionResponse(dict):
         The Private Endpoint Connection resource.
         :param str id: Specifies the resource ID.
         :param str name: Specifies the name of the resource.
-        :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponseArgs' system_data: Read only system data
+        :param 'SystemDataResponse' system_data: Read only system data
         :param str type: Specifies the type of the resource.
-        :param 'IdentityResponseArgs' identity: The identity of the resource.
+        :param 'IdentityResponse' identity: The identity of the resource.
         :param str location: Specifies the location of the resource.
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
-        :param 'SkuResponseArgs' sku: The sku of the workspace.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'SkuResponse' sku: The sku of the workspace.
         :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "id", id)
@@ -7381,15 +9022,29 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "tags")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     The Private Endpoint resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetArmId":
+            suggest = "subnet_arm_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  subnet_arm_id: str):
@@ -7417,15 +9072,29 @@ class PrivateEndpointResponse(dict):
         """
         return pulumi.get(self, "subnet_arm_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
@@ -7467,15 +9136,35 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProgressMetricsResponse(dict):
     """
     Progress metrics for a labeling job.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedDatapointCount":
+            suggest = "completed_datapoint_count"
+        elif key == "incrementalDatasetLastRefreshTime":
+            suggest = "incremental_dataset_last_refresh_time"
+        elif key == "skippedDatapointCount":
+            suggest = "skipped_datapoint_count"
+        elif key == "totalDatapointCount":
+            suggest = "total_datapoint_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProgressMetricsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProgressMetricsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProgressMetricsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  completed_datapoint_count: float,
                  incremental_dataset_last_refresh_time: str,
@@ -7525,9 +9214,6 @@ class ProgressMetricsResponse(dict):
         """
         return pulumi.get(self, "total_datapoint_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RCranPackageResponse(dict):
@@ -7559,9 +9245,6 @@ class RCranPackageResponse(dict):
         """
         return pulumi.get(self, "repository")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RGitHubPackageResponseResponse(dict):
@@ -7581,16 +9264,13 @@ class RGitHubPackageResponseResponse(dict):
         """
         return pulumi.get(self, "repository")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class RegistryListCredentialsResultResponseResult(dict):
+class RegistryListCredentialsResultResponse(dict):
     def __init__(__self__, *,
                  location: str,
                  username: str,
-                 passwords: Optional[Sequence['outputs.PasswordResponseResult']] = None):
+                 passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "username", username)
         if passwords is not None:
@@ -7608,7 +9288,7 @@ class RegistryListCredentialsResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[Sequence['outputs.PasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.PasswordResponse']]:
         return pulumi.get(self, "passwords")
 
 
@@ -7633,15 +9313,33 @@ class ResourceIdResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSettingsResponse(dict):
     """
     scale settings for AML Compute
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxNodeCount":
+            suggest = "max_node_count"
+        elif key == "minNodeCount":
+            suggest = "min_node_count"
+        elif key == "nodeIdleTimeBeforeScaleDown":
+            suggest = "node_idle_time_before_scale_down"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_node_count: int,
                  min_node_count: Optional[int] = None,
@@ -7684,15 +9382,33 @@ class ScaleSettingsResponse(dict):
         """
         return pulumi.get(self, "node_idle_time_before_scale_down")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScriptReferenceResponse(dict):
     """
     Script reference
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptArguments":
+            suggest = "script_arguments"
+        elif key == "scriptData":
+            suggest = "script_data"
+        elif key == "scriptSource":
+            suggest = "script_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  script_arguments: Optional[str] = None,
                  script_data: Optional[str] = None,
@@ -7746,22 +9462,38 @@ class ScriptReferenceResponse(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScriptsToExecuteResponse(dict):
     """
     Customized setup scripts
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationScript":
+            suggest = "creation_script"
+        elif key == "startupScript":
+            suggest = "startup_script"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptsToExecuteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptsToExecuteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptsToExecuteResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  creation_script: Optional['outputs.ScriptReferenceResponse'] = None,
                  startup_script: Optional['outputs.ScriptReferenceResponse'] = None):
         """
         Customized setup scripts
-        :param 'ScriptReferenceResponseArgs' creation_script: Script that's run only once during provision of the compute.
-        :param 'ScriptReferenceResponseArgs' startup_script: Script that's run every time the machine starts.
+        :param 'ScriptReferenceResponse' creation_script: Script that's run only once during provision of the compute.
+        :param 'ScriptReferenceResponse' startup_script: Script that's run every time the machine starts.
         """
         if creation_script is not None:
             pulumi.set(__self__, "creation_script", creation_script)
@@ -7784,16 +9516,30 @@ class ScriptsToExecuteResponse(dict):
         """
         return pulumi.get(self, "startup_script")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceManagedResourcesSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cosmosDb":
+            suggest = "cosmos_db"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceManagedResourcesSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceManagedResourcesSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceManagedResourcesSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cosmos_db: Optional['outputs.CosmosDbSettingsResponse'] = None):
         """
-        :param 'CosmosDbSettingsResponseArgs' cosmos_db: The settings for the service managed cosmosdb account.
+        :param 'CosmosDbSettingsResponse' cosmos_db: The settings for the service managed cosmosdb account.
         """
         if cosmos_db is not None:
             pulumi.set(__self__, "cosmos_db", cosmos_db)
@@ -7806,9 +9552,6 @@ class ServiceManagedResourcesSettingsResponse(dict):
         """
         return pulumi.get(self, "cosmos_db")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceResponseBaseResponseError(dict):
@@ -7819,7 +9562,7 @@ class ServiceResponseBaseResponseError(dict):
                  error: 'outputs.ErrorResponseResponse'):
         """
         The error details.
-        :param 'ErrorResponseResponseArgs' error: The error response.
+        :param 'ErrorResponseResponse' error: The error response.
         """
         pulumi.set(__self__, "error", error)
 
@@ -7831,9 +9574,6 @@ class ServiceResponseBaseResponseError(dict):
         """
         return pulumi.get(self, "error")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SetupScriptsResponse(dict):
@@ -7844,7 +9584,7 @@ class SetupScriptsResponse(dict):
                  scripts: Optional['outputs.ScriptsToExecuteResponse'] = None):
         """
         Details of customized scripts to execute for setting up the cluster.
-        :param 'ScriptsToExecuteResponseArgs' scripts: Customized setup scripts
+        :param 'ScriptsToExecuteResponse' scripts: Customized setup scripts
         """
         if scripts is not None:
             pulumi.set(__self__, "scripts", scripts)
@@ -7857,12 +9597,30 @@ class SetupScriptsResponse(dict):
         """
         return pulumi.get(self, "scripts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedPrivateLinkResourceResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "privateLinkResourceId":
+            suggest = "private_link_resource_id"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedPrivateLinkResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedPrivateLinkResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedPrivateLinkResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -7927,9 +9685,6 @@ class SharedPrivateLinkResourceResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -7965,9 +9720,6 @@ class SkuResponse(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkMavenPackageResponse(dict):
@@ -7996,9 +9748,6 @@ class SparkMavenPackageResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8059,15 +9808,29 @@ class SslConfigurationResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StatusMessageResponse(dict):
     """
     Active message associated with project.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimeUtc":
+            suggest = "created_time_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusMessageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusMessageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusMessageResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code: str,
                  created_time_utc: str,
@@ -8117,15 +9880,39 @@ class StatusMessageResponse(dict):
         """
         return pulumi.get(self, "message")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Read only system data
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -8203,15 +9990,31 @@ class SystemDataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemServiceResponse(dict):
     """
     A system service running on a compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddress":
+            suggest = "public_ip_address"
+        elif key == "systemServiceType":
+            suggest = "system_service_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_ip_address: str,
                  system_service_type: str,
@@ -8250,15 +10053,33 @@ class SystemServiceResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserAccountCredentialsResponse(dict):
     """
     Settings for user account that gets created on each on the nodes of a compute.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUserName":
+            suggest = "admin_user_name"
+        elif key == "adminUserPassword":
+            suggest = "admin_user_password"
+        elif key == "adminUserSshPublicKey":
+            suggest = "admin_user_ssh_public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAccountCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAccountCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAccountCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_user_name: str,
                  admin_user_password: Optional[str] = None,
@@ -8299,15 +10120,33 @@ class UserAccountCredentialsResponse(dict):
         """
         return pulumi.get(self, "admin_user_ssh_public_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
     User Assigned Identity
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  principal_id: str,
@@ -8346,15 +10185,41 @@ class UserAssignedIdentityResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserInfoResponse(dict):
     """
     User who created.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAltSecId":
+            suggest = "user_alt_sec_id"
+        elif key == "userIdp":
+            suggest = "user_idp"
+        elif key == "userIss":
+            suggest = "user_iss"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "userObjectId":
+            suggest = "user_object_id"
+        elif key == "userPuId":
+            suggest = "user_pu_id"
+        elif key == "userTenantId":
+            suggest = "user_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  user_alt_sec_id: Optional[str] = None,
                  user_idp: Optional[str] = None,
@@ -8444,9 +10309,6 @@ class UserInfoResponse(dict):
         """
         return pulumi.get(self, "user_tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineImageResponse(dict):
@@ -8469,15 +10331,39 @@ class VirtualMachineImageResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineResponse(dict):
     """
     A Machine Learning compute based on Azure Virtual Machines.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeType":
+            suggest = "compute_type"
+        elif key == "isAttachedCompute":
+            suggest = "is_attached_compute"
+        elif key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeLocation":
+            suggest = "compute_location"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute_type: str,
                  is_attached_compute: bool,
@@ -8492,7 +10378,7 @@ class VirtualMachineResponse(dict):
         :param str compute_type: The type of compute
                Expected value is 'VirtualMachine'.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponse'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -8573,12 +10459,30 @@ class VirtualMachineResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorAccount":
+            suggest = "administrator_account"
+        elif key == "sshPort":
+            suggest = "ssh_port"
+        elif key == "virtualMachineSize":
+            suggest = "virtual_machine_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
@@ -8586,7 +10490,7 @@ class VirtualMachineResponseProperties(dict):
                  virtual_machine_size: Optional[str] = None):
         """
         :param str address: Public IP address of the virtual machine.
-        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
+        :param 'VirtualMachineSshCredentialsResponse' administrator_account: Admin credentials for virtual machine
         :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """
@@ -8631,15 +10535,31 @@ class VirtualMachineResponseProperties(dict):
         """
         return pulumi.get(self, "virtual_machine_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineSshCredentialsResponse(dict):
     """
     Admin credentials for virtual machine
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKeyData":
+            suggest = "private_key_data"
+        elif key == "publicKeyData":
+            suggest = "public_key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineSshCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineSshCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineSshCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  private_key_data: Optional[str] = None,
@@ -8692,8 +10612,5 @@ class VirtualMachineSshCredentialsResponse(dict):
         Username of admin account
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

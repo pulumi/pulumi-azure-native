@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -20,6 +20,27 @@ class SaasPropertiesResponseTerm(dict):
     """
     The current Term object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDate":
+            suggest = "end_date"
+        elif key == "startDate":
+            suggest = "start_date"
+        elif key == "termUnit":
+            suggest = "term_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SaasPropertiesResponseTerm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SaasPropertiesResponseTerm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SaasPropertiesResponseTerm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_date: Optional[str] = None,
                  start_date: Optional[str] = None,
@@ -61,15 +82,53 @@ class SaasPropertiesResponseTerm(dict):
         """
         return pulumi.get(self, "term_unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SaasResourceResponseProperties(dict):
     """
     saas properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRenew":
+            suggest = "auto_renew"
+        elif key == "isFreeTrial":
+            suggest = "is_free_trial"
+        elif key == "lastModified":
+            suggest = "last_modified"
+        elif key == "offerId":
+            suggest = "offer_id"
+        elif key == "paymentChannelMetadata":
+            suggest = "payment_channel_metadata"
+        elif key == "paymentChannelType":
+            suggest = "payment_channel_type"
+        elif key == "publisherId":
+            suggest = "publisher_id"
+        elif key == "publisherTestEnvironment":
+            suggest = "publisher_test_environment"
+        elif key == "saasResourceName":
+            suggest = "saas_resource_name"
+        elif key == "saasSessionId":
+            suggest = "saas_session_id"
+        elif key == "saasSubscriptionId":
+            suggest = "saas_subscription_id"
+        elif key == "skuId":
+            suggest = "sku_id"
+        elif key == "termId":
+            suggest = "term_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SaasResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SaasResourceResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SaasResourceResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created: str,
                  auto_renew: Optional[bool] = None,
@@ -105,7 +164,7 @@ class SaasResourceResponseProperties(dict):
         :param str saas_subscription_id: The saas subscription id used for tenant to subscription level migration request.
         :param str sku_id: The plan id.
         :param str status: The SaaS Subscription Status.
-        :param 'SaasPropertiesResponseTermArgs' term: The current Term object.
+        :param 'SaasPropertiesResponseTerm' term: The current Term object.
         :param str term_id: The current Term id.
         """
         pulumi.set(__self__, "created", created)
@@ -277,8 +336,5 @@ class SaasResourceResponseProperties(dict):
         The current Term id.
         """
         return pulumi.get(self, "term_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

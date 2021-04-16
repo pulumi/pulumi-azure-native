@@ -118,7 +118,7 @@ export interface FileArgs {
     /**
      * Custom file properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.v20180715preview.ProjectFileProperties>;
+    readonly properties?: pulumi.Input<inputs.datamigration.v20180715preview.ProjectFilePropertiesArgs>;
     /**
      * Name of the service
      */

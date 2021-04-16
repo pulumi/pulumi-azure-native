@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,14 +21,33 @@ __all__ = [
 
 @pulumi.output_type
 class DataSourceConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventLogs":
+            suggest = "event_logs"
+        elif key == "perfCounters":
+            suggest = "perf_counters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_logs: Optional[Sequence['outputs.EventLogConfigurationResponse']] = None,
                  perf_counters: Optional[Sequence['outputs.PerformanceCounterConfigurationResponse']] = None,
                  providers: Optional[Sequence['outputs.EtwProviderConfigurationResponse']] = None):
         """
-        :param Sequence['EventLogConfigurationResponseArgs'] event_logs: Windows event logs configuration.
-        :param Sequence['PerformanceCounterConfigurationResponseArgs'] perf_counters: Performance counter configuration
-        :param Sequence['EtwProviderConfigurationResponseArgs'] providers: ETW providers configuration
+        :param Sequence['EventLogConfigurationResponse'] event_logs: Windows event logs configuration.
+        :param Sequence['PerformanceCounterConfigurationResponse'] perf_counters: Performance counter configuration
+        :param Sequence['EtwProviderConfigurationResponse'] providers: ETW providers configuration
         """
         if event_logs is not None:
             pulumi.set(__self__, "event_logs", event_logs)
@@ -60,9 +79,6 @@ class DataSourceConfigurationResponse(dict):
         ETW providers configuration
         """
         return pulumi.get(self, "providers")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -100,9 +116,6 @@ class DataSourceResponse(dict):
     def sinks(self) -> Sequence['outputs.SinkConfigurationResponse']:
         return pulumi.get(self, "sinks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EtwEventConfigurationResponse(dict):
@@ -130,9 +143,6 @@ class EtwEventConfigurationResponse(dict):
     def filter(self) -> Optional[str]:
         return pulumi.get(self, "filter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EtwProviderConfigurationResponse(dict):
@@ -152,12 +162,26 @@ class EtwProviderConfigurationResponse(dict):
     def id(self) -> str:
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventLogConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logName":
+            suggest = "log_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventLogConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventLogConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventLogConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_name: str,
                  filter: Optional[str] = None):
@@ -175,12 +199,26 @@ class EventLogConfigurationResponse(dict):
     def filter(self) -> Optional[str]:
         return pulumi.get(self, "filter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PerformanceCounterConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingPeriod":
+            suggest = "sampling_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PerformanceCounterConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PerformanceCounterConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PerformanceCounterConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  sampling_period: str,
@@ -205,9 +243,6 @@ class PerformanceCounterConfigurationResponse(dict):
     def instance(self) -> Optional[str]:
         return pulumi.get(self, "instance")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SinkConfigurationResponse(dict):
@@ -219,8 +254,5 @@ class SinkConfigurationResponse(dict):
     @pulumi.getter
     def kind(self) -> str:
         return pulumi.get(self, "kind")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['SyncAgentArgs', 'SyncAgent']
 
@@ -89,9 +89,7 @@ class SyncAgent(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  sync_agent_name: Optional[pulumi.Input[str]] = None,
                  sync_database_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Azure SQL Database sync agent.
 
@@ -130,15 +128,7 @@ class SyncAgent(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  sync_agent_name: Optional[pulumi.Input[str]] = None,
                  sync_database_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -148,23 +138,23 @@ class SyncAgent(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SyncAgentArgs.__new__(SyncAgentArgs)
 
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['sync_agent_name'] = sync_agent_name
-            __props__['sync_database_id'] = sync_database_id
-            __props__['expiry_time'] = None
-            __props__['is_up_to_date'] = None
-            __props__['last_alive_time'] = None
-            __props__['name'] = None
-            __props__['state'] = None
-            __props__['type'] = None
-            __props__['version'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["sync_agent_name"] = sync_agent_name
+            __props__.__dict__["sync_database_id"] = sync_database_id
+            __props__.__dict__["expiry_time"] = None
+            __props__.__dict__["is_up_to_date"] = None
+            __props__.__dict__["last_alive_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20200202preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20200801preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:SyncAgent"), pulumi.Alias(type_="azure-native:sql/v20201101preview:SyncAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:SyncAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SyncAgent, __self__).__init__(
@@ -187,16 +177,16 @@ class SyncAgent(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SyncAgentArgs.__new__(SyncAgentArgs)
 
-        __props__["expiry_time"] = None
-        __props__["is_up_to_date"] = None
-        __props__["last_alive_time"] = None
-        __props__["name"] = None
-        __props__["state"] = None
-        __props__["sync_database_id"] = None
-        __props__["type"] = None
-        __props__["version"] = None
+        __props__.__dict__["expiry_time"] = None
+        __props__.__dict__["is_up_to_date"] = None
+        __props__.__dict__["last_alive_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["sync_database_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         return SyncAgent(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -262,10 +252,4 @@ class SyncAgent(pulumi.CustomResource):
         Version of the sync agent.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -162,7 +162,7 @@ export interface NamespaceArgs {
     /**
      * SKU of the namespace.
      */
-    readonly sku?: pulumi.Input<inputs.servicebus.v20150801.Sku>;
+    readonly sku?: pulumi.Input<inputs.servicebus.v20150801.SkuArgs>;
     /**
      * State of the namespace.
      */

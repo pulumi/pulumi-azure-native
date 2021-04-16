@@ -120,7 +120,7 @@ export interface B2CTenantArgs {
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     readonly location?: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.azureactivedirectory.CreateTenantRequestBodyProperties>;
+    readonly properties: pulumi.Input<inputs.azureactivedirectory.CreateTenantRequestBodyPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -132,7 +132,7 @@ export interface B2CTenantArgs {
     /**
      * SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
      */
-    readonly sku: pulumi.Input<inputs.azureactivedirectory.B2CResourceSKU>;
+    readonly sku: pulumi.Input<inputs.azureactivedirectory.B2CResourceSKUArgs>;
     /**
      * Resource Tags
      */

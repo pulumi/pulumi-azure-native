@@ -193,7 +193,7 @@ export interface PrivateCloudArgs {
     /**
      * vCenter Single Sign On Identity Sources
      */
-    readonly identitySources?: pulumi.Input<pulumi.Input<inputs.avs.v20200320.IdentitySource>[]>;
+    readonly identitySources?: pulumi.Input<pulumi.Input<inputs.avs.v20200320.IdentitySourceArgs>[]>;
     /**
      * Connectivity to internet is enabled or disabled
      */
@@ -205,7 +205,7 @@ export interface PrivateCloudArgs {
     /**
      * The default cluster used for management
      */
-    readonly managementCluster: pulumi.Input<inputs.avs.v20200320.ManagementCluster>;
+    readonly managementCluster: pulumi.Input<inputs.avs.v20200320.ManagementClusterArgs>;
     /**
      * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
@@ -225,7 +225,7 @@ export interface PrivateCloudArgs {
     /**
      * The private cloud SKU
      */
-    readonly sku: pulumi.Input<inputs.avs.v20200320.Sku>;
+    readonly sku: pulumi.Input<inputs.avs.v20200320.SkuArgs>;
     /**
      * Resource tags
      */

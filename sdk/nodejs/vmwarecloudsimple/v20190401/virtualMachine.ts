@@ -239,11 +239,11 @@ export interface VirtualMachineArgs {
     /**
      * Virtual machine properties
      */
-    readonly customization?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.GuestOSCustomization>;
+    readonly customization?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.GuestOSCustomizationArgs>;
     /**
      * The list of Virtual Disks
      */
-    readonly disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualDisk>[]>;
+    readonly disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualDiskArgs>[]>;
     /**
      * Expose Guest OS or not
      */
@@ -255,7 +255,7 @@ export interface VirtualMachineArgs {
     /**
      * The list of Virtual NICs
      */
-    readonly nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualNic>[]>;
+    readonly nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualNicArgs>[]>;
     /**
      * The number of CPU cores
      */
@@ -275,7 +275,7 @@ export interface VirtualMachineArgs {
     /**
      * Virtual Machines Resource Pool
      */
-    readonly resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.ResourcePool>;
+    readonly resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.ResourcePoolArgs>;
     /**
      * The list of tags
      */

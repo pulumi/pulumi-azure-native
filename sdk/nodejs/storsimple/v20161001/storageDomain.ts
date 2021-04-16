@@ -110,7 +110,7 @@ export interface StorageDomainArgs {
     /**
      * The encryption key used to encrypt the data. This is a user secret.
      */
-    readonly encryptionKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecret>;
+    readonly encryptionKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecretArgs>;
     /**
      * The encryption status "Enabled | Disabled".
      */

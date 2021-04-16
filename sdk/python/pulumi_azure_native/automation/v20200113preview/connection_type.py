@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -123,9 +123,7 @@ class ConnectionType(pulumi.CustomResource):
                  is_global: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Definition of the connection type.
 
@@ -168,15 +166,7 @@ class ConnectionType(pulumi.CustomResource):
                  is_global: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,26 +176,26 @@ class ConnectionType(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConnectionTypeArgs.__new__(ConnectionTypeArgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
-            __props__['connection_type_name'] = connection_type_name
+            __props__.__dict__["automation_account_name"] = automation_account_name
+            __props__.__dict__["connection_type_name"] = connection_type_name
             if field_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'field_definitions'")
-            __props__['field_definitions'] = field_definitions
-            __props__['is_global'] = is_global
+            __props__.__dict__["field_definitions"] = field_definitions
+            __props__.__dict__["is_global"] = is_global
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['creation_time'] = None
-            __props__['description'] = None
-            __props__['last_modified_time'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:ConnectionType"), pulumi.Alias(type_="azure-native:automation:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:ConnectionType"), pulumi.Alias(type_="azure-native:automation/v20190601:ConnectionType"), pulumi.Alias(type_="azure-nextgen:automation/v20190601:ConnectionType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionType, __self__).__init__(
@@ -228,15 +218,15 @@ class ConnectionType(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ConnectionTypeArgs.__new__(ConnectionTypeArgs)
 
-        __props__["creation_time"] = None
-        __props__["description"] = None
-        __props__["field_definitions"] = None
-        __props__["is_global"] = None
-        __props__["last_modified_time"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["field_definitions"] = None
+        __props__.__dict__["is_global"] = None
+        __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return ConnectionType(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -294,10 +284,4 @@ class ConnectionType(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

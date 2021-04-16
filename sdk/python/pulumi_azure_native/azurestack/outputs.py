@@ -6,23 +6,23 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CompatibilityResponseResult',
-    'DataDiskImageResponseResult',
-    'IconUrisResponseResult',
-    'OsDiskImageResponseResult',
-    'ProductLinkResponseResult',
-    'ProductPropertiesResponseResult',
-    'ProductResponseResult',
+    'CompatibilityResponse',
+    'DataDiskImageResponse',
+    'IconUrisResponse',
+    'OsDiskImageResponse',
+    'ProductLinkResponse',
+    'ProductPropertiesResponse',
+    'ProductResponse',
     'SystemDataResponse',
 ]
 
 @pulumi.output_type
-class CompatibilityResponseResult(dict):
+class CompatibilityResponse(dict):
     """
     Product compatibility
     """
@@ -81,7 +81,7 @@ class CompatibilityResponseResult(dict):
 
 
 @pulumi.output_type
-class DataDiskImageResponseResult(dict):
+class DataDiskImageResponse(dict):
     """
     Data disk image.
     """
@@ -114,7 +114,7 @@ class DataDiskImageResponseResult(dict):
 
 
 @pulumi.output_type
-class IconUrisResponseResult(dict):
+class IconUrisResponse(dict):
     """
     Links to product icons.
     """
@@ -185,7 +185,7 @@ class IconUrisResponseResult(dict):
 
 
 @pulumi.output_type
-class OsDiskImageResponseResult(dict):
+class OsDiskImageResponse(dict):
     """
     OS disk image.
     """
@@ -218,7 +218,7 @@ class OsDiskImageResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductLinkResponseResult(dict):
+class ProductLinkResponse(dict):
     """
     Link with additional information about a product.
     """
@@ -253,7 +253,7 @@ class ProductLinkResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductPropertiesResponseResult(dict):
+class ProductPropertiesResponse(dict):
     """
     Additional properties of the product
     """
@@ -276,7 +276,7 @@ class ProductPropertiesResponseResult(dict):
 
 
 @pulumi.output_type
-class ProductResponseResult(dict):
+class ProductResponse(dict):
     """
     Product information.
     """
@@ -285,20 +285,20 @@ class ProductResponseResult(dict):
                  name: str,
                  type: str,
                  billing_part_number: Optional[str] = None,
-                 compatibility: Optional['outputs.CompatibilityResponseResult'] = None,
+                 compatibility: Optional['outputs.CompatibilityResponse'] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  etag: Optional[str] = None,
                  gallery_item_identity: Optional[str] = None,
-                 icon_uris: Optional['outputs.IconUrisResponseResult'] = None,
+                 icon_uris: Optional['outputs.IconUrisResponse'] = None,
                  legal_terms: Optional[str] = None,
-                 links: Optional[Sequence['outputs.ProductLinkResponseResult']] = None,
+                 links: Optional[Sequence['outputs.ProductLinkResponse']] = None,
                  offer: Optional[str] = None,
                  offer_version: Optional[str] = None,
                  payload_length: Optional[float] = None,
                  privacy_policy: Optional[str] = None,
                  product_kind: Optional[str] = None,
-                 product_properties: Optional['outputs.ProductPropertiesResponseResult'] = None,
+                 product_properties: Optional['outputs.ProductPropertiesResponse'] = None,
                  publisher_display_name: Optional[str] = None,
                  publisher_identifier: Optional[str] = None,
                  sku: Optional[str] = None,
@@ -309,20 +309,20 @@ class ProductResponseResult(dict):
         :param str name: Name of the resource.
         :param str type: Type of Resource.
         :param str billing_part_number: The part number used for billing purposes.
-        :param 'CompatibilityResponseArgs' compatibility: Product compatibility with current device.
+        :param 'CompatibilityResponse' compatibility: Product compatibility with current device.
         :param str description: The description of the product.
         :param str display_name: The display name of the product.
         :param str etag: The entity tag used for optimistic concurrency when modifying the resource.
         :param str gallery_item_identity: The identifier of the gallery item corresponding to the product.
-        :param 'IconUrisResponseArgs' icon_uris: Additional links available for this product.
+        :param 'IconUrisResponse' icon_uris: Additional links available for this product.
         :param str legal_terms: The legal terms.
-        :param Sequence['ProductLinkResponseArgs'] links: Additional links available for this product.
+        :param Sequence['ProductLinkResponse'] links: Additional links available for this product.
         :param str offer: The offer representing the product.
         :param str offer_version: The version of the product offer.
         :param float payload_length: The length of product content.
         :param str privacy_policy: The privacy policy.
         :param str product_kind: The kind of the product (virtualMachine or virtualMachineExtension)
-        :param 'ProductPropertiesResponseArgs' product_properties: Additional properties for the product.
+        :param 'ProductPropertiesResponse' product_properties: Additional properties for the product.
         :param str publisher_display_name: The user-friendly name of the product publisher.
         :param str publisher_identifier: Publisher identifier.
         :param str sku: The product SKU.
@@ -404,7 +404,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def compatibility(self) -> Optional['outputs.CompatibilityResponseResult']:
+    def compatibility(self) -> Optional['outputs.CompatibilityResponse']:
         """
         Product compatibility with current device.
         """
@@ -444,7 +444,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="iconUris")
-    def icon_uris(self) -> Optional['outputs.IconUrisResponseResult']:
+    def icon_uris(self) -> Optional['outputs.IconUrisResponse']:
         """
         Additional links available for this product.
         """
@@ -460,7 +460,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[Sequence['outputs.ProductLinkResponseResult']]:
+    def links(self) -> Optional[Sequence['outputs.ProductLinkResponse']]:
         """
         Additional links available for this product.
         """
@@ -508,7 +508,7 @@ class ProductResponseResult(dict):
 
     @property
     @pulumi.getter(name="productProperties")
-    def product_properties(self) -> Optional['outputs.ProductPropertiesResponseResult']:
+    def product_properties(self) -> Optional['outputs.ProductPropertiesResponse']:
         """
         Additional properties for the product.
         """
@@ -552,6 +552,33 @@ class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -628,8 +655,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

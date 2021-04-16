@@ -122,7 +122,7 @@ export interface TopicArgs {
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20180915preview.JsonInputSchemaMapping>;
+    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20180915preview.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource
      */

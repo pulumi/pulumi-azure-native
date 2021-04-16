@@ -125,7 +125,7 @@ export interface EnterprisePolicyArgs {
     /**
      * The encryption settings for a configuration store.
      */
-    readonly encryption?: pulumi.Input<inputs.powerplatform.PropertiesEncryption>;
+    readonly encryption?: pulumi.Input<inputs.powerplatform.PropertiesEncryptionArgs>;
     /**
      * Name of the EnterprisePolicy.
      */
@@ -133,7 +133,7 @@ export interface EnterprisePolicyArgs {
     /**
      * The identity of the EnterprisePolicy.
      */
-    readonly identity?: pulumi.Input<inputs.powerplatform.EnterprisePolicyIdentity>;
+    readonly identity?: pulumi.Input<inputs.powerplatform.EnterprisePolicyIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -141,11 +141,11 @@ export interface EnterprisePolicyArgs {
     /**
      * Settings concerning lockbox.
      */
-    readonly lockbox?: pulumi.Input<inputs.powerplatform.PropertiesLockbox>;
+    readonly lockbox?: pulumi.Input<inputs.powerplatform.PropertiesLockboxArgs>;
     /**
      * Settings concerning network injection.
      */
-    readonly networkInjection?: pulumi.Input<inputs.powerplatform.PropertiesNetworkInjection>;
+    readonly networkInjection?: pulumi.Input<inputs.powerplatform.PropertiesNetworkInjectionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

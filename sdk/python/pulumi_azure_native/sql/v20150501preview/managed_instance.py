@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -434,9 +434,7 @@ class ManagedInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Azure SQL managed instance.
 
@@ -522,15 +520,7 @@ class ManagedInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -540,38 +530,38 @@ class ManagedInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagedInstanceArgs.__new__(ManagedInstanceArgs)
 
-            __props__['administrator_login'] = administrator_login
-            __props__['administrator_login_password'] = administrator_login_password
-            __props__['collation'] = collation
-            __props__['dns_zone_partner'] = dns_zone_partner
-            __props__['identity'] = identity
-            __props__['instance_pool_id'] = instance_pool_id
-            __props__['license_type'] = license_type
-            __props__['location'] = location
-            __props__['maintenance_configuration_id'] = maintenance_configuration_id
-            __props__['managed_instance_create_mode'] = managed_instance_create_mode
-            __props__['managed_instance_name'] = managed_instance_name
-            __props__['minimal_tls_version'] = minimal_tls_version
-            __props__['proxy_override'] = proxy_override
-            __props__['public_data_endpoint_enabled'] = public_data_endpoint_enabled
+            __props__.__dict__["administrator_login"] = administrator_login
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["collation"] = collation
+            __props__.__dict__["dns_zone_partner"] = dns_zone_partner
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["instance_pool_id"] = instance_pool_id
+            __props__.__dict__["license_type"] = license_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
+            __props__.__dict__["managed_instance_create_mode"] = managed_instance_create_mode
+            __props__.__dict__["managed_instance_name"] = managed_instance_name
+            __props__.__dict__["minimal_tls_version"] = minimal_tls_version
+            __props__.__dict__["proxy_override"] = proxy_override
+            __props__.__dict__["public_data_endpoint_enabled"] = public_data_endpoint_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['restore_point_in_time'] = restore_point_in_time
-            __props__['sku'] = sku
-            __props__['source_managed_instance_id'] = source_managed_instance_id
-            __props__['storage_size_in_gb'] = storage_size_in_gb
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['timezone_id'] = timezone_id
-            __props__['v_cores'] = v_cores
-            __props__['dns_zone'] = None
-            __props__['fully_qualified_domain_name'] = None
-            __props__['name'] = None
-            __props__['state'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["source_managed_instance_id"] = source_managed_instance_id
+            __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["timezone_id"] = timezone_id
+            __props__.__dict__["v_cores"] = v_cores
+            __props__.__dict__["dns_zone"] = None
+            __props__.__dict__["fully_qualified_domain_name"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql:ManagedInstance"), pulumi.Alias(type_="azure-nextgen:sql:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-nextgen:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-nextgen:sql/v20201101preview:ManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstance, __self__).__init__(
@@ -594,29 +584,29 @@ class ManagedInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ManagedInstanceArgs.__new__(ManagedInstanceArgs)
 
-        __props__["administrator_login"] = None
-        __props__["collation"] = None
-        __props__["dns_zone"] = None
-        __props__["fully_qualified_domain_name"] = None
-        __props__["identity"] = None
-        __props__["instance_pool_id"] = None
-        __props__["license_type"] = None
-        __props__["location"] = None
-        __props__["maintenance_configuration_id"] = None
-        __props__["minimal_tls_version"] = None
-        __props__["name"] = None
-        __props__["proxy_override"] = None
-        __props__["public_data_endpoint_enabled"] = None
-        __props__["sku"] = None
-        __props__["state"] = None
-        __props__["storage_size_in_gb"] = None
-        __props__["subnet_id"] = None
-        __props__["tags"] = None
-        __props__["timezone_id"] = None
-        __props__["type"] = None
-        __props__["v_cores"] = None
+        __props__.__dict__["administrator_login"] = None
+        __props__.__dict__["collation"] = None
+        __props__.__dict__["dns_zone"] = None
+        __props__.__dict__["fully_qualified_domain_name"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["instance_pool_id"] = None
+        __props__.__dict__["license_type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["maintenance_configuration_id"] = None
+        __props__.__dict__["minimal_tls_version"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["proxy_override"] = None
+        __props__.__dict__["public_data_endpoint_enabled"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["storage_size_in_gb"] = None
+        __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["timezone_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["v_cores"] = None
         return ManagedInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -791,10 +781,4 @@ class ManagedInstance(pulumi.CustomResource):
         The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """
         return pulumi.get(self, "v_cores")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

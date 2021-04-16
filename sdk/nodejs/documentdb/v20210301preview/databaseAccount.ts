@@ -300,7 +300,7 @@ export interface DatabaseAccountArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.v20210301preview.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.documentdb.v20210301preview.ManagedServiceIdentityArgs>;
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
@@ -312,7 +312,7 @@ export interface DatabaseAccountArgs {
     /**
      * Properties to create and update Azure Cosmos DB database accounts.
      */
-    readonly properties: pulumi.Input<inputs.documentdb.v20210301preview.DefaultRequestDatabaseAccountCreateUpdateProperties | inputs.documentdb.v20210301preview.RestoreReqeustDatabaseAccountCreateUpdateProperties>;
+    readonly properties: pulumi.Input<inputs.documentdb.v20210301preview.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs | inputs.documentdb.v20210301preview.RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

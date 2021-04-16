@@ -128,7 +128,7 @@ export interface EnvironmentArgs {
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20200515.Sku>;
+    readonly sku: pulumi.Input<inputs.timeseriesinsights.v20200515.SkuArgs>;
     /**
      * Key-value pairs of additional properties for the resource.
      */

@@ -130,7 +130,7 @@ export interface ExportPipelineArgs {
     /**
      * The identity of the export pipeline.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The location of the export pipeline.
      */
@@ -150,5 +150,5 @@ export interface ExportPipelineArgs {
     /**
      * The target properties of the export pipeline.
      */
-    readonly target: pulumi.Input<inputs.containerregistry.ExportPipelineTargetProperties>;
+    readonly target: pulumi.Input<inputs.containerregistry.ExportPipelineTargetPropertiesArgs>;
 }

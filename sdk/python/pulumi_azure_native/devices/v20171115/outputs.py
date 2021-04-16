@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -23,6 +23,23 @@ class CertificatePropertiesResponse(dict):
     """
     The description of an X509 CA Certificate.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isVerified":
+            suggest = "is_verified"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificatePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificatePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created: str,
                  expiry: str,
@@ -94,15 +111,41 @@ class CertificatePropertiesResponse(dict):
         """
         return pulumi.get(self, "updated")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotDpsPropertiesDescriptionResponse(dict):
     """
     the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceProvisioningHostName":
+            suggest = "device_provisioning_host_name"
+        elif key == "idScope":
+            suggest = "id_scope"
+        elif key == "serviceOperationsHostName":
+            suggest = "service_operations_host_name"
+        elif key == "allocationPolicy":
+            suggest = "allocation_policy"
+        elif key == "authorizationPolicies":
+            suggest = "authorization_policies"
+        elif key == "iotHubs":
+            suggest = "iot_hubs"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotDpsPropertiesDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotDpsPropertiesDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotDpsPropertiesDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  device_provisioning_host_name: str,
                  id_scope: str,
@@ -118,8 +161,8 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param str id_scope: Unique identifier of this provisioning service.
         :param str service_operations_host_name: Service endpoint for provisioning service.
         :param str allocation_policy: Allocation policy to be used by this provisioning service.
-        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
-        :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse'] authorization_policies: List of authorization keys for a provisioning service.
+        :param Sequence['IotHubDefinitionDescriptionResponse'] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str state: Current state of the provisioning service.
         """
@@ -201,9 +244,6 @@ class IotDpsPropertiesDescriptionResponse(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotDpsSkuInfoResponse(dict):
@@ -250,15 +290,33 @@ class IotDpsSkuInfoResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotHubDefinitionDescriptionResponse(dict):
     """
     Description of the IoT hub.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "allocationWeight":
+            suggest = "allocation_weight"
+        elif key == "applyAllocationPolicy":
+            suggest = "apply_allocation_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubDefinitionDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubDefinitionDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubDefinitionDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  location: str,
@@ -321,15 +379,33 @@ class IotHubDefinitionDescriptionResponse(dict):
         """
         return pulumi.get(self, "apply_allocation_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict):
     """
     Description of the shared access key.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_name: str,
                  rights: str,
@@ -380,8 +456,5 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict
         Secondary SAS key value.
         """
         return pulumi.get(self, "secondary_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

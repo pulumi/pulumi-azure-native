@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -194,9 +194,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The diagnostic setting resource.
 
@@ -247,15 +245,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  service_bus_rule_id: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,21 +255,21 @@ class DiagnosticSetting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DiagnosticSettingArgs.__new__(DiagnosticSettingArgs)
 
-            __props__['event_hub_authorization_rule_id'] = event_hub_authorization_rule_id
-            __props__['event_hub_name'] = event_hub_name
-            __props__['log_analytics_destination_type'] = log_analytics_destination_type
-            __props__['logs'] = logs
-            __props__['metrics'] = metrics
-            __props__['name'] = name
+            __props__.__dict__["event_hub_authorization_rule_id"] = event_hub_authorization_rule_id
+            __props__.__dict__["event_hub_name"] = event_hub_name
+            __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
+            __props__.__dict__["logs"] = logs
+            __props__.__dict__["metrics"] = metrics
+            __props__.__dict__["name"] = name
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
-            __props__['resource_uri'] = resource_uri
-            __props__['service_bus_rule_id'] = service_bus_rule_id
-            __props__['storage_account_id'] = storage_account_id
-            __props__['workspace_id'] = workspace_id
-            __props__['type'] = None
+            __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["service_bus_rule_id"] = service_bus_rule_id
+            __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20170501preview:DiagnosticSetting"), pulumi.Alias(type_="azure-native:insights:DiagnosticSetting"), pulumi.Alias(type_="azure-nextgen:insights:DiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticSetting, __self__).__init__(
@@ -302,18 +292,18 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = DiagnosticSettingArgs.__new__(DiagnosticSettingArgs)
 
-        __props__["event_hub_authorization_rule_id"] = None
-        __props__["event_hub_name"] = None
-        __props__["log_analytics_destination_type"] = None
-        __props__["logs"] = None
-        __props__["metrics"] = None
-        __props__["name"] = None
-        __props__["service_bus_rule_id"] = None
-        __props__["storage_account_id"] = None
-        __props__["type"] = None
-        __props__["workspace_id"] = None
+        __props__.__dict__["event_hub_authorization_rule_id"] = None
+        __props__.__dict__["event_hub_name"] = None
+        __props__.__dict__["log_analytics_destination_type"] = None
+        __props__.__dict__["logs"] = None
+        __props__.__dict__["metrics"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["service_bus_rule_id"] = None
+        __props__.__dict__["storage_account_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["workspace_id"] = None
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -395,10 +385,4 @@ class DiagnosticSetting(pulumi.CustomResource):
         The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
         return pulumi.get(self, "workspace_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

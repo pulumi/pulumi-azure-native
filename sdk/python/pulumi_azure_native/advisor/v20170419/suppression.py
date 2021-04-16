@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['SuppressionArgs', 'Suppression']
 
@@ -106,9 +106,7 @@ class Suppression(pulumi.CustomResource):
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  suppression_id: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 
@@ -149,15 +147,7 @@ class Suppression(pulumi.CustomResource):
                  resource_uri: Optional[pulumi.Input[str]] = None,
                  suppression_id: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,18 +157,18 @@ class Suppression(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SuppressionArgs.__new__(SuppressionArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if recommendation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recommendation_id'")
-            __props__['recommendation_id'] = recommendation_id
+            __props__.__dict__["recommendation_id"] = recommendation_id
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
-            __props__['resource_uri'] = resource_uri
-            __props__['suppression_id'] = suppression_id
-            __props__['ttl'] = ttl
-            __props__['type'] = None
+            __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["suppression_id"] = suppression_id
+            __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:advisor/v20170419:Suppression"), pulumi.Alias(type_="azure-native:advisor:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20160712preview:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20170331:Suppression"), pulumi.Alias(type_="azure-native:advisor/v20200101:Suppression"), pulumi.Alias(type_="azure-nextgen:advisor/v20200101:Suppression")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Suppression, __self__).__init__(
@@ -201,12 +191,12 @@ class Suppression(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SuppressionArgs.__new__(SuppressionArgs)
 
-        __props__["name"] = None
-        __props__["suppression_id"] = None
-        __props__["ttl"] = None
-        __props__["type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["suppression_id"] = None
+        __props__.__dict__["ttl"] = None
+        __props__.__dict__["type"] = None
         return Suppression(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -240,10 +230,4 @@ class Suppression(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

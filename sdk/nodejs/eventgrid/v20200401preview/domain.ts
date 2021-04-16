@@ -159,11 +159,11 @@ export interface DomainArgs {
     /**
      * Identity information for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.eventgrid.v20200401preview.IdentityInfo>;
+    readonly identity?: pulumi.Input<inputs.eventgrid.v20200401preview.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.InboundIpRule>[]>;
+    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.InboundIpRuleArgs>[]>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
@@ -171,7 +171,7 @@ export interface DomainArgs {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200401preview.JsonInputSchemaMapping>;
+    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200401preview.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource.
      */
@@ -179,7 +179,7 @@ export interface DomainArgs {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.PrivateEndpointConnection>[]>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200401preview.PrivateEndpointConnectionArgs>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
@@ -192,7 +192,7 @@ export interface DomainArgs {
     /**
      * The Sku pricing tier for the domain.
      */
-    readonly sku?: pulumi.Input<inputs.eventgrid.v20200401preview.ResourceSku>;
+    readonly sku?: pulumi.Input<inputs.eventgrid.v20200401preview.ResourceSkuArgs>;
     /**
      * Tags of the resource.
      */

@@ -147,7 +147,7 @@ export interface AvailabilitySetArgs {
     /**
      * Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */
-    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResource>;
+    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
      * The name of the resource group.
      */
@@ -155,7 +155,7 @@ export interface AvailabilitySetArgs {
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
-    readonly sku?: pulumi.Input<inputs.compute.Sku>;
+    readonly sku?: pulumi.Input<inputs.compute.SkuArgs>;
     /**
      * Resource tags
      */
@@ -163,5 +163,5 @@ export interface AvailabilitySetArgs {
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.SubResource>[]>;
+    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.SubResourceArgs>[]>;
 }

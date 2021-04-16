@@ -109,7 +109,7 @@ export interface ReplicationRecoveryServicesProviderArgs {
     /**
      * The properties of an add provider request.
      */
-    readonly properties: pulumi.Input<inputs.recoveryservices.v20180710.AddRecoveryServicesProviderInputProperties>;
+    readonly properties: pulumi.Input<inputs.recoveryservices.v20180710.AddRecoveryServicesProviderInputPropertiesArgs>;
     /**
      * Recovery services provider name.
      */

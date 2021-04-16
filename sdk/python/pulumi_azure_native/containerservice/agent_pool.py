@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -619,9 +619,7 @@ class AgentPool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Agent Pool.
         API Version: 2021-03-01.
@@ -724,15 +722,7 @@ class AgentPool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['AgentPoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -742,51 +732,51 @@ class AgentPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
-            __props__['agent_pool_name'] = agent_pool_name
-            __props__['availability_zones'] = availability_zones
-            __props__['count'] = count
-            __props__['enable_auto_scaling'] = enable_auto_scaling
-            __props__['enable_encryption_at_host'] = enable_encryption_at_host
-            __props__['enable_fips'] = enable_fips
-            __props__['enable_node_public_ip'] = enable_node_public_ip
-            __props__['gpu_instance_profile'] = gpu_instance_profile
-            __props__['kubelet_config'] = kubelet_config
-            __props__['kubelet_disk_type'] = kubelet_disk_type
-            __props__['linux_os_config'] = linux_os_config
-            __props__['max_count'] = max_count
-            __props__['max_pods'] = max_pods
-            __props__['min_count'] = min_count
-            __props__['mode'] = mode
-            __props__['node_labels'] = node_labels
-            __props__['node_public_ip_prefix_id'] = node_public_ip_prefix_id
-            __props__['node_taints'] = node_taints
-            __props__['orchestrator_version'] = orchestrator_version
-            __props__['os_disk_size_gb'] = os_disk_size_gb
-            __props__['os_disk_type'] = os_disk_type
-            __props__['os_sku'] = os_sku
-            __props__['os_type'] = os_type
-            __props__['pod_subnet_id'] = pod_subnet_id
-            __props__['proximity_placement_group_id'] = proximity_placement_group_id
+            __props__.__dict__["agent_pool_name"] = agent_pool_name
+            __props__.__dict__["availability_zones"] = availability_zones
+            __props__.__dict__["count"] = count
+            __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
+            __props__.__dict__["enable_encryption_at_host"] = enable_encryption_at_host
+            __props__.__dict__["enable_fips"] = enable_fips
+            __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
+            __props__.__dict__["gpu_instance_profile"] = gpu_instance_profile
+            __props__.__dict__["kubelet_config"] = kubelet_config
+            __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
+            __props__.__dict__["linux_os_config"] = linux_os_config
+            __props__.__dict__["max_count"] = max_count
+            __props__.__dict__["max_pods"] = max_pods
+            __props__.__dict__["min_count"] = min_count
+            __props__.__dict__["mode"] = mode
+            __props__.__dict__["node_labels"] = node_labels
+            __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
+            __props__.__dict__["node_taints"] = node_taints
+            __props__.__dict__["orchestrator_version"] = orchestrator_version
+            __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
+            __props__.__dict__["os_disk_type"] = os_disk_type
+            __props__.__dict__["os_sku"] = os_sku
+            __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["pod_subnet_id"] = pod_subnet_id
+            __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
-            __props__['resource_name'] = resource_name_
-            __props__['scale_set_eviction_policy'] = scale_set_eviction_policy
-            __props__['scale_set_priority'] = scale_set_priority
-            __props__['spot_max_price'] = spot_max_price
-            __props__['tags'] = tags
-            __props__['type'] = type
-            __props__['upgrade_settings'] = upgrade_settings
-            __props__['vm_size'] = vm_size
-            __props__['vnet_subnet_id'] = vnet_subnet_id
-            __props__['name'] = None
-            __props__['node_image_version'] = None
-            __props__['power_state'] = None
-            __props__['provisioning_state'] = None
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["scale_set_eviction_policy"] = scale_set_eviction_policy
+            __props__.__dict__["scale_set_priority"] = scale_set_priority
+            __props__.__dict__["spot_max_price"] = spot_max_price
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["upgrade_settings"] = upgrade_settings
+            __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["node_image_version"] = None
+            __props__.__dict__["power_state"] = None
+            __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210301:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
@@ -809,44 +799,44 @@ class AgentPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
-        __props__["availability_zones"] = None
-        __props__["count"] = None
-        __props__["enable_auto_scaling"] = None
-        __props__["enable_encryption_at_host"] = None
-        __props__["enable_fips"] = None
-        __props__["enable_node_public_ip"] = None
-        __props__["gpu_instance_profile"] = None
-        __props__["kubelet_config"] = None
-        __props__["kubelet_disk_type"] = None
-        __props__["linux_os_config"] = None
-        __props__["max_count"] = None
-        __props__["max_pods"] = None
-        __props__["min_count"] = None
-        __props__["mode"] = None
-        __props__["name"] = None
-        __props__["node_image_version"] = None
-        __props__["node_labels"] = None
-        __props__["node_public_ip_prefix_id"] = None
-        __props__["node_taints"] = None
-        __props__["orchestrator_version"] = None
-        __props__["os_disk_size_gb"] = None
-        __props__["os_disk_type"] = None
-        __props__["os_sku"] = None
-        __props__["os_type"] = None
-        __props__["pod_subnet_id"] = None
-        __props__["power_state"] = None
-        __props__["provisioning_state"] = None
-        __props__["proximity_placement_group_id"] = None
-        __props__["scale_set_eviction_policy"] = None
-        __props__["scale_set_priority"] = None
-        __props__["spot_max_price"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["upgrade_settings"] = None
-        __props__["vm_size"] = None
-        __props__["vnet_subnet_id"] = None
+        __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["count"] = None
+        __props__.__dict__["enable_auto_scaling"] = None
+        __props__.__dict__["enable_encryption_at_host"] = None
+        __props__.__dict__["enable_fips"] = None
+        __props__.__dict__["enable_node_public_ip"] = None
+        __props__.__dict__["gpu_instance_profile"] = None
+        __props__.__dict__["kubelet_config"] = None
+        __props__.__dict__["kubelet_disk_type"] = None
+        __props__.__dict__["linux_os_config"] = None
+        __props__.__dict__["max_count"] = None
+        __props__.__dict__["max_pods"] = None
+        __props__.__dict__["min_count"] = None
+        __props__.__dict__["mode"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["node_image_version"] = None
+        __props__.__dict__["node_labels"] = None
+        __props__.__dict__["node_public_ip_prefix_id"] = None
+        __props__.__dict__["node_taints"] = None
+        __props__.__dict__["orchestrator_version"] = None
+        __props__.__dict__["os_disk_size_gb"] = None
+        __props__.__dict__["os_disk_type"] = None
+        __props__.__dict__["os_sku"] = None
+        __props__.__dict__["os_type"] = None
+        __props__.__dict__["pod_subnet_id"] = None
+        __props__.__dict__["power_state"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["proximity_placement_group_id"] = None
+        __props__.__dict__["scale_set_eviction_policy"] = None
+        __props__.__dict__["scale_set_priority"] = None
+        __props__.__dict__["spot_max_price"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_settings"] = None
+        __props__.__dict__["vm_size"] = None
+        __props__.__dict__["vnet_subnet_id"] = None
         return AgentPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1136,10 +1126,4 @@ class AgentPool(pulumi.CustomResource):
         VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
         return pulumi.get(self, "vnet_subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

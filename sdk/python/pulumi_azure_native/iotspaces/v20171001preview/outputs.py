@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -21,6 +21,29 @@ class IoTSpacesPropertiesResponse(dict):
     """
     The properties of an IoTSpaces instance.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementApiUrl":
+            suggest = "management_api_url"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "webPortalUrl":
+            suggest = "web_portal_url"
+        elif key == "storageContainer":
+            suggest = "storage_container"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTSpacesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTSpacesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTSpacesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  management_api_url: str,
                  provisioning_state: str,
@@ -31,7 +54,7 @@ class IoTSpacesPropertiesResponse(dict):
         :param str management_api_url: The management Api endpoint.
         :param str provisioning_state: The provisioning state.
         :param str web_portal_url: The management UI endpoint.
-        :param 'StorageContainerPropertiesResponseArgs' storage_container: The properties of the designated storage container.
+        :param 'StorageContainerPropertiesResponse' storage_container: The properties of the designated storage container.
         """
         pulumi.set(__self__, "management_api_url", management_api_url)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -71,9 +94,6 @@ class IoTSpacesPropertiesResponse(dict):
         """
         return pulumi.get(self, "storage_container")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTSpacesSkuInfoResponse(dict):
@@ -96,15 +116,35 @@ class IoTSpacesSkuInfoResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageContainerPropertiesResponse(dict):
     """
     The properties of the Azure Storage Container for file archive.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageContainerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -157,8 +197,5 @@ class StorageContainerPropertiesResponse(dict):
         The subscription identifier of the storage account.
         """
         return pulumi.get(self, "subscription_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

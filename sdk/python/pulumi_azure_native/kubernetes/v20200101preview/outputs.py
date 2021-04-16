@@ -6,14 +6,14 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectedClusterAADProfileResponse',
     'ConnectedClusterIdentityResponse',
-    'CredentialResultResponseResult',
-    'HybridConnectionConfigResponseResult',
+    'CredentialResultResponse',
+    'HybridConnectionConfigResponse',
 ]
 
 @pulumi.output_type
@@ -21,6 +21,27 @@ class ConnectedClusterAADProfileResponse(dict):
     """
     AAD profile of the connected cluster
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAppId":
+            suggest = "client_app_id"
+        elif key == "serverAppId":
+            suggest = "server_app_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectedClusterAADProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectedClusterAADProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectedClusterAADProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_app_id: str,
                  server_app_id: str,
@@ -59,15 +80,31 @@ class ConnectedClusterAADProfileResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConnectedClusterIdentityResponse(dict):
     """
     Identity for the connected cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectedClusterIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectedClusterIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectedClusterIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -106,12 +143,9 @@ class ConnectedClusterIdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class CredentialResultResponseResult(dict):
+class CredentialResultResponse(dict):
     """
     The credential result response.
     """
@@ -144,7 +178,7 @@ class CredentialResultResponseResult(dict):
 
 
 @pulumi.output_type
-class HybridConnectionConfigResponseResult(dict):
+class HybridConnectionConfigResponse(dict):
     """
     Contains the REP (rendezvous endpoint) and “Sender” access token.
     """

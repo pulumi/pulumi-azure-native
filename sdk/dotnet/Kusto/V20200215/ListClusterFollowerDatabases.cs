@@ -45,10 +45,10 @@ namespace Pulumi.AzureNative.Kusto.V20200215
         /// <summary>
         /// The list of follower database result.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FollowerDatabaseDefinitionResponseResult> Value;
+        public readonly ImmutableArray<Outputs.FollowerDatabaseDefinitionResponse> Value;
 
         [OutputConstructor]
-        private ListClusterFollowerDatabasesResult(ImmutableArray<Outputs.FollowerDatabaseDefinitionResponseResult> value)
+        private ListClusterFollowerDatabasesResult(ImmutableArray<Outputs.FollowerDatabaseDefinitionResponse> value)
         {
             Value = value;
         }

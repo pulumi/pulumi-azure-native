@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -428,9 +428,7 @@ class Watchlist(pulumi.CustomResource):
                  watchlist_items_count: Optional[pulumi.Input[int]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a Watchlist in Azure Security Insights.
         API Version: 2019-01-01-preview.
@@ -511,15 +509,7 @@ class Watchlist(pulumi.CustomResource):
                  watchlist_items_count: Optional[pulumi.Input[int]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -529,46 +519,46 @@ class Watchlist(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WatchlistArgs.__new__(WatchlistArgs)
 
-            __props__['content_type'] = content_type
-            __props__['created'] = created
-            __props__['created_by'] = created_by
-            __props__['default_duration'] = default_duration
-            __props__['description'] = description
+            __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["created"] = created
+            __props__.__dict__["created_by"] = created_by
+            __props__.__dict__["default_duration"] = default_duration
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['etag'] = etag
-            __props__['is_deleted'] = is_deleted
-            __props__['labels'] = labels
-            __props__['number_of_lines_to_skip'] = number_of_lines_to_skip
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["is_deleted"] = is_deleted
+            __props__.__dict__["labels"] = labels
+            __props__.__dict__["number_of_lines_to_skip"] = number_of_lines_to_skip
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
+            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if provider is None and not opts.urn:
                 raise TypeError("Missing required property 'provider'")
-            __props__['provider'] = provider
-            __props__['raw_content'] = raw_content
+            __props__.__dict__["provider"] = provider
+            __props__.__dict__["raw_content"] = raw_content
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
-            __props__['tenant_id'] = tenant_id
-            __props__['updated'] = updated
-            __props__['updated_by'] = updated_by
-            __props__['upload_status'] = upload_status
-            __props__['watchlist_alias'] = watchlist_alias
-            __props__['watchlist_id'] = watchlist_id
-            __props__['watchlist_items_count'] = watchlist_items_count
-            __props__['watchlist_type'] = watchlist_type
+            __props__.__dict__["source"] = source
+            __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["updated"] = updated
+            __props__.__dict__["updated_by"] = updated_by
+            __props__.__dict__["upload_status"] = upload_status
+            __props__.__dict__["watchlist_alias"] = watchlist_alias
+            __props__.__dict__["watchlist_id"] = watchlist_id
+            __props__.__dict__["watchlist_items_count"] = watchlist_items_count
+            __props__.__dict__["watchlist_type"] = watchlist_type
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Watchlist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watchlist, __self__).__init__(
@@ -591,31 +581,31 @@ class Watchlist(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WatchlistArgs.__new__(WatchlistArgs)
 
-        __props__["content_type"] = None
-        __props__["created"] = None
-        __props__["created_by"] = None
-        __props__["default_duration"] = None
-        __props__["description"] = None
-        __props__["display_name"] = None
-        __props__["etag"] = None
-        __props__["is_deleted"] = None
-        __props__["labels"] = None
-        __props__["name"] = None
-        __props__["number_of_lines_to_skip"] = None
-        __props__["provider"] = None
-        __props__["raw_content"] = None
-        __props__["source"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
-        __props__["updated"] = None
-        __props__["updated_by"] = None
-        __props__["upload_status"] = None
-        __props__["watchlist_alias"] = None
-        __props__["watchlist_id"] = None
-        __props__["watchlist_items_count"] = None
-        __props__["watchlist_type"] = None
+        __props__.__dict__["content_type"] = None
+        __props__.__dict__["created"] = None
+        __props__.__dict__["created_by"] = None
+        __props__.__dict__["default_duration"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["is_deleted"] = None
+        __props__.__dict__["labels"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["number_of_lines_to_skip"] = None
+        __props__.__dict__["provider"] = None
+        __props__.__dict__["raw_content"] = None
+        __props__.__dict__["source"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["updated"] = None
+        __props__.__dict__["updated_by"] = None
+        __props__.__dict__["upload_status"] = None
+        __props__.__dict__["watchlist_alias"] = None
+        __props__.__dict__["watchlist_id"] = None
+        __props__.__dict__["watchlist_items_count"] = None
+        __props__.__dict__["watchlist_type"] = None
         return Watchlist(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -801,10 +791,4 @@ class Watchlist(pulumi.CustomResource):
         The type of the watchlist
         """
         return pulumi.get(self, "watchlist_type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -38,7 +38,7 @@ class ListWebhookEventsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EventResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.EventResponse']]:
         """
         The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
         """

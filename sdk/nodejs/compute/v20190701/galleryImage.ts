@@ -189,7 +189,7 @@ export interface GalleryImageArgs {
     /**
      * Describes the disallowed disk types.
      */
-    readonly disallowed?: pulumi.Input<inputs.compute.v20190701.Disallowed>;
+    readonly disallowed?: pulumi.Input<inputs.compute.v20190701.DisallowedArgs>;
     /**
      * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
      */
@@ -213,7 +213,7 @@ export interface GalleryImageArgs {
     /**
      * This is the gallery Image Definition identifier.
      */
-    readonly identifier: pulumi.Input<inputs.compute.v20190701.GalleryImageIdentifier>;
+    readonly identifier: pulumi.Input<inputs.compute.v20190701.GalleryImageIdentifierArgs>;
     /**
      * Resource location
      */
@@ -233,11 +233,11 @@ export interface GalleryImageArgs {
     /**
      * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.v20190701.ImagePurchasePlan>;
+    readonly purchasePlan?: pulumi.Input<inputs.compute.v20190701.ImagePurchasePlanArgs>;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    readonly recommended?: pulumi.Input<inputs.compute.v20190701.RecommendedMachineConfiguration>;
+    readonly recommended?: pulumi.Input<inputs.compute.v20190701.RecommendedMachineConfigurationArgs>;
     /**
      * The release note uri.
      */

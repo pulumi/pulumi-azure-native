@@ -155,7 +155,7 @@ export interface JitRequestArgs {
     /**
      * The JIT authorization policies.
      */
-    readonly jitAuthorizationPolicies: pulumi.Input<pulumi.Input<inputs.solutions.v20200821preview.JitAuthorizationPolicies>[]>;
+    readonly jitAuthorizationPolicies: pulumi.Input<pulumi.Input<inputs.solutions.v20200821preview.JitAuthorizationPoliciesArgs>[]>;
     /**
      * The name of the JIT request.
      */
@@ -163,7 +163,7 @@ export interface JitRequestArgs {
     /**
      * The JIT request properties.
      */
-    readonly jitSchedulingPolicy: pulumi.Input<inputs.solutions.v20200821preview.JitSchedulingPolicy>;
+    readonly jitSchedulingPolicy: pulumi.Input<inputs.solutions.v20200821preview.JitSchedulingPolicyArgs>;
     /**
      * Resource location
      */

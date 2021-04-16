@@ -114,7 +114,7 @@ export interface DatabaseAccountTableArgs {
     /**
      * The standard JSON format of a Table
      */
-    readonly resource: pulumi.Input<inputs.documentdb.v20151106.TableResource>;
+    readonly resource: pulumi.Input<inputs.documentdb.v20151106.TableResourceArgs>;
     /**
      * Name of an Azure resource group.
      */

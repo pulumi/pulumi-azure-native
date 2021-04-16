@@ -162,7 +162,7 @@ export interface WorkflowArgs {
     /**
      * The parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20160601.WorkflowParameter>}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20160601.WorkflowParameterArgs>}>;
     /**
      * The resource group name.
      */
@@ -170,7 +170,7 @@ export interface WorkflowArgs {
     /**
      * The sku.
      */
-    readonly sku?: pulumi.Input<inputs.logic.v20160601.Sku>;
+    readonly sku?: pulumi.Input<inputs.logic.v20160601.SkuArgs>;
     /**
      * The state.
      */

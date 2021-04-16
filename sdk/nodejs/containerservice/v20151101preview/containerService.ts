@@ -145,7 +145,7 @@ export interface ContainerServiceArgs {
     /**
      * Properties of agent pools
      */
-    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceAgentPoolProfile>[]>;
+    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceAgentPoolProfileArgs>[]>;
     /**
      * The name of the container service within the given subscription and resource group.
      */
@@ -153,11 +153,11 @@ export interface ContainerServiceArgs {
     /**
      * Properties for Diagnostic Agent
      */
-    readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceDiagnosticsProfile>;
+    readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceDiagnosticsProfileArgs>;
     /**
      * Properties for Linux VMs
      */
-    readonly linuxProfile: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceLinuxProfile>;
+    readonly linuxProfile: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceLinuxProfileArgs>;
     /**
      * Resource location
      */
@@ -165,11 +165,11 @@ export interface ContainerServiceArgs {
     /**
      * Properties of master agents
      */
-    readonly masterProfile: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceMasterProfile>;
+    readonly masterProfile: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceMasterProfileArgs>;
     /**
      * Properties of orchestrator
      */
-    readonly orchestratorProfile?: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceOrchestratorProfile>;
+    readonly orchestratorProfile?: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceOrchestratorProfileArgs>;
     /**
      * The name of the resource group.
      */
@@ -181,5 +181,5 @@ export interface ContainerServiceArgs {
     /**
      * Properties of Windows VMs
      */
-    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceWindowsProfile>;
+    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20151101preview.ContainerServiceWindowsProfileArgs>;
 }

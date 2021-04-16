@@ -4,7 +4,7 @@
 package v20150228
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Response containing the primary and secondary API keys for a given Azure Search service.

@@ -6,43 +6,43 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CloudErrorBodyResponseResult',
+    'CloudErrorBodyResponse',
     'IdentityResponse',
-    'MessageResponseResult',
+    'MessageResponse',
     'PrePostStepResponse',
-    'ResourceOperationResponseResult',
-    'RolloutOperationInfoResponseResult',
-    'RolloutStepResponseResult',
+    'ResourceOperationResponse',
+    'RolloutOperationInfoResponse',
+    'RolloutStepResponse',
     'SasAuthenticationResponse',
-    'ServiceResponseResult',
+    'ServiceResponse',
     'ServiceUnitArtifactsResponse',
-    'ServiceUnitResponseResult',
-    'StepOperationInfoResponseResult',
+    'ServiceUnitResponse',
+    'StepOperationInfoResponse',
     'StepResponse',
     'WaitStepAttributesResponse',
     'WaitStepPropertiesResponse',
 ]
 
 @pulumi.output_type
-class CloudErrorBodyResponseResult(dict):
+class CloudErrorBodyResponse(dict):
     """
     Detailed error information of any failure.
     """
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 details: Optional[Sequence['outputs.CloudErrorBodyResponseResult']] = None,
+                 details: Optional[Sequence['outputs.CloudErrorBodyResponse']] = None,
                  target: Optional[str] = None):
         """
         Detailed error information of any failure.
         :param str code: Error code string.
         :param str message: Descriptive error information.
-        :param Sequence['CloudErrorBodyResponseArgs'] details: More detailed error information.
+        :param Sequence['CloudErrorBodyResponse'] details: More detailed error information.
         :param str target: Error target
         """
         pulumi.set(__self__, "code", code)
@@ -70,7 +70,7 @@ class CloudErrorBodyResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyResponseResult']]:
+    def details(self) -> Optional[Sequence['outputs.CloudErrorBodyResponse']]:
         """
         More detailed error information.
         """
@@ -90,6 +90,23 @@ class IdentityResponse(dict):
     """
     Identity for the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  type: str):
@@ -117,12 +134,9 @@ class IdentityResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class MessageResponseResult(dict):
+class MessageResponse(dict):
     """
     Supplementary contextual messages during a rollout.
     """
@@ -159,6 +173,23 @@ class PrePostStepResponse(dict):
     """
     The properties that define a step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stepId":
+            suggest = "step_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrePostStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrePostStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrePostStepResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  step_id: str):
         """
@@ -175,12 +206,9 @@ class PrePostStepResponse(dict):
         """
         return pulumi.get(self, "step_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ResourceOperationResponseResult(dict):
+class ResourceOperationResponse(dict):
     """
     Individual resource operation information.
     """
@@ -259,20 +287,20 @@ class ResourceOperationResponseResult(dict):
 
 
 @pulumi.output_type
-class RolloutOperationInfoResponseResult(dict):
+class RolloutOperationInfoResponse(dict):
     """
     Detailed runtime information of the rollout.
     """
     def __init__(__self__, *,
                  end_time: str,
-                 error: 'outputs.CloudErrorBodyResponseResult',
+                 error: 'outputs.CloudErrorBodyResponse',
                  retry_attempt: int,
                  skip_succeeded_on_retry: bool,
                  start_time: str):
         """
         Detailed runtime information of the rollout.
         :param str end_time: The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
-        :param 'CloudErrorBodyResponseArgs' error: The detailed error information for any failure.
+        :param 'CloudErrorBodyResponse' error: The detailed error information for any failure.
         :param int retry_attempt: The ordinal count of the number of retry attempts on a rollout. 0 if no retries of the rollout have been performed. If the rollout is updated with a PUT, this count is reset to 0.
         :param bool skip_succeeded_on_retry: True, if all steps that succeeded on the previous run/attempt were chosen to be skipped in this retry attempt. False, otherwise.
         :param str start_time: The start time of the rollout in UTC.
@@ -293,7 +321,7 @@ class RolloutOperationInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> 'outputs.CloudErrorBodyResponseResult':
+    def error(self) -> 'outputs.CloudErrorBodyResponse':
         """
         The detailed error information for any failure.
         """
@@ -325,23 +353,23 @@ class RolloutOperationInfoResponseResult(dict):
 
 
 @pulumi.output_type
-class RolloutStepResponseResult(dict):
+class RolloutStepResponse(dict):
     """
     Defines a specific step on a target service unit.
     """
     def __init__(__self__, *,
-                 messages: Sequence['outputs.MessageResponseResult'],
+                 messages: Sequence['outputs.MessageResponse'],
                  name: str,
-                 operation_info: 'outputs.StepOperationInfoResponseResult',
-                 resource_operations: Sequence['outputs.ResourceOperationResponseResult'],
+                 operation_info: 'outputs.StepOperationInfoResponse',
+                 resource_operations: Sequence['outputs.ResourceOperationResponse'],
                  status: str,
                  step_group: Optional[str] = None):
         """
         Defines a specific step on a target service unit.
-        :param Sequence['MessageResponseArgs'] messages: Supplementary informative messages during rollout.
+        :param Sequence['MessageResponse'] messages: Supplementary informative messages during rollout.
         :param str name: Name of the step.
-        :param 'StepOperationInfoResponseArgs' operation_info: Detailed information of specific action execution.
-        :param Sequence['ResourceOperationResponseArgs'] resource_operations: Set of resource operations that were performed, if any, on an Azure resource.
+        :param 'StepOperationInfoResponse' operation_info: Detailed information of specific action execution.
+        :param Sequence['ResourceOperationResponse'] resource_operations: Set of resource operations that were performed, if any, on an Azure resource.
         :param str status: Current state of the step.
         :param str step_group: The step group the current step is part of.
         """
@@ -355,7 +383,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter
-    def messages(self) -> Sequence['outputs.MessageResponseResult']:
+    def messages(self) -> Sequence['outputs.MessageResponse']:
         """
         Supplementary informative messages during rollout.
         """
@@ -371,7 +399,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter(name="operationInfo")
-    def operation_info(self) -> 'outputs.StepOperationInfoResponseResult':
+    def operation_info(self) -> 'outputs.StepOperationInfoResponse':
         """
         Detailed information of specific action execution.
         """
@@ -379,7 +407,7 @@ class RolloutStepResponseResult(dict):
 
     @property
     @pulumi.getter(name="resourceOperations")
-    def resource_operations(self) -> Sequence['outputs.ResourceOperationResponseResult']:
+    def resource_operations(self) -> Sequence['outputs.ResourceOperationResponse']:
         """
         Set of resource operations that were performed, if any, on an Azure resource.
         """
@@ -407,6 +435,23 @@ class SasAuthenticationResponse(dict):
     """
     Defines the properties to access the artifacts using an Azure Storage SAS URI.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sasUri":
+            suggest = "sas_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SasAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SasAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SasAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sas_uri: str,
                  type: str):
@@ -436,12 +481,9 @@ class SasAuthenticationResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ServiceResponseResult(dict):
+class ServiceResponse(dict):
     """
     Defines a service.
     """
@@ -449,13 +491,13 @@ class ServiceResponseResult(dict):
                  target_location: str,
                  target_subscription_id: str,
                  name: Optional[str] = None,
-                 service_units: Optional[Sequence['outputs.ServiceUnitResponseResult']] = None):
+                 service_units: Optional[Sequence['outputs.ServiceUnitResponse']] = None):
         """
         Defines a service.
         :param str target_location: The Azure location to which the resources in the service belong to or should be deployed to.
         :param str target_subscription_id: The subscription to which the resources in the service belong to or should be deployed to.
         :param str name: Name of the service.
-        :param Sequence['ServiceUnitResponseArgs'] service_units: The detailed information about the units that make up the service.
+        :param Sequence['ServiceUnitResponse'] service_units: The detailed information about the units that make up the service.
         """
         pulumi.set(__self__, "target_location", target_location)
         pulumi.set(__self__, "target_subscription_id", target_subscription_id)
@@ -490,7 +532,7 @@ class ServiceResponseResult(dict):
 
     @property
     @pulumi.getter(name="serviceUnits")
-    def service_units(self) -> Optional[Sequence['outputs.ServiceUnitResponseResult']]:
+    def service_units(self) -> Optional[Sequence['outputs.ServiceUnitResponse']]:
         """
         The detailed information about the units that make up the service.
         """
@@ -502,6 +544,29 @@ class ServiceUnitArtifactsResponse(dict):
     """
     Defines the artifacts of a service unit.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parametersArtifactSourceRelativePath":
+            suggest = "parameters_artifact_source_relative_path"
+        elif key == "parametersUri":
+            suggest = "parameters_uri"
+        elif key == "templateArtifactSourceRelativePath":
+            suggest = "template_artifact_source_relative_path"
+        elif key == "templateUri":
+            suggest = "template_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceUnitArtifactsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceUnitArtifactsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceUnitArtifactsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parameters_artifact_source_relative_path: Optional[str] = None,
                  parameters_uri: Optional[str] = None,
@@ -555,12 +620,9 @@ class ServiceUnitArtifactsResponse(dict):
         """
         return pulumi.get(self, "template_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
-class ServiceUnitResponseResult(dict):
+class ServiceUnitResponse(dict):
     """
     Defines a service unit.
     """
@@ -569,14 +631,14 @@ class ServiceUnitResponseResult(dict):
                  target_resource_group: str,
                  artifacts: Optional['outputs.ServiceUnitArtifactsResponse'] = None,
                  name: Optional[str] = None,
-                 steps: Optional[Sequence['outputs.RolloutStepResponseResult']] = None):
+                 steps: Optional[Sequence['outputs.RolloutStepResponse']] = None):
         """
         Defines a service unit.
         :param str deployment_mode: Describes the type of ARM deployment to be performed on the resource.
         :param str target_resource_group: The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
-        :param 'ServiceUnitArtifactsResponseArgs' artifacts: The artifacts for the service unit.
+        :param 'ServiceUnitArtifactsResponse' artifacts: The artifacts for the service unit.
         :param str name: Name of the service unit.
-        :param Sequence['RolloutStepResponseArgs'] steps: Detailed step information, if present.
+        :param Sequence['RolloutStepResponse'] steps: Detailed step information, if present.
         """
         pulumi.set(__self__, "deployment_mode", deployment_mode)
         pulumi.set(__self__, "target_resource_group", target_resource_group)
@@ -621,7 +683,7 @@ class ServiceUnitResponseResult(dict):
 
     @property
     @pulumi.getter
-    def steps(self) -> Optional[Sequence['outputs.RolloutStepResponseResult']]:
+    def steps(self) -> Optional[Sequence['outputs.RolloutStepResponse']]:
         """
         Detailed step information, if present.
         """
@@ -629,7 +691,7 @@ class ServiceUnitResponseResult(dict):
 
 
 @pulumi.output_type
-class StepOperationInfoResponseResult(dict):
+class StepOperationInfoResponse(dict):
     """
     Detailed information of a specific step run.
     """
@@ -639,7 +701,7 @@ class StepOperationInfoResponseResult(dict):
                  end_time: str,
                  last_updated_time: str,
                  start_time: str,
-                 error: Optional['outputs.CloudErrorBodyResponseResult'] = None):
+                 error: Optional['outputs.CloudErrorBodyResponse'] = None):
         """
         Detailed information of a specific step run.
         :param str correlation_id: Unique identifier to track the request for ARM-based resources.
@@ -647,7 +709,7 @@ class StepOperationInfoResponseResult(dict):
         :param str end_time: End time of the action in UTC.
         :param str last_updated_time: Last time in UTC this operation was updated.
         :param str start_time: Start time of the action in UTC.
-        :param 'CloudErrorBodyResponseArgs' error: The errors, if any, for the action.
+        :param 'CloudErrorBodyResponse' error: The errors, if any, for the action.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
         pulumi.set(__self__, "deployment_name", deployment_name)
@@ -699,7 +761,7 @@ class StepOperationInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.CloudErrorBodyResponseResult']:
+    def error(self) -> Optional['outputs.CloudErrorBodyResponse']:
         """
         The errors, if any, for the action.
         """
@@ -711,6 +773,29 @@ class StepResponse(dict):
     """
     The properties that define an Azure Deployment Manager step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentTargetId":
+            suggest = "deployment_target_id"
+        elif key == "dependsOnStepGroups":
+            suggest = "depends_on_step_groups"
+        elif key == "postDeploymentSteps":
+            suggest = "post_deployment_steps"
+        elif key == "preDeploymentSteps":
+            suggest = "pre_deployment_steps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StepResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  deployment_target_id: str,
                  name: str,
@@ -722,8 +807,8 @@ class StepResponse(dict):
         :param str deployment_target_id: The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
         :param str name: The name of the step group.
         :param Sequence[str] depends_on_step_groups: The list of step group names on which this step group depends on.
-        :param Sequence['PrePostStepResponseArgs'] post_deployment_steps: The list of steps to be run after deploying the target.
-        :param Sequence['PrePostStepResponseArgs'] pre_deployment_steps: The list of steps to be run before deploying the target.
+        :param Sequence['PrePostStepResponse'] post_deployment_steps: The list of steps to be run after deploying the target.
+        :param Sequence['PrePostStepResponse'] pre_deployment_steps: The list of steps to be run before deploying the target.
         """
         pulumi.set(__self__, "deployment_target_id", deployment_target_id)
         pulumi.set(__self__, "name", name)
@@ -774,9 +859,6 @@ class StepResponse(dict):
         """
         return pulumi.get(self, "pre_deployment_steps")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WaitStepAttributesResponse(dict):
@@ -799,15 +881,29 @@ class WaitStepAttributesResponse(dict):
         """
         return pulumi.get(self, "duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WaitStepPropertiesResponse(dict):
     """
     Defines the properties of a Wait step.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stepType":
+            suggest = "step_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WaitStepPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WaitStepPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WaitStepPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  step_type: str,
                  attributes: Optional['outputs.WaitStepAttributesResponse'] = None):
@@ -815,7 +911,7 @@ class WaitStepPropertiesResponse(dict):
         Defines the properties of a Wait step.
         :param str step_type: The type of step.
                Expected value is 'Wait'.
-        :param 'WaitStepAttributesResponseArgs' attributes: The Wait attributes
+        :param 'WaitStepAttributesResponse' attributes: The Wait attributes
         """
         pulumi.set(__self__, "step_type", 'Wait')
         if attributes is not None:
@@ -837,8 +933,5 @@ class WaitStepPropertiesResponse(dict):
         The Wait attributes
         """
         return pulumi.get(self, "attributes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

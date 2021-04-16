@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -226,9 +226,7 @@ class Backend(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Backend details.
 
@@ -283,15 +281,7 @@ class Backend(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,30 +291,30 @@ class Backend(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BackendArgs.__new__(BackendArgs)
 
-            __props__['backend_id'] = backend_id
-            __props__['credentials'] = credentials
-            __props__['description'] = description
-            __props__['properties'] = properties
+            __props__.__dict__["backend_id"] = backend_id
+            __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["description"] = description
+            __props__.__dict__["properties"] = properties
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
-            __props__['protocol'] = protocol
-            __props__['proxy'] = proxy
+            __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_id'] = resource_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_id"] = resource_id
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
-            __props__['title'] = title
-            __props__['tls'] = tls
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["title"] = title
+            __props__.__dict__["tls"] = tls
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
-            __props__['url'] = url
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["url"] = url
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:Backend"), pulumi.Alias(type_="azure-native:apimanagement:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20160707:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20161010:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20170301:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180101:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Backend"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:Backend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backend, __self__).__init__(
@@ -347,19 +337,19 @@ class Backend(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BackendArgs.__new__(BackendArgs)
 
-        __props__["credentials"] = None
-        __props__["description"] = None
-        __props__["name"] = None
-        __props__["properties"] = None
-        __props__["protocol"] = None
-        __props__["proxy"] = None
-        __props__["resource_id"] = None
-        __props__["title"] = None
-        __props__["tls"] = None
-        __props__["type"] = None
-        __props__["url"] = None
+        __props__.__dict__["credentials"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["protocol"] = None
+        __props__.__dict__["proxy"] = None
+        __props__.__dict__["resource_id"] = None
+        __props__.__dict__["title"] = None
+        __props__.__dict__["tls"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["url"] = None
         return Backend(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -449,10 +439,4 @@ class Backend(pulumi.CustomResource):
         Runtime Url of the Backend.
         """
         return pulumi.get(self, "url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

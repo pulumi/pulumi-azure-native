@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -39,7 +39,7 @@ class GetPredictionTrainingResultsResult:
 
     @property
     @pulumi.getter(name="canonicalProfiles")
-    def canonical_profiles(self) -> Sequence['outputs.CanonicalProfileDefinitionResponseResult']:
+    def canonical_profiles(self) -> Sequence['outputs.CanonicalProfileDefinitionResponse']:
         """
         Canonical profiles.
         """
@@ -47,7 +47,7 @@ class GetPredictionTrainingResultsResult:
 
     @property
     @pulumi.getter(name="predictionDistribution")
-    def prediction_distribution(self) -> 'outputs.PredictionDistributionDefinitionResponseResult':
+    def prediction_distribution(self) -> 'outputs.PredictionDistributionDefinitionResponse':
         """
         Prediction distribution.
         """

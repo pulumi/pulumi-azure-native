@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -20,14 +20,31 @@ __all__ = [
 
 @pulumi.output_type
 class PolicyAssignmentPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleDefinition":
+            suggest = "role_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  policy: Optional['outputs.PolicyAssignmentPropertiesResponsePolicy'] = None,
                  role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
                  scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None):
         """
-        :param 'PolicyAssignmentPropertiesResponsePolicyArgs' policy: Details of the policy
-        :param 'PolicyAssignmentPropertiesResponseRoleDefinitionArgs' role_definition: Details of role definition
-        :param 'PolicyAssignmentPropertiesResponseScopeArgs' scope: Details of the resource scope
+        :param 'PolicyAssignmentPropertiesResponsePolicy' policy: Details of the policy
+        :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
+        :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -60,22 +77,38 @@ class PolicyAssignmentPropertiesResponse(dict):
         """
         return pulumi.get(self, "scope")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyAssignmentPropertiesResponsePolicy(dict):
     """
     Details of the policy
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedDateTime":
+            suggest = "last_modified_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponsePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyAssignmentPropertiesResponsePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyAssignmentPropertiesResponsePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_modified_by: 'outputs.PrincipalResponse',
                  id: Optional[str] = None,
                  last_modified_date_time: Optional[str] = None):
         """
         Details of the policy
-        :param 'PrincipalResponseArgs' last_modified_by: The name of the entity last modified it
+        :param 'PrincipalResponse' last_modified_by: The name of the entity last modified it
         :param str id: Id of the policy
         :param str last_modified_date_time: The last modified date time.
         """
@@ -109,15 +142,29 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
         """
         return pulumi.get(self, "last_modified_date_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
     """
     Details of role definition
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponseRoleDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyAssignmentPropertiesResponseRoleDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyAssignmentPropertiesResponseRoleDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  id: Optional[str] = None,
@@ -159,15 +206,29 @@ class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyAssignmentPropertiesResponseScope(dict):
     """
     Details of the resource scope
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyAssignmentPropertiesResponseScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyAssignmentPropertiesResponseScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyAssignmentPropertiesResponseScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  id: Optional[str] = None,
@@ -209,15 +270,29 @@ class PolicyAssignmentPropertiesResponseScope(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrincipalResponse(dict):
     """
     The name of the entity last modified it
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  email: Optional[str] = None,
@@ -270,8 +345,5 @@ class PrincipalResponse(dict):
         Type of principal such as user , group etc
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

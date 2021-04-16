@@ -253,7 +253,7 @@ export interface ManagedInstanceArgs {
     /**
      * The Azure Active Directory administrator of the server.
      */
-    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ManagedInstanceExternalAdministrator>;
+    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ManagedInstanceExternalAdministratorArgs>;
     /**
      * Collation of the managed instance.
      */
@@ -265,7 +265,7 @@ export interface ManagedInstanceArgs {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentities>;
+    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentitiesArgs>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
@@ -325,7 +325,7 @@ export interface ManagedInstanceArgs {
     /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20201101preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.v20201101preview.SkuArgs>;
     /**
      * The resource identifier of the source managed instance associated with create operation of this instance.
      */

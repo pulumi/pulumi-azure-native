@@ -134,11 +134,11 @@ export interface WebAppBackupConfigurationSlotArgs {
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    readonly backupSchedule?: pulumi.Input<inputs.web.v20160801.BackupSchedule>;
+    readonly backupSchedule?: pulumi.Input<inputs.web.v20160801.BackupScheduleArgs>;
     /**
      * Databases included in the backup.
      */
-    readonly databases?: pulumi.Input<pulumi.Input<inputs.web.v20160801.DatabaseBackupSetting>[]>;
+    readonly databases?: pulumi.Input<pulumi.Input<inputs.web.v20160801.DatabaseBackupSettingArgs>[]>;
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */

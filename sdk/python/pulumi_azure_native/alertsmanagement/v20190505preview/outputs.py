@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -26,6 +26,31 @@ class ActionGroupResponse(dict):
     """
     Action rule with action group configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_group_id: str,
                  created_at: str,
@@ -46,9 +71,9 @@ class ActionGroupResponse(dict):
         :param str last_modified_by: Last modified by user name.
         :param str type: Indicates type of action rule
                Expected value is 'ActionGroup'.
-        :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
+        :param 'ConditionsResponse' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: scope on which action rule will apply
+        :param 'ScopeResponse' scope: scope on which action rule will apply
         :param str status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
@@ -147,9 +172,6 @@ class ActionGroupResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConditionResponse(dict):
@@ -185,15 +207,37 @@ class ConditionResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConditionsResponse(dict):
     """
     Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertContext":
+            suggest = "alert_context"
+        elif key == "alertRuleId":
+            suggest = "alert_rule_id"
+        elif key == "monitorCondition":
+            suggest = "monitor_condition"
+        elif key == "monitorService":
+            suggest = "monitor_service"
+        elif key == "targetResourceType":
+            suggest = "target_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_context: Optional['outputs.ConditionResponse'] = None,
                  alert_rule_id: Optional['outputs.ConditionResponse'] = None,
@@ -204,13 +248,13 @@ class ConditionsResponse(dict):
                  target_resource_type: Optional['outputs.ConditionResponse'] = None):
         """
         Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-        :param 'ConditionResponseArgs' alert_context: filter alerts by alert context (payload)
-        :param 'ConditionResponseArgs' alert_rule_id: filter alerts by alert rule id
-        :param 'ConditionResponseArgs' description: filter alerts by alert rule description
-        :param 'ConditionResponseArgs' monitor_condition: filter alerts by monitor condition
-        :param 'ConditionResponseArgs' monitor_service: filter alerts by monitor service
-        :param 'ConditionResponseArgs' severity: filter alerts by severity
-        :param 'ConditionResponseArgs' target_resource_type: filter alerts by target resource type
+        :param 'ConditionResponse' alert_context: filter alerts by alert context (payload)
+        :param 'ConditionResponse' alert_rule_id: filter alerts by alert rule id
+        :param 'ConditionResponse' description: filter alerts by alert rule description
+        :param 'ConditionResponse' monitor_condition: filter alerts by monitor condition
+        :param 'ConditionResponse' monitor_service: filter alerts by monitor service
+        :param 'ConditionResponse' severity: filter alerts by severity
+        :param 'ConditionResponse' target_resource_type: filter alerts by target resource type
         """
         if alert_context is not None:
             pulumi.set(__self__, "alert_context", alert_context)
@@ -283,15 +327,35 @@ class ConditionsResponse(dict):
         """
         return pulumi.get(self, "target_resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticsResponse(dict):
     """
     Action rule with diagnostics configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: str,
                  created_by: str,
@@ -310,9 +374,9 @@ class DiagnosticsResponse(dict):
         :param str last_modified_by: Last modified by user name.
         :param str type: Indicates type of action rule
                Expected value is 'Diagnostics'.
-        :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
+        :param 'ConditionsResponse' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: scope on which action rule will apply
+        :param 'ScopeResponse' scope: scope on which action rule will apply
         :param str status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "created_at", created_at)
@@ -402,15 +466,29 @@ class DiagnosticsResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScopeResponse(dict):
     """
     Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopeType":
+            suggest = "scope_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scope_type: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
@@ -440,22 +518,36 @@ class ScopeResponse(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SuppressionConfigResponse(dict):
     """
     Suppression logic for a given action rule
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurrenceType":
+            suggest = "recurrence_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SuppressionConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SuppressionConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SuppressionConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recurrence_type: str,
                  schedule: Optional['outputs.SuppressionScheduleResponse'] = None):
         """
         Suppression logic for a given action rule
         :param str recurrence_type: Specifies when the suppression should be applied
-        :param 'SuppressionScheduleResponseArgs' schedule: suppression schedule configuration
+        :param 'SuppressionScheduleResponse' schedule: suppression schedule configuration
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         if schedule is not None:
@@ -477,15 +569,37 @@ class SuppressionConfigResponse(dict):
         """
         return pulumi.get(self, "schedule")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SuppressionResponse(dict):
     """
     Action rule with suppression configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "suppressionConfig":
+            suggest = "suppression_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SuppressionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SuppressionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SuppressionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: str,
                  created_by: str,
@@ -503,12 +617,12 @@ class SuppressionResponse(dict):
         :param str created_by: Created by user name.
         :param str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
         :param str last_modified_by: Last modified by user name.
-        :param 'SuppressionConfigResponseArgs' suppression_config: suppression configuration for the action rule
+        :param 'SuppressionConfigResponse' suppression_config: suppression configuration for the action rule
         :param str type: Indicates type of action rule
                Expected value is 'Suppression'.
-        :param 'ConditionsResponseArgs' conditions: conditions on which alerts will be filtered
+        :param 'ConditionsResponse' conditions: conditions on which alerts will be filtered
         :param str description: Description of action rule
-        :param 'ScopeResponseArgs' scope: scope on which action rule will apply
+        :param 'ScopeResponse' scope: scope on which action rule will apply
         :param str status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "created_at", created_at)
@@ -607,15 +721,37 @@ class SuppressionResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SuppressionScheduleResponse(dict):
     """
     Schedule for a given suppression configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDate":
+            suggest = "end_date"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "recurrenceValues":
+            suggest = "recurrence_values"
+        elif key == "startDate":
+            suggest = "start_date"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SuppressionScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SuppressionScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SuppressionScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_date: Optional[str] = None,
                  end_time: Optional[str] = None,
@@ -680,8 +816,5 @@ class SuppressionScheduleResponse(dict):
         Start time for suppression
         """
         return pulumi.get(self, "start_time")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

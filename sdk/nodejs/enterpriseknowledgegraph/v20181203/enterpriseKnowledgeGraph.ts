@@ -110,7 +110,7 @@ export interface EnterpriseKnowledgeGraphArgs {
     /**
      * The set of properties specific to EnterpriseKnowledgeGraph resource
      */
-    readonly properties?: pulumi.Input<inputs.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraphProperties>;
+    readonly properties?: pulumi.Input<inputs.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraphPropertiesArgs>;
     /**
      * The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
      */
@@ -122,7 +122,7 @@ export interface EnterpriseKnowledgeGraphArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    readonly sku?: pulumi.Input<inputs.enterpriseknowledgegraph.v20181203.Sku>;
+    readonly sku?: pulumi.Input<inputs.enterpriseknowledgegraph.v20181203.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */

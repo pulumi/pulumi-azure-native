@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Details of the environment
         /// </summary>
-        public readonly Outputs.EnvironmentDetailsResponseResult Environment;
+        public readonly Outputs.EnvironmentDetailsResponse Environment;
 
         [OutputConstructor]
-        private GetGlobalUserEnvironmentResult(Outputs.EnvironmentDetailsResponseResult environment)
+        private GetGlobalUserEnvironmentResult(Outputs.EnvironmentDetailsResponse environment)
         {
             Environment = environment;
         }

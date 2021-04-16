@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -24,6 +24,25 @@ class AclResponse(dict):
     """
     Access Control List (ACL) for an iSCSI target portal group
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initiatorIqn":
+            suggest = "initiator_iqn"
+        elif key == "mappedLuns":
+            suggest = "mapped_luns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AclResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AclResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AclResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  initiator_iqn: str,
                  mapped_luns: Sequence[str],
@@ -73,15 +92,29 @@ class AclResponse(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AttributesResponse(dict):
     """
     Attributes of a iSCSI target portal group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prodModeWriteProtect":
+            suggest = "prod_mode_write_protect"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttributesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttributesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttributesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  authentication: bool,
                  prod_mode_write_protect: bool):
@@ -109,9 +142,6 @@ class AttributesResponse(dict):
         """
         return pulumi.get(self, "prod_mode_write_protect")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskResponse(dict):
@@ -134,15 +164,29 @@ class DiskResponse(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IscsiLunResponse(dict):
     """
     LUN to expose the Azure Managed Disk.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedDiskAzureResourceId":
+            suggest = "managed_disk_azure_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IscsiLunResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IscsiLunResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IscsiLunResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_disk_azure_resource_id: str,
                  name: str):
@@ -170,15 +214,39 @@ class IscsiLunResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemMetadataResponse(dict):
     """
     Resource metadata required by ARM RPC.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -256,9 +324,6 @@ class SystemMetadataResponse(dict):
         """
         return pulumi.get(self, "last_modified_by_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TargetPortalGroupResponse(dict):
@@ -274,10 +339,10 @@ class TargetPortalGroupResponse(dict):
                  tag: int):
         """
         Response properties for iSCSI target portal group.
-        :param Sequence['AclResponseArgs'] acls: Access Control List (ACL) for an iSCSI target portal group.
-        :param 'AttributesResponseArgs' attributes: Attributes of an iSCSI target portal group.
+        :param Sequence['AclResponse'] acls: Access Control List (ACL) for an iSCSI target portal group.
+        :param 'AttributesResponse' attributes: Attributes of an iSCSI target portal group.
         :param Sequence[str] endpoints: List of private IPv4 addresses to connect to the iSCSI target.
-        :param Sequence['IscsiLunResponseArgs'] luns: List of LUNs to be exposed through iSCSI target portal group.
+        :param Sequence['IscsiLunResponse'] luns: List of LUNs to be exposed through iSCSI target portal group.
         :param int port: The port used by iSCSI target portal group.
         :param int tag: The tag associated with the iSCSI target portal group.
         """
@@ -335,8 +400,5 @@ class TargetPortalGroupResponse(dict):
         The tag associated with the iSCSI target portal group.
         """
         return pulumi.get(self, "tag")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

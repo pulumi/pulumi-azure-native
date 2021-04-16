@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -331,9 +331,7 @@ class Workspace(pulumi.CustomResource):
                  virtual_network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_repository_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A workspace
         API Version: 2021-03-01.
@@ -402,15 +400,7 @@ class Workspace(pulumi.CustomResource):
                  virtual_network_profile: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  workspace_repository_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -420,34 +410,34 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            __props__['connectivity_endpoints'] = connectivity_endpoints
-            __props__['default_data_lake_storage'] = default_data_lake_storage
-            __props__['encryption'] = encryption
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['managed_resource_group_name'] = managed_resource_group_name
-            __props__['managed_virtual_network'] = managed_virtual_network
-            __props__['managed_virtual_network_settings'] = managed_virtual_network_settings
-            __props__['private_endpoint_connections'] = private_endpoint_connections
-            __props__['public_network_access'] = public_network_access
-            __props__['purview_configuration'] = purview_configuration
+            __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
+            __props__.__dict__["default_data_lake_storage"] = default_data_lake_storage
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+            __props__.__dict__["managed_virtual_network"] = managed_virtual_network
+            __props__.__dict__["managed_virtual_network_settings"] = managed_virtual_network_settings
+            __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
+            __props__.__dict__["public_network_access"] = public_network_access
+            __props__.__dict__["purview_configuration"] = purview_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sql_administrator_login'] = sql_administrator_login
-            __props__['sql_administrator_login_password'] = sql_administrator_login_password
-            __props__['tags'] = tags
-            __props__['virtual_network_profile'] = virtual_network_profile
-            __props__['workspace_name'] = workspace_name
-            __props__['workspace_repository_configuration'] = workspace_repository_configuration
-            __props__['adla_resource_id'] = None
-            __props__['extra_properties'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
-            __props__['workspace_uid'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sql_administrator_login"] = sql_administrator_login
+            __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_profile"] = virtual_network_profile
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["workspace_repository_configuration"] = workspace_repository_configuration
+            __props__.__dict__["adla_resource_id"] = None
+            __props__.__dict__["extra_properties"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["workspace_uid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20201201:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20210301:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
@@ -470,30 +460,30 @@ class Workspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-        __props__["adla_resource_id"] = None
-        __props__["connectivity_endpoints"] = None
-        __props__["default_data_lake_storage"] = None
-        __props__["encryption"] = None
-        __props__["extra_properties"] = None
-        __props__["identity"] = None
-        __props__["location"] = None
-        __props__["managed_resource_group_name"] = None
-        __props__["managed_virtual_network"] = None
-        __props__["managed_virtual_network_settings"] = None
-        __props__["name"] = None
-        __props__["private_endpoint_connections"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_network_access"] = None
-        __props__["purview_configuration"] = None
-        __props__["sql_administrator_login"] = None
-        __props__["sql_administrator_login_password"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_network_profile"] = None
-        __props__["workspace_repository_configuration"] = None
-        __props__["workspace_uid"] = None
+        __props__.__dict__["adla_resource_id"] = None
+        __props__.__dict__["connectivity_endpoints"] = None
+        __props__.__dict__["default_data_lake_storage"] = None
+        __props__.__dict__["encryption"] = None
+        __props__.__dict__["extra_properties"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_resource_group_name"] = None
+        __props__.__dict__["managed_virtual_network"] = None
+        __props__.__dict__["managed_virtual_network_settings"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["purview_configuration"] = None
+        __props__.__dict__["sql_administrator_login"] = None
+        __props__.__dict__["sql_administrator_login_password"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_network_profile"] = None
+        __props__.__dict__["workspace_repository_configuration"] = None
+        __props__.__dict__["workspace_uid"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -671,10 +661,4 @@ class Workspace(pulumi.CustomResource):
         The workspace unique identifier
         """
         return pulumi.get(self, "workspace_uid")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

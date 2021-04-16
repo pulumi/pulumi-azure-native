@@ -206,15 +206,15 @@ export interface WorkspaceArgs {
     /**
      * Workspace default data lake storage account details
      */
-    readonly defaultDataLakeStorage?: pulumi.Input<inputs.synapse.v20210301.DataLakeStorageAccountDetails>;
+    readonly defaultDataLakeStorage?: pulumi.Input<inputs.synapse.v20210301.DataLakeStorageAccountDetailsArgs>;
     /**
      * The encryption details of the workspace
      */
-    readonly encryption?: pulumi.Input<inputs.synapse.v20210301.EncryptionDetails>;
+    readonly encryption?: pulumi.Input<inputs.synapse.v20210301.EncryptionDetailsArgs>;
     /**
      * Identity of the workspace
      */
-    readonly identity?: pulumi.Input<inputs.synapse.v20210301.ManagedIdentity>;
+    readonly identity?: pulumi.Input<inputs.synapse.v20210301.ManagedIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -230,11 +230,11 @@ export interface WorkspaceArgs {
     /**
      * Managed Virtual Network Settings
      */
-    readonly managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20210301.ManagedVirtualNetworkSettings>;
+    readonly managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20210301.ManagedVirtualNetworkSettingsArgs>;
     /**
      * Private endpoint connections to the workspace
      */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.PrivateEndpointConnection>[]>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.PrivateEndpointConnectionArgs>[]>;
     /**
      * Enable or Disable pubic network access to workspace
      */
@@ -242,7 +242,7 @@ export interface WorkspaceArgs {
     /**
      * Purview Configuration
      */
-    readonly purviewConfiguration?: pulumi.Input<inputs.synapse.v20210301.PurviewConfiguration>;
+    readonly purviewConfiguration?: pulumi.Input<inputs.synapse.v20210301.PurviewConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -262,7 +262,7 @@ export interface WorkspaceArgs {
     /**
      * Virtual Network profile
      */
-    readonly virtualNetworkProfile?: pulumi.Input<inputs.synapse.v20210301.VirtualNetworkProfile>;
+    readonly virtualNetworkProfile?: pulumi.Input<inputs.synapse.v20210301.VirtualNetworkProfileArgs>;
     /**
      * The name of the workspace
      */
@@ -270,5 +270,5 @@ export interface WorkspaceArgs {
     /**
      * Git integration settings
      */
-    readonly workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.v20210301.WorkspaceRepositoryConfiguration>;
+    readonly workspaceRepositoryConfiguration?: pulumi.Input<inputs.synapse.v20210301.WorkspaceRepositoryConfigurationArgs>;
 }

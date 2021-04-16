@@ -114,7 +114,7 @@ export interface ZoneArgs {
     /**
      * Gets or sets the properties of the zone.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20150504preview.ZoneProperties>;
+    readonly properties?: pulumi.Input<inputs.network.v20150504preview.ZonePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -144,9 +144,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The privateStore offer data structure.
 
@@ -191,15 +189,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
                  private_store_id: Optional[pulumi.Input[str]] = None,
                  specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -209,24 +199,24 @@ class PrivateStoreOffer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PrivateStoreOfferArgs.__new__(PrivateStoreOfferArgs)
 
-            __props__['e_tag'] = e_tag
-            __props__['icon_file_uris'] = icon_file_uris
-            __props__['offer_id'] = offer_id
-            __props__['plans'] = plans
+            __props__.__dict__["e_tag"] = e_tag
+            __props__.__dict__["icon_file_uris"] = icon_file_uris
+            __props__.__dict__["offer_id"] = offer_id
+            __props__.__dict__["plans"] = plans
             if private_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'private_store_id'")
-            __props__['private_store_id'] = private_store_id
-            __props__['specific_plan_ids_limitation'] = specific_plan_ids_limitation
-            __props__['update_suppressed_due_idempotence'] = update_suppressed_due_idempotence
-            __props__['created_at'] = None
-            __props__['modified_at'] = None
-            __props__['name'] = None
-            __props__['offer_display_name'] = None
-            __props__['publisher_display_name'] = None
-            __props__['type'] = None
-            __props__['unique_offer_id'] = None
+            __props__.__dict__["private_store_id"] = private_store_id
+            __props__.__dict__["specific_plan_ids_limitation"] = specific_plan_ids_limitation
+            __props__.__dict__["update_suppressed_due_idempotence"] = update_suppressed_due_idempotence
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["modified_at"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["offer_display_name"] = None
+            __props__.__dict__["publisher_display_name"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["unique_offer_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:marketplace/v20200101:PrivateStoreOffer"), pulumi.Alias(type_="azure-native:marketplace:PrivateStoreOffer"), pulumi.Alias(type_="azure-nextgen:marketplace:PrivateStoreOffer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateStoreOffer, __self__).__init__(
@@ -249,21 +239,21 @@ class PrivateStoreOffer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = PrivateStoreOfferArgs.__new__(PrivateStoreOfferArgs)
 
-        __props__["created_at"] = None
-        __props__["e_tag"] = None
-        __props__["icon_file_uris"] = None
-        __props__["modified_at"] = None
-        __props__["name"] = None
-        __props__["offer_display_name"] = None
-        __props__["plans"] = None
-        __props__["private_store_id"] = None
-        __props__["publisher_display_name"] = None
-        __props__["specific_plan_ids_limitation"] = None
-        __props__["type"] = None
-        __props__["unique_offer_id"] = None
-        __props__["update_suppressed_due_idempotence"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["e_tag"] = None
+        __props__.__dict__["icon_file_uris"] = None
+        __props__.__dict__["modified_at"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["offer_display_name"] = None
+        __props__.__dict__["plans"] = None
+        __props__.__dict__["private_store_id"] = None
+        __props__.__dict__["publisher_display_name"] = None
+        __props__.__dict__["specific_plan_ids_limitation"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["unique_offer_id"] = None
+        __props__.__dict__["update_suppressed_due_idempotence"] = None
         return PrivateStoreOffer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -369,10 +359,4 @@ class PrivateStoreOffer(pulumi.CustomResource):
         Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
         return pulumi.get(self, "update_suppressed_due_idempotence")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

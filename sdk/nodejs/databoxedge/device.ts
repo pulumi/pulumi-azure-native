@@ -233,7 +233,7 @@ export interface DeviceArgs {
     /**
      * Msi identity of the resource
      */
-    readonly identity?: pulumi.Input<inputs.databoxedge.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.databoxedge.ResourceIdentityArgs>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -245,7 +245,7 @@ export interface DeviceArgs {
     /**
      * The SKU type.
      */
-    readonly sku?: pulumi.Input<inputs.databoxedge.Sku>;
+    readonly sku?: pulumi.Input<inputs.databoxedge.SkuArgs>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */

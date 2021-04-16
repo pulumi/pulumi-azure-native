@@ -4,7 +4,7 @@ package openapi
 
 import (
 	"github.com/go-openapi/spec"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

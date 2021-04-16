@@ -4,7 +4,7 @@
 package blockchain
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Payload of the blockchain member which is exposed in the request/response of the resource provider.

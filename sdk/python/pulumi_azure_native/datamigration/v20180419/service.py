@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -176,9 +176,7 @@ class Service(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A Database Migration Service resource
 
@@ -227,15 +225,7 @@ class Service(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,24 +235,24 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceArgs.__new__(ServiceArgs)
 
-            __props__['etag'] = etag
+            __props__.__dict__["etag"] = etag
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
-            __props__['group_name'] = group_name
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['public_key'] = public_key
-            __props__['service_name'] = service_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
+            __props__.__dict__["group_name"] = group_name
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["public_key"] = public_key
+            __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
             if virtual_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_subnet_id'")
-            __props__['virtual_subnet_id'] = virtual_subnet_id
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['type'] = None
+            __props__.__dict__["virtual_subnet_id"] = virtual_subnet_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Service"), pulumi.Alias(type_="azure-native:datamigration:Service"), pulumi.Alias(type_="azure-nextgen:datamigration:Service"), pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Service"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
@@ -285,18 +275,18 @@ class Service(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServiceArgs.__new__(ServiceArgs)
 
-        __props__["etag"] = None
-        __props__["kind"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_key"] = None
-        __props__["sku"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["virtual_subnet_id"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_key"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_subnet_id"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -378,10 +368,4 @@ class Service(pulumi.CustomResource):
         The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
         return pulumi.get(self, "virtual_subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

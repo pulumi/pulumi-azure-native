@@ -110,7 +110,7 @@ export interface CassandraClusterArgs {
     /**
      * Identity for the resource.
      */
-    readonly identity?: pulumi.Input<inputs.documentdb.v20210301preview.ManagedServiceIdentity>;
+    readonly identity?: pulumi.Input<inputs.documentdb.v20210301preview.ManagedServiceIdentityArgs>;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -118,7 +118,7 @@ export interface CassandraClusterArgs {
     /**
      * Properties of a managed Cassandra cluster.
      */
-    readonly properties?: pulumi.Input<inputs.documentdb.v20210301preview.ClusterResourceProperties>;
+    readonly properties?: pulumi.Input<inputs.documentdb.v20210301preview.ClusterResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

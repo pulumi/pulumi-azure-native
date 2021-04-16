@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['RouteArgs', 'Route']
@@ -191,9 +191,7 @@ class Route(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Route resource
 
@@ -244,15 +242,7 @@ class Route(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,24 +252,24 @@ class Route(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RouteArgs.__new__(RouteArgs)
 
-            __props__['address_prefix'] = address_prefix
-            __props__['etag'] = etag
-            __props__['id'] = id
-            __props__['name'] = name
-            __props__['next_hop_ip_address'] = next_hop_ip_address
+            __props__.__dict__["address_prefix"] = address_prefix
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["id"] = id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["next_hop_ip_address"] = next_hop_ip_address
             if next_hop_type is None and not opts.urn:
                 raise TypeError("Missing required property 'next_hop_type'")
-            __props__['next_hop_type'] = next_hop_type
-            __props__['provisioning_state'] = provisioning_state
+            __props__.__dict__["next_hop_type"] = next_hop_type
+            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['route_name'] = route_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["route_name"] = route_name
             if route_table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_name'")
-            __props__['route_table_name'] = route_table_name
+            __props__.__dict__["route_table_name"] = route_table_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20170901:Route"), pulumi.Alias(type_="azure-native:network:Route"), pulumi.Alias(type_="azure-nextgen:network:Route"), pulumi.Alias(type_="azure-native:network/v20150501preview:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Route"), pulumi.Alias(type_="azure-native:network/v20150615:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Route"), pulumi.Alias(type_="azure-native:network/v20160330:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Route"), pulumi.Alias(type_="azure-native:network/v20160601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Route"), pulumi.Alias(type_="azure-native:network/v20160901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Route"), pulumi.Alias(type_="azure-native:network/v20161201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Route"), pulumi.Alias(type_="azure-native:network/v20170301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Route"), pulumi.Alias(type_="azure-native:network/v20170601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Route"), pulumi.Alias(type_="azure-native:network/v20170801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Route"), pulumi.Alias(type_="azure-native:network/v20171001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Route"), pulumi.Alias(type_="azure-native:network/v20171101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Route"), pulumi.Alias(type_="azure-native:network/v20180101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Route"), pulumi.Alias(type_="azure-native:network/v20180201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Route"), pulumi.Alias(type_="azure-native:network/v20180401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Route"), pulumi.Alias(type_="azure-native:network/v20180601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Route"), pulumi.Alias(type_="azure-native:network/v20180701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Route"), pulumi.Alias(type_="azure-native:network/v20180801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Route"), pulumi.Alias(type_="azure-native:network/v20181001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Route"), pulumi.Alias(type_="azure-native:network/v20181101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Route"), pulumi.Alias(type_="azure-native:network/v20181201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Route"), pulumi.Alias(type_="azure-native:network/v20190201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Route"), pulumi.Alias(type_="azure-native:network/v20190401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Route"), pulumi.Alias(type_="azure-native:network/v20190601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Route"), pulumi.Alias(type_="azure-native:network/v20190701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Route"), pulumi.Alias(type_="azure-native:network/v20190801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Route"), pulumi.Alias(type_="azure-native:network/v20190901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Route"), pulumi.Alias(type_="azure-native:network/v20191101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Route"), pulumi.Alias(type_="azure-native:network/v20191201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Route"), pulumi.Alias(type_="azure-native:network/v20200301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Route"), pulumi.Alias(type_="azure-native:network/v20200401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Route"), pulumi.Alias(type_="azure-native:network/v20200501:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Route"), pulumi.Alias(type_="azure-native:network/v20200601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Route"), pulumi.Alias(type_="azure-native:network/v20200701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Route"), pulumi.Alias(type_="azure-native:network/v20200801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200801:Route"), pulumi.Alias(type_="azure-native:network/v20201101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Route")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Route, __self__).__init__(
@@ -302,14 +292,14 @@ class Route(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = RouteArgs.__new__(RouteArgs)
 
-        __props__["address_prefix"] = None
-        __props__["etag"] = None
-        __props__["name"] = None
-        __props__["next_hop_ip_address"] = None
-        __props__["next_hop_type"] = None
-        __props__["provisioning_state"] = None
+        __props__.__dict__["address_prefix"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["next_hop_ip_address"] = None
+        __props__.__dict__["next_hop_type"] = None
+        __props__.__dict__["provisioning_state"] = None
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -359,10 +349,4 @@ class Route(pulumi.CustomResource):
         The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
         return pulumi.get(self, "provisioning_state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

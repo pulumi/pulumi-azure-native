@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -42,6 +42,31 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
     """
     Additional information about Azure File Share backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceState":
+            suggest = "resource_state"
+        elif key == "resourceStateSyncTime":
+            suggest = "resource_state_sync_time"
+        elif key == "oldestRecoveryPoint":
+            suggest = "oldest_recovery_point"
+        elif key == "policyState":
+            suggest = "policy_state"
+        elif key == "recoveryPointCount":
+            suggest = "recovery_point_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFileshareProtectedItemExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFileshareProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFileshareProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_state: str,
                  resource_state_sync_time: str,
@@ -105,15 +130,69 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "recovery_point_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureFileshareProtectedItemResponse(dict):
     """
     Azure File Share workload-specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFileshareProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFileshareProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFileshareProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -146,12 +225,12 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureFileshareProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'AzureFileshareProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of the fileshare represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -372,15 +451,79 @@ class AzureFileshareProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
     """
     IaaS VM workload-specific backup item representing the Classic Compute VM.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthDetails":
+            suggest = "health_details"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIaaSClassicComputeVMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIaaSClassicComputeVMProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIaaSClassicComputeVMProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -418,15 +561,15 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -699,15 +842,79 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureIaaSComputeVMProtectedItemResponse(dict):
     """
     IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthDetails":
+            suggest = "health_details"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIaaSComputeVMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIaaSComputeVMProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIaaSComputeVMProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -745,15 +952,15 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -1025,9 +1232,6 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1084,15 +1288,33 @@ class AzureIaaSVMHealthDetailsResponse(dict):
         """
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
     """
     Additional information on Azure IaaS VM specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oldestRecoveryPoint":
+            suggest = "oldest_recovery_point"
+        elif key == "policyInconsistent":
+            suggest = "policy_inconsistent"
+        elif key == "recoveryPointCount":
+            suggest = "recovery_point_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIaaSVMProtectedItemExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIaaSVMProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIaaSVMProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_inconsistent: Optional[bool] = None,
@@ -1134,15 +1356,79 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "recovery_point_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureIaaSVMProtectedItemResponse(dict):
     """
     IaaS VM workload-specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "extendedProperties":
+            suggest = "extended_properties"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthDetails":
+            suggest = "health_details"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureIaaSVMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureIaaSVMProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureIaaSVMProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -1180,15 +1466,15 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
-        :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
+        :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -1461,15 +1747,33 @@ class AzureIaaSVMProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlProtectedItemExtendedInfoResponse(dict):
     """
     Additional information on Azure Sql specific protected item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oldestRecoveryPoint":
+            suggest = "oldest_recovery_point"
+        elif key == "policyState":
+            suggest = "policy_state"
+        elif key == "recoveryPointCount":
+            suggest = "recovery_point_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlProtectedItemExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
@@ -1511,15 +1815,61 @@ class AzureSqlProtectedItemExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "recovery_point_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureSqlProtectedItemResponse(dict):
     """
     Azure SQL workload-specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSqlProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSqlProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSqlProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -1548,7 +1898,7 @@ class AzureSqlProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureSqlProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureSqlProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -1730,15 +2080,33 @@ class AzureSqlProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
     """
     Additional information on Azure Workload for SQL specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oldestRecoveryPoint":
+            suggest = "oldest_recovery_point"
+        elif key == "policyState":
+            suggest = "policy_state"
+        elif key == "recoveryPointCount":
+            suggest = "recovery_point_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadProtectedItemExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVmWorkloadProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVmWorkloadProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
@@ -1780,15 +2148,81 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "recovery_point_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureVmWorkloadProtectedItemResponse(dict):
     """
     Azure VM workload-specific protected item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupErrorDetail":
+            suggest = "last_backup_error_detail"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "parentName":
+            suggest = "parent_name"
+        elif key == "parentType":
+            suggest = "parent_type"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataSourceId":
+            suggest = "protected_item_data_source_id"
+        elif key == "protectedItemHealthStatus":
+            suggest = "protected_item_health_status"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVmWorkloadProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVmWorkloadProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -1827,13 +2261,13 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2119,15 +2553,81 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
     """
     Azure VM workload-specific protected item representing SAP ASE Database.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupErrorDetail":
+            suggest = "last_backup_error_detail"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "parentName":
+            suggest = "parent_name"
+        elif key == "parentType":
+            suggest = "parent_type"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataSourceId":
+            suggest = "protected_item_data_source_id"
+        elif key == "protectedItemHealthStatus":
+            suggest = "protected_item_health_status"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSAPAseDatabaseProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVmWorkloadSAPAseDatabaseProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVmWorkloadSAPAseDatabaseProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -2166,13 +2666,13 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2458,15 +2958,81 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
     """
     Azure VM workload-specific protected item representing SAP HANA Database.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupErrorDetail":
+            suggest = "last_backup_error_detail"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "parentName":
+            suggest = "parent_name"
+        elif key == "parentType":
+            suggest = "parent_type"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataSourceId":
+            suggest = "protected_item_data_source_id"
+        elif key == "protectedItemHealthStatus":
+            suggest = "protected_item_health_status"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -2505,13 +3071,13 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -2797,15 +3363,81 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
     """
     Azure VM workload-specific protected item representing SQL Database.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupErrorDetail":
+            suggest = "last_backup_error_detail"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "parentName":
+            suggest = "parent_name"
+        elif key == "parentType":
+            suggest = "parent_type"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectedItemDataSourceId":
+            suggest = "protected_item_data_source_id"
+        elif key == "protectedItemHealthStatus":
+            suggest = "protected_item_health_status"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSQLDatabaseProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVmWorkloadSQLDatabaseProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVmWorkloadSQLDatabaseProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -2844,13 +3476,13 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
-        :param Mapping[str, 'KPIResourceHealthDetailsResponseArgs'] kpis_healths: Health details of different KPIs
-        :param 'ErrorDetailResponseArgs' last_backup_error_detail: Error details in last backup
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
@@ -3136,15 +3768,53 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DPMProtectedItemExtendedInfoResponse(dict):
     """
     Additional information of DPM Protected item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskStorageUsedInBytes":
+            suggest = "disk_storage_used_in_bytes"
+        elif key == "isCollocated":
+            suggest = "is_collocated"
+        elif key == "isPresentOnCloud":
+            suggest = "is_present_on_cloud"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastRefreshedAt":
+            suggest = "last_refreshed_at"
+        elif key == "oldestRecoveryPoint":
+            suggest = "oldest_recovery_point"
+        elif key == "onPremiseLatestRecoveryPoint":
+            suggest = "on_premise_latest_recovery_point"
+        elif key == "onPremiseOldestRecoveryPoint":
+            suggest = "on_premise_oldest_recovery_point"
+        elif key == "onPremiseRecoveryPointCount":
+            suggest = "on_premise_recovery_point_count"
+        elif key == "protectableObjectLoadPath":
+            suggest = "protectable_object_load_path"
+        elif key == "protectionGroupName":
+            suggest = "protection_group_name"
+        elif key == "recoveryPointCount":
+            suggest = "recovery_point_count"
+        elif key == "totalDiskStorageSizeInBytes":
+            suggest = "total_disk_storage_size_in_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DPMProtectedItemExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DPMProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DPMProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_storage_used_in_bytes: Optional[str] = None,
                  is_collocated: Optional[bool] = None,
@@ -3318,15 +3988,63 @@ class DPMProtectedItemExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "total_disk_storage_size_in_bytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DPMProtectedItemResponse(dict):
     """
     Additional information on Backup engine specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupEngineName":
+            suggest = "backup_engine_name"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DPMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DPMProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DPMProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_engine_name: Optional[str] = None,
@@ -3357,7 +4075,7 @@ class DPMProtectedItemResponse(dict):
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'DPMProtectedItemExtendedInfoResponseArgs' extended_info: Extended info of the backup item.
+        :param 'DPMProtectedItemExtendedInfoResponse' extended_info: Extended info of the backup item.
         :param str friendly_name: Friendly name of the managed item
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -3549,12 +4267,28 @@ class DPMProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskExclusionPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskLunList":
+            suggest = "disk_lun_list"
+        elif key == "isInclusionList":
+            suggest = "is_inclusion_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskExclusionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskExclusionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskExclusionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_lun_list: Optional[Sequence[int]] = None,
                  is_inclusion_list: Optional[bool] = None):
@@ -3582,9 +4316,6 @@ class DiskExclusionPropertiesResponse(dict):
         Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
         return pulumi.get(self, "is_inclusion_list")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3630,20 +4361,34 @@ class ErrorDetailResponse(dict):
         """
         return pulumi.get(self, "recommendations")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExtendedPropertiesResponse(dict):
     """
     Extended Properties for Azure IaasVM Backup.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskExclusionProperties":
+            suggest = "disk_exclusion_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtendedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtendedPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtendedPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
         """
         Extended Properties for Azure IaasVM Backup.
-        :param 'DiskExclusionPropertiesResponseArgs' disk_exclusion_properties: Extended Properties for Disk Exclusion.
+        :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
         """
         if disk_exclusion_properties is not None:
             pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
@@ -3656,15 +4401,67 @@ class ExtendedPropertiesResponse(dict):
         """
         return pulumi.get(self, "disk_exclusion_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GenericProtectedItemResponse(dict):
     """
     Base class for backup items.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "fabricName":
+            suggest = "fabric_name"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "policyState":
+            suggest = "policy_state"
+        elif key == "protectedItemId":
+            suggest = "protected_item_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceAssociations":
+            suggest = "source_associations"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GenericProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GenericProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GenericProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -3911,21 +4708,37 @@ class GenericProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KPIResourceHealthDetailsResponse(dict):
     """
     KPI Resource Health Details
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceHealthDetails":
+            suggest = "resource_health_details"
+        elif key == "resourceHealthStatus":
+            suggest = "resource_health_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KPIResourceHealthDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KPIResourceHealthDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KPIResourceHealthDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_health_details: Optional[Sequence['outputs.ResourceHealthDetailsResponse']] = None,
                  resource_health_status: Optional[str] = None):
         """
         KPI Resource Health Details
-        :param Sequence['ResourceHealthDetailsResponseArgs'] resource_health_details: Resource Health Status
+        :param Sequence['ResourceHealthDetailsResponse'] resource_health_details: Resource Health Status
         :param str resource_health_status: Resource Health Status
         """
         if resource_health_details is not None:
@@ -3949,15 +4762,33 @@ class KPIResourceHealthDetailsResponse(dict):
         """
         return pulumi.get(self, "resource_health_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MabFileFolderProtectedItemExtendedInfoResponse(dict):
     """
     Additional information on the backed up item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastRefreshedAt":
+            suggest = "last_refreshed_at"
+        elif key == "oldestRecoveryPoint":
+            suggest = "oldest_recovery_point"
+        elif key == "recoveryPointCount":
+            suggest = "recovery_point_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MabFileFolderProtectedItemExtendedInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MabFileFolderProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MabFileFolderProtectedItemExtendedInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  last_refreshed_at: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
@@ -3999,15 +4830,69 @@ class MabFileFolderProtectedItemExtendedInfoResponse(dict):
         """
         return pulumi.get(self, "recovery_point_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MabFileFolderProtectedItemResponse(dict):
     """
     MAB workload-specific backup item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "computerName":
+            suggest = "computer_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteSyncTimeInUTC":
+            suggest = "deferred_delete_sync_time_in_utc"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MabFileFolderProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MabFileFolderProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MabFileFolderProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protected_item_type: str,
                  backup_management_type: Optional[str] = None,
@@ -4042,7 +4927,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
-        :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
+        :param 'MabFileFolderProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of this backup item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -4266,9 +5151,6 @@ class MabFileFolderProtectedItemResponse(dict):
         """
         return pulumi.get(self, "workload_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceHealthDetailsResponse(dict):
@@ -4323,8 +5205,5 @@ class ResourceHealthDetailsResponse(dict):
         Health Title
         """
         return pulumi.get(self, "title")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

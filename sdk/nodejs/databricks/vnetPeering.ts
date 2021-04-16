@@ -162,11 +162,11 @@ export interface VNetPeeringArgs {
     /**
      * The reference to the databricks virtual network address space.
      */
-    readonly databricksAddressSpace?: pulumi.Input<inputs.databricks.AddressSpace>;
+    readonly databricksAddressSpace?: pulumi.Input<inputs.databricks.AddressSpaceArgs>;
     /**
      *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    readonly databricksVirtualNetwork?: pulumi.Input<inputs.databricks.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork>;
+    readonly databricksVirtualNetwork?: pulumi.Input<inputs.databricks.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs>;
     /**
      * The name of the workspace vNet peering.
      */
@@ -174,11 +174,11 @@ export interface VNetPeeringArgs {
     /**
      * The reference to the remote virtual network address space.
      */
-    readonly remoteAddressSpace?: pulumi.Input<inputs.databricks.AddressSpace>;
+    readonly remoteAddressSpace?: pulumi.Input<inputs.databricks.AddressSpaceArgs>;
     /**
      *  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
      */
-    readonly remoteVirtualNetwork: pulumi.Input<inputs.databricks.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork>;
+    readonly remoteVirtualNetwork: pulumi.Input<inputs.databricks.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

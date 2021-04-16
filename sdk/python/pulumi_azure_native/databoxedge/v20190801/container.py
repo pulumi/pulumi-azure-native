@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -106,9 +106,7 @@ class Container(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
 
@@ -149,15 +147,7 @@ class Container(pulumi.CustomResource):
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,26 +157,26 @@ class Container(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ContainerArgs.__new__(ContainerArgs)
 
-            __props__['container_name'] = container_name
+            __props__.__dict__["container_name"] = container_name
             if data_format is None and not opts.urn:
                 raise TypeError("Missing required property 'data_format'")
-            __props__['data_format'] = data_format
+            __props__.__dict__["data_format"] = data_format
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
+            __props__.__dict__["device_name"] = device_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
-            __props__['storage_account_name'] = storage_account_name
-            __props__['container_status'] = None
-            __props__['created_date_time'] = None
-            __props__['name'] = None
-            __props__['refresh_details'] = None
-            __props__['type'] = None
+            __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["container_status"] = None
+            __props__.__dict__["created_date_time"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["refresh_details"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-native:databoxedge:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Container"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201preview:Container")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Container, __self__).__init__(
@@ -209,14 +199,14 @@ class Container(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ContainerArgs.__new__(ContainerArgs)
 
-        __props__["container_status"] = None
-        __props__["created_date_time"] = None
-        __props__["data_format"] = None
-        __props__["name"] = None
-        __props__["refresh_details"] = None
-        __props__["type"] = None
+        __props__.__dict__["container_status"] = None
+        __props__.__dict__["created_date_time"] = None
+        __props__.__dict__["data_format"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["refresh_details"] = None
+        __props__.__dict__["type"] = None
         return Container(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -266,10 +256,4 @@ class Container(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

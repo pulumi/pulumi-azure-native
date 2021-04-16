@@ -38,13 +38,13 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// Gets the list of bot service providers and their properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceProviderResponseResult> Value;
+        public readonly ImmutableArray<Outputs.ServiceProviderResponse> Value;
 
         [OutputConstructor]
         private ListBotConnectionServiceProvidersResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.ServiceProviderResponseResult> value)
+            ImmutableArray<Outputs.ServiceProviderResponse> value)
         {
             NextLink = nextLink;
             Value = value;

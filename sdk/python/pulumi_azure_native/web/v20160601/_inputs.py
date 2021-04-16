@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -22,7 +22,7 @@ __all__ = [
     'ConnectionGatewayReferenceArgs',
     'ConnectionParameterArgs',
     'ConnectionStatusDefinitionArgs',
-    'ConsentLinkParameterDefinitionArgs',
+    'ConsentLinkParameterDefinition',
     'CustomApiPropertiesDefinitionArgs',
     'WsdlDefinitionArgs',
     'WsdlServiceArgs',
@@ -966,7 +966,7 @@ class ConnectionStatusDefinitionArgs:
 
 
 @pulumi.input_type
-class ConsentLinkParameterDefinitionArgs:
+class ConsentLinkParameterDefinition:
     def __init__(__self__, *,
                  object_id: Optional[str] = None,
                  parameter_name: Optional[str] = None,

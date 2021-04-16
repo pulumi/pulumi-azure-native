@@ -85,13 +85,13 @@ namespace Pulumi.AzureNative.BatchAI.V20180501
         /// <summary>
         /// The collection of returned job directories and files.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FileResponseResult> Value;
+        public readonly ImmutableArray<Outputs.FileResponse> Value;
 
         [OutputConstructor]
         private ListJobOutputFilesResult(
             string nextLink,
 
-            ImmutableArray<Outputs.FileResponseResult> value)
+            ImmutableArray<Outputs.FileResponse> value)
         {
             NextLink = nextLink;
             Value = value;

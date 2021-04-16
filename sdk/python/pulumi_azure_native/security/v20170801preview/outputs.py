@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -23,6 +23,31 @@ class AllowlistCustomAlertRuleResponse(dict):
     """
     A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowlistValues":
+            suggest = "allowlist_values"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "valueType":
+            suggest = "value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowlistCustomAlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowlistCustomAlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowlistCustomAlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowlist_values: Sequence[str],
                  description: str,
@@ -96,15 +121,37 @@ class AllowlistCustomAlertRuleResponse(dict):
         """
         return pulumi.get(self, "value_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DenylistCustomAlertRuleResponse(dict):
     """
     A custom alert rule that checks if a value (depends on the custom alert type) is denied.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "denylistValues":
+            suggest = "denylist_values"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "valueType":
+            suggest = "value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DenylistCustomAlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DenylistCustomAlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DenylistCustomAlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  denylist_values: Sequence[str],
                  description: str,
@@ -178,15 +225,29 @@ class DenylistCustomAlertRuleResponse(dict):
         """
         return pulumi.get(self, "value_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RecommendationConfigurationPropertiesResponse(dict):
     """
     Recommendation configuration
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recommendationType":
+            suggest = "recommendation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendationConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendationConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendationConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  recommendation_type: str,
@@ -223,15 +284,37 @@ class RecommendationConfigurationPropertiesResponse(dict):
         """
         return pulumi.get(self, "status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ThresholdCustomAlertRuleResponse(dict):
     """
     A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "maxThreshold":
+            suggest = "max_threshold"
+        elif key == "minThreshold":
+            suggest = "min_threshold"
+        elif key == "ruleType":
+            suggest = "rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThresholdCustomAlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThresholdCustomAlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThresholdCustomAlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: str,
                  display_name: str,
@@ -305,15 +388,39 @@ class ThresholdCustomAlertRuleResponse(dict):
         """
         return pulumi.get(self, "rule_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeWindowCustomAlertRuleResponse(dict):
     """
     A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "maxThreshold":
+            suggest = "max_threshold"
+        elif key == "minThreshold":
+            suggest = "min_threshold"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "timeWindowSize":
+            suggest = "time_window_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeWindowCustomAlertRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeWindowCustomAlertRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeWindowCustomAlertRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: str,
                  display_name: str,
@@ -398,15 +505,29 @@ class TimeWindowCustomAlertRuleResponse(dict):
         """
         return pulumi.get(self, "time_window_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserDefinedResourcesPropertiesResponse(dict):
     """
     Properties of the solution's user defined resources.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "querySubscriptions":
+            suggest = "query_subscriptions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserDefinedResourcesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserDefinedResourcesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserDefinedResourcesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  query_subscriptions: Sequence[str]):
@@ -433,8 +554,5 @@ class UserDefinedResourcesPropertiesResponse(dict):
         List of Azure subscription ids on which the user defined resources query should be executed.
         """
         return pulumi.get(self, "query_subscriptions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

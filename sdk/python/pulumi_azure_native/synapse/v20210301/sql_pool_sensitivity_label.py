@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['SqlPoolSensitivityLabelArgs', 'SqlPoolSensitivityLabel']
@@ -218,9 +218,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A sensitivity label.
 
@@ -274,15 +272,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,36 +282,36 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SqlPoolSensitivityLabelArgs.__new__(SqlPoolSensitivityLabelArgs)
 
             if column_name is None and not opts.urn:
                 raise TypeError("Missing required property 'column_name'")
-            __props__['column_name'] = column_name
-            __props__['information_type'] = information_type
-            __props__['information_type_id'] = information_type_id
-            __props__['label_id'] = label_id
-            __props__['label_name'] = label_name
-            __props__['rank'] = rank
+            __props__.__dict__["column_name"] = column_name
+            __props__.__dict__["information_type"] = information_type
+            __props__.__dict__["information_type_id"] = information_type_id
+            __props__.__dict__["label_id"] = label_id
+            __props__.__dict__["label_name"] = label_name
+            __props__.__dict__["rank"] = rank
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
-            __props__['schema_name'] = schema_name
-            __props__['sensitivity_label_source'] = sensitivity_label_source
+            __props__.__dict__["schema_name"] = schema_name
+            __props__.__dict__["sensitivity_label_source"] = sensitivity_label_source
             if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
-            __props__['sql_pool_name'] = sql_pool_name
+            __props__.__dict__["sql_pool_name"] = sql_pool_name
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
-            __props__['table_name'] = table_name
+            __props__.__dict__["table_name"] = table_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['is_disabled'] = None
-            __props__['managed_by'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["is_disabled"] = None
+            __props__.__dict__["managed_by"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-native:synapse:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-nextgen:synapse:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPoolSensitivityLabel"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPoolSensitivityLabel, __self__).__init__(
@@ -344,20 +334,20 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SqlPoolSensitivityLabelArgs.__new__(SqlPoolSensitivityLabelArgs)
 
-        __props__["column_name"] = None
-        __props__["information_type"] = None
-        __props__["information_type_id"] = None
-        __props__["is_disabled"] = None
-        __props__["label_id"] = None
-        __props__["label_name"] = None
-        __props__["managed_by"] = None
-        __props__["name"] = None
-        __props__["rank"] = None
-        __props__["schema_name"] = None
-        __props__["table_name"] = None
-        __props__["type"] = None
+        __props__.__dict__["column_name"] = None
+        __props__.__dict__["information_type"] = None
+        __props__.__dict__["information_type_id"] = None
+        __props__.__dict__["is_disabled"] = None
+        __props__.__dict__["label_id"] = None
+        __props__.__dict__["label_name"] = None
+        __props__.__dict__["managed_by"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["rank"] = None
+        __props__.__dict__["schema_name"] = None
+        __props__.__dict__["table_name"] = None
+        __props__.__dict__["type"] = None
         return SqlPoolSensitivityLabel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -452,10 +442,4 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

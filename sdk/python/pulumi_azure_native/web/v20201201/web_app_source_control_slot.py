@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -209,9 +209,7 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Source control configuration for an app.
 
@@ -264,15 +262,7 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  slot: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,26 +272,26 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WebAppSourceControlSlotArgs.__new__(WebAppSourceControlSlotArgs)
 
-            __props__['branch'] = branch
-            __props__['deployment_rollback_enabled'] = deployment_rollback_enabled
-            __props__['git_hub_action_configuration'] = git_hub_action_configuration
-            __props__['is_git_hub_action'] = is_git_hub_action
-            __props__['is_manual_integration'] = is_manual_integration
-            __props__['is_mercurial'] = is_mercurial
-            __props__['kind'] = kind
+            __props__.__dict__["branch"] = branch
+            __props__.__dict__["deployment_rollback_enabled"] = deployment_rollback_enabled
+            __props__.__dict__["git_hub_action_configuration"] = git_hub_action_configuration
+            __props__.__dict__["is_git_hub_action"] = is_git_hub_action
+            __props__.__dict__["is_manual_integration"] = is_manual_integration
+            __props__.__dict__["is_mercurial"] = is_mercurial
+            __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['repo_url'] = repo_url
+            __props__.__dict__["name"] = name
+            __props__.__dict__["repo_url"] = repo_url
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
-            __props__['type'] = None
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSourceControlSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSourceControlSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSourceControlSlot, __self__).__init__(
@@ -324,18 +314,18 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = WebAppSourceControlSlotArgs.__new__(WebAppSourceControlSlotArgs)
 
-        __props__["branch"] = None
-        __props__["deployment_rollback_enabled"] = None
-        __props__["git_hub_action_configuration"] = None
-        __props__["is_git_hub_action"] = None
-        __props__["is_manual_integration"] = None
-        __props__["is_mercurial"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["repo_url"] = None
-        __props__["type"] = None
+        __props__.__dict__["branch"] = None
+        __props__.__dict__["deployment_rollback_enabled"] = None
+        __props__.__dict__["git_hub_action_configuration"] = None
+        __props__.__dict__["is_git_hub_action"] = None
+        __props__.__dict__["is_manual_integration"] = None
+        __props__.__dict__["is_mercurial"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["repo_url"] = None
+        __props__.__dict__["type"] = None
         return WebAppSourceControlSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -417,10 +407,4 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

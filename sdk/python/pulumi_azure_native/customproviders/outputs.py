@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from ._enums import *
 
 __all__ = [
@@ -20,6 +20,23 @@ class CustomRPActionRouteDefinitionResponse(dict):
     """
     The route definition for an action implemented by the custom resource provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routingType":
+            suggest = "routing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRPActionRouteDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRPActionRouteDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRPActionRouteDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  name: str,
@@ -59,15 +76,29 @@ class CustomRPActionRouteDefinitionResponse(dict):
         """
         return pulumi.get(self, "routing_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRPResourceTypeRouteDefinitionResponse(dict):
     """
     The route definition for a resource implemented by the custom resource provider.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routingType":
+            suggest = "routing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRPResourceTypeRouteDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRPResourceTypeRouteDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRPResourceTypeRouteDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  name: str,
@@ -107,15 +138,29 @@ class CustomRPResourceTypeRouteDefinitionResponse(dict):
         """
         return pulumi.get(self, "routing_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomRPValidationsResponse(dict):
     """
     A validation to apply on custom resource provider requests.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validationType":
+            suggest = "validation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomRPValidationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomRPValidationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomRPValidationsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  specification: str,
                  validation_type: Optional[str] = None):
@@ -143,8 +188,5 @@ class CustomRPValidationsResponse(dict):
         The type of validation to run against a matching request.
         """
         return pulumi.get(self, "validation_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

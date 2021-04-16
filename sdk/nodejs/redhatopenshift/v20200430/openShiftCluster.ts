@@ -148,19 +148,19 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster API server profile.
      */
-    readonly apiserverProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.APIServerProfile>;
+    readonly apiserverProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.APIServerProfileArgs>;
     /**
      * The cluster profile.
      */
-    readonly clusterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ClusterProfile>;
+    readonly clusterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ClusterProfileArgs>;
     /**
      * The console profile.
      */
-    readonly consoleProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ConsoleProfile>;
+    readonly consoleProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ConsoleProfileArgs>;
     /**
      * The cluster ingress profiles.
      */
-    readonly ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.v20200430.IngressProfile>[]>;
+    readonly ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.v20200430.IngressProfileArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -168,11 +168,11 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster master profile.
      */
-    readonly masterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.MasterProfile>;
+    readonly masterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.MasterProfileArgs>;
     /**
      * The cluster network profile.
      */
-    readonly networkProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.NetworkProfile>;
+    readonly networkProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.NetworkProfileArgs>;
     /**
      * The cluster provisioning state (immutable).
      */
@@ -188,7 +188,7 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster service principal profile.
      */
-    readonly servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ServicePrincipalProfile>;
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ServicePrincipalProfileArgs>;
     /**
      * Resource tags.
      */
@@ -196,5 +196,5 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster worker profiles.
      */
-    readonly workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.v20200430.WorkerProfile>[]>;
+    readonly workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.v20200430.WorkerProfileArgs>[]>;
 }

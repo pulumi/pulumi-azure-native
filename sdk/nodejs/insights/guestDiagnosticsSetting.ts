@@ -110,7 +110,7 @@ export interface GuestDiagnosticsSettingArgs {
     /**
      * the array of data source object which are configured to collect and send data
      */
-    readonly dataSources?: pulumi.Input<pulumi.Input<inputs.insights.DataSource>[]>;
+    readonly dataSources?: pulumi.Input<pulumi.Input<inputs.insights.DataSourceArgs>[]>;
     /**
      * The name of the diagnostic setting.
      */

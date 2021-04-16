@@ -201,7 +201,7 @@ export interface EndpointArgs {
     /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.v20190615preview.EndpointPropertiesUpdateParametersDeliveryPolicy>;
+    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.v20190615preview.EndpointPropertiesUpdateParametersDeliveryPolicyArgs>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
@@ -209,7 +209,7 @@ export interface EndpointArgs {
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
-    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.v20190615preview.GeoFilter>[]>;
+    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.v20190615preview.GeoFilterArgs>[]>;
     /**
      * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
      */
@@ -241,7 +241,7 @@ export interface EndpointArgs {
     /**
      * The source of the content being delivered via CDN.
      */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20190615preview.DeepCreatedOrigin>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20190615preview.DeepCreatedOriginArgs>[]>;
     /**
      * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
      */
@@ -265,5 +265,5 @@ export interface EndpointArgs {
     /**
      * Defines the Web Application Firewall policy for the endpoint (if applicable)
      */
-    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.v20190615preview.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink>;
+    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.v20190615preview.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs>;
 }

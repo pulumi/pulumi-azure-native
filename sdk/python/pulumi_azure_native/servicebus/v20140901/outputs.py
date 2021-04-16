@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -19,6 +19,31 @@ class MessageCountDetailsResponse(dict):
     """
     Message Count Details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeMessageCount":
+            suggest = "active_message_count"
+        elif key == "deadLetterMessageCount":
+            suggest = "dead_letter_message_count"
+        elif key == "scheduledMessageCount":
+            suggest = "scheduled_message_count"
+        elif key == "transferDeadLetterMessageCount":
+            suggest = "transfer_dead_letter_message_count"
+        elif key == "transferMessageCount":
+            suggest = "transfer_message_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MessageCountDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MessageCountDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MessageCountDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_message_count: float,
                  dead_letter_message_count: float,
@@ -79,9 +104,6 @@ class MessageCountDetailsResponse(dict):
         """
         return pulumi.get(self, "transfer_message_count")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SkuResponse(dict):
@@ -127,8 +149,5 @@ class SkuResponse(dict):
         Name of this SKU.
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

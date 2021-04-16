@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 
@@ -319,9 +319,7 @@ class Component(pulumi.CustomResource):
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An Application Insights component definition.
 
@@ -386,15 +384,7 @@ class Component(pulumi.CustomResource):
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -404,52 +394,52 @@ class Component(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ComponentArgs.__new__(ComponentArgs)
 
             if application_type is None:
                 application_type = 'web'
             if application_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type'")
-            __props__['application_type'] = application_type
-            __props__['disable_ip_masking'] = disable_ip_masking
-            __props__['etag'] = etag
+            __props__.__dict__["application_type"] = application_type
+            __props__.__dict__["disable_ip_masking"] = disable_ip_masking
+            __props__.__dict__["etag"] = etag
             if flow_type is None:
                 flow_type = 'Bluefield'
-            __props__['flow_type'] = flow_type
-            __props__['hockey_app_id'] = hockey_app_id
-            __props__['immediate_purge_data_on30_days'] = immediate_purge_data_on30_days
+            __props__.__dict__["flow_type"] = flow_type
+            __props__.__dict__["hockey_app_id"] = hockey_app_id
+            __props__.__dict__["immediate_purge_data_on30_days"] = immediate_purge_data_on30_days
             if ingestion_mode is None:
                 ingestion_mode = 'LogAnalytics'
-            __props__['ingestion_mode'] = ingestion_mode
+            __props__.__dict__["ingestion_mode"] = ingestion_mode
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion
-            __props__['public_network_access_for_query'] = public_network_access_for_query
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["public_network_access_for_ingestion"] = public_network_access_for_ingestion
+            __props__.__dict__["public_network_access_for_query"] = public_network_access_for_query
             if request_source is None:
                 request_source = 'rest'
-            __props__['request_source'] = request_source
+            __props__.__dict__["request_source"] = request_source
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['resource_name'] = resource_name_
-            __props__['sampling_percentage'] = sampling_percentage
-            __props__['tags'] = tags
-            __props__['workspace_resource_id'] = workspace_resource_id
-            __props__['app_id'] = None
-            __props__['application_id'] = None
-            __props__['connection_string'] = None
-            __props__['creation_date'] = None
-            __props__['hockey_app_token'] = None
-            __props__['instrumentation_key'] = None
-            __props__['la_migration_date'] = None
-            __props__['name'] = None
-            __props__['private_link_scoped_resources'] = None
-            __props__['provisioning_state'] = None
-            __props__['retention_in_days'] = None
-            __props__['tenant_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["sampling_percentage"] = sampling_percentage
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["workspace_resource_id"] = workspace_resource_id
+            __props__.__dict__["app_id"] = None
+            __props__.__dict__["application_id"] = None
+            __props__.__dict__["connection_string"] = None
+            __props__.__dict__["creation_date"] = None
+            __props__.__dict__["hockey_app_token"] = None
+            __props__.__dict__["instrumentation_key"] = None
+            __props__.__dict__["la_migration_date"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["private_link_scoped_resources"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["retention_in_days"] = None
+            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component"), pulumi.Alias(type_="azure-native:insights:Component"), pulumi.Alias(type_="azure-nextgen:insights:Component"), pulumi.Alias(type_="azure-native:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-native:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Component, __self__).__init__(
@@ -472,36 +462,36 @@ class Component(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ComponentArgs.__new__(ComponentArgs)
 
-        __props__["app_id"] = None
-        __props__["application_id"] = None
-        __props__["application_type"] = None
-        __props__["connection_string"] = None
-        __props__["creation_date"] = None
-        __props__["disable_ip_masking"] = None
-        __props__["etag"] = None
-        __props__["flow_type"] = None
-        __props__["hockey_app_id"] = None
-        __props__["hockey_app_token"] = None
-        __props__["immediate_purge_data_on30_days"] = None
-        __props__["ingestion_mode"] = None
-        __props__["instrumentation_key"] = None
-        __props__["kind"] = None
-        __props__["la_migration_date"] = None
-        __props__["location"] = None
-        __props__["name"] = None
-        __props__["private_link_scoped_resources"] = None
-        __props__["provisioning_state"] = None
-        __props__["public_network_access_for_ingestion"] = None
-        __props__["public_network_access_for_query"] = None
-        __props__["request_source"] = None
-        __props__["retention_in_days"] = None
-        __props__["sampling_percentage"] = None
-        __props__["tags"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
-        __props__["workspace_resource_id"] = None
+        __props__.__dict__["app_id"] = None
+        __props__.__dict__["application_id"] = None
+        __props__.__dict__["application_type"] = None
+        __props__.__dict__["connection_string"] = None
+        __props__.__dict__["creation_date"] = None
+        __props__.__dict__["disable_ip_masking"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["flow_type"] = None
+        __props__.__dict__["hockey_app_id"] = None
+        __props__.__dict__["hockey_app_token"] = None
+        __props__.__dict__["immediate_purge_data_on30_days"] = None
+        __props__.__dict__["ingestion_mode"] = None
+        __props__.__dict__["instrumentation_key"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["la_migration_date"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["private_link_scoped_resources"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access_for_ingestion"] = None
+        __props__.__dict__["public_network_access_for_query"] = None
+        __props__.__dict__["request_source"] = None
+        __props__.__dict__["retention_in_days"] = None
+        __props__.__dict__["sampling_percentage"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["workspace_resource_id"] = None
         return Component(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -727,10 +717,4 @@ class Component(pulumi.CustomResource):
         Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
         return pulumi.get(self, "workspace_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -135,11 +135,11 @@ export interface WorkbookTemplateArgs {
     /**
      * Workbook galleries supported by the template.
      */
-    readonly galleries: pulumi.Input<pulumi.Input<inputs.insights.WorkbookTemplateGallery>[]>;
+    readonly galleries: pulumi.Input<pulumi.Input<inputs.insights.WorkbookTemplateGalleryArgs>[]>;
     /**
      * Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    readonly localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.insights.WorkbookTemplateLocalizedGallery>[]>}>;
+    readonly localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.insights.WorkbookTemplateLocalizedGalleryArgs>[]>}>;
     /**
      * Resource location
      */

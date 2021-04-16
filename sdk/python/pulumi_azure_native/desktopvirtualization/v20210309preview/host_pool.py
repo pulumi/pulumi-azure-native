@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -469,9 +469,7 @@ class HostPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_environment: Optional[pulumi.Input[bool]] = None,
                  vm_template: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a HostPool definition.
 
@@ -553,15 +551,7 @@ class HostPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_environment: Optional[pulumi.Input[bool]] = None,
                  vm_template: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,49 +561,49 @@ class HostPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
-            __props__['custom_rdp_property'] = custom_rdp_property
-            __props__['description'] = description
-            __props__['friendly_name'] = friendly_name
-            __props__['host_pool_name'] = host_pool_name
+            __props__.__dict__["custom_rdp_property"] = custom_rdp_property
+            __props__.__dict__["description"] = description
+            __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["host_pool_name"] = host_pool_name
             if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")
-            __props__['host_pool_type'] = host_pool_type
-            __props__['identity'] = identity
-            __props__['kind'] = kind
+            __props__.__dict__["host_pool_type"] = host_pool_type
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["kind"] = kind
             if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
-            __props__['load_balancer_type'] = load_balancer_type
-            __props__['location'] = location
-            __props__['managed_by'] = managed_by
-            __props__['max_session_limit'] = max_session_limit
-            __props__['migration_request'] = migration_request
-            __props__['personal_desktop_assignment_type'] = personal_desktop_assignment_type
-            __props__['plan'] = plan
+            __props__.__dict__["load_balancer_type"] = load_balancer_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["managed_by"] = managed_by
+            __props__.__dict__["max_session_limit"] = max_session_limit
+            __props__.__dict__["migration_request"] = migration_request
+            __props__.__dict__["personal_desktop_assignment_type"] = personal_desktop_assignment_type
+            __props__.__dict__["plan"] = plan
             if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
-            __props__['preferred_app_group_type'] = preferred_app_group_type
-            __props__['registration_info'] = registration_info
+            __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
+            __props__.__dict__["registration_info"] = registration_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['ring'] = ring
-            __props__['sku'] = sku
-            __props__['sso_client_id'] = sso_client_id
-            __props__['sso_client_secret_key_vault_path'] = sso_client_secret_key_vault_path
-            __props__['sso_secret_type'] = sso_secret_type
-            __props__['ssoadfs_authority'] = ssoadfs_authority
-            __props__['start_vm_on_connect'] = start_vm_on_connect
-            __props__['tags'] = tags
-            __props__['validation_environment'] = validation_environment
-            __props__['vm_template'] = vm_template
-            __props__['application_group_references'] = None
-            __props__['cloud_pc_resource'] = None
-            __props__['etag'] = None
-            __props__['name'] = None
-            __props__['object_id'] = None
-            __props__['type'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["ring"] = ring
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["sso_client_id"] = sso_client_id
+            __props__.__dict__["sso_client_secret_key_vault_path"] = sso_client_secret_key_vault_path
+            __props__.__dict__["sso_secret_type"] = sso_secret_type
+            __props__.__dict__["ssoadfs_authority"] = ssoadfs_authority
+            __props__.__dict__["start_vm_on_connect"] = start_vm_on_connect
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["validation_environment"] = validation_environment
+            __props__.__dict__["vm_template"] = vm_template
+            __props__.__dict__["application_group_references"] = None
+            __props__.__dict__["cloud_pc_resource"] = None
+            __props__.__dict__["etag"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["object_id"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210201preview:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HostPool, __self__).__init__(
@@ -636,39 +626,39 @@ class HostPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
-        __props__["application_group_references"] = None
-        __props__["cloud_pc_resource"] = None
-        __props__["custom_rdp_property"] = None
-        __props__["description"] = None
-        __props__["etag"] = None
-        __props__["friendly_name"] = None
-        __props__["host_pool_type"] = None
-        __props__["identity"] = None
-        __props__["kind"] = None
-        __props__["load_balancer_type"] = None
-        __props__["location"] = None
-        __props__["managed_by"] = None
-        __props__["max_session_limit"] = None
-        __props__["migration_request"] = None
-        __props__["name"] = None
-        __props__["object_id"] = None
-        __props__["personal_desktop_assignment_type"] = None
-        __props__["plan"] = None
-        __props__["preferred_app_group_type"] = None
-        __props__["registration_info"] = None
-        __props__["ring"] = None
-        __props__["sku"] = None
-        __props__["sso_client_id"] = None
-        __props__["sso_client_secret_key_vault_path"] = None
-        __props__["sso_secret_type"] = None
-        __props__["ssoadfs_authority"] = None
-        __props__["start_vm_on_connect"] = None
-        __props__["tags"] = None
-        __props__["type"] = None
-        __props__["validation_environment"] = None
-        __props__["vm_template"] = None
+        __props__.__dict__["application_group_references"] = None
+        __props__.__dict__["cloud_pc_resource"] = None
+        __props__.__dict__["custom_rdp_property"] = None
+        __props__.__dict__["description"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["host_pool_type"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["load_balancer_type"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
+        __props__.__dict__["max_session_limit"] = None
+        __props__.__dict__["migration_request"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["object_id"] = None
+        __props__.__dict__["personal_desktop_assignment_type"] = None
+        __props__.__dict__["plan"] = None
+        __props__.__dict__["preferred_app_group_type"] = None
+        __props__.__dict__["registration_info"] = None
+        __props__.__dict__["ring"] = None
+        __props__.__dict__["sku"] = None
+        __props__.__dict__["sso_client_id"] = None
+        __props__.__dict__["sso_client_secret_key_vault_path"] = None
+        __props__.__dict__["sso_secret_type"] = None
+        __props__.__dict__["ssoadfs_authority"] = None
+        __props__.__dict__["start_vm_on_connect"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["validation_environment"] = None
+        __props__.__dict__["vm_template"] = None
         return HostPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -909,10 +899,4 @@ class HostPool(pulumi.CustomResource):
         VM template for sessionhosts configuration within hostpool.
         """
         return pulumi.get(self, "vm_template")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

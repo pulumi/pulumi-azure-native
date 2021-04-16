@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -20,6 +20,31 @@ class ClusterNodeResponse(dict):
     """
     Cluster node details.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coreCount":
+            suggest = "core_count"
+        elif key == "memoryInGiB":
+            suggest = "memory_in_gi_b"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "osVersion":
+            suggest = "os_version"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNodeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNodeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNodeResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  core_count: float,
                  id: float,
@@ -124,15 +149,35 @@ class ClusterNodeResponse(dict):
         """
         return pulumi.get(self, "serial_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterReportedPropertiesResponse(dict):
     """
     Properties reported by cluster agent.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "clusterVersion":
+            suggest = "cluster_version"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterReportedPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterReportedPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_id: str,
                  cluster_name: str,
@@ -145,7 +190,7 @@ class ClusterReportedPropertiesResponse(dict):
         :param str cluster_name: Name of the on-prem cluster connected to this resource.
         :param str cluster_version: Version of the cluster software.
         :param str last_updated: Last time the cluster reported the data.
-        :param Sequence['ClusterNodeResponseArgs'] nodes: List of nodes reported by the cluster.
+        :param Sequence['ClusterNodeResponse'] nodes: List of nodes reported by the cluster.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -192,8 +237,5 @@ class ClusterReportedPropertiesResponse(dict):
         List of nodes reported by the cluster.
         """
         return pulumi.get(self, "nodes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

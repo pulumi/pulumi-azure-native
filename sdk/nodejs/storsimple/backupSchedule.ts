@@ -184,7 +184,7 @@ export interface BackupScheduleArgs {
     /**
      * The schedule recurrence.
      */
-    readonly scheduleRecurrence: pulumi.Input<inputs.storsimple.ScheduleRecurrence>;
+    readonly scheduleRecurrence: pulumi.Input<inputs.storsimple.ScheduleRecurrenceArgs>;
     /**
      * The schedule status.
      */

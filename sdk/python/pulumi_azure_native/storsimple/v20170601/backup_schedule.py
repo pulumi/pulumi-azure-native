@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -204,9 +204,7 @@ class BackupSchedule(pulumi.CustomResource):
                  schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
                  schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         The backup schedule.
 
@@ -259,15 +257,7 @@ class BackupSchedule(pulumi.CustomResource):
                  schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
                  schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,40 +267,40 @@ class BackupSchedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BackupScheduleArgs.__new__(BackupScheduleArgs)
 
             if backup_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_name'")
-            __props__['backup_policy_name'] = backup_policy_name
-            __props__['backup_schedule_name'] = backup_schedule_name
+            __props__.__dict__["backup_policy_name"] = backup_policy_name
+            __props__.__dict__["backup_schedule_name"] = backup_schedule_name
             if backup_type is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_type'")
-            __props__['backup_type'] = backup_type
+            __props__.__dict__["backup_type"] = backup_type
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
-            __props__['device_name'] = device_name
-            __props__['kind'] = kind
+            __props__.__dict__["device_name"] = device_name
+            __props__.__dict__["kind"] = kind
             if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
-            __props__['manager_name'] = manager_name
+            __props__.__dict__["manager_name"] = manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if retention_count is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_count'")
-            __props__['retention_count'] = retention_count
+            __props__.__dict__["retention_count"] = retention_count
             if schedule_recurrence is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_recurrence'")
-            __props__['schedule_recurrence'] = schedule_recurrence
+            __props__.__dict__["schedule_recurrence"] = schedule_recurrence
             if schedule_status is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_status'")
-            __props__['schedule_status'] = schedule_status
+            __props__.__dict__["schedule_status"] = schedule_status
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
-            __props__['start_time'] = start_time
-            __props__['last_successful_run'] = None
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["last_successful_run"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupSchedule"), pulumi.Alias(type_="azure-native:storsimple:BackupSchedule"), pulumi.Alias(type_="azure-nextgen:storsimple:BackupSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupSchedule, __self__).__init__(
@@ -333,17 +323,17 @@ class BackupSchedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = BackupScheduleArgs.__new__(BackupScheduleArgs)
 
-        __props__["backup_type"] = None
-        __props__["kind"] = None
-        __props__["last_successful_run"] = None
-        __props__["name"] = None
-        __props__["retention_count"] = None
-        __props__["schedule_recurrence"] = None
-        __props__["schedule_status"] = None
-        __props__["start_time"] = None
-        __props__["type"] = None
+        __props__.__dict__["backup_type"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_successful_run"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["retention_count"] = None
+        __props__.__dict__["schedule_recurrence"] = None
+        __props__.__dict__["schedule_status"] = None
+        __props__.__dict__["start_time"] = None
+        __props__.__dict__["type"] = None
         return BackupSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -417,10 +407,4 @@ class BackupSchedule(pulumi.CustomResource):
         The hierarchical type of the object.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

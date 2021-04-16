@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -24,7 +24,7 @@ class ListMediaServiceEdgePoliciesResult:
 
     @property
     @pulumi.getter(name="usageDataCollectionPolicy")
-    def usage_data_collection_policy(self) -> Optional['outputs.EdgeUsageDataCollectionPolicyResponseResult']:
+    def usage_data_collection_policy(self) -> Optional['outputs.EdgeUsageDataCollectionPolicyResponse']:
         return pulumi.get(self, "usage_data_collection_policy")
 
 

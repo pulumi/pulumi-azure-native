@@ -145,7 +145,7 @@ export interface KeyArgs {
     /**
      * The properties of the key to be created.
      */
-    readonly properties: pulumi.Input<inputs.keyvault.v20190901.KeyProperties>;
+    readonly properties: pulumi.Input<inputs.keyvault.v20190901.KeyPropertiesArgs>;
     /**
      * The name of the resource group which contains the specified key vault.
      */

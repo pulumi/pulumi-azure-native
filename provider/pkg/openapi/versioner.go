@@ -5,7 +5,7 @@ package openapi
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"io/ioutil"
 	"os"
 	"path/filepath"

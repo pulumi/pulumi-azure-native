@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 from ._inputs import *
 
@@ -599,9 +599,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Threat intelligence information object.
 
@@ -700,15 +698,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -718,51 +708,51 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ThreatIntelligenceIndicatorArgs.__new__(ThreatIntelligenceIndicatorArgs)
 
-            __props__['confidence'] = confidence
-            __props__['created'] = created
-            __props__['created_by_ref'] = created_by_ref
-            __props__['defanged'] = defanged
-            __props__['description'] = description
-            __props__['display_name'] = display_name
-            __props__['etag'] = etag
-            __props__['extensions'] = extensions
-            __props__['external_id'] = external_id
-            __props__['external_last_updated_time_utc'] = external_last_updated_time_utc
-            __props__['external_references'] = external_references
-            __props__['granular_markings'] = granular_markings
-            __props__['indicator_types'] = indicator_types
-            __props__['kill_chain_phases'] = kill_chain_phases
+            __props__.__dict__["confidence"] = confidence
+            __props__.__dict__["created"] = created
+            __props__.__dict__["created_by_ref"] = created_by_ref
+            __props__.__dict__["defanged"] = defanged
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["etag"] = etag
+            __props__.__dict__["extensions"] = extensions
+            __props__.__dict__["external_id"] = external_id
+            __props__.__dict__["external_last_updated_time_utc"] = external_last_updated_time_utc
+            __props__.__dict__["external_references"] = external_references
+            __props__.__dict__["granular_markings"] = granular_markings
+            __props__.__dict__["indicator_types"] = indicator_types
+            __props__.__dict__["kill_chain_phases"] = kill_chain_phases
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
-            __props__['labels'] = labels
-            __props__['language'] = language
-            __props__['last_updated_time_utc'] = last_updated_time_utc
-            __props__['modified'] = modified
-            __props__['name'] = name
-            __props__['object_marking_refs'] = object_marking_refs
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["labels"] = labels
+            __props__.__dict__["language"] = language
+            __props__.__dict__["last_updated_time_utc"] = last_updated_time_utc
+            __props__.__dict__["modified"] = modified
+            __props__.__dict__["name"] = name
+            __props__.__dict__["object_marking_refs"] = object_marking_refs
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
-            __props__['parsed_pattern'] = parsed_pattern
-            __props__['pattern'] = pattern
-            __props__['pattern_type'] = pattern_type
-            __props__['pattern_version'] = pattern_version
+            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
+            __props__.__dict__["parsed_pattern"] = parsed_pattern
+            __props__.__dict__["pattern"] = pattern
+            __props__.__dict__["pattern_type"] = pattern_type
+            __props__.__dict__["pattern_version"] = pattern_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['revoked'] = revoked
-            __props__['source'] = source
-            __props__['threat_intelligence_tags'] = threat_intelligence_tags
-            __props__['threat_types'] = threat_types
-            __props__['valid_from'] = valid_from
-            __props__['valid_until'] = valid_until
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["revoked"] = revoked
+            __props__.__dict__["source"] = source
+            __props__.__dict__["threat_intelligence_tags"] = threat_intelligence_tags
+            __props__.__dict__["threat_types"] = threat_types
+            __props__.__dict__["valid_from"] = valid_from
+            __props__.__dict__["valid_until"] = valid_until
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
-            __props__['workspace_name'] = workspace_name
-            __props__['type'] = None
+            __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-nextgen:securityinsights:ThreatIntelligenceIndicator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThreatIntelligenceIndicator, __self__).__init__(
@@ -785,12 +775,12 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ThreatIntelligenceIndicatorArgs.__new__(ThreatIntelligenceIndicatorArgs)
 
-        __props__["etag"] = None
-        __props__["kind"] = None
-        __props__["name"] = None
-        __props__["type"] = None
+        __props__.__dict__["etag"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["type"] = None
         return ThreatIntelligenceIndicator(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -824,10 +814,4 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         Azure resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

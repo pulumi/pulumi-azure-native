@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -27,7 +27,7 @@ class ListManagedClusterAdminCredentialsResult:
 
     @property
     @pulumi.getter
-    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponseResult']:
+    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponse']:
         """
         Base64-encoded Kubernetes configuration file.
         """

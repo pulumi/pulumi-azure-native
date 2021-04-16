@@ -137,7 +137,7 @@ export interface ADCCatalogArgs {
     /**
      * Azure data catalog admin list.
      */
-    readonly admins?: pulumi.Input<pulumi.Input<inputs.datacatalog.Principals>[]>;
+    readonly admins?: pulumi.Input<pulumi.Input<inputs.datacatalog.PrincipalsArgs>[]>;
     /**
      * The name of the data catalog in the specified subscription and resource group.
      */
@@ -177,5 +177,5 @@ export interface ADCCatalogArgs {
     /**
      * Azure data catalog user list.
      */
-    readonly users?: pulumi.Input<pulumi.Input<inputs.datacatalog.Principals>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<inputs.datacatalog.PrincipalsArgs>[]>;
 }

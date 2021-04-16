@@ -145,15 +145,15 @@ export interface AlertRuleArgs {
     /**
      * action that is performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly action?: pulumi.Input<inputs.insights.v20160301.RuleEmailAction | inputs.insights.v20160301.RuleWebhookAction>;
+    readonly action?: pulumi.Input<inputs.insights.v20160301.RuleEmailActionArgs | inputs.insights.v20160301.RuleWebhookActionArgs>;
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20160301.RuleEmailAction | inputs.insights.v20160301.RuleWebhookAction>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20160301.RuleEmailActionArgs | inputs.insights.v20160301.RuleWebhookActionArgs>[]>;
     /**
      * the condition that results in the alert rule being activated.
      */
-    readonly condition: pulumi.Input<inputs.insights.v20160301.LocationThresholdRuleCondition | inputs.insights.v20160301.ManagementEventRuleCondition | inputs.insights.v20160301.ThresholdRuleCondition>;
+    readonly condition: pulumi.Input<inputs.insights.v20160301.LocationThresholdRuleConditionArgs | inputs.insights.v20160301.ManagementEventRuleConditionArgs | inputs.insights.v20160301.ThresholdRuleConditionArgs>;
     /**
      * the description of the alert rule that will be included in the alert email.
      */

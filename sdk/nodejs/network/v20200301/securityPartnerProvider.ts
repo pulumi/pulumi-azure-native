@@ -149,5 +149,5 @@ export interface SecurityPartnerProviderArgs {
     /**
      * The virtualHub to which the Security Partner Provider belongs.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.v20200301.SubResource>;
+    readonly virtualHub?: pulumi.Input<inputs.network.v20200301.SubResourceArgs>;
 }

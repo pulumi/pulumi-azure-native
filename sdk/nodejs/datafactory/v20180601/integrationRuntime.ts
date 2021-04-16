@@ -109,7 +109,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.ManagedIntegrationRuntime | inputs.datafactory.v20180601.SelfHostedIntegrationRuntime>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.ManagedIntegrationRuntimeArgs | inputs.datafactory.v20180601.SelfHostedIntegrationRuntimeArgs>;
     /**
      * The resource group name.
      */

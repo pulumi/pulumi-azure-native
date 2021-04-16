@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = [
@@ -24,6 +24,25 @@ class EventHubEventSubscriptionDestinationResponse(dict):
     """
     Information about the event hub destination for an event subscription
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventHubEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventHubEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventHubEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_type: str,
                  resource_id: Optional[str] = None):
@@ -54,15 +73,35 @@ class EventHubEventSubscriptionDestinationResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionFilterResponse(dict):
     """
     Filter for the Event Subscription
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedEventTypes":
+            suggest = "included_event_types"
+        elif key == "isSubjectCaseSensitive":
+            suggest = "is_subject_case_sensitive"
+        elif key == "subjectBeginsWith":
+            suggest = "subject_begins_with"
+        elif key == "subjectEndsWith":
+            suggest = "subject_ends_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  included_event_types: Optional[Sequence[str]] = None,
                  is_subject_case_sensitive: Optional[bool] = None,
@@ -128,15 +167,31 @@ class EventSubscriptionFilterResponse(dict):
         """
         return pulumi.get(self, "subject_ends_with")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HybridConnectionEventSubscriptionDestinationResponse(dict):
     """
     Information about the HybridConnection destination for an event subscription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridConnectionEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridConnectionEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridConnectionEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_type: str,
                  resource_id: Optional[str] = None):
@@ -167,15 +222,31 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RetryPolicyResponse(dict):
     """
     Information about the retry policy for an event subscription
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTimeToLiveInMinutes":
+            suggest = "event_time_to_live_in_minutes"
+        elif key == "maxDeliveryAttempts":
+            suggest = "max_delivery_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetryPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetryPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetryPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_time_to_live_in_minutes: Optional[int] = None,
                  max_delivery_attempts: Optional[int] = None):
@@ -205,15 +276,33 @@ class RetryPolicyResponse(dict):
         """
         return pulumi.get(self, "max_delivery_attempts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageBlobDeadLetterDestinationResponse(dict):
     """
     Information about the storage blob based dead letter destination.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "blobContainerName":
+            suggest = "blob_container_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageBlobDeadLetterDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageBlobDeadLetterDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageBlobDeadLetterDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_type: str,
                  blob_container_name: Optional[str] = None,
@@ -256,15 +345,33 @@ class StorageBlobDeadLetterDestinationResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StorageQueueEventSubscriptionDestinationResponse(dict):
     """
     Information about the storage queue destination for an event subscription.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "queueName":
+            suggest = "queue_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageQueueEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageQueueEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageQueueEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_type: str,
                  queue_name: Optional[str] = None,
@@ -307,15 +414,33 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WebHookEventSubscriptionDestinationResponse(dict):
     """
     Information about the webhook destination for an event subscription
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointBaseUrl":
+            suggest = "endpoint_base_url"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "endpointUrl":
+            suggest = "endpoint_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebHookEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebHookEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebHookEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_base_url: str,
                  endpoint_type: str,
@@ -356,8 +481,5 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         The URL that represents the endpoint of the destination of an event subscription.
         """
         return pulumi.get(self, "endpoint_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

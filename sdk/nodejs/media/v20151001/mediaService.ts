@@ -118,7 +118,7 @@ export interface MediaServiceArgs {
     /**
      * The storage accounts for this resource.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20151001.StorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20151001.StorageAccountArgs>[]>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */

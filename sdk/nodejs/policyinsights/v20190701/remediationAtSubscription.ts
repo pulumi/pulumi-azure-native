@@ -126,7 +126,7 @@ export interface RemediationAtSubscriptionArgs {
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    readonly filters?: pulumi.Input<inputs.policyinsights.v20190701.RemediationFilters>;
+    readonly filters?: pulumi.Input<inputs.policyinsights.v20190701.RemediationFiltersArgs>;
     /**
      * The resource ID of the policy assignment that should be remediated.
      */

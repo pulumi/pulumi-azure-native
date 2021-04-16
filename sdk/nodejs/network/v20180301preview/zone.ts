@@ -150,11 +150,11 @@ export interface ZoneArgs {
     /**
      * A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
      */
-    readonly registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.SubResource>[]>;
+    readonly registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.SubResourceArgs>[]>;
     /**
      * A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
      */
-    readonly resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.SubResource>[]>;
+    readonly resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180301preview.SubResourceArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

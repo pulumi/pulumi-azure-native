@@ -4,7 +4,7 @@
 package v20191001
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The result of a request to retrieve a key-value from the specified configuration store.

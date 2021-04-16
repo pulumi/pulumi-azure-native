@@ -6,12 +6,12 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'EntityInfoResponseResult',
-    'EntityParentGroupInfoResponseResult',
+    'EntityInfoResponse',
+    'EntityParentGroupInfoResponse',
     'ManagementGroupChildInfoResponse',
     'ManagementGroupDetailsResponse',
     'ManagementGroupPathElementResponse',
@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EntityInfoResponseResult(dict):
+class EntityInfoResponse(dict):
     """
     The entity.
     """
@@ -32,7 +32,7 @@ class EntityInfoResponseResult(dict):
                  number_of_child_groups: Optional[int] = None,
                  number_of_children: Optional[int] = None,
                  number_of_descendants: Optional[int] = None,
-                 parent: Optional['outputs.EntityParentGroupInfoResponseResult'] = None,
+                 parent: Optional['outputs.EntityParentGroupInfoResponse'] = None,
                  parent_display_name_chain: Optional[Sequence[str]] = None,
                  parent_name_chain: Optional[Sequence[str]] = None,
                  permissions: Optional[str] = None,
@@ -46,7 +46,7 @@ class EntityInfoResponseResult(dict):
         :param str inherited_permissions: The users specific permissions to this item.
         :param int number_of_child_groups: Number of children is the number of Groups that are exactly one level underneath the current Group.
         :param int number_of_children: Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
-        :param 'EntityParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param 'EntityParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param Sequence[str] parent_display_name_chain: The parent display name chain from the root group to the immediate parent
         :param Sequence[str] parent_name_chain: The parent name chain from the root group to the immediate parent
         :param str permissions: The users specific permissions to this item.
@@ -139,7 +139,7 @@ class EntityInfoResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parent(self) -> Optional['outputs.EntityParentGroupInfoResponseResult']:
+    def parent(self) -> Optional['outputs.EntityParentGroupInfoResponse']:
         """
         (Optional) The ID of the parent management group.
         """
@@ -179,7 +179,7 @@ class EntityInfoResponseResult(dict):
 
 
 @pulumi.output_type
-class EntityParentGroupInfoResponseResult(dict):
+class EntityParentGroupInfoResponse(dict):
     """
     (Optional) The ID of the parent management group.
     """
@@ -206,6 +206,23 @@ class ManagementGroupChildInfoResponse(dict):
     """
     The child information of a management group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementGroupChildInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementGroupChildInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementGroupChildInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  children: Optional[Sequence['outputs.ManagementGroupChildInfoResponse']] = None,
                  display_name: Optional[str] = None,
@@ -215,7 +232,7 @@ class ManagementGroupChildInfoResponse(dict):
                  type: Optional[str] = None):
         """
         The child information of a management group.
-        :param Sequence['ManagementGroupChildInfoResponseArgs'] children: The list of children.
+        :param Sequence['ManagementGroupChildInfoResponse'] children: The list of children.
         :param str display_name: The friendly name of the child resource.
         :param str id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param str name: The name of the child entity.
@@ -283,15 +300,31 @@ class ManagementGroupChildInfoResponse(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementGroupDetailsResponse(dict):
     """
     The details of a management group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updatedBy":
+            suggest = "updated_by"
+        elif key == "updatedTime":
+            suggest = "updated_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementGroupDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementGroupDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementGroupDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  parent: Optional['outputs.ParentGroupInfoResponse'] = None,
                  updated_by: Optional[str] = None,
@@ -299,7 +332,7 @@ class ManagementGroupDetailsResponse(dict):
                  version: Optional[float] = None):
         """
         The details of a management group.
-        :param 'ParentGroupInfoResponseArgs' parent: (Optional) The ID of the parent management group.
+        :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
         :param str updated_by: The identity of the principal or process that updated the object.
         :param str updated_time: The date and time when this object was last updated.
         :param float version: The version number of the object.
@@ -345,15 +378,29 @@ class ManagementGroupDetailsResponse(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementGroupPathElementResponse(dict):
     """
     A path element of a management group ancestors.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementGroupPathElementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementGroupPathElementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementGroupPathElementResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  name: Optional[str] = None):
@@ -383,15 +430,29 @@ class ManagementGroupPathElementResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ParentGroupInfoResponse(dict):
     """
     (Optional) The ID of the parent management group.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParentGroupInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParentGroupInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParentGroupInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  display_name: Optional[str] = None,
                  id: Optional[str] = None,
@@ -432,8 +493,5 @@ class ParentGroupInfoResponse(dict):
         The name of the parent management group
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

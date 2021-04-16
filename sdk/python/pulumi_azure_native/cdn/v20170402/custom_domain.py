@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 
 __all__ = ['CustomDomainArgs', 'CustomDomain']
 
@@ -104,9 +104,7 @@ class CustomDomain(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
@@ -147,15 +145,7 @@ class CustomDomain(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -165,28 +155,28 @@ class CustomDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
 
-            __props__['custom_domain_name'] = custom_domain_name
+            __props__.__dict__["custom_domain_name"] = custom_domain_name
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
-            __props__['endpoint_name'] = endpoint_name
+            __props__.__dict__["endpoint_name"] = endpoint_name
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
-            __props__['host_name'] = host_name
+            __props__.__dict__["host_name"] = host_name
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
+            __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['custom_https_provisioning_state'] = None
-            __props__['custom_https_provisioning_substate'] = None
-            __props__['name'] = None
-            __props__['provisioning_state'] = None
-            __props__['resource_state'] = None
-            __props__['type'] = None
-            __props__['validation_data'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["custom_https_provisioning_state"] = None
+            __props__.__dict__["custom_https_provisioning_substate"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_state"] = None
+            __props__.__dict__["type"] = None
+            __props__.__dict__["validation_data"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-native:cdn:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200901:CustomDomain"), pulumi.Alias(type_="azure-nextgen:cdn/v20200901:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
@@ -209,16 +199,16 @@ class CustomDomain(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
 
-        __props__["custom_https_provisioning_state"] = None
-        __props__["custom_https_provisioning_substate"] = None
-        __props__["host_name"] = None
-        __props__["name"] = None
-        __props__["provisioning_state"] = None
-        __props__["resource_state"] = None
-        __props__["type"] = None
-        __props__["validation_data"] = None
+        __props__.__dict__["custom_https_provisioning_state"] = None
+        __props__.__dict__["custom_https_provisioning_substate"] = None
+        __props__.__dict__["host_name"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_state"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["validation_data"] = None
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -284,10 +274,4 @@ class CustomDomain(pulumi.CustomResource):
         Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
         """
         return pulumi.get(self, "validation_data")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

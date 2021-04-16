@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from . import outputs
 from ._enums import *
 from ._inputs import *
@@ -466,9 +466,7 @@ class SiteSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl_in_seconds: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a web app
 
@@ -553,15 +551,7 @@ class SiteSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl_in_seconds: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,52 +561,52 @@ class SiteSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SiteSlotArgs.__new__(SiteSlotArgs)
 
-            __props__['client_affinity_enabled'] = client_affinity_enabled
-            __props__['client_cert_enabled'] = client_cert_enabled
-            __props__['cloning_info'] = cloning_info
-            __props__['container_size'] = container_size
-            __props__['enabled'] = enabled
-            __props__['force_dns_registration'] = force_dns_registration
-            __props__['gateway_site_name'] = gateway_site_name
-            __props__['host_name_ssl_states'] = host_name_ssl_states
-            __props__['host_names_disabled'] = host_names_disabled
-            __props__['hosting_environment_profile'] = hosting_environment_profile
-            __props__['id'] = id
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['max_number_of_workers'] = max_number_of_workers
-            __props__['micro_service'] = micro_service
+            __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+            __props__.__dict__["client_cert_enabled"] = client_cert_enabled
+            __props__.__dict__["cloning_info"] = cloning_info
+            __props__.__dict__["container_size"] = container_size
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["force_dns_registration"] = force_dns_registration
+            __props__.__dict__["gateway_site_name"] = gateway_site_name
+            __props__.__dict__["host_name_ssl_states"] = host_name_ssl_states
+            __props__.__dict__["host_names_disabled"] = host_names_disabled
+            __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
+            __props__.__dict__["id"] = id
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["max_number_of_workers"] = max_number_of_workers
+            __props__.__dict__["micro_service"] = micro_service
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scm_site_also_stopped'] = scm_site_also_stopped
-            __props__['server_farm_id'] = server_farm_id
-            __props__['site_config'] = site_config
-            __props__['skip_custom_domain_verification'] = skip_custom_domain_verification
-            __props__['skip_dns_registration'] = skip_dns_registration
-            __props__['slot'] = slot
-            __props__['tags'] = tags
-            __props__['ttl_in_seconds'] = ttl_in_seconds
-            __props__['type'] = type
-            __props__['availability_state'] = None
-            __props__['default_host_name'] = None
-            __props__['enabled_host_names'] = None
-            __props__['host_names'] = None
-            __props__['is_default_container'] = None
-            __props__['last_modified_time_utc'] = None
-            __props__['outbound_ip_addresses'] = None
-            __props__['premium_app_deployed'] = None
-            __props__['repository_site_name'] = None
-            __props__['resource_group'] = None
-            __props__['state'] = None
-            __props__['target_swap_slot'] = None
-            __props__['traffic_manager_host_names'] = None
-            __props__['usage_state'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scm_site_also_stopped"] = scm_site_also_stopped
+            __props__.__dict__["server_farm_id"] = server_farm_id
+            __props__.__dict__["site_config"] = site_config
+            __props__.__dict__["skip_custom_domain_verification"] = skip_custom_domain_verification
+            __props__.__dict__["skip_dns_registration"] = skip_dns_registration
+            __props__.__dict__["slot"] = slot
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["ttl_in_seconds"] = ttl_in_seconds
+            __props__.__dict__["type"] = type
+            __props__.__dict__["availability_state"] = None
+            __props__.__dict__["default_host_name"] = None
+            __props__.__dict__["enabled_host_names"] = None
+            __props__.__dict__["host_names"] = None
+            __props__.__dict__["is_default_container"] = None
+            __props__.__dict__["last_modified_time_utc"] = None
+            __props__.__dict__["outbound_ip_addresses"] = None
+            __props__.__dict__["premium_app_deployed"] = None
+            __props__.__dict__["repository_site_name"] = None
+            __props__.__dict__["resource_group"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["target_swap_slot"] = None
+            __props__.__dict__["traffic_manager_host_names"] = None
+            __props__.__dict__["usage_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20150801:SiteSlot"), pulumi.Alias(type_="azure-native:web:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20160801:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20180201:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20181101:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20190801:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20200601:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20200901:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20201001:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:SiteSlot"), pulumi.Alias(type_="azure-native:web/v20201201:SiteSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:SiteSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteSlot, __self__).__init__(
@@ -639,41 +629,41 @@ class SiteSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = SiteSlotArgs.__new__(SiteSlotArgs)
 
-        __props__["availability_state"] = None
-        __props__["client_affinity_enabled"] = None
-        __props__["client_cert_enabled"] = None
-        __props__["cloning_info"] = None
-        __props__["container_size"] = None
-        __props__["default_host_name"] = None
-        __props__["enabled"] = None
-        __props__["enabled_host_names"] = None
-        __props__["gateway_site_name"] = None
-        __props__["host_name_ssl_states"] = None
-        __props__["host_names"] = None
-        __props__["host_names_disabled"] = None
-        __props__["hosting_environment_profile"] = None
-        __props__["is_default_container"] = None
-        __props__["kind"] = None
-        __props__["last_modified_time_utc"] = None
-        __props__["location"] = None
-        __props__["max_number_of_workers"] = None
-        __props__["micro_service"] = None
-        __props__["name"] = None
-        __props__["outbound_ip_addresses"] = None
-        __props__["premium_app_deployed"] = None
-        __props__["repository_site_name"] = None
-        __props__["resource_group"] = None
-        __props__["scm_site_also_stopped"] = None
-        __props__["server_farm_id"] = None
-        __props__["site_config"] = None
-        __props__["state"] = None
-        __props__["tags"] = None
-        __props__["target_swap_slot"] = None
-        __props__["traffic_manager_host_names"] = None
-        __props__["type"] = None
-        __props__["usage_state"] = None
+        __props__.__dict__["availability_state"] = None
+        __props__.__dict__["client_affinity_enabled"] = None
+        __props__.__dict__["client_cert_enabled"] = None
+        __props__.__dict__["cloning_info"] = None
+        __props__.__dict__["container_size"] = None
+        __props__.__dict__["default_host_name"] = None
+        __props__.__dict__["enabled"] = None
+        __props__.__dict__["enabled_host_names"] = None
+        __props__.__dict__["gateway_site_name"] = None
+        __props__.__dict__["host_name_ssl_states"] = None
+        __props__.__dict__["host_names"] = None
+        __props__.__dict__["host_names_disabled"] = None
+        __props__.__dict__["hosting_environment_profile"] = None
+        __props__.__dict__["is_default_container"] = None
+        __props__.__dict__["kind"] = None
+        __props__.__dict__["last_modified_time_utc"] = None
+        __props__.__dict__["location"] = None
+        __props__.__dict__["max_number_of_workers"] = None
+        __props__.__dict__["micro_service"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["outbound_ip_addresses"] = None
+        __props__.__dict__["premium_app_deployed"] = None
+        __props__.__dict__["repository_site_name"] = None
+        __props__.__dict__["resource_group"] = None
+        __props__.__dict__["scm_site_also_stopped"] = None
+        __props__.__dict__["server_farm_id"] = None
+        __props__.__dict__["site_config"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["target_swap_slot"] = None
+        __props__.__dict__["traffic_manager_host_names"] = None
+        __props__.__dict__["type"] = None
+        __props__.__dict__["usage_state"] = None
         return SiteSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -939,10 +929,4 @@ class SiteSlot(pulumi.CustomResource):
         State indicating whether web app has exceeded its quota usage
         """
         return pulumi.get(self, "usage_state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

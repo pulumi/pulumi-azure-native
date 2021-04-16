@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// <summary>
         /// Collection of resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BackupItemResponseResult> Value;
+        public readonly ImmutableArray<Outputs.BackupItemResponse> Value;
 
         [OutputConstructor]
         private ListWebAppSiteBackupsSlotResult(
             string nextLink,
 
-            ImmutableArray<Outputs.BackupItemResponseResult> value)
+            ImmutableArray<Outputs.BackupItemResponse> value)
         {
             NextLink = nextLink;
             Value = value;

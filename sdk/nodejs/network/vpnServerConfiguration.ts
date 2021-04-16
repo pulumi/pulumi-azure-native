@@ -180,7 +180,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * The set of aad vpn authentication parameters.
      */
-    readonly aadAuthenticationParameters?: pulumi.Input<inputs.network.AadAuthenticationParameters>;
+    readonly aadAuthenticationParameters?: pulumi.Input<inputs.network.AadAuthenticationParametersArgs>;
     /**
      * Resource ID.
      */
@@ -196,7 +196,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * Radius client root certificate of VpnServerConfiguration.
      */
-    readonly radiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigRadiusClientRootCertificate>[]>;
+    readonly radiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigRadiusClientRootCertificateArgs>[]>;
     /**
      * The radius server address property of the VpnServerConfiguration resource for point to site client connection.
      */
@@ -204,7 +204,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * Radius Server root certificate of VpnServerConfiguration.
      */
-    readonly radiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigRadiusServerRootCertificate>[]>;
+    readonly radiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigRadiusServerRootCertificateArgs>[]>;
     /**
      * The radius secret property of the VpnServerConfiguration resource for point to site client connection.
      */
@@ -212,7 +212,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * Multiple Radius Server configuration for VpnServerConfiguration.
      */
-    readonly radiusServers?: pulumi.Input<pulumi.Input<inputs.network.RadiusServer>[]>;
+    readonly radiusServers?: pulumi.Input<pulumi.Input<inputs.network.RadiusServerArgs>[]>;
     /**
      * The resource group name of the VpnServerConfiguration.
      */
@@ -228,15 +228,15 @@ export interface VpnServerConfigurationArgs {
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
-    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicy>[]>;
+    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[]>;
     /**
      * VPN client revoked certificate of VpnServerConfiguration.
      */
-    readonly vpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigVpnClientRevokedCertificate>[]>;
+    readonly vpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigVpnClientRevokedCertificateArgs>[]>;
     /**
      * VPN client root certificate of VpnServerConfiguration.
      */
-    readonly vpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigVpnClientRootCertificate>[]>;
+    readonly vpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigVpnClientRootCertificateArgs>[]>;
     /**
      * VPN protocols for the VpnServerConfiguration.
      */

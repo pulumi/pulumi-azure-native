@@ -99,19 +99,19 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAppAuthSettingsV2 resource.
  */
 export interface WebAppAuthSettingsV2Args {
-    readonly globalValidation?: pulumi.Input<inputs.web.v20201201.GlobalValidation>;
-    readonly httpSettings?: pulumi.Input<inputs.web.v20201201.HttpSettings>;
-    readonly identityProviders?: pulumi.Input<inputs.web.v20201201.IdentityProviders>;
+    readonly globalValidation?: pulumi.Input<inputs.web.v20201201.GlobalValidationArgs>;
+    readonly httpSettings?: pulumi.Input<inputs.web.v20201201.HttpSettingsArgs>;
+    readonly identityProviders?: pulumi.Input<inputs.web.v20201201.IdentityProvidersArgs>;
     /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
-    readonly login?: pulumi.Input<inputs.web.v20201201.Login>;
+    readonly login?: pulumi.Input<inputs.web.v20201201.LoginArgs>;
     /**
      * Name of web app.
      */
     readonly name: pulumi.Input<string>;
-    readonly platform?: pulumi.Input<inputs.web.v20201201.AuthPlatform>;
+    readonly platform?: pulumi.Input<inputs.web.v20201201.AuthPlatformArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */

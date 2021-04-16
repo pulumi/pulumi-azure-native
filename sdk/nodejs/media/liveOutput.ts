@@ -173,7 +173,7 @@ export interface LiveOutputArgs {
     /**
      * HTTP Live Streaming (HLS) packing setting for the live output.
      */
-    readonly hls?: pulumi.Input<inputs.media.Hls>;
+    readonly hls?: pulumi.Input<inputs.media.HlsArgs>;
     /**
      * The name of the live event, maximum length is 32.
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._enums import *
 
@@ -22,6 +22,27 @@ class AADBasedSecurityPrincipalResponse(dict):
     """
     AAD based security principal with associated Ledger RoleName
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ledgerRoleName":
+            suggest = "ledger_role_name"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AADBasedSecurityPrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AADBasedSecurityPrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AADBasedSecurityPrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ledger_role_name: Optional[str] = None,
                  principal_id: Optional[str] = None,
@@ -63,15 +84,29 @@ class AADBasedSecurityPrincipalResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertBasedSecurityPrincipalResponse(dict):
     """
     Cert based security principal with Ledger RoleName
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ledgerRoleName":
+            suggest = "ledger_role_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertBasedSecurityPrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertBasedSecurityPrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertBasedSecurityPrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cert: Optional[str] = None,
                  ledger_role_name: Optional[str] = None):
@@ -101,15 +136,45 @@ class CertBasedSecurityPrincipalResponse(dict):
         """
         return pulumi.get(self, "ledger_role_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LedgerPropertiesResponse(dict):
     """
     Additional Confidential Ledger properties.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityServiceUri":
+            suggest = "identity_service_uri"
+        elif key == "ledgerInternalNamespace":
+            suggest = "ledger_internal_namespace"
+        elif key == "ledgerName":
+            suggest = "ledger_name"
+        elif key == "ledgerUri":
+            suggest = "ledger_uri"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "aadBasedSecurityPrincipals":
+            suggest = "aad_based_security_principals"
+        elif key == "certBasedSecurityPrincipals":
+            suggest = "cert_based_security_principals"
+        elif key == "ledgerStorageAccount":
+            suggest = "ledger_storage_account"
+        elif key == "ledgerType":
+            suggest = "ledger_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LedgerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LedgerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LedgerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity_service_uri: str,
                  ledger_internal_namespace: str,
@@ -127,8 +192,8 @@ class LedgerPropertiesResponse(dict):
         :param str ledger_name: Unique name for the Confidential Ledger.
         :param str ledger_uri: Endpoint for calling Ledger Service.
         :param str provisioning_state: Provisioning state of Ledger Resource
-        :param Sequence['AADBasedSecurityPrincipalResponseArgs'] aad_based_security_principals: Array of all AAD based Security Principals.
-        :param Sequence['CertBasedSecurityPrincipalResponseArgs'] cert_based_security_principals: Array of all cert based Security Principals.
+        :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
+        :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
         :param str ledger_storage_account: Name of the Blob Storage Account for saving ledger files
         :param str ledger_type: Type of Confidential Ledger
         """
@@ -218,15 +283,39 @@ class LedgerPropertiesResponse(dict):
         """
         return pulumi.get(self, "ledger_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  created_by: Optional[str] = None,
@@ -303,8 +392,5 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

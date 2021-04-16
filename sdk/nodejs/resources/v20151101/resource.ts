@@ -126,7 +126,7 @@ export interface ResourceArgs {
     /**
      * Gets or sets the plan of the resource.
      */
-    readonly plan?: pulumi.Input<inputs.resources.v20151101.Plan>;
+    readonly plan?: pulumi.Input<inputs.resources.v20151101.PlanArgs>;
     /**
      * Gets or sets the resource properties.
      */

@@ -114,7 +114,7 @@ export interface MachineLearningComputeArgs {
     /**
      * The identity of the resource.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20190601.Identity>;
+    readonly identity?: pulumi.Input<inputs.machinelearningservices.v20190601.IdentityArgs>;
     /**
      * Specifies the location of the resource.
      */
@@ -122,7 +122,7 @@ export interface MachineLearningComputeArgs {
     /**
      * Compute properties
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20190601.AKS | inputs.machinelearningservices.v20190601.AmlCompute | inputs.machinelearningservices.v20190601.DataFactory | inputs.machinelearningservices.v20190601.DataLakeAnalytics | inputs.machinelearningservices.v20190601.Databricks | inputs.machinelearningservices.v20190601.HDInsight | inputs.machinelearningservices.v20190601.VirtualMachine>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20190601.AKSArgs | inputs.machinelearningservices.v20190601.AmlComputeArgs | inputs.machinelearningservices.v20190601.DataFactoryArgs | inputs.machinelearningservices.v20190601.DataLakeAnalyticsArgs | inputs.machinelearningservices.v20190601.DatabricksArgs | inputs.machinelearningservices.v20190601.HDInsightArgs | inputs.machinelearningservices.v20190601.VirtualMachineArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

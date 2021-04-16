@@ -379,7 +379,7 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly sku?: pulumi.Input<inputs.sql.v20190601preview.Sku>;
+    readonly sku?: pulumi.Input<inputs.sql.v20190601preview.SkuArgs>;
     /**
      * Specifies the time that the database was deleted.
      */

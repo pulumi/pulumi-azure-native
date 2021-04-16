@@ -168,15 +168,15 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.ARecord>[]>;
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.ARecordArgs>[]>;
     /**
      * The list of AAAA records in the record set.
      */
-    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.AaaaRecord>[]>;
+    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.AaaaRecordArgs>[]>;
     /**
      * The CNAME record in the record set.
      */
-    readonly cnameRecord?: pulumi.Input<inputs.network.v20200101.CnameRecord>;
+    readonly cnameRecord?: pulumi.Input<inputs.network.v20200101.CnameRecordArgs>;
     /**
      * The ETag of the record set.
      */
@@ -188,7 +188,7 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of MX records in the record set.
      */
-    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.MxRecord>[]>;
+    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.MxRecordArgs>[]>;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
@@ -196,7 +196,7 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of PTR records in the record set.
      */
-    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.PtrRecord>[]>;
+    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.PtrRecordArgs>[]>;
     /**
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
      */
@@ -212,11 +212,11 @@ export interface PrivateRecordSetArgs {
     /**
      * The SOA record in the record set.
      */
-    readonly soaRecord?: pulumi.Input<inputs.network.v20200101.SoaRecord>;
+    readonly soaRecord?: pulumi.Input<inputs.network.v20200101.SoaRecordArgs>;
     /**
      * The list of SRV records in the record set.
      */
-    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.SrvRecord>[]>;
+    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.SrvRecordArgs>[]>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
@@ -224,5 +224,5 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of TXT records in the record set.
      */
-    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.TxtRecord>[]>;
+    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20200101.TxtRecordArgs>[]>;
 }

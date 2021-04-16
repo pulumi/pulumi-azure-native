@@ -134,7 +134,7 @@ export interface OrderItemByNameArgs {
     /**
      * Represents shipping and return address for order
      */
-    readonly addressDetails: pulumi.Input<inputs.edgeorder.AddressDetails>;
+    readonly addressDetails: pulumi.Input<inputs.edgeorder.AddressDetailsArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -146,7 +146,7 @@ export interface OrderItemByNameArgs {
     /**
      * Represents order item details.
      */
-    readonly orderItemDetails: pulumi.Input<inputs.edgeorder.OrderItemDetails>;
+    readonly orderItemDetails: pulumi.Input<inputs.edgeorder.OrderItemDetailsArgs>;
     /**
      * The name of the order item
      */

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['ServerAdministratorArgs', 'ServerAdministrator']
@@ -120,9 +120,7 @@ class ServerAdministrator(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Represents a and external administrator to be created.
 
@@ -165,15 +163,7 @@ class ServerAdministrator(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  sid: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,28 +173,28 @@ class ServerAdministrator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerAdministratorArgs.__new__(ServerAdministratorArgs)
 
             if administrator_type is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_type'")
-            __props__['administrator_type'] = administrator_type
+            __props__.__dict__["administrator_type"] = administrator_type
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
-            __props__['login'] = login
+            __props__.__dict__["login"] = login
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
+            __props__.__dict__["server_name"] = server_name
             if sid is None and not opts.urn:
                 raise TypeError("Missing required property 'sid'")
-            __props__['sid'] = sid
+            __props__.__dict__["sid"] = sid
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
-            __props__['tenant_id'] = tenant_id
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbforpostgresql:ServerAdministrator"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql:ServerAdministrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerAdministrator, __self__).__init__(
@@ -227,14 +217,14 @@ class ServerAdministrator(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = ServerAdministratorArgs.__new__(ServerAdministratorArgs)
 
-        __props__["administrator_type"] = None
-        __props__["login"] = None
-        __props__["name"] = None
-        __props__["sid"] = None
-        __props__["tenant_id"] = None
-        __props__["type"] = None
+        __props__.__dict__["administrator_type"] = None
+        __props__.__dict__["login"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["sid"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["type"] = None
         return ServerAdministrator(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -284,10 +274,4 @@ class ServerAdministrator(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

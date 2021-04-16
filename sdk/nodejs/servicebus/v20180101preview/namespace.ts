@@ -148,11 +148,11 @@ export interface NamespaceArgs {
     /**
      * Properties of BYOK Encryption description
      */
-    readonly encryption?: pulumi.Input<inputs.servicebus.v20180101preview.Encryption>;
+    readonly encryption?: pulumi.Input<inputs.servicebus.v20180101preview.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    readonly identity?: pulumi.Input<inputs.servicebus.v20180101preview.Identity>;
+    readonly identity?: pulumi.Input<inputs.servicebus.v20180101preview.IdentityArgs>;
     /**
      * The Geo-location where the resource lives
      */
@@ -168,7 +168,7 @@ export interface NamespaceArgs {
     /**
      * Properties of SKU
      */
-    readonly sku?: pulumi.Input<inputs.servicebus.v20180101preview.SBSku>;
+    readonly sku?: pulumi.Input<inputs.servicebus.v20180101preview.SBSkuArgs>;
     /**
      * Resource tags
      */

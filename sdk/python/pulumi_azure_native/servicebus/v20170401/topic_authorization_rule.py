@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from ... import _utilities, _tables
+from ... import _utilities
 from ._enums import *
 
 __all__ = ['TopicAuthorizationRuleArgs', 'TopicAuthorizationRule']
@@ -105,9 +105,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Description of a namespace authorization rule.
 
@@ -148,15 +146,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,23 +156,23 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TopicAuthorizationRuleArgs.__new__(TopicAuthorizationRuleArgs)
 
-            __props__['authorization_rule_name'] = authorization_rule_name
+            __props__.__dict__["authorization_rule_name"] = authorization_rule_name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
+            __props__.__dict__["namespace_name"] = namespace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
-            __props__['rights'] = rights
+            __props__.__dict__["rights"] = rights
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
-            __props__['topic_name'] = topic_name
-            __props__['name'] = None
-            __props__['type'] = None
+            __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["name"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20210101preview:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TopicAuthorizationRule, __self__).__init__(
@@ -205,11 +195,11 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = TopicAuthorizationRuleArgs.__new__(TopicAuthorizationRuleArgs)
 
-        __props__["name"] = None
-        __props__["rights"] = None
-        __props__["type"] = None
+        __props__.__dict__["name"] = None
+        __props__.__dict__["rights"] = None
+        __props__.__dict__["type"] = None
         return TopicAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -235,10 +225,4 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

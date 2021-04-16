@@ -163,22 +163,22 @@ export interface PartnerTopicEventSubscriptionArgs {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20201015preview.StorageBlobDeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20201015preview.StorageBlobDeadLetterDestinationArgs>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20201015preview.DeadLetterWithResourceIdentity>;
+    readonly deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20201015preview.DeadLetterWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20201015preview.DeliveryWithResourceIdentity>;
+    readonly deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.v20201015preview.DeliveryWithResourceIdentityArgs>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20201015preview.AzureFunctionEventSubscriptionDestination | inputs.eventgrid.v20201015preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20201015preview.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20201015preview.ServiceBusQueueEventSubscriptionDestination | inputs.eventgrid.v20201015preview.ServiceBusTopicEventSubscriptionDestination | inputs.eventgrid.v20201015preview.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20201015preview.WebHookEventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20201015preview.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.v20201015preview.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.v20201015preview.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.v20201015preview.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20201015preview.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.v20201015preview.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.v20201015preview.WebHookEventSubscriptionDestinationArgs>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -194,7 +194,7 @@ export interface PartnerTopicEventSubscriptionArgs {
     /**
      * Information about the filter for the event subscription.
      */
-    readonly filter?: pulumi.Input<inputs.eventgrid.v20201015preview.EventSubscriptionFilter>;
+    readonly filter?: pulumi.Input<inputs.eventgrid.v20201015preview.EventSubscriptionFilterArgs>;
     /**
      * List of user defined labels.
      */
@@ -210,5 +210,5 @@ export interface PartnerTopicEventSubscriptionArgs {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20201015preview.RetryPolicy>;
+    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20201015preview.RetryPolicyArgs>;
 }

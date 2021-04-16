@@ -207,11 +207,11 @@ export interface BigDataPoolArgs {
     /**
      * Auto-pausing properties
      */
-    readonly autoPause?: pulumi.Input<inputs.synapse.v20190601preview.AutoPauseProperties>;
+    readonly autoPause?: pulumi.Input<inputs.synapse.v20190601preview.AutoPausePropertiesArgs>;
     /**
      * Auto-scaling properties
      */
-    readonly autoScale?: pulumi.Input<inputs.synapse.v20190601preview.AutoScaleProperties>;
+    readonly autoScale?: pulumi.Input<inputs.synapse.v20190601preview.AutoScalePropertiesArgs>;
     /**
      * Big Data pool name
      */
@@ -227,7 +227,7 @@ export interface BigDataPoolArgs {
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.LibraryInfo>[]>;
+    readonly customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.v20190601preview.LibraryInfoArgs>[]>;
     /**
      * The default folder where Spark logs will be written.
      */
@@ -235,7 +235,7 @@ export interface BigDataPoolArgs {
     /**
      * Dynamic Executor Allocation
      */
-    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20190601preview.DynamicExecutorAllocation>;
+    readonly dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.v20190601preview.DynamicExecutorAllocationArgs>;
     /**
      * Whether to stop any running jobs in the Big Data pool
      */
@@ -247,7 +247,7 @@ export interface BigDataPoolArgs {
     /**
      * Library version requirements
      */
-    readonly libraryRequirements?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirements>;
+    readonly libraryRequirements?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirementsArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -279,7 +279,7 @@ export interface BigDataPoolArgs {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirements>;
+    readonly sparkConfigProperties?: pulumi.Input<inputs.synapse.v20190601preview.LibraryRequirementsArgs>;
     /**
      * The Spark events folder
      */

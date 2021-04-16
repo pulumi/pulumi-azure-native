@@ -201,11 +201,11 @@ export interface RegistryArgs {
     /**
      * The encryption settings of container registry.
      */
-    readonly encryption?: pulumi.Input<inputs.containerregistry.v20191201preview.EncryptionProperty>;
+    readonly encryption?: pulumi.Input<inputs.containerregistry.v20191201preview.EncryptionPropertyArgs>;
     /**
      * The identity of the container registry.
      */
-    readonly identity?: pulumi.Input<inputs.containerregistry.v20191201preview.IdentityProperties>;
+    readonly identity?: pulumi.Input<inputs.containerregistry.v20191201preview.IdentityPropertiesArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -217,11 +217,11 @@ export interface RegistryArgs {
     /**
      * The network rule set for a container registry.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20191201preview.NetworkRuleSet>;
+    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20191201preview.NetworkRuleSetArgs>;
     /**
      * The policies for a container registry.
      */
-    readonly policies?: pulumi.Input<inputs.containerregistry.v20191201preview.Policies>;
+    readonly policies?: pulumi.Input<inputs.containerregistry.v20191201preview.PoliciesArgs>;
     /**
      * Whether or not public network access is allowed for the container registry.
      */
@@ -237,7 +237,7 @@ export interface RegistryArgs {
     /**
      * The SKU of the container registry.
      */
-    readonly sku: pulumi.Input<inputs.containerregistry.v20191201preview.Sku>;
+    readonly sku: pulumi.Input<inputs.containerregistry.v20191201preview.SkuArgs>;
     /**
      * The tags of the resource.
      */

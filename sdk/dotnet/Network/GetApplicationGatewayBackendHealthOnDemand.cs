@@ -32,13 +32,13 @@ namespace Pulumi.AzureNative.Network
         /// Reference to backend pool of application gateway to which probe request will be sent.
         /// </summary>
         [Input("backendAddressPool")]
-        public Inputs.SubResourceArgs? BackendAddressPool { get; set; }
+        public Inputs.SubResource? BackendAddressPool { get; set; }
 
         /// <summary>
         /// Reference to backend http setting of application gateway to be used for test probe.
         /// </summary>
         [Input("backendHttpSettings")]
-        public Inputs.SubResourceArgs? BackendHttpSettings { get; set; }
+        public Inputs.SubResource? BackendHttpSettings { get; set; }
 
         /// <summary>
         /// Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Network
         /// Criterion for classifying a healthy probe response.
         /// </summary>
         [Input("match")]
-        public Inputs.ApplicationGatewayProbeHealthResponseMatchArgs? Match { get; set; }
+        public Inputs.ApplicationGatewayProbeHealthResponseMatch? Match { get; set; }
 
         /// <summary>
         /// Relative path of probe. Valid path starts from '/'. Probe is sent to &lt;Protocol&gt;://&lt;host&gt;:&lt;port&gt;&lt;path&gt;.
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Application gateway BackendHealthHttp settings.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendHealthHttpSettingsResponseResult? BackendHealthHttpSettings;
+        public readonly Outputs.ApplicationGatewayBackendHealthHttpSettingsResponse? BackendHealthHttpSettings;
 
         [OutputConstructor]
         private GetApplicationGatewayBackendHealthOnDemandResult(
             Outputs.ApplicationGatewayBackendAddressPoolResponse? backendAddressPool,
 
-            Outputs.ApplicationGatewayBackendHealthHttpSettingsResponseResult? backendHealthHttpSettings)
+            Outputs.ApplicationGatewayBackendHealthHttpSettingsResponse? backendHealthHttpSettings)
         {
             BackendAddressPool = backendAddressPool;
             BackendHealthHttpSettings = backendHealthHttpSettings;

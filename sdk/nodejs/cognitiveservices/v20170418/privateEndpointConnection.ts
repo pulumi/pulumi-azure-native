@@ -116,7 +116,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.cognitiveservices.v20170418.PrivateEndpointConnectionProperties>;
+    readonly properties?: pulumi.Input<inputs.cognitiveservices.v20170418.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
