@@ -10,8 +10,19 @@ CHANGELOG
 ## 0.9.0 (2020-04-16)
 
 #### Breaking Changes
+- Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance, Node SDK performance, general availability of Automation API, and more.
+- Generate consistent names for object types regardless on whether or not they are
+transitively reachable from resources or functions. Many input type names have changed
+across Node.js, .NET, and Python SDKs
+  [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
 
-- All `*/latest` modules are now removed. They have been deprecated since 0.7.0. If you are migrating 
+---
+
+## 0.9.0 (2020-04-16)
+
+#### Breaking Changes
+
+- All `*/latest` modules are now removed. They have been deprecated since 0.7.0. If you are migrating
   from earlier versions, first upgrade to 0.8.0, replace all resources from `latest` modules with their
   counterparts in top-level unnamed modules, apply the change with `pulumi up`, and then upgrade to 0.9.0+.
   [#712](https://github.com/pulumi/pulumi-azure-native/issues/712)
@@ -81,7 +92,7 @@ Fixed the aliases for smooth migration from `azure-nextgen` to `azure-native`.
 
 ### Azure NextGen is renamed to Azure-Native
 
-See the [announcement](https://pulumi.com/blog/full-coverage-of-azure-resources-with-azure-native/) in the official Pulumi blog. 
+See the [announcement](https://pulumi.com/blog/full-coverage-of-azure-resources-with-azure-native/) in the official Pulumi blog.
 
 #### Top-Level Resources
 
@@ -105,7 +116,7 @@ new azure_nextgen.storage.StorageAccount("sa", ...);
 
 6. All "Latest" modules/namespaces become deprecated and will be removed before 1.0. You will be able to migrate to top-level resources without re-creating Azure resources.
 
-Note: `storage.Blob` and `storage.StorageAccountStaticWebsite` are top-level resources only, their `latest` counterpart has been removed. 
+Note: `storage.Blob` and `storage.StorageAccountStaticWebsite` are top-level resources only, their `latest` counterpart has been removed.
 
 
 #### Auto-naming ([#5](https://github.com/pulumi/pulumi-azure-nextgen/issues/5))
@@ -137,7 +148,7 @@ const blob = new storage.Blob("wwwroot", {
 - `web.WebApplicationSettings` renamed to `web.WebAppApplicationSettings` ([#282](https://github.com/pulumi/pulumi-azure-nextgen/issues/282))
 - `authorization.GetClientConfig`, `authorization.GetClientToken`, `Storage.Blob`, `Storage.StorageAccountStaticWebsite` were removed from
   corresponding `latest` modules and are only available in the top-level modules
-  
+
 #### Bug Fixes
 
 - Relax the enum check to accomodate irregularities like in [#294](https://github.com/pulumi/pulumi-azure-nextgen/issues/294)
@@ -396,7 +407,7 @@ Bug fixes:
 Breaking changes:
 
 - Resolved an issue when some output properties were erroneously presented as input properties too
-(notable example: `tier` in `sku` of a `storage.StorageAccount`)
+  (notable example: `tier` in `sku` of a `storage.StorageAccount`)
 
 New features:
 
