@@ -4,7 +4,7 @@
 package v20180201preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.

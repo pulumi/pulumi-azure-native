@@ -4,7 +4,7 @@
 package v20160515
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.

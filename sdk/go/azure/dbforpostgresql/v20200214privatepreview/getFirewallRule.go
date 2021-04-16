@@ -4,7 +4,7 @@
 package v20200214privatepreview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a server firewall rule.

@@ -4,7 +4,7 @@
 package v20210101
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The customer's ASN that is registered by the peering service provider.

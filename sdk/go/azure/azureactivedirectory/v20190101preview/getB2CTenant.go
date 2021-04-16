@@ -4,7 +4,7 @@
 package v20190101preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupB2CTenant(ctx *pulumi.Context, args *LookupB2CTenantArgs, opts ...pulumi.InvokeOption) (*LookupB2CTenantResult, error) {

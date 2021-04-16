@@ -4,7 +4,7 @@
 package v20191104preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The resource proxy definition object for quantum workspace.

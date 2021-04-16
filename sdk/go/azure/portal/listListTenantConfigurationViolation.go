@@ -4,7 +4,7 @@
 package portal
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // List of list of items that violate tenant's configuration.

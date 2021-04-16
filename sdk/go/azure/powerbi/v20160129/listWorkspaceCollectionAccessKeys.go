@@ -4,7 +4,7 @@
 package v20160129
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListWorkspaceCollectionAccessKeys(ctx *pulumi.Context, args *ListWorkspaceCollectionAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceCollectionAccessKeysResult, error) {

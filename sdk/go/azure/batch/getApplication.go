@@ -4,7 +4,7 @@
 package batch
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Contains information about an application in a Batch account.

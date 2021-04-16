@@ -4,7 +4,7 @@
 package billing
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The list of invoice section properties with create subscription permission.

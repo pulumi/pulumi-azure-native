@@ -4,7 +4,7 @@
 package v20190501
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Secrets related to a Machine Learning compute. Might differ for every type of compute.

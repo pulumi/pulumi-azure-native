@@ -4,7 +4,7 @@
 package v20190301
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Describes a Virtual Machine Scale Set.

@@ -4,7 +4,7 @@
 package v20190505preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Action rule object containing target scope, conditions and suppression logic

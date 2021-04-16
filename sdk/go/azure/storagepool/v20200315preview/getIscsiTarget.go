@@ -4,7 +4,7 @@
 package v20200315preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Response for iSCSI target requests.

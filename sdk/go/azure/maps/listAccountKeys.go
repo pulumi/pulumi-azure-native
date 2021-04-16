@@ -4,7 +4,7 @@
 package maps
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.

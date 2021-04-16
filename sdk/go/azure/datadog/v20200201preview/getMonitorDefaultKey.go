@@ -4,7 +4,7 @@
 package v20200201preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, opts ...pulumi.InvokeOption) (*GetMonitorDefaultKeyResult, error) {

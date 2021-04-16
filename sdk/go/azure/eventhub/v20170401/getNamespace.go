@@ -4,7 +4,7 @@
 package v20170401
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Single Namespace item in List or Get Operation

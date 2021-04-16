@@ -4,7 +4,7 @@
 package v20181101preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // List response for get source share Synchronization settings
