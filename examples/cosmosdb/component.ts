@@ -82,7 +82,7 @@ export class DatabaseAccount {
     constructor(name: string, args: MyDatabaseAccountArgs) {
 
         let kind = "GlobalDocumentDB";
-        let capabilities: documentdbInputs.Capability[] | undefined = undefined;
+        let capabilities: documentdbInputs.CapabilityArgs[] | undefined = undefined;
         if (args.api === "MongoDB") {
             kind = "MongoDB";
         } else if (args.api === "Cassandra") {
