@@ -51,11 +51,11 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// <summary>
         /// Canonical profiles.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CanonicalProfileDefinitionResponseResult> CanonicalProfiles;
+        public readonly ImmutableArray<Outputs.CanonicalProfileDefinitionResponse> CanonicalProfiles;
         /// <summary>
         /// Prediction distribution.
         /// </summary>
-        public readonly Outputs.PredictionDistributionDefinitionResponseResult PredictionDistribution;
+        public readonly Outputs.PredictionDistributionDefinitionResponse PredictionDistribution;
         /// <summary>
         /// Instance count of the primary profile.
         /// </summary>
@@ -71,9 +71,9 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 
         [OutputConstructor]
         private GetPredictionTrainingResultsResult(
-            ImmutableArray<Outputs.CanonicalProfileDefinitionResponseResult> canonicalProfiles,
+            ImmutableArray<Outputs.CanonicalProfileDefinitionResponse> canonicalProfiles,
 
-            Outputs.PredictionDistributionDefinitionResponseResult predictionDistribution,
+            Outputs.PredictionDistributionDefinitionResponse predictionDistribution,
 
             double primaryProfileInstanceCount,
 

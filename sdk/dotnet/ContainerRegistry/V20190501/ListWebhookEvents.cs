@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
         /// <summary>
         /// The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventResponseResult> Value;
+        public readonly ImmutableArray<Outputs.EventResponse> Value;
 
         [OutputConstructor]
         private ListWebhookEventsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.EventResponseResult> value)
+            ImmutableArray<Outputs.EventResponse> value)
         {
             NextLink = nextLink;
             Value = value;

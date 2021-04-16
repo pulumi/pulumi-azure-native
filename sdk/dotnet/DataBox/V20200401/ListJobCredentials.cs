@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.DataBox.V20200401
         /// <summary>
         /// List of unencrypted credentials.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UnencryptedCredentialsResponseResult> Value;
+        public readonly ImmutableArray<Outputs.UnencryptedCredentialsResponse> Value;
 
         [OutputConstructor]
         private ListJobCredentialsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.UnencryptedCredentialsResponseResult> value)
+            ImmutableArray<Outputs.UnencryptedCredentialsResponse> value)
         {
             NextLink = nextLink;
             Value = value;

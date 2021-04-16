@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.Kubernetes
         /// <summary>
         /// Contains the REP (rendezvous endpoint) and “Sender” access token.
         /// </summary>
-        public readonly Outputs.HybridConnectionConfigResponseResult HybridConnectionConfig;
+        public readonly Outputs.HybridConnectionConfigResponse HybridConnectionConfig;
         /// <summary>
         /// Base64-encoded Kubernetes configuration file.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CredentialResultResponseResult> Kubeconfigs;
+        public readonly ImmutableArray<Outputs.CredentialResultResponse> Kubeconfigs;
 
         [OutputConstructor]
         private ListConnectedClusterUserCredentialsResult(
-            Outputs.HybridConnectionConfigResponseResult hybridConnectionConfig,
+            Outputs.HybridConnectionConfigResponse hybridConnectionConfig,
 
-            ImmutableArray<Outputs.CredentialResultResponseResult> kubeconfigs)
+            ImmutableArray<Outputs.CredentialResultResponse> kubeconfigs)
         {
             HybridConnectionConfig = hybridConnectionConfig;
             Kubeconfigs = kubeconfigs;

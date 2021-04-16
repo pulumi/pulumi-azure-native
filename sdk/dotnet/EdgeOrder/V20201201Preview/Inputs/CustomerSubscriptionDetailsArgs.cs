@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// <summary>
     /// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
     /// </summary>
-    public sealed class CustomerSubscriptionDetailsArgs : Pulumi.InvokeArgs
+    public sealed class CustomerSubscriptionDetails : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Location placement Id of a subscription
@@ -28,18 +28,18 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         public string QuotaId { get; set; } = null!;
 
         [Input("registeredFeatures")]
-        private List<Inputs.CustomerSubscriptionRegisteredFeaturesArgs>? _registeredFeatures;
+        private List<Inputs.CustomerSubscriptionRegisteredFeatures>? _registeredFeatures;
 
         /// <summary>
         /// List of registered feature flags for subscription
         /// </summary>
-        public List<Inputs.CustomerSubscriptionRegisteredFeaturesArgs> RegisteredFeatures
+        public List<Inputs.CustomerSubscriptionRegisteredFeatures> RegisteredFeatures
         {
-            get => _registeredFeatures ?? (_registeredFeatures = new List<Inputs.CustomerSubscriptionRegisteredFeaturesArgs>());
+            get => _registeredFeatures ?? (_registeredFeatures = new List<Inputs.CustomerSubscriptionRegisteredFeatures>());
             set => _registeredFeatures = value;
         }
 
-        public CustomerSubscriptionDetailsArgs()
+        public CustomerSubscriptionDetails()
         {
         }
     }

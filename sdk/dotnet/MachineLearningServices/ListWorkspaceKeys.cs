@@ -44,8 +44,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class ListWorkspaceKeysResult
     {
         public readonly string AppInsightsInstrumentationKey;
-        public readonly Outputs.RegistryListCredentialsResultResponseResult ContainerRegistryCredentials;
-        public readonly Outputs.ListNotebookKeysResultResponseResult NotebookAccessKeys;
+        public readonly Outputs.RegistryListCredentialsResultResponse ContainerRegistryCredentials;
+        public readonly Outputs.ListNotebookKeysResultResponse NotebookAccessKeys;
         public readonly string UserStorageKey;
         public readonly string UserStorageResourceId;
 
@@ -53,9 +53,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private ListWorkspaceKeysResult(
             string appInsightsInstrumentationKey,
 
-            Outputs.RegistryListCredentialsResultResponseResult containerRegistryCredentials,
+            Outputs.RegistryListCredentialsResultResponse containerRegistryCredentials,
 
-            Outputs.ListNotebookKeysResultResponseResult notebookAccessKeys,
+            Outputs.ListNotebookKeysResultResponse notebookAccessKeys,
 
             string userStorageKey,
 

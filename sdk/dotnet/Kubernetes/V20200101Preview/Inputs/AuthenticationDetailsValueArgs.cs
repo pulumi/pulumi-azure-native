@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
     /// <summary>
     /// Authentication token value.
     /// </summary>
-    public sealed class AuthenticationDetailsValueArgs : Pulumi.InvokeArgs
+    public sealed class AuthenticationDetailsValue : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Authentication token.
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20200101Preview.Inputs
         [Input("token")]
         public string? Token { get; set; }
 
-        public AuthenticationDetailsValueArgs()
+        public AuthenticationDetailsValue()
         {
         }
     }

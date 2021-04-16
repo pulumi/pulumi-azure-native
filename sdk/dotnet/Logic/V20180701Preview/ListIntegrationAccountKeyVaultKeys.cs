@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         /// The key vault reference.
         /// </summary>
         [Input("keyVault", required: true)]
-        public Inputs.KeyVaultReferenceArgs KeyVault { get; set; } = null!;
+        public Inputs.KeyVaultReference KeyVault { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
         /// <summary>
         /// The key vault keys.
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyVaultKeyResponseResult> Value;
+        public readonly ImmutableArray<Outputs.KeyVaultKeyResponse> Value;
 
         [OutputConstructor]
         private ListIntegrationAccountKeyVaultKeysResult(
             string? skipToken,
 
-            ImmutableArray<Outputs.KeyVaultKeyResponseResult> value)
+            ImmutableArray<Outputs.KeyVaultKeyResponse> value)
         {
             SkipToken = skipToken;
             Value = value;

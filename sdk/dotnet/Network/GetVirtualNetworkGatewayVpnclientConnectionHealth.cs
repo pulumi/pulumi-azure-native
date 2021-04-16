@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// List of vpn client connection health.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnClientConnectionHealthDetailResponseResult> Value;
+        public readonly ImmutableArray<Outputs.VpnClientConnectionHealthDetailResponse> Value;
 
         [OutputConstructor]
-        private GetVirtualNetworkGatewayVpnclientConnectionHealthResult(ImmutableArray<Outputs.VpnClientConnectionHealthDetailResponseResult> value)
+        private GetVirtualNetworkGatewayVpnclientConnectionHealthResult(ImmutableArray<Outputs.VpnClientConnectionHealthDetailResponse> value)
         {
             Value = value;
         }

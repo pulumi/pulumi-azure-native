@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// <summary>
         /// Account keys
         /// </summary>
-        public readonly ImmutableArray<Outputs.KeyDescriptionResponseResult> Value;
+        public readonly ImmutableArray<Outputs.KeyDescriptionResponse> Value;
 
         [OutputConstructor]
-        private ListAccountKeysResult(ImmutableArray<Outputs.KeyDescriptionResponseResult> value)
+        private ListAccountKeysResult(ImmutableArray<Outputs.KeyDescriptionResponse> value)
         {
             Value = value;
         }

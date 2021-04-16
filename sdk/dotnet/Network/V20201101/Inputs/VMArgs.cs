@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// <summary>
     /// Describes a Virtual Machine.
     /// </summary>
-    public sealed class VMArgs : Pulumi.InvokeArgs
+    public sealed class VM : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource ID.
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
             set => _tags = value;
         }
 
-        public VMArgs()
+        public VM()
         {
         }
     }

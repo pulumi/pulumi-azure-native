@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.Network.V20190901
         /// <summary>
         /// List of active sessions on the bastion.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BastionActiveSessionResponseResult> Value;
+        public readonly ImmutableArray<Outputs.BastionActiveSessionResponse> Value;
 
         [OutputConstructor]
         private GetActiveSessionsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.BastionActiveSessionResponseResult> value)
+            ImmutableArray<Outputs.BastionActiveSessionResponse> value)
         {
             NextLink = nextLink;
             Value = value;

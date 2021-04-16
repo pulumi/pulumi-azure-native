@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// Gets a collection of items that contain the operation url and status.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OperationBatchStatusResponseItemResponseResult> Items;
+        public readonly ImmutableArray<Outputs.OperationBatchStatusResponseItemResponse> Items;
 
         [OutputConstructor]
-        private GetGlobalUserOperationBatchStatusResult(ImmutableArray<Outputs.OperationBatchStatusResponseItemResponseResult> items)
+        private GetGlobalUserOperationBatchStatusResult(ImmutableArray<Outputs.OperationBatchStatusResponseItemResponse> items)
         {
             Items = items;
         }

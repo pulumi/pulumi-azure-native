@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
         /// <summary>
         /// Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.SecretResponseResult> DeviceSecrets;
+        public readonly ImmutableDictionary<string, Outputs.SecretResponse> DeviceSecrets;
         /// <summary>
         /// The public part of the encryption certificate. Client uses this to encrypt any secret.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
 
             string? clientSecretStoreUrl,
 
-            ImmutableDictionary<string, Outputs.SecretResponseResult> deviceSecrets,
+            ImmutableDictionary<string, Outputs.SecretResponse> deviceSecrets,
 
             string? encryptionKey,
 

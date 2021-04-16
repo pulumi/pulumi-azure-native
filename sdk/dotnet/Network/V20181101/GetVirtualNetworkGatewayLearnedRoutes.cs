@@ -45,10 +45,10 @@ namespace Pulumi.AzureNative.Network.V20181101
         /// <summary>
         /// List of gateway routes
         /// </summary>
-        public readonly ImmutableArray<Outputs.GatewayRouteResponseResult> Value;
+        public readonly ImmutableArray<Outputs.GatewayRouteResponse> Value;
 
         [OutputConstructor]
-        private GetVirtualNetworkGatewayLearnedRoutesResult(ImmutableArray<Outputs.GatewayRouteResponseResult> value)
+        private GetVirtualNetworkGatewayLearnedRoutesResult(ImmutableArray<Outputs.GatewayRouteResponse> value)
         {
             Value = value;
         }

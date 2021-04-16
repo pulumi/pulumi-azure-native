@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
         /// <summary>
         /// The list of passwords for a container registry.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RegistryPasswordResponseResult> Passwords;
+        public readonly ImmutableArray<Outputs.RegistryPasswordResponse> Passwords;
         /// <summary>
         /// The username for a container registry.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
 
         [OutputConstructor]
         private ListRegistryCredentialsResult(
-            ImmutableArray<Outputs.RegistryPasswordResponseResult> passwords,
+            ImmutableArray<Outputs.RegistryPasswordResponse> passwords,
 
             string? username)
         {

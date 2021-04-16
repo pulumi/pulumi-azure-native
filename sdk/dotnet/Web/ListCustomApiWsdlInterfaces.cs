@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Web
         /// The service with name and endpoint names
         /// </summary>
         [Input("service")]
-        public Inputs.WsdlServiceArgs? Service { get; set; }
+        public Inputs.WsdlService? Service { get; set; }
 
         /// <summary>
         /// Subscription Id

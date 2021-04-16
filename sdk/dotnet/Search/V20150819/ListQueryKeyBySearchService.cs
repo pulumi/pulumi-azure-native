@@ -45,10 +45,10 @@ namespace Pulumi.AzureNative.Search.V20150819
         /// <summary>
         /// The query keys for the Azure Cognitive Search service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.QueryKeyResponseResult> Value;
+        public readonly ImmutableArray<Outputs.QueryKeyResponse> Value;
 
         [OutputConstructor]
-        private ListQueryKeyBySearchServiceResult(ImmutableArray<Outputs.QueryKeyResponseResult> value)
+        private ListQueryKeyBySearchServiceResult(ImmutableArray<Outputs.QueryKeyResponse> value)
         {
             Value = value;
         }

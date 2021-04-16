@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Class defining the list of filter values on a filter type as part of configuration request.
     /// </summary>
-    public sealed class FilterablePropertyArgs : Pulumi.InvokeArgs
+    public sealed class FilterableProperty : Pulumi.InvokeArgs
     {
         [Input("supportedValues", required: true)]
         private List<string>? _supportedValues;
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         [Input("type", required: true)]
         public Union<string, Pulumi.AzureNative.EdgeOrder.SupportedFilterTypes> Type { get; set; } = null!;
 
-        public FilterablePropertyArgs()
+        public FilterableProperty()
         {
         }
     }

@@ -13,15 +13,15 @@ namespace Pulumi.AzureNative.Network.V20190901.Inputs
     /// <summary>
     /// Bastion Shareable Link.
     /// </summary>
-    public sealed class BastionShareableLinkArgs : Pulumi.InvokeArgs
+    public sealed class BastionShareableLink : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference of the virtual machine resource.
         /// </summary>
         [Input("vm", required: true)]
-        public Inputs.VMArgs Vm { get; set; } = null!;
+        public Inputs.VM Vm { get; set; } = null!;
 
-        public BastionShareableLinkArgs()
+        public BastionShareableLink()
         {
         }
     }

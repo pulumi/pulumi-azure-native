@@ -49,13 +49,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// <summary>
         /// Results of the list operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LabVhdResponseResult> Value;
+        public readonly ImmutableArray<Outputs.LabVhdResponse> Value;
 
         [OutputConstructor]
         private ListLabVhdsResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.LabVhdResponseResult> value)
+            ImmutableArray<Outputs.LabVhdResponse> value)
         {
             NextLink = nextLink;
             Value = value;

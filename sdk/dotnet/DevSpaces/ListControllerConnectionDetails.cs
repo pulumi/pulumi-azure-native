@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.DevSpaces
         /// <summary>
         /// List of Azure Dev Spaces Controller connection details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ControllerConnectionDetailsResponseResult> ConnectionDetailsList;
+        public readonly ImmutableArray<Outputs.ControllerConnectionDetailsResponse> ConnectionDetailsList;
 
         [OutputConstructor]
-        private ListControllerConnectionDetailsResult(ImmutableArray<Outputs.ControllerConnectionDetailsResponseResult> connectionDetailsList)
+        private ListControllerConnectionDetailsResult(ImmutableArray<Outputs.ControllerConnectionDetailsResponse> connectionDetailsList)
         {
             ConnectionDetailsList = connectionDetailsList;
         }

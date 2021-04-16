@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a page of EffectiveVirtualNetwork
         /// </summary>
-        public readonly ImmutableArray<Outputs.EffectiveVirtualNetworkResponseResult> Value;
+        public readonly ImmutableArray<Outputs.EffectiveVirtualNetworkResponse> Value;
 
         [OutputConstructor]
         private ListEffectiveVirtualNetworkByNetworkGroupResult(
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Network
 
             int? totalRecords,
 
-            ImmutableArray<Outputs.EffectiveVirtualNetworkResponseResult> value)
+            ImmutableArray<Outputs.EffectiveVirtualNetworkResponse> value)
         {
             FirstIndex = firstIndex;
             NextLink = nextLink;

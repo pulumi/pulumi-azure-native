@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// <summary>
         /// An array that contains the connection strings for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseAccountConnectionStringResponseResult> ConnectionStrings;
+        public readonly ImmutableArray<Outputs.DatabaseAccountConnectionStringResponse> ConnectionStrings;
 
         [OutputConstructor]
-        private ListDatabaseAccountConnectionStringsResult(ImmutableArray<Outputs.DatabaseAccountConnectionStringResponseResult> connectionStrings)
+        private ListDatabaseAccountConnectionStringsResult(ImmutableArray<Outputs.DatabaseAccountConnectionStringResponse> connectionStrings)
         {
             ConnectionStrings = connectionStrings;
         }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
     /// <summary>
     /// The key vault reference.
     /// </summary>
-    public sealed class KeyVaultReferenceArgs : Pulumi.InvokeArgs
+    public sealed class KeyVaultReference : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource id.
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Logic.Inputs
         [Input("name")]
         public string? Name { get; set; }
 
-        public KeyVaultReferenceArgs()
+        public KeyVaultReference()
         {
         }
     }

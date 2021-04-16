@@ -37,17 +37,17 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// Schedule for the backup if it is executed periodically.
         /// </summary>
         [Input("backupSchedule")]
-        public Inputs.BackupScheduleArgs? BackupSchedule { get; set; }
+        public Inputs.BackupSchedule? BackupSchedule { get; set; }
 
         [Input("databases")]
-        private List<Inputs.DatabaseBackupSettingArgs>? _databases;
+        private List<Inputs.DatabaseBackupSetting>? _databases;
 
         /// <summary>
         /// Databases included in the backup.
         /// </summary>
-        public List<Inputs.DatabaseBackupSettingArgs> Databases
+        public List<Inputs.DatabaseBackupSetting> Databases
         {
-            get => _databases ?? (_databases = new List<Inputs.DatabaseBackupSettingArgs>());
+            get => _databases ?? (_databases = new List<Inputs.DatabaseBackupSetting>());
             set => _databases = value;
         }
 

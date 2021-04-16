@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
         /// <summary>
         /// Results of a list operation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MonitoredResourceResponseResult> Value;
+        public readonly ImmutableArray<Outputs.MonitoredResourceResponse> Value;
 
         [OutputConstructor]
         private ListSubAccountMonitoredResourcesResult(
             string? nextLink,
 
-            ImmutableArray<Outputs.MonitoredResourceResponseResult> value)
+            ImmutableArray<Outputs.MonitoredResourceResponse> value)
         {
             NextLink = nextLink;
             Value = value;

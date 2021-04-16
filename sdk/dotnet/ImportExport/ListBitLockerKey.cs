@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.ImportExport
         /// <summary>
         /// drive status
         /// </summary>
-        public readonly ImmutableArray<Outputs.DriveBitLockerKeyResponseResult> Value;
+        public readonly ImmutableArray<Outputs.DriveBitLockerKeyResponse> Value;
 
         [OutputConstructor]
-        private ListBitLockerKeyResult(ImmutableArray<Outputs.DriveBitLockerKeyResponseResult> value)
+        private ListBitLockerKeyResult(ImmutableArray<Outputs.DriveBitLockerKeyResponse> value)
         {
             Value = value;
         }
