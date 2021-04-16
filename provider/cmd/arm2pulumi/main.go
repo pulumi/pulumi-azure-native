@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/provider"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"io"
 	"log"
 	"os"
