@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 0.9.0 (2020-04-16)
+
 #### Breaking Changes
 
 - All `*/latest` modules are now removed. They have been deprecated since 0.7.0. If you are migrating 
@@ -21,8 +27,6 @@ CHANGELOG
   [#725](https://github.com/pulumi/pulumi-azure-native/issues/725)
 - Use the `2019-06-01-preview` version for the `containerregistry.Task` resource
   [#736](https://github.com/pulumi/pulumi-azure-native/issues/736)
-
----
 
 ## 0.8.0 (2020-04-02)
 
