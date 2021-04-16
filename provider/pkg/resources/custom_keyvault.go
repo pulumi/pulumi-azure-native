@@ -8,7 +8,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"net/http"
 )
 

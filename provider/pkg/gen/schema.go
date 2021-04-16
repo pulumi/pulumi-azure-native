@@ -30,10 +30,10 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
@@ -310,7 +310,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
-			"@pulumi/pulumi": "^2.20.0",
+			"@pulumi/pulumi": "^3.0.0-alpha.0",
 		},
 		"readme": `The native Azure provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
@@ -322,7 +322,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
 		"moduleNameOverrides": pythonModuleNames,
 		"requires": map[string]string{
-			"pulumi": ">=2.20.0,<3.0.0",
+			"pulumi": ">=3.0.0a1,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
 		},
 		"usesIOClasses": true,
 		"readme": `The native Azure provider package offers support for all Azure Resource Manager (ARM)
@@ -334,7 +334,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
-			"Pulumi":                       "2.*",
+			"Pulumi":                       "3.*-*", // this will cover the alphas while we are in the testing phase
 			"System.Collections.Immutable": "1.6.0",
 		},
 		"namespaces": csharpNamespaces,

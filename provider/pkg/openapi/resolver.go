@@ -8,7 +8,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/go-openapi/swag"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"net/url"
 )
 
