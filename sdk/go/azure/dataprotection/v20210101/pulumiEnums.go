@@ -10,6 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AbsoluteMarker pulumi.String
+
+const (
+	AbsoluteMarkerAllBackup    = AbsoluteMarker("AllBackup")
+	AbsoluteMarkerFirstOfDay   = AbsoluteMarker("FirstOfDay")
+	AbsoluteMarkerFirstOfMonth = AbsoluteMarker("FirstOfMonth")
+	AbsoluteMarkerFirstOfWeek  = AbsoluteMarker("FirstOfWeek")
+	AbsoluteMarkerFirstOfYear  = AbsoluteMarker("FirstOfYear")
+)
+
+func (AbsoluteMarker) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AbsoluteMarker) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AbsoluteMarker) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AbsoluteMarker) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AbsoluteMarker) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // type of datastore; Operational/Vault/Archive
 type DataStoreTypes pulumi.String
 
@@ -36,6 +66,75 @@ func (e DataStoreTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DataStoreTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DayOfWeek pulumi.String
+
+const (
+	DayOfWeekFriday    = DayOfWeek("Friday")
+	DayOfWeekMonday    = DayOfWeek("Monday")
+	DayOfWeekSaturday  = DayOfWeek("Saturday")
+	DayOfWeekSunday    = DayOfWeek("Sunday")
+	DayOfWeekThursday  = DayOfWeek("Thursday")
+	DayOfWeekTuesday   = DayOfWeek("Tuesday")
+	DayOfWeekWednesday = DayOfWeek("Wednesday")
+)
+
+func (DayOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DayOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DayOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DayOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Month pulumi.String
+
+const (
+	MonthApril     = Month("April")
+	MonthAugust    = Month("August")
+	MonthDecember  = Month("December")
+	MonthFebruary  = Month("February")
+	MonthJanuary   = Month("January")
+	MonthJuly      = Month("July")
+	MonthJune      = Month("June")
+	MonthMarch     = Month("March")
+	MonthMay       = Month("May")
+	MonthNovember  = Month("November")
+	MonthOctober   = Month("October")
+	MonthSeptember = Month("September")
+)
+
+func (Month) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Month) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Month) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Month) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Month) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -93,5 +192,35 @@ func (e StorageSettingTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e StorageSettingTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WeekNumber pulumi.String
+
+const (
+	WeekNumberFirst  = WeekNumber("First")
+	WeekNumberFourth = WeekNumber("Fourth")
+	WeekNumberLast   = WeekNumber("Last")
+	WeekNumberSecond = WeekNumber("Second")
+	WeekNumberThird  = WeekNumber("Third")
+)
+
+func (WeekNumber) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WeekNumber) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WeekNumber) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WeekNumber) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WeekNumber) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

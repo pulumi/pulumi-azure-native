@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Table level sharing specifications
+     */
+    public readonly tableLevelSharingProperties!: pulumi.Output<outputs.kusto.TableLevelSharingPropertiesResponse | undefined>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
             inputs["attachedDatabaseNames"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -114,12 +119,13 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["tableLevelSharingProperties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-nextgen:kusto/v20210101:AttachedDatabaseConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
     }
@@ -157,4 +163,8 @@ export interface AttachedDatabaseConfigurationArgs {
      * The name of the resource group containing the Kusto cluster.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Table level sharing specifications
+     */
+    readonly tableLevelSharingProperties?: pulumi.Input<inputs.kusto.TableLevelSharingPropertiesArgs>;
 }

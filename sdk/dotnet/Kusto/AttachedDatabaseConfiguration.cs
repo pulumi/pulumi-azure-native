@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an attached database configuration.
-    /// API Version: 2020-09-18.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.Kusto
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Table level sharing specifications
+        /// </summary>
+        [Output("tableLevelSharingProperties")]
+        public Output<Outputs.TableLevelSharingPropertiesResponse?> TableLevelSharingProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -100,6 +106,8 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:AttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,6 +172,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Table level sharing specifications
+        /// </summary>
+        [Input("tableLevelSharingProperties")]
+        public Input<Inputs.TableLevelSharingPropertiesArgs>? TableLevelSharingProperties { get; set; }
 
         public AttachedDatabaseConfigurationArgs()
         {

@@ -17,19 +17,16 @@ namespace Pulumi.AzureNative.DataProtection
     public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of datasource for the backup management
-        /// </summary>
-        [Output("datasourceTypes")]
-        public Output<ImmutableArray<string>> DatasourceTypes { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name associated with the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("objectType")]
-        public Output<string> ObjectType { get; private set; } = null!;
+        /// <summary>
+        /// BaseBackupPolicyResource properties
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.BackupPolicyResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -99,20 +96,11 @@ namespace Pulumi.AzureNative.DataProtection
         [Input("backupPolicyName")]
         public Input<string>? BackupPolicyName { get; set; }
 
-        [Input("datasourceTypes", required: true)]
-        private InputList<string>? _datasourceTypes;
-
         /// <summary>
-        /// Type of datasource for the backup management
+        /// BaseBackupPolicyResource properties
         /// </summary>
-        public InputList<string> DatasourceTypes
-        {
-            get => _datasourceTypes ?? (_datasourceTypes = new InputList<string>());
-            set => _datasourceTypes = value;
-        }
-
-        [Input("objectType", required: true)]
-        public Input<string> ObjectType { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.BackupPolicyArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the backup vault is present.

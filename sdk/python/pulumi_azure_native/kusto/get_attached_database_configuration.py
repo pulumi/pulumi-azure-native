@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAttachedDatabaseConfigurationResult',
@@ -19,7 +20,7 @@ class GetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
     """
-    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, table_level_sharing_properties=None, type=None):
         if attached_database_names and not isinstance(attached_database_names, list):
             raise TypeError("Expected argument 'attached_database_names' to be a list")
         pulumi.set(__self__, "attached_database_names", attached_database_names)
@@ -44,6 +45,9 @@ class GetAttachedDatabaseConfigurationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if table_level_sharing_properties and not isinstance(table_level_sharing_properties, dict):
+            raise TypeError("Expected argument 'table_level_sharing_properties' to be a dict")
+        pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -113,6 +117,14 @@ class GetAttachedDatabaseConfigurationResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="tableLevelSharingProperties")
+    def table_level_sharing_properties(self) -> Optional['outputs.TableLevelSharingPropertiesResponse']:
+        """
+        Table level sharing specifications
+        """
+        return pulumi.get(self, "table_level_sharing_properties")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -135,6 +147,7 @@ class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigu
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            table_level_sharing_properties=self.table_level_sharing_properties,
             type=self.type)
 
 
@@ -144,7 +157,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
-    API Version: 2020-09-18.
+    API Version: 2021-01-01.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
@@ -170,4 +183,5 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        table_level_sharing_properties=__ret__.table_level_sharing_properties,
         type=__ret__.type)

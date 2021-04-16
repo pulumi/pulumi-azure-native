@@ -16,61 +16,16 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
     public partial class BackupInstance : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the current protection state of the resource
-        /// </summary>
-        [Output("currentProtectionState")]
-        public Output<string> CurrentProtectionState { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the data source information.
-        /// </summary>
-        [Output("dataSourceInfo")]
-        public Output<Outputs.DatasourceResponse> DataSourceInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the data source set information.
-        /// </summary>
-        [Output("dataSourceSetInfo")]
-        public Output<Outputs.DatasourceSetResponse?> DataSourceSetInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the Backup Instance friendly name.
-        /// </summary>
-        [Output("friendlyName")]
-        public Output<string> FriendlyName { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name associated with the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("objectType")]
-        public Output<string> ObjectType { get; private set; } = null!;
-
         /// <summary>
-        /// Gets or sets the policy information.
+        /// BackupInstanceResource properties
         /// </summary>
-        [Output("policyInfo")]
-        public Output<Outputs.PolicyInfoResponse> PolicyInfo { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the protection error of the resource
-        /// </summary>
-        [Output("protectionErrorDetails")]
-        public Output<Outputs.UserFacingErrorResponse> ProtectionErrorDetails { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the protection status of the resource
-        /// </summary>
-        [Output("protectionStatus")]
-        public Output<Outputs.ProtectionStatusDetailsResponse> ProtectionStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupInstanceResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -144,31 +99,10 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
         public Input<string>? BackupInstanceName { get; set; }
 
         /// <summary>
-        /// Gets or sets the data source information.
+        /// BackupInstanceResource properties
         /// </summary>
-        [Input("dataSourceInfo", required: true)]
-        public Input<Inputs.DatasourceArgs> DataSourceInfo { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the data source set information.
-        /// </summary>
-        [Input("dataSourceSetInfo")]
-        public Input<Inputs.DatasourceSetArgs>? DataSourceSetInfo { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Backup Instance friendly name.
-        /// </summary>
-        [Input("friendlyName", required: true)]
-        public Input<string> FriendlyName { get; set; } = null!;
-
-        [Input("objectType", required: true)]
-        public Input<string> ObjectType { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the policy information.
-        /// </summary>
-        [Input("policyInfo", required: true)]
-        public Input<Inputs.PolicyInfoArgs> PolicyInfo { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.BackupInstanceArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the backup vault is present.

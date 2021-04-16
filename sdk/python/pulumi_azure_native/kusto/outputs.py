@@ -20,6 +20,8 @@ __all__ = [
     'LanguageExtensionResponse',
     'LanguageExtensionsListResponse',
     'OptimizedAutoscaleResponse',
+    'SystemDataResponse',
+    'TableLevelSharingPropertiesResponse',
     'TrustedExternalTenantResponse',
     'VirtualNetworkConfigurationResponse',
 ]
@@ -542,6 +544,226 @@ class OptimizedAutoscaleResponse(dict):
         The version of the template defined, for instance 1.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TableLevelSharingPropertiesResponse(dict):
+    """
+    Tables that will be included and excluded in the follower database
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalTablesToExclude":
+            suggest = "external_tables_to_exclude"
+        elif key == "externalTablesToInclude":
+            suggest = "external_tables_to_include"
+        elif key == "materializedViewsToExclude":
+            suggest = "materialized_views_to_exclude"
+        elif key == "materializedViewsToInclude":
+            suggest = "materialized_views_to_include"
+        elif key == "tablesToExclude":
+            suggest = "tables_to_exclude"
+        elif key == "tablesToInclude":
+            suggest = "tables_to_include"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableLevelSharingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableLevelSharingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_tables_to_exclude: Optional[Sequence[str]] = None,
+                 external_tables_to_include: Optional[Sequence[str]] = None,
+                 materialized_views_to_exclude: Optional[Sequence[str]] = None,
+                 materialized_views_to_include: Optional[Sequence[str]] = None,
+                 tables_to_exclude: Optional[Sequence[str]] = None,
+                 tables_to_include: Optional[Sequence[str]] = None):
+        """
+        Tables that will be included and excluded in the follower database
+        :param Sequence[str] external_tables_to_exclude: List of external tables exclude from the follower database
+        :param Sequence[str] external_tables_to_include: List of external tables to include in the follower database
+        :param Sequence[str] materialized_views_to_exclude: List of materialized views exclude from the follower database
+        :param Sequence[str] materialized_views_to_include: List of materialized views to include in the follower database
+        :param Sequence[str] tables_to_exclude: List of tables to exclude from the follower database
+        :param Sequence[str] tables_to_include: List of tables to include in the follower database
+        """
+        if external_tables_to_exclude is not None:
+            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+        if external_tables_to_include is not None:
+            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if materialized_views_to_exclude is not None:
+            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+        if materialized_views_to_include is not None:
+            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+        if tables_to_exclude is not None:
+            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+        if tables_to_include is not None:
+            pulumi.set(__self__, "tables_to_include", tables_to_include)
+
+    @property
+    @pulumi.getter(name="externalTablesToExclude")
+    def external_tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables exclude from the follower database
+        """
+        return pulumi.get(self, "external_tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="externalTablesToInclude")
+    def external_tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of external tables to include in the follower database
+        """
+        return pulumi.get(self, "external_tables_to_include")
+
+    @property
+    @pulumi.getter(name="materializedViewsToExclude")
+    def materialized_views_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views exclude from the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_exclude")
+
+    @property
+    @pulumi.getter(name="materializedViewsToInclude")
+    def materialized_views_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of materialized views to include in the follower database
+        """
+        return pulumi.get(self, "materialized_views_to_include")
+
+    @property
+    @pulumi.getter(name="tablesToExclude")
+    def tables_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to exclude from the follower database
+        """
+        return pulumi.get(self, "tables_to_exclude")
+
+    @property
+    @pulumi.getter(name="tablesToInclude")
+    def tables_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to include in the follower database
+        """
+        return pulumi.get(self, "tables_to_include")
 
 
 @pulumi.output_type

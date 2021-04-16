@@ -109,7 +109,7 @@ class Database(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Kusto database.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto database.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +174,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:Database"), pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-native:kusto/v20190121:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Database"), pulumi.Alias(type_="azure-native:kusto/v20190515:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Database"), pulumi.Alias(type_="azure-native:kusto/v20190907:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Database"), pulumi.Alias(type_="azure-native:kusto/v20191109:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Database"), pulumi.Alias(type_="azure-native:kusto/v20200215:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Database"), pulumi.Alias(type_="azure-native:kusto/v20200614:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Database"), pulumi.Alias(type_="azure-native:kusto/v20200918:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:Database"), pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Database"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Database"), pulumi.Alias(type_="azure-native:kusto/v20190121:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Database"), pulumi.Alias(type_="azure-native:kusto/v20190515:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Database"), pulumi.Alias(type_="azure-native:kusto/v20190907:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Database"), pulumi.Alias(type_="azure-native:kusto/v20191109:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Database"), pulumi.Alias(type_="azure-native:kusto/v20200215:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Database"), pulumi.Alias(type_="azure-native:kusto/v20200614:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Database"), pulumi.Alias(type_="azure-native:kusto/v20200918:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Database"), pulumi.Alias(type_="azure-native:kusto/v20210101:Database"), pulumi.Alias(type_="azure-nextgen:kusto/v20210101:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:kusto:Database',

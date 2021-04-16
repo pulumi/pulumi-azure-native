@@ -171,7 +171,7 @@ class IpFirewallRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse/v20201201:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IpFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse/v20201201:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IpFirewallRule"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:IpFirewallRule"), pulumi.Alias(type_="azure-nextgen:synapse/v20210401preview:IpFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpFirewallRule, __self__).__init__(
             'azure-native:synapse/v20210301:IpFirewallRule',

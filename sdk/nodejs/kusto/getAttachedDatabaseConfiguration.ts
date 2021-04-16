@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
     if (!opts) {
@@ -75,6 +75,10 @@ export interface GetAttachedDatabaseConfigurationResult {
      * The provisioned state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Table level sharing specifications
+     */
+    readonly tableLevelSharingProperties?: outputs.kusto.TableLevelSharingPropertiesResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

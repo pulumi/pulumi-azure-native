@@ -20,7 +20,7 @@ class GetBackupVaultResult:
     """
     Backup Vault Resource
     """
-    def __init__(__self__, e_tag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, storage_settings=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -36,12 +36,9 @@ class GetBackupVaultResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if storage_settings and not isinstance(storage_settings, list):
-            raise TypeError("Expected argument 'storage_settings' to be a list")
-        pulumi.set(__self__, "storage_settings", storage_settings)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -93,20 +90,12 @@ class GetBackupVaultResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.BackupVaultResponse':
         """
-        Provisioning state of the BackupVault resource
+        BackupVaultResource properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="storageSettings")
-    def storage_settings(self) -> Sequence['outputs.StorageSettingResponse']:
-        """
-        Storage Settings
-        """
-        return pulumi.get(self, "storage_settings")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -144,8 +133,7 @@ class AwaitableGetBackupVaultResult(GetBackupVaultResult):
             identity=self.identity,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            storage_settings=self.storage_settings,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -176,8 +164,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        storage_settings=__ret__.storage_settings,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

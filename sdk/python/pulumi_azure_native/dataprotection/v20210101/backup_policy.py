@@ -8,50 +8,30 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['BackupPolicyArgs', 'BackupPolicy']
 
 @pulumi.input_type
 class BackupPolicyArgs:
     def __init__(__self__, *,
-                 datasource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 object_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
-                 backup_policy_name: Optional[pulumi.Input[str]] = None):
+                 backup_policy_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['BackupPolicyArgs']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] datasource_types: Type of datasource for the backup management
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
+        :param pulumi.Input['BackupPolicyArgs'] properties: BaseBackupPolicyResource properties
         """
-        pulumi.set(__self__, "datasource_types", datasource_types)
-        pulumi.set(__self__, "object_type", object_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
         if backup_policy_name is not None:
             pulumi.set(__self__, "backup_policy_name", backup_policy_name)
-
-    @property
-    @pulumi.getter(name="datasourceTypes")
-    def datasource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Type of datasource for the backup management
-        """
-        return pulumi.get(self, "datasource_types")
-
-    @datasource_types.setter
-    def datasource_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "datasource_types", value)
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "object_type")
-
-    @object_type.setter
-    def object_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object_type", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +66,18 @@ class BackupPolicyArgs:
     def backup_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backup_policy_name", value)
 
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['BackupPolicyArgs']]:
+        """
+        BaseBackupPolicyResource properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
+        pulumi.set(self, "properties", value)
+
 
 class BackupPolicy(pulumi.CustomResource):
     @overload
@@ -93,8 +85,7 @@ class BackupPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
-                 datasource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 object_type: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -103,7 +94,7 @@ class BackupPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] datasource_types: Type of datasource for the backup management
+        :param pulumi.Input[pulumi.InputType['BackupPolicyArgs']] properties: BaseBackupPolicyResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
@@ -132,8 +123,7 @@ class BackupPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
-                 datasource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 object_type: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -149,12 +139,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
             __props__.__dict__["backup_policy_name"] = backup_policy_name
-            if datasource_types is None and not opts.urn:
-                raise TypeError("Missing required property 'datasource_types'")
-            __props__.__dict__["datasource_types"] = datasource_types
-            if object_type is None and not opts.urn:
-                raise TypeError("Missing required property 'object_type'")
-            __props__.__dict__["object_type"] = object_type
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -188,20 +173,11 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-        __props__.__dict__["datasource_types"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["object_type"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="datasourceTypes")
-    def datasource_types(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Type of datasource for the backup management
-        """
-        return pulumi.get(self, "datasource_types")
 
     @property
     @pulumi.getter
@@ -212,9 +188,12 @@ class BackupPolicy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "object_type")
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BackupPolicyResponse']:
+        """
+        BaseBackupPolicyResource properties
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

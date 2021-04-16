@@ -41,10 +41,6 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
-     * Type of datasource for the backup management
-     */
-    readonly datasourceTypes: string[];
-    /**
      * Resource Id represents the complete path to the resource.
      */
     readonly id: string;
@@ -52,7 +48,10 @@ export interface GetBackupPolicyResult {
      * Resource name associated with the resource.
      */
     readonly name: string;
-    readonly objectType: string;
+    /**
+     * BaseBackupPolicyResource properties
+     */
+    readonly properties: outputs.dataprotection.BackupPolicyResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

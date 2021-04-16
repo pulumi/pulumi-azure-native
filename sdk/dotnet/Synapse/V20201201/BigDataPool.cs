@@ -179,6 +179,8 @@ namespace Pulumi.AzureNative.Synapse.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:BigDataPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:BigDataPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:BigDataPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

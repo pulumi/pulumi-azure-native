@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database principal assignment.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
     if (!opts) {

@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing a Kusto database.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:kusto:getDatabase", args, &rv, opts...)

@@ -5,10 +5,22 @@
 from enum import Enum
 
 __all__ = [
+    'AbsoluteMarker',
     'DataStoreTypes',
+    'DayOfWeek',
+    'Month',
     'StorageSettingStoreTypes',
     'StorageSettingTypes',
+    'WeekNumber',
 ]
+
+
+class AbsoluteMarker(str, Enum):
+    ALL_BACKUP = "AllBackup"
+    FIRST_OF_DAY = "FirstOfDay"
+    FIRST_OF_MONTH = "FirstOfMonth"
+    FIRST_OF_WEEK = "FirstOfWeek"
+    FIRST_OF_YEAR = "FirstOfYear"
 
 
 class DataStoreTypes(str, Enum):
@@ -18,6 +30,31 @@ class DataStoreTypes(str, Enum):
     OPERATIONAL_STORE = "OperationalStore"
     VAULT_STORE = "VaultStore"
     ARCHIVE_STORE = "ArchiveStore"
+
+
+class DayOfWeek(str, Enum):
+    FRIDAY = "Friday"
+    MONDAY = "Monday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+    THURSDAY = "Thursday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+
+
+class Month(str, Enum):
+    APRIL = "April"
+    AUGUST = "August"
+    DECEMBER = "December"
+    FEBRUARY = "February"
+    JANUARY = "January"
+    JULY = "July"
+    JUNE = "June"
+    MARCH = "March"
+    MAY = "May"
+    NOVEMBER = "November"
+    OCTOBER = "October"
+    SEPTEMBER = "September"
 
 
 class StorageSettingStoreTypes(str, Enum):
@@ -35,3 +72,11 @@ class StorageSettingTypes(str, Enum):
     """
     GEO_REDUNDANT = "GeoRedundant"
     LOCALLY_REDUNDANT = "LocallyRedundant"
+
+
+class WeekNumber(str, Enum):
+    FIRST = "First"
+    FOURTH = "Fourth"
+    LAST = "Last"
+    SECOND = "Second"
+    THIRD = "Third"

@@ -19,9 +19,11 @@ export * from "./getDataConnection";
 export * from "./getDatabase";
 export * from "./getDatabasePrincipalAssignment";
 export * from "./getEventHubConnection";
+export * from "./getScript";
 export * from "./listClusterFollowerDatabases";
 export * from "./listClusterLanguageExtensions";
 export * from "./listDatabasePrincipals";
+export * from "./script";
 
 // Export enums:
 export * from "../types/enums/kusto";
@@ -36,6 +38,7 @@ import * as v20191109 from "./v20191109";
 import * as v20200215 from "./v20200215";
 import * as v20200614 from "./v20200614";
 import * as v20200918 from "./v20200918";
+import * as v20210101 from "./v20210101";
 
 export {
     v20170907privatepreview,
@@ -47,6 +50,7 @@ export {
     v20200215,
     v20200614,
     v20200918,
+    v20210101,
 };
 
 // Import resources to register:
@@ -57,6 +61,7 @@ import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { EventHubConnection } from "./eventHubConnection";
+import { Script } from "./script";
 
 const _module = {
     version: utilities.getVersion(),
@@ -76,6 +81,8 @@ const _module = {
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:kusto:EventHubConnection":
                 return new EventHubConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto:Script":
+                return new Script(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

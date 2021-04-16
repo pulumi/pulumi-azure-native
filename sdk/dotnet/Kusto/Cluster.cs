@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a Kusto cluster.
-    /// API Version: 2020-09-18.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("engineType")]
         public Output<string?> EngineType { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the cluster, if configured.
@@ -192,6 +198,8 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -331,9 +339,11 @@ namespace Pulumi.AzureNative.Kusto
 
         public ClusterArgs()
         {
+            EnableDiskEncryption = false;
             EnableDoubleEncryption = false;
             EnablePurge = false;
             EnableStreamingIngest = false;
+            EngineType = "V3";
         }
     }
 }

@@ -58,13 +58,9 @@ export interface GetBackupVaultResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of the BackupVault resource
+     * BackupVaultResource properties
      */
-    readonly provisioningState: string;
-    /**
-     * Storage Settings
-     */
-    readonly storageSettings: outputs.dataprotection.v20210101.StorageSettingResponse[];
+    readonly properties: outputs.dataprotection.v20210101.BackupVaultResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

@@ -36,14 +36,13 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Type of datasource for the backup management
-     */
-    public readonly datasourceTypes!: pulumi.Output<string[]>;
-    /**
      * Resource name associated with the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly objectType!: pulumi.Output<string>;
+    /**
+     * BaseBackupPolicyResource properties
+     */
+    public readonly properties!: pulumi.Output<outputs.dataprotection.v20210101.BackupPolicyResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -64,12 +63,6 @@ export class BackupPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datasourceTypes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'datasourceTypes'");
-            }
-            if ((!args || args.objectType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'objectType'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -77,17 +70,15 @@ export class BackupPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            inputs["datasourceTypes"] = args ? args.datasourceTypes : undefined;
-            inputs["objectType"] = args ? args.objectType : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["datasourceTypes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["objectType"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -106,10 +97,9 @@ export class BackupPolicy extends pulumi.CustomResource {
 export interface BackupPolicyArgs {
     readonly backupPolicyName?: pulumi.Input<string>;
     /**
-     * Type of datasource for the backup management
+     * BaseBackupPolicyResource properties
      */
-    readonly datasourceTypes: pulumi.Input<pulumi.Input<string>[]>;
-    readonly objectType: pulumi.Input<string>;
+    readonly properties?: pulumi.Input<inputs.dataprotection.v20210101.BackupPolicyArgs>;
     /**
      * The name of the resource group where the backup vault is present.
      */

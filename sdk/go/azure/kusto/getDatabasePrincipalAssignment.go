@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing a database principal assignment.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 func LookupDatabasePrincipalAssignment(ctx *pulumi.Context, args *LookupDatabasePrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupDatabasePrincipalAssignmentResult, error) {
 	var rv LookupDatabasePrincipalAssignmentResult
 	err := ctx.Invoke("azure-native:kusto:getDatabasePrincipalAssignment", args, &rv, opts...)

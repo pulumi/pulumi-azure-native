@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an data connection.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function getDataConnection(args: GetDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectionResult> {
     if (!opts) {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an data connection.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export class DataConnection extends pulumi.CustomResource {
     /**
@@ -93,7 +93,7 @@ export class DataConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:DataConnection" }, { type: "azure-native:kusto/v20190121:DataConnection" }, { type: "azure-nextgen:kusto/v20190121:DataConnection" }, { type: "azure-native:kusto/v20190515:DataConnection" }, { type: "azure-nextgen:kusto/v20190515:DataConnection" }, { type: "azure-native:kusto/v20190907:DataConnection" }, { type: "azure-nextgen:kusto/v20190907:DataConnection" }, { type: "azure-native:kusto/v20191109:DataConnection" }, { type: "azure-nextgen:kusto/v20191109:DataConnection" }, { type: "azure-native:kusto/v20200215:DataConnection" }, { type: "azure-nextgen:kusto/v20200215:DataConnection" }, { type: "azure-native:kusto/v20200614:DataConnection" }, { type: "azure-nextgen:kusto/v20200614:DataConnection" }, { type: "azure-native:kusto/v20200918:DataConnection" }, { type: "azure-nextgen:kusto/v20200918:DataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:DataConnection" }, { type: "azure-native:kusto/v20190121:DataConnection" }, { type: "azure-nextgen:kusto/v20190121:DataConnection" }, { type: "azure-native:kusto/v20190515:DataConnection" }, { type: "azure-nextgen:kusto/v20190515:DataConnection" }, { type: "azure-native:kusto/v20190907:DataConnection" }, { type: "azure-nextgen:kusto/v20190907:DataConnection" }, { type: "azure-native:kusto/v20191109:DataConnection" }, { type: "azure-nextgen:kusto/v20191109:DataConnection" }, { type: "azure-native:kusto/v20200215:DataConnection" }, { type: "azure-nextgen:kusto/v20200215:DataConnection" }, { type: "azure-native:kusto/v20200614:DataConnection" }, { type: "azure-nextgen:kusto/v20200614:DataConnection" }, { type: "azure-native:kusto/v20200918:DataConnection" }, { type: "azure-nextgen:kusto/v20200918:DataConnection" }, { type: "azure-native:kusto/v20210101:DataConnection" }, { type: "azure-nextgen:kusto/v20210101:DataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataConnection.__pulumiType, name, inputs, opts);
     }

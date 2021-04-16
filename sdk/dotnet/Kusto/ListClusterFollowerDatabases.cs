@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// The list Kusto database principals operation response.
-        /// API Version: 2020-09-18.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListClusterFollowerDatabasesResult> InvokeAsync(ListClusterFollowerDatabasesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesArgs(), options.WithVersion());

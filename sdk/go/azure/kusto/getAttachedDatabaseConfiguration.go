@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing an attached database configuration.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 func LookupAttachedDatabaseConfiguration(ctx *pulumi.Context, args *LookupAttachedDatabaseConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAttachedDatabaseConfigurationResult, error) {
 	var rv LookupAttachedDatabaseConfigurationResult
 	err := ctx.Invoke("azure-native:kusto:getAttachedDatabaseConfiguration", args, &rv, opts...)
@@ -45,6 +45,8 @@ type LookupAttachedDatabaseConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Table level sharing specifications
+	TableLevelSharingProperties *TableLevelSharingPropertiesResponse `pulumi:"tableLevelSharingProperties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

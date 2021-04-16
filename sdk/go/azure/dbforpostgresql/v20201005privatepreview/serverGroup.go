@@ -41,6 +41,8 @@ type ServerGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion pulumi.StringPtrOutput `pulumi:"postgresqlVersion"`
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput `pulumi:"privateDnsZoneArguments"`
 	// The array of read replica server groups.
 	ReadReplicas pulumi.StringArrayOutput `pulumi:"readReplicas"`
 	// The resource provider type of server group.
@@ -125,6 +127,8 @@ type serverGroupState struct {
 	Name *string `pulumi:"name"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion *string `pulumi:"postgresqlVersion"`
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments *ServerGroupPropertiesResponsePrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// The array of read replica server groups.
 	ReadReplicas []string `pulumi:"readReplicas"`
 	// The resource provider type of server group.
@@ -172,6 +176,8 @@ type ServerGroupState struct {
 	Name pulumi.StringPtrInput
 	// The PostgreSQL version of server group.
 	PostgresqlVersion pulumi.StringPtrInput
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrInput
 	// The array of read replica server groups.
 	ReadReplicas pulumi.StringArrayInput
 	// The resource provider type of server group.
@@ -225,6 +231,8 @@ type serverGroupArgs struct {
 	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion *string `pulumi:"postgresqlVersion"`
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments *ServerGroupPropertiesPrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server group.
@@ -275,6 +283,8 @@ type ServerGroupArgs struct {
 	PointInTimeUTC pulumi.StringPtrInput
 	// The PostgreSQL version of server group.
 	PostgresqlVersion pulumi.StringPtrInput
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server group.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
-    /// API Version: 2020-09-18.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
@@ -104,6 +104,8 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:ClusterPrincipalAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:ClusterPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

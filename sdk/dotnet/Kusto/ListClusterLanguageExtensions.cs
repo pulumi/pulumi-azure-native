@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// The list of language extension objects.
-        /// API Version: 2020-09-18.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListClusterLanguageExtensionsResult> InvokeAsync(ListClusterLanguageExtensionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListClusterLanguageExtensionsResult>("azure-native:kusto:listClusterLanguageExtensions", args ?? new ListClusterLanguageExtensionsArgs(), options.WithVersion());

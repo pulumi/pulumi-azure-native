@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing a Kusto cluster.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:kusto:getCluster", args, &rv, opts...)
@@ -39,6 +39,8 @@ type LookupClusterResult struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The engine type
 	EngineType *string `pulumi:"engineType"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto cluster.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -60,6 +60,10 @@ export class Cluster extends pulumi.CustomResource {
      * The engine type
      */
     public readonly engineType!: pulumi.Output<string | undefined>;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The identity of the cluster, if configured.
      */
@@ -143,11 +147,11 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
+            inputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
             inputs["enableDoubleEncryption"] = (args ? args.enableDoubleEncryption : undefined) ?? false;
             inputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
             inputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
-            inputs["engineType"] = args ? args.engineType : undefined;
+            inputs["engineType"] = (args ? args.engineType : undefined) ?? "V3";
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -159,6 +163,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["dataIngestionUri"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["languageExtensions"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -173,6 +178,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enablePurge"] = undefined /*out*/;
             inputs["enableStreamingIngest"] = undefined /*out*/;
             inputs["engineType"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["keyVaultProperties"] = undefined /*out*/;
             inputs["languageExtensions"] = undefined /*out*/;
@@ -193,7 +199,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:Cluster" }, { type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-nextgen:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:Cluster" }, { type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-nextgen:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-nextgen:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-nextgen:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-nextgen:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-nextgen:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-nextgen:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-nextgen:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-nextgen:kusto/v20200918:Cluster" }, { type: "azure-native:kusto/v20210101:Cluster" }, { type: "azure-nextgen:kusto/v20210101:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

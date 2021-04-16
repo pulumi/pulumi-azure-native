@@ -55,6 +55,8 @@ class ClusterArgs:
         pulumi.set(__self__, "sku", sku)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if enable_disk_encryption is None:
+            enable_disk_encryption = False
         if enable_disk_encryption is not None:
             pulumi.set(__self__, "enable_disk_encryption", enable_disk_encryption)
         if enable_double_encryption is None:
@@ -69,6 +71,8 @@ class ClusterArgs:
             enable_streaming_ingest = False
         if enable_streaming_ingest is not None:
             pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
+        if engine_type is None:
+            engine_type = 'V3'
         if engine_type is not None:
             pulumi.set(__self__, "engine_type", engine_type)
         if identity is not None:
@@ -305,7 +309,7 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Kusto cluster.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,7 +338,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto cluster.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -380,6 +384,8 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
+            if enable_disk_encryption is None:
+                enable_disk_encryption = False
             __props__.__dict__["enable_disk_encryption"] = enable_disk_encryption
             if enable_double_encryption is None:
                 enable_double_encryption = False
@@ -390,6 +396,8 @@ class Cluster(pulumi.CustomResource):
             if enable_streaming_ingest is None:
                 enable_streaming_ingest = False
             __props__.__dict__["enable_streaming_ingest"] = enable_streaming_ingest
+            if engine_type is None:
+                engine_type = 'V3'
             __props__.__dict__["engine_type"] = engine_type
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_properties"] = key_vault_properties
@@ -406,6 +414,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["data_ingestion_uri"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["language_extensions"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -413,7 +422,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["state_reason"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210101:Cluster"), pulumi.Alias(type_="azure-nextgen:kusto/v20210101:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:kusto:Cluster',
@@ -443,6 +452,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["enable_purge"] = None
         __props__.__dict__["enable_streaming_ingest"] = None
         __props__.__dict__["engine_type"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["key_vault_properties"] = None
         __props__.__dict__["language_extensions"] = None
@@ -508,6 +518,14 @@ class Cluster(pulumi.CustomResource):
         The engine type
         """
         return pulumi.get(self, "engine_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

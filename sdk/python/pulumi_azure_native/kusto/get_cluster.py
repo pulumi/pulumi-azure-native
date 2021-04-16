@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     Class representing a Kusto cluster.
     """
-    def __init__(__self__, data_ingestion_uri=None, enable_disk_encryption=None, enable_double_encryption=None, enable_purge=None, enable_streaming_ingest=None, engine_type=None, id=None, identity=None, key_vault_properties=None, language_extensions=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, state_reason=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
+    def __init__(__self__, data_ingestion_uri=None, enable_disk_encryption=None, enable_double_encryption=None, enable_purge=None, enable_streaming_ingest=None, engine_type=None, etag=None, id=None, identity=None, key_vault_properties=None, language_extensions=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, state_reason=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
         if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
             raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
         pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
@@ -39,6 +39,9 @@ class GetClusterResult:
         if engine_type and not isinstance(engine_type, str):
             raise TypeError("Expected argument 'engine_type' to be a str")
         pulumi.set(__self__, "engine_type", engine_type)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -138,6 +141,14 @@ class GetClusterResult:
         The engine type
         """
         return pulumi.get(self, "engine_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -288,6 +299,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             enable_purge=self.enable_purge,
             enable_streaming_ingest=self.enable_streaming_ingest,
             engine_type=self.engine_type,
+            etag=self.etag,
             id=self.id,
             identity=self.identity,
             key_vault_properties=self.key_vault_properties,
@@ -312,7 +324,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Class representing a Kusto cluster.
-    API Version: 2020-09-18.
+    API Version: 2021-01-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -334,6 +346,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         enable_purge=__ret__.enable_purge,
         enable_streaming_ingest=__ret__.enable_streaming_ingest,
         engine_type=__ret__.engine_type,
+        etag=__ret__.etag,
         id=__ret__.id,
         identity=__ret__.identity,
         key_vault_properties=__ret__.key_vault_properties,

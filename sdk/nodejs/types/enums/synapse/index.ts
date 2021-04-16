@@ -5,12 +5,68 @@
 import * as v20190601preview from "./v20190601preview";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20190601preview,
     v20201201,
     v20210301,
+    v20210401preview,
 };
+
+export const AzureSkuName = {
+    Standard_DS13_v2_1TB_PS: "Standard_DS13_v2+1TB_PS",
+    Standard_DS13_v2_2TB_PS: "Standard_DS13_v2+2TB_PS",
+    Standard_DS14_v2_3TB_PS: "Standard_DS14_v2+3TB_PS",
+    Standard_DS14_v2_4TB_PS: "Standard_DS14_v2+4TB_PS",
+    Standard_D13_v2: "Standard_D13_v2",
+    Standard_D14_v2: "Standard_D14_v2",
+    Standard_L8s: "Standard_L8s",
+    Standard_L16s: "Standard_L16s",
+    Standard_L8s_v2: "Standard_L8s_v2",
+    Standard_L16s_v2: "Standard_L16s_v2",
+    Standard_D11_v2: "Standard_D11_v2",
+    Standard_D12_v2: "Standard_D12_v2",
+    Standard_L4s: "Standard_L4s",
+    Dev_No_SLA_Standard_D11_v2: "Dev(No SLA)_Standard_D11_v2",
+    Standard_E64i_v3: "Standard_E64i_v3",
+    Standard_E80ids_v4: "Standard_E80ids_v4",
+    Standard_E2a_v4: "Standard_E2a_v4",
+    Standard_E4a_v4: "Standard_E4a_v4",
+    Standard_E8a_v4: "Standard_E8a_v4",
+    Standard_E16a_v4: "Standard_E16a_v4",
+    Standard_E8as_v4_1TB_PS: "Standard_E8as_v4+1TB_PS",
+    Standard_E8as_v4_2TB_PS: "Standard_E8as_v4+2TB_PS",
+    Standard_E16as_v4_3TB_PS: "Standard_E16as_v4+3TB_PS",
+    Standard_E16as_v4_4TB_PS: "Standard_E16as_v4+4TB_PS",
+    Dev_No_SLA_Standard_E2a_v4: "Dev(No SLA)_Standard_E2a_v4",
+} as const;
+
+/**
+ * SKU name.
+ */
+export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
+
+export const AzureSkuTier = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * SKU tier.
+ */
+export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
+
+export const DataConnectionKind = {
+    EventHub: "EventHub",
+    EventGrid: "EventGrid",
+    IotHub: "IotHub",
+} as const;
+
+/**
+ * Kind of the endpoint for the data connection
+ */
+export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
 
 export const DataFlowComputeType = {
     General: "General",
@@ -22,6 +78,16 @@ export const DataFlowComputeType = {
  * Compute type of the cluster which will execute data flow job.
  */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
+
+export const EngineType = {
+    V2: "V2",
+    V3: "V3",
+} as const;
+
+/**
+ * The engine type
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 export const IntegrationRuntimeEdition = {
     Standard: "Standard",
@@ -74,6 +140,16 @@ export const IntegrationRuntimeType = {
  * Type of integration runtime.
  */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
+
+export const Kind = {
+    ReadWrite: "ReadWrite",
+    ReadOnlyFollowing: "ReadOnlyFollowing",
+} as const;
+
+/**
+ * Kind of the database
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const NodeSize = {
     None: "None",

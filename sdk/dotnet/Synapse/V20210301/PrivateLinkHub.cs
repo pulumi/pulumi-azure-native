@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.Synapse.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:PrivateLinkHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -20,7 +20,7 @@ class GetServerGroupResult:
     """
     Represents a server group for create.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, backup_retention_days=None, citus_version=None, delegated_subnet_arguments=None, earliest_restore_time=None, enable_mx=None, enable_shards_on_coordinator=None, enable_zfs=None, id=None, location=None, maintenance_window=None, name=None, postgresql_version=None, read_replicas=None, resource_provider_type=None, server_role_groups=None, source_server_group=None, standby_availability_zone=None, state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, backup_retention_days=None, citus_version=None, delegated_subnet_arguments=None, earliest_restore_time=None, enable_mx=None, enable_shards_on_coordinator=None, enable_zfs=None, id=None, location=None, maintenance_window=None, name=None, postgresql_version=None, private_dns_zone_arguments=None, read_replicas=None, resource_provider_type=None, server_role_groups=None, source_server_group=None, standby_availability_zone=None, state=None, system_data=None, tags=None, type=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -63,6 +63,9 @@ class GetServerGroupResult:
         if postgresql_version and not isinstance(postgresql_version, str):
             raise TypeError("Expected argument 'postgresql_version' to be a str")
         pulumi.set(__self__, "postgresql_version", postgresql_version)
+        if private_dns_zone_arguments and not isinstance(private_dns_zone_arguments, dict):
+            raise TypeError("Expected argument 'private_dns_zone_arguments' to be a dict")
+        pulumi.set(__self__, "private_dns_zone_arguments", private_dns_zone_arguments)
         if read_replicas and not isinstance(read_replicas, list):
             raise TypeError("Expected argument 'read_replicas' to be a list")
         pulumi.set(__self__, "read_replicas", read_replicas)
@@ -204,6 +207,14 @@ class GetServerGroupResult:
         return pulumi.get(self, "postgresql_version")
 
     @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> Optional['outputs.ServerGroupPropertiesResponsePrivateDnsZoneArguments']:
+        """
+        The private dns zone arguments for a server group.
+        """
+        return pulumi.get(self, "private_dns_zone_arguments")
+
+    @property
     @pulumi.getter(name="readReplicas")
     def read_replicas(self) -> Sequence[str]:
         """
@@ -296,6 +307,7 @@ class AwaitableGetServerGroupResult(GetServerGroupResult):
             maintenance_window=self.maintenance_window,
             name=self.name,
             postgresql_version=self.postgresql_version,
+            private_dns_zone_arguments=self.private_dns_zone_arguments,
             read_replicas=self.read_replicas,
             resource_provider_type=self.resource_provider_type,
             server_role_groups=self.server_role_groups,
@@ -341,6 +353,7 @@ def get_server_group(resource_group_name: Optional[str] = None,
         maintenance_window=__ret__.maintenance_window,
         name=__ret__.name,
         postgresql_version=__ret__.postgresql_version,
+        private_dns_zone_arguments=__ret__.private_dns_zone_arguments,
         read_replicas=__ret__.read_replicas,
         resource_provider_type=__ret__.resource_provider_type,
         server_role_groups=__ret__.server_role_groups,

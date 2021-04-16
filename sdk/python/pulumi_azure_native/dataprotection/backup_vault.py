@@ -16,8 +16,8 @@ __all__ = ['BackupVaultArgs', 'BackupVault']
 @pulumi.input_type
 class BackupVaultArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['BackupVaultArgs'],
                  resource_group_name: pulumi.Input[str],
-                 storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]],
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['DppIdentityDetailsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -25,16 +25,16 @@ class BackupVaultArgs:
                  vault_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
+        :param pulumi.Input['BackupVaultArgs'] properties: BackupVaultResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
-        :param pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]] storage_settings: Storage Settings
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input['DppIdentityDetailsArgs'] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_settings", storage_settings)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if identity is not None:
@@ -47,6 +47,18 @@ class BackupVaultArgs:
             pulumi.set(__self__, "vault_name", vault_name)
 
     @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BackupVaultArgs']:
+        """
+        BackupVaultResource properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BackupVaultArgs']):
+        pulumi.set(self, "properties", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -57,18 +69,6 @@ class BackupVaultArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="storageSettings")
-    def storage_settings(self) -> pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]:
-        """
-        Storage Settings
-        """
-        return pulumi.get(self, "storage_settings")
-
-    @storage_settings.setter
-    def storage_settings(self, value: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]]):
-        pulumi.set(self, "storage_settings", value)
 
     @property
     @pulumi.getter(name="eTag")
@@ -139,8 +139,8 @@ class BackupVault(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupVaultArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSettingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -153,8 +153,8 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[pulumi.InputType['BackupVaultArgs']] properties: BackupVaultResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSettingArgs']]]] storage_settings: Storage Settings
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
@@ -186,8 +186,8 @@ class BackupVault(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['BackupVaultArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageSettingArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -205,16 +205,15 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if storage_settings is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_settings'")
-            __props__.__dict__["storage_settings"] = storage_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupVault")])
@@ -245,8 +244,7 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["storage_settings"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -285,20 +283,12 @@ class BackupVault(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BackupVaultResponse']:
         """
-        Provisioning state of the BackupVault resource
+        BackupVaultResource properties
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="storageSettings")
-    def storage_settings(self) -> pulumi.Output[Sequence['outputs.StorageSettingResponse']]:
-        """
-        Storage Settings
-        """
-        return pulumi.get(self, "storage_settings")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

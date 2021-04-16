@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto database.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:Database" }, { type: "azure-native:kusto/v20170907privatepreview:Database" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Database" }, { type: "azure-native:kusto/v20180907preview:Database" }, { type: "azure-nextgen:kusto/v20180907preview:Database" }, { type: "azure-native:kusto/v20190121:Database" }, { type: "azure-nextgen:kusto/v20190121:Database" }, { type: "azure-native:kusto/v20190515:Database" }, { type: "azure-nextgen:kusto/v20190515:Database" }, { type: "azure-native:kusto/v20190907:Database" }, { type: "azure-nextgen:kusto/v20190907:Database" }, { type: "azure-native:kusto/v20191109:Database" }, { type: "azure-nextgen:kusto/v20191109:Database" }, { type: "azure-native:kusto/v20200215:Database" }, { type: "azure-nextgen:kusto/v20200215:Database" }, { type: "azure-native:kusto/v20200614:Database" }, { type: "azure-nextgen:kusto/v20200614:Database" }, { type: "azure-native:kusto/v20200918:Database" }, { type: "azure-nextgen:kusto/v20200918:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:Database" }, { type: "azure-native:kusto/v20170907privatepreview:Database" }, { type: "azure-nextgen:kusto/v20170907privatepreview:Database" }, { type: "azure-native:kusto/v20180907preview:Database" }, { type: "azure-nextgen:kusto/v20180907preview:Database" }, { type: "azure-native:kusto/v20190121:Database" }, { type: "azure-nextgen:kusto/v20190121:Database" }, { type: "azure-native:kusto/v20190515:Database" }, { type: "azure-nextgen:kusto/v20190515:Database" }, { type: "azure-native:kusto/v20190907:Database" }, { type: "azure-nextgen:kusto/v20190907:Database" }, { type: "azure-native:kusto/v20191109:Database" }, { type: "azure-nextgen:kusto/v20191109:Database" }, { type: "azure-native:kusto/v20200215:Database" }, { type: "azure-nextgen:kusto/v20200215:Database" }, { type: "azure-native:kusto/v20200614:Database" }, { type: "azure-nextgen:kusto/v20200614:Database" }, { type: "azure-native:kusto/v20200918:Database" }, { type: "azure-nextgen:kusto/v20200918:Database" }, { type: "azure-native:kusto/v20210101:Database" }, { type: "azure-nextgen:kusto/v20210101:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, inputs, opts);
     }

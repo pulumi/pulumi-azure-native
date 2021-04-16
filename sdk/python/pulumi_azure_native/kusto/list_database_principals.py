@@ -49,7 +49,7 @@ def list_database_principals(cluster_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasePrincipalsResult:
     """
     The list Kusto database principals operation response.
-    API Version: 2020-09-18.
+    API Version: 2021-01-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

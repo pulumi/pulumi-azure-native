@@ -28,11 +28,14 @@ namespace Pulumi.AzureNative.Kusto
         public static AzureSkuName Standard_D14_v2 { get; } = new AzureSkuName("Standard_D14_v2");
         public static AzureSkuName Standard_L8s { get; } = new AzureSkuName("Standard_L8s");
         public static AzureSkuName Standard_L16s { get; } = new AzureSkuName("Standard_L16s");
+        public static AzureSkuName Standard_L8s_v2 { get; } = new AzureSkuName("Standard_L8s_v2");
+        public static AzureSkuName Standard_L16s_v2 { get; } = new AzureSkuName("Standard_L16s_v2");
         public static AzureSkuName Standard_D11_v2 { get; } = new AzureSkuName("Standard_D11_v2");
         public static AzureSkuName Standard_D12_v2 { get; } = new AzureSkuName("Standard_D12_v2");
         public static AzureSkuName Standard_L4s { get; } = new AzureSkuName("Standard_L4s");
         public static AzureSkuName Dev_No_SLA_Standard_D11_v2 { get; } = new AzureSkuName("Dev(No SLA)_Standard_D11_v2");
         public static AzureSkuName Standard_E64i_v3 { get; } = new AzureSkuName("Standard_E64i_v3");
+        public static AzureSkuName Standard_E80ids_v4 { get; } = new AzureSkuName("Standard_E80ids_v4");
         public static AzureSkuName Standard_E2a_v4 { get; } = new AzureSkuName("Standard_E2a_v4");
         public static AzureSkuName Standard_E4a_v4 { get; } = new AzureSkuName("Standard_E4a_v4");
         public static AzureSkuName Standard_E8a_v4 { get; } = new AzureSkuName("Standard_E8a_v4");
@@ -201,7 +204,7 @@ namespace Pulumi.AzureNative.Kusto
         public static DatabasePrincipalRole Ingestor { get; } = new DatabasePrincipalRole("Ingestor");
         public static DatabasePrincipalRole Monitor { get; } = new DatabasePrincipalRole("Monitor");
         public static DatabasePrincipalRole User { get; } = new DatabasePrincipalRole("User");
-        public static DatabasePrincipalRole UnrestrictedViewers { get; } = new DatabasePrincipalRole("UnrestrictedViewers");
+        public static DatabasePrincipalRole UnrestrictedViewer { get; } = new DatabasePrincipalRole("UnrestrictedViewer");
         public static DatabasePrincipalRole Viewer { get; } = new DatabasePrincipalRole("Viewer");
 
         public static bool operator ==(DatabasePrincipalRole left, DatabasePrincipalRole right) => left.Equals(right);

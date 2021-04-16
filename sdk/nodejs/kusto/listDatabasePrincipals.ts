@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list Kusto database principals operation response.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
     if (!opts) {

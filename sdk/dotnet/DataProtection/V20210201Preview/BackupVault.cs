@@ -40,16 +40,10 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the BackupVault resource
+        /// BackupVaultResource properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage Settings
-        /// </summary>
-        [Output("storageSettings")]
-        public Output<ImmutableArray<Outputs.StorageSettingResponse>> StorageSettings { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupVaultResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -141,22 +135,16 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// BackupVaultResource properties
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BackupVaultArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group where the backup vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("storageSettings", required: true)]
-        private InputList<Inputs.StorageSettingArgs>? _storageSettings;
-
-        /// <summary>
-        /// Storage Settings
-        /// </summary>
-        public InputList<Inputs.StorageSettingArgs> StorageSettings
-        {
-            get => _storageSettings ?? (_storageSettings = new InputList<Inputs.StorageSettingArgs>());
-            set => _storageSettings = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

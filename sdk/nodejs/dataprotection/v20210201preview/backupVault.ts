@@ -52,13 +52,9 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning state of the BackupVault resource
+     * BackupVaultResource properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Storage Settings
-     */
-    public readonly storageSettings!: pulumi.Output<outputs.dataprotection.v20210201preview.StorageSettingResponse[]>;
+    public readonly properties!: pulumi.Output<outputs.dataprotection.v20210201preview.BackupVaultResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -83,21 +79,20 @@ export class BackupVault extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.storageSettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageSettings'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageSettings"] = args ? args.storageSettings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -105,8 +100,7 @@ export class BackupVault extends pulumi.CustomResource {
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageSettings"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -137,13 +131,13 @@ export interface BackupVaultArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * BackupVaultResource properties
+     */
+    readonly properties: pulumi.Input<inputs.dataprotection.v20210201preview.BackupVaultArgs>;
+    /**
      * The name of the resource group where the backup vault is present.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Storage Settings
-     */
-    readonly storageSettings: pulumi.Input<pulumi.Input<inputs.dataprotection.v20210201preview.StorageSettingArgs>[]>;
     /**
      * Resource tags.
      */

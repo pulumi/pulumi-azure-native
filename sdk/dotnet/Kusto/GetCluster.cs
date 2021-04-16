@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing a Kusto cluster.
-        /// API Version: 2020-09-18.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Kusto
         /// The engine type
         /// </summary>
         public readonly string? EngineType;
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string? engineType,
 
+            string etag,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Kusto
             EnablePurge = enablePurge;
             EnableStreamingIngest = enableStreamingIngest;
             EngineType = engineType;
+            Etag = etag;
             Id = id;
             Identity = identity;
             KeyVaultProperties = keyVaultProperties;

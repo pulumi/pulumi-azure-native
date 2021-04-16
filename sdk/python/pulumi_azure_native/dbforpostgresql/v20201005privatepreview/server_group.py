@@ -31,6 +31,7 @@ class ServerGroupArgs:
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[Union[str, 'PostgreSQLVersion']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']] = None,
                  server_group_name: Optional[pulumi.Input[str]] = None,
                  server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ServerRoleGroupArgs']]]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
@@ -56,6 +57,7 @@ class ServerGroupArgs:
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a server group.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
         :param pulumi.Input[Union[str, 'PostgreSQLVersion']] postgresql_version: The PostgreSQL version of server group.
+        :param pulumi.Input['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs'] private_dns_zone_arguments: The private dns zone arguments for a server group.
         :param pulumi.Input[str] server_group_name: The name of the server group.
         :param pulumi.Input[Sequence[pulumi.Input['ServerRoleGroupArgs']]] server_role_groups: The list of server role groups.
         :param pulumi.Input[str] source_location: The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
@@ -94,6 +96,8 @@ class ServerGroupArgs:
             pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
         if postgresql_version is not None:
             pulumi.set(__self__, "postgresql_version", postgresql_version)
+        if private_dns_zone_arguments is not None:
+            pulumi.set(__self__, "private_dns_zone_arguments", private_dns_zone_arguments)
         if server_group_name is not None:
             pulumi.set(__self__, "server_group_name", server_group_name)
         if server_role_groups is not None:
@@ -292,6 +296,18 @@ class ServerGroupArgs:
         pulumi.set(self, "postgresql_version", value)
 
     @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> Optional[pulumi.Input['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']]:
+        """
+        The private dns zone arguments for a server group.
+        """
+        return pulumi.get(self, "private_dns_zone_arguments")
+
+    @private_dns_zone_arguments.setter
+    def private_dns_zone_arguments(self, value: Optional[pulumi.Input['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']]):
+        pulumi.set(self, "private_dns_zone_arguments", value)
+
+    @property
     @pulumi.getter(name="serverGroupName")
     def server_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -407,6 +423,7 @@ class ServerGroup(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[Union[str, 'PostgreSQLVersion']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_group_name: Optional[pulumi.Input[str]] = None,
                  server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]]] = None,
@@ -436,6 +453,7 @@ class ServerGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server group.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
         :param pulumi.Input[Union[str, 'PostgreSQLVersion']] postgresql_version: The PostgreSQL version of server group.
+        :param pulumi.Input[pulumi.InputType['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']] private_dns_zone_arguments: The private dns zone arguments for a server group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_group_name: The name of the server group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]] server_role_groups: The list of server role groups.
@@ -484,6 +502,7 @@ class ServerGroup(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  postgresql_version: Optional[pulumi.Input[Union[str, 'PostgreSQLVersion']]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerGroupPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_group_name: Optional[pulumi.Input[str]] = None,
                  server_role_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]]] = None,
@@ -519,6 +538,7 @@ class ServerGroup(pulumi.CustomResource):
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["point_in_time_utc"] = point_in_time_utc
             __props__.__dict__["postgresql_version"] = postgresql_version
+            __props__.__dict__["private_dns_zone_arguments"] = private_dns_zone_arguments
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -575,6 +595,7 @@ class ServerGroup(pulumi.CustomResource):
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["postgresql_version"] = None
+        __props__.__dict__["private_dns_zone_arguments"] = None
         __props__.__dict__["read_replicas"] = None
         __props__.__dict__["resource_provider_type"] = None
         __props__.__dict__["server_role_groups"] = None
@@ -689,6 +710,14 @@ class ServerGroup(pulumi.CustomResource):
         The PostgreSQL version of server group.
         """
         return pulumi.get(self, "postgresql_version")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> pulumi.Output[Optional['outputs.ServerGroupPropertiesResponsePrivateDnsZoneArguments']]:
+        """
+        The private dns zone arguments for a server group.
+        """
+        return pulumi.get(self, "private_dns_zone_arguments")
 
     @property
     @pulumi.getter(name="readReplicas")

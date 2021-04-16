@@ -22,11 +22,14 @@ const (
 	AzureSkuName_Standard_D14_v2            = AzureSkuName("Standard_D14_v2")
 	AzureSkuName_Standard_L8s               = AzureSkuName("Standard_L8s")
 	AzureSkuName_Standard_L16s              = AzureSkuName("Standard_L16s")
+	AzureSkuName_Standard_L8s_v2            = AzureSkuName("Standard_L8s_v2")
+	AzureSkuName_Standard_L16s_v2           = AzureSkuName("Standard_L16s_v2")
 	AzureSkuName_Standard_D11_v2            = AzureSkuName("Standard_D11_v2")
 	AzureSkuName_Standard_D12_v2            = AzureSkuName("Standard_D12_v2")
 	AzureSkuName_Standard_L4s               = AzureSkuName("Standard_L4s")
 	AzureSkuName_Dev_No_SLA_Standard_D11_v2 = AzureSkuName("Dev(No SLA)_Standard_D11_v2")
 	AzureSkuName_Standard_E64i_v3           = AzureSkuName("Standard_E64i_v3")
+	AzureSkuName_Standard_E80ids_v4         = AzureSkuName("Standard_E80ids_v4")
 	AzureSkuName_Standard_E2a_v4            = AzureSkuName("Standard_E2a_v4")
 	AzureSkuName_Standard_E4a_v4            = AzureSkuName("Standard_E4a_v4")
 	AzureSkuName_Standard_E8a_v4            = AzureSkuName("Standard_E8a_v4")
@@ -176,12 +179,12 @@ func (e DataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 type DatabasePrincipalRole pulumi.String
 
 const (
-	DatabasePrincipalRoleAdmin               = DatabasePrincipalRole("Admin")
-	DatabasePrincipalRoleIngestor            = DatabasePrincipalRole("Ingestor")
-	DatabasePrincipalRoleMonitor             = DatabasePrincipalRole("Monitor")
-	DatabasePrincipalRoleUser                = DatabasePrincipalRole("User")
-	DatabasePrincipalRoleUnrestrictedViewers = DatabasePrincipalRole("UnrestrictedViewers")
-	DatabasePrincipalRoleViewer              = DatabasePrincipalRole("Viewer")
+	DatabasePrincipalRoleAdmin              = DatabasePrincipalRole("Admin")
+	DatabasePrincipalRoleIngestor           = DatabasePrincipalRole("Ingestor")
+	DatabasePrincipalRoleMonitor            = DatabasePrincipalRole("Monitor")
+	DatabasePrincipalRoleUser               = DatabasePrincipalRole("User")
+	DatabasePrincipalRoleUnrestrictedViewer = DatabasePrincipalRole("UnrestrictedViewer")
+	DatabasePrincipalRoleViewer             = DatabasePrincipalRole("Viewer")
 )
 
 func (DatabasePrincipalRole) ElementType() reflect.Type {

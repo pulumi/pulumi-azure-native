@@ -11,6 +11,7 @@ import * as v20191109 from "./v20191109";
 import * as v20200215 from "./v20200215";
 import * as v20200614 from "./v20200614";
 import * as v20200918 from "./v20200918";
+import * as v20210101 from "./v20210101";
 
 export {
     v20170907privatepreview,
@@ -22,6 +23,7 @@ export {
     v20200215,
     v20200614,
     v20200918,
+    v20210101,
 };
 
 export const AzureSkuName = {
@@ -33,11 +35,14 @@ export const AzureSkuName = {
     Standard_D14_v2: "Standard_D14_v2",
     Standard_L8s: "Standard_L8s",
     Standard_L16s: "Standard_L16s",
+    Standard_L8s_v2: "Standard_L8s_v2",
+    Standard_L16s_v2: "Standard_L16s_v2",
     Standard_D11_v2: "Standard_D11_v2",
     Standard_D12_v2: "Standard_D12_v2",
     Standard_L4s: "Standard_L4s",
     Dev_No_SLA_Standard_D11_v2: "Dev(No SLA)_Standard_D11_v2",
     Standard_E64i_v3: "Standard_E64i_v3",
+    Standard_E80ids_v4: "Standard_E80ids_v4",
     Standard_E2a_v4: "Standard_E2a_v4",
     Standard_E4a_v4: "Standard_E4a_v4",
     Standard_E8a_v4: "Standard_E8a_v4",
@@ -101,7 +106,7 @@ export const DatabasePrincipalRole = {
     Ingestor: "Ingestor",
     Monitor: "Monitor",
     User: "User",
-    UnrestrictedViewers: "UnrestrictedViewers",
+    UnrestrictedViewer: "UnrestrictedViewer",
     Viewer: "Viewer",
 } as const;
 

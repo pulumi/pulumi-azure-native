@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a Kusto cluster.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type Cluster struct {
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
 	// The engine type
 	EngineType pulumi.StringPtrOutput `pulumi:"engineType"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The identity of the cluster, if configured.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.
@@ -75,6 +77,9 @@ func NewCluster(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.EnableDiskEncryption == nil {
+		args.EnableDiskEncryption = pulumi.BoolPtr(false)
+	}
 	if args.EnableDoubleEncryption == nil {
 		args.EnableDoubleEncryption = pulumi.BoolPtr(false)
 	}
@@ -83,6 +88,9 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	if args.EnableStreamingIngest == nil {
 		args.EnableStreamingIngest = pulumi.BoolPtr(false)
+	}
+	if args.EngineType == nil {
+		args.EngineType = pulumi.StringPtr("V3")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -142,6 +150,12 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:Cluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:Cluster"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster
@@ -178,6 +192,8 @@ type clusterState struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The engine type
 	EngineType *string `pulumi:"engineType"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
 	// The identity of the cluster, if configured.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.
@@ -225,6 +241,8 @@ type ClusterState struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// The engine type
 	EngineType pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
 	// The identity of the cluster, if configured.
 	Identity IdentityResponsePtrInput
 	// KeyVault properties for the cluster encryption.

@@ -27,13 +27,12 @@ type LookupBackupPolicyArgs struct {
 
 // BaseBackupPolicy resource
 type LookupBackupPolicyResult struct {
-	// Type of datasource for the backup management
-	DatasourceTypes []string `pulumi:"datasourceTypes"`
 	// Resource Id represents the complete path to the resource.
 	Id string `pulumi:"id"`
 	// Resource name associated with the resource.
-	Name       string `pulumi:"name"`
-	ObjectType string `pulumi:"objectType"`
+	Name string `pulumi:"name"`
+	// BaseBackupPolicyResource properties
+	Properties BackupPolicyResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

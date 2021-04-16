@@ -2076,6 +2076,693 @@ func (o OptimizedAutoscaleResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tables that will be included and excluded in the follower database
+type TableLevelSharingProperties struct {
+	// List of external tables exclude from the follower database
+	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
+	// List of external tables to include in the follower database
+	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
+	// List of materialized views exclude from the follower database
+	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
+	// List of materialized views to include in the follower database
+	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
+	// List of tables to exclude from the follower database
+	TablesToExclude []string `pulumi:"tablesToExclude"`
+	// List of tables to include in the follower database
+	TablesToInclude []string `pulumi:"tablesToInclude"`
+}
+
+// TableLevelSharingPropertiesInput is an input type that accepts TableLevelSharingPropertiesArgs and TableLevelSharingPropertiesOutput values.
+// You can construct a concrete instance of `TableLevelSharingPropertiesInput` via:
+//
+//          TableLevelSharingPropertiesArgs{...}
+type TableLevelSharingPropertiesInput interface {
+	pulumi.Input
+
+	ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput
+	ToTableLevelSharingPropertiesOutputWithContext(context.Context) TableLevelSharingPropertiesOutput
+}
+
+// Tables that will be included and excluded in the follower database
+type TableLevelSharingPropertiesArgs struct {
+	// List of external tables exclude from the follower database
+	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
+	// List of external tables to include in the follower database
+	ExternalTablesToInclude pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
+	// List of materialized views exclude from the follower database
+	MaterializedViewsToExclude pulumi.StringArrayInput `pulumi:"materializedViewsToExclude"`
+	// List of materialized views to include in the follower database
+	MaterializedViewsToInclude pulumi.StringArrayInput `pulumi:"materializedViewsToInclude"`
+	// List of tables to exclude from the follower database
+	TablesToExclude pulumi.StringArrayInput `pulumi:"tablesToExclude"`
+	// List of tables to include in the follower database
+	TablesToInclude pulumi.StringArrayInput `pulumi:"tablesToInclude"`
+}
+
+func (TableLevelSharingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingProperties)(nil)).Elem()
+}
+
+func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput {
+	return i.ToTableLevelSharingPropertiesOutputWithContext(context.Background())
+}
+
+func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesOutputWithContext(ctx context.Context) TableLevelSharingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesOutput)
+}
+
+func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
+	return i.ToTableLevelSharingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TableLevelSharingPropertiesArgs) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesOutput).ToTableLevelSharingPropertiesPtrOutputWithContext(ctx)
+}
+
+// TableLevelSharingPropertiesPtrInput is an input type that accepts TableLevelSharingPropertiesArgs, TableLevelSharingPropertiesPtr and TableLevelSharingPropertiesPtrOutput values.
+// You can construct a concrete instance of `TableLevelSharingPropertiesPtrInput` via:
+//
+//          TableLevelSharingPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type TableLevelSharingPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput
+	ToTableLevelSharingPropertiesPtrOutputWithContext(context.Context) TableLevelSharingPropertiesPtrOutput
+}
+
+type tableLevelSharingPropertiesPtrType TableLevelSharingPropertiesArgs
+
+func TableLevelSharingPropertiesPtr(v *TableLevelSharingPropertiesArgs) TableLevelSharingPropertiesPtrInput {
+	return (*tableLevelSharingPropertiesPtrType)(v)
+}
+
+func (*tableLevelSharingPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableLevelSharingProperties)(nil)).Elem()
+}
+
+func (i *tableLevelSharingPropertiesPtrType) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
+	return i.ToTableLevelSharingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *tableLevelSharingPropertiesPtrType) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesPtrOutput)
+}
+
+// Tables that will be included and excluded in the follower database
+type TableLevelSharingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TableLevelSharingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingProperties)(nil)).Elem()
+}
+
+func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesOutput() TableLevelSharingPropertiesOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesOutputWithContext(ctx context.Context) TableLevelSharingPropertiesOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
+	return o.ToTableLevelSharingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TableLevelSharingPropertiesOutput) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) *TableLevelSharingProperties {
+		return &v
+	}).(TableLevelSharingPropertiesPtrOutput)
+}
+
+// List of external tables exclude from the follower database
+func (o TableLevelSharingPropertiesOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of external tables to include in the follower database
+func (o TableLevelSharingPropertiesOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views exclude from the follower database
+func (o TableLevelSharingPropertiesOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views to include in the follower database
+func (o TableLevelSharingPropertiesOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
+}
+
+// List of tables to exclude from the follower database
+func (o TableLevelSharingPropertiesOutput) TablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of tables to include in the follower database
+func (o TableLevelSharingPropertiesOutput) TablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingProperties) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+type TableLevelSharingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TableLevelSharingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableLevelSharingProperties)(nil)).Elem()
+}
+
+func (o TableLevelSharingPropertiesPtrOutput) ToTableLevelSharingPropertiesPtrOutput() TableLevelSharingPropertiesPtrOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesPtrOutput) ToTableLevelSharingPropertiesPtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesPtrOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesPtrOutput) Elem() TableLevelSharingPropertiesOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) TableLevelSharingProperties { return *v }).(TableLevelSharingPropertiesOutput)
+}
+
+// List of external tables exclude from the follower database
+func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTablesToExclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of external tables to include in the follower database
+func (o TableLevelSharingPropertiesPtrOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTablesToInclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views exclude from the follower database
+func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MaterializedViewsToExclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views to include in the follower database
+func (o TableLevelSharingPropertiesPtrOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MaterializedViewsToInclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of tables to exclude from the follower database
+func (o TableLevelSharingPropertiesPtrOutput) TablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToExclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of tables to include in the follower database
+func (o TableLevelSharingPropertiesPtrOutput) TablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToInclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tables that will be included and excluded in the follower database
+type TableLevelSharingPropertiesResponse struct {
+	// List of external tables exclude from the follower database
+	ExternalTablesToExclude []string `pulumi:"externalTablesToExclude"`
+	// List of external tables to include in the follower database
+	ExternalTablesToInclude []string `pulumi:"externalTablesToInclude"`
+	// List of materialized views exclude from the follower database
+	MaterializedViewsToExclude []string `pulumi:"materializedViewsToExclude"`
+	// List of materialized views to include in the follower database
+	MaterializedViewsToInclude []string `pulumi:"materializedViewsToInclude"`
+	// List of tables to exclude from the follower database
+	TablesToExclude []string `pulumi:"tablesToExclude"`
+	// List of tables to include in the follower database
+	TablesToInclude []string `pulumi:"tablesToInclude"`
+}
+
+// TableLevelSharingPropertiesResponseInput is an input type that accepts TableLevelSharingPropertiesResponseArgs and TableLevelSharingPropertiesResponseOutput values.
+// You can construct a concrete instance of `TableLevelSharingPropertiesResponseInput` via:
+//
+//          TableLevelSharingPropertiesResponseArgs{...}
+type TableLevelSharingPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToTableLevelSharingPropertiesResponseOutput() TableLevelSharingPropertiesResponseOutput
+	ToTableLevelSharingPropertiesResponseOutputWithContext(context.Context) TableLevelSharingPropertiesResponseOutput
+}
+
+// Tables that will be included and excluded in the follower database
+type TableLevelSharingPropertiesResponseArgs struct {
+	// List of external tables exclude from the follower database
+	ExternalTablesToExclude pulumi.StringArrayInput `pulumi:"externalTablesToExclude"`
+	// List of external tables to include in the follower database
+	ExternalTablesToInclude pulumi.StringArrayInput `pulumi:"externalTablesToInclude"`
+	// List of materialized views exclude from the follower database
+	MaterializedViewsToExclude pulumi.StringArrayInput `pulumi:"materializedViewsToExclude"`
+	// List of materialized views to include in the follower database
+	MaterializedViewsToInclude pulumi.StringArrayInput `pulumi:"materializedViewsToInclude"`
+	// List of tables to exclude from the follower database
+	TablesToExclude pulumi.StringArrayInput `pulumi:"tablesToExclude"`
+	// List of tables to include in the follower database
+	TablesToInclude pulumi.StringArrayInput `pulumi:"tablesToInclude"`
+}
+
+func (TableLevelSharingPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingPropertiesResponse)(nil)).Elem()
+}
+
+func (i TableLevelSharingPropertiesResponseArgs) ToTableLevelSharingPropertiesResponseOutput() TableLevelSharingPropertiesResponseOutput {
+	return i.ToTableLevelSharingPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i TableLevelSharingPropertiesResponseArgs) ToTableLevelSharingPropertiesResponseOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesResponseOutput)
+}
+
+func (i TableLevelSharingPropertiesResponseArgs) ToTableLevelSharingPropertiesResponsePtrOutput() TableLevelSharingPropertiesResponsePtrOutput {
+	return i.ToTableLevelSharingPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TableLevelSharingPropertiesResponseArgs) ToTableLevelSharingPropertiesResponsePtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesResponseOutput).ToTableLevelSharingPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// TableLevelSharingPropertiesResponsePtrInput is an input type that accepts TableLevelSharingPropertiesResponseArgs, TableLevelSharingPropertiesResponsePtr and TableLevelSharingPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `TableLevelSharingPropertiesResponsePtrInput` via:
+//
+//          TableLevelSharingPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TableLevelSharingPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToTableLevelSharingPropertiesResponsePtrOutput() TableLevelSharingPropertiesResponsePtrOutput
+	ToTableLevelSharingPropertiesResponsePtrOutputWithContext(context.Context) TableLevelSharingPropertiesResponsePtrOutput
+}
+
+type tableLevelSharingPropertiesResponsePtrType TableLevelSharingPropertiesResponseArgs
+
+func TableLevelSharingPropertiesResponsePtr(v *TableLevelSharingPropertiesResponseArgs) TableLevelSharingPropertiesResponsePtrInput {
+	return (*tableLevelSharingPropertiesResponsePtrType)(v)
+}
+
+func (*tableLevelSharingPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableLevelSharingPropertiesResponse)(nil)).Elem()
+}
+
+func (i *tableLevelSharingPropertiesResponsePtrType) ToTableLevelSharingPropertiesResponsePtrOutput() TableLevelSharingPropertiesResponsePtrOutput {
+	return i.ToTableLevelSharingPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *tableLevelSharingPropertiesResponsePtrType) ToTableLevelSharingPropertiesResponsePtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLevelSharingPropertiesResponsePtrOutput)
+}
+
+// Tables that will be included and excluded in the follower database
+type TableLevelSharingPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (TableLevelSharingPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLevelSharingPropertiesResponse)(nil)).Elem()
+}
+
+func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponseOutput() TableLevelSharingPropertiesResponseOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponseOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponseOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponsePtrOutput() TableLevelSharingPropertiesResponsePtrOutput {
+	return o.ToTableLevelSharingPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TableLevelSharingPropertiesResponseOutput) ToTableLevelSharingPropertiesResponsePtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) *TableLevelSharingPropertiesResponse {
+		return &v
+	}).(TableLevelSharingPropertiesResponsePtrOutput)
+}
+
+// List of external tables exclude from the follower database
+func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of external tables to include in the follower database
+func (o TableLevelSharingPropertiesResponseOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.ExternalTablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views exclude from the follower database
+func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views to include in the follower database
+func (o TableLevelSharingPropertiesResponseOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.MaterializedViewsToInclude }).(pulumi.StringArrayOutput)
+}
+
+// List of tables to exclude from the follower database
+func (o TableLevelSharingPropertiesResponseOutput) TablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of tables to include in the follower database
+func (o TableLevelSharingPropertiesResponseOutput) TablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableLevelSharingPropertiesResponse) []string { return v.TablesToInclude }).(pulumi.StringArrayOutput)
+}
+
+type TableLevelSharingPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TableLevelSharingPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableLevelSharingPropertiesResponse)(nil)).Elem()
+}
+
+func (o TableLevelSharingPropertiesResponsePtrOutput) ToTableLevelSharingPropertiesResponsePtrOutput() TableLevelSharingPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesResponsePtrOutput) ToTableLevelSharingPropertiesResponsePtrOutputWithContext(ctx context.Context) TableLevelSharingPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o TableLevelSharingPropertiesResponsePtrOutput) Elem() TableLevelSharingPropertiesResponseOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) TableLevelSharingPropertiesResponse { return *v }).(TableLevelSharingPropertiesResponseOutput)
+}
+
+// List of external tables exclude from the follower database
+func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTablesToExclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of external tables to include in the follower database
+func (o TableLevelSharingPropertiesResponsePtrOutput) ExternalTablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalTablesToInclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views exclude from the follower database
+func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MaterializedViewsToExclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of materialized views to include in the follower database
+func (o TableLevelSharingPropertiesResponsePtrOutput) MaterializedViewsToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MaterializedViewsToInclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of tables to exclude from the follower database
+func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToExclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of tables to include in the follower database
+func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToInclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableLevelSharingPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToInclude
+	}).(pulumi.StringArrayOutput)
+}
+
 // Represents a tenant ID that is trusted by the cluster.
 type TrustedExternalTenant struct {
 	// GUID representing an external tenant.
@@ -2647,6 +3334,12 @@ func init() {
 	pulumi.RegisterOutputType(OptimizedAutoscalePtrOutput{})
 	pulumi.RegisterOutputType(OptimizedAutoscaleResponseOutput{})
 	pulumi.RegisterOutputType(OptimizedAutoscaleResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(TableLevelSharingPropertiesOutput{})
+	pulumi.RegisterOutputType(TableLevelSharingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantArrayOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantResponseOutput{})

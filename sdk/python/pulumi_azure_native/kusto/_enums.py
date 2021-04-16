@@ -31,11 +31,14 @@ class AzureSkuName(str, Enum):
     STANDARD_D14_V2 = "Standard_D14_v2"
     STANDARD_L8S = "Standard_L8s"
     STANDARD_L16S = "Standard_L16s"
+    STANDARD_L8S_V2 = "Standard_L8s_v2"
+    STANDARD_L16S_V2 = "Standard_L16s_v2"
     STANDARD_D11_V2 = "Standard_D11_v2"
     STANDARD_D12_V2 = "Standard_D12_v2"
     STANDARD_L4S = "Standard_L4s"
     DEV_NO_SL_A_STANDARD_D11_V2 = "Dev(No SLA)_Standard_D11_v2"
     STANDARD_E64I_V3 = "Standard_E64i_v3"
+    STANDARD_E80IDS_V4 = "Standard_E80ids_v4"
     STANDARD_E2A_V4 = "Standard_E2a_v4"
     STANDARD_E4A_V4 = "Standard_E4a_v4"
     STANDARD_E8A_V4 = "Standard_E8a_v4"
@@ -89,7 +92,7 @@ class DatabasePrincipalRole(str, Enum):
     INGESTOR = "Ingestor"
     MONITOR = "Monitor"
     USER = "User"
-    UNRESTRICTED_VIEWERS = "UnrestrictedViewers"
+    UNRESTRICTED_VIEWER = "UnrestrictedViewer"
     VIEWER = "Viewer"
 
 

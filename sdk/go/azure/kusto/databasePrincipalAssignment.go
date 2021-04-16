@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a database principal assignment.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +88,12 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:DatabasePrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:DatabasePrincipalAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

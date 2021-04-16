@@ -140,6 +140,8 @@ namespace Pulumi.AzureNative.Synapse
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:SqlPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,11 +15,10 @@ import (
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// Type of datasource for the backup management
-	DatasourceTypes pulumi.StringArrayOutput `pulumi:"datasourceTypes"`
 	// Resource name associated with the resource.
-	Name       pulumi.StringOutput `pulumi:"name"`
-	ObjectType pulumi.StringOutput `pulumi:"objectType"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// BaseBackupPolicyResource properties
+	Properties BackupPolicyResponseOutput `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -33,12 +32,6 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatasourceTypes == nil {
-		return nil, errors.New("invalid value for required argument 'DatasourceTypes'")
-	}
-	if args.ObjectType == nil {
-		return nil, errors.New("invalid value for required argument 'ObjectType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -85,11 +78,10 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
-	// Type of datasource for the backup management
-	DatasourceTypes []string `pulumi:"datasourceTypes"`
 	// Resource name associated with the resource.
-	Name       *string `pulumi:"name"`
-	ObjectType *string `pulumi:"objectType"`
+	Name *string `pulumi:"name"`
+	// BaseBackupPolicyResource properties
+	Properties *BackupPolicyResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -97,11 +89,10 @@ type backupPolicyState struct {
 }
 
 type BackupPolicyState struct {
-	// Type of datasource for the backup management
-	DatasourceTypes pulumi.StringArrayInput
 	// Resource name associated with the resource.
-	Name       pulumi.StringPtrInput
-	ObjectType pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// BaseBackupPolicyResource properties
+	Properties BackupPolicyResponsePtrInput
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -114,9 +105,8 @@ func (BackupPolicyState) ElementType() reflect.Type {
 
 type backupPolicyArgs struct {
 	BackupPolicyName *string `pulumi:"backupPolicyName"`
-	// Type of datasource for the backup management
-	DatasourceTypes []string `pulumi:"datasourceTypes"`
-	ObjectType      string   `pulumi:"objectType"`
+	// BaseBackupPolicyResource properties
+	Properties *BackupPolicyType `pulumi:"properties"`
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the backup vault.
@@ -126,9 +116,8 @@ type backupPolicyArgs struct {
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
 	BackupPolicyName pulumi.StringPtrInput
-	// Type of datasource for the backup management
-	DatasourceTypes pulumi.StringArrayInput
-	ObjectType      pulumi.StringInput
+	// BaseBackupPolicyResource properties
+	Properties BackupPolicyTypePtrInput
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the backup vault.

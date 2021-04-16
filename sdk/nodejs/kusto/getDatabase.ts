@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto database.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {

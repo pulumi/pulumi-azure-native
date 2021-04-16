@@ -63,6 +63,12 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210301:IpFirewallRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210401preview:IpFirewallRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:IpFirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IpFirewallRule

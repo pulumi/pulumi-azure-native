@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an data connection.
-    /// API Version: 2020-09-18.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:DataConnection")]
     public partial class DataConnection : Pulumi.CustomResource
@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

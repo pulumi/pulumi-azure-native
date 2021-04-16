@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing an attached database configuration.
-        /// API Version: 2020-09-18.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Table level sharing specifications
+        /// </summary>
+        public readonly Outputs.TableLevelSharingPropertiesResponse? TableLevelSharingProperties;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.Kusto
 
             string provisioningState,
 
+            Outputs.TableLevelSharingPropertiesResponse? tableLevelSharingProperties,
+
             string type)
         {
             AttachedDatabaseNames = attachedDatabaseNames;
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.Kusto
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            TableLevelSharingProperties = tableLevelSharingProperties;
             Type = type;
         }
     }

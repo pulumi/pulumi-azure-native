@@ -10,6 +10,114 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// SKU name.
+type AzureSkuName pulumi.String
+
+const (
+	AzureSkuName_Standard_DS13_v2_1TB_PS    = AzureSkuName("Standard_DS13_v2+1TB_PS")
+	AzureSkuName_Standard_DS13_v2_2TB_PS    = AzureSkuName("Standard_DS13_v2+2TB_PS")
+	AzureSkuName_Standard_DS14_v2_3TB_PS    = AzureSkuName("Standard_DS14_v2+3TB_PS")
+	AzureSkuName_Standard_DS14_v2_4TB_PS    = AzureSkuName("Standard_DS14_v2+4TB_PS")
+	AzureSkuName_Standard_D13_v2            = AzureSkuName("Standard_D13_v2")
+	AzureSkuName_Standard_D14_v2            = AzureSkuName("Standard_D14_v2")
+	AzureSkuName_Standard_L8s               = AzureSkuName("Standard_L8s")
+	AzureSkuName_Standard_L16s              = AzureSkuName("Standard_L16s")
+	AzureSkuName_Standard_L8s_v2            = AzureSkuName("Standard_L8s_v2")
+	AzureSkuName_Standard_L16s_v2           = AzureSkuName("Standard_L16s_v2")
+	AzureSkuName_Standard_D11_v2            = AzureSkuName("Standard_D11_v2")
+	AzureSkuName_Standard_D12_v2            = AzureSkuName("Standard_D12_v2")
+	AzureSkuName_Standard_L4s               = AzureSkuName("Standard_L4s")
+	AzureSkuName_Dev_No_SLA_Standard_D11_v2 = AzureSkuName("Dev(No SLA)_Standard_D11_v2")
+	AzureSkuName_Standard_E64i_v3           = AzureSkuName("Standard_E64i_v3")
+	AzureSkuName_Standard_E80ids_v4         = AzureSkuName("Standard_E80ids_v4")
+	AzureSkuName_Standard_E2a_v4            = AzureSkuName("Standard_E2a_v4")
+	AzureSkuName_Standard_E4a_v4            = AzureSkuName("Standard_E4a_v4")
+	AzureSkuName_Standard_E8a_v4            = AzureSkuName("Standard_E8a_v4")
+	AzureSkuName_Standard_E16a_v4           = AzureSkuName("Standard_E16a_v4")
+	AzureSkuName_Standard_E8as_v4_1TB_PS    = AzureSkuName("Standard_E8as_v4+1TB_PS")
+	AzureSkuName_Standard_E8as_v4_2TB_PS    = AzureSkuName("Standard_E8as_v4+2TB_PS")
+	AzureSkuName_Standard_E16as_v4_3TB_PS   = AzureSkuName("Standard_E16as_v4+3TB_PS")
+	AzureSkuName_Standard_E16as_v4_4TB_PS   = AzureSkuName("Standard_E16as_v4+4TB_PS")
+	AzureSkuName_Dev_No_SLA_Standard_E2a_v4 = AzureSkuName("Dev(No SLA)_Standard_E2a_v4")
+)
+
+func (AzureSkuName) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AzureSkuName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureSkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// SKU tier.
+type AzureSkuTier pulumi.String
+
+const (
+	AzureSkuTierBasic    = AzureSkuTier("Basic")
+	AzureSkuTierStandard = AzureSkuTier("Standard")
+)
+
+func (AzureSkuTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AzureSkuTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Kind of the endpoint for the data connection
+type DataConnectionKind pulumi.String
+
+const (
+	DataConnectionKindEventHub  = DataConnectionKind("EventHub")
+	DataConnectionKindEventGrid = DataConnectionKind("EventGrid")
+	DataConnectionKindIotHub    = DataConnectionKind("IotHub")
+)
+
+func (DataConnectionKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataConnectionKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataConnectionKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataConnectionKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataConnectionKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Compute type of the cluster which will execute data flow job.
 type DataFlowComputeType pulumi.String
 
@@ -36,6 +144,34 @@ func (e DataFlowComputeType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DataFlowComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The engine type
+type EngineType pulumi.String
+
+const (
+	EngineTypeV2 = EngineType("V2")
+	EngineTypeV3 = EngineType("V3")
+)
+
+func (EngineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EngineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EngineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EngineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EngineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -178,6 +314,34 @@ func (e IntegrationRuntimeType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e IntegrationRuntimeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Kind of the database
+type Kind pulumi.String
+
+const (
+	KindReadWrite         = Kind("ReadWrite")
+	KindReadOnlyFollowing = Kind("ReadOnlyFollowing")
+)
+
+func (Kind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Kind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

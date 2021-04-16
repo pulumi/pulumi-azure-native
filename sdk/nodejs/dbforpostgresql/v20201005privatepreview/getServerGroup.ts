@@ -94,6 +94,10 @@ export interface GetServerGroupResult {
      */
     readonly postgresqlVersion?: string;
     /**
+     * The private dns zone arguments for a server group.
+     */
+    readonly privateDnsZoneArguments?: outputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesResponsePrivateDnsZoneArguments;
+    /**
      * The array of read replica server groups.
      */
     readonly readReplicas: string[];

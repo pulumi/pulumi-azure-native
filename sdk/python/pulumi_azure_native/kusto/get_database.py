@@ -96,7 +96,7 @@ def get_database(cluster_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Class representing a Kusto database.
-    API Version: 2020-09-18.
+    API Version: 2021-01-01.
 
 
     :param str cluster_name: The name of the Kusto cluster.

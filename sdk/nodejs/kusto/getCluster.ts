@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto cluster.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -62,6 +62,10 @@ export interface GetClusterResult {
      * The engine type
      */
     readonly engineType?: string;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

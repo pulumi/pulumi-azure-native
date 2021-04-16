@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'AutoPausePropertiesArgs',
     'AutoScalePropertiesArgs',
+    'AzureSkuArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
     'CustomerManagedKeyDetailsArgs',
@@ -141,6 +142,60 @@ class AutoScalePropertiesArgs:
     @min_node_count.setter
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
+
+
+@pulumi.input_type
+class AzureSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'AzureSkuName']],
+                 tier: pulumi.Input[Union[str, 'AzureSkuTier']],
+                 capacity: Optional[pulumi.Input[int]] = None):
+        """
+        Azure SKU definition.
+        :param pulumi.Input[Union[str, 'AzureSkuName']] name: SKU name.
+        :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier.
+        :param pulumi.Input[int] capacity: The number of instances of the cluster.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'AzureSkuName']]:
+        """
+        SKU name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'AzureSkuName']]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[Union[str, 'AzureSkuTier']]:
+        """
+        SKU tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[Union[str, 'AzureSkuTier']]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances of the cluster.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
 
 @pulumi.input_type

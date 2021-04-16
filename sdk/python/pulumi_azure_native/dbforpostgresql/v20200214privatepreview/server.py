@@ -28,6 +28,7 @@ class ServerArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input['ServerPropertiesPrivateDnsZoneArgumentsArgs']] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -81,6 +82,8 @@ class ServerArgs:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if point_in_time_utc is not None:
             pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+        if private_dns_zone_arguments is not None:
+            pulumi.set(__self__, "private_dns_zone_arguments", private_dns_zone_arguments)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
         if sku is not None:
@@ -240,6 +243,15 @@ class ServerArgs:
         pulumi.set(self, "point_in_time_utc", value)
 
     @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> Optional[pulumi.Input['ServerPropertiesPrivateDnsZoneArgumentsArgs']]:
+        return pulumi.get(self, "private_dns_zone_arguments")
+
+    @private_dns_zone_arguments.setter
+    def private_dns_zone_arguments(self, value: Optional[pulumi.Input['ServerPropertiesPrivateDnsZoneArgumentsArgs']]):
+        pulumi.set(self, "private_dns_zone_arguments", value)
+
+    @property
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -352,6 +364,7 @@ class Server(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -422,6 +435,7 @@ class Server(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -454,6 +468,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["point_in_time_utc"] = point_in_time_utc
+            __props__.__dict__["private_dns_zone_arguments"] = private_dns_zone_arguments
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -510,6 +525,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["point_in_time_utc"] = None
+        __props__.__dict__["private_dns_zone_arguments"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["source_resource_group_name"] = None
@@ -623,6 +639,11 @@ class Server(pulumi.CustomResource):
         Restore point creation time (ISO8601 format), specifying the time to restore from.
         """
         return pulumi.get(self, "point_in_time_utc")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> pulumi.Output[Optional['outputs.ServerPropertiesResponsePrivateDnsZoneArguments']]:
+        return pulumi.get(self, "private_dns_zone_arguments")
 
     @property
     @pulumi.getter(name="publicNetworkAccess")

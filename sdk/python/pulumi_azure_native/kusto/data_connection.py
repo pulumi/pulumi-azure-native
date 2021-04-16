@@ -125,7 +125,7 @@ class DataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an data connection.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,7 +144,7 @@ class DataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an data connection.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param DataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +195,7 @@ class DataConnection(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190121:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190121:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190121:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190515:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:DataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:DataConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20210101:DataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataConnection, __self__).__init__(
             'azure-native:kusto:DataConnection',

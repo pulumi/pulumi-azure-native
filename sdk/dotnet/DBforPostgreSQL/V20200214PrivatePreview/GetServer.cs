@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         /// Restore point creation time (ISO8601 format), specifying the time to restore from.
         /// </summary>
         public readonly string? PointInTimeUTC;
+        public readonly Outputs.ServerPropertiesResponsePrivateDnsZoneArguments? PrivateDnsZoneArguments;
         /// <summary>
         /// public network access is enabled or not
         /// </summary>
@@ -170,6 +171,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
 
             string? pointInTimeUTC,
 
+            Outputs.ServerPropertiesResponsePrivateDnsZoneArguments? privateDnsZoneArguments,
+
             string publicNetworkAccess,
 
             Outputs.SkuResponse? sku,
@@ -206,6 +209,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
             MaintenanceWindow = maintenanceWindow;
             Name = name;
             PointInTimeUTC = pointInTimeUTC;
+            PrivateDnsZoneArguments = privateDnsZoneArguments;
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             SourceResourceGroupName = sourceResourceGroupName;

@@ -18,9 +18,11 @@ from .get_data_connection import *
 from .get_database import *
 from .get_database_principal_assignment import *
 from .get_event_hub_connection import *
+from .get_script import *
 from .list_cluster_follower_databases import *
 from .list_cluster_language_extensions import *
 from .list_database_principals import *
+from .script import *
 from ._inputs import *
 from . import outputs
 
@@ -35,6 +37,7 @@ from . import (
     v20200215,
     v20200614,
     v20200918,
+    v20210101,
 )
 
 def _register_module():
@@ -63,6 +66,8 @@ def _register_module():
                 return DatabasePrincipalAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:kusto:EventHubConnection":
                 return EventHubConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:kusto:Script":
+                return Script(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

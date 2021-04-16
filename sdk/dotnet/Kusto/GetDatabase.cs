@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Class representing a Kusto database.
-        /// API Version: 2020-09-18.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:kusto:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());

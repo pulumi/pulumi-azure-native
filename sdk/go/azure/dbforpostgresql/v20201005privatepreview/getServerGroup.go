@@ -54,6 +54,8 @@ type LookupServerGroupResult struct {
 	Name string `pulumi:"name"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion *string `pulumi:"postgresqlVersion"`
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments *ServerGroupPropertiesResponsePrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// The array of read replica server groups.
 	ReadReplicas []string `pulumi:"readReplicas"`
 	// The resource provider type of server group.

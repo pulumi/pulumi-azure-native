@@ -5,7 +5,11 @@
 # Export this package's modules as members:
 from ._enums import *
 from .big_data_pool import *
+from .data_connection import *
+from .database import *
 from .get_big_data_pool import *
+from .get_data_connection import *
+from .get_database import *
 from .get_integration_runtime import *
 from .get_integration_runtime_connection_info import *
 from .get_integration_runtime_object_metadatum import *
@@ -25,9 +29,11 @@ from .get_workspace import *
 from .get_workspace_aad_admin import *
 from .get_workspace_managed_sql_server_vulnerability_assessment import *
 from .get_workspace_sql_aad_admin import *
+from .getkusto_pool import *
 from .integration_runtime import *
 from .ip_firewall_rule import *
 from .key import *
+from .kusto_pool import *
 from .list_integration_runtime_auth_key import *
 from .private_endpoint_connection import *
 from .private_link_hub import *
@@ -51,6 +57,7 @@ from . import (
     v20200401preview,
     v20201201,
     v20210301,
+    v20210401preview,
 )
 
 def _register_module():
@@ -67,6 +74,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:synapse:BigDataPool":
                 return BigDataPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:synapse:DataConnection":
+                return DataConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:synapse:Database":
+                return Database(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse:IntegrationRuntime":
                 return IntegrationRuntime(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse:IpFirewallRule":
@@ -99,6 +110,8 @@ def _register_module():
                 return WorkspaceManagedSqlServerVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse:WorkspaceSqlAadAdmin":
                 return WorkspaceSqlAadAdmin(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:synapse:kustoPool":
+                return KustoPool(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

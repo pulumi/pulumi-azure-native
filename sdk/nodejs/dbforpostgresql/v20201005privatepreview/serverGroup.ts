@@ -88,6 +88,10 @@ export class ServerGroup extends pulumi.CustomResource {
      */
     public readonly postgresqlVersion!: pulumi.Output<string | undefined>;
     /**
+     * The private dns zone arguments for a server group.
+     */
+    public readonly privateDnsZoneArguments!: pulumi.Output<outputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesResponsePrivateDnsZoneArguments | undefined>;
+    /**
      * The array of read replica server groups.
      */
     public /*out*/ readonly readReplicas!: pulumi.Output<string[]>;
@@ -152,6 +156,7 @@ export class ServerGroup extends pulumi.CustomResource {
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
             inputs["postgresqlVersion"] = args ? args.postgresqlVersion : undefined;
+            inputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverGroupName"] = args ? args.serverGroupName : undefined;
             inputs["serverRoleGroups"] = args ? args.serverRoleGroups : undefined;
@@ -183,6 +188,7 @@ export class ServerGroup extends pulumi.CustomResource {
             inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["postgresqlVersion"] = undefined /*out*/;
+            inputs["privateDnsZoneArguments"] = undefined /*out*/;
             inputs["readReplicas"] = undefined /*out*/;
             inputs["resourceProviderType"] = undefined /*out*/;
             inputs["serverRoleGroups"] = undefined /*out*/;
@@ -262,6 +268,10 @@ export interface ServerGroupArgs {
      * The PostgreSQL version of server group.
      */
     readonly postgresqlVersion?: pulumi.Input<string | enums.dbforpostgresql.v20201005privatepreview.PostgreSQLVersion>;
+    /**
+     * The private dns zone arguments for a server group.
+     */
+    readonly privateDnsZoneArguments?: pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

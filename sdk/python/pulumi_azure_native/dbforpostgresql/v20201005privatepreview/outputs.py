@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'MaintenanceWindowResponse',
     'ServerGroupPropertiesResponseDelegatedSubnetArguments',
+    'ServerGroupPropertiesResponsePrivateDnsZoneArguments',
     'ServerNameItemResponse',
     'ServerRoleGroupResponse',
     'SystemDataResponse',
@@ -138,6 +139,46 @@ class ServerGroupPropertiesResponseDelegatedSubnetArguments(dict):
         delegated subnet arm resource id.
         """
         return pulumi.get(self, "subnet_arm_resource_id")
+
+
+@pulumi.output_type
+class ServerGroupPropertiesResponsePrivateDnsZoneArguments(dict):
+    """
+    The private dns zone arguments for a server group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateDnsZoneArmResourceId":
+            suggest = "private_dns_zone_arm_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerGroupPropertiesResponsePrivateDnsZoneArguments. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerGroupPropertiesResponsePrivateDnsZoneArguments.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerGroupPropertiesResponsePrivateDnsZoneArguments.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_dns_zone_arm_resource_id: Optional[str] = None):
+        """
+        The private dns zone arguments for a server group.
+        :param str private_dns_zone_arm_resource_id: private dns zone arm resource id.
+        """
+        if private_dns_zone_arm_resource_id is not None:
+            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="privateDnsZoneArmResourceId")
+    def private_dns_zone_arm_resource_id(self) -> Optional[str]:
+        """
+        private dns zone arm resource id.
+        """
+        return pulumi.get(self, "private_dns_zone_arm_resource_id")
 
 
 @pulumi.output_type

@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a cluster principal assignment.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +85,12 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:ClusterPrincipalAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:ClusterPrincipalAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -62,6 +62,12 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210301:PrivateLinkHub"),
 		},
+		{
+			Type: pulumi.String("azure-native:synapse/v20210401preview:PrivateLinkHub"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:PrivateLinkHub"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkHub

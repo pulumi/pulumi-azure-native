@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:synapse:BigDataPool":
 		r = &BigDataPool{}
+	case "azure-native:synapse:DataConnection":
+		r = &DataConnection{}
+	case "azure-native:synapse:Database":
+		r = &Database{}
 	case "azure-native:synapse:IntegrationRuntime":
 		r = &IntegrationRuntime{}
 	case "azure-native:synapse:IpFirewallRule":
@@ -55,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkspaceManagedSqlServerVulnerabilityAssessment{}
 	case "azure-native:synapse:WorkspaceSqlAadAdmin":
 		r = &WorkspaceSqlAadAdmin{}
+	case "azure-native:synapse:kustoPool":
+		r = &KustoPool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

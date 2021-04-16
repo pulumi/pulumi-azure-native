@@ -90,6 +90,7 @@ export interface GetServerResult {
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
     readonly pointInTimeUTC?: string;
+    readonly privateDnsZoneArguments?: outputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesResponsePrivateDnsZoneArguments;
     /**
      * public network access is enabled or not
      */

@@ -8,7 +8,7 @@ import (
 )
 
 // The list Kusto database principals operation response.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 func ListDatabasePrincipals(ctx *pulumi.Context, args *ListDatabasePrincipalsArgs, opts ...pulumi.InvokeOption) (*ListDatabasePrincipalsResult, error) {
 	var rv ListDatabasePrincipalsResult
 	err := ctx.Invoke("azure-native:kusto:listDatabasePrincipals", args, &rv, opts...)

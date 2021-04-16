@@ -99,6 +99,8 @@ namespace Pulumi.AzureNative.Kusto.V20200918
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200614:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210101:AttachedDatabaseConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:AttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -36,10 +36,8 @@ type LookupBackupVaultResult struct {
 	Location string `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name string `pulumi:"name"`
-	// Provisioning state of the BackupVault resource
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Storage Settings
-	StorageSettings []StorageSettingResponse `pulumi:"storageSettings"`
+	// BackupVaultResource properties
+	Properties BackupVaultResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.

@@ -95,7 +95,7 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse/v20210301:WorkspaceSqlAadAdmin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse/v20210301:WorkspaceSqlAadAdmin" }, { type: "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin" }, { type: "azure-nextgen:synapse/v20210401preview:WorkspaceSqlAadAdmin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceSqlAadAdmin.__pulumiType, name, inputs, opts);
     }

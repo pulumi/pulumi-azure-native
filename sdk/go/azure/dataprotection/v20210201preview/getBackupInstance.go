@@ -28,27 +28,12 @@ type LookupBackupInstanceArgs struct {
 
 // BackupInstance Resource
 type LookupBackupInstanceResult struct {
-	// Specifies the current protection state of the resource
-	CurrentProtectionState string `pulumi:"currentProtectionState"`
-	// Gets or sets the data source information.
-	DataSourceInfo DatasourceResponse `pulumi:"dataSourceInfo"`
-	// Gets or sets the data source set information.
-	DataSourceSetInfo *DatasourceSetResponse `pulumi:"dataSourceSetInfo"`
-	// Gets or sets the Backup Instance friendly name.
-	FriendlyName string `pulumi:"friendlyName"`
 	// Resource Id represents the complete path to the resource.
 	Id string `pulumi:"id"`
 	// Resource name associated with the resource.
-	Name       string `pulumi:"name"`
-	ObjectType string `pulumi:"objectType"`
-	// Gets or sets the policy information.
-	PolicyInfo PolicyInfoResponse `pulumi:"policyInfo"`
-	// Specifies the protection error of the resource
-	ProtectionErrorDetails UserFacingErrorResponse `pulumi:"protectionErrorDetails"`
-	// Specifies the protection status of the resource
-	ProtectionStatus ProtectionStatusDetailsResponse `pulumi:"protectionStatus"`
-	// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
-	ProvisioningState string `pulumi:"provisioningState"`
+	Name string `pulumi:"name"`
+	// BackupInstanceResource properties
+	Properties BackupInstanceResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

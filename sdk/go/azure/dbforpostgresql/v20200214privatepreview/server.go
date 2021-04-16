@@ -39,7 +39,8 @@ type Server struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	PointInTimeUTC pulumi.StringPtrOutput `pulumi:"pointInTimeUTC"`
+	PointInTimeUTC          pulumi.StringPtrOutput                                   `pulumi:"pointInTimeUTC"`
+	PrivateDnsZoneArguments ServerPropertiesResponsePrivateDnsZoneArgumentsPtrOutput `pulumi:"privateDnsZoneArguments"`
 	// public network access is enabled or not
 	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
@@ -132,7 +133,8 @@ type serverState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
+	PointInTimeUTC          *string                                          `pulumi:"pointInTimeUTC"`
+	PrivateDnsZoneArguments *ServerPropertiesResponsePrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// public network access is enabled or not
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
@@ -182,7 +184,8 @@ type ServerState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	PointInTimeUTC pulumi.StringPtrInput
+	PointInTimeUTC          pulumi.StringPtrInput
+	PrivateDnsZoneArguments ServerPropertiesResponsePrivateDnsZoneArgumentsPtrInput
 	// public network access is enabled or not
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
@@ -232,7 +235,8 @@ type serverArgs struct {
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
+	PointInTimeUTC          *string                                  `pulumi:"pointInTimeUTC"`
+	PrivateDnsZoneArguments *ServerPropertiesPrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -275,7 +279,8 @@ type ServerArgs struct {
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	PointInTimeUTC pulumi.StringPtrInput
+	PointInTimeUTC          pulumi.StringPtrInput
+	PrivateDnsZoneArguments ServerPropertiesPrivateDnsZoneArgumentsPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

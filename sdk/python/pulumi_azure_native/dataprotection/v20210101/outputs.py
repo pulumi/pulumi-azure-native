@@ -11,18 +11,325 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AbsoluteDeleteOptionResponse',
+    'AdhocBasedTaggingCriteriaResponse',
+    'AdhocBasedTriggerContextResponse',
+    'AzureBackupParamsResponse',
+    'AzureBackupRuleResponse',
     'AzureOperationalStoreParametersResponse',
+    'AzureRetentionRuleResponse',
+    'BackupInstanceResponse',
+    'BackupPolicyResponse',
+    'BackupScheduleResponse',
+    'BackupVaultResponse',
+    'CopyOnExpiryOptionResponse',
+    'CustomCopyOptionResponse',
+    'DataStoreInfoBaseResponse',
     'DatasourceResponse',
     'DatasourceSetResponse',
+    'DayResponse',
     'DppIdentityDetailsResponse',
+    'ImmediateCopyOptionResponse',
     'InnerErrorResponse',
     'PolicyInfoResponse',
     'PolicyParametersResponse',
     'ProtectionStatusDetailsResponse',
+    'RetentionTagResponse',
+    'ScheduleBasedBackupCriteriaResponse',
+    'ScheduleBasedTriggerContextResponse',
+    'SourceLifeCycleResponse',
     'StorageSettingResponse',
     'SystemDataResponse',
+    'TaggingCriteriaResponse',
+    'TargetCopySettingResponse',
     'UserFacingErrorResponse',
 ]
+
+@pulumi.output_type
+class AbsoluteDeleteOptionResponse(dict):
+    """
+    Delete option with duration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AbsoluteDeleteOptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AbsoluteDeleteOptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AbsoluteDeleteOptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: str,
+                 object_type: str):
+        """
+        Delete option with duration
+        :param str duration: Duration of deletion after given timespan
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'AbsoluteDeleteOption'.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "object_type", 'AbsoluteDeleteOption')
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        Duration of deletion after given timespan
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'AbsoluteDeleteOption'.
+        """
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class AdhocBasedTaggingCriteriaResponse(dict):
+    """
+    Adhoc backup tagging criteria
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagInfo":
+            suggest = "tag_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdhocBasedTaggingCriteriaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdhocBasedTaggingCriteriaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdhocBasedTaggingCriteriaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_info: Optional['outputs.RetentionTagResponse'] = None):
+        """
+        Adhoc backup tagging criteria
+        :param 'RetentionTagResponse' tag_info: Retention tag information
+        """
+        if tag_info is not None:
+            pulumi.set(__self__, "tag_info", tag_info)
+
+    @property
+    @pulumi.getter(name="tagInfo")
+    def tag_info(self) -> Optional['outputs.RetentionTagResponse']:
+        """
+        Retention tag information
+        """
+        return pulumi.get(self, "tag_info")
+
+
+@pulumi.output_type
+class AdhocBasedTriggerContextResponse(dict):
+    """
+    Adhoc trigger context
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "taggingCriteria":
+            suggest = "tagging_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdhocBasedTriggerContextResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdhocBasedTriggerContextResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdhocBasedTriggerContextResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 tagging_criteria: 'outputs.AdhocBasedTaggingCriteriaResponse'):
+        """
+        Adhoc trigger context
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'AdhocBasedTriggerContext'.
+        :param 'AdhocBasedTaggingCriteriaResponse' tagging_criteria: Tagging Criteria containing retention tag for adhoc backup.
+        """
+        pulumi.set(__self__, "object_type", 'AdhocBasedTriggerContext')
+        pulumi.set(__self__, "tagging_criteria", tagging_criteria)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'AdhocBasedTriggerContext'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="taggingCriteria")
+    def tagging_criteria(self) -> 'outputs.AdhocBasedTaggingCriteriaResponse':
+        """
+        Tagging Criteria containing retention tag for adhoc backup.
+        """
+        return pulumi.get(self, "tagging_criteria")
+
+
+@pulumi.output_type
+class AzureBackupParamsResponse(dict):
+    """
+    Azure backup parameters
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupType":
+            suggest = "backup_type"
+        elif key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBackupParamsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBackupParamsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBackupParamsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_type: str,
+                 object_type: str):
+        """
+        Azure backup parameters
+        :param str backup_type: BackupType ; Full/Incremental etc
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'AzureBackupParams'.
+        """
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "object_type", 'AzureBackupParams')
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> str:
+        """
+        BackupType ; Full/Incremental etc
+        """
+        return pulumi.get(self, "backup_type")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'AzureBackupParams'.
+        """
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class AzureBackupRuleResponse(dict):
+    """
+    Azure backup rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStore":
+            suggest = "data_store"
+        elif key == "objectType":
+            suggest = "object_type"
+        elif key == "backupParameters":
+            suggest = "backup_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBackupRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBackupRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBackupRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_store: 'outputs.DataStoreInfoBaseResponse',
+                 name: str,
+                 object_type: str,
+                 trigger: Any,
+                 backup_parameters: Optional['outputs.AzureBackupParamsResponse'] = None):
+        """
+        Azure backup rule
+        :param 'DataStoreInfoBaseResponse' data_store: DataStoreInfo base
+        :param str object_type: 
+               Expected value is 'AzureBackupRule'.
+        :param Union['AdhocBasedTriggerContextResponse', 'ScheduleBasedTriggerContextResponse'] trigger: Trigger context
+        :param 'AzureBackupParamsResponse' backup_parameters: BackupParameters base
+        """
+        pulumi.set(__self__, "data_store", data_store)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "object_type", 'AzureBackupRule')
+        pulumi.set(__self__, "trigger", trigger)
+        if backup_parameters is not None:
+            pulumi.set(__self__, "backup_parameters", backup_parameters)
+
+    @property
+    @pulumi.getter(name="dataStore")
+    def data_store(self) -> 'outputs.DataStoreInfoBaseResponse':
+        """
+        DataStoreInfo base
+        """
+        return pulumi.get(self, "data_store")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+
+        Expected value is 'AzureBackupRule'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Any:
+        """
+        Trigger context
+        """
+        return pulumi.get(self, "trigger")
+
+    @property
+    @pulumi.getter(name="backupParameters")
+    def backup_parameters(self) -> Optional['outputs.AzureBackupParamsResponse']:
+        """
+        BackupParameters base
+        """
+        return pulumi.get(self, "backup_parameters")
+
 
 @pulumi.output_type
 class AzureOperationalStoreParametersResponse(dict):
@@ -90,6 +397,516 @@ class AzureOperationalStoreParametersResponse(dict):
         Gets or sets the Snapshot Resource Group Uri.
         """
         return pulumi.get(self, "resource_group_id")
+
+
+@pulumi.output_type
+class AzureRetentionRuleResponse(dict):
+    """
+    Azure retention rule
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "isDefault":
+            suggest = "is_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureRetentionRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureRetentionRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureRetentionRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lifecycles: Sequence['outputs.SourceLifeCycleResponse'],
+                 name: str,
+                 object_type: str,
+                 is_default: Optional[bool] = None):
+        """
+        Azure retention rule
+        :param str object_type: 
+               Expected value is 'AzureRetentionRule'.
+        """
+        pulumi.set(__self__, "lifecycles", lifecycles)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "object_type", 'AzureRetentionRule')
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+
+    @property
+    @pulumi.getter
+    def lifecycles(self) -> Sequence['outputs.SourceLifeCycleResponse']:
+        return pulumi.get(self, "lifecycles")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+
+        Expected value is 'AzureRetentionRule'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        return pulumi.get(self, "is_default")
+
+
+@pulumi.output_type
+class BackupInstanceResponse(dict):
+    """
+    Backup Instance
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentProtectionState":
+            suggest = "current_protection_state"
+        elif key == "dataSourceInfo":
+            suggest = "data_source_info"
+        elif key == "objectType":
+            suggest = "object_type"
+        elif key == "policyInfo":
+            suggest = "policy_info"
+        elif key == "protectionErrorDetails":
+            suggest = "protection_error_details"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dataSourceSetInfo":
+            suggest = "data_source_set_info"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_protection_state: str,
+                 data_source_info: 'outputs.DatasourceResponse',
+                 object_type: str,
+                 policy_info: 'outputs.PolicyInfoResponse',
+                 protection_error_details: 'outputs.UserFacingErrorResponse',
+                 protection_status: 'outputs.ProtectionStatusDetailsResponse',
+                 provisioning_state: str,
+                 data_source_set_info: Optional['outputs.DatasourceSetResponse'] = None,
+                 friendly_name: Optional[str] = None):
+        """
+        Backup Instance
+        :param str current_protection_state: Specifies the current protection state of the resource
+        :param 'DatasourceResponse' data_source_info: Gets or sets the data source information.
+        :param 'PolicyInfoResponse' policy_info: Gets or sets the policy information.
+        :param 'UserFacingErrorResponse' protection_error_details: Specifies the protection error of the resource
+        :param 'ProtectionStatusDetailsResponse' protection_status: Specifies the protection status of the resource
+        :param str provisioning_state: Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
+        :param 'DatasourceSetResponse' data_source_set_info: Gets or sets the data source set information.
+        :param str friendly_name: Gets or sets the Backup Instance friendly name.
+        """
+        pulumi.set(__self__, "current_protection_state", current_protection_state)
+        pulumi.set(__self__, "data_source_info", data_source_info)
+        pulumi.set(__self__, "object_type", object_type)
+        pulumi.set(__self__, "policy_info", policy_info)
+        pulumi.set(__self__, "protection_error_details", protection_error_details)
+        pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if data_source_set_info is not None:
+            pulumi.set(__self__, "data_source_set_info", data_source_set_info)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+
+    @property
+    @pulumi.getter(name="currentProtectionState")
+    def current_protection_state(self) -> str:
+        """
+        Specifies the current protection state of the resource
+        """
+        return pulumi.get(self, "current_protection_state")
+
+    @property
+    @pulumi.getter(name="dataSourceInfo")
+    def data_source_info(self) -> 'outputs.DatasourceResponse':
+        """
+        Gets or sets the data source information.
+        """
+        return pulumi.get(self, "data_source_info")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="policyInfo")
+    def policy_info(self) -> 'outputs.PolicyInfoResponse':
+        """
+        Gets or sets the policy information.
+        """
+        return pulumi.get(self, "policy_info")
+
+    @property
+    @pulumi.getter(name="protectionErrorDetails")
+    def protection_error_details(self) -> 'outputs.UserFacingErrorResponse':
+        """
+        Specifies the protection error of the resource
+        """
+        return pulumi.get(self, "protection_error_details")
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> 'outputs.ProtectionStatusDetailsResponse':
+        """
+        Specifies the protection status of the resource
+        """
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="dataSourceSetInfo")
+    def data_source_set_info(self) -> Optional['outputs.DatasourceSetResponse']:
+        """
+        Gets or sets the data source set information.
+        """
+        return pulumi.get(self, "data_source_set_info")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[str]:
+        """
+        Gets or sets the Backup Instance friendly name.
+        """
+        return pulumi.get(self, "friendly_name")
+
+
+@pulumi.output_type
+class BackupPolicyResponse(dict):
+    """
+    Rule based backup policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasourceTypes":
+            suggest = "datasource_types"
+        elif key == "objectType":
+            suggest = "object_type"
+        elif key == "policyRules":
+            suggest = "policy_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 datasource_types: Sequence[str],
+                 object_type: str,
+                 policy_rules: Sequence[Any]):
+        """
+        Rule based backup policy
+        :param Sequence[str] datasource_types: Type of datasource for the backup management
+        :param str object_type: 
+               Expected value is 'BackupPolicy'.
+        :param Sequence[Union['AzureBackupRuleResponse', 'AzureRetentionRuleResponse']] policy_rules: Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc
+        """
+        pulumi.set(__self__, "datasource_types", datasource_types)
+        pulumi.set(__self__, "object_type", 'BackupPolicy')
+        pulumi.set(__self__, "policy_rules", policy_rules)
+
+    @property
+    @pulumi.getter(name="datasourceTypes")
+    def datasource_types(self) -> Sequence[str]:
+        """
+        Type of datasource for the backup management
+        """
+        return pulumi.get(self, "datasource_types")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+
+        Expected value is 'BackupPolicy'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="policyRules")
+    def policy_rules(self) -> Sequence[Any]:
+        """
+        Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc
+        """
+        return pulumi.get(self, "policy_rules")
+
+
+@pulumi.output_type
+class BackupScheduleResponse(dict):
+    """
+    Schedule for backup
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repeatingTimeIntervals":
+            suggest = "repeating_time_intervals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repeating_time_intervals: Sequence[str]):
+        """
+        Schedule for backup
+        :param Sequence[str] repeating_time_intervals: ISO 8601 repeating time interval format
+        """
+        pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
+
+    @property
+    @pulumi.getter(name="repeatingTimeIntervals")
+    def repeating_time_intervals(self) -> Sequence[str]:
+        """
+        ISO 8601 repeating time interval format
+        """
+        return pulumi.get(self, "repeating_time_intervals")
+
+
+@pulumi.output_type
+class BackupVaultResponse(dict):
+    """
+    Backup Vault
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "storageSettings":
+            suggest = "storage_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupVaultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupVaultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupVaultResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 storage_settings: Sequence['outputs.StorageSettingResponse']):
+        """
+        Backup Vault
+        :param str provisioning_state: Provisioning state of the BackupVault resource
+        :param Sequence['StorageSettingResponse'] storage_settings: Storage Settings
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "storage_settings", storage_settings)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the BackupVault resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageSettings")
+    def storage_settings(self) -> Sequence['outputs.StorageSettingResponse']:
+        """
+        Storage Settings
+        """
+        return pulumi.get(self, "storage_settings")
+
+
+@pulumi.output_type
+class CopyOnExpiryOptionResponse(dict):
+    """
+    Copy on Expiry Option
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyOnExpiryOptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyOnExpiryOptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyOnExpiryOptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str):
+        """
+        Copy on Expiry Option
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'CopyOnExpiryOption'.
+        """
+        pulumi.set(__self__, "object_type", 'CopyOnExpiryOption')
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'CopyOnExpiryOption'.
+        """
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class CustomCopyOptionResponse(dict):
+    """
+    Duration based custom options to copy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomCopyOptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomCopyOptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomCopyOptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 duration: Optional[str] = None):
+        """
+        Duration based custom options to copy
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'CustomCopyOption'.
+        :param str duration: Data copied after given timespan
+        """
+        pulumi.set(__self__, "object_type", 'CustomCopyOption')
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'CustomCopyOption'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        """
+        Data copied after given timespan
+        """
+        return pulumi.get(self, "duration")
+
+
+@pulumi.output_type
+class DataStoreInfoBaseResponse(dict):
+    """
+    DataStoreInfo base
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStoreType":
+            suggest = "data_store_type"
+        elif key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataStoreInfoBaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataStoreInfoBaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataStoreInfoBaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_store_type: str,
+                 object_type: str):
+        """
+        DataStoreInfo base
+        :param str data_store_type: type of datastore; Operational/Vault/Archive
+        :param str object_type: Type of Datasource object, used to initialize the right inherited type
+        """
+        pulumi.set(__self__, "data_store_type", data_store_type)
+        pulumi.set(__self__, "object_type", object_type)
+
+    @property
+    @pulumi.getter(name="dataStoreType")
+    def data_store_type(self) -> str:
+        """
+        type of datastore; Operational/Vault/Archive
+        """
+        return pulumi.get(self, "data_store_type")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of Datasource object, used to initialize the right inherited type
+        """
+        return pulumi.get(self, "object_type")
 
 
 @pulumi.output_type
@@ -339,6 +1156,58 @@ class DatasourceSetResponse(dict):
 
 
 @pulumi.output_type
+class DayResponse(dict):
+    """
+    Day of the week
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isLast":
+            suggest = "is_last"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DayResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date: Optional[int] = None,
+                 is_last: Optional[bool] = None):
+        """
+        Day of the week
+        :param int date: Date of the month
+        :param bool is_last: Whether Date is last date of month
+        """
+        if date is not None:
+            pulumi.set(__self__, "date", date)
+        if is_last is not None:
+            pulumi.set(__self__, "is_last", is_last)
+
+    @property
+    @pulumi.getter
+    def date(self) -> Optional[int]:
+        """
+        Date of the month
+        """
+        return pulumi.get(self, "date")
+
+    @property
+    @pulumi.getter(name="isLast")
+    def is_last(self) -> Optional[bool]:
+        """
+        Whether Date is last date of month
+        """
+        return pulumi.get(self, "is_last")
+
+
+@pulumi.output_type
 class DppIdentityDetailsResponse(dict):
     """
     Identity details
@@ -400,6 +1269,47 @@ class DppIdentityDetailsResponse(dict):
         The identityType which can be either SystemAssigned or None
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ImmediateCopyOptionResponse(dict):
+    """
+    Immediate copy Option
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImmediateCopyOptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImmediateCopyOptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImmediateCopyOptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str):
+        """
+        Immediate copy Option
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'ImmediateCopyOption'.
+        """
+        pulumi.set(__self__, "object_type", 'ImmediateCopyOption')
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'ImmediateCopyOption'.
+        """
+        return pulumi.get(self, "object_type")
 
 
 @pulumi.output_type
@@ -619,6 +1529,323 @@ class ProtectionStatusDetailsResponse(dict):
 
 
 @pulumi.output_type
+class RetentionTagResponse(dict):
+    """
+    Retention tag
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eTag":
+            suggest = "e_tag"
+        elif key == "tagName":
+            suggest = "tag_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RetentionTagResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RetentionTagResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RetentionTagResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 e_tag: str,
+                 id: str,
+                 tag_name: str):
+        """
+        Retention tag
+        :param str e_tag: Retention Tag version.
+        :param str id: Retention Tag version.
+        :param str tag_name: Retention Tag Name to relate it to retention rule.
+        """
+        pulumi.set(__self__, "e_tag", e_tag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "tag_name", tag_name)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
+        """
+        Retention Tag version.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Retention Tag version.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="tagName")
+    def tag_name(self) -> str:
+        """
+        Retention Tag Name to relate it to retention rule.
+        """
+        return pulumi.get(self, "tag_name")
+
+
+@pulumi.output_type
+class ScheduleBasedBackupCriteriaResponse(dict):
+    """
+    Schedule based backup criteria
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "absoluteCriteria":
+            suggest = "absolute_criteria"
+        elif key == "daysOfMonth":
+            suggest = "days_of_month"
+        elif key == "daysOfTheWeek":
+            suggest = "days_of_the_week"
+        elif key == "monthsOfYear":
+            suggest = "months_of_year"
+        elif key == "scheduleTimes":
+            suggest = "schedule_times"
+        elif key == "weeksOfTheMonth":
+            suggest = "weeks_of_the_month"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleBasedBackupCriteriaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleBasedBackupCriteriaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleBasedBackupCriteriaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 absolute_criteria: Optional[Sequence[str]] = None,
+                 days_of_month: Optional[Sequence['outputs.DayResponse']] = None,
+                 days_of_the_week: Optional[Sequence[str]] = None,
+                 months_of_year: Optional[Sequence[str]] = None,
+                 schedule_times: Optional[Sequence[str]] = None,
+                 weeks_of_the_month: Optional[Sequence[str]] = None):
+        """
+        Schedule based backup criteria
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'ScheduleBasedBackupCriteria'.
+        :param Sequence[str] absolute_criteria: it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
+               and should be part of AbsoluteMarker enum
+        :param Sequence['DayResponse'] days_of_month: This is day of the month from 1 to 28 other wise last of month
+        :param Sequence[str] days_of_the_week: It should be Sunday/Monday/T..../Saturday
+        :param Sequence[str] months_of_year: It should be January/February/....../December
+        :param Sequence[str] schedule_times: List of schedule times for backup
+        :param Sequence[str] weeks_of_the_month: It should be First/Second/Third/Fourth/Last
+        """
+        pulumi.set(__self__, "object_type", 'ScheduleBasedBackupCriteria')
+        if absolute_criteria is not None:
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+        if days_of_month is not None:
+            pulumi.set(__self__, "days_of_month", days_of_month)
+        if days_of_the_week is not None:
+            pulumi.set(__self__, "days_of_the_week", days_of_the_week)
+        if months_of_year is not None:
+            pulumi.set(__self__, "months_of_year", months_of_year)
+        if schedule_times is not None:
+            pulumi.set(__self__, "schedule_times", schedule_times)
+        if weeks_of_the_month is not None:
+            pulumi.set(__self__, "weeks_of_the_month", weeks_of_the_month)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'ScheduleBasedBackupCriteria'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="absoluteCriteria")
+    def absolute_criteria(self) -> Optional[Sequence[str]]:
+        """
+        it contains absolute values like "AllBackup" / "FirstOfDay" / "FirstOfWeek" / "FirstOfMonth"
+        and should be part of AbsoluteMarker enum
+        """
+        return pulumi.get(self, "absolute_criteria")
+
+    @property
+    @pulumi.getter(name="daysOfMonth")
+    def days_of_month(self) -> Optional[Sequence['outputs.DayResponse']]:
+        """
+        This is day of the month from 1 to 28 other wise last of month
+        """
+        return pulumi.get(self, "days_of_month")
+
+    @property
+    @pulumi.getter(name="daysOfTheWeek")
+    def days_of_the_week(self) -> Optional[Sequence[str]]:
+        """
+        It should be Sunday/Monday/T..../Saturday
+        """
+        return pulumi.get(self, "days_of_the_week")
+
+    @property
+    @pulumi.getter(name="monthsOfYear")
+    def months_of_year(self) -> Optional[Sequence[str]]:
+        """
+        It should be January/February/....../December
+        """
+        return pulumi.get(self, "months_of_year")
+
+    @property
+    @pulumi.getter(name="scheduleTimes")
+    def schedule_times(self) -> Optional[Sequence[str]]:
+        """
+        List of schedule times for backup
+        """
+        return pulumi.get(self, "schedule_times")
+
+    @property
+    @pulumi.getter(name="weeksOfTheMonth")
+    def weeks_of_the_month(self) -> Optional[Sequence[str]]:
+        """
+        It should be First/Second/Third/Fourth/Last
+        """
+        return pulumi.get(self, "weeks_of_the_month")
+
+
+@pulumi.output_type
+class ScheduleBasedTriggerContextResponse(dict):
+    """
+    Schedule based trigger context
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "taggingCriteria":
+            suggest = "tagging_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleBasedTriggerContextResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleBasedTriggerContextResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleBasedTriggerContextResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 schedule: 'outputs.BackupScheduleResponse',
+                 tagging_criteria: Sequence['outputs.TaggingCriteriaResponse']):
+        """
+        Schedule based trigger context
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'ScheduleBasedTriggerContext'.
+        :param 'BackupScheduleResponse' schedule: Schedule for this backup
+        :param Sequence['TaggingCriteriaResponse'] tagging_criteria: List of tags that can be applicable for given schedule.
+        """
+        pulumi.set(__self__, "object_type", 'ScheduleBasedTriggerContext')
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "tagging_criteria", tagging_criteria)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'ScheduleBasedTriggerContext'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> 'outputs.BackupScheduleResponse':
+        """
+        Schedule for this backup
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="taggingCriteria")
+    def tagging_criteria(self) -> Sequence['outputs.TaggingCriteriaResponse']:
+        """
+        List of tags that can be applicable for given schedule.
+        """
+        return pulumi.get(self, "tagging_criteria")
+
+
+@pulumi.output_type
+class SourceLifeCycleResponse(dict):
+    """
+    Source LifeCycle
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteAfter":
+            suggest = "delete_after"
+        elif key == "sourceDataStore":
+            suggest = "source_data_store"
+        elif key == "targetDataStoreCopySettings":
+            suggest = "target_data_store_copy_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLifeCycleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLifeCycleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLifeCycleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_after: 'outputs.AbsoluteDeleteOptionResponse',
+                 source_data_store: 'outputs.DataStoreInfoBaseResponse',
+                 target_data_store_copy_settings: Optional[Sequence['outputs.TargetCopySettingResponse']] = None):
+        """
+        Source LifeCycle
+        :param 'AbsoluteDeleteOptionResponse' delete_after: Delete Option
+        :param 'DataStoreInfoBaseResponse' source_data_store: DataStoreInfo base
+        """
+        pulumi.set(__self__, "delete_after", delete_after)
+        pulumi.set(__self__, "source_data_store", source_data_store)
+        if target_data_store_copy_settings is not None:
+            pulumi.set(__self__, "target_data_store_copy_settings", target_data_store_copy_settings)
+
+    @property
+    @pulumi.getter(name="deleteAfter")
+    def delete_after(self) -> 'outputs.AbsoluteDeleteOptionResponse':
+        """
+        Delete Option
+        """
+        return pulumi.get(self, "delete_after")
+
+    @property
+    @pulumi.getter(name="sourceDataStore")
+    def source_data_store(self) -> 'outputs.DataStoreInfoBaseResponse':
+        """
+        DataStoreInfo base
+        """
+        return pulumi.get(self, "source_data_store")
+
+    @property
+    @pulumi.getter(name="targetDataStoreCopySettings")
+    def target_data_store_copy_settings(self) -> Optional[Sequence['outputs.TargetCopySettingResponse']]:
+        return pulumi.get(self, "target_data_store_copy_settings")
+
+
+@pulumi.output_type
 class StorageSettingResponse(dict):
     """
     Storage setting
@@ -778,6 +2005,135 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TaggingCriteriaResponse(dict):
+    """
+    Tagging criteria
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "tagInfo":
+            suggest = "tag_info"
+        elif key == "taggingPriority":
+            suggest = "tagging_priority"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaggingCriteriaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaggingCriteriaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaggingCriteriaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_default: bool,
+                 tag_info: 'outputs.RetentionTagResponse',
+                 tagging_priority: float,
+                 criteria: Optional[Sequence['outputs.ScheduleBasedBackupCriteriaResponse']] = None):
+        """
+        Tagging criteria
+        :param bool is_default: Specifies if tag is default.
+        :param 'RetentionTagResponse' tag_info: Retention tag information
+        :param float tagging_priority: Retention Tag priority.
+        :param Sequence['ScheduleBasedBackupCriteriaResponse'] criteria: Criteria which decides whether the tag can be applied to a triggered backup.
+        """
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "tag_info", tag_info)
+        pulumi.set(__self__, "tagging_priority", tagging_priority)
+        if criteria is not None:
+            pulumi.set(__self__, "criteria", criteria)
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        """
+        Specifies if tag is default.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="tagInfo")
+    def tag_info(self) -> 'outputs.RetentionTagResponse':
+        """
+        Retention tag information
+        """
+        return pulumi.get(self, "tag_info")
+
+    @property
+    @pulumi.getter(name="taggingPriority")
+    def tagging_priority(self) -> float:
+        """
+        Retention Tag priority.
+        """
+        return pulumi.get(self, "tagging_priority")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional[Sequence['outputs.ScheduleBasedBackupCriteriaResponse']]:
+        """
+        Criteria which decides whether the tag can be applied to a triggered backup.
+        """
+        return pulumi.get(self, "criteria")
+
+
+@pulumi.output_type
+class TargetCopySettingResponse(dict):
+    """
+    Target copy settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyAfter":
+            suggest = "copy_after"
+        elif key == "dataStore":
+            suggest = "data_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetCopySettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetCopySettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetCopySettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_after: Any,
+                 data_store: 'outputs.DataStoreInfoBaseResponse'):
+        """
+        Target copy settings
+        :param Union['CopyOnExpiryOptionResponse', 'CustomCopyOptionResponse', 'ImmediateCopyOptionResponse'] copy_after: It can be CustomCopyOption or ImmediateCopyOption.
+        :param 'DataStoreInfoBaseResponse' data_store: Info of target datastore
+        """
+        pulumi.set(__self__, "copy_after", copy_after)
+        pulumi.set(__self__, "data_store", data_store)
+
+    @property
+    @pulumi.getter(name="copyAfter")
+    def copy_after(self) -> Any:
+        """
+        It can be CustomCopyOption or ImmediateCopyOption.
+        """
+        return pulumi.get(self, "copy_after")
+
+    @property
+    @pulumi.getter(name="dataStore")
+    def data_store(self) -> 'outputs.DataStoreInfoBaseResponse':
+        """
+        Info of target datastore
+        """
+        return pulumi.get(self, "data_store")
 
 
 @pulumi.output_type

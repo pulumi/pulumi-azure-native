@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing an attached database configuration.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +30,8 @@ type AttachedDatabaseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Table level sharing specifications
+	TableLevelSharingProperties TableLevelSharingPropertiesResponsePtrOutput `pulumi:"tableLevelSharingProperties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -90,6 +92,12 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:AttachedDatabaseConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AttachedDatabaseConfiguration
@@ -128,6 +136,8 @@ type attachedDatabaseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// The provisioned state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Table level sharing specifications
+	TableLevelSharingProperties *TableLevelSharingPropertiesResponse `pulumi:"tableLevelSharingProperties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -147,6 +157,8 @@ type AttachedDatabaseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// The provisioned state of the resource.
 	ProvisioningState pulumi.StringPtrInput
+	// Table level sharing specifications
+	TableLevelSharingProperties TableLevelSharingPropertiesResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
@@ -170,6 +182,8 @@ type attachedDatabaseConfigurationArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Table level sharing specifications
+	TableLevelSharingProperties *TableLevelSharingProperties `pulumi:"tableLevelSharingProperties"`
 }
 
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
@@ -188,6 +202,8 @@ type AttachedDatabaseConfigurationArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
+	// Table level sharing specifications
+	TableLevelSharingProperties TableLevelSharingPropertiesPtrInput
 }
 
 func (AttachedDatabaseConfigurationArgs) ElementType() reflect.Type {

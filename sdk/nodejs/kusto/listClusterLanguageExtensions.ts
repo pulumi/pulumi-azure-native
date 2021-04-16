@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of language extension objects.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function listClusterLanguageExtensions(args: ListClusterLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterLanguageExtensionsResult> {
     if (!opts) {

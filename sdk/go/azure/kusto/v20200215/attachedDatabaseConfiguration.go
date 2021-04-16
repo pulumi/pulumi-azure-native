@@ -89,6 +89,12 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:AttachedDatabaseConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:AttachedDatabaseConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AttachedDatabaseConfiguration

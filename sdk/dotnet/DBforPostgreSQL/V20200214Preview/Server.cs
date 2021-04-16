@@ -90,6 +90,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         [Output("pointInTimeUTC")]
         public Output<string?> PointInTimeUTC { get; private set; } = null!;
 
+        [Output("privateDnsZoneArguments")]
+        public Output<Outputs.ServerPropertiesResponsePrivateDnsZoneArguments?> PrivateDnsZoneArguments { get; private set; } = null!;
+
         /// <summary>
         /// public network access is enabled or not
         /// </summary>
@@ -269,6 +272,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// </summary>
         [Input("pointInTimeUTC")]
         public Input<string>? PointInTimeUTC { get; set; }
+
+        [Input("privateDnsZoneArguments")]
+        public Input<Inputs.ServerPropertiesPrivateDnsZoneArgumentsArgs>? PrivateDnsZoneArguments { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

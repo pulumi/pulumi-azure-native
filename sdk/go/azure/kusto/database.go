@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a Kusto database.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +99,12 @@ func NewDatabase(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:Database"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:Database"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:Database"),
 		},
 	})
 	opts = append(opts, aliases)

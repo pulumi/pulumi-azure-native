@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly string? PostgresqlVersion;
         /// <summary>
+        /// The private dns zone arguments for a server group.
+        /// </summary>
+        public readonly Outputs.ServerGroupPropertiesResponsePrivateDnsZoneArguments? PrivateDnsZoneArguments;
+        /// <summary>
         /// The array of read replica server groups.
         /// </summary>
         public readonly ImmutableArray<string> ReadReplicas;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 
             string? postgresqlVersion,
 
+            Outputs.ServerGroupPropertiesResponsePrivateDnsZoneArguments? privateDnsZoneArguments,
+
             ImmutableArray<string> readReplicas,
 
             string resourceProviderType,
@@ -197,6 +203,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
             MaintenanceWindow = maintenanceWindow;
             Name = name;
             PostgresqlVersion = postgresqlVersion;
+            PrivateDnsZoneArguments = privateDnsZoneArguments;
             ReadReplicas = readReplicas;
             ResourceProviderType = resourceProviderType;
             ServerRoleGroups = serverRoleGroups;

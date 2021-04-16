@@ -46,10 +46,6 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
-        /// Type of datasource for the backup management
-        /// </summary>
-        public readonly ImmutableArray<string> DatasourceTypes;
-        /// <summary>
         /// Resource Id represents the complete path to the resource.
         /// </summary>
         public readonly string Id;
@@ -57,7 +53,10 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
         /// Resource name associated with the resource.
         /// </summary>
         public readonly string Name;
-        public readonly string ObjectType;
+        /// <summary>
+        /// BaseBackupPolicyResource properties
+        /// </summary>
+        public readonly Outputs.BackupPolicyResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -69,22 +68,19 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
 
         [OutputConstructor]
         private GetBackupPolicyResult(
-            ImmutableArray<string> datasourceTypes,
-
             string id,
 
             string name,
 
-            string objectType,
+            Outputs.BackupPolicyResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DatasourceTypes = datasourceTypes;
             Id = id;
             Name = name;
-            ObjectType = objectType;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a cluster principal assignment.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
     if (!opts) {

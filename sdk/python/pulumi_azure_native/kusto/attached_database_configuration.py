@@ -7,7 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['AttachedDatabaseConfigurationArgs', 'AttachedDatabaseConfiguration']
 
@@ -20,7 +22,8 @@ class AttachedDatabaseConfigurationArgs:
                  default_principals_modification_kind: pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']],
                  resource_group_name: pulumi.Input[str],
                  attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AttachedDatabaseConfiguration resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -30,6 +33,7 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
@@ -40,6 +44,8 @@ class AttachedDatabaseConfigurationArgs:
             pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if table_level_sharing_properties is not None:
+            pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -125,6 +131,18 @@ class AttachedDatabaseConfigurationArgs:
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
 
+    @property
+    @pulumi.getter(name="tableLevelSharingProperties")
+    def table_level_sharing_properties(self) -> Optional[pulumi.Input['TableLevelSharingPropertiesArgs']]:
+        """
+        Table level sharing specifications
+        """
+        return pulumi.get(self, "table_level_sharing_properties")
+
+    @table_level_sharing_properties.setter
+    def table_level_sharing_properties(self, value: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']]):
+        pulumi.set(self, "table_level_sharing_properties", value)
+
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
     @overload
@@ -138,10 +156,11 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
                  __props__=None):
         """
         Class representing an attached database configuration.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,6 +171,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']] table_level_sharing_properties: Table level sharing specifications
         """
         ...
     @overload
@@ -161,7 +181,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an attached database configuration.
-        API Version: 2020-09-18.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -185,6 +205,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 table_level_sharing_properties: Optional[pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -214,11 +235,12 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["table_level_sharing_properties"] = table_level_sharing_properties
             __props__.__dict__["attached_database_names"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210101:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-nextgen:kusto/v20210101:AttachedDatabaseConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azure-native:kusto:AttachedDatabaseConfiguration',
@@ -249,6 +271,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["table_level_sharing_properties"] = None
         __props__.__dict__["type"] = None
         return AttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -307,6 +330,14 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="tableLevelSharingProperties")
+    def table_level_sharing_properties(self) -> pulumi.Output[Optional['outputs.TableLevelSharingPropertiesResponse']]:
+        """
+        Table level sharing specifications
+        """
+        return pulumi.get(self, "table_level_sharing_properties")
 
     @property
     @pulumi.getter

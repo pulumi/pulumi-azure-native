@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing a cluster principal assignment.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 func LookupClusterPrincipalAssignment(ctx *pulumi.Context, args *LookupClusterPrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupClusterPrincipalAssignmentResult, error) {
 	var rv LookupClusterPrincipalAssignmentResult
 	err := ctx.Invoke("azure-native:kusto:getClusterPrincipalAssignment", args, &rv, opts...)

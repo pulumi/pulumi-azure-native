@@ -23,10 +23,8 @@ type BackupVault struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the BackupVault resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Storage Settings
-	StorageSettings StorageSettingResponseArrayOutput `pulumi:"storageSettings"`
+	// BackupVaultResource properties
+	Properties BackupVaultResponseOutput `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -42,11 +40,11 @@ func NewBackupVault(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.StorageSettings == nil {
-		return nil, errors.New("invalid value for required argument 'StorageSettings'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -96,10 +94,8 @@ type backupVaultState struct {
 	Location *string `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name *string `pulumi:"name"`
-	// Provisioning state of the BackupVault resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Storage Settings
-	StorageSettings []StorageSettingResponse `pulumi:"storageSettings"`
+	// BackupVaultResource properties
+	Properties *BackupVaultResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -117,10 +113,8 @@ type BackupVaultState struct {
 	Location pulumi.StringPtrInput
 	// Resource name associated with the resource.
 	Name pulumi.StringPtrInput
-	// Provisioning state of the BackupVault resource
-	ProvisioningState pulumi.StringPtrInput
-	// Storage Settings
-	StorageSettings StorageSettingResponseArrayInput
+	// BackupVaultResource properties
+	Properties BackupVaultResponsePtrInput
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
@@ -140,10 +134,10 @@ type backupVaultArgs struct {
 	Identity *DppIdentityDetails `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// BackupVaultResource properties
+	Properties BackupVaultType `pulumi:"properties"`
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Storage Settings
-	StorageSettings []StorageSetting `pulumi:"storageSettings"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the backup vault.
@@ -158,10 +152,10 @@ type BackupVaultArgs struct {
 	Identity DppIdentityDetailsPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// BackupVaultResource properties
+	Properties BackupVaultTypeInput
 	// The name of the resource group where the backup vault is present.
 	ResourceGroupName pulumi.StringInput
-	// Storage Settings
-	StorageSettings StorageSettingArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the backup vault.

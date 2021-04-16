@@ -7,6 +7,37 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.DataProtection
 {
+    [EnumType]
+    public readonly struct AbsoluteMarker : IEquatable<AbsoluteMarker>
+    {
+        private readonly string _value;
+
+        private AbsoluteMarker(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AbsoluteMarker AllBackup { get; } = new AbsoluteMarker("AllBackup");
+        public static AbsoluteMarker FirstOfDay { get; } = new AbsoluteMarker("FirstOfDay");
+        public static AbsoluteMarker FirstOfMonth { get; } = new AbsoluteMarker("FirstOfMonth");
+        public static AbsoluteMarker FirstOfWeek { get; } = new AbsoluteMarker("FirstOfWeek");
+        public static AbsoluteMarker FirstOfYear { get; } = new AbsoluteMarker("FirstOfYear");
+
+        public static bool operator ==(AbsoluteMarker left, AbsoluteMarker right) => left.Equals(right);
+        public static bool operator !=(AbsoluteMarker left, AbsoluteMarker right) => !left.Equals(right);
+
+        public static explicit operator string(AbsoluteMarker value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AbsoluteMarker other && Equals(other);
+        public bool Equals(AbsoluteMarker other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// type of datastore; Operational/Vault/Archive
     /// </summary>
@@ -32,6 +63,77 @@ namespace Pulumi.AzureNative.DataProtection
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataStoreTypes other && Equals(other);
         public bool Equals(DataStoreTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct Month : IEquatable<Month>
+    {
+        private readonly string _value;
+
+        private Month(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Month April { get; } = new Month("April");
+        public static Month August { get; } = new Month("August");
+        public static Month December { get; } = new Month("December");
+        public static Month February { get; } = new Month("February");
+        public static Month January { get; } = new Month("January");
+        public static Month July { get; } = new Month("July");
+        public static Month June { get; } = new Month("June");
+        public static Month March { get; } = new Month("March");
+        public static Month May { get; } = new Month("May");
+        public static Month November { get; } = new Month("November");
+        public static Month October { get; } = new Month("October");
+        public static Month September { get; } = new Month("September");
+
+        public static bool operator ==(Month left, Month right) => left.Equals(right);
+        public static bool operator !=(Month left, Month right) => !left.Equals(right);
+
+        public static explicit operator string(Month value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Month other && Equals(other);
+        public bool Equals(Month other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -95,6 +197,37 @@ namespace Pulumi.AzureNative.DataProtection
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageSettingTypes other && Equals(other);
         public bool Equals(StorageSettingTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WeekNumber : IEquatable<WeekNumber>
+    {
+        private readonly string _value;
+
+        private WeekNumber(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekNumber First { get; } = new WeekNumber("First");
+        public static WeekNumber Fourth { get; } = new WeekNumber("Fourth");
+        public static WeekNumber Last { get; } = new WeekNumber("Last");
+        public static WeekNumber Second { get; } = new WeekNumber("Second");
+        public static WeekNumber Third { get; } = new WeekNumber("Third");
+
+        public static bool operator ==(WeekNumber left, WeekNumber right) => left.Equals(right);
+        public static bool operator !=(WeekNumber left, WeekNumber right) => !left.Equals(right);
+
+        public static explicit operator string(WeekNumber value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekNumber other && Equals(other);
+        public bool Equals(WeekNumber other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

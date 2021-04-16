@@ -10,6 +10,16 @@ export {
     v20210201preview,
 };
 
+export const AbsoluteMarker = {
+    AllBackup: "AllBackup",
+    FirstOfDay: "FirstOfDay",
+    FirstOfMonth: "FirstOfMonth",
+    FirstOfWeek: "FirstOfWeek",
+    FirstOfYear: "FirstOfYear",
+} as const;
+
+export type AbsoluteMarker = (typeof AbsoluteMarker)[keyof typeof AbsoluteMarker];
+
 export const DataStoreTypes = {
     OperationalStore: "OperationalStore",
     VaultStore: "VaultStore",
@@ -20,6 +30,35 @@ export const DataStoreTypes = {
  * type of datastore; Operational/Vault/Archive
  */
 export type DataStoreTypes = (typeof DataStoreTypes)[keyof typeof DataStoreTypes];
+
+export const DayOfWeek = {
+    Friday: "Friday",
+    Monday: "Monday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+    Thursday: "Thursday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+} as const;
+
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+export const Month = {
+    April: "April",
+    August: "August",
+    December: "December",
+    February: "February",
+    January: "January",
+    July: "July",
+    June: "June",
+    March: "March",
+    May: "May",
+    November: "November",
+    October: "October",
+    September: "September",
+} as const;
+
+export type Month = (typeof Month)[keyof typeof Month];
 
 export const StorageSettingStoreTypes = {
     ArchiveStore: "ArchiveStore",
@@ -41,3 +80,13 @@ export const StorageSettingTypes = {
  * Gets or sets the type.
  */
 export type StorageSettingTypes = (typeof StorageSettingTypes)[keyof typeof StorageSettingTypes];
+
+export const WeekNumber = {
+    First: "First",
+    Fourth: "Fourth",
+    Last: "Last",
+    Second: "Second",
+    Third: "Third",
+} as const;
+
+export type WeekNumber = (typeof WeekNumber)[keyof typeof WeekNumber];

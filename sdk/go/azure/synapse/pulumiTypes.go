@@ -660,6 +660,350 @@ func (o AutoScalePropertiesResponsePtrOutput) MinNodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// Azure SKU definition.
+type AzureSku struct {
+	// The number of instances of the cluster.
+	Capacity *int `pulumi:"capacity"`
+	// SKU name.
+	Name string `pulumi:"name"`
+	// SKU tier.
+	Tier string `pulumi:"tier"`
+}
+
+// AzureSkuInput is an input type that accepts AzureSkuArgs and AzureSkuOutput values.
+// You can construct a concrete instance of `AzureSkuInput` via:
+//
+//          AzureSkuArgs{...}
+type AzureSkuInput interface {
+	pulumi.Input
+
+	ToAzureSkuOutput() AzureSkuOutput
+	ToAzureSkuOutputWithContext(context.Context) AzureSkuOutput
+}
+
+// Azure SKU definition.
+type AzureSkuArgs struct {
+	// The number of instances of the cluster.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// SKU name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SKU tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (AzureSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSku)(nil)).Elem()
+}
+
+func (i AzureSkuArgs) ToAzureSkuOutput() AzureSkuOutput {
+	return i.ToAzureSkuOutputWithContext(context.Background())
+}
+
+func (i AzureSkuArgs) ToAzureSkuOutputWithContext(ctx context.Context) AzureSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuOutput)
+}
+
+func (i AzureSkuArgs) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
+	return i.ToAzureSkuPtrOutputWithContext(context.Background())
+}
+
+func (i AzureSkuArgs) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuOutput).ToAzureSkuPtrOutputWithContext(ctx)
+}
+
+// AzureSkuPtrInput is an input type that accepts AzureSkuArgs, AzureSkuPtr and AzureSkuPtrOutput values.
+// You can construct a concrete instance of `AzureSkuPtrInput` via:
+//
+//          AzureSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureSkuPtrInput interface {
+	pulumi.Input
+
+	ToAzureSkuPtrOutput() AzureSkuPtrOutput
+	ToAzureSkuPtrOutputWithContext(context.Context) AzureSkuPtrOutput
+}
+
+type azureSkuPtrType AzureSkuArgs
+
+func AzureSkuPtr(v *AzureSkuArgs) AzureSkuPtrInput {
+	return (*azureSkuPtrType)(v)
+}
+
+func (*azureSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSku)(nil)).Elem()
+}
+
+func (i *azureSkuPtrType) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
+	return i.ToAzureSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *azureSkuPtrType) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuPtrOutput)
+}
+
+// Azure SKU definition.
+type AzureSkuOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSku)(nil)).Elem()
+}
+
+func (o AzureSkuOutput) ToAzureSkuOutput() AzureSkuOutput {
+	return o
+}
+
+func (o AzureSkuOutput) ToAzureSkuOutputWithContext(ctx context.Context) AzureSkuOutput {
+	return o
+}
+
+func (o AzureSkuOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
+	return o.ToAzureSkuPtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
+	return o.ApplyT(func(v AzureSku) *AzureSku {
+		return &v
+	}).(AzureSkuPtrOutput)
+}
+
+// The number of instances of the cluster.
+func (o AzureSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// SKU name.
+func (o AzureSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU tier.
+func (o AzureSkuOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSku) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type AzureSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSku)(nil)).Elem()
+}
+
+func (o AzureSkuPtrOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
+	return o
+}
+
+func (o AzureSkuPtrOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
+	return o
+}
+
+func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
+	return o.ApplyT(func(v *AzureSku) AzureSku { return *v }).(AzureSkuOutput)
+}
+
+// The number of instances of the cluster.
+func (o AzureSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// SKU name.
+func (o AzureSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU tier.
+func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure SKU definition.
+type AzureSkuResponse struct {
+	// The number of instances of the cluster.
+	Capacity *int `pulumi:"capacity"`
+	// SKU name.
+	Name string `pulumi:"name"`
+	// SKU tier.
+	Tier string `pulumi:"tier"`
+}
+
+// AzureSkuResponseInput is an input type that accepts AzureSkuResponseArgs and AzureSkuResponseOutput values.
+// You can construct a concrete instance of `AzureSkuResponseInput` via:
+//
+//          AzureSkuResponseArgs{...}
+type AzureSkuResponseInput interface {
+	pulumi.Input
+
+	ToAzureSkuResponseOutput() AzureSkuResponseOutput
+	ToAzureSkuResponseOutputWithContext(context.Context) AzureSkuResponseOutput
+}
+
+// Azure SKU definition.
+type AzureSkuResponseArgs struct {
+	// The number of instances of the cluster.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// SKU name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SKU tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (AzureSkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuResponse)(nil)).Elem()
+}
+
+func (i AzureSkuResponseArgs) ToAzureSkuResponseOutput() AzureSkuResponseOutput {
+	return i.ToAzureSkuResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSkuResponseArgs) ToAzureSkuResponseOutputWithContext(ctx context.Context) AzureSkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponseOutput)
+}
+
+func (i AzureSkuResponseArgs) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
+	return i.ToAzureSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureSkuResponseArgs) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponseOutput).ToAzureSkuResponsePtrOutputWithContext(ctx)
+}
+
+// AzureSkuResponsePtrInput is an input type that accepts AzureSkuResponseArgs, AzureSkuResponsePtr and AzureSkuResponsePtrOutput values.
+// You can construct a concrete instance of `AzureSkuResponsePtrInput` via:
+//
+//          AzureSkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureSkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput
+	ToAzureSkuResponsePtrOutputWithContext(context.Context) AzureSkuResponsePtrOutput
+}
+
+type azureSkuResponsePtrType AzureSkuResponseArgs
+
+func AzureSkuResponsePtr(v *AzureSkuResponseArgs) AzureSkuResponsePtrInput {
+	return (*azureSkuResponsePtrType)(v)
+}
+
+func (*azureSkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSkuResponse)(nil)).Elem()
+}
+
+func (i *azureSkuResponsePtrType) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
+	return i.ToAzureSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureSkuResponsePtrType) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuResponsePtrOutput)
+}
+
+// Azure SKU definition.
+type AzureSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuResponse)(nil)).Elem()
+}
+
+func (o AzureSkuResponseOutput) ToAzureSkuResponseOutput() AzureSkuResponseOutput {
+	return o
+}
+
+func (o AzureSkuResponseOutput) ToAzureSkuResponseOutputWithContext(ctx context.Context) AzureSkuResponseOutput {
+	return o
+}
+
+func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
+	return o.ToAzureSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
+	return o.ApplyT(func(v AzureSkuResponse) *AzureSkuResponse {
+		return &v
+	}).(AzureSkuResponsePtrOutput)
+}
+
+// The number of instances of the cluster.
+func (o AzureSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// SKU name.
+func (o AzureSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU tier.
+func (o AzureSkuResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type AzureSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSkuResponse)(nil)).Elem()
+}
+
+func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePtrOutput {
+	return o
+}
+
+func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
+	return o
+}
+
+func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
+	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse { return *v }).(AzureSkuResponseOutput)
+}
+
+// The number of instances of the cluster.
+func (o AzureSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// SKU name.
+func (o AzureSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU tier.
+func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
 // The custom setup of running cmdkey commands.
 type CmdkeySetup struct {
 	// The password of data source access.
@@ -11077,6 +11421,235 @@ func (o SsisVariableResponseArrayOutput) Index(i pulumi.IntInput) SsisVariableRe
 	}).(SsisVariableResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Virtual Network Profile
 type VirtualNetworkProfile struct {
 	// Subnet ID used for computes in workspace
@@ -12582,6 +13155,10 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AutoScalePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureSkuOutput{})
+	pulumi.RegisterOutputType(AzureSkuPtrOutput{})
+	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
+	pulumi.RegisterOutputType(AzureSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(CmdkeySetupOutput{})
 	pulumi.RegisterOutputType(CmdkeySetupResponseOutput{})
 	pulumi.RegisterOutputType(ComponentSetupOutput{})
@@ -12709,6 +13286,8 @@ func init() {
 	pulumi.RegisterOutputType(SsisProjectResponseOutput{})
 	pulumi.RegisterOutputType(SsisVariableResponseOutput{})
 	pulumi.RegisterOutputType(SsisVariableResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})

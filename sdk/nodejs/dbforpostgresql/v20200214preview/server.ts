@@ -84,6 +84,7 @@ export class Server extends pulumi.CustomResource {
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
     public readonly pointInTimeUTC!: pulumi.Output<string | undefined>;
+    public readonly privateDnsZoneArguments!: pulumi.Output<outputs.dbforpostgresql.v20200214preview.ServerPropertiesResponsePrivateDnsZoneArguments | undefined>;
     /**
      * public network access is enabled or not
      */
@@ -154,6 +155,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
+            inputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -185,6 +187,7 @@ export class Server extends pulumi.CustomResource {
             inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["pointInTimeUTC"] = undefined /*out*/;
+            inputs["privateDnsZoneArguments"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["sourceResourceGroupName"] = undefined /*out*/;
@@ -251,6 +254,7 @@ export interface ServerArgs {
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
     readonly pointInTimeUTC?: pulumi.Input<string>;
+    readonly privateDnsZoneArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.ServerPropertiesPrivateDnsZoneArgumentsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

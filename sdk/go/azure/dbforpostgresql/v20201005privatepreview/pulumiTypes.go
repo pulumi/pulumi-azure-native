@@ -528,6 +528,142 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) SubnetArmResourc
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private dns zone arguments for a server group.
+type ServerGroupPropertiesPrivateDnsZoneArguments struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+// ServerGroupPropertiesPrivateDnsZoneArgumentsInput is an input type that accepts ServerGroupPropertiesPrivateDnsZoneArgumentsArgs and ServerGroupPropertiesPrivateDnsZoneArgumentsOutput values.
+// You can construct a concrete instance of `ServerGroupPropertiesPrivateDnsZoneArgumentsInput` via:
+//
+//          ServerGroupPropertiesPrivateDnsZoneArgumentsArgs{...}
+type ServerGroupPropertiesPrivateDnsZoneArgumentsInput interface {
+	pulumi.Input
+
+	ToServerGroupPropertiesPrivateDnsZoneArgumentsOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsOutput
+	ToServerGroupPropertiesPrivateDnsZoneArgumentsOutputWithContext(context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsOutput
+}
+
+// The private dns zone arguments for a server group.
+type ServerGroupPropertiesPrivateDnsZoneArgumentsArgs struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+func (ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerGroupPropertiesPrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (i ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesPrivateDnsZoneArgumentsOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
+	return i.ToServerGroupPropertiesPrivateDnsZoneArgumentsOutputWithContext(context.Background())
+}
+
+func (i ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesPrivateDnsZoneArgumentsOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesPrivateDnsZoneArgumentsOutput)
+}
+
+func (i ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return i.ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesPrivateDnsZoneArgumentsOutput).ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx)
+}
+
+// ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput is an input type that accepts ServerGroupPropertiesPrivateDnsZoneArgumentsArgs, ServerGroupPropertiesPrivateDnsZoneArgumentsPtr and ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput values.
+// You can construct a concrete instance of `ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput` via:
+//
+//          ServerGroupPropertiesPrivateDnsZoneArgumentsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput interface {
+	pulumi.Input
+
+	ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput
+	ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput
+}
+
+type serverGroupPropertiesPrivateDnsZoneArgumentsPtrType ServerGroupPropertiesPrivateDnsZoneArgumentsArgs
+
+func ServerGroupPropertiesPrivateDnsZoneArgumentsPtr(v *ServerGroupPropertiesPrivateDnsZoneArgumentsArgs) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrInput {
+	return (*serverGroupPropertiesPrivateDnsZoneArgumentsPtrType)(v)
+}
+
+func (*serverGroupPropertiesPrivateDnsZoneArgumentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerGroupPropertiesPrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (i *serverGroupPropertiesPrivateDnsZoneArgumentsPtrType) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return i.ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverGroupPropertiesPrivateDnsZoneArgumentsPtrType) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput)
+}
+
+// The private dns zone arguments for a server group.
+type ServerGroupPropertiesPrivateDnsZoneArgumentsOutput struct{ *pulumi.OutputState }
+
+func (ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerGroupPropertiesPrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return o.ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return o.ApplyT(func(v ServerGroupPropertiesPrivateDnsZoneArguments) *ServerGroupPropertiesPrivateDnsZoneArguments {
+		return &v
+	}).(ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput)
+}
+
+// private dns zone arm resource id.
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerGroupPropertiesPrivateDnsZoneArguments) *string { return v.PrivateDnsZoneArmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerGroupPropertiesPrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) Elem() ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
+	return o.ApplyT(func(v *ServerGroupPropertiesPrivateDnsZoneArguments) ServerGroupPropertiesPrivateDnsZoneArguments {
+		return *v
+	}).(ServerGroupPropertiesPrivateDnsZoneArgumentsOutput)
+}
+
+// private dns zone arm resource id.
+func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroupPropertiesPrivateDnsZoneArguments) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The delegated subnet arguments for a server group.
 type ServerGroupPropertiesResponseDelegatedSubnetArguments struct {
 	// delegated subnet arm resource id.
@@ -661,6 +797,144 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) SubnetAr
 			return nil
 		}
 		return v.SubnetArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private dns zone arguments for a server group.
+type ServerGroupPropertiesResponsePrivateDnsZoneArguments struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId *string `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+// ServerGroupPropertiesResponsePrivateDnsZoneArgumentsInput is an input type that accepts ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs and ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput values.
+// You can construct a concrete instance of `ServerGroupPropertiesResponsePrivateDnsZoneArgumentsInput` via:
+//
+//          ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs{...}
+type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsInput interface {
+	pulumi.Input
+
+	ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput
+	ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutputWithContext(context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput
+}
+
+// The private dns zone arguments for a server group.
+type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs struct {
+	// private dns zone arm resource id.
+	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
+}
+
+func (ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerGroupPropertiesResponsePrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (i ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
+	return i.ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutputWithContext(context.Background())
+}
+
+func (i ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput)
+}
+
+func (i ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return i.ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput).ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx)
+}
+
+// ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrInput is an input type that accepts ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs, ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtr and ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput values.
+// You can construct a concrete instance of `ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrInput` via:
+//
+//          ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrInput interface {
+	pulumi.Input
+
+	ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput
+	ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput
+}
+
+type serverGroupPropertiesResponsePrivateDnsZoneArgumentsPtrType ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs
+
+func ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtr(v *ServerGroupPropertiesResponsePrivateDnsZoneArgumentsArgs) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrInput {
+	return (*serverGroupPropertiesResponsePrivateDnsZoneArgumentsPtrType)(v)
+}
+
+func (*serverGroupPropertiesResponsePrivateDnsZoneArgumentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerGroupPropertiesResponsePrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (i *serverGroupPropertiesResponsePrivateDnsZoneArgumentsPtrType) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return i.ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverGroupPropertiesResponsePrivateDnsZoneArgumentsPtrType) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
+}
+
+// The private dns zone arguments for a server group.
+type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput struct{ *pulumi.OutputState }
+
+func (ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerGroupPropertiesResponsePrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o.ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o.ApplyT(func(v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *ServerGroupPropertiesResponsePrivateDnsZoneArguments {
+		return &v
+	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
+}
+
+// private dns zone arm resource id.
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *string {
+		return v.PrivateDnsZoneArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerGroupPropertiesResponsePrivateDnsZoneArguments)(nil)).Elem()
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) Elem() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
+	return o.ApplyT(func(v *ServerGroupPropertiesResponsePrivateDnsZoneArguments) ServerGroupPropertiesResponsePrivateDnsZoneArguments {
+		return *v
+	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput)
+}
+
+// private dns zone arm resource id.
+func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) PrivateDnsZoneArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroupPropertiesResponsePrivateDnsZoneArguments) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneArmResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1335,8 +1609,12 @@ func init() {
 	pulumi.RegisterOutputType(MaintenanceWindowResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(ServerGroupPropertiesPrivateDnsZoneArgumentsOutput{})
+	pulumi.RegisterOutputType(ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput{})
+	pulumi.RegisterOutputType(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput{})
 	pulumi.RegisterOutputType(ServerNameItemResponseOutput{})
 	pulumi.RegisterOutputType(ServerNameItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerRoleGroupOutput{})

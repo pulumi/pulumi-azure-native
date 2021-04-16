@@ -120,7 +120,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20210301:SqlPoolWorkloadClassifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20210301:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier" }, { type: "azure-nextgen:synapse/v20210401preview:SqlPoolWorkloadClassifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPoolWorkloadClassifier.__pulumiType, name, inputs, opts);
     }

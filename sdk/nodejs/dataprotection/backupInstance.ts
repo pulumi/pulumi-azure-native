@@ -37,42 +37,13 @@ export class BackupInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the current protection state of the resource
-     */
-    public /*out*/ readonly currentProtectionState!: pulumi.Output<string>;
-    /**
-     * Gets or sets the data source information.
-     */
-    public readonly dataSourceInfo!: pulumi.Output<outputs.dataprotection.DatasourceResponse>;
-    /**
-     * Gets or sets the data source set information.
-     */
-    public readonly dataSourceSetInfo!: pulumi.Output<outputs.dataprotection.DatasourceSetResponse | undefined>;
-    /**
-     * Gets or sets the Backup Instance friendly name.
-     */
-    public readonly friendlyName!: pulumi.Output<string>;
-    /**
      * Resource name associated with the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly objectType!: pulumi.Output<string>;
     /**
-     * Gets or sets the policy information.
+     * BackupInstanceResource properties
      */
-    public readonly policyInfo!: pulumi.Output<outputs.dataprotection.PolicyInfoResponse>;
-    /**
-     * Specifies the protection error of the resource
-     */
-    public /*out*/ readonly protectionErrorDetails!: pulumi.Output<outputs.dataprotection.UserFacingErrorResponse>;
-    /**
-     * Specifies the protection status of the resource
-     */
-    public /*out*/ readonly protectionStatus!: pulumi.Output<outputs.dataprotection.ProtectionStatusDetailsResponse>;
-    /**
-     * Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.dataprotection.BackupInstanceResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -93,18 +64,6 @@ export class BackupInstance extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataSourceInfo === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataSourceInfo'");
-            }
-            if ((!args || args.friendlyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'friendlyName'");
-            }
-            if ((!args || args.objectType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'objectType'");
-            }
-            if ((!args || args.policyInfo === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyInfo'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,31 +71,15 @@ export class BackupInstance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["backupInstanceName"] = args ? args.backupInstanceName : undefined;
-            inputs["dataSourceInfo"] = args ? args.dataSourceInfo : undefined;
-            inputs["dataSourceSetInfo"] = args ? args.dataSourceSetInfo : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["objectType"] = args ? args.objectType : undefined;
-            inputs["policyInfo"] = args ? args.policyInfo : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
-            inputs["currentProtectionState"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["protectionErrorDetails"] = undefined /*out*/;
-            inputs["protectionStatus"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["currentProtectionState"] = undefined /*out*/;
-            inputs["dataSourceInfo"] = undefined /*out*/;
-            inputs["dataSourceSetInfo"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["objectType"] = undefined /*out*/;
-            inputs["policyInfo"] = undefined /*out*/;
-            inputs["protectionErrorDetails"] = undefined /*out*/;
-            inputs["protectionStatus"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -158,22 +101,9 @@ export interface BackupInstanceArgs {
      */
     readonly backupInstanceName?: pulumi.Input<string>;
     /**
-     * Gets or sets the data source information.
+     * BackupInstanceResource properties
      */
-    readonly dataSourceInfo: pulumi.Input<inputs.dataprotection.DatasourceArgs>;
-    /**
-     * Gets or sets the data source set information.
-     */
-    readonly dataSourceSetInfo?: pulumi.Input<inputs.dataprotection.DatasourceSetArgs>;
-    /**
-     * Gets or sets the Backup Instance friendly name.
-     */
-    readonly friendlyName: pulumi.Input<string>;
-    readonly objectType: pulumi.Input<string>;
-    /**
-     * Gets or sets the policy information.
-     */
-    readonly policyInfo: pulumi.Input<inputs.dataprotection.PolicyInfoArgs>;
+    readonly properties?: pulumi.Input<inputs.dataprotection.BackupInstanceArgs>;
     /**
      * The name of the resource group where the backup vault is present.
      */

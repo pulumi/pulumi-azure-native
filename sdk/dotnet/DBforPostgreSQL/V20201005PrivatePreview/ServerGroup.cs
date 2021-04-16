@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public Output<string?> PostgresqlVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The private dns zone arguments for a server group.
+        /// </summary>
+        [Output("privateDnsZoneArguments")]
+        public Output<Outputs.ServerGroupPropertiesResponsePrivateDnsZoneArguments?> PrivateDnsZoneArguments { get; private set; } = null!;
+
+        /// <summary>
         /// The array of read replica server groups.
         /// </summary>
         [Output("readReplicas")]
@@ -279,6 +285,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         [Input("postgresqlVersion")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.PostgreSQLVersion>? PostgresqlVersion { get; set; }
+
+        /// <summary>
+        /// The private dns zone arguments for a server group.
+        /// </summary>
+        [Input("privateDnsZoneArguments")]
+        public Input<Inputs.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs>? PrivateDnsZoneArguments { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

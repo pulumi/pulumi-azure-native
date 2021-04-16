@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing an data connection.
-// API Version: 2020-09-18.
+// API Version: 2021-01-01.
 type DataConnection struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +90,12 @@ func NewDataConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210101:DataConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210101:DataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

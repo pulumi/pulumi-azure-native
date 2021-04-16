@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, private_dns_zone_arguments=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -63,6 +63,9 @@ class GetServerResult:
         if point_in_time_utc and not isinstance(point_in_time_utc, str):
             raise TypeError("Expected argument 'point_in_time_utc' to be a str")
         pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+        if private_dns_zone_arguments and not isinstance(private_dns_zone_arguments, dict):
+            raise TypeError("Expected argument 'private_dns_zone_arguments' to be a dict")
+        pulumi.set(__self__, "private_dns_zone_arguments", private_dns_zone_arguments)
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
@@ -207,6 +210,11 @@ class GetServerResult:
         return pulumi.get(self, "point_in_time_utc")
 
     @property
+    @pulumi.getter(name="privateDnsZoneArguments")
+    def private_dns_zone_arguments(self) -> Optional['outputs.ServerPropertiesResponsePrivateDnsZoneArguments']:
+        return pulumi.get(self, "private_dns_zone_arguments")
+
+    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> str:
         """
@@ -315,6 +323,7 @@ class AwaitableGetServerResult(GetServerResult):
             maintenance_window=self.maintenance_window,
             name=self.name,
             point_in_time_utc=self.point_in_time_utc,
+            private_dns_zone_arguments=self.private_dns_zone_arguments,
             public_network_access=self.public_network_access,
             sku=self.sku,
             source_resource_group_name=self.source_resource_group_name,
@@ -362,6 +371,7 @@ def get_server(resource_group_name: Optional[str] = None,
         maintenance_window=__ret__.maintenance_window,
         name=__ret__.name,
         point_in_time_utc=__ret__.point_in_time_utc,
+        private_dns_zone_arguments=__ret__.private_dns_zone_arguments,
         public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
         source_resource_group_name=__ret__.source_resource_group_name,

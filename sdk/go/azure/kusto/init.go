@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatabasePrincipalAssignment{}
 	case "azure-native:kusto:EventHubConnection":
 		r = &EventHubConnection{}
+	case "azure-native:kusto:Script":
+		r = &Script{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -52,7 +52,8 @@ type LookupServerResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
+	PointInTimeUTC          *string                                          `pulumi:"pointInTimeUTC"`
+	PrivateDnsZoneArguments *ServerPropertiesResponsePrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
 	// public network access is enabled or not
 	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.

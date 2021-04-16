@@ -6,7 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./bigDataPool";
+export * from "./dataConnection";
+export * from "./database";
 export * from "./getBigDataPool";
+export * from "./getDataConnection";
+export * from "./getDatabase";
 export * from "./getIntegrationRuntime";
 export * from "./getIntegrationRuntimeConnectionInfo";
 export * from "./getIntegrationRuntimeObjectMetadatum";
@@ -26,9 +30,11 @@ export * from "./getWorkspace";
 export * from "./getWorkspaceAadAdmin";
 export * from "./getWorkspaceManagedSqlServerVulnerabilityAssessment";
 export * from "./getWorkspaceSqlAadAdmin";
+export * from "./getkustoPool";
 export * from "./integrationRuntime";
 export * from "./ipFirewallRule";
 export * from "./key";
+export * from "./kustoPool";
 export * from "./listIntegrationRuntimeAuthKey";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkHub";
@@ -52,16 +58,20 @@ import * as v20190601preview from "./v20190601preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20190601preview,
     v20200401preview,
     v20201201,
     v20210301,
+    v20210401preview,
 };
 
 // Import resources to register:
 import { BigDataPool } from "./bigDataPool";
+import { DataConnection } from "./dataConnection";
+import { Database } from "./database";
 import { IntegrationRuntime } from "./integrationRuntime";
 import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
@@ -78,6 +88,7 @@ import { Workspace } from "./workspace";
 import { WorkspaceAadAdmin } from "./workspaceAadAdmin";
 import { WorkspaceManagedSqlServerVulnerabilityAssessment } from "./workspaceManagedSqlServerVulnerabilityAssessment";
 import { WorkspaceSqlAadAdmin } from "./workspaceSqlAadAdmin";
+import { KustoPool } from "./kustoPool";
 
 const _module = {
     version: utilities.getVersion(),
@@ -85,6 +96,10 @@ const _module = {
         switch (type) {
             case "azure-native:synapse:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
+            case "azure-native:synapse:DataConnection":
+                return new DataConnection(name, <any>undefined, { urn })
+            case "azure-native:synapse:Database":
+                return new Database(name, <any>undefined, { urn })
             case "azure-native:synapse:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
             case "azure-native:synapse:IpFirewallRule":
@@ -117,6 +132,8 @@ const _module = {
                 return new WorkspaceManagedSqlServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:synapse:WorkspaceSqlAadAdmin":
                 return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
+            case "azure-native:synapse:kustoPool":
+                return new KustoPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

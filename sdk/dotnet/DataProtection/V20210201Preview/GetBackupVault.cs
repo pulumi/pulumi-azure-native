@@ -63,13 +63,9 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Provisioning state of the BackupVault resource
+        /// BackupVaultResource properties
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Storage Settings
-        /// </summary>
-        public readonly ImmutableArray<Outputs.StorageSettingResponse> StorageSettings;
+        public readonly Outputs.BackupVaultResponse Properties;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -95,9 +91,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
 
             string name,
 
-            string provisioningState,
-
-            ImmutableArray<Outputs.StorageSettingResponse> storageSettings,
+            Outputs.BackupVaultResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -110,8 +104,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
             Identity = identity;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
-            StorageSettings = storageSettings;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

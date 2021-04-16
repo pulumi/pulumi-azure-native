@@ -20,33 +20,22 @@ class GetBackupPolicyResult:
     """
     BaseBackupPolicy resource
     """
-    def __init__(__self__, datasource_types=None, id=None, name=None, object_type=None, system_data=None, type=None):
-        if datasource_types and not isinstance(datasource_types, list):
-            raise TypeError("Expected argument 'datasource_types' to be a list")
-        pulumi.set(__self__, "datasource_types", datasource_types)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if object_type and not isinstance(object_type, str):
-            raise TypeError("Expected argument 'object_type' to be a str")
-        pulumi.set(__self__, "object_type", object_type)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="datasourceTypes")
-    def datasource_types(self) -> Sequence[str]:
-        """
-        Type of datasource for the backup management
-        """
-        return pulumi.get(self, "datasource_types")
 
     @property
     @pulumi.getter
@@ -65,9 +54,12 @@ class GetBackupPolicyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> str:
-        return pulumi.get(self, "object_type")
+    @pulumi.getter
+    def properties(self) -> 'outputs.BackupPolicyResponse':
+        """
+        BaseBackupPolicyResource properties
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -92,10 +84,9 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         if False:
             yield self
         return GetBackupPolicyResult(
-            datasource_types=self.datasource_types,
             id=self.id,
             name=self.name,
-            object_type=self.object_type,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -122,9 +113,8 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dataprotection/v20210201preview:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
-        datasource_types=__ret__.datasource_types,
         id=__ret__.id,
         name=__ret__.name,
-        object_type=__ret__.object_type,
+        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)

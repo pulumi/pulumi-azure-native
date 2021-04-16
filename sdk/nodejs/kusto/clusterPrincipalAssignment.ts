@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a cluster principal assignment.
- * API Version: 2020-09-18.
+ * API Version: 2021-01-01.
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200918:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200918:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200918:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210101:ClusterPrincipalAssignment" }, { type: "azure-nextgen:kusto/v20210101:ClusterPrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterPrincipalAssignment.__pulumiType, name, inputs, opts);
     }
