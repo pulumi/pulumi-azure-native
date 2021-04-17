@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec object.
- * API Version: 2019-06-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class TemplateSpec extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class TemplateSpec extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+     */
+    public readonly metadata!: pulumi.Output<any | undefined>;
+    /**
      * Name of this resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class TemplateSpec extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["templateSpecName"] = args ? args.templateSpecName : undefined;
@@ -97,6 +102,7 @@ export class TemplateSpec extends pulumi.CustomResource {
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface TemplateSpecArgs {
      * The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+     */
+    readonly metadata?: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */

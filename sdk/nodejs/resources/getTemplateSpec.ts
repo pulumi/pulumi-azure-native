@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec object.
- * API Version: 2019-06-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export function getTemplateSpec(args: GetTemplateSpecArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecResult> {
     if (!opts) {
@@ -59,6 +59,10 @@ export interface GetTemplateSpecResult {
      * The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
      */
     readonly location: string;
+    /**
+     * The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+     */
+    readonly metadata?: any;
     /**
      * Name of this resource.
      */

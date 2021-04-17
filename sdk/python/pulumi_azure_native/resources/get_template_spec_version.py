@@ -20,19 +20,25 @@ class GetTemplateSpecVersionResult:
     """
     Template Spec Version object.
     """
-    def __init__(__self__, artifacts=None, description=None, id=None, location=None, name=None, system_data=None, tags=None, template=None, type=None):
-        if artifacts and not isinstance(artifacts, list):
-            raise TypeError("Expected argument 'artifacts' to be a list")
-        pulumi.set(__self__, "artifacts", artifacts)
+    def __init__(__self__, description=None, id=None, linked_templates=None, location=None, main_template=None, metadata=None, name=None, system_data=None, tags=None, type=None, ui_form_definition=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if linked_templates and not isinstance(linked_templates, list):
+            raise TypeError("Expected argument 'linked_templates' to be a list")
+        pulumi.set(__self__, "linked_templates", linked_templates)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if main_template and not isinstance(main_template, dict):
+            raise TypeError("Expected argument 'main_template' to be a dict")
+        pulumi.set(__self__, "main_template", main_template)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -42,20 +48,12 @@ class GetTemplateSpecVersionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if template and not isinstance(template, dict):
-            raise TypeError("Expected argument 'template' to be a dict")
-        pulumi.set(__self__, "template", template)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def artifacts(self) -> Optional[Sequence['outputs.TemplateSpecTemplateArtifactResponse']]:
-        """
-        An array of Template Spec artifacts.
-        """
-        return pulumi.get(self, "artifacts")
+        if ui_form_definition and not isinstance(ui_form_definition, dict):
+            raise TypeError("Expected argument 'ui_form_definition' to be a dict")
+        pulumi.set(__self__, "ui_form_definition", ui_form_definition)
 
     @property
     @pulumi.getter
@@ -74,12 +72,36 @@ class GetTemplateSpecVersionResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="linkedTemplates")
+    def linked_templates(self) -> Optional[Sequence['outputs.LinkedTemplateArtifactResponse']]:
+        """
+        An array of linked template artifacts.
+        """
+        return pulumi.get(self, "linked_templates")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
         The location of the Template Spec Version. It must match the location of the parent Template Spec.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[Any]:
+        """
+        The main Azure Resource Manager template content.
+        """
+        return pulumi.get(self, "main_template")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -107,19 +129,19 @@ class GetTemplateSpecVersionResult:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[Any]:
-        """
-        The Azure Resource Manager template content.
-        """
-        return pulumi.get(self, "template")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         Type of this resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uiFormDefinition")
+    def ui_form_definition(self) -> Optional[Any]:
+        """
+        The Azure Resource Manager template UI definition content.
+        """
+        return pulumi.get(self, "ui_form_definition")
 
 
 class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
@@ -128,15 +150,17 @@ class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
         if False:
             yield self
         return GetTemplateSpecVersionResult(
-            artifacts=self.artifacts,
             description=self.description,
             id=self.id,
+            linked_templates=self.linked_templates,
             location=self.location,
+            main_template=self.main_template,
+            metadata=self.metadata,
             name=self.name,
             system_data=self.system_data,
             tags=self.tags,
-            template=self.template,
-            type=self.type)
+            type=self.type,
+            ui_form_definition=self.ui_form_definition)
 
 
 def get_template_spec_version(resource_group_name: Optional[str] = None,
@@ -145,7 +169,7 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecVersionResult:
     """
     Template Spec Version object.
-    API Version: 2019-06-01-preview.
+    API Version: 2021-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -163,12 +187,14 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
-        artifacts=__ret__.artifacts,
         description=__ret__.description,
         id=__ret__.id,
+        linked_templates=__ret__.linked_templates,
         location=__ret__.location,
+        main_template=__ret__.main_template,
+        metadata=__ret__.metadata,
         name=__ret__.name,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        template=__ret__.template,
-        type=__ret__.type)
+        type=__ret__.type,
+        ui_form_definition=__ret__.ui_form_definition)

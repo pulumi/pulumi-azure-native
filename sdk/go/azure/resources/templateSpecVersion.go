@@ -12,26 +12,30 @@ import (
 )
 
 // Template Spec Version object.
-// API Version: 2019-06-01-preview.
+// API Version: 2021-03-01-preview.
 type TemplateSpecVersion struct {
 	pulumi.CustomResourceState
 
-	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecTemplateArtifactResponseArrayOutput `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An array of linked template artifacts.
+	LinkedTemplates LinkedTemplateArtifactResponseArrayOutput `pulumi:"linkedTemplates"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The main Azure Resource Manager template content.
+	MainTemplate pulumi.AnyOutput `pulumi:"mainTemplate"`
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// Name of this resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Azure Resource Manager template content.
-	Template pulumi.AnyOutput `pulumi:"template"`
 	// Type of this resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition pulumi.AnyOutput `pulumi:"uiFormDefinition"`
 }
 
 // NewTemplateSpecVersion registers a new resource with the given unique name, arguments, and options.
@@ -87,41 +91,49 @@ func GetTemplateSpecVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSpecVersion resources.
 type templateSpecVersionState struct {
-	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
+	// An array of linked template artifacts.
+	LinkedTemplates []LinkedTemplateArtifactResponse `pulumi:"linkedTemplates"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
 	Location *string `pulumi:"location"`
+	// The main Azure Resource Manager template content.
+	MainTemplate interface{} `pulumi:"mainTemplate"`
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
 	// Name of this resource.
 	Name *string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The Azure Resource Manager template content.
-	Template interface{} `pulumi:"template"`
 	// Type of this resource.
 	Type *string `pulumi:"type"`
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition interface{} `pulumi:"uiFormDefinition"`
 }
 
 type TemplateSpecVersionState struct {
-	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecTemplateArtifactResponseArrayInput
 	// Template Spec version description.
 	Description pulumi.StringPtrInput
+	// An array of linked template artifacts.
+	LinkedTemplates LinkedTemplateArtifactResponseArrayInput
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
 	Location pulumi.StringPtrInput
+	// The main Azure Resource Manager template content.
+	MainTemplate pulumi.Input
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.Input
 	// Name of this resource.
 	Name pulumi.StringPtrInput
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The Azure Resource Manager template content.
-	Template pulumi.Input
 	// Type of this resource.
 	Type pulumi.StringPtrInput
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition pulumi.Input
 }
 
 func (TemplateSpecVersionState) ElementType() reflect.Type {
@@ -129,42 +141,50 @@ func (TemplateSpecVersionState) ElementType() reflect.Type {
 }
 
 type templateSpecVersionArgs struct {
-	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecTemplateArtifact `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
+	// An array of linked template artifacts.
+	LinkedTemplates []LinkedTemplateArtifact `pulumi:"linkedTemplates"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
 	Location *string `pulumi:"location"`
+	// The main Azure Resource Manager template content.
+	MainTemplate interface{} `pulumi:"mainTemplate"`
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The Azure Resource Manager template content.
-	Template interface{} `pulumi:"template"`
 	// Name of the Template Spec.
 	TemplateSpecName string `pulumi:"templateSpecName"`
 	// The version of the Template Spec.
 	TemplateSpecVersion *string `pulumi:"templateSpecVersion"`
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition interface{} `pulumi:"uiFormDefinition"`
 }
 
 // The set of arguments for constructing a TemplateSpecVersion resource.
 type TemplateSpecVersionArgs struct {
-	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecTemplateArtifactArrayInput
 	// Template Spec version description.
 	Description pulumi.StringPtrInput
+	// An array of linked template artifacts.
+	LinkedTemplates LinkedTemplateArtifactArrayInput
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
 	Location pulumi.StringPtrInput
+	// The main Azure Resource Manager template content.
+	MainTemplate pulumi.Input
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The Azure Resource Manager template content.
-	Template pulumi.Input
 	// Name of the Template Spec.
 	TemplateSpecName pulumi.StringInput
 	// The version of the Template Spec.
 	TemplateSpecVersion pulumi.StringPtrInput
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition pulumi.Input
 }
 
 func (TemplateSpecVersionArgs) ElementType() reflect.Type {

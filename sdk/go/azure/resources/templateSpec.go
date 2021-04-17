@@ -12,7 +12,7 @@ import (
 )
 
 // Template Spec object.
-// API Version: 2019-06-01-preview.
+// API Version: 2021-03-01-preview.
 type TemplateSpec struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type TemplateSpec struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.AnyOutput `pulumi:"metadata"`
 	// Name of this resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -90,6 +92,8 @@ type templateSpecState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location *string `pulumi:"location"`
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
 	// Name of this resource.
 	Name *string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -109,6 +113,8 @@ type TemplateSpecState struct {
 	DisplayName pulumi.StringPtrInput
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location pulumi.StringPtrInput
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.Input
 	// Name of this resource.
 	Name pulumi.StringPtrInput
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -132,6 +138,8 @@ type templateSpecArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location *string `pulumi:"location"`
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -148,6 +156,8 @@ type TemplateSpecArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location pulumi.StringPtrInput
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

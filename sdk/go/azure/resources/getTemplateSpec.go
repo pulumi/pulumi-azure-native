@@ -8,7 +8,7 @@ import (
 )
 
 // Template Spec object.
-// API Version: 2019-06-01-preview.
+// API Version: 2021-03-01-preview.
 func LookupTemplateSpec(ctx *pulumi.Context, args *LookupTemplateSpecArgs, opts ...pulumi.InvokeOption) (*LookupTemplateSpecResult, error) {
 	var rv LookupTemplateSpecResult
 	err := ctx.Invoke("azure-native:resources:getTemplateSpec", args, &rv, opts...)
@@ -37,6 +37,8 @@ type LookupTemplateSpecResult struct {
 	Id string `pulumi:"id"`
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location string `pulumi:"location"`
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.

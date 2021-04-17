@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Template Spec Version object.
-        /// API Version: 2019-06-01-preview.
+        /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-native:resources:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
@@ -50,10 +50,6 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetTemplateSpecVersionResult
     {
         /// <summary>
-        /// An array of Template Spec artifacts.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse> Artifacts;
-        /// <summary>
         /// Template Spec version description.
         /// </summary>
         public readonly string? Description;
@@ -62,9 +58,21 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An array of linked template artifacts.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LinkedTemplateArtifactResponse> LinkedTemplates;
+        /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The main Azure Resource Manager template content.
+        /// </summary>
+        public readonly object? MainTemplate;
+        /// <summary>
+        /// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        /// </summary>
+        public readonly object? Metadata;
         /// <summary>
         /// Name of this resource.
         /// </summary>
@@ -78,23 +86,27 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The Azure Resource Manager template content.
-        /// </summary>
-        public readonly object? Template;
-        /// <summary>
         /// Type of this resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The Azure Resource Manager template UI definition content.
+        /// </summary>
+        public readonly object? UiFormDefinition;
 
         [OutputConstructor]
         private GetTemplateSpecVersionResult(
-            ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse> artifacts,
-
             string? description,
 
             string id,
 
+            ImmutableArray<Outputs.LinkedTemplateArtifactResponse> linkedTemplates,
+
             string location,
+
+            object? mainTemplate,
+
+            object? metadata,
 
             string name,
 
@@ -102,19 +114,21 @@ namespace Pulumi.AzureNative.Resources
 
             ImmutableDictionary<string, string>? tags,
 
-            object? template,
+            string type,
 
-            string type)
+            object? uiFormDefinition)
         {
-            Artifacts = artifacts;
             Description = description;
             Id = id;
+            LinkedTemplates = linkedTemplates;
             Location = location;
+            MainTemplate = mainTemplate;
+            Metadata = metadata;
             Name = name;
             SystemData = systemData;
             Tags = tags;
-            Template = template;
             Type = type;
+            UiFormDefinition = uiFormDefinition;
         }
     }
 }

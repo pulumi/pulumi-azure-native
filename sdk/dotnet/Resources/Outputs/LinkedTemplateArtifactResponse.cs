@@ -11,13 +11,8 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     [OutputType]
-    public sealed class TemplateSpecTemplateArtifactResponse
+    public sealed class LinkedTemplateArtifactResponse
     {
-        /// <summary>
-        /// The kind of artifact.
-        /// Expected value is 'template'.
-        /// </summary>
-        public readonly string Kind;
         /// <summary>
         /// A filesystem safe relative path of the artifact.
         /// </summary>
@@ -28,14 +23,11 @@ namespace Pulumi.AzureNative.Resources.Outputs
         public readonly object Template;
 
         [OutputConstructor]
-        private TemplateSpecTemplateArtifactResponse(
-            string kind,
-
+        private LinkedTemplateArtifactResponse(
             string path,
 
             object template)
         {
-            Kind = kind;
             Path = path;
             Template = template;
         }
