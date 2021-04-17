@@ -35871,6 +35871,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -35923,6 +35924,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -35999,6 +36001,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -36051,6 +36054,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -36103,6 +36107,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -36155,6 +36160,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -36231,6 +36237,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -36284,6 +36291,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Canada East",
           "Central India",
           "Central US",
           "East Asia",
@@ -38826,7 +38834,7 @@
         "apiVersions": [
           "2018-04-01"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -38965,6 +38973,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2018-04-01"
         ],
         "capabilities": "None",
@@ -39012,12 +39021,10 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2018-04-01",
           "2018-03-15",
-          "2018-03-01",
-          "2017-09-01-preview",
-          "2017-08-01-preview",
-          "2016-09-01-preview"
+          "2018-03-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -57115,6 +57122,7 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "Canada Central",
           "France Central",
           "South Central Us",
           "East US 2",
@@ -57147,6 +57155,7 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "Canada Central",
           "France Central",
           "South Central Us",
           "East US 2",
@@ -57179,6 +57188,7 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "Canada Central",
           "France Central",
           "South Central Us",
           "East US 2",
@@ -57211,6 +57221,7 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "Canada Central",
           "France Central",
           "South Central Us",
           "East US 2",
@@ -66672,6 +66683,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-11-01-privatepreview",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -67152,6 +67164,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-11-01-privatepreview",
           "2019-10-01-preview"
         ],
         "capabilities": "None",
@@ -73687,6 +73700,24 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2",
+          "North Europe",
+          "Southeast Asia",
+          "West Central US"
+        ],
+        "properties": null,
+        "resourceType": "ResourceGuards"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01",
           "2020-01-01-alpha"
@@ -76896,6 +76927,143 @@
         "locations": [],
         "properties": null,
         "resourceType": "defenderSettings"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "locations/deviceGroups"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East Asia",
+          "Southeast Asia",
+          "Central US",
+          "East US",
+          "East US 2",
+          "West US",
+          "North Central US",
+          "South Central US",
+          "Japan West",
+          "Japan East",
+          "Brazil South",
+          "Australia East",
+          "Australia Southeast",
+          "South India",
+          "Central India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West Central US",
+          "West US 2",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "Australia Central 2",
+          "UAE Central",
+          "UAE North",
+          "South Africa North",
+          "South Africa West",
+          "North Europe",
+          "West Europe",
+          "UK South",
+          "UK West",
+          "France Central",
+          "France South"
+        ],
+        "properties": null,
+        "resourceType": "sites"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East Asia",
+          "Southeast Asia",
+          "Central US",
+          "East US",
+          "East US 2",
+          "West US",
+          "North Central US",
+          "South Central US",
+          "Japan West",
+          "Japan East",
+          "Brazil South",
+          "Australia East",
+          "Australia Southeast",
+          "South India",
+          "Central India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West US 2",
+          "Korea Central",
+          "Korea South",
+          "Australia Central",
+          "Australia Central 2",
+          "UAE Central",
+          "UAE North",
+          "South Africa North",
+          "South Africa West",
+          "North Europe",
+          "West Europe",
+          "UK South",
+          "UK West",
+          "France Central",
+          "France South"
+        ],
+        "properties": null,
+        "resourceType": "sensors"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-02-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "onPremiseSensors"
       }
     ]
   },
@@ -78483,6 +78651,22 @@
         ],
         "properties": null,
         "resourceType": "shareInvites"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-23-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2 EUAP",
+          "West Central US"
+        ],
+        "properties": null,
+        "resourceType": "applicationRegistrationInvites"
       }
     ]
   },
@@ -81143,6 +81327,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2019-06-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
@@ -81191,6 +81376,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01-preview",
           "2019-06-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
