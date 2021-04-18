@@ -47191,6 +47191,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-10",
           "2021-02-01-preview",
           "2021-02-01",
           "2021-01-01",
@@ -47272,6 +47273,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-10",
           "2021-02-01-preview",
           "2021-02-01",
           "2021-01-01",
@@ -48019,6 +48021,7 @@
           }
         ],
         "apiVersions": [
+          "2021-02-10",
           "2018-07-10"
         ],
         "capabilities": "SupportsExtension",
@@ -64184,6 +64187,7 @@
           }
         ],
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-08-01-preview",
           "2020-04-01-preview",
           "2020-03-01-preview",
@@ -65397,7 +65401,12 @@
     ]
   },
   {
-    "authorizations": [],
+    "authorizations": [
+      {
+        "applicationId": "e7d5afaf-5e93-4aad-b546-878812ff572c",
+        "roleDefinitionId": "0bf1834f-602f-4692-b93c-814d655198fd"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureSphere",
     "namespace": "Microsoft.AzureSphere",
     "registrationPolicy": "RegistrationRequired",
