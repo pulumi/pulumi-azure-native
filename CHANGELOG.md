@@ -1,16 +1,25 @@
 CHANGELOG
 =========
 
-## 1.0.0 RC (Head)
+CHANGELOG
+=========
+
+## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.0.0 (2020-04-19)
+
+The native Azure provider for Pulumi is now generally available.
 
 #### Breaking Changes
+
 - Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance, Node SDK performance, general availability of Automation API, and more.
 - Generate consistent names for object types regardless on whether or not they are
 transitively reachable from resources or functions. Many input type names have changed
 across Node.js, .NET, and Python SDKs
   [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
-
----
 
 ## 0.9.0 (2020-04-16)
 
