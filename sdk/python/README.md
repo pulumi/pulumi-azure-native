@@ -5,14 +5,12 @@
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-azure-native/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-azure-native/sdk/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fazure-native.svg)](https://github.com/pulumi/pulumi-azure-native/blob/master/LICENSE)
 
-# Native Azure Pulumi Provider (preview)
+# Native Azure Pulumi Provider
 
 The native Azure Provider for Pulumi lets you use Azure resources in your cloud programs.
 This provider uses the Azure Resource Manager REST API directly and therefore provides full access to ARM API.
 
-The provider is currently in public preview, and is the recommended provider for new projects targeting Azure. We
-will attempt to minimize any breaking changes, but it is possible that there will be a few between now and GA (expected
-this spring).
+The provider is the recommended provider for projects targeting Azure.
 
 To use this package, please [install the Pulumi CLI first](https://pulumi.io/).
 
@@ -55,7 +53,7 @@ and interact closely with Azure resources.  Resources are exposed for the entire
 including (but not limited to) 'compute', 'keyvault', 'network', 'storage', and more.
 
 The Azure Native provider works directly with the Azure Resource Manager (ARM) platform instead of depending on a
-handwritten layer as with the [previous provider](https://github.com/pulumi/pulumi-azure). This approach ensures higher
+handwritten layer as with the [classic provider](https://github.com/pulumi/pulumi-azure). This approach ensures higher
 quality and higher fidelity with the Azure platform.
 
 The Azure Native provider is currently in beta. While we try to minimize impact on users, breaking changes may be shipped in minor version updates.
@@ -102,5 +100,5 @@ $ pulumi up
 
 ## Reference
 
-For further information, please visit the [Next Generation Azure provider announcement](https://www.pulumi.com/blog/announcing-nextgen-azure-provider/) or for detailed reference documentation, please visit [the API docs](
+For further information, please visit the [native Azure provider announcement](https://www.pulumi.com/blog/full-coverage-of-azure-resources-with-azure-native/) or for detailed reference documentation, please visit [the API docs](
 https://www.pulumi.com/docs/reference/pkg/azure-native).
