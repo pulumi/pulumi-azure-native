@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web.V20150801.Inputs
     ///             if new properties are added they might not be in the previous data rows 
     ///             so please handle nulls
     /// </summary>
-    public sealed class DatabaseBackupSettingArgs : Pulumi.InvokeArgs
+    public sealed class DatabaseBackupSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.

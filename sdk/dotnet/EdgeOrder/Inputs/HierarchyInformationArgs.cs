@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// <summary>
     /// Holds details about product hierarchy information
     /// </summary>
-    public sealed class HierarchyInformationArgs : Pulumi.InvokeArgs
+    public sealed class HierarchyInformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents configuration name that uniquely identifies configuration
