@@ -4,7 +4,9 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .configuration import *
 from .firewall_rule import *
+from .get_configuration import *
 from .get_firewall_rule import *
 from .get_server import *
 from .server import *
@@ -23,7 +25,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:dbforpostgresql/v20200214preview:FirewallRule":
+            if typ == "azure-native:dbforpostgresql/v20200214preview:Configuration":
+                return Configuration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:dbforpostgresql/v20200214preview:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:dbforpostgresql/v20200214preview:Server":
                 return Server(name, pulumi.ResourceOptions(urn=urn))

@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./configuration";
 export * from "./firewallRule";
+export * from "./getConfiguration";
 export * from "./getFirewallRule";
 export * from "./getServer";
 export * from "./getServerKey";
@@ -16,6 +18,7 @@ export * from "./serverKey";
 export * from "../../types/enums/dbforpostgresql/v20200214privatepreview";
 
 // Import resources to register:
+import { Configuration } from "./configuration";
 import { FirewallRule } from "./firewallRule";
 import { Server } from "./server";
 import { ServerKey } from "./serverKey";
@@ -24,6 +27,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:dbforpostgresql/v20200214privatepreview:Configuration":
+                return new Configuration(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20200214privatepreview:Server":
