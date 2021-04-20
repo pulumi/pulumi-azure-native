@@ -8,6 +8,10 @@ CHANGELOG
 _(none)_
 
 ---
+## 1.0.1 (2020-04-19)
+
+- Fix SDK regression for .NET, Python and Typescript introduced in [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
+  [#pulumi/6811](https://github.com/pulumi/pulumi/pull/6811)
 
 ## 1.0.0 (2020-04-19)
 
