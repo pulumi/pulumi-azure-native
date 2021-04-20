@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network.V20180501.Inputs
     /// <summary>
     /// A reference to a another resource
     /// </summary>
-    public sealed class SubResourceArgs : Pulumi.InvokeArgs
+    public sealed class SubResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource Id.

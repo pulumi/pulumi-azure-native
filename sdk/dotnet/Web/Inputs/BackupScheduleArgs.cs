@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.Inputs
     /// <summary>
     /// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
     /// </summary>
-    public sealed class BackupScheduleArgs : Pulumi.InvokeArgs
+    public sealed class BackupScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web.V20160601.Inputs
     /// <summary>
     /// The service with name and endpoint names
     /// </summary>
-    public sealed class WsdlServiceArgs : Pulumi.InvokeArgs
+    public sealed class WsdlServiceArgs : Pulumi.ResourceArgs
     {
         [Input("endpointQualifiedNames")]
         private InputList<string>? _endpointQualifiedNames;

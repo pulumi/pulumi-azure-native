@@ -20,6 +20,7 @@ __all__ = [
     'SoaRecordArgs',
     'SrvRecordArgs',
     'SubResourceArgs',
+    'SubResource',
     'TxtRecordArgs',
 ]
 
@@ -452,6 +453,30 @@ class SubResourceArgs:
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SubResource:
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        A reference to a another resource
+        :param str id: Resource Id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[str]):
         pulumi.set(self, "id", value)
 
 
