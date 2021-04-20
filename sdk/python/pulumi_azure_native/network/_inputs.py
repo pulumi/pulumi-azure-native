@@ -35,6 +35,7 @@ __all__ = [
     'ApplicationGatewayPrivateLinkIpConfigurationArgs',
     'ApplicationGatewayProbeArgs',
     'ApplicationGatewayProbeHealthResponseMatchArgs',
+    'ApplicationGatewayProbeHealthResponseMatch',
     'ApplicationGatewayRedirectConfigurationArgs',
     'ApplicationGatewayRequestRoutingRuleArgs',
     'ApplicationGatewayRewriteRuleArgs',
@@ -245,6 +246,7 @@ __all__ = [
     'SrvRecordArgs',
     'StaticRouteArgs',
     'SubResourceArgs',
+    'SubResource',
     'SubnetArgs',
     'TrafficAnalyticsConfigurationPropertiesArgs',
     'TrafficAnalyticsPropertiesArgs',
@@ -2087,6 +2089,46 @@ class ApplicationGatewayProbeHealthResponseMatchArgs:
 
     @status_codes.setter
     def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "status_codes", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayProbeHealthResponseMatch:
+    def __init__(__self__, *,
+                 body: Optional[str] = None,
+                 status_codes: Optional[Sequence[str]] = None):
+        """
+        Application gateway probe health response match.
+        :param str body: Body that must be contained in the health response. Default value is empty.
+        :param Sequence[str] status_codes: Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Body that must be contained in the health response. Default value is empty.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[str]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[Sequence[str]]:
+        """
+        Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "status_codes", value)
 
 
@@ -17609,6 +17651,30 @@ class SubResourceArgs:
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SubResource:
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        A reference to a another resource
+        :param str id: Resource Id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[str]):
         pulumi.set(self, "id", value)
 
 

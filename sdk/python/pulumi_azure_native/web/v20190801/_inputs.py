@@ -22,12 +22,14 @@ __all__ = [
     'AzureStorageInfoValueArgs',
     'AzureTableStorageApplicationLogsConfigArgs',
     'BackupScheduleArgs',
+    'BackupSchedule',
     'CapabilityArgs',
     'CloningInfoArgs',
     'ConnStringInfoArgs',
     'ConnStringValueTypePairArgs',
     'CorsSettingsArgs',
     'DatabaseBackupSettingArgs',
+    'DatabaseBackupSetting',
     'EnabledConfigArgs',
     'ExperimentsArgs',
     'FileSystemApplicationLogsConfigArgs',
@@ -712,6 +714,98 @@ class BackupScheduleArgs:
 
 
 @pulumi.input_type
+class BackupSchedule:
+    def __init__(__self__, *,
+                 frequency_interval: int,
+                 frequency_unit: 'FrequencyUnit',
+                 keep_at_least_one_backup: bool,
+                 retention_period_in_days: int,
+                 start_time: Optional[str] = None):
+        """
+        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+        :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        :param 'FrequencyUnit' frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        :param int retention_period_in_days: After how many days backups should be deleted.
+        :param str start_time: When the schedule should start working.
+        """
+        if frequency_interval is None:
+            frequency_interval = 7
+        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        if frequency_unit is None:
+            frequency_unit = 'Day'
+        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        if keep_at_least_one_backup is None:
+            keep_at_least_one_backup = True
+        pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        if retention_period_in_days is None:
+            retention_period_in_days = 30
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="frequencyInterval")
+    def frequency_interval(self) -> int:
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        """
+        return pulumi.get(self, "frequency_interval")
+
+    @frequency_interval.setter
+    def frequency_interval(self, value: int):
+        pulumi.set(self, "frequency_interval", value)
+
+    @property
+    @pulumi.getter(name="frequencyUnit")
+    def frequency_unit(self) -> 'FrequencyUnit':
+        """
+        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        """
+        return pulumi.get(self, "frequency_unit")
+
+    @frequency_unit.setter
+    def frequency_unit(self, value: 'FrequencyUnit'):
+        pulumi.set(self, "frequency_unit", value)
+
+    @property
+    @pulumi.getter(name="keepAtLeastOneBackup")
+    def keep_at_least_one_backup(self) -> bool:
+        """
+        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+        """
+        return pulumi.get(self, "keep_at_least_one_backup")
+
+    @keep_at_least_one_backup.setter
+    def keep_at_least_one_backup(self, value: bool):
+        pulumi.set(self, "keep_at_least_one_backup", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> int:
+        """
+        After how many days backups should be deleted.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @retention_period_in_days.setter
+    def retention_period_in_days(self, value: int):
+        pulumi.set(self, "retention_period_in_days", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        When the schedule should start working.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[str]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1166,6 +1260,75 @@ class DatabaseBackupSettingArgs:
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DatabaseBackupSetting:
+    def __init__(__self__, *,
+                 database_type: Union[str, 'DatabaseType'],
+                 connection_string: Optional[str] = None,
+                 connection_string_name: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Database backup settings.
+        :param Union[str, 'DatabaseType'] database_type: Database type (e.g. SqlAzure / MySql).
+        :param str connection_string: Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        :param str connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+               This is used during restore with overwrite connection strings options.
+        """
+        pulumi.set(__self__, "database_type", database_type)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if connection_string_name is not None:
+            pulumi.set(__self__, "connection_string_name", connection_string_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="databaseType")
+    def database_type(self) -> Union[str, 'DatabaseType']:
+        """
+        Database type (e.g. SqlAzure / MySql).
+        """
+        return pulumi.get(self, "database_type")
+
+    @database_type.setter
+    def database_type(self, value: Union[str, 'DatabaseType']):
+        pulumi.set(self, "database_type", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[str]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="connectionStringName")
+    def connection_string_name(self) -> Optional[str]:
+        """
+        Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        This is used during restore with overwrite connection strings options.
+        """
+        return pulumi.get(self, "connection_string_name")
+
+    @connection_string_name.setter
+    def connection_string_name(self, value: Optional[str]):
+        pulumi.set(self, "connection_string_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[str]):
         pulumi.set(self, "name", value)
 
 

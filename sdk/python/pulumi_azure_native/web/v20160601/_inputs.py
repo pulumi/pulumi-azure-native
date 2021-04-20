@@ -26,6 +26,7 @@ __all__ = [
     'CustomApiPropertiesDefinitionArgs',
     'WsdlDefinitionArgs',
     'WsdlServiceArgs',
+    'WsdlService',
 ]
 
 @pulumi.input_type
@@ -1345,6 +1346,45 @@ class WsdlServiceArgs:
 
     @endpoint_qualified_names.setter
     def endpoint_qualified_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "endpoint_qualified_names", value)
+
+
+@pulumi.input_type
+class WsdlService:
+    def __init__(__self__, *,
+                 qualified_name: str,
+                 endpoint_qualified_names: Optional[Sequence[str]] = None):
+        """
+        The service with name and endpoint names
+        :param str qualified_name: The service's qualified name
+        :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
+        """
+        pulumi.set(__self__, "qualified_name", qualified_name)
+        if endpoint_qualified_names is not None:
+            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> str:
+        """
+        The service's qualified name
+        """
+        return pulumi.get(self, "qualified_name")
+
+    @qualified_name.setter
+    def qualified_name(self, value: str):
+        pulumi.set(self, "qualified_name", value)
+
+    @property
+    @pulumi.getter(name="endpointQualifiedNames")
+    def endpoint_qualified_names(self) -> Optional[Sequence[str]]:
+        """
+        List of the endpoints' qualified names
+        """
+        return pulumi.get(self, "endpoint_qualified_names")
+
+    @endpoint_qualified_names.setter
+    def endpoint_qualified_names(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "endpoint_qualified_names", value)
 
 
