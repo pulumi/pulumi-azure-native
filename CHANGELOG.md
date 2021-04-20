@@ -6,12 +6,17 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+ (None)
+
+---
+
+## 1.1.0 (2020-04-20)
+
 #### New Resources
 
 - `dbforpostgresql.v20200214preview.Configuration` - PostgreSQL Flexible Server Configuration (preview)
   [#711](https://github.com/pulumi/pulumi-azure-native/issues/711)
 
----
 
 ## 1.0.1 (2020-04-19)
 
