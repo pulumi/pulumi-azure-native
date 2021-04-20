@@ -21,8 +21,8 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/google/uuid"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
+	"github.com/google/uuid"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
@@ -834,7 +834,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		defer cancel()
 
 		// Submit the `PUT` against the ARM endpoint
-		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
+		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			return nil, azureError(err)
 		}
@@ -1053,7 +1053,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azureError(err)
 		}
 	default:
-		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
+		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			return nil, azureError(err)
 		}
@@ -1120,7 +1120,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
-				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
+				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 				if err != nil {
 					return nil, azureError(err)
 				}
@@ -1162,11 +1162,20 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	id string,
 	bodyProps map[string]interface{},
 	queryParameters map[string]interface{},
+	updateMethod string,
 	asyncStyle string) (map[string]interface{}, error) {
+
+	var op autorest.PrepareDecorator
+	switch updateMethod {
+	case "PATCH":
+		op = autorest.AsPatch()
+	default:
+		op = autorest.AsPut()
+	}
 
 	decorators := []autorest.PrepareDecorator{
 		autorest.AsContentType("application/json; charset=utf-8"),
-		autorest.AsPut(),
+		op,
 		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
 		autorest.WithPath(id),
 		autorest.WithQueryParameters(queryParameters),

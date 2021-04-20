@@ -466,14 +466,21 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		visitedTypes:  make(map[string]bool),
 	}
 
-	parameters := resource.Swagger.MergeParameters(path.Put.Parameters, path.Parameters)
+	updateOp := path.Put
+	updateMethod := ""
+	if path.Put == nil {
+		updateOp = path.Patch
+		updateMethod = "PATCH"
+	}
+
+	parameters := resource.Swagger.MergeParameters(updateOp.Parameters, path.Parameters)
 	autoNamer := resources.NewAutoNamer(resource.Path)
 	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
 	}
 
-	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
+	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': response type", resourceTok)
 	}
@@ -516,26 +523,26 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
 
-	var op *spec.Operation
+	var readOp *spec.Operation
 	switch {
 	case resource.PathItemList != nil:
 		if resource.PathItemList.Post != nil {
-			op = resource.PathItemList.Post
+			readOp = resource.PathItemList.Post
 		} else {
-			op = resource.PathItemList.Get
+			readOp = resource.PathItemList.Get
 		}
 	case path.Get == nil:
-		op = path.Head
+		readOp = path.Head
 	default:
-		op = path.Get
+		readOp = path.Get
 	}
 
-	parameters = swagger.MergeParameters(op.Parameters, path.Parameters)
+	parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
 	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 	}
-	responseFunction, err := gen.genResponse(op.Responses.StatusCodeResponses, swagger.ReferenceContext)
+	responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
 	}
@@ -581,11 +588,12 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	r := resources.AzureAPIResource{
 		APIVersion:           swagger.Info.Version,
 		Path:                 resource.Path,
+		UpdateMethod:         updateMethod,
 		PutParameters:        resourceRequest.parameters,
 		Response:             resourceResponse.properties,
 		DefaultBody:          resource.DefaultBody,
 		Singleton:            resource.PathItem.Delete == nil,
-		PutAsyncStyle:        g.getAsyncStyle(resource.PathItem.Put),
+		PutAsyncStyle:        g.getAsyncStyle(updateOp),
 		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
 		ReadMethod:           readMethod,
 		ReadPath:             readPath,
@@ -598,7 +606,12 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 }
 
 func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
-	raw, ok := path.Put.Extensions["x-ms-examples"]
+	op := path.Put
+	if path.Put == nil {
+		op = path.Patch
+	}
+
+	raw, ok := op.Extensions["x-ms-examples"]
 	if !ok {
 		return nil
 	}

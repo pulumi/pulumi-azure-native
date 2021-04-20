@@ -66,8 +66,10 @@ type AzureAPIType struct {
 
 // AzureAPIResource is a resource in Azure REST API.
 type AzureAPIResource struct {
-	APIVersion    string                      `json:"apiVersion"`
-	Path          string                      `json:"path"`
+	APIVersion string `json:"apiVersion"`
+	Path       string `json:"path"`
+	// HTTP method to create/update the resource. Defaults to PUT if empty.
+	UpdateMethod  string                      `json:"updateMethod,omitempty"`
 	PutParameters []AzureAPIParameter         `json:"PUT"`
 	Response      map[string]AzureAPIProperty `json:"response"`
 	// A singleton resource is created by Azure with its parent.

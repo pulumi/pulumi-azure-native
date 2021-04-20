@@ -5,9 +5,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+
+#### New Resources
+
+- `dbforpostgresql.v20200214preview.Configuration` - PostgreSQL Flexible Server Configuration (preview)
+  [#711](https://github.com/pulumi/pulumi-azure-native/issues/711)
 
 ---
+
 ## 1.0.1 (2020-04-19)
 
 - Fix SDK regression for .NET, Python and Typescript introduced in [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)

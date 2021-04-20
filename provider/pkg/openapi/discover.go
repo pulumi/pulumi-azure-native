@@ -242,6 +242,20 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 		}
 	}
 
+	// Add an entry for PATCH-based resources.
+	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
+		defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
+		typeName := resources.ResourceName(pathItem.Get.ID)
+		if typeName != "" && hasDefault {
+			version.Resources[typeName] = &ResourceSpec{
+				Path:        path,
+				PathItem:    &pathItem,
+				Swagger:     swagger,
+				DefaultBody: defaultBody,
+			}
+		}
+	}
+
 	// Add a POST invoke entry.
 	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")

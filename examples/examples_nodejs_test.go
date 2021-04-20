@@ -77,6 +77,7 @@ func TestImportTs(t *testing.T) {
 }
 
 func TestPostgresTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "postgres"),
