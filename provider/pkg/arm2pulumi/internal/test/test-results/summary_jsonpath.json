@@ -1,0 +1,9 @@
+{
+    "jsonpaths": [
+		"$['sourceElement']",
+		"$['sourceToken']",
+		"$['severity']",
+		"$['description']",
+		"$['template']"
+    ]
+}

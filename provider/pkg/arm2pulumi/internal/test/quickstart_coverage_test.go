@@ -20,7 +20,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-var testOutputDir = flag.String("testOutputDir", "", "location to write raw test output to. Defaults to random dir in $TMPDIR")
+var testOutputDir = flag.String("testOutputDir", "test-results", "location to write raw test output to. Defaults to random dir in $TMPDIR")
 var retainConverted = flag.Bool("retainConverted", false, "When set to true retains the converted files in 'testOutputDir'")
 
 // These templates currently cause panics.

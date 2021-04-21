@@ -1,0 +1,4 @@
+name: coverage-data-collection
+runtime: nodejs
+description: A Pulumi program to collect and upload the results of the arm2pulumi
+  coverage report.

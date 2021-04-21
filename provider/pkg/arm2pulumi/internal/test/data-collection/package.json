@@ -1,0 +1,14 @@
+{
+    "name": "coverage-data-collection",
+    "devDependencies": {
+        "@types/node": "^10.17.58"
+    },
+    "dependencies": {
+        "@pulumi/aws": "^3.25.1",
+        "@pulumi/pulumi": "^3.0.0",
+        "@types/mime": "^2.0.3",
+        "@types/pg": "^7.14.11",
+        "mime": "^2.5.2",
+        "pg": "^8.6.0"
+    }
+}
