@@ -3,6 +3,8 @@ name: pull-request
   pull_request:
     branches:
       - master
+    paths-ignore:
+      - CHANGELOG.md
 env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -20,7 +22,6 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
-  VERSION_PREFIX: 1.0.0
 jobs:
   prerequisites:
     name: prerequisites
