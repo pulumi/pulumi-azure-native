@@ -31,7 +31,7 @@ class VirtualNetworkGatewayArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
+                 v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input['VpnClientConfigurationArgs']] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
@@ -53,7 +53,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['VirtualNetworkGatewaySkuArgs'] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] virtual_network_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        :param pulumi.Input[str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         :param pulumi.Input[str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input['VpnClientConfigurationArgs'] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -88,8 +88,8 @@ class VirtualNetworkGatewayArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_network_extended_location_resource_id is not None:
-            pulumi.set(__self__, "virtual_network_extended_location_resource_id", virtual_network_extended_location_resource_id)
+        if v_net_extended_location_resource_id is not None:
+            pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
         if virtual_network_gateway_name is not None:
             pulumi.set(__self__, "virtual_network_gateway_name", virtual_network_gateway_name)
         if vpn_client_configuration is not None:
@@ -280,16 +280,16 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="virtualNetworkExtendedLocationResourceId")
-    def virtual_network_extended_location_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="vNetExtendedLocationResourceId")
+    def v_net_extended_location_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         """
-        return pulumi.get(self, "virtual_network_extended_location_resource_id")
+        return pulumi.get(self, "v_net_extended_location_resource_id")
 
-    @virtual_network_extended_location_resource_id.setter
-    def virtual_network_extended_location_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_network_extended_location_resource_id", value)
+    @v_net_extended_location_resource_id.setter
+    def v_net_extended_location_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_net_extended_location_resource_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkGatewayName")
@@ -360,7 +360,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
+                 v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
@@ -386,7 +386,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] virtual_network_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        :param pulumi.Input[str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         :param pulumi.Input[str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -431,7 +431,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewaySkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
+                 v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
@@ -465,7 +465,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["virtual_network_extended_location_resource_id"] = virtual_network_extended_location_resource_id
+            __props__.__dict__["v_net_extended_location_resource_id"] = v_net_extended_location_resource_id
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["vpn_client_configuration"] = vpn_client_configuration
             __props__.__dict__["vpn_gateway_generation"] = vpn_gateway_generation
@@ -519,7 +519,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_network_extended_location_resource_id"] = None
+        __props__.__dict__["v_net_extended_location_resource_id"] = None
         __props__.__dict__["vpn_client_configuration"] = None
         __props__.__dict__["vpn_gateway_generation"] = None
         __props__.__dict__["vpn_type"] = None
@@ -678,12 +678,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="virtualNetworkExtendedLocationResourceId")
-    def virtual_network_extended_location_resource_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="vNetExtendedLocationResourceId")
+    def v_net_extended_location_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         """
-        return pulumi.get(self, "virtual_network_extended_location_resource_id")
+        return pulumi.get(self, "v_net_extended_location_resource_id")
 
     @property
     @pulumi.getter(name="vpnClientConfiguration")

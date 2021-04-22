@@ -11,17 +11,21 @@ from ._enums import *
 
 __all__ = [
     'AgentPropertiesArgs',
+    'ArgumentArgs',
     'AuthInfoArgs',
     'BaseImageTriggerArgs',
     'CredentialsArgs',
     'CustomRegistryCredentialsArgs',
+    'DockerBuildStepArgs',
+    'EncodedTaskStepArgs',
+    'FileTaskStepArgs',
     'IdentityPropertiesArgs',
     'PlatformPropertiesArgs',
     'SecretObjectArgs',
+    'SetValueArgs',
     'SourcePropertiesArgs',
     'SourceRegistryCredentialsArgs',
     'SourceTriggerArgs',
-    'TaskStepPropertiesArgs',
     'TimerTriggerArgs',
     'TriggerPropertiesArgs',
     'UserIdentityPropertiesArgs',
@@ -49,6 +53,62 @@ class AgentPropertiesArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cpu", value)
+
+
+@pulumi.input_type
+class ArgumentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 is_secret: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of a run argument.
+        :param pulumi.Input[str] name: The name of the argument.
+        :param pulumi.Input[str] value: The value of the argument.
+        :param pulumi.Input[bool] is_secret: Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the argument.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the argument.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        return pulumi.get(self, "is_secret")
+
+    @is_secret.setter
+    def is_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_secret", value)
 
 
 @pulumi.input_type
@@ -304,6 +364,370 @@ class CustomRegistryCredentialsArgs:
 
 
 @pulumi.input_type
+class DockerBuildStepArgs:
+    def __init__(__self__, *,
+                 docker_file_path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ArgumentArgs']]]] = None,
+                 context_access_token: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 image_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_push_enabled: Optional[pulumi.Input[bool]] = None,
+                 no_cache: Optional[pulumi.Input[bool]] = None,
+                 target: Optional[pulumi.Input[str]] = None):
+        """
+        The Docker build step.
+        :param pulumi.Input[str] docker_file_path: The Docker file path relative to the source context.
+        :param pulumi.Input[str] type: The type of the step.
+               Expected value is 'Docker'.
+        :param pulumi.Input[Sequence[pulumi.Input['ArgumentArgs']]] arguments: The collection of override arguments to be used when executing this build step.
+        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] image_names: The fully qualified image names including the repository and tag.
+        :param pulumi.Input[bool] is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param pulumi.Input[bool] no_cache: The value of this property indicates whether the image cache is enabled or not.
+        :param pulumi.Input[str] target: The name of the target build stage for the docker build.
+        """
+        pulumi.set(__self__, "docker_file_path", docker_file_path)
+        pulumi.set(__self__, "type", 'Docker')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is None:
+            is_push_enabled = True
+        if is_push_enabled is not None:
+            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is None:
+            no_cache = False
+        if no_cache is not None:
+            pulumi.set(__self__, "no_cache", no_cache)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="dockerFilePath")
+    def docker_file_path(self) -> pulumi.Input[str]:
+        """
+        The Docker file path relative to the source context.
+        """
+        return pulumi.get(self, "docker_file_path")
+
+    @docker_file_path.setter
+    def docker_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_file_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the step.
+        Expected value is 'Docker'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArgumentArgs']]]]:
+        """
+        The collection of override arguments to be used when executing this build step.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArgumentArgs']]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @context_access_token.setter
+    def context_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_access_token", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @image_names.setter
+    def image_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "image_names", value)
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @is_push_enabled.setter
+    def is_push_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_push_enabled", value)
+
+    @property
+    @pulumi.getter(name="noCache")
+    def no_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        return pulumi.get(self, "no_cache")
+
+    @no_cache.setter
+    def no_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_cache", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class EncodedTaskStepArgs:
+    def __init__(__self__, *,
+                 encoded_task_content: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 context_access_token: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 encoded_values_content: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]]] = None):
+        """
+        The properties of a encoded task step.
+        :param pulumi.Input[str] encoded_task_content: Base64 encoded value of the template/definition file content.
+        :param pulumi.Input[str] type: The type of the step.
+               Expected value is 'EncodedTask'.
+        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        :param pulumi.Input[str] encoded_values_content: Base64 encoded value of the parameters/values file content.
+        :param pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "encoded_task_content", encoded_task_content)
+        pulumi.set(__self__, "type", 'EncodedTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if encoded_values_content is not None:
+            pulumi.set(__self__, "encoded_values_content", encoded_values_content)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="encodedTaskContent")
+    def encoded_task_content(self) -> pulumi.Input[str]:
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        return pulumi.get(self, "encoded_task_content")
+
+    @encoded_task_content.setter
+    def encoded_task_content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encoded_task_content", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the step.
+        Expected value is 'EncodedTask'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @context_access_token.setter
+    def context_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_access_token", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter(name="encodedValuesContent")
+    def encoded_values_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        return pulumi.get(self, "encoded_values_content")
+
+    @encoded_values_content.setter
+    def encoded_values_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encoded_values_content", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class FileTaskStepArgs:
+    def __init__(__self__, *,
+                 task_file_path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 context_access_token: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]]] = None,
+                 values_file_path: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of a task step.
+        :param pulumi.Input[str] task_file_path: The task template/definition file path relative to the source context.
+        :param pulumi.Input[str] type: The type of the step.
+               Expected value is 'FileTask'.
+        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
+        :param pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]] values: The collection of overridable values that can be passed when running a task.
+        :param pulumi.Input[str] values_file_path: The task values/parameters file path relative to the source context.
+        """
+        pulumi.set(__self__, "task_file_path", task_file_path)
+        pulumi.set(__self__, "type", 'FileTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if values_file_path is not None:
+            pulumi.set(__self__, "values_file_path", values_file_path)
+
+    @property
+    @pulumi.getter(name="taskFilePath")
+    def task_file_path(self) -> pulumi.Input[str]:
+        """
+        The task template/definition file path relative to the source context.
+        """
+        return pulumi.get(self, "task_file_path")
+
+    @task_file_path.setter
+    def task_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_file_path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the step.
+        Expected value is 'FileTask'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @context_access_token.setter
+    def context_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_access_token", value)
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]]]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SetValueArgs']]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter(name="valuesFilePath")
+    def values_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The task values/parameters file path relative to the source context.
+        """
+        return pulumi.get(self, "values_file_path")
+
+    @values_file_path.setter
+    def values_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "values_file_path", value)
+
+
+@pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -483,6 +907,62 @@ class SecretObjectArgs:
 
 
 @pulumi.input_type
+class SetValueArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 is_secret: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of a overridable value that can be passed to a task template.
+        :param pulumi.Input[str] name: The name of the overridable value.
+        :param pulumi.Input[str] value: The overridable value.
+        :param pulumi.Input[bool] is_secret: Flag to indicate whether the value represents a secret or not.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is None:
+            is_secret = False
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the overridable value.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The overridable value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether the value represents a secret or not.
+        """
+        return pulumi.get(self, "is_secret")
+
+    @is_secret.setter
+    def is_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_secret", value)
+
+
+@pulumi.input_type
 class SourcePropertiesArgs:
     def __init__(__self__, *,
                  repository_url: pulumi.Input[str],
@@ -651,46 +1131,6 @@ class SourceTriggerArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class TaskStepPropertiesArgs:
-    def __init__(__self__, *,
-                 context_access_token: Optional[pulumi.Input[str]] = None,
-                 context_path: Optional[pulumi.Input[str]] = None):
-        """
-        Base properties for any task step.
-        :param pulumi.Input[str] context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-        :param pulumi.Input[str] context_path: The URL(absolute or relative) of the source context for the task step.
-        """
-        if context_access_token is not None:
-            pulumi.set(__self__, "context_access_token", context_access_token)
-        if context_path is not None:
-            pulumi.set(__self__, "context_path", context_path)
-
-    @property
-    @pulumi.getter(name="contextAccessToken")
-    def context_access_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-        """
-        return pulumi.get(self, "context_access_token")
-
-    @context_access_token.setter
-    def context_access_token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "context_access_token", value)
-
-    @property
-    @pulumi.getter(name="contextPath")
-    def context_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL(absolute or relative) of the source context for the task step.
-        """
-        return pulumi.get(self, "context_path")
-
-    @context_path.setter
-    def context_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "context_path", value)
 
 
 @pulumi.input_type

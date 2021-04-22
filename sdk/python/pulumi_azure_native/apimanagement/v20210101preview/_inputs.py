@@ -1426,7 +1426,7 @@ class KeyVaultContractCreatePropertiesArgs:
         """
         Create keyVault contract details.
         :param pulumi.Input[str] identity_client_id: SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-        :param pulumi.Input[str] secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        :param pulumi.Input[str] secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         if identity_client_id is not None:
             pulumi.set(__self__, "identity_client_id", identity_client_id)
@@ -1449,7 +1449,7 @@ class KeyVaultContractCreatePropertiesArgs:
     @pulumi.getter(name="secretIdentifier")
     def secret_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         """
         return pulumi.get(self, "secret_identifier")
 

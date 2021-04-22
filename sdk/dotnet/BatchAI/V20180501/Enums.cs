@@ -8,38 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.BatchAI.V20180501
 {
     /// <summary>
-    /// Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-    /// </summary>
-    [EnumType]
-    public readonly struct CachingType : IEquatable<CachingType>
-    {
-        private readonly string _value;
-
-        private CachingType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CachingType None { get; } = new CachingType("none");
-        public static CachingType @Readonly { get; } = new CachingType("readonly");
-        public static CachingType Readwrite { get; } = new CachingType("readwrite");
-
-        public static bool operator ==(CachingType left, CachingType right) => left.Equals(right);
-        public static bool operator !=(CachingType left, CachingType right) => !left.Equals(right);
-
-        public static explicit operator string(CachingType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CachingType other && Equals(other);
-        public bool Equals(CachingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// An action to be performed when the cluster size is decreasing. The default value is requeue.
     /// </summary>
     [EnumType]
@@ -96,37 +64,6 @@ namespace Pulumi.AzureNative.BatchAI.V20180501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is JobPriority other && Equals(other);
         public bool Equals(JobPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-    /// </summary>
-    [EnumType]
-    public readonly struct StorageAccountType : IEquatable<StorageAccountType>
-    {
-        private readonly string _value;
-
-        private StorageAccountType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StorageAccountType Standard_LRS { get; } = new StorageAccountType("Standard_LRS");
-        public static StorageAccountType Premium_LRS { get; } = new StorageAccountType("Premium_LRS");
-
-        public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
-        public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);
-
-        public static explicit operator string(StorageAccountType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
-        public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

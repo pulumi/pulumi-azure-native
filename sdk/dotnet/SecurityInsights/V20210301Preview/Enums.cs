@@ -38,4 +38,35 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The source of the watchlist
+    /// </summary>
+    [EnumType]
+    public readonly struct Source : IEquatable<Source>
+    {
+        private readonly string _value;
+
+        private Source(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Source Local_file { get; } = new Source("Local file");
+        public static Source Remote_storage { get; } = new Source("Remote storage");
+
+        public static bool operator ==(Source left, Source right) => left.Equals(right);
+        public static bool operator !=(Source left, Source right) => !left.Equals(right);
+
+        public static explicit operator string(Source value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Source other && Equals(other);
+        public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

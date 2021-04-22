@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.Authorization
     public partial class AccessReviewScheduleDefinitionById : Pulumi.CustomResource
     {
         /// <summary>
+        /// The role assignment state eligible/active to review
+        /// </summary>
+        [Output("assignmentState")]
+        public Output<string> AssignmentState { get; private set; } = null!;
+
+        /// <summary>
         /// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         /// </summary>
         [Output("autoApplyDecisionsEnabled")]
@@ -63,6 +69,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("endDate")]
         public Output<string?> EndDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        /// </summary>
+        [Output("inactiveDuration")]
+        public Output<string?> InactiveDuration { get; private set; } = null!;
 
         /// <summary>
         /// The duration in days for an instance.
@@ -290,6 +302,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
+
+        /// <summary>
+        /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        /// </summary>
+        [Input("inactiveDuration")]
+        public Input<string>? InactiveDuration { get; set; }
 
         /// <summary>
         /// The duration in days for an instance.

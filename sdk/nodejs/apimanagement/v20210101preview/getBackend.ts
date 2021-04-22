@@ -71,7 +71,7 @@ export interface GetBackendResult {
      */
     readonly proxy?: outputs.apimanagement.v20210101preview.BackendProxyContractResponse;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
     readonly resourceId?: string;
     /**

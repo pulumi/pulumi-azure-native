@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20180416
         public Output<Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse>> Action { get; private set; } = null!;
 
         /// <summary>
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        /// </summary>
+        [Output("autoMitigate")]
+        public Output<bool?> AutoMitigate { get; private set; } = null!;
+
+        /// <summary>
         /// The api-version used when creating this alert rule
         /// </summary>
         [Output("createdWithApiVersion")]
@@ -173,6 +179,12 @@ namespace Pulumi.AzureNative.Insights.V20180416
         public InputUnion<Inputs.AlertingActionArgs, Inputs.LogToMetricActionArgs> Action { get; set; } = null!;
 
         /// <summary>
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        /// </summary>
+        [Input("autoMitigate")]
+        public Input<bool>? AutoMitigate { get; set; }
+
+        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         [Input("description")]
@@ -234,6 +246,7 @@ namespace Pulumi.AzureNative.Insights.V20180416
 
         public ScheduledQueryRuleArgs()
         {
+            AutoMitigate = false;
         }
     }
 }

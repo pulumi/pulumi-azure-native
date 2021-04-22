@@ -16,23 +16,23 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Outputs
         /// <summary>
         /// Email address
         /// </summary>
-        public readonly string? EmailAddress;
+        public readonly string EmailAddress;
         /// <summary>
         /// First name
         /// </summary>
-        public readonly string? FirstName;
+        public readonly string FirstName;
         /// <summary>
         /// Last name
         /// </summary>
-        public readonly string? LastName;
+        public readonly string LastName;
 
         [OutputConstructor]
         private UserDetailResponse(
-            string? emailAddress,
+            string emailAddress,
 
-            string? firstName,
+            string firstName,
 
-            string? lastName)
+            string lastName)
         {
             EmailAddress = emailAddress;
             FirstName = firstName;

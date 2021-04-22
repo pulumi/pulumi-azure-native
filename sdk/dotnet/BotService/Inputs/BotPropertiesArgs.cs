@@ -69,6 +69,12 @@ namespace Pulumi.AzureNative.BotService.Inputs
         [Input("isCmekEnabled")]
         public Input<bool>? IsCmekEnabled { get; set; }
 
+        /// <summary>
+        /// Whether the bot is in an isolated network
+        /// </summary>
+        [Input("isIsolated")]
+        public Input<bool>? IsIsolated { get; set; }
+
         [Input("luisAppIds")]
         private InputList<string>? _luisAppIds;
 
@@ -92,6 +98,12 @@ namespace Pulumi.AzureNative.BotService.Inputs
         /// </summary>
         [Input("msaAppId", required: true)]
         public Input<string> MsaAppId { get; set; } = null!;
+
+        /// <summary>
+        /// The channel schema transformation version for the bot
+        /// </summary>
+        [Input("schemaTransformationVersion")]
+        public Input<string>? SchemaTransformationVersion { get; set; }
 
         public BotPropertiesArgs()
         {

@@ -53,8 +53,8 @@ type VirtualNetworkGateway struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrOutput `pulumi:"virtualNetworkExtendedLocationResourceId"`
+	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VNetExtendedLocationResourceId pulumi.StringPtrOutput `pulumi:"vNetExtendedLocationResourceId"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationResponsePtrOutput `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -349,8 +349,8 @@ type virtualNetworkGatewayState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
-	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
+	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VNetExtendedLocationResourceId *string `pulumi:"vNetExtendedLocationResourceId"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -398,8 +398,8 @@ type VirtualNetworkGatewayState struct {
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
-	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrInput
+	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VNetExtendedLocationResourceId pulumi.StringPtrInput
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration VpnClientConfigurationResponsePtrInput
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
@@ -443,8 +443,8 @@ type virtualNetworkGatewayArgs struct {
 	Sku *VirtualNetworkGatewaySku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
+	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VNetExtendedLocationResourceId *string `pulumi:"vNetExtendedLocationResourceId"`
 	// The name of the virtual network gateway.
 	VirtualNetworkGatewayName *string `pulumi:"virtualNetworkGatewayName"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -487,8 +487,8 @@ type VirtualNetworkGatewayArgs struct {
 	Sku VirtualNetworkGatewaySkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId pulumi.StringPtrInput
+	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VNetExtendedLocationResourceId pulumi.StringPtrInput
 	// The name of the virtual network gateway.
 	VirtualNetworkGatewayName pulumi.StringPtrInput
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.

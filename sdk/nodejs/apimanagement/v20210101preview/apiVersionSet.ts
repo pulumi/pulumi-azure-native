@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Api Version Set Contract details.
+ * API Version Set Contract details.
  */
 export class ApiVersionSet extends pulumi.CustomResource {
     /**

@@ -9,11 +9,13 @@ from .get_protected_item import *
 from .get_protection_container import *
 from .get_protection_intent import *
 from .get_protection_policy import *
+from .get_vault import *
 from .private_endpoint_connection import *
 from .protected_item import *
 from .protection_container import *
 from .protection_intent import *
 from .protection_policy import *
+from .vault import *
 from ._inputs import *
 from . import outputs
 
@@ -39,6 +41,8 @@ def _register_module():
                 return ProtectionIntent(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:recoveryservices/v20210301:ProtectionPolicy":
                 return ProtectionPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:Vault":
+                return Vault(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

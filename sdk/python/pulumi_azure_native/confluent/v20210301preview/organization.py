@@ -16,32 +16,42 @@ __all__ = ['OrganizationArgs', 'Organization']
 @pulumi.input_type
 class OrganizationArgs:
     def __init__(__self__, *,
+                 offer_detail: pulumi.Input['OfferDetailArgs'],
                  resource_group_name: pulumi.Input[str],
+                 user_detail: pulumi.Input['UserDetailArgs'],
                  location: Optional[pulumi.Input[str]] = None,
-                 offer_detail: Optional[pulumi.Input['OfferDetailArgs']] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_detail: Optional[pulumi.Input['UserDetailArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Organization resource.
-        :param pulumi.Input[str] resource_group_name: Resource group name
-        :param pulumi.Input[str] location: Location of Organization resource
         :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
+        :param pulumi.Input[str] resource_group_name: Resource group name
+        :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
+        :param pulumi.Input[str] location: Location of Organization resource
         :param pulumi.Input[str] organization_name: Organization resource name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
-        :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
         """
+        pulumi.set(__self__, "offer_detail", offer_detail)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user_detail", user_detail)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if offer_detail is not None:
-            pulumi.set(__self__, "offer_detail", offer_detail)
         if organization_name is not None:
             pulumi.set(__self__, "organization_name", organization_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if user_detail is not None:
-            pulumi.set(__self__, "user_detail", user_detail)
+
+    @property
+    @pulumi.getter(name="offerDetail")
+    def offer_detail(self) -> pulumi.Input['OfferDetailArgs']:
+        """
+        Confluent offer detail
+        """
+        return pulumi.get(self, "offer_detail")
+
+    @offer_detail.setter
+    def offer_detail(self, value: pulumi.Input['OfferDetailArgs']):
+        pulumi.set(self, "offer_detail", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -56,6 +66,18 @@ class OrganizationArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="userDetail")
+    def user_detail(self) -> pulumi.Input['UserDetailArgs']:
+        """
+        Subscriber detail
+        """
+        return pulumi.get(self, "user_detail")
+
+    @user_detail.setter
+    def user_detail(self, value: pulumi.Input['UserDetailArgs']):
+        pulumi.set(self, "user_detail", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -66,18 +88,6 @@ class OrganizationArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> Optional[pulumi.Input['OfferDetailArgs']]:
-        """
-        Confluent offer detail
-        """
-        return pulumi.get(self, "offer_detail")
-
-    @offer_detail.setter
-    def offer_detail(self, value: Optional[pulumi.Input['OfferDetailArgs']]):
-        pulumi.set(self, "offer_detail", value)
 
     @property
     @pulumi.getter(name="organizationName")
@@ -102,18 +112,6 @@ class OrganizationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="userDetail")
-    def user_detail(self) -> Optional[pulumi.Input['UserDetailArgs']]:
-        """
-        Subscriber detail
-        """
-        return pulumi.get(self, "user_detail")
-
-    @user_detail.setter
-    def user_detail(self, value: Optional[pulumi.Input['UserDetailArgs']]):
-        pulumi.set(self, "user_detail", value)
 
 
 class Organization(pulumi.CustomResource):
@@ -183,12 +181,16 @@ class Organization(pulumi.CustomResource):
             __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
             __props__.__dict__["location"] = location
+            if offer_detail is None and not opts.urn:
+                raise TypeError("Missing required property 'offer_detail'")
             __props__.__dict__["offer_detail"] = offer_detail
             __props__.__dict__["organization_name"] = organization_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if user_detail is None and not opts.urn:
+                raise TypeError("Missing required property 'user_detail'")
             __props__.__dict__["user_detail"] = user_detail
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
@@ -260,7 +262,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> pulumi.Output[Optional['outputs.OfferDetailResponse']]:
+    def offer_detail(self) -> pulumi.Output['outputs.OfferDetailResponse']:
         """
         Confluent offer detail
         """
@@ -316,7 +318,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDetail")
-    def user_detail(self) -> pulumi.Output[Optional['outputs.UserDetailResponse']]:
+    def user_detail(self) -> pulumi.Output['outputs.UserDetailResponse']:
         """
         Subscriber detail
         """

@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// <summary>
         /// Confluent offer detail
         /// </summary>
-        public readonly Outputs.OfferDetailResponse? OfferDetail;
+        public readonly Outputs.OfferDetailResponse OfferDetail;
         /// <summary>
         /// Id of the Confluent organization.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// <summary>
         /// Subscriber detail
         /// </summary>
-        public readonly Outputs.UserDetailResponse? UserDetail;
+        public readonly Outputs.UserDetailResponse UserDetail;
 
         [OutputConstructor]
         private GetOrganizationResult(
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
 
             string name,
 
-            Outputs.OfferDetailResponse? offerDetail,
+            Outputs.OfferDetailResponse offerDetail,
 
             string organizationId,
 
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
 
             string type,
 
-            Outputs.UserDetailResponse? userDetail)
+            Outputs.UserDetailResponse userDetail)
         {
             CreatedTime = createdTime;
             Id = id;

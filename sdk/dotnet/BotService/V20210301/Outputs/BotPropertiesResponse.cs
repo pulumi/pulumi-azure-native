@@ -62,6 +62,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly bool? IsCmekEnabled;
         /// <summary>
+        /// Whether the bot is in an isolated network
+        /// </summary>
+        public readonly bool? IsIsolated;
+        /// <summary>
         /// Collection of LUIS App Ids
         /// </summary>
         public readonly ImmutableArray<string> LuisAppIds;
@@ -73,6 +77,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// Microsoft App Id for the bot
         /// </summary>
         public readonly string MsaAppId;
+        /// <summary>
+        /// The channel schema transformation version for the bot
+        /// </summary>
+        public readonly string? SchemaTransformationVersion;
 
         [OutputConstructor]
         private BotPropertiesResponse(
@@ -100,11 +108,15 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             bool? isCmekEnabled,
 
+            bool? isIsolated,
+
             ImmutableArray<string> luisAppIds,
 
             string? luisKey,
 
-            string msaAppId)
+            string msaAppId,
+
+            string? schemaTransformationVersion)
         {
             CmekKeyVaultUrl = cmekKeyVaultUrl;
             ConfiguredChannels = configuredChannels;
@@ -118,9 +130,11 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             EndpointVersion = endpointVersion;
             IconUrl = iconUrl;
             IsCmekEnabled = isCmekEnabled;
+            IsIsolated = isIsolated;
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
             MsaAppId = msaAppId;
+            SchemaTransformationVersion = schemaTransformationVersion;
         }
     }
 }

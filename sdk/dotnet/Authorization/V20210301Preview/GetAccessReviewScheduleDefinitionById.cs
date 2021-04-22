@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
     public sealed class GetAccessReviewScheduleDefinitionByIdResult
     {
         /// <summary>
+        /// The role assignment state eligible/active to review
+        /// </summary>
+        public readonly string AssignmentState;
+        /// <summary>
         /// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         /// </summary>
         public readonly bool? AutoApplyDecisionsEnabled;
@@ -72,6 +76,10 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
         /// The access review schedule definition id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        /// </summary>
+        public readonly string? InactiveDuration;
         /// <summary>
         /// The duration in days for an instance.
         /// </summary>
@@ -155,6 +163,8 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
 
         [OutputConstructor]
         private GetAccessReviewScheduleDefinitionByIdResult(
+            string assignmentState,
+
             bool? autoApplyDecisionsEnabled,
 
             ImmutableArray<Outputs.AccessReviewReviewerResponse> backupReviewers,
@@ -172,6 +182,8 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
             string? endDate,
 
             string id,
+
+            string? inactiveDuration,
 
             int? instanceDurationInDays,
 
@@ -213,6 +225,7 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
 
             string userPrincipalName)
         {
+            AssignmentState = assignmentState;
             AutoApplyDecisionsEnabled = autoApplyDecisionsEnabled;
             BackupReviewers = backupReviewers;
             DefaultDecision = defaultDecision;
@@ -222,6 +235,7 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
             DisplayName = displayName;
             EndDate = endDate;
             Id = id;
+            InactiveDuration = inactiveDuration;
             InstanceDurationInDays = instanceDurationInDays;
             Instances = instances;
             Interval = interval;

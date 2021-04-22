@@ -64,6 +64,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The extended location of type local virtual network gateway.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.network.v20201101.ExtendedLocationResponse | undefined>;
+    /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
     public readonly gatewayDefaultSite!: pulumi.Output<outputs.network.v20201101.SubResourceResponse | undefined>;
@@ -108,13 +112,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
     public readonly vNetExtendedLocationResourceId!: pulumi.Output<string | undefined>;
-    /**
-     * The extended location of type local virtual network gateway.
-     */
-    public readonly virtualNetworkExtendedLocation!: pulumi.Output<outputs.network.v20201101.ExtendedLocationResponse | undefined>;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
@@ -148,6 +148,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["enableDnsForwarding"] = args ? args.enableDnsForwarding : undefined;
             inputs["enablePrivateIpAddress"] = args ? args.enablePrivateIpAddress : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["gatewayDefaultSite"] = args ? args.gatewayDefaultSite : undefined;
             inputs["gatewayType"] = args ? args.gatewayType : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -157,7 +158,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vNetExtendedLocationResourceId"] = args ? args.vNetExtendedLocationResourceId : undefined;
-            inputs["virtualNetworkExtendedLocation"] = args ? args.virtualNetworkExtendedLocation : undefined;
             inputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnGatewayGeneration"] = args ? args.vpnGatewayGeneration : undefined;
@@ -176,6 +176,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["enableDnsForwarding"] = undefined /*out*/;
             inputs["enablePrivateIpAddress"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["gatewayDefaultSite"] = undefined /*out*/;
             inputs["gatewayType"] = undefined /*out*/;
             inputs["inboundDnsForwardingEndpoint"] = undefined /*out*/;
@@ -188,7 +189,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vNetExtendedLocationResourceId"] = undefined /*out*/;
-            inputs["virtualNetworkExtendedLocation"] = undefined /*out*/;
             inputs["vpnClientConfiguration"] = undefined /*out*/;
             inputs["vpnGatewayGeneration"] = undefined /*out*/;
             inputs["vpnType"] = undefined /*out*/;
@@ -231,6 +231,10 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly enablePrivateIpAddress?: pulumi.Input<boolean>;
     /**
+     * The extended location of type local virtual network gateway.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocationArgs>;
+    /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
     readonly gatewayDefaultSite?: pulumi.Input<inputs.network.v20201101.SubResourceArgs>;
@@ -263,13 +267,9 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
     readonly vNetExtendedLocationResourceId?: pulumi.Input<string>;
-    /**
-     * The extended location of type local virtual network gateway.
-     */
-    readonly virtualNetworkExtendedLocation?: pulumi.Input<inputs.network.v20201101.ExtendedLocationArgs>;
     /**
      * The name of the virtual network gateway.
      */

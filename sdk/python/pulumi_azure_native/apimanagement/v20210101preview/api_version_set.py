@@ -158,7 +158,7 @@ class ApiVersionSet(pulumi.CustomResource):
                  versioning_scheme: Optional[pulumi.Input[Union[str, 'VersioningScheme']]] = None,
                  __props__=None):
         """
-        Api Version Set Contract details.
+        API Version Set Contract details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +178,7 @@ class ApiVersionSet(pulumi.CustomResource):
                  args: ApiVersionSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api Version Set Contract details.
+        API Version Set Contract details.
 
         :param str resource_name: The name of the resource.
         :param ApiVersionSetArgs args: The arguments to use to populate this resource's properties.

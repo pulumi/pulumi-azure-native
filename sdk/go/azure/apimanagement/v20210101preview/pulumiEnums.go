@@ -895,7 +895,7 @@ func (e SkuType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Type of Api to create.
+// Type of API to create.
 //  * `http` creates a REST API
 //  * `soap` creates a SOAP pass-through API
 //  * `websocket` creates websocket API.

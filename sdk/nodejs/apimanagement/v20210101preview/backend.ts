@@ -60,7 +60,7 @@ export class Backend extends pulumi.CustomResource {
      */
     public readonly proxy!: pulumi.Output<outputs.apimanagement.v20210101preview.BackendProxyContractResponse | undefined>;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface BackendArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
     readonly resourceId?: pulumi.Input<string>;
     /**

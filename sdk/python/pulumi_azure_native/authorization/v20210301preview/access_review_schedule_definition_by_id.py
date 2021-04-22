@@ -24,6 +24,7 @@ class AccessReviewScheduleDefinitionByIdArgs:
                  description_for_reviewers: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 inactive_duration: Optional[pulumi.Input[str]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -46,6 +47,7 @@ class AccessReviewScheduleDefinitionByIdArgs:
         :param pulumi.Input[str] description_for_reviewers: The description provided by the access review creator to be shown to reviewers.
         :param pulumi.Input[str] display_name: The display name for the schedule definition.
         :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
+        :param pulumi.Input[str] inactive_duration: Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         :param pulumi.Input[int] instance_duration_in_days: The duration in days for an instance.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]] instances: This is the collection of instances returned when one does an expand on it.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
@@ -75,6 +77,8 @@ class AccessReviewScheduleDefinitionByIdArgs:
             pulumi.set(__self__, "display_name", display_name)
         if end_date is not None:
             pulumi.set(__self__, "end_date", end_date)
+        if inactive_duration is not None:
+            pulumi.set(__self__, "inactive_duration", inactive_duration)
         if instance_duration_in_days is not None:
             pulumi.set(__self__, "instance_duration_in_days", instance_duration_in_days)
         if instances is not None:
@@ -195,6 +199,18 @@ class AccessReviewScheduleDefinitionByIdArgs:
     @end_date.setter
     def end_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_date", value)
+
+    @property
+    @pulumi.getter(name="inactiveDuration")
+    def inactive_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        return pulumi.get(self, "inactive_duration")
+
+    @inactive_duration.setter
+    def inactive_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inactive_duration", value)
 
     @property
     @pulumi.getter(name="instanceDurationInDays")
@@ -354,6 +370,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  description_for_reviewers: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 inactive_duration: Optional[pulumi.Input[str]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -380,6 +397,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         :param pulumi.Input[str] description_for_reviewers: The description provided by the access review creator to be shown to reviewers.
         :param pulumi.Input[str] display_name: The display name for the schedule definition.
         :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
+        :param pulumi.Input[str] inactive_duration: Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         :param pulumi.Input[int] instance_duration_in_days: The duration in days for an instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]] instances: This is the collection of instances returned when one does an expand on it.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
@@ -425,6 +443,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  description_for_reviewers: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 inactive_duration: Optional[pulumi.Input[str]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -457,6 +476,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__.__dict__["description_for_reviewers"] = description_for_reviewers
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["end_date"] = end_date
+            __props__.__dict__["inactive_duration"] = inactive_duration
             __props__.__dict__["instance_duration_in_days"] = instance_duration_in_days
             __props__.__dict__["instances"] = instances
             __props__.__dict__["interval"] = interval
@@ -469,6 +489,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__.__dict__["schedule_definition_id"] = schedule_definition_id
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["type"] = type
+            __props__.__dict__["assignment_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_id"] = None
             __props__.__dict__["principal_name"] = None
@@ -502,6 +523,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
 
         __props__ = AccessReviewScheduleDefinitionByIdArgs.__new__(AccessReviewScheduleDefinitionByIdArgs)
 
+        __props__.__dict__["assignment_state"] = None
         __props__.__dict__["auto_apply_decisions_enabled"] = None
         __props__.__dict__["backup_reviewers"] = None
         __props__.__dict__["default_decision"] = None
@@ -510,6 +532,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         __props__.__dict__["description_for_reviewers"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["end_date"] = None
+        __props__.__dict__["inactive_duration"] = None
         __props__.__dict__["instance_duration_in_days"] = None
         __props__.__dict__["instances"] = None
         __props__.__dict__["interval"] = None
@@ -531,6 +554,14 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["user_principal_name"] = None
         return AccessReviewScheduleDefinitionById(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assignmentState")
+    def assignment_state(self) -> pulumi.Output[str]:
+        """
+        The role assignment state eligible/active to review
+        """
+        return pulumi.get(self, "assignment_state")
 
     @property
     @pulumi.getter(name="autoApplyDecisionsEnabled")
@@ -595,6 +626,14 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         The DateTime when the review is scheduled to end. Required if type is endDate
         """
         return pulumi.get(self, "end_date")
+
+    @property
+    @pulumi.getter(name="inactiveDuration")
+    def inactive_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        return pulumi.get(self, "inactive_duration")
 
     @property
     @pulumi.getter(name="instanceDurationInDays")

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Represents a Watchlist in Azure Security Insights.
-        /// API Version: 2019-01-01-preview.
+        /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly bool? IsDeleted;
         /// <summary>
+        /// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+        /// </summary>
+        public readonly string ItemsSearchKey;
+        /// <summary>
         /// List of labels relevant to this watchlist
         /// </summary>
         public readonly ImmutableArray<string> Labels;
@@ -115,6 +119,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The source of the watchlist
         /// </summary>
         public readonly string Source;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tenantId where the watchlist belongs to
         /// </summary>
@@ -172,6 +180,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             bool? isDeleted,
 
+            string itemsSearchKey,
+
             ImmutableArray<string> labels,
 
             string name,
@@ -183,6 +193,8 @@ namespace Pulumi.AzureNative.SecurityInsights
             string? rawContent,
 
             string source,
+
+            Outputs.SystemDataResponse systemData,
 
             string? tenantId,
 
@@ -211,12 +223,14 @@ namespace Pulumi.AzureNative.SecurityInsights
             Etag = etag;
             Id = id;
             IsDeleted = isDeleted;
+            ItemsSearchKey = itemsSearchKey;
             Labels = labels;
             Name = name;
             NumberOfLinesToSkip = numberOfLinesToSkip;
             Provider = provider;
             RawContent = rawContent;
             Source = source;
+            SystemData = systemData;
             TenantId = tenantId;
             Type = type;
             Updated = updated;

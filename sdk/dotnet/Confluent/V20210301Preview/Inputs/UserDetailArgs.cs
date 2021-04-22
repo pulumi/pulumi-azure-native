@@ -18,20 +18,20 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Inputs
         /// <summary>
         /// Email address
         /// </summary>
-        [Input("emailAddress")]
-        public Input<string>? EmailAddress { get; set; }
+        [Input("emailAddress", required: true)]
+        public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
         /// First name
         /// </summary>
-        [Input("firstName")]
-        public Input<string>? FirstName { get; set; }
+        [Input("firstName", required: true)]
+        public Input<string> FirstName { get; set; } = null!;
 
         /// <summary>
         /// Last name
         /// </summary>
-        [Input("lastName")]
-        public Input<string>? LastName { get; set; }
+        [Input("lastName", required: true)]
+        public Input<string> LastName { get; set; } = null!;
 
         public UserDetailArgs()
         {

@@ -28,6 +28,8 @@ type LookupScheduledQueryRuleArgs struct {
 type LookupScheduledQueryRuleResult struct {
 	// Action needs to be taken on rule execution.
 	Action interface{} `pulumi:"action"`
+	// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// The api-version used when creating this alert rule
 	CreatedWithApiVersion string `pulumi:"createdWithApiVersion"`
 	// The description of the Log Search rule.

@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Synapse
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or Disable pubic network access to workspace
+        /// Enable or Disable public network access to workspace
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.AzureNative.Synapse
         }
 
         /// <summary>
-        /// Enable or Disable pubic network access to workspace
+        /// Enable or Disable public network access to workspace
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Synapse.WorkspacePublicNetworkAccess>? PublicNetworkAccess { get; set; }

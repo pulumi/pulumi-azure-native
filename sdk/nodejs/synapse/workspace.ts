@@ -89,7 +89,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Enable or Disable pubic network access to workspace
+     * Enable or Disable public network access to workspace
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface WorkspaceArgs {
      */
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.PrivateEndpointConnectionArgs>[]>;
     /**
-     * Enable or Disable pubic network access to workspace
+     * Enable or Disable public network access to workspace
      */
     readonly publicNetworkAccess?: pulumi.Input<string | enums.synapse.WorkspacePublicNetworkAccess>;
     /**

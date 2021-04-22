@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'SettingKind',
+    'Source',
 ]
 
 
@@ -16,3 +17,11 @@ class SettingKind(str, Enum):
     EYES_ON = "EyesOn"
     ENTITY_ANALYTICS = "EntityAnalytics"
     UEBA = "Ueba"
+
+
+class Source(str, Enum):
+    """
+    The source of the watchlist
+    """
+    LOCAL_FILE = "Local file"
+    REMOTE_STORAGE = "Remote storage"

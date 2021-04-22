@@ -25,6 +25,8 @@ type LookupAccessReviewScheduleDefinitionByIdArgs struct {
 
 // Access Review Schedule Definition.
 type LookupAccessReviewScheduleDefinitionByIdResult struct {
+	// The role assignment state eligible/active to review
+	AssignmentState string `pulumi:"assignmentState"`
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
 	// This is the collection of backup reviewers.
@@ -43,6 +45,8 @@ type LookupAccessReviewScheduleDefinitionByIdResult struct {
 	EndDate *string `pulumi:"endDate"`
 	// The access review schedule definition id.
 	Id string `pulumi:"id"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration *string `pulumi:"inactiveDuration"`
 	// The duration in days for an instance.
 	InstanceDurationInDays *int `pulumi:"instanceDurationInDays"`
 	// This is the collection of instances returned when one does an expand on it.

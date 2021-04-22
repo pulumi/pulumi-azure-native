@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         public readonly Outputs.BackendProxyContractResponse? Proxy;
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         public readonly string? ResourceId;
         /// <summary>

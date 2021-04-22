@@ -137,6 +137,6 @@ export const WorkspacePublicNetworkAccess = {
 } as const;
 
 /**
- * Enable or Disable pubic network access to workspace
+ * Enable or Disable public network access to workspace
  */
 export type WorkspacePublicNetworkAccess = (typeof WorkspacePublicNetworkAccess)[keyof typeof WorkspacePublicNetworkAccess];

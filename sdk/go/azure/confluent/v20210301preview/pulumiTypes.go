@@ -13,17 +13,17 @@ import (
 // Confluent Offer detail
 type OfferDetail struct {
 	// Offer Id
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Offer Plan Id
-	PlanId *string `pulumi:"planId"`
+	PlanId string `pulumi:"planId"`
 	// Offer Plan Name
-	PlanName *string `pulumi:"planName"`
+	PlanName string `pulumi:"planName"`
 	// Publisher Id
-	PublisherId *string `pulumi:"publisherId"`
+	PublisherId string `pulumi:"publisherId"`
 	// SaaS Offer Status
 	Status *string `pulumi:"status"`
 	// Offer Plan Term unit
-	TermUnit *string `pulumi:"termUnit"`
+	TermUnit string `pulumi:"termUnit"`
 }
 
 // OfferDetailInput is an input type that accepts OfferDetailArgs and OfferDetailOutput values.
@@ -40,17 +40,17 @@ type OfferDetailInput interface {
 // Confluent Offer detail
 type OfferDetailArgs struct {
 	// Offer Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// Offer Plan Id
-	PlanId pulumi.StringPtrInput `pulumi:"planId"`
+	PlanId pulumi.StringInput `pulumi:"planId"`
 	// Offer Plan Name
-	PlanName pulumi.StringPtrInput `pulumi:"planName"`
+	PlanName pulumi.StringInput `pulumi:"planName"`
 	// Publisher Id
-	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
+	PublisherId pulumi.StringInput `pulumi:"publisherId"`
 	// SaaS Offer Status
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Offer Plan Term unit
-	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
+	TermUnit pulumi.StringInput `pulumi:"termUnit"`
 }
 
 func (OfferDetailArgs) ElementType() reflect.Type {
@@ -132,23 +132,23 @@ func (o OfferDetailOutput) ToOfferDetailPtrOutputWithContext(ctx context.Context
 }
 
 // Offer Id
-func (o OfferDetailOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o OfferDetailOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetail) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Offer Plan Id
-func (o OfferDetailOutput) PlanId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *string { return v.PlanId }).(pulumi.StringPtrOutput)
+func (o OfferDetailOutput) PlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetail) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
 // Offer Plan Name
-func (o OfferDetailOutput) PlanName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *string { return v.PlanName }).(pulumi.StringPtrOutput)
+func (o OfferDetailOutput) PlanName() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetail) string { return v.PlanName }).(pulumi.StringOutput)
 }
 
 // Publisher Id
-func (o OfferDetailOutput) PublisherId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
+func (o OfferDetailOutput) PublisherId() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetail) string { return v.PublisherId }).(pulumi.StringOutput)
 }
 
 // SaaS Offer Status
@@ -157,8 +157,8 @@ func (o OfferDetailOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Offer Plan Term unit
-func (o OfferDetailOutput) TermUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
+func (o OfferDetailOutput) TermUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetail) string { return v.TermUnit }).(pulumi.StringOutput)
 }
 
 type OfferDetailPtrOutput struct{ *pulumi.OutputState }
@@ -185,7 +185,7 @@ func (o OfferDetailPtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -195,7 +195,7 @@ func (o OfferDetailPtrOutput) PlanId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PlanId
+		return &v.PlanId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -205,7 +205,7 @@ func (o OfferDetailPtrOutput) PlanName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PlanName
+		return &v.PlanName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -215,7 +215,7 @@ func (o OfferDetailPtrOutput) PublisherId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PublisherId
+		return &v.PublisherId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -235,24 +235,24 @@ func (o OfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.TermUnit
+		return &v.TermUnit
 	}).(pulumi.StringPtrOutput)
 }
 
 // Confluent Offer detail
 type OfferDetailResponse struct {
 	// Offer Id
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Offer Plan Id
-	PlanId *string `pulumi:"planId"`
+	PlanId string `pulumi:"planId"`
 	// Offer Plan Name
-	PlanName *string `pulumi:"planName"`
+	PlanName string `pulumi:"planName"`
 	// Publisher Id
-	PublisherId *string `pulumi:"publisherId"`
+	PublisherId string `pulumi:"publisherId"`
 	// SaaS Offer Status
 	Status *string `pulumi:"status"`
 	// Offer Plan Term unit
-	TermUnit *string `pulumi:"termUnit"`
+	TermUnit string `pulumi:"termUnit"`
 }
 
 // OfferDetailResponseInput is an input type that accepts OfferDetailResponseArgs and OfferDetailResponseOutput values.
@@ -269,17 +269,17 @@ type OfferDetailResponseInput interface {
 // Confluent Offer detail
 type OfferDetailResponseArgs struct {
 	// Offer Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// Offer Plan Id
-	PlanId pulumi.StringPtrInput `pulumi:"planId"`
+	PlanId pulumi.StringInput `pulumi:"planId"`
 	// Offer Plan Name
-	PlanName pulumi.StringPtrInput `pulumi:"planName"`
+	PlanName pulumi.StringInput `pulumi:"planName"`
 	// Publisher Id
-	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
+	PublisherId pulumi.StringInput `pulumi:"publisherId"`
 	// SaaS Offer Status
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Offer Plan Term unit
-	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
+	TermUnit pulumi.StringInput `pulumi:"termUnit"`
 }
 
 func (OfferDetailResponseArgs) ElementType() reflect.Type {
@@ -361,23 +361,23 @@ func (o OfferDetailResponseOutput) ToOfferDetailResponsePtrOutputWithContext(ctx
 }
 
 // Offer Id
-func (o OfferDetailResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o OfferDetailResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetailResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Offer Plan Id
-func (o OfferDetailResponseOutput) PlanId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *string { return v.PlanId }).(pulumi.StringPtrOutput)
+func (o OfferDetailResponseOutput) PlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetailResponse) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
 // Offer Plan Name
-func (o OfferDetailResponseOutput) PlanName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *string { return v.PlanName }).(pulumi.StringPtrOutput)
+func (o OfferDetailResponseOutput) PlanName() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetailResponse) string { return v.PlanName }).(pulumi.StringOutput)
 }
 
 // Publisher Id
-func (o OfferDetailResponseOutput) PublisherId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
+func (o OfferDetailResponseOutput) PublisherId() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetailResponse) string { return v.PublisherId }).(pulumi.StringOutput)
 }
 
 // SaaS Offer Status
@@ -386,8 +386,8 @@ func (o OfferDetailResponseOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Offer Plan Term unit
-func (o OfferDetailResponseOutput) TermUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
+func (o OfferDetailResponseOutput) TermUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetailResponse) string { return v.TermUnit }).(pulumi.StringOutput)
 }
 
 type OfferDetailResponsePtrOutput struct{ *pulumi.OutputState }
@@ -414,7 +414,7 @@ func (o OfferDetailResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -424,7 +424,7 @@ func (o OfferDetailResponsePtrOutput) PlanId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PlanId
+		return &v.PlanId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -434,7 +434,7 @@ func (o OfferDetailResponsePtrOutput) PlanName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PlanName
+		return &v.PlanName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -444,7 +444,7 @@ func (o OfferDetailResponsePtrOutput) PublisherId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PublisherId
+		return &v.PublisherId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -464,7 +464,7 @@ func (o OfferDetailResponsePtrOutput) TermUnit() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.TermUnit
+		return &v.TermUnit
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -700,11 +700,11 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 // Subscriber detail
 type UserDetail struct {
 	// Email address
-	EmailAddress *string `pulumi:"emailAddress"`
+	EmailAddress string `pulumi:"emailAddress"`
 	// First name
-	FirstName *string `pulumi:"firstName"`
+	FirstName string `pulumi:"firstName"`
 	// Last name
-	LastName *string `pulumi:"lastName"`
+	LastName string `pulumi:"lastName"`
 }
 
 // UserDetailInput is an input type that accepts UserDetailArgs and UserDetailOutput values.
@@ -721,11 +721,11 @@ type UserDetailInput interface {
 // Subscriber detail
 type UserDetailArgs struct {
 	// Email address
-	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
 	// First name
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	FirstName pulumi.StringInput `pulumi:"firstName"`
 	// Last name
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	LastName pulumi.StringInput `pulumi:"lastName"`
 }
 
 func (UserDetailArgs) ElementType() reflect.Type {
@@ -807,18 +807,18 @@ func (o UserDetailOutput) ToUserDetailPtrOutputWithContext(ctx context.Context) 
 }
 
 // Email address
-func (o UserDetailOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserDetail) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+func (o UserDetailOutput) EmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDetail) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
 // First name
-func (o UserDetailOutput) FirstName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserDetail) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+func (o UserDetailOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDetail) string { return v.FirstName }).(pulumi.StringOutput)
 }
 
 // Last name
-func (o UserDetailOutput) LastName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserDetail) *string { return v.LastName }).(pulumi.StringPtrOutput)
+func (o UserDetailOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDetail) string { return v.LastName }).(pulumi.StringOutput)
 }
 
 type UserDetailPtrOutput struct{ *pulumi.OutputState }
@@ -845,7 +845,7 @@ func (o UserDetailPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.EmailAddress
+		return &v.EmailAddress
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -855,7 +855,7 @@ func (o UserDetailPtrOutput) FirstName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.FirstName
+		return &v.FirstName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -865,18 +865,18 @@ func (o UserDetailPtrOutput) LastName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.LastName
+		return &v.LastName
 	}).(pulumi.StringPtrOutput)
 }
 
 // Subscriber detail
 type UserDetailResponse struct {
 	// Email address
-	EmailAddress *string `pulumi:"emailAddress"`
+	EmailAddress string `pulumi:"emailAddress"`
 	// First name
-	FirstName *string `pulumi:"firstName"`
+	FirstName string `pulumi:"firstName"`
 	// Last name
-	LastName *string `pulumi:"lastName"`
+	LastName string `pulumi:"lastName"`
 }
 
 // UserDetailResponseInput is an input type that accepts UserDetailResponseArgs and UserDetailResponseOutput values.
@@ -893,11 +893,11 @@ type UserDetailResponseInput interface {
 // Subscriber detail
 type UserDetailResponseArgs struct {
 	// Email address
-	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
 	// First name
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	FirstName pulumi.StringInput `pulumi:"firstName"`
 	// Last name
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	LastName pulumi.StringInput `pulumi:"lastName"`
 }
 
 func (UserDetailResponseArgs) ElementType() reflect.Type {
@@ -979,18 +979,18 @@ func (o UserDetailResponseOutput) ToUserDetailResponsePtrOutputWithContext(ctx c
 }
 
 // Email address
-func (o UserDetailResponseOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserDetailResponse) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+func (o UserDetailResponseOutput) EmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDetailResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
 // First name
-func (o UserDetailResponseOutput) FirstName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserDetailResponse) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+func (o UserDetailResponseOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDetailResponse) string { return v.FirstName }).(pulumi.StringOutput)
 }
 
 // Last name
-func (o UserDetailResponseOutput) LastName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserDetailResponse) *string { return v.LastName }).(pulumi.StringPtrOutput)
+func (o UserDetailResponseOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDetailResponse) string { return v.LastName }).(pulumi.StringOutput)
 }
 
 type UserDetailResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1017,7 +1017,7 @@ func (o UserDetailResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.EmailAddress
+		return &v.EmailAddress
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1027,7 +1027,7 @@ func (o UserDetailResponsePtrOutput) FirstName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.FirstName
+		return &v.FirstName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1037,7 +1037,7 @@ func (o UserDetailResponsePtrOutput) LastName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.LastName
+		return &v.LastName
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Watchlist item in Azure Security Insights.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 type WatchlistItem struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +30,8 @@ type WatchlistItem struct {
 	ItemsKeyValue pulumi.AnyOutput `pulumi:"itemsKeyValue"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tenantId to which the watchlist item belongs to
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Azure resource type
@@ -76,6 +78,12 @@ func NewWatchlistItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:WatchlistItem"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210301preview:WatchlistItem"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:WatchlistItem"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WatchlistItem
@@ -114,6 +122,8 @@ type watchlistItemState struct {
 	ItemsKeyValue interface{} `pulumi:"itemsKeyValue"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tenantId to which the watchlist item belongs to
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
@@ -143,6 +153,8 @@ type WatchlistItemState struct {
 	ItemsKeyValue pulumi.Input
 	// Azure resource name
 	Name pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
 	// The tenantId to which the watchlist item belongs to
 	TenantId pulumi.StringPtrInput
 	// Azure resource type
@@ -176,7 +188,7 @@ type watchlistItemArgs struct {
 	ItemsKeyValue interface{} `pulumi:"itemsKeyValue"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tenantId to which the watchlist item belongs to
 	TenantId *string `pulumi:"tenantId"`
@@ -210,7 +222,7 @@ type WatchlistItemArgs struct {
 	ItemsKeyValue pulumi.Input
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The tenantId to which the watchlist item belongs to
 	TenantId pulumi.StringPtrInput

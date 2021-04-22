@@ -85,6 +85,17 @@ export const SourceTriggerEvent = {
 
 export type SourceTriggerEvent = (typeof SourceTriggerEvent)[keyof typeof SourceTriggerEvent];
 
+export const StepType = {
+    Docker: "Docker",
+    FileTask: "FileTask",
+    EncodedTask: "EncodedTask",
+} as const;
+
+/**
+ * The type of the step.
+ */
+export type StepType = (typeof StepType)[keyof typeof StepType];
+
 export const TaskStatus = {
     Disabled: "Disabled",
     Enabled: "Enabled",

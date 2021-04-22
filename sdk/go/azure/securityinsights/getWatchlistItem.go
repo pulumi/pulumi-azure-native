@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a Watchlist item in Azure Security Insights.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 func LookupWatchlistItem(ctx *pulumi.Context, args *LookupWatchlistItemArgs, opts ...pulumi.InvokeOption) (*LookupWatchlistItemResult, error) {
 	var rv LookupWatchlistItemResult
 	err := ctx.Invoke("azure-native:securityinsights:getWatchlistItem", args, &rv, opts...)
@@ -21,7 +21,7 @@ func LookupWatchlistItem(ctx *pulumi.Context, args *LookupWatchlistItemArgs, opt
 type LookupWatchlistItemArgs struct {
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Watchlist Alias
 	WatchlistAlias string `pulumi:"watchlistAlias"`
@@ -49,6 +49,8 @@ type LookupWatchlistItemResult struct {
 	ItemsKeyValue interface{} `pulumi:"itemsKeyValue"`
 	// Azure resource name
 	Name string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tenantId to which the watchlist item belongs to
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class Watchlist extends pulumi.CustomResource {
     /**
@@ -69,6 +69,10 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly isDeleted!: pulumi.Output<boolean | undefined>;
     /**
+     * The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+     */
+    public readonly itemsSearchKey!: pulumi.Output<string>;
+    /**
      * List of labels relevant to this watchlist
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
@@ -92,6 +96,10 @@ export class Watchlist extends pulumi.CustomResource {
      * The source of the watchlist
      */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenantId where the watchlist belongs to
      */
@@ -143,6 +151,9 @@ export class Watchlist extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            if ((!args || args.itemsSearchKey === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'itemsSearchKey'");
+            }
             if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
@@ -166,6 +177,7 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["isDeleted"] = args ? args.isDeleted : undefined;
+            inputs["itemsSearchKey"] = args ? args.itemsSearchKey : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
             inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
@@ -183,6 +195,7 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["watchlistType"] = args ? args.watchlistType : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["contentType"] = undefined /*out*/;
@@ -193,12 +206,14 @@ export class Watchlist extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["isDeleted"] = undefined /*out*/;
+            inputs["itemsSearchKey"] = undefined /*out*/;
             inputs["labels"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["numberOfLinesToSkip"] = undefined /*out*/;
             inputs["provider"] = undefined /*out*/;
             inputs["rawContent"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updated"] = undefined /*out*/;
@@ -212,7 +227,7 @@ export class Watchlist extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Watchlist" }, { type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-nextgen:securityinsights/v20190101preview:Watchlist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Watchlist" }, { type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-nextgen:securityinsights/v20190101preview:Watchlist" }, { type: "azure-native:securityinsights/v20210301preview:Watchlist" }, { type: "azure-nextgen:securityinsights/v20210301preview:Watchlist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watchlist.__pulumiType, name, inputs, opts);
     }
@@ -255,6 +270,10 @@ export interface WatchlistArgs {
      */
     readonly isDeleted?: pulumi.Input<boolean>;
     /**
+     * The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+     */
+    readonly itemsSearchKey: pulumi.Input<string>;
+    /**
      * List of labels relevant to this watchlist
      */
     readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
@@ -275,7 +294,7 @@ export interface WatchlistArgs {
      */
     readonly rawContent?: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

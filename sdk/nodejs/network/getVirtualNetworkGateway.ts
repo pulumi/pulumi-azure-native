@@ -67,6 +67,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly etag: string;
     /**
+     * The extended location of type local virtual network gateway.
+     */
+    readonly extendedLocation?: outputs.network.ExtendedLocationResponse;
+    /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
     readonly gatewayDefaultSite?: outputs.network.SubResourceResponse;
@@ -115,13 +119,9 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly type: string;
     /**
-     * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
     readonly vNetExtendedLocationResourceId?: string;
-    /**
-     * The extended location of type local virtual network gateway.
-     */
-    readonly virtualNetworkExtendedLocation?: outputs.network.ExtendedLocationResponse;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */

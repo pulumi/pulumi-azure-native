@@ -211,10 +211,14 @@ class BotPropertiesResponse(dict):
             suggest = "icon_url"
         elif key == "isCmekEnabled":
             suggest = "is_cmek_enabled"
+        elif key == "isIsolated":
+            suggest = "is_isolated"
         elif key == "luisAppIds":
             suggest = "luis_app_ids"
         elif key == "luisKey":
             suggest = "luis_key"
+        elif key == "schemaTransformationVersion":
+            suggest = "schema_transformation_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -241,8 +245,10 @@ class BotPropertiesResponse(dict):
                  developer_app_insights_application_id: Optional[str] = None,
                  icon_url: Optional[str] = None,
                  is_cmek_enabled: Optional[bool] = None,
+                 is_isolated: Optional[bool] = None,
                  luis_app_ids: Optional[Sequence[str]] = None,
-                 luis_key: Optional[str] = None):
+                 luis_key: Optional[str] = None,
+                 schema_transformation_version: Optional[str] = None):
         """
         The parameters to provide for the Bot.
         :param Sequence[str] configured_channels: Collection of channels for which the bot is configured
@@ -258,8 +264,10 @@ class BotPropertiesResponse(dict):
         :param str developer_app_insights_application_id: The Application Insights App Id
         :param str icon_url: The Icon Url of the bot
         :param bool is_cmek_enabled: Whether Cmek is enabled
+        :param bool is_isolated: Whether the bot is in an isolated network
         :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
         :param str luis_key: The LUIS Key
+        :param str schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "configured_channels", configured_channels)
         pulumi.set(__self__, "display_name", display_name)
@@ -281,10 +289,14 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "icon_url", icon_url)
         if is_cmek_enabled is not None:
             pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
+        if is_isolated is not None:
+            pulumi.set(__self__, "is_isolated", is_isolated)
         if luis_app_ids is not None:
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if schema_transformation_version is not None:
+            pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
     @property
     @pulumi.getter(name="configuredChannels")
@@ -391,6 +403,14 @@ class BotPropertiesResponse(dict):
         return pulumi.get(self, "is_cmek_enabled")
 
     @property
+    @pulumi.getter(name="isIsolated")
+    def is_isolated(self) -> Optional[bool]:
+        """
+        Whether the bot is in an isolated network
+        """
+        return pulumi.get(self, "is_isolated")
+
+    @property
     @pulumi.getter(name="luisAppIds")
     def luis_app_ids(self) -> Optional[Sequence[str]]:
         """
@@ -405,6 +425,14 @@ class BotPropertiesResponse(dict):
         The LUIS Key
         """
         return pulumi.get(self, "luis_key")
+
+    @property
+    @pulumi.getter(name="schemaTransformationVersion")
+    def schema_transformation_version(self) -> Optional[str]:
+        """
+        The channel schema transformation version for the bot
+        """
+        return pulumi.get(self, "schema_transformation_version")
 
 
 @pulumi.output_type

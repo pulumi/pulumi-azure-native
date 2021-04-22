@@ -42,11 +42,12 @@ namespace Pulumi.AzureNative.Insights.V20190301.Inputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        [Input("useCommonAlertSchema", required: true)]
-        public Input<bool> UseCommonAlertSchema { get; set; } = null!;
+        [Input("useCommonAlertSchema")]
+        public Input<bool>? UseCommonAlertSchema { get; set; }
 
         public AzureFunctionReceiverArgs()
         {
+            UseCommonAlertSchema = false;
         }
     }
 }

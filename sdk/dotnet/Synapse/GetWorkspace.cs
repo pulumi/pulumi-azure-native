@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Enable or Disable pubic network access to workspace
+        /// Enable or Disable public network access to workspace
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>

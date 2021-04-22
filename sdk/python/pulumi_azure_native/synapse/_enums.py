@@ -197,7 +197,7 @@ class TransparentDataEncryptionStatus(str, Enum):
 
 class WorkspacePublicNetworkAccess(str, Enum):
     """
-    Enable or Disable pubic network access to workspace
+    Enable or Disable public network access to workspace
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

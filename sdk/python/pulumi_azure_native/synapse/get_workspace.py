@@ -207,7 +207,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Enable or Disable pubic network access to workspace
+        Enable or Disable public network access to workspace
         """
         return pulumi.get(self, "public_network_access")
 

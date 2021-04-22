@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool UseCommonAlertSchema;
+        public readonly bool? UseCommonAlertSchema;
 
         [OutputConstructor]
         private WebhookReceiverResponse(
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             bool? useAadAuth,
 
-            bool useCommonAlertSchema)
+            bool? useCommonAlertSchema)
         {
             IdentifierUri = identifierUri;
             Name = name;

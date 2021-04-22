@@ -11,19 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api details.
+// API details.
 type Api struct {
 	pulumi.CustomResourceState
 
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrOutput `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription pulumi.StringPtrOutput `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrOutput `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription pulumi.StringPtrOutput `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet ApiVersionSetContractDetailsResponsePtrOutput `pulumi:"apiVersionSet"`
@@ -173,15 +173,15 @@ func GetApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Api resources.
 type apiState struct {
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType *string `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet *ApiVersionSetContractDetailsResponse `pulumi:"apiVersionSet"`
@@ -222,15 +222,15 @@ type apiState struct {
 }
 
 type ApiState struct {
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrInput
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription pulumi.StringPtrInput
 	// Type of API.
 	ApiType pulumi.StringPtrInput
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrInput
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription pulumi.StringPtrInput
 	// Version set details
 	ApiVersionSet ApiVersionSetContractDetailsResponsePtrInput
@@ -277,15 +277,15 @@ func (ApiState) ElementType() reflect.Type {
 type apiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId *string `pulumi:"apiId"`
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType *string `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet *ApiVersionSetContractDetails `pulumi:"apiVersionSet"`
@@ -315,7 +315,7 @@ type apiArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
 	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Type of Api to create.
+	// Type of API to create.
 	//  * `http` creates a REST API
 	//  * `soap` creates a SOAP pass-through API
 	//  * `websocket` creates websocket API.
@@ -338,15 +338,15 @@ type apiArgs struct {
 type ApiArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId pulumi.StringPtrInput
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrInput
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription pulumi.StringPtrInput
 	// Type of API.
 	ApiType pulumi.StringPtrInput
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrInput
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription pulumi.StringPtrInput
 	// Version set details
 	ApiVersionSet ApiVersionSetContractDetailsPtrInput
@@ -376,7 +376,7 @@ type ApiArgs struct {
 	ServiceName pulumi.StringInput
 	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
 	ServiceUrl pulumi.StringPtrInput
-	// Type of Api to create.
+	// Type of API to create.
 	//  * `http` creates a REST API
 	//  * `soap` creates a SOAP pass-through API
 	//  * `websocket` creates websocket API.

@@ -42,7 +42,7 @@ type Workspace struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Enable or Disable pubic network access to workspace
+	// Enable or Disable public network access to workspace
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationResponsePtrOutput `pulumi:"purviewConfiguration"`
@@ -150,7 +150,7 @@ type workspaceState struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Enable or Disable pubic network access to workspace
+	// Enable or Disable public network access to workspace
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
@@ -197,7 +197,7 @@ type WorkspaceState struct {
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Resource provisioning state
 	ProvisioningState pulumi.StringPtrInput
-	// Enable or Disable pubic network access to workspace
+	// Enable or Disable public network access to workspace
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationResponsePtrInput
@@ -240,7 +240,7 @@ type workspaceArgs struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
-	// Enable or Disable pubic network access to workspace
+	// Enable or Disable public network access to workspace
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfiguration `pulumi:"purviewConfiguration"`
@@ -280,7 +280,7 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
-	// Enable or Disable pubic network access to workspace
+	// Enable or Disable public network access to workspace
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationPtrInput

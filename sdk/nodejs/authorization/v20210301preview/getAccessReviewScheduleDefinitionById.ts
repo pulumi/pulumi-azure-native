@@ -33,6 +33,10 @@ export interface GetAccessReviewScheduleDefinitionByIdArgs {
  */
 export interface GetAccessReviewScheduleDefinitionByIdResult {
     /**
+     * The role assignment state eligible/active to review
+     */
+    readonly assignmentState: string;
+    /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
     readonly autoApplyDecisionsEnabled?: boolean;
@@ -68,6 +72,10 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      * The access review schedule definition id.
      */
     readonly id: string;
+    /**
+     * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+     */
+    readonly inactiveDuration?: string;
     /**
      * The duration in days for an instance.
      */

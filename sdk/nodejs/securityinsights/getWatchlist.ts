@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
     if (!opts) {
@@ -31,7 +31,7 @@ export interface GetWatchlistArgs {
      */
     readonly operationalInsightsResourceProvider: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -85,6 +85,10 @@ export interface GetWatchlistResult {
      */
     readonly isDeleted?: boolean;
     /**
+     * The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+     */
+    readonly itemsSearchKey: string;
+    /**
      * List of labels relevant to this watchlist
      */
     readonly labels?: string[];
@@ -108,6 +112,10 @@ export interface GetWatchlistResult {
      * The source of the watchlist
      */
     readonly source: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * The tenantId where the watchlist belongs to
      */

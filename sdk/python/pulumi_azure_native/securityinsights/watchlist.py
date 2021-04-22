@@ -17,6 +17,7 @@ __all__ = ['WatchlistArgs', 'Watchlist']
 class WatchlistArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
+                 items_search_key: pulumi.Input[str],
                  operational_insights_resource_provider: pulumi.Input[str],
                  provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -43,9 +44,10 @@ class WatchlistArgs:
         """
         The set of arguments for constructing a Watchlist resource.
         :param pulumi.Input[str] display_name: The display name of the watchlist
+        :param pulumi.Input[str] items_search_key: The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] provider: The provider of the watchlist
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Source']] source: The source of the watchlist
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] content_type: The content type of the raw content. Example : text/csv or text/tsv 
@@ -68,6 +70,7 @@ class WatchlistArgs:
         :param pulumi.Input[str] watchlist_type: The type of the watchlist
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "items_search_key", items_search_key)
         pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -123,6 +126,18 @@ class WatchlistArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="itemsSearchKey")
+    def items_search_key(self) -> pulumi.Input[str]:
+        """
+        The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+        """
+        return pulumi.get(self, "items_search_key")
+
+    @items_search_key.setter
+    def items_search_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "items_search_key", value)
+
+    @property
     @pulumi.getter(name="operationalInsightsResourceProvider")
     def operational_insights_resource_provider(self) -> pulumi.Input[str]:
         """
@@ -150,7 +165,7 @@ class WatchlistArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -412,6 +427,7 @@ class Watchlist(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
+                 items_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  number_of_lines_to_skip: Optional[pulumi.Input[int]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -431,7 +447,7 @@ class Watchlist(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Watchlist in Azure Security Insights.
-        API Version: 2019-01-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -443,12 +459,13 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the watchlist
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist is deleted or not
+        :param pulumi.Input[str] items_search_key: The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
         :param pulumi.Input[int] number_of_lines_to_skip: The number of lines in a csv/tsv content to skip before the header
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] provider: The provider of the watchlist
         :param pulumi.Input[str] raw_content: The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Source']] source: The source of the watchlist
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to
         :param pulumi.Input[str] updated: The last time the watchlist was updated
@@ -468,7 +485,7 @@ class Watchlist(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Watchlist in Azure Security Insights.
-        API Version: 2019-01-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.
@@ -493,6 +510,7 @@ class Watchlist(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  is_deleted: Optional[pulumi.Input[bool]] = None,
+                 items_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  number_of_lines_to_skip: Optional[pulumi.Input[int]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -531,6 +549,9 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["etag"] = etag
             __props__.__dict__["is_deleted"] = is_deleted
+            if items_search_key is None and not opts.urn:
+                raise TypeError("Missing required property 'items_search_key'")
+            __props__.__dict__["items_search_key"] = items_search_key
             __props__.__dict__["labels"] = labels
             __props__.__dict__["number_of_lines_to_skip"] = number_of_lines_to_skip
             if operational_insights_resource_provider is None and not opts.urn:
@@ -558,8 +579,9 @@ class Watchlist(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Watchlist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Watchlist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watchlist, __self__).__init__(
             'azure-native:securityinsights:Watchlist',
@@ -591,12 +613,14 @@ class Watchlist(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["is_deleted"] = None
+        __props__.__dict__["items_search_key"] = None
         __props__.__dict__["labels"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["number_of_lines_to_skip"] = None
         __props__.__dict__["provider"] = None
         __props__.__dict__["raw_content"] = None
         __props__.__dict__["source"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated"] = None
@@ -673,6 +697,14 @@ class Watchlist(pulumi.CustomResource):
         return pulumi.get(self, "is_deleted")
 
     @property
+    @pulumi.getter(name="itemsSearchKey")
+    def items_search_key(self) -> pulumi.Output[str]:
+        """
+        The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+        """
+        return pulumi.get(self, "items_search_key")
+
+    @property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -719,6 +751,14 @@ class Watchlist(pulumi.CustomResource):
         The source of the watchlist
         """
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")

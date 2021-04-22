@@ -20,7 +20,7 @@ class GetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
     """
-    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_items_count=None, watchlist_type=None):
+    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, items_search_key=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_items_count=None, watchlist_type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -48,6 +48,9 @@ class GetWatchlistResult:
         if is_deleted and not isinstance(is_deleted, bool):
             raise TypeError("Expected argument 'is_deleted' to be a bool")
         pulumi.set(__self__, "is_deleted", is_deleted)
+        if items_search_key and not isinstance(items_search_key, str):
+            raise TypeError("Expected argument 'items_search_key' to be a str")
+        pulumi.set(__self__, "items_search_key", items_search_key)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
@@ -66,6 +69,9 @@ class GetWatchlistResult:
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -167,6 +173,14 @@ class GetWatchlistResult:
         return pulumi.get(self, "is_deleted")
 
     @property
+    @pulumi.getter(name="itemsSearchKey")
+    def items_search_key(self) -> str:
+        """
+        The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+        """
+        return pulumi.get(self, "items_search_key")
+
+    @property
     @pulumi.getter
     def labels(self) -> Optional[Sequence[str]]:
         """
@@ -213,6 +227,14 @@ class GetWatchlistResult:
         The source of the watchlist
         """
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")
@@ -302,12 +324,14 @@ class AwaitableGetWatchlistResult(GetWatchlistResult):
             etag=self.etag,
             id=self.id,
             is_deleted=self.is_deleted,
+            items_search_key=self.items_search_key,
             labels=self.labels,
             name=self.name,
             number_of_lines_to_skip=self.number_of_lines_to_skip,
             provider=self.provider,
             raw_content=self.raw_content,
             source=self.source,
+            system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type,
             updated=self.updated,
@@ -326,11 +350,11 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
-    API Version: 2019-01-01-preview.
+    API Version: 2021-03-01-preview.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str watchlist_alias: Watchlist Alias
     :param str workspace_name: The name of the workspace.
     """
@@ -355,12 +379,14 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         is_deleted=__ret__.is_deleted,
+        items_search_key=__ret__.items_search_key,
         labels=__ret__.labels,
         name=__ret__.name,
         number_of_lines_to_skip=__ret__.number_of_lines_to_skip,
         provider=__ret__.provider,
         raw_content=__ret__.raw_content,
         source=__ret__.source,
+        system_data=__ret__.system_data,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,
         updated=__ret__.updated,

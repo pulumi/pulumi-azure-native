@@ -20,7 +20,7 @@ class GetWatchlistItemResult:
     """
     Represents a Watchlist item in Azure Security Insights.
     """
-    def __init__(__self__, created=None, created_by=None, entity_mapping=None, etag=None, id=None, is_deleted=None, items_key_value=None, name=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_item_id=None, watchlist_item_type=None):
+    def __init__(__self__, created=None, created_by=None, entity_mapping=None, etag=None, id=None, is_deleted=None, items_key_value=None, name=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_item_id=None, watchlist_item_type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -45,6 +45,9 @@ class GetWatchlistItemResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -129,6 +132,14 @@ class GetWatchlistItemResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
@@ -191,6 +202,7 @@ class AwaitableGetWatchlistItemResult(GetWatchlistItemResult):
             is_deleted=self.is_deleted,
             items_key_value=self.items_key_value,
             name=self.name,
+            system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type,
             updated=self.updated,
@@ -207,11 +219,11 @@ def get_watchlist_item(operational_insights_resource_provider: Optional[str] = N
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistItemResult:
     """
     Represents a Watchlist item in Azure Security Insights.
-    API Version: 2019-01-01-preview.
+    API Version: 2021-03-01-preview.
 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str watchlist_alias: Watchlist Alias
     :param str watchlist_item_id: Watchlist Item Id (GUID)
     :param str workspace_name: The name of the workspace.
@@ -237,6 +249,7 @@ def get_watchlist_item(operational_insights_resource_provider: Optional[str] = N
         is_deleted=__ret__.is_deleted,
         items_key_value=__ret__.items_key_value,
         name=__ret__.name,
+        system_data=__ret__.system_data,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,
         updated=__ret__.updated,

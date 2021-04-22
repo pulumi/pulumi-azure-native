@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Outputs
         /// <summary>
         /// Offer Id
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Offer Plan Id
         /// </summary>
-        public readonly string? PlanId;
+        public readonly string PlanId;
         /// <summary>
         /// Offer Plan Name
         /// </summary>
-        public readonly string? PlanName;
+        public readonly string PlanName;
         /// <summary>
         /// Publisher Id
         /// </summary>
-        public readonly string? PublisherId;
+        public readonly string PublisherId;
         /// <summary>
         /// SaaS Offer Status
         /// </summary>
@@ -36,21 +36,21 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Outputs
         /// <summary>
         /// Offer Plan Term unit
         /// </summary>
-        public readonly string? TermUnit;
+        public readonly string TermUnit;
 
         [OutputConstructor]
         private OfferDetailResponse(
-            string? id,
+            string id,
 
-            string? planId,
+            string planId,
 
-            string? planName,
+            string planName,
 
-            string? publisherId,
+            string publisherId,
 
             string? status,
 
-            string? termUnit)
+            string termUnit)
         {
             Id = id;
             PlanId = planId;

@@ -43,6 +43,10 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly action: outputs.insights.AlertingActionResponse | outputs.insights.LogToMetricActionResponse;
     /**
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+     */
+    readonly autoMitigate?: boolean;
+    /**
      * The api-version used when creating this alert rule
      */
     readonly createdWithApiVersion: string;

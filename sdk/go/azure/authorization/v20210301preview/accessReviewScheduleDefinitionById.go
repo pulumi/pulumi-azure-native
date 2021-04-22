@@ -14,6 +14,8 @@ import (
 type AccessReviewScheduleDefinitionById struct {
 	pulumi.CustomResourceState
 
+	// The role assignment state eligible/active to review
+	AssignmentState pulumi.StringOutput `pulumi:"assignmentState"`
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled pulumi.BoolPtrOutput `pulumi:"autoApplyDecisionsEnabled"`
 	// This is the collection of backup reviewers.
@@ -30,6 +32,8 @@ type AccessReviewScheduleDefinitionById struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The DateTime when the review is scheduled to end. Required if type is endDate
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration pulumi.StringPtrOutput `pulumi:"inactiveDuration"`
 	// The duration in days for an instance.
 	InstanceDurationInDays pulumi.IntPtrOutput `pulumi:"instanceDurationInDays"`
 	// This is the collection of instances returned when one does an expand on it.
@@ -119,6 +123,8 @@ func GetAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessReviewScheduleDefinitionById resources.
 type accessReviewScheduleDefinitionByIdState struct {
+	// The role assignment state eligible/active to review
+	AssignmentState *string `pulumi:"assignmentState"`
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
 	// This is the collection of backup reviewers.
@@ -135,6 +141,8 @@ type accessReviewScheduleDefinitionByIdState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The DateTime when the review is scheduled to end. Required if type is endDate
 	EndDate *string `pulumi:"endDate"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration *string `pulumi:"inactiveDuration"`
 	// The duration in days for an instance.
 	InstanceDurationInDays *int `pulumi:"instanceDurationInDays"`
 	// This is the collection of instances returned when one does an expand on it.
@@ -178,6 +186,8 @@ type accessReviewScheduleDefinitionByIdState struct {
 }
 
 type AccessReviewScheduleDefinitionByIdState struct {
+	// The role assignment state eligible/active to review
+	AssignmentState pulumi.StringPtrInput
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled pulumi.BoolPtrInput
 	// This is the collection of backup reviewers.
@@ -194,6 +204,8 @@ type AccessReviewScheduleDefinitionByIdState struct {
 	DisplayName pulumi.StringPtrInput
 	// The DateTime when the review is scheduled to end. Required if type is endDate
 	EndDate pulumi.StringPtrInput
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration pulumi.StringPtrInput
 	// The duration in days for an instance.
 	InstanceDurationInDays pulumi.IntPtrInput
 	// This is the collection of instances returned when one does an expand on it.
@@ -257,6 +269,8 @@ type accessReviewScheduleDefinitionByIdArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The DateTime when the review is scheduled to end. Required if type is endDate
 	EndDate *string `pulumi:"endDate"`
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration *string `pulumi:"inactiveDuration"`
 	// The duration in days for an instance.
 	InstanceDurationInDays *int `pulumi:"instanceDurationInDays"`
 	// This is the collection of instances returned when one does an expand on it.
@@ -301,6 +315,8 @@ type AccessReviewScheduleDefinitionByIdArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The DateTime when the review is scheduled to end. Required if type is endDate
 	EndDate pulumi.StringPtrInput
+	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+	InactiveDuration pulumi.StringPtrInput
 	// The duration in days for an instance.
 	InstanceDurationInDays pulumi.IntPtrInput
 	// This is the collection of instances returned when one does an expand on it.

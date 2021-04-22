@@ -521,7 +521,7 @@ func (e TransparentDataEncryptionStatus) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Enable or Disable pubic network access to workspace
+// Enable or Disable public network access to workspace
 type WorkspacePublicNetworkAccess pulumi.String
 
 const (

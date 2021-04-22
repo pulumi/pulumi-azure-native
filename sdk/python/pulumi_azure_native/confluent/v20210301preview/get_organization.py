@@ -92,7 +92,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="offerDetail")
-    def offer_detail(self) -> Optional['outputs.OfferDetailResponse']:
+    def offer_detail(self) -> 'outputs.OfferDetailResponse':
         """
         Confluent offer detail
         """
@@ -148,7 +148,7 @@ class GetOrganizationResult:
 
     @property
     @pulumi.getter(name="userDetail")
-    def user_detail(self) -> Optional['outputs.UserDetailResponse']:
+    def user_detail(self) -> 'outputs.UserDetailResponse':
         """
         Subscriber detail
         """

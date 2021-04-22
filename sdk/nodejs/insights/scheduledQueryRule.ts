@@ -41,6 +41,10 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      */
     public readonly action!: pulumi.Output<outputs.insights.AlertingActionResponse | outputs.insights.LogToMetricActionResponse>;
     /**
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+     */
+    public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
+    /**
      * The api-version used when creating this alert rule
      */
     public /*out*/ readonly createdWithApiVersion!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             inputs["action"] = args ? args.action : undefined;
+            inputs["autoMitigate"] = (args ? args.autoMitigate : undefined) ?? false;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -141,6 +146,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["action"] = undefined /*out*/;
+            inputs["autoMitigate"] = undefined /*out*/;
             inputs["createdWithApiVersion"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface ScheduledQueryRuleArgs {
      * Action needs to be taken on rule execution.
      */
     readonly action: pulumi.Input<inputs.insights.AlertingActionArgs | inputs.insights.LogToMetricActionArgs>;
+    /**
+     * The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+     */
+    readonly autoMitigate?: pulumi.Input<boolean>;
     /**
      * The description of the Log Search rule.
      */

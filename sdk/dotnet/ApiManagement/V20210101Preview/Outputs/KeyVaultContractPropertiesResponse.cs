@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
         /// </summary>
         public readonly Outputs.KeyVaultLastAccessStatusContractPropertiesResponse? LastStatus;
         /// <summary>
-        /// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        /// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
         /// </summary>
         public readonly string? SecretIdentifier;
 

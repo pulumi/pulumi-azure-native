@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     public static class GetApi
     {
         /// <summary>
-        /// Api details.
+        /// API details.
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure-native:apimanagement/v20210101preview:getApi", args ?? new GetApiArgs(), options.WithVersion());
@@ -49,11 +49,11 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
     public sealed class GetApiResult
     {
         /// <summary>
-        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        /// Describes the revision of the API. If no value is provided, default revision 1 is created
         /// </summary>
         public readonly string? ApiRevision;
         /// <summary>
-        /// Description of the Api Revision.
+        /// Description of the API Revision.
         /// </summary>
         public readonly string? ApiRevisionDescription;
         /// <summary>
@@ -61,11 +61,11 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         public readonly string? ApiType;
         /// <summary>
-        /// Indicates the Version identifier of the API if the API is versioned
+        /// Indicates the version identifier of the API if the API is versioned
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
-        /// Description of the Api Version.
+        /// Description of the API Version.
         /// </summary>
         public readonly string? ApiVersionDescription;
         /// <summary>

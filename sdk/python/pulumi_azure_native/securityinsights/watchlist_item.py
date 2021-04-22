@@ -34,7 +34,7 @@ class WatchlistItemArgs:
         The set of arguments for constructing a WatchlistItem resource.
         :param Any items_key_value: key-value pairs for a watchlist item
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] watchlist_alias: Watchlist Alias
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] created: The time the watchlist item was created
@@ -102,7 +102,7 @@ class WatchlistItemArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -278,7 +278,7 @@ class WatchlistItem(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Watchlist item in Azure Security Insights.
-        API Version: 2019-01-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,7 +289,7 @@ class WatchlistItem(pulumi.CustomResource):
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist item is deleted or not
         :param Any items_key_value: key-value pairs for a watchlist item
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] tenant_id: The tenantId to which the watchlist item belongs to
         :param pulumi.Input[str] updated: The last time the watchlist item was updated
         :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] updated_by: Describes a user that updated the watchlist item
@@ -306,7 +306,7 @@ class WatchlistItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Watchlist item in Azure Security Insights.
-        API Version: 2019-01-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WatchlistItemArgs args: The arguments to use to populate this resource's properties.
@@ -376,8 +376,9 @@ class WatchlistItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:WatchlistItem"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:WatchlistItem"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:WatchlistItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:WatchlistItem"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:WatchlistItem"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:WatchlistItem"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:WatchlistItem"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:WatchlistItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WatchlistItem, __self__).__init__(
             'azure-native:securityinsights:WatchlistItem',
@@ -408,6 +409,7 @@ class WatchlistItem(pulumi.CustomResource):
         __props__.__dict__["is_deleted"] = None
         __props__.__dict__["items_key_value"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated"] = None
@@ -471,6 +473,14 @@ class WatchlistItem(pulumi.CustomResource):
         Azure resource name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tenantId")

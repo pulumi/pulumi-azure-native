@@ -49,11 +49,11 @@ class ApiArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
-        :param pulumi.Input[str] api_revision_description: Description of the Api Revision.
+        :param pulumi.Input[str] api_revision: Describes the revision of the API. If no value is provided, default revision 1 is created
+        :param pulumi.Input[str] api_revision_description: Description of the API Revision.
         :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
-        :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
-        :param pulumi.Input[str] api_version_description: Description of the Api Version.
+        :param pulumi.Input[str] api_version: Indicates the version identifier of the API if the API is versioned
+        :param pulumi.Input[str] api_version_description: Description of the API Version.
         :param pulumi.Input['ApiVersionSetContractDetailsArgs'] api_version_set: Version set details
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
         :param pulumi.Input['AuthenticationSettingsContractArgs'] authentication_settings: Collection of authentication settings included into this API.
@@ -65,7 +65,7 @@ class ApiArgs:
         :param pulumi.Input['ApiLicenseInformationArgs'] license: License information for the API.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Protocol']]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of Api to create. 
+        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of API to create. 
                 * `http` creates a REST API 
                 * `soap` creates a SOAP pass-through API  
                 * `websocket` creates websocket API.
@@ -180,7 +180,7 @@ class ApiArgs:
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -192,7 +192,7 @@ class ApiArgs:
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -216,7 +216,7 @@ class ApiArgs:
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -228,7 +228,7 @@ class ApiArgs:
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -372,7 +372,7 @@ class ApiArgs:
     @pulumi.getter(name="soapApiType")
     def soap_api_type(self) -> Optional[pulumi.Input[Union[str, 'SoapApiType']]]:
         """
-        Type of Api to create. 
+        Type of API to create. 
          * `http` creates a REST API 
          * `soap` creates a SOAP pass-through API  
          * `websocket` creates websocket API.
@@ -490,16 +490,16 @@ class Api(pulumi.CustomResource):
                  wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
                  __props__=None):
         """
-        Api details.
+        API details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
-        :param pulumi.Input[str] api_revision_description: Description of the Api Revision.
+        :param pulumi.Input[str] api_revision: Describes the revision of the API. If no value is provided, default revision 1 is created
+        :param pulumi.Input[str] api_revision_description: Description of the API Revision.
         :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
-        :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
-        :param pulumi.Input[str] api_version_description: Description of the Api Version.
+        :param pulumi.Input[str] api_version: Indicates the version identifier of the API if the API is versioned
+        :param pulumi.Input[str] api_version_description: Description of the API Version.
         :param pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']] api_version_set: Version set details
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
         :param pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']] authentication_settings: Collection of authentication settings included into this API.
@@ -514,7 +514,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of Api to create. 
+        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of API to create. 
                 * `http` creates a REST API 
                 * `soap` creates a SOAP pass-through API  
                 * `websocket` creates websocket API.
@@ -532,7 +532,7 @@ class Api(pulumi.CustomResource):
                  args: ApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api details.
+        API details.
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.
@@ -677,7 +677,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> pulumi.Output[Optional[str]]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -685,7 +685,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -701,7 +701,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -709,7 +709,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 

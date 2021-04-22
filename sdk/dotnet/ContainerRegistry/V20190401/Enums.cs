@@ -259,6 +259,38 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
     }
 
     /// <summary>
+    /// The type of the step.
+    /// </summary>
+    [EnumType]
+    public readonly struct StepType : IEquatable<StepType>
+    {
+        private readonly string _value;
+
+        private StepType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StepType Docker { get; } = new StepType("Docker");
+        public static StepType FileTask { get; } = new StepType("FileTask");
+        public static StepType EncodedTask { get; } = new StepType("EncodedTask");
+
+        public static bool operator ==(StepType left, StepType right) => left.Equals(right);
+        public static bool operator !=(StepType left, StepType right) => !left.Equals(right);
+
+        public static explicit operator string(StepType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StepType other && Equals(other);
+        public bool Equals(StepType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of task.
     /// </summary>
     [EnumType]

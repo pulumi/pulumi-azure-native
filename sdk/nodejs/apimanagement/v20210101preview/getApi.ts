@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Api details.
+ * API details.
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     if (!opts) {
@@ -39,15 +39,15 @@ export interface GetApiArgs {
 }
 
 /**
- * Api details.
+ * API details.
  */
 export interface GetApiResult {
     /**
-     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
     readonly apiRevision?: string;
     /**
-     * Description of the Api Revision.
+     * Description of the API Revision.
      */
     readonly apiRevisionDescription?: string;
     /**
@@ -55,11 +55,11 @@ export interface GetApiResult {
      */
     readonly apiType?: string;
     /**
-     * Indicates the Version identifier of the API if the API is versioned
+     * Indicates the version identifier of the API if the API is versioned
      */
     readonly apiVersion?: string;
     /**
-     * Description of the Api Version.
+     * Description of the API Version.
      */
     readonly apiVersionDescription?: string;
     /**

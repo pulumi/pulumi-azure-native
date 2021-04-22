@@ -466,7 +466,7 @@ export const SoapApiType = {
 } as const;
 
 /**
- * Type of Api to create. 
+ * Type of API to create. 
  *  * `http` creates a REST API 
  *  * `soap` creates a SOAP pass-through API  
  *  * `websocket` creates websocket API.

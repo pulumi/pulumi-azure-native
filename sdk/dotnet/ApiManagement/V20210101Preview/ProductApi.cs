@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
     /// <summary>
-    /// Api details.
+    /// API details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:ProductApi")]
     public partial class ProductApi : Pulumi.CustomResource
     {
         /// <summary>
-        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        /// Describes the revision of the API. If no value is provided, default revision 1 is created
         /// </summary>
         [Output("apiRevision")]
         public Output<string?> ApiRevision { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Api Revision.
+        /// Description of the API Revision.
         /// </summary>
         [Output("apiRevisionDescription")]
         public Output<string?> ApiRevisionDescription { get; private set; } = null!;
@@ -34,13 +34,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public Output<string?> ApiType { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the Version identifier of the API if the API is versioned
+        /// Indicates the version identifier of the API if the API is versioned
         /// </summary>
         [Output("apiVersion")]
         public Output<string?> ApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Api Version.
+        /// Description of the API Version.
         /// </summary>
         [Output("apiVersionDescription")]
         public Output<string?> ApiVersionDescription { get; private set; } = null!;

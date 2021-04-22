@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool UseCommonAlertSchema;
+        public readonly bool? UseCommonAlertSchema;
 
         [OutputConstructor]
         private LogicAppReceiverResponse(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             string resourceId,
 
-            bool useCommonAlertSchema)
+            bool? useCommonAlertSchema)
         {
             CallbackUrl = callbackUrl;
             Name = name;

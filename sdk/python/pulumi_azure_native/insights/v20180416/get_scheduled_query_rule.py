@@ -20,10 +20,13 @@ class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
     """
-    def __init__(__self__, action=None, created_with_api_version=None, description=None, display_name=None, enabled=None, etag=None, id=None, is_legacy_log_analytics_rule=None, kind=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+    def __init__(__self__, action=None, auto_mitigate=None, created_with_api_version=None, description=None, display_name=None, enabled=None, etag=None, id=None, is_legacy_log_analytics_rule=None, kind=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
+        if auto_mitigate and not isinstance(auto_mitigate, bool):
+            raise TypeError("Expected argument 'auto_mitigate' to be a bool")
+        pulumi.set(__self__, "auto_mitigate", auto_mitigate)
         if created_with_api_version and not isinstance(created_with_api_version, str):
             raise TypeError("Expected argument 'created_with_api_version' to be a str")
         pulumi.set(__self__, "created_with_api_version", created_with_api_version)
@@ -80,6 +83,14 @@ class GetScheduledQueryRuleResult:
         Action needs to be taken on rule execution.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[bool]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        """
+        return pulumi.get(self, "auto_mitigate")
 
     @property
     @pulumi.getter(name="createdWithApiVersion")
@@ -217,6 +228,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             yield self
         return GetScheduledQueryRuleResult(
             action=self.action,
+            auto_mitigate=self.auto_mitigate,
             created_with_api_version=self.created_with_api_version,
             description=self.description,
             display_name=self.display_name,
@@ -256,6 +268,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
 
     return AwaitableGetScheduledQueryRuleResult(
         action=__ret__.action,
+        auto_mitigate=__ret__.auto_mitigate,
         created_with_api_version=__ret__.created_with_api_version,
         description=__ret__.description,
         display_name=__ret__.display_name,

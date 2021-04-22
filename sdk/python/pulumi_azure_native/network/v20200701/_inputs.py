@@ -14109,7 +14109,7 @@ class VirtualNetworkGatewayArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
+                 v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input['VpnClientConfigurationArgs']] = None,
                  vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
                  vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None):
@@ -14129,7 +14129,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['VirtualNetworkGatewaySkuArgs'] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] virtual_network_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        :param pulumi.Input[str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         :param pulumi.Input['VpnClientConfigurationArgs'] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param pulumi.Input[Union[str, 'VpnType']] vpn_type: The type of this virtual network gateway.
@@ -14162,8 +14162,8 @@ class VirtualNetworkGatewayArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_network_extended_location_resource_id is not None:
-            pulumi.set(__self__, "virtual_network_extended_location_resource_id", virtual_network_extended_location_resource_id)
+        if v_net_extended_location_resource_id is not None:
+            pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
         if vpn_client_configuration is not None:
             pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
         if vpn_gateway_generation is not None:
@@ -14340,16 +14340,16 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="virtualNetworkExtendedLocationResourceId")
-    def virtual_network_extended_location_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="vNetExtendedLocationResourceId")
+    def v_net_extended_location_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         """
-        return pulumi.get(self, "virtual_network_extended_location_resource_id")
+        return pulumi.get(self, "v_net_extended_location_resource_id")
 
-    @virtual_network_extended_location_resource_id.setter
-    def virtual_network_extended_location_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_network_extended_location_resource_id", value)
+    @v_net_extended_location_resource_id.setter
+    def v_net_extended_location_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_net_extended_location_resource_id", value)
 
     @property
     @pulumi.getter(name="vpnClientConfiguration")

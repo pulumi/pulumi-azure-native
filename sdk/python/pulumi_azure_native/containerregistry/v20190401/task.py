@@ -19,7 +19,7 @@ class TaskArgs:
                  platform: pulumi.Input['PlatformPropertiesArgs'],
                  registry_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 step: pulumi.Input['TaskStepPropertiesArgs'],
+                 step: pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']],
                  agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
                  credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
@@ -34,7 +34,7 @@ class TaskArgs:
         :param pulumi.Input['PlatformPropertiesArgs'] platform: The platform properties against which the run has to happen.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input['TaskStepPropertiesArgs'] step: The properties of a task step.
+        :param pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']] step: The properties of a task step.
         :param pulumi.Input['AgentPropertiesArgs'] agent_configuration: The machine configuration of the run agent.
         :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: Identity for the resource.
@@ -108,14 +108,14 @@ class TaskArgs:
 
     @property
     @pulumi.getter
-    def step(self) -> pulumi.Input['TaskStepPropertiesArgs']:
+    def step(self) -> pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]:
         """
         The properties of a task step.
         """
         return pulumi.get(self, "step")
 
     @step.setter
-    def step(self, value: pulumi.Input['TaskStepPropertiesArgs']):
+    def step(self, value: pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]):
         pulumi.set(self, "step", value)
 
     @property
@@ -240,7 +240,7 @@ class Task(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -260,7 +260,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[Union[str, 'TaskStatus']] status: The current status of task.
-        :param pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']] step: The properties of a task step.
+        :param pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
         :param pulumi.Input[int] timeout: Run timeout in seconds.
@@ -299,7 +299,7 @@ class Task(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,

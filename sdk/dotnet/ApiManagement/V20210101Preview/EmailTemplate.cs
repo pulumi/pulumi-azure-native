@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the template is the default template provided by Api Management or has been edited.
+        /// Whether the template is the default template provided by API Management or has been edited.
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;

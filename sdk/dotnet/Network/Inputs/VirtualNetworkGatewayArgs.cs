@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? EnablePrivateIpAddress { get; set; }
 
         /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Input("gatewayDefaultSite")]
@@ -106,16 +112,10 @@ namespace Pulumi.AzureNative.Network.Inputs
         }
 
         /// <summary>
-        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         /// </summary>
         [Input("vNetExtendedLocationResourceId")]
         public Input<string>? VNetExtendedLocationResourceId { get; set; }
-
-        /// <summary>
-        /// The extended location of type local virtual network gateway.
-        /// </summary>
-        [Input("virtualNetworkExtendedLocation")]
-        public Input<Inputs.ExtendedLocationArgs>? VirtualNetworkExtendedLocation { get; set; }
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.

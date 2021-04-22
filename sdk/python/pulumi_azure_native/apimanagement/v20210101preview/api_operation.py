@@ -225,7 +225,7 @@ class ApiOperation(pulumi.CustomResource):
                  url_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Api Operation details.
+        API Operation details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,7 +249,7 @@ class ApiOperation(pulumi.CustomResource):
                  args: ApiOperationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api Operation details.
+        API Operation details.
 
         :param str resource_name: The name of the resource.
         :param ApiOperationArgs args: The arguments to use to populate this resource's properties.

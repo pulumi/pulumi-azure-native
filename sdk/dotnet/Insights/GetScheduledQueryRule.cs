@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> Action;
         /// <summary>
+        /// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        /// </summary>
+        public readonly bool? AutoMitigate;
+        /// <summary>
         /// The api-version used when creating this alert rule
         /// </summary>
         public readonly string CreatedWithApiVersion;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNative.Insights
         private GetScheduledQueryRuleResult(
             Union<Outputs.AlertingActionResponse, Outputs.LogToMetricActionResponse> action,
 
+            bool? autoMitigate,
+
             string createdWithApiVersion,
 
             string? description,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNative.Insights
             string type)
         {
             Action = action;
+            AutoMitigate = autoMitigate;
             CreatedWithApiVersion = createdWithApiVersion;
             Description = description;
             DisplayName = displayName;

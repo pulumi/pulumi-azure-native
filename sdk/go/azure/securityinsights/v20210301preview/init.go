@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:securityinsights/v20210301preview:ProductSetting":
 		r = &ProductSetting{}
+	case "azure-native:securityinsights/v20210301preview:Watchlist":
+		r = &Watchlist{}
+	case "azure-native:securityinsights/v20210301preview:WatchlistItem":
+		r = &WatchlistItem{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

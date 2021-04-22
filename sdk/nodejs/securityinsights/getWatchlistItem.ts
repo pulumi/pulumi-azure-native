@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist item in Azure Security Insights.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export function getWatchlistItem(args: GetWatchlistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistItemResult> {
     if (!opts) {
@@ -32,7 +32,7 @@ export interface GetWatchlistItemArgs {
      */
     readonly operationalInsightsResourceProvider: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -85,6 +85,10 @@ export interface GetWatchlistItemResult {
      * Azure resource name
      */
     readonly name: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * The tenantId to which the watchlist item belongs to
      */

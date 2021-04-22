@@ -6,13 +6,19 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getProductSetting";
+export * from "./getWatchlist";
+export * from "./getWatchlistItem";
 export * from "./productSetting";
+export * from "./watchlist";
+export * from "./watchlistItem";
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20210301preview";
 
 // Import resources to register:
 import { ProductSetting } from "./productSetting";
+import { Watchlist } from "./watchlist";
+import { WatchlistItem } from "./watchlistItem";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +26,10 @@ const _module = {
         switch (type) {
             case "azure-native:securityinsights/v20210301preview:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:Watchlist":
+                return new Watchlist(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:WatchlistItem":
+                return new WatchlistItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

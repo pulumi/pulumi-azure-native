@@ -197,7 +197,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step: pulumi.Input<inputs.containerregistry.v20190401.TaskStepPropertiesArgs>;
+    readonly step: pulumi.Input<inputs.containerregistry.v20190401.DockerBuildStepArgs | inputs.containerregistry.v20190401.EncodedTaskStepArgs | inputs.containerregistry.v20190401.FileTaskStepArgs>;
     /**
      * The tags of the resource.
      */

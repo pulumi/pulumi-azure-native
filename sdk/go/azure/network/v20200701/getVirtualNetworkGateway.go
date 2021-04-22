@@ -66,8 +66,8 @@ type LookupVirtualNetworkGatewayResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
-	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
+	// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+	VNetExtendedLocationResourceId *string `pulumi:"vNetExtendedLocationResourceId"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.

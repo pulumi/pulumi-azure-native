@@ -508,12 +508,16 @@ type BotProperties struct {
 	IconUrl *string `pulumi:"iconUrl"`
 	// Whether Cmek is enabled
 	IsCmekEnabled *bool `pulumi:"isCmekEnabled"`
+	// Whether the bot is in an isolated network
+	IsIsolated *bool `pulumi:"isIsolated"`
 	// Collection of LUIS App Ids
 	LuisAppIds []string `pulumi:"luisAppIds"`
 	// The LUIS Key
 	LuisKey *string `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId string `pulumi:"msaAppId"`
+	// The channel schema transformation version for the bot
+	SchemaTransformationVersion *string `pulumi:"schemaTransformationVersion"`
 }
 
 // BotPropertiesInput is an input type that accepts BotPropertiesArgs and BotPropertiesOutput values.
@@ -547,12 +551,16 @@ type BotPropertiesArgs struct {
 	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
 	// Whether Cmek is enabled
 	IsCmekEnabled pulumi.BoolPtrInput `pulumi:"isCmekEnabled"`
+	// Whether the bot is in an isolated network
+	IsIsolated pulumi.BoolPtrInput `pulumi:"isIsolated"`
 	// Collection of LUIS App Ids
 	LuisAppIds pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	// The LUIS Key
 	LuisKey pulumi.StringPtrInput `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId pulumi.StringInput `pulumi:"msaAppId"`
+	// The channel schema transformation version for the bot
+	SchemaTransformationVersion pulumi.StringPtrInput `pulumi:"schemaTransformationVersion"`
 }
 
 func (BotPropertiesArgs) ElementType() reflect.Type {
@@ -678,6 +686,11 @@ func (o BotPropertiesOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotProperties) *bool { return v.IsCmekEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the bot is in an isolated network
+func (o BotPropertiesOutput) IsIsolated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotProperties) *bool { return v.IsIsolated }).(pulumi.BoolPtrOutput)
+}
+
 // Collection of LUIS App Ids
 func (o BotPropertiesOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BotProperties) []string { return v.LuisAppIds }).(pulumi.StringArrayOutput)
@@ -691,6 +704,11 @@ func (o BotPropertiesOutput) LuisKey() pulumi.StringPtrOutput {
 // Microsoft App Id for the bot
 func (o BotPropertiesOutput) MsaAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotProperties) string { return v.MsaAppId }).(pulumi.StringOutput)
+}
+
+// The channel schema transformation version for the bot
+func (o BotPropertiesOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.SchemaTransformationVersion }).(pulumi.StringPtrOutput)
 }
 
 type BotPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -801,6 +819,16 @@ func (o BotPropertiesPtrOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether the bot is in an isolated network
+func (o BotPropertiesPtrOutput) IsIsolated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsIsolated
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Collection of LUIS App Ids
 func (o BotPropertiesPtrOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BotProperties) []string {
@@ -831,6 +859,16 @@ func (o BotPropertiesPtrOutput) MsaAppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The channel schema transformation version for the bot
+func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaTransformationVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // The parameters to provide for the Bot.
 type BotPropertiesResponse struct {
 	// The CMK Url
@@ -857,12 +895,16 @@ type BotPropertiesResponse struct {
 	IconUrl *string `pulumi:"iconUrl"`
 	// Whether Cmek is enabled
 	IsCmekEnabled *bool `pulumi:"isCmekEnabled"`
+	// Whether the bot is in an isolated network
+	IsIsolated *bool `pulumi:"isIsolated"`
 	// Collection of LUIS App Ids
 	LuisAppIds []string `pulumi:"luisAppIds"`
 	// The LUIS Key
 	LuisKey *string `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId string `pulumi:"msaAppId"`
+	// The channel schema transformation version for the bot
+	SchemaTransformationVersion *string `pulumi:"schemaTransformationVersion"`
 }
 
 // BotPropertiesResponseInput is an input type that accepts BotPropertiesResponseArgs and BotPropertiesResponseOutput values.
@@ -902,12 +944,16 @@ type BotPropertiesResponseArgs struct {
 	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
 	// Whether Cmek is enabled
 	IsCmekEnabled pulumi.BoolPtrInput `pulumi:"isCmekEnabled"`
+	// Whether the bot is in an isolated network
+	IsIsolated pulumi.BoolPtrInput `pulumi:"isIsolated"`
 	// Collection of LUIS App Ids
 	LuisAppIds pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	// The LUIS Key
 	LuisKey pulumi.StringPtrInput `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId pulumi.StringInput `pulumi:"msaAppId"`
+	// The channel schema transformation version for the bot
+	SchemaTransformationVersion pulumi.StringPtrInput `pulumi:"schemaTransformationVersion"`
 }
 
 func (BotPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1048,6 +1094,11 @@ func (o BotPropertiesResponseOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsCmekEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the bot is in an isolated network
+func (o BotPropertiesResponseOutput) IsIsolated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsIsolated }).(pulumi.BoolPtrOutput)
+}
+
 // Collection of LUIS App Ids
 func (o BotPropertiesResponseOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) []string { return v.LuisAppIds }).(pulumi.StringArrayOutput)
@@ -1061,6 +1112,11 @@ func (o BotPropertiesResponseOutput) LuisKey() pulumi.StringPtrOutput {
 // Microsoft App Id for the bot
 func (o BotPropertiesResponseOutput) MsaAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) string { return v.MsaAppId }).(pulumi.StringOutput)
+}
+
+// The channel schema transformation version for the bot
+func (o BotPropertiesResponseOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.SchemaTransformationVersion }).(pulumi.StringPtrOutput)
 }
 
 type BotPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1201,6 +1257,16 @@ func (o BotPropertiesResponsePtrOutput) IsCmekEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether the bot is in an isolated network
+func (o BotPropertiesResponsePtrOutput) IsIsolated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsIsolated
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Collection of LUIS App Ids
 func (o BotPropertiesResponsePtrOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BotPropertiesResponse) []string {
@@ -1228,6 +1294,16 @@ func (o BotPropertiesResponsePtrOutput) MsaAppId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.MsaAppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The channel schema transformation version for the bot
+func (o BotPropertiesResponsePtrOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaTransformationVersion
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Watchlist in Azure Security Insights.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 type Watchlist struct {
 	pulumi.CustomResourceState
 
@@ -32,6 +32,8 @@ type Watchlist struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted pulumi.BoolPtrOutput `pulumi:"isDeleted"`
+	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+	ItemsSearchKey pulumi.StringOutput `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayOutput `pulumi:"labels"`
 	// Azure resource name
@@ -44,6 +46,8 @@ type Watchlist struct {
 	RawContent pulumi.StringPtrOutput `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source pulumi.StringOutput `pulumi:"source"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The tenantId where the watchlist belongs to
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Azure resource type
@@ -74,6 +78,9 @@ func NewWatchlist(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
+	if args.ItemsSearchKey == nil {
+		return nil, errors.New("invalid value for required argument 'ItemsSearchKey'")
+	}
 	if args.OperationalInsightsResourceProvider == nil {
 		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
 	}
@@ -98,6 +105,12 @@ func NewWatchlist(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:Watchlist"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210301preview:Watchlist"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:Watchlist"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -139,6 +152,8 @@ type watchlistState struct {
 	Etag *string `pulumi:"etag"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
+	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+	ItemsSearchKey *string `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
 	// Azure resource name
@@ -151,6 +166,8 @@ type watchlistState struct {
 	RawContent *string `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source *string `pulumi:"source"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The tenantId where the watchlist belongs to
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
@@ -188,6 +205,8 @@ type WatchlistState struct {
 	Etag pulumi.StringPtrInput
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted pulumi.BoolPtrInput
+	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+	ItemsSearchKey pulumi.StringPtrInput
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayInput
 	// Azure resource name
@@ -200,6 +219,8 @@ type WatchlistState struct {
 	RawContent pulumi.StringPtrInput
 	// The source of the watchlist
 	Source pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
 	// The tenantId where the watchlist belongs to
 	TenantId pulumi.StringPtrInput
 	// Azure resource type
@@ -241,6 +262,8 @@ type watchlistArgs struct {
 	Etag *string `pulumi:"etag"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
+	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+	ItemsSearchKey string `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
 	// The number of lines in a csv/tsv content to skip before the header
@@ -251,7 +274,7 @@ type watchlistArgs struct {
 	Provider string `pulumi:"provider"`
 	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
 	RawContent *string `pulumi:"rawContent"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The source of the watchlist
 	Source string `pulumi:"source"`
@@ -293,6 +316,8 @@ type WatchlistArgs struct {
 	Etag pulumi.StringPtrInput
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted pulumi.BoolPtrInput
+	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+	ItemsSearchKey pulumi.StringInput
 	// List of labels relevant to this watchlist
 	Labels pulumi.StringArrayInput
 	// The number of lines in a csv/tsv content to skip before the header
@@ -303,7 +328,7 @@ type WatchlistArgs struct {
 	Provider pulumi.StringInput
 	// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
 	RawContent pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The source of the watchlist
 	Source pulumi.StringInput

@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Insights.V20190301.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool UseCommonAlertSchema;
+        public readonly bool? UseCommonAlertSchema;
         /// <summary>
         /// The resource id for webhook linked to this runbook.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Insights.V20190301.Outputs
 
             string? serviceUri,
 
-            bool useCommonAlertSchema,
+            bool? useCommonAlertSchema,
 
             string webhookResourceId)
         {

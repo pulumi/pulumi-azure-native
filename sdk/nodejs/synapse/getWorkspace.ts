@@ -95,7 +95,7 @@ export interface GetWorkspaceResult {
      */
     readonly provisioningState: string;
     /**
-     * Enable or Disable pubic network access to workspace
+     * Enable or Disable public network access to workspace
      */
     readonly publicNetworkAccess?: string;
     /**

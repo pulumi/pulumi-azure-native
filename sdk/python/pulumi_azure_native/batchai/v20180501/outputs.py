@@ -24,7 +24,6 @@ __all__ = [
     'ContainerSettingsResponse',
     'CustomMpiSettingsResponse',
     'CustomToolkitSettingsResponse',
-    'DataDisksResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVariableWithSecretValueResponse',
     'FileResponse',
@@ -38,7 +37,6 @@ __all__ = [
     'JobPropertiesResponseExecutionInfo',
     'KeyVaultSecretReferenceResponse',
     'ManualScaleSettingsResponse',
-    'MountSettingsResponse',
     'MountVolumesResponse',
     'NameValuePairResponse',
     'NodeSetupResponse',
@@ -51,7 +49,6 @@ __all__ = [
     'ResourceIdResponse',
     'ScaleSettingsResponse',
     'SetupTaskResponse',
-    'SshConfigurationResponse',
     'TensorFlowSettingsResponse',
     'UnmanagedFileSystemReferenceResponse',
     'UserAccountSettingsResponse',
@@ -988,87 +985,6 @@ class CustomToolkitSettingsResponse(dict):
 
 
 @pulumi.output_type
-class DataDisksResponse(dict):
-    """
-    Data disks settings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "diskCount":
-            suggest = "disk_count"
-        elif key == "diskSizeInGB":
-            suggest = "disk_size_in_gb"
-        elif key == "storageAccountType":
-            suggest = "storage_account_type"
-        elif key == "cachingType":
-            suggest = "caching_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataDisksResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataDisksResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataDisksResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 disk_count: int,
-                 disk_size_in_gb: int,
-                 storage_account_type: str,
-                 caching_type: Optional[str] = None):
-        """
-        Data disks settings.
-        :param int disk_count: Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-        :param int disk_size_in_gb: Disk size in GB for the blank data disks.
-        :param str storage_account_type: Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-        :param str caching_type: Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-        """
-        pulumi.set(__self__, "disk_count", disk_count)
-        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
-        if caching_type is None:
-            caching_type = 'none'
-        if caching_type is not None:
-            pulumi.set(__self__, "caching_type", caching_type)
-
-    @property
-    @pulumi.getter(name="diskCount")
-    def disk_count(self) -> int:
-        """
-        Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-        """
-        return pulumi.get(self, "disk_count")
-
-    @property
-    @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> int:
-        """
-        Disk size in GB for the blank data disks.
-        """
-        return pulumi.get(self, "disk_size_in_gb")
-
-    @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> str:
-        """
-        Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @property
-    @pulumi.getter(name="cachingType")
-    def caching_type(self) -> Optional[str]:
-        """
-        Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-        """
-        return pulumi.get(self, "caching_type")
-
-
-@pulumi.output_type
 class EnvironmentVariableResponse(dict):
     """
     An environment variable definition.
@@ -1839,74 +1755,6 @@ class ManualScaleSettingsResponse(dict):
 
 
 @pulumi.output_type
-class MountSettingsResponse(dict):
-    """
-    File Server mount Information.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fileServerInternalIP":
-            suggest = "file_server_internal_ip"
-        elif key == "fileServerPublicIP":
-            suggest = "file_server_public_ip"
-        elif key == "mountPoint":
-            suggest = "mount_point"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MountSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MountSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MountSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 file_server_internal_ip: Optional[str] = None,
-                 file_server_public_ip: Optional[str] = None,
-                 mount_point: Optional[str] = None):
-        """
-        File Server mount Information.
-        :param str file_server_internal_ip: Internal IP address of the File Server which can be used to access the File Server from within the subnet.
-        :param str file_server_public_ip: Public IP address of the File Server which can be used to SSH to the node from outside of the subnet.
-        :param str mount_point: Path where the data disks are mounted on the File Server.
-        """
-        if file_server_internal_ip is not None:
-            pulumi.set(__self__, "file_server_internal_ip", file_server_internal_ip)
-        if file_server_public_ip is not None:
-            pulumi.set(__self__, "file_server_public_ip", file_server_public_ip)
-        if mount_point is not None:
-            pulumi.set(__self__, "mount_point", mount_point)
-
-    @property
-    @pulumi.getter(name="fileServerInternalIP")
-    def file_server_internal_ip(self) -> Optional[str]:
-        """
-        Internal IP address of the File Server which can be used to access the File Server from within the subnet.
-        """
-        return pulumi.get(self, "file_server_internal_ip")
-
-    @property
-    @pulumi.getter(name="fileServerPublicIP")
-    def file_server_public_ip(self) -> Optional[str]:
-        """
-        Public IP address of the File Server which can be used to SSH to the node from outside of the subnet.
-        """
-        return pulumi.get(self, "file_server_public_ip")
-
-    @property
-    @pulumi.getter(name="mountPoint")
-    def mount_point(self) -> Optional[str]:
-        """
-        Path where the data disks are mounted on the File Server.
-        """
-        return pulumi.get(self, "mount_point")
-
-
-@pulumi.output_type
 class MountVolumesResponse(dict):
     """
     Details of volumes to mount on the cluster.
@@ -2650,59 +2498,6 @@ class SetupTaskResponse(dict):
         A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
         """
         return pulumi.get(self, "secrets")
-
-
-@pulumi.output_type
-class SshConfigurationResponse(dict):
-    """
-    SSH configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userAccountSettings":
-            suggest = "user_account_settings"
-        elif key == "publicIPsToAllow":
-            suggest = "public_ips_to_allow"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SshConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SshConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SshConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 user_account_settings: 'outputs.UserAccountSettingsResponse',
-                 public_ips_to_allow: Optional[Sequence[str]] = None):
-        """
-        SSH configuration.
-        :param 'UserAccountSettingsResponse' user_account_settings: Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-        :param Sequence[str] public_ips_to_allow: List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-        """
-        pulumi.set(__self__, "user_account_settings", user_account_settings)
-        if public_ips_to_allow is not None:
-            pulumi.set(__self__, "public_ips_to_allow", public_ips_to_allow)
-
-    @property
-    @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> 'outputs.UserAccountSettingsResponse':
-        """
-        Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-        """
-        return pulumi.get(self, "user_account_settings")
-
-    @property
-    @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[Sequence[str]]:
-        """
-        List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-        """
-        return pulumi.get(self, "public_ips_to_allow")
 
 
 @pulumi.output_type

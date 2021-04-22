@@ -7438,7 +7438,7 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutp
 type KeyVaultContractCreateProperties struct {
 	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
 	IdentityClientId *string `pulumi:"identityClientId"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
 }
 
@@ -7457,7 +7457,7 @@ type KeyVaultContractCreatePropertiesInput interface {
 type KeyVaultContractCreatePropertiesArgs struct {
 	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
 }
 
@@ -7544,7 +7544,7 @@ func (o KeyVaultContractCreatePropertiesOutput) IdentityClientId() pulumi.String
 	return o.ApplyT(func(v KeyVaultContractCreateProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
 
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 func (o KeyVaultContractCreatePropertiesOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContractCreateProperties) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -7577,7 +7577,7 @@ func (o KeyVaultContractCreatePropertiesPtrOutput) IdentityClientId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 func (o KeyVaultContractCreatePropertiesPtrOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultContractCreateProperties) *string {
 		if v == nil {
@@ -7593,7 +7593,7 @@ type KeyVaultContractPropertiesResponse struct {
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Last time sync and refresh status of secret from key vault.
 	LastStatus *KeyVaultLastAccessStatusContractPropertiesResponse `pulumi:"lastStatus"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
 }
 
@@ -7614,7 +7614,7 @@ type KeyVaultContractPropertiesResponseArgs struct {
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// Last time sync and refresh status of secret from key vault.
 	LastStatus KeyVaultLastAccessStatusContractPropertiesResponsePtrInput `pulumi:"lastStatus"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
 }
 
@@ -7708,7 +7708,7 @@ func (o KeyVaultContractPropertiesResponseOutput) LastStatus() KeyVaultLastAcces
 	}).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
 }
 
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 func (o KeyVaultContractPropertiesResponseOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -7751,7 +7751,7 @@ func (o KeyVaultContractPropertiesResponsePtrOutput) LastStatus() KeyVaultLastAc
 	}).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
 }
 
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 func (o KeyVaultContractPropertiesResponsePtrOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) *string {
 		if v == nil {

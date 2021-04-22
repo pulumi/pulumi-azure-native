@@ -20,7 +20,10 @@ class GetAccessReviewScheduleDefinitionByIdResult:
     """
     Access Review Schedule Definition.
     """
-    def __init__(__self__, auto_apply_decisions_enabled=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, end_date=None, id=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, recommendations_enabled=None, reminder_notifications_enabled=None, resource_id=None, reviewers=None, reviewers_type=None, role_definition_id=None, start_date=None, status=None, type=None, user_principal_name=None):
+    def __init__(__self__, assignment_state=None, auto_apply_decisions_enabled=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, end_date=None, id=None, inactive_duration=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, recommendations_enabled=None, reminder_notifications_enabled=None, resource_id=None, reviewers=None, reviewers_type=None, role_definition_id=None, start_date=None, status=None, type=None, user_principal_name=None):
+        if assignment_state and not isinstance(assignment_state, str):
+            raise TypeError("Expected argument 'assignment_state' to be a str")
+        pulumi.set(__self__, "assignment_state", assignment_state)
         if auto_apply_decisions_enabled and not isinstance(auto_apply_decisions_enabled, bool):
             raise TypeError("Expected argument 'auto_apply_decisions_enabled' to be a bool")
         pulumi.set(__self__, "auto_apply_decisions_enabled", auto_apply_decisions_enabled)
@@ -48,6 +51,9 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if inactive_duration and not isinstance(inactive_duration, str):
+            raise TypeError("Expected argument 'inactive_duration' to be a str")
+        pulumi.set(__self__, "inactive_duration", inactive_duration)
         if instance_duration_in_days and not isinstance(instance_duration_in_days, int):
             raise TypeError("Expected argument 'instance_duration_in_days' to be a int")
         pulumi.set(__self__, "instance_duration_in_days", instance_duration_in_days)
@@ -108,6 +114,14 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         if user_principal_name and not isinstance(user_principal_name, str):
             raise TypeError("Expected argument 'user_principal_name' to be a str")
         pulumi.set(__self__, "user_principal_name", user_principal_name)
+
+    @property
+    @pulumi.getter(name="assignmentState")
+    def assignment_state(self) -> str:
+        """
+        The role assignment state eligible/active to review
+        """
+        return pulumi.get(self, "assignment_state")
 
     @property
     @pulumi.getter(name="autoApplyDecisionsEnabled")
@@ -180,6 +194,14 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         The access review schedule definition id.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inactiveDuration")
+    def inactive_duration(self) -> Optional[str]:
+        """
+        Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        return pulumi.get(self, "inactive_duration")
 
     @property
     @pulumi.getter(name="instanceDurationInDays")
@@ -348,6 +370,7 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
         if False:
             yield self
         return GetAccessReviewScheduleDefinitionByIdResult(
+            assignment_state=self.assignment_state,
             auto_apply_decisions_enabled=self.auto_apply_decisions_enabled,
             backup_reviewers=self.backup_reviewers,
             default_decision=self.default_decision,
@@ -357,6 +380,7 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
             display_name=self.display_name,
             end_date=self.end_date,
             id=self.id,
+            inactive_duration=self.inactive_duration,
             instance_duration_in_days=self.instance_duration_in_days,
             instances=self.instances,
             interval=self.interval,
@@ -397,6 +421,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getAccessReviewScheduleDefinitionById', __args__, opts=opts, typ=GetAccessReviewScheduleDefinitionByIdResult).value
 
     return AwaitableGetAccessReviewScheduleDefinitionByIdResult(
+        assignment_state=__ret__.assignment_state,
         auto_apply_decisions_enabled=__ret__.auto_apply_decisions_enabled,
         backup_reviewers=__ret__.backup_reviewers,
         default_decision=__ret__.default_decision,
@@ -406,6 +431,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         display_name=__ret__.display_name,
         end_date=__ret__.end_date,
         id=__ret__.id,
+        inactive_duration=__ret__.inactive_duration,
         instance_duration_in_days=__ret__.instance_duration_in_days,
         instances=__ret__.instances,
         interval=__ret__.interval,

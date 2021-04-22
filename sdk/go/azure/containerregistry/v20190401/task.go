@@ -203,7 +203,7 @@ type taskArgs struct {
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
-	Step TaskStepProperties `pulumi:"step"`
+	Step interface{} `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the container registry task.
@@ -233,7 +233,7 @@ type TaskArgs struct {
 	// The current status of task.
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
-	Step TaskStepPropertiesInput
+	Step pulumi.Input
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the container registry task.

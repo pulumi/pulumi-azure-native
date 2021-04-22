@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Insights.V20190301.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool UseCommonAlertSchema;
+        public readonly bool? UseCommonAlertSchema;
 
         [OutputConstructor]
         private ArmRoleReceiverResponse(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Insights.V20190301.Outputs
 
             string roleId,
 
-            bool useCommonAlertSchema)
+            bool? useCommonAlertSchema)
         {
             Name = name;
             RoleId = roleId;

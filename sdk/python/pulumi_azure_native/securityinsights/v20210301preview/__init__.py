@@ -5,7 +5,12 @@
 # Export this package's modules as members:
 from ._enums import *
 from .get_product_setting import *
+from .get_watchlist import *
+from .get_watchlist_item import *
 from .product_setting import *
+from .watchlist import *
+from .watchlist_item import *
+from ._inputs import *
 from . import outputs
 
 def _register_module():
@@ -22,6 +27,10 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:securityinsights/v20210301preview:ProductSetting":
                 return ProductSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:securityinsights/v20210301preview:Watchlist":
+                return Watchlist(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:securityinsights/v20210301preview:WatchlistItem":
+                return WatchlistItem(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

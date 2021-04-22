@@ -12,3 +12,13 @@ export const SettingKind = {
  * The kind of the setting
  */
 export type SettingKind = (typeof SettingKind)[keyof typeof SettingKind];
+
+export const Source = {
+    Local_file: "Local file",
+    Remote_storage: "Remote storage",
+} as const;
+
+/**
+ * The source of the watchlist
+ */
+export type Source = (typeof Source)[keyof typeof Source];

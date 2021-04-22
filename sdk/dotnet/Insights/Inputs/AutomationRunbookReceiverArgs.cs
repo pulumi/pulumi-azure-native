@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Insights.Inputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        [Input("useCommonAlertSchema", required: true)]
-        public Input<bool> UseCommonAlertSchema { get; set; } = null!;
+        [Input("useCommonAlertSchema")]
+        public Input<bool>? UseCommonAlertSchema { get; set; }
 
         /// <summary>
         /// The resource id for webhook linked to this runbook.
@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
 
         public AutomationRunbookReceiverArgs()
         {
+            UseCommonAlertSchema = false;
         }
     }
 }

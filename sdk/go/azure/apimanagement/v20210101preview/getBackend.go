@@ -42,7 +42,7 @@ type LookupBackendResult struct {
 	Protocol string `pulumi:"protocol"`
 	// Backend Proxy Contract Properties
 	Proxy *BackendProxyContractResponse `pulumi:"proxy"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId *string `pulumi:"resourceId"`
 	// Backend Title.
 	Title *string `pulumi:"title"`

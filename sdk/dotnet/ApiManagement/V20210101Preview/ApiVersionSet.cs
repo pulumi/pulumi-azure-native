@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
     /// <summary>
-    /// Api Version Set Contract details.
+    /// API Version Set Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:ApiVersionSet")]
     public partial class ApiVersionSet : Pulumi.CustomResource

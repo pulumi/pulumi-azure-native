@@ -50,7 +50,7 @@ export class Organization extends pulumi.CustomResource {
     /**
      * Confluent offer detail
      */
-    public readonly offerDetail!: pulumi.Output<outputs.confluent.v20210301preview.OfferDetailResponse | undefined>;
+    public readonly offerDetail!: pulumi.Output<outputs.confluent.v20210301preview.OfferDetailResponse>;
     /**
      * Id of the Confluent organization.
      */
@@ -78,7 +78,7 @@ export class Organization extends pulumi.CustomResource {
     /**
      * Subscriber detail
      */
-    public readonly userDetail!: pulumi.Output<outputs.confluent.v20210301preview.UserDetailResponse | undefined>;
+    public readonly userDetail!: pulumi.Output<outputs.confluent.v20210301preview.UserDetailResponse>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -91,8 +91,14 @@ export class Organization extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.offerDetail === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'offerDetail'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.userDetail === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'userDetail'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["offerDetail"] = args ? args.offerDetail : undefined;
@@ -140,7 +146,7 @@ export interface OrganizationArgs {
     /**
      * Confluent offer detail
      */
-    readonly offerDetail?: pulumi.Input<inputs.confluent.v20210301preview.OfferDetailArgs>;
+    readonly offerDetail: pulumi.Input<inputs.confluent.v20210301preview.OfferDetailArgs>;
     /**
      * Organization resource name
      */
@@ -156,5 +162,5 @@ export interface OrganizationArgs {
     /**
      * Subscriber detail
      */
-    readonly userDetail?: pulumi.Input<inputs.confluent.v20210301preview.UserDetailArgs>;
+    readonly userDetail: pulumi.Input<inputs.confluent.v20210301preview.UserDetailArgs>;
 }

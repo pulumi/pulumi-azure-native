@@ -118,7 +118,7 @@ class GetBackendResult:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
-        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         """
         return pulumi.get(self, "resource_id")
 

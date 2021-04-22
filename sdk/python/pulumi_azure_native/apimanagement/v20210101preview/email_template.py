@@ -287,7 +287,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
         """
-        Whether the template is the default template provided by Api Management or has been edited.
+        Whether the template is the default template provided by API Management or has been edited.
         """
         return pulumi.get(self, "is_default")
 

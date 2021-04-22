@@ -13,6 +13,7 @@ __all__ = [
     'SourceControlType',
     'SourceRegistryLoginMode',
     'SourceTriggerEvent',
+    'StepType',
     'TaskStatus',
     'TokenType',
     'TriggerStatus',
@@ -85,6 +86,15 @@ class SourceRegistryLoginMode(str, Enum):
 class SourceTriggerEvent(str, Enum):
     COMMIT = "commit"
     PULLREQUEST = "pullrequest"
+
+
+class StepType(str, Enum):
+    """
+    The type of the step.
+    """
+    DOCKER = "Docker"
+    FILE_TASK = "FileTask"
+    ENCODED_TASK = "EncodedTask"
 
 
 class TaskStatus(str, Enum):

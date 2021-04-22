@@ -22,7 +22,7 @@ type Organization struct {
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Confluent offer detail
-	OfferDetail OfferDetailResponsePtrOutput `pulumi:"offerDetail"`
+	OfferDetail OfferDetailResponseOutput `pulumi:"offerDetail"`
 	// Id of the Confluent organization.
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// Provision states for confluent RP
@@ -36,7 +36,7 @@ type Organization struct {
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Subscriber detail
-	UserDetail UserDetailResponsePtrOutput `pulumi:"userDetail"`
+	UserDetail UserDetailResponseOutput `pulumi:"userDetail"`
 }
 
 // NewOrganization registers a new resource with the given unique name, arguments, and options.
@@ -46,8 +46,14 @@ func NewOrganization(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.OfferDetail == nil {
+		return nil, errors.New("invalid value for required argument 'OfferDetail'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UserDetail == nil {
+		return nil, errors.New("invalid value for required argument 'UserDetail'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -152,7 +158,7 @@ type organizationArgs struct {
 	// Location of Organization resource
 	Location *string `pulumi:"location"`
 	// Confluent offer detail
-	OfferDetail *OfferDetail `pulumi:"offerDetail"`
+	OfferDetail OfferDetail `pulumi:"offerDetail"`
 	// Organization resource name
 	OrganizationName *string `pulumi:"organizationName"`
 	// Resource group name
@@ -160,7 +166,7 @@ type organizationArgs struct {
 	// Organization resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Subscriber detail
-	UserDetail *UserDetail `pulumi:"userDetail"`
+	UserDetail UserDetail `pulumi:"userDetail"`
 }
 
 // The set of arguments for constructing a Organization resource.
@@ -168,7 +174,7 @@ type OrganizationArgs struct {
 	// Location of Organization resource
 	Location pulumi.StringPtrInput
 	// Confluent offer detail
-	OfferDetail OfferDetailPtrInput
+	OfferDetail OfferDetailInput
 	// Organization resource name
 	OrganizationName pulumi.StringPtrInput
 	// Resource group name
@@ -176,7 +182,7 @@ type OrganizationArgs struct {
 	// Organization resource tags
 	Tags pulumi.StringMapInput
 	// Subscriber detail
-	UserDetail UserDetailPtrInput
+	UserDetail UserDetailInput
 }
 
 func (OrganizationArgs) ElementType() reflect.Type {

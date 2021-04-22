@@ -5,21 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'CachingType',
     'DeallocationOption',
     'JobPriority',
-    'StorageAccountType',
     'VmPriority',
 ]
-
-
-class CachingType(str, Enum):
-    """
-    Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-    """
-    NONE = "none"
-    READONLY = "readonly"
-    READWRITE = "readwrite"
 
 
 class DeallocationOption(str, Enum):
@@ -38,14 +27,6 @@ class JobPriority(str, Enum):
     LOW = "low"
     NORMAL = "normal"
     HIGH = "high"
-
-
-class StorageAccountType(str, Enum):
-    """
-    Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-    """
-    STANDARD_LRS = "Standard_LRS"
-    PREMIUM_LRS = "Premium_LRS"
 
 
 class VmPriority(str, Enum):

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api details.
+// API details.
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	var rv LookupApiResult
 	err := ctx.Invoke("azure-native:apimanagement/v20210101preview:getApi", args, &rv, opts...)
@@ -26,17 +26,17 @@ type LookupApiArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// Api details.
+// API details.
 type LookupApiResult struct {
-	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	// Describes the revision of the API. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
-	// Description of the Api Revision.
+	// Description of the API Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
 	// Type of API.
 	ApiType *string `pulumi:"apiType"`
-	// Indicates the Version identifier of the API if the API is versioned
+	// Indicates the version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
-	// Description of the Api Version.
+	// Description of the API Version.
 	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
 	// Version set details
 	ApiVersionSet *ApiVersionSetContractDetailsResponse `pulumi:"apiVersionSet"`

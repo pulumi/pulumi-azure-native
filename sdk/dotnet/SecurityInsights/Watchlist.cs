@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
-    /// API Version: 2019-01-01-preview.
+    /// API Version: 2021-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Watchlist")]
     public partial class Watchlist : Pulumi.CustomResource
@@ -65,6 +65,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<bool?> IsDeleted { get; private set; } = null!;
 
         /// <summary>
+        /// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+        /// </summary>
+        [Output("itemsSearchKey")]
+        public Output<string> ItemsSearchKey { get; private set; } = null!;
+
+        /// <summary>
         /// List of labels relevant to this watchlist
         /// </summary>
         [Output("labels")]
@@ -99,6 +105,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The tenantId where the watchlist belongs to
@@ -182,6 +194,8 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Watchlist"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Watchlist"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:Watchlist"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Watchlist"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:Watchlist"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -253,6 +267,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         [Input("isDeleted")]
         public Input<bool>? IsDeleted { get; set; }
 
+        /// <summary>
+        /// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+        /// </summary>
+        [Input("itemsSearchKey", required: true)]
+        public Input<string> ItemsSearchKey { get; set; } = null!;
+
         [Input("labels")]
         private InputList<string>? _labels;
 
@@ -290,7 +310,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? RawContent { get; set; }
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

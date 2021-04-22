@@ -647,7 +647,7 @@ class ArmRoleReceiverArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  role_id: pulumi.Input[str],
-                 use_common_alert_schema: pulumi.Input[bool]):
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         An arm role receiver.
         :param pulumi.Input[str] name: The name of the arm role receiver. Names must be unique across all receivers within an action group.
@@ -656,7 +656,10 @@ class ArmRoleReceiverArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_id", role_id)
-        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter
@@ -684,14 +687,14 @@ class ArmRoleReceiverArgs:
 
     @property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[bool]:
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[bool]):
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -701,29 +704,32 @@ class AutomationRunbookReceiverArgs:
                  automation_account_id: pulumi.Input[str],
                  is_global_runbook: pulumi.Input[bool],
                  runbook_name: pulumi.Input[str],
-                 use_common_alert_schema: pulumi.Input[bool],
                  webhook_resource_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 service_uri: Optional[pulumi.Input[str]] = None):
+                 service_uri: Optional[pulumi.Input[str]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         The Azure Automation Runbook notification receiver.
         :param pulumi.Input[str] automation_account_id: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
         :param pulumi.Input[bool] is_global_runbook: Indicates whether this instance is global runbook.
         :param pulumi.Input[str] runbook_name: The name for this runbook.
-        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         :param pulumi.Input[str] webhook_resource_id: The resource id for webhook linked to this runbook.
         :param pulumi.Input[str] name: Indicates name of the webhook.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "automation_account_id", automation_account_id)
         pulumi.set(__self__, "is_global_runbook", is_global_runbook)
         pulumi.set(__self__, "runbook_name", runbook_name)
-        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
         pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if service_uri is not None:
             pulumi.set(__self__, "service_uri", service_uri)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -762,18 +768,6 @@ class AutomationRunbookReceiverArgs:
         pulumi.set(self, "runbook_name", value)
 
     @property
-    @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[bool]:
-        """
-        Indicates whether to use common alert schema.
-        """
-        return pulumi.get(self, "use_common_alert_schema")
-
-    @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "use_common_alert_schema", value)
-
-    @property
     @pulumi.getter(name="webhookResourceId")
     def webhook_resource_id(self) -> pulumi.Input[str]:
         """
@@ -808,6 +802,18 @@ class AutomationRunbookReceiverArgs:
     @service_uri.setter
     def service_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_uri", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
 
 
 @pulumi.input_type
@@ -1051,7 +1057,7 @@ class AzureFunctionReceiverArgs:
                  function_name: pulumi.Input[str],
                  http_trigger_url: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 use_common_alert_schema: pulumi.Input[bool]):
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         An azure function receiver.
         :param pulumi.Input[str] function_app_resource_id: The azure resource id of the function app.
@@ -1064,7 +1070,10 @@ class AzureFunctionReceiverArgs:
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "http_trigger_url", http_trigger_url)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="functionAppResourceId")
@@ -1116,14 +1125,14 @@ class AzureFunctionReceiverArgs:
 
     @property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[bool]:
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[bool]):
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -1776,7 +1785,7 @@ class EmailReceiverArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 use_common_alert_schema: pulumi.Input[bool]):
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         An email receiver.
         :param pulumi.Input[str] email_address: The email address of this receiver.
@@ -1785,7 +1794,10 @@ class EmailReceiverArgs:
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -1813,14 +1825,14 @@ class EmailReceiverArgs:
 
     @property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[bool]:
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[bool]):
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -2380,7 +2392,7 @@ class LogicAppReceiverArgs:
                  callback_url: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
-                 use_common_alert_schema: pulumi.Input[bool]):
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         A logic app receiver.
         :param pulumi.Input[str] callback_url: The callback url where http request sent to.
@@ -2391,7 +2403,10 @@ class LogicAppReceiverArgs:
         pulumi.set(__self__, "callback_url", callback_url)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter(name="callbackUrl")
@@ -2431,14 +2446,14 @@ class LogicAppReceiverArgs:
 
     @property
     @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[bool]:
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
     @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[bool]):
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
 
@@ -4863,24 +4878,23 @@ class WebhookReceiverArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  service_uri: pulumi.Input[str],
-                 use_common_alert_schema: pulumi.Input[bool],
                  identifier_uri: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 use_aad_auth: Optional[pulumi.Input[bool]] = None):
+                 use_aad_auth: Optional[pulumi.Input[bool]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         A webhook receiver.
         :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique across all receivers within an action group.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
-        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         :param pulumi.Input[str] identifier_uri: Indicates the identifier uri for aad auth.
         :param pulumi.Input[str] object_id: Indicates the webhook app object Id for aad auth.
         :param pulumi.Input[str] tenant_id: Indicates the tenant id for aad auth.
         :param pulumi.Input[bool] use_aad_auth: Indicates whether or not use AAD authentication.
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_uri", service_uri)
-        pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
         if identifier_uri is not None:
             pulumi.set(__self__, "identifier_uri", identifier_uri)
         if object_id is not None:
@@ -4891,6 +4905,10 @@ class WebhookReceiverArgs:
             use_aad_auth = False
         if use_aad_auth is not None:
             pulumi.set(__self__, "use_aad_auth", use_aad_auth)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
 
     @property
     @pulumi.getter
@@ -4915,18 +4933,6 @@ class WebhookReceiverArgs:
     @service_uri.setter
     def service_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_uri", value)
-
-    @property
-    @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> pulumi.Input[bool]:
-        """
-        Indicates whether to use common alert schema.
-        """
-        return pulumi.get(self, "use_common_alert_schema")
-
-    @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "use_common_alert_schema", value)
 
     @property
     @pulumi.getter(name="identifierUri")
@@ -4975,6 +4981,18 @@ class WebhookReceiverArgs:
     @use_aad_auth.setter
     def use_aad_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_aad_auth", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
 
 
 @pulumi.input_type

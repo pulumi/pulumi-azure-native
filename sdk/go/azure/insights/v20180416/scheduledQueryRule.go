@@ -17,6 +17,8 @@ type ScheduledQueryRule struct {
 
 	// Action needs to be taken on rule execution.
 	Action pulumi.AnyOutput `pulumi:"action"`
+	// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
 	// The api-version used when creating this alert rule
 	CreatedWithApiVersion pulumi.StringOutput `pulumi:"createdWithApiVersion"`
 	// The description of the Log Search rule.
@@ -64,6 +66,9 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
+	}
+	if args.AutoMitigate == nil {
+		args.AutoMitigate = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -113,6 +118,8 @@ func GetScheduledQueryRule(ctx *pulumi.Context,
 type scheduledQueryRuleState struct {
 	// Action needs to be taken on rule execution.
 	Action interface{} `pulumi:"action"`
+	// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// The api-version used when creating this alert rule
 	CreatedWithApiVersion *string `pulumi:"createdWithApiVersion"`
 	// The description of the Log Search rule.
@@ -148,6 +155,8 @@ type scheduledQueryRuleState struct {
 type ScheduledQueryRuleState struct {
 	// Action needs to be taken on rule execution.
 	Action pulumi.Input
+	// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+	AutoMitigate pulumi.BoolPtrInput
 	// The api-version used when creating this alert rule
 	CreatedWithApiVersion pulumi.StringPtrInput
 	// The description of the Log Search rule.
@@ -187,6 +196,8 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 type scheduledQueryRuleArgs struct {
 	// Action needs to be taken on rule execution.
 	Action interface{} `pulumi:"action"`
+	// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The display name of the alert rule
@@ -211,6 +222,8 @@ type scheduledQueryRuleArgs struct {
 type ScheduledQueryRuleArgs struct {
 	// Action needs to be taken on rule execution.
 	Action pulumi.Input
+	// The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+	AutoMitigate pulumi.BoolPtrInput
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrInput
 	// The display name of the alert rule

@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// Confluent offer detail
         /// </summary>
         [Output("offerDetail")]
-        public Output<Outputs.OfferDetailResponse?> OfferDetail { get; private set; } = null!;
+        public Output<Outputs.OfferDetailResponse> OfferDetail { get; private set; } = null!;
 
         /// <summary>
         /// Id of the Confluent organization.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// Subscriber detail
         /// </summary>
         [Output("userDetail")]
-        public Output<Outputs.UserDetailResponse?> UserDetail { get; private set; } = null!;
+        public Output<Outputs.UserDetailResponse> UserDetail { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// <summary>
         /// Confluent offer detail
         /// </summary>
-        [Input("offerDetail")]
-        public Input<Inputs.OfferDetailArgs>? OfferDetail { get; set; }
+        [Input("offerDetail", required: true)]
+        public Input<Inputs.OfferDetailArgs> OfferDetail { get; set; } = null!;
 
         /// <summary>
         /// Organization resource name
@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview
         /// <summary>
         /// Subscriber detail
         /// </summary>
-        [Input("userDetail")]
-        public Input<Inputs.UserDetailArgs>? UserDetail { get; set; }
+        [Input("userDetail", required: true)]
+        public Input<Inputs.UserDetailArgs> UserDetail { get; set; } = null!;
 
         public OrganizationArgs()
         {

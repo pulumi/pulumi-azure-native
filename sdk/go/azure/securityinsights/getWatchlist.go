@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a Watchlist in Azure Security Insights.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pulumi.InvokeOption) (*LookupWatchlistResult, error) {
 	var rv LookupWatchlistResult
 	err := ctx.Invoke("azure-native:securityinsights:getWatchlist", args, &rv, opts...)
@@ -21,7 +21,7 @@ func LookupWatchlist(ctx *pulumi.Context, args *LookupWatchlistArgs, opts ...pul
 type LookupWatchlistArgs struct {
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Watchlist Alias
 	WatchlistAlias string `pulumi:"watchlistAlias"`
@@ -49,6 +49,8 @@ type LookupWatchlistResult struct {
 	Id string `pulumi:"id"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
+	// The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
+	ItemsSearchKey string `pulumi:"itemsSearchKey"`
 	// List of labels relevant to this watchlist
 	Labels []string `pulumi:"labels"`
 	// Azure resource name
@@ -61,6 +63,8 @@ type LookupWatchlistResult struct {
 	RawContent *string `pulumi:"rawContent"`
 	// The source of the watchlist
 	Source string `pulumi:"source"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tenantId where the watchlist belongs to
 	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type

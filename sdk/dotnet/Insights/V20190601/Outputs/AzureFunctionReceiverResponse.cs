@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Insights.V20190601.Outputs
         /// <summary>
         /// Indicates whether to use common alert schema.
         /// </summary>
-        public readonly bool UseCommonAlertSchema;
+        public readonly bool? UseCommonAlertSchema;
 
         [OutputConstructor]
         private AzureFunctionReceiverResponse(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Insights.V20190601.Outputs
 
             string name,
 
-            bool useCommonAlertSchema)
+            bool? useCommonAlertSchema)
         {
             FunctionAppResourceId = functionAppResourceId;
             FunctionName = functionName;

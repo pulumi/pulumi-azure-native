@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Api details.
+ * API details.
  */
 export class GatewayApiEntityTag extends pulumi.CustomResource {
     /**
@@ -36,11 +36,11 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
     }
 
     /**
-     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
     public /*out*/ readonly apiRevision!: pulumi.Output<string | undefined>;
     /**
-     * Description of the Api Revision.
+     * Description of the API Revision.
      */
     public /*out*/ readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -48,11 +48,11 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiType!: pulumi.Output<string | undefined>;
     /**
-     * Indicates the Version identifier of the API if the API is versioned
+     * Indicates the version identifier of the API if the API is versioned
      */
     public /*out*/ readonly apiVersion!: pulumi.Output<string | undefined>;
     /**
-     * Description of the Api Version.
+     * Description of the API Version.
      */
     public /*out*/ readonly apiVersionDescription!: pulumi.Output<string | undefined>;
     /**

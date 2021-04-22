@@ -112,9 +112,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    public readonly virtualNetworkExtendedLocationResourceId!: pulumi.Output<string | undefined>;
+    public readonly vNetExtendedLocationResourceId!: pulumi.Output<string | undefined>;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
@@ -157,7 +157,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkExtendedLocationResourceId"] = args ? args.virtualNetworkExtendedLocationResourceId : undefined;
+            inputs["vNetExtendedLocationResourceId"] = args ? args.vNetExtendedLocationResourceId : undefined;
             inputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnGatewayGeneration"] = args ? args.vpnGatewayGeneration : undefined;
@@ -188,7 +188,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkExtendedLocationResourceId"] = undefined /*out*/;
+            inputs["vNetExtendedLocationResourceId"] = undefined /*out*/;
             inputs["vpnClientConfiguration"] = undefined /*out*/;
             inputs["vpnGatewayGeneration"] = undefined /*out*/;
             inputs["vpnType"] = undefined /*out*/;
@@ -267,9 +267,9 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    readonly virtualNetworkExtendedLocationResourceId?: pulumi.Input<string>;
+    readonly vNetExtendedLocationResourceId?: pulumi.Input<string>;
     /**
      * The name of the virtual network gateway.
      */

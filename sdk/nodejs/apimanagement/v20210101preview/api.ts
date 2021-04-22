@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Api details.
+ * API details.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -36,11 +36,11 @@ export class Api extends pulumi.CustomResource {
     }
 
     /**
-     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
     public readonly apiRevision!: pulumi.Output<string | undefined>;
     /**
-     * Description of the Api Revision.
+     * Description of the API Revision.
      */
     public readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -48,11 +48,11 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly apiType!: pulumi.Output<string | undefined>;
     /**
-     * Indicates the Version identifier of the API if the API is versioned
+     * Indicates the version identifier of the API if the API is versioned
      */
     public readonly apiVersion!: pulumi.Output<string | undefined>;
     /**
-     * Description of the Api Version.
+     * Description of the API Version.
      */
     public readonly apiVersionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -221,11 +221,11 @@ export interface ApiArgs {
      */
     readonly apiId?: pulumi.Input<string>;
     /**
-     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
     readonly apiRevision?: pulumi.Input<string>;
     /**
-     * Description of the Api Revision.
+     * Description of the API Revision.
      */
     readonly apiRevisionDescription?: pulumi.Input<string>;
     /**
@@ -233,11 +233,11 @@ export interface ApiArgs {
      */
     readonly apiType?: pulumi.Input<string | enums.apimanagement.v20210101preview.ApiType>;
     /**
-     * Indicates the Version identifier of the API if the API is versioned
+     * Indicates the version identifier of the API if the API is versioned
      */
     readonly apiVersion?: pulumi.Input<string>;
     /**
-     * Description of the Api Version.
+     * Description of the API Version.
      */
     readonly apiVersionDescription?: pulumi.Input<string>;
     /**
@@ -297,7 +297,7 @@ export interface ApiArgs {
      */
     readonly serviceUrl?: pulumi.Input<string>;
     /**
-     * Type of Api to create. 
+     * Type of API to create. 
      *  * `http` creates a REST API 
      *  * `soap` creates a SOAP pass-through API  
      *  * `websocket` creates websocket API.

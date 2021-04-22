@@ -557,7 +557,7 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights:Watchlist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Watchlist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watchlist, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:Watchlist',

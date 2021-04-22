@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Api Operation details.
+ * API Operation details.
  */
 export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationResult> {
     if (!opts) {
@@ -44,7 +44,7 @@ export interface GetApiOperationArgs {
 }
 
 /**
- * Api Operation details.
+ * API Operation details.
  */
 export interface GetApiOperationResult {
     /**

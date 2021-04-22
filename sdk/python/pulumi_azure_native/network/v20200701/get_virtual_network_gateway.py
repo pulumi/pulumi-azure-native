@@ -20,7 +20,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, virtual_network_extended_location_resource_id=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
@@ -81,9 +81,9 @@ class GetVirtualNetworkGatewayResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_network_extended_location_resource_id and not isinstance(virtual_network_extended_location_resource_id, str):
-            raise TypeError("Expected argument 'virtual_network_extended_location_resource_id' to be a str")
-        pulumi.set(__self__, "virtual_network_extended_location_resource_id", virtual_network_extended_location_resource_id)
+        if v_net_extended_location_resource_id and not isinstance(v_net_extended_location_resource_id, str):
+            raise TypeError("Expected argument 'v_net_extended_location_resource_id' to be a str")
+        pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
         if vpn_client_configuration and not isinstance(vpn_client_configuration, dict):
             raise TypeError("Expected argument 'vpn_client_configuration' to be a dict")
         pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
@@ -255,12 +255,12 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="virtualNetworkExtendedLocationResourceId")
-    def virtual_network_extended_location_resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="vNetExtendedLocationResourceId")
+    def v_net_extended_location_resource_id(self) -> Optional[str]:
         """
-        MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         """
-        return pulumi.get(self, "virtual_network_extended_location_resource_id")
+        return pulumi.get(self, "v_net_extended_location_resource_id")
 
     @property
     @pulumi.getter(name="vpnClientConfiguration")
@@ -313,7 +313,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             sku=self.sku,
             tags=self.tags,
             type=self.type,
-            virtual_network_extended_location_resource_id=self.virtual_network_extended_location_resource_id,
+            v_net_extended_location_resource_id=self.v_net_extended_location_resource_id,
             vpn_client_configuration=self.vpn_client_configuration,
             vpn_gateway_generation=self.vpn_gateway_generation,
             vpn_type=self.vpn_type)
@@ -359,7 +359,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
-        virtual_network_extended_location_resource_id=__ret__.virtual_network_extended_location_resource_id,
+        v_net_extended_location_resource_id=__ret__.v_net_extended_location_resource_id,
         vpn_client_configuration=__ret__.vpn_client_configuration,
         vpn_gateway_generation=__ret__.vpn_gateway_generation,
         vpn_type=__ret__.vpn_type)

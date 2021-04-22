@@ -109,7 +109,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Api details.
+        API details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +126,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  args: GatewayApiEntityTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api details.
+        API details.
 
         :param str resource_name: The name of the resource.
         :param GatewayApiEntityTagArgs args: The arguments to use to populate this resource's properties.
@@ -247,7 +247,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> pulumi.Output[Optional[str]]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -255,7 +255,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -271,7 +271,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -279,7 +279,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 

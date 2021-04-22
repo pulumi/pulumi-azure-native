@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Operation details.
+// API Operation details.
 func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationResult, error) {
 	var rv LookupApiOperationResult
 	err := ctx.Invoke("azure-native:apimanagement/v20210101preview:getApiOperation", args, &rv, opts...)
@@ -28,7 +28,7 @@ type LookupApiOperationArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// Api Operation details.
+// API Operation details.
 type LookupApiOperationResult struct {
 	// Description of the operation. May include HTML formatting tags.
 	Description *string `pulumi:"description"`

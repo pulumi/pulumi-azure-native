@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Operation details.
+// API Operation details.
 type ApiOperation struct {
 	pulumi.CustomResourceState
 

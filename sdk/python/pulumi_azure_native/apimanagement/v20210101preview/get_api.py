@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiResult:
     """
-    Api details.
+    API details.
     """
     def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, contact=None, description=None, display_name=None, id=None, is_current=None, is_online=None, license=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, terms_of_service_url=None, type=None):
         if api_revision and not isinstance(api_revision, str):
@@ -98,7 +98,7 @@ class GetApiResult:
     @pulumi.getter(name="apiRevision")
     def api_revision(self) -> Optional[str]:
         """
-        Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        Describes the revision of the API. If no value is provided, default revision 1 is created
         """
         return pulumi.get(self, "api_revision")
 
@@ -106,7 +106,7 @@ class GetApiResult:
     @pulumi.getter(name="apiRevisionDescription")
     def api_revision_description(self) -> Optional[str]:
         """
-        Description of the Api Revision.
+        Description of the API Revision.
         """
         return pulumi.get(self, "api_revision_description")
 
@@ -122,7 +122,7 @@ class GetApiResult:
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> Optional[str]:
         """
-        Indicates the Version identifier of the API if the API is versioned
+        Indicates the version identifier of the API if the API is versioned
         """
         return pulumi.get(self, "api_version")
 
@@ -130,7 +130,7 @@ class GetApiResult:
     @pulumi.getter(name="apiVersionDescription")
     def api_version_description(self) -> Optional[str]:
         """
-        Description of the Api Version.
+        Description of the API Version.
         """
         return pulumi.get(self, "api_version_description")
 
@@ -324,7 +324,7 @@ def get_api(api_id: Optional[str] = None,
             service_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
-    Api details.
+    API details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

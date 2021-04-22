@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public Output<Outputs.BackendProxyContractResponse?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+        /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

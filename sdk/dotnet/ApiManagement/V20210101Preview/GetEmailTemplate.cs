@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Whether the template is the default template provided by Api Management or has been edited.
+        /// Whether the template is the default template provided by API Management or has been edited.
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>

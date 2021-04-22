@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Version Set Contract details.
+// API Version Set Contract details.
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
 

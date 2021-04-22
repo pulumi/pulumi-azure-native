@@ -17,7 +17,7 @@ type ArmRoleReceiver struct {
 	// The arm role id.
 	RoleId string `pulumi:"roleId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // ArmRoleReceiverInput is an input type that accepts ArmRoleReceiverArgs and ArmRoleReceiverOutput values.
@@ -38,7 +38,7 @@ type ArmRoleReceiverArgs struct {
 	// The arm role id.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (ArmRoleReceiverArgs) ElementType() reflect.Type {
@@ -104,8 +104,8 @@ func (o ArmRoleReceiverOutput) RoleId() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o ArmRoleReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v ArmRoleReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o ArmRoleReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArmRoleReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type ArmRoleReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -135,7 +135,7 @@ type ArmRoleReceiverResponse struct {
 	// The arm role id.
 	RoleId string `pulumi:"roleId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // ArmRoleReceiverResponseInput is an input type that accepts ArmRoleReceiverResponseArgs and ArmRoleReceiverResponseOutput values.
@@ -156,7 +156,7 @@ type ArmRoleReceiverResponseArgs struct {
 	// The arm role id.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (ArmRoleReceiverResponseArgs) ElementType() reflect.Type {
@@ -222,8 +222,8 @@ func (o ArmRoleReceiverResponseOutput) RoleId() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o ArmRoleReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v ArmRoleReceiverResponse) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o ArmRoleReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArmRoleReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type ArmRoleReceiverResponseArrayOutput struct{ *pulumi.OutputState }
@@ -259,7 +259,7 @@ type AutomationRunbookReceiver struct {
 	// The URI where webhooks should be sent.
 	ServiceUri *string `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 	// The resource id for webhook linked to this runbook.
 	WebhookResourceId string `pulumi:"webhookResourceId"`
 }
@@ -288,7 +288,7 @@ type AutomationRunbookReceiverArgs struct {
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 	// The resource id for webhook linked to this runbook.
 	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
 }
@@ -371,8 +371,8 @@ func (o AutomationRunbookReceiverOutput) ServiceUri() pulumi.StringPtrOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o AutomationRunbookReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o AutomationRunbookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutomationRunbookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 // The resource id for webhook linked to this runbook.
@@ -413,7 +413,7 @@ type AutomationRunbookReceiverResponse struct {
 	// The URI where webhooks should be sent.
 	ServiceUri *string `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 	// The resource id for webhook linked to this runbook.
 	WebhookResourceId string `pulumi:"webhookResourceId"`
 }
@@ -442,7 +442,7 @@ type AutomationRunbookReceiverResponseArgs struct {
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 	// The resource id for webhook linked to this runbook.
 	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
 }
@@ -525,8 +525,8 @@ func (o AutomationRunbookReceiverResponseOutput) ServiceUri() pulumi.StringPtrOu
 }
 
 // Indicates whether to use common alert schema.
-func (o AutomationRunbookReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiverResponse) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o AutomationRunbookReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 // The resource id for webhook linked to this runbook.
@@ -783,7 +783,7 @@ type AzureFunctionReceiver struct {
 	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // AzureFunctionReceiverInput is an input type that accepts AzureFunctionReceiverArgs and AzureFunctionReceiverOutput values.
@@ -808,7 +808,7 @@ type AzureFunctionReceiverArgs struct {
 	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (AzureFunctionReceiverArgs) ElementType() reflect.Type {
@@ -884,8 +884,8 @@ func (o AzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o AzureFunctionReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v AzureFunctionReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o AzureFunctionReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFunctionReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type AzureFunctionReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -919,7 +919,7 @@ type AzureFunctionReceiverResponse struct {
 	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // AzureFunctionReceiverResponseInput is an input type that accepts AzureFunctionReceiverResponseArgs and AzureFunctionReceiverResponseOutput values.
@@ -944,7 +944,7 @@ type AzureFunctionReceiverResponseArgs struct {
 	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (AzureFunctionReceiverResponseArgs) ElementType() reflect.Type {
@@ -1020,8 +1020,8 @@ func (o AzureFunctionReceiverResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o AzureFunctionReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v AzureFunctionReceiverResponse) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o AzureFunctionReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFunctionReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type AzureFunctionReceiverResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1051,7 +1051,7 @@ type EmailReceiver struct {
 	// The name of the email receiver. Names must be unique across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
@@ -1072,7 +1072,7 @@ type EmailReceiverArgs struct {
 	// The name of the email receiver. Names must be unique across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (EmailReceiverArgs) ElementType() reflect.Type {
@@ -1138,8 +1138,8 @@ func (o EmailReceiverOutput) Name() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o EmailReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v EmailReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o EmailReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EmailReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type EmailReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -1171,7 +1171,7 @@ type EmailReceiverResponse struct {
 	// The receiver status of the e-mail.
 	Status string `pulumi:"status"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // EmailReceiverResponseInput is an input type that accepts EmailReceiverResponseArgs and EmailReceiverResponseOutput values.
@@ -1194,7 +1194,7 @@ type EmailReceiverResponseArgs struct {
 	// The receiver status of the e-mail.
 	Status pulumi.StringInput `pulumi:"status"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (EmailReceiverResponseArgs) ElementType() reflect.Type {
@@ -1265,8 +1265,8 @@ func (o EmailReceiverResponseOutput) Status() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o EmailReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v EmailReceiverResponse) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o EmailReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EmailReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type EmailReceiverResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1570,7 +1570,7 @@ type LogicAppReceiver struct {
 	// The azure resource id of the logic app receiver.
 	ResourceId string `pulumi:"resourceId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // LogicAppReceiverInput is an input type that accepts LogicAppReceiverArgs and LogicAppReceiverOutput values.
@@ -1593,7 +1593,7 @@ type LogicAppReceiverArgs struct {
 	// The azure resource id of the logic app receiver.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (LogicAppReceiverArgs) ElementType() reflect.Type {
@@ -1664,8 +1664,8 @@ func (o LogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o LogicAppReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v LogicAppReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o LogicAppReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogicAppReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type LogicAppReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -1697,7 +1697,7 @@ type LogicAppReceiverResponse struct {
 	// The azure resource id of the logic app receiver.
 	ResourceId string `pulumi:"resourceId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // LogicAppReceiverResponseInput is an input type that accepts LogicAppReceiverResponseArgs and LogicAppReceiverResponseOutput values.
@@ -1720,7 +1720,7 @@ type LogicAppReceiverResponseArgs struct {
 	// The azure resource id of the logic app receiver.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (LogicAppReceiverResponseArgs) ElementType() reflect.Type {
@@ -1791,8 +1791,8 @@ func (o LogicAppReceiverResponseOutput) ResourceId() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o LogicAppReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v LogicAppReceiverResponse) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o LogicAppReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogicAppReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type LogicAppReceiverResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2303,7 +2303,7 @@ type WebhookReceiver struct {
 	// The URI where webhooks should be sent.
 	ServiceUri string `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // WebhookReceiverInput is an input type that accepts WebhookReceiverArgs and WebhookReceiverOutput values.
@@ -2324,7 +2324,7 @@ type WebhookReceiverArgs struct {
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (WebhookReceiverArgs) ElementType() reflect.Type {
@@ -2390,8 +2390,8 @@ func (o WebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o WebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebhookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o WebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebhookReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type WebhookReceiverArrayOutput struct{ *pulumi.OutputState }
@@ -2421,7 +2421,7 @@ type WebhookReceiverResponse struct {
 	// The URI where webhooks should be sent.
 	ServiceUri string `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }
 
 // WebhookReceiverResponseInput is an input type that accepts WebhookReceiverResponseArgs and WebhookReceiverResponseOutput values.
@@ -2442,7 +2442,7 @@ type WebhookReceiverResponseArgs struct {
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
 func (WebhookReceiverResponseArgs) ElementType() reflect.Type {
@@ -2508,8 +2508,8 @@ func (o WebhookReceiverResponseOutput) ServiceUri() pulumi.StringOutput {
 }
 
 // Indicates whether to use common alert schema.
-func (o WebhookReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebhookReceiverResponse) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
+func (o WebhookReceiverResponseOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebhookReceiverResponse) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
 }
 
 type WebhookReceiverResponseArrayOutput struct{ *pulumi.OutputState }

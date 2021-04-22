@@ -18,26 +18,26 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Inputs
         /// <summary>
         /// Offer Id
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// Offer Plan Id
         /// </summary>
-        [Input("planId")]
-        public Input<string>? PlanId { get; set; }
+        [Input("planId", required: true)]
+        public Input<string> PlanId { get; set; } = null!;
 
         /// <summary>
         /// Offer Plan Name
         /// </summary>
-        [Input("planName")]
-        public Input<string>? PlanName { get; set; }
+        [Input("planName", required: true)]
+        public Input<string> PlanName { get; set; } = null!;
 
         /// <summary>
         /// Publisher Id
         /// </summary>
-        [Input("publisherId")]
-        public Input<string>? PublisherId { get; set; }
+        [Input("publisherId", required: true)]
+        public Input<string> PublisherId { get; set; } = null!;
 
         /// <summary>
         /// SaaS Offer Status
@@ -48,8 +48,8 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Inputs
         /// <summary>
         /// Offer Plan Term unit
         /// </summary>
-        [Input("termUnit")]
-        public Input<string>? TermUnit { get; set; }
+        [Input("termUnit", required: true)]
+        public Input<string> TermUnit { get; set; } = null!;
 
         public OfferDetailArgs()
         {

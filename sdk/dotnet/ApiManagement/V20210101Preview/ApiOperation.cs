@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
     /// <summary>
-    /// Api Operation details.
+    /// API Operation details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210101preview:ApiOperation")]
     public partial class ApiOperation : Pulumi.CustomResource

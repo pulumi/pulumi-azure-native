@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Api Version Set Contract details.
+ * API Version Set Contract details.
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface GetApiVersionSetArgs {
 }
 
 /**
- * Api Version Set Contract details.
+ * API Version Set Contract details.
  */
 export interface GetApiVersionSetResult {
     /**

@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.Network.V20200801.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         public readonly Outputs.SubResourceResponse? GatewayDefaultSite;
@@ -90,13 +94,9 @@ namespace Pulumi.AzureNative.Network.V20200801.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         /// </summary>
         public readonly string? VNetExtendedLocationResourceId;
-        /// <summary>
-        /// The extended location of type local virtual network gateway.
-        /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? VirtualNetworkExtendedLocation;
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
@@ -126,6 +126,8 @@ namespace Pulumi.AzureNative.Network.V20200801.Outputs
 
             string etag,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             Outputs.SubResourceResponse? gatewayDefaultSite,
 
             string? gatewayType,
@@ -152,8 +154,6 @@ namespace Pulumi.AzureNative.Network.V20200801.Outputs
 
             string? vNetExtendedLocationResourceId,
 
-            Outputs.ExtendedLocationResponse? virtualNetworkExtendedLocation,
-
             Outputs.VpnClientConfigurationResponse? vpnClientConfiguration,
 
             string? vpnGatewayGeneration,
@@ -167,6 +167,7 @@ namespace Pulumi.AzureNative.Network.V20200801.Outputs
             EnableDnsForwarding = enableDnsForwarding;
             EnablePrivateIpAddress = enablePrivateIpAddress;
             Etag = etag;
+            ExtendedLocation = extendedLocation;
             GatewayDefaultSite = gatewayDefaultSite;
             GatewayType = gatewayType;
             Id = id;
@@ -180,7 +181,6 @@ namespace Pulumi.AzureNative.Network.V20200801.Outputs
             Tags = tags;
             Type = type;
             VNetExtendedLocationResourceId = vNetExtendedLocationResourceId;
-            VirtualNetworkExtendedLocation = virtualNetworkExtendedLocation;
             VpnClientConfiguration = vpnClientConfiguration;
             VpnGatewayGeneration = vpnGatewayGeneration;
             VpnType = vpnType;

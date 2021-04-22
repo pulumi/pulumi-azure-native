@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Version Set Contract details.
+// API Version Set Contract details.
 func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opts ...pulumi.InvokeOption) (*LookupApiVersionSetResult, error) {
 	var rv LookupApiVersionSetResult
 	err := ctx.Invoke("azure-native:apimanagement/v20210101preview:getApiVersionSet", args, &rv, opts...)
@@ -26,7 +26,7 @@ type LookupApiVersionSetArgs struct {
 	VersionSetId string `pulumi:"versionSetId"`
 }
 
-// Api Version Set Contract details.
+// API Version Set Contract details.
 type LookupApiVersionSetResult struct {
 	// Description of API Version Set.
 	Description *string `pulumi:"description"`

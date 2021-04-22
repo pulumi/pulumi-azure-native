@@ -118,9 +118,9 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly type: string;
     /**
-     * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+     * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    readonly virtualNetworkExtendedLocationResourceId?: string;
+    readonly vNetExtendedLocationResourceId?: string;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */

@@ -44,37 +44,32 @@ class OfferDetailResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 plan_id: Optional[str] = None,
-                 plan_name: Optional[str] = None,
-                 publisher_id: Optional[str] = None,
-                 status: Optional[str] = None,
-                 term_unit: Optional[str] = None):
+                 id: str,
+                 plan_id: str,
+                 plan_name: str,
+                 publisher_id: str,
+                 term_unit: str,
+                 status: Optional[str] = None):
         """
         Confluent Offer detail
         :param str id: Offer Id
         :param str plan_id: Offer Plan Id
         :param str plan_name: Offer Plan Name
         :param str publisher_id: Publisher Id
-        :param str status: SaaS Offer Status
         :param str term_unit: Offer Plan Term unit
+        :param str status: SaaS Offer Status
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
-        if plan_name is not None:
-            pulumi.set(__self__, "plan_name", plan_name)
-        if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "plan_name", plan_name)
+        pulumi.set(__self__, "publisher_id", publisher_id)
+        pulumi.set(__self__, "term_unit", term_unit)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
         Offer Id
         """
@@ -82,7 +77,7 @@ class OfferDetailResponse(dict):
 
     @property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[str]:
+    def plan_id(self) -> str:
         """
         Offer Plan Id
         """
@@ -90,7 +85,7 @@ class OfferDetailResponse(dict):
 
     @property
     @pulumi.getter(name="planName")
-    def plan_name(self) -> Optional[str]:
+    def plan_name(self) -> str:
         """
         Offer Plan Name
         """
@@ -98,11 +93,19 @@ class OfferDetailResponse(dict):
 
     @property
     @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> Optional[str]:
+    def publisher_id(self) -> str:
         """
         Publisher Id
         """
         return pulumi.get(self, "publisher_id")
+
+    @property
+    @pulumi.getter(name="termUnit")
+    def term_unit(self) -> str:
+        """
+        Offer Plan Term unit
+        """
+        return pulumi.get(self, "term_unit")
 
     @property
     @pulumi.getter
@@ -111,14 +114,6 @@ class OfferDetailResponse(dict):
         SaaS Offer Status
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="termUnit")
-    def term_unit(self) -> Optional[str]:
-        """
-        Offer Plan Term unit
-        """
-        return pulumi.get(self, "term_unit")
 
 
 @pulumi.output_type
@@ -258,25 +253,22 @@ class UserDetailResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 email_address: Optional[str] = None,
-                 first_name: Optional[str] = None,
-                 last_name: Optional[str] = None):
+                 email_address: str,
+                 first_name: str,
+                 last_name: str):
         """
         Subscriber detail
         :param str email_address: Email address
         :param str first_name: First name
         :param str last_name: Last name
         """
-        if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
-        if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
-        if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[str]:
+    def email_address(self) -> str:
         """
         Email address
         """
@@ -284,7 +276,7 @@ class UserDetailResponse(dict):
 
     @property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[str]:
+    def first_name(self) -> str:
         """
         First name
         """
@@ -292,7 +284,7 @@ class UserDetailResponse(dict):
 
     @property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[str]:
+    def last_name(self) -> str:
         """
         Last name
         """

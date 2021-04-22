@@ -19,7 +19,7 @@ type EmailTemplate struct {
 	Body pulumi.StringOutput `pulumi:"body"`
 	// Description of the Email Template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether the template is the default template provided by Api Management or has been edited.
+	// Whether the template is the default template provided by API Management or has been edited.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -132,7 +132,7 @@ type emailTemplateState struct {
 	Body *string `pulumi:"body"`
 	// Description of the Email Template.
 	Description *string `pulumi:"description"`
-	// Whether the template is the default template provided by Api Management or has been edited.
+	// Whether the template is the default template provided by API Management or has been edited.
 	IsDefault *bool `pulumi:"isDefault"`
 	// Resource name.
 	Name *string `pulumi:"name"`
@@ -151,7 +151,7 @@ type EmailTemplateState struct {
 	Body pulumi.StringPtrInput
 	// Description of the Email Template.
 	Description pulumi.StringPtrInput
-	// Whether the template is the default template provided by Api Management or has been edited.
+	// Whether the template is the default template provided by API Management or has been edited.
 	IsDefault pulumi.BoolPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput

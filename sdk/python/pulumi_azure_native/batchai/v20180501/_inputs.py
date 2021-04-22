@@ -22,7 +22,6 @@ __all__ = [
     'ContainerSettingsArgs',
     'CustomMpiSettingsArgs',
     'CustomToolkitSettingsArgs',
-    'DataDisksArgs',
     'EnvironmentVariableArgs',
     'EnvironmentVariableWithSecretValueArgs',
     'FileServerReferenceArgs',
@@ -43,7 +42,6 @@ __all__ = [
     'ResourceIdArgs',
     'ScaleSettingsArgs',
     'SetupTaskArgs',
-    'SshConfigurationArgs',
     'TensorFlowSettingsArgs',
     'UnmanagedFileSystemReferenceArgs',
     'UserAccountSettingsArgs',
@@ -807,77 +805,6 @@ class CustomToolkitSettingsArgs:
     @command_line.setter
     def command_line(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "command_line", value)
-
-
-@pulumi.input_type
-class DataDisksArgs:
-    def __init__(__self__, *,
-                 disk_count: pulumi.Input[int],
-                 disk_size_in_gb: pulumi.Input[int],
-                 storage_account_type: pulumi.Input[Union[str, 'StorageAccountType']],
-                 caching_type: Optional[pulumi.Input['CachingType']] = None):
-        """
-        Data disks settings.
-        :param pulumi.Input[int] disk_count: Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-        :param pulumi.Input[int] disk_size_in_gb: Disk size in GB for the blank data disks.
-        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-        :param pulumi.Input['CachingType'] caching_type: Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-        """
-        pulumi.set(__self__, "disk_count", disk_count)
-        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
-        if caching_type is None:
-            caching_type = 'none'
-        if caching_type is not None:
-            pulumi.set(__self__, "caching_type", caching_type)
-
-    @property
-    @pulumi.getter(name="diskCount")
-    def disk_count(self) -> pulumi.Input[int]:
-        """
-        Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-        """
-        return pulumi.get(self, "disk_count")
-
-    @disk_count.setter
-    def disk_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "disk_count", value)
-
-    @property
-    @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> pulumi.Input[int]:
-        """
-        Disk size in GB for the blank data disks.
-        """
-        return pulumi.get(self, "disk_size_in_gb")
-
-    @disk_size_in_gb.setter
-    def disk_size_in_gb(self, value: pulumi.Input[int]):
-        pulumi.set(self, "disk_size_in_gb", value)
-
-    @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Input[Union[str, 'StorageAccountType']]:
-        """
-        Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @storage_account_type.setter
-    def storage_account_type(self, value: pulumi.Input[Union[str, 'StorageAccountType']]):
-        pulumi.set(self, "storage_account_type", value)
-
-    @property
-    @pulumi.getter(name="cachingType")
-    def caching_type(self) -> Optional[pulumi.Input['CachingType']]:
-        """
-        Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-        """
-        return pulumi.get(self, "caching_type")
-
-    @caching_type.setter
-    def caching_type(self, value: Optional[pulumi.Input['CachingType']]):
-        pulumi.set(self, "caching_type", value)
 
 
 @pulumi.input_type
@@ -1900,45 +1827,6 @@ class SetupTaskArgs:
     @secrets.setter
     def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]]):
         pulumi.set(self, "secrets", value)
-
-
-@pulumi.input_type
-class SshConfigurationArgs:
-    def __init__(__self__, *,
-                 user_account_settings: pulumi.Input['UserAccountSettingsArgs'],
-                 public_ips_to_allow: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        SSH configuration.
-        :param pulumi.Input['UserAccountSettingsArgs'] user_account_settings: Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips_to_allow: List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-        """
-        pulumi.set(__self__, "user_account_settings", user_account_settings)
-        if public_ips_to_allow is not None:
-            pulumi.set(__self__, "public_ips_to_allow", public_ips_to_allow)
-
-    @property
-    @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> pulumi.Input['UserAccountSettingsArgs']:
-        """
-        Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-        """
-        return pulumi.get(self, "user_account_settings")
-
-    @user_account_settings.setter
-    def user_account_settings(self, value: pulumi.Input['UserAccountSettingsArgs']):
-        pulumi.set(self, "user_account_settings", value)
-
-    @property
-    @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-        """
-        return pulumi.get(self, "public_ips_to_allow")
-
-    @public_ips_to_allow.setter
-    def public_ips_to_allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "public_ips_to_allow", value)
 
 
 @pulumi.input_type

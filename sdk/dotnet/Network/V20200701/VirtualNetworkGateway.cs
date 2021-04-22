@@ -130,10 +130,10 @@ namespace Pulumi.AzureNative.Network.V20200701
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         /// </summary>
-        [Output("virtualNetworkExtendedLocationResourceId")]
-        public Output<string?> VirtualNetworkExtendedLocationResourceId { get; private set; } = null!;
+        [Output("vNetExtendedLocationResourceId")]
+        public Output<string?> VNetExtendedLocationResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -375,10 +375,10 @@ namespace Pulumi.AzureNative.Network.V20200701
         }
 
         /// <summary>
-        /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        /// Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         /// </summary>
-        [Input("virtualNetworkExtendedLocationResourceId")]
-        public Input<string>? VirtualNetworkExtendedLocationResourceId { get; set; }
+        [Input("vNetExtendedLocationResourceId")]
+        public Input<string>? VNetExtendedLocationResourceId { get; set; }
 
         /// <summary>
         /// The name of the virtual network gateway.

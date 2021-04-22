@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist item in Azure Security Insights.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class WatchlistItem extends pulumi.CustomResource {
     /**
@@ -64,6 +64,10 @@ export class WatchlistItem extends pulumi.CustomResource {
      * Azure resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenantId to which the watchlist item belongs to
      */
@@ -131,6 +135,7 @@ export class WatchlistItem extends pulumi.CustomResource {
             inputs["watchlistItemType"] = args ? args.watchlistItemType : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["created"] = undefined /*out*/;
@@ -140,6 +145,7 @@ export class WatchlistItem extends pulumi.CustomResource {
             inputs["isDeleted"] = undefined /*out*/;
             inputs["itemsKeyValue"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updated"] = undefined /*out*/;
@@ -150,7 +156,7 @@ export class WatchlistItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:WatchlistItem" }, { type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-nextgen:securityinsights/v20190101preview:WatchlistItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:WatchlistItem" }, { type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-nextgen:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210301preview:WatchlistItem" }, { type: "azure-nextgen:securityinsights/v20210301preview:WatchlistItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WatchlistItem.__pulumiType, name, inputs, opts);
     }
@@ -189,7 +195,7 @@ export interface WatchlistItemArgs {
      */
     readonly operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

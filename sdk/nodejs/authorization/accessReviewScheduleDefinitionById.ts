@@ -37,6 +37,10 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     }
 
     /**
+     * The role assignment state eligible/active to review
+     */
+    public /*out*/ readonly assignmentState!: pulumi.Output<string>;
+    /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
     public readonly autoApplyDecisionsEnabled!: pulumi.Output<boolean | undefined>;
@@ -68,6 +72,10 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      * The DateTime when the review is scheduled to end. Required if type is endDate
      */
     public readonly endDate!: pulumi.Output<string | undefined>;
+    /**
+     * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+     */
+    public readonly inactiveDuration!: pulumi.Output<string | undefined>;
     /**
      * The duration in days for an instance.
      */
@@ -168,6 +176,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             inputs["descriptionForReviewers"] = args ? args.descriptionForReviewers : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["endDate"] = args ? args.endDate : undefined;
+            inputs["inactiveDuration"] = args ? args.inactiveDuration : undefined;
             inputs["instanceDurationInDays"] = args ? args.instanceDurationInDays : undefined;
             inputs["instances"] = args ? args.instances : undefined;
             inputs["interval"] = args ? args.interval : undefined;
@@ -180,6 +189,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             inputs["scheduleDefinitionId"] = args ? args.scheduleDefinitionId : undefined;
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["assignmentState"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["principalId"] = undefined /*out*/;
             inputs["principalName"] = undefined /*out*/;
@@ -190,6 +200,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["userPrincipalName"] = undefined /*out*/;
         } else {
+            inputs["assignmentState"] = undefined /*out*/;
             inputs["autoApplyDecisionsEnabled"] = undefined /*out*/;
             inputs["backupReviewers"] = undefined /*out*/;
             inputs["defaultDecision"] = undefined /*out*/;
@@ -198,6 +209,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             inputs["descriptionForReviewers"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["endDate"] = undefined /*out*/;
+            inputs["inactiveDuration"] = undefined /*out*/;
             inputs["instanceDurationInDays"] = undefined /*out*/;
             inputs["instances"] = undefined /*out*/;
             inputs["interval"] = undefined /*out*/;
@@ -264,6 +276,10 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      * The DateTime when the review is scheduled to end. Required if type is endDate
      */
     readonly endDate?: pulumi.Input<string>;
+    /**
+     * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+     */
+    readonly inactiveDuration?: pulumi.Input<string>;
     /**
      * The duration in days for an instance.
      */

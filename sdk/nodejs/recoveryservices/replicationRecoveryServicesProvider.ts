@@ -93,7 +93,7 @@ export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider" }, { type: "azure-native:recoveryservices/v20210210:ReplicationRecoveryServicesProvider" }, { type: "azure-nextgen:recoveryservices/v20210210:ReplicationRecoveryServicesProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationRecoveryServicesProvider.__pulumiType, name, inputs, opts);
     }

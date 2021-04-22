@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiOperationResult:
     """
-    Api Operation details.
+    API Operation details.
     """
     def __init__(__self__, description=None, display_name=None, id=None, method=None, name=None, policies=None, request=None, responses=None, template_parameters=None, type=None, url_template=None):
         if description and not isinstance(description, str):
@@ -169,7 +169,7 @@ def get_api_operation(api_id: Optional[str] = None,
                       service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationResult:
     """
-    Api Operation details.
+    API Operation details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

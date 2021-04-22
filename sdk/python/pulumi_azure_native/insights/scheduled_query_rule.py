@@ -19,6 +19,7 @@ class ScheduledQueryRuleArgs:
                  action: pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']],
                  resource_group_name: pulumi.Input[str],
                  source: pulumi.Input['SourceArgs'],
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
@@ -31,6 +32,7 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[Union['AlertingActionArgs', 'LogToMetricActionArgs']] action: Action needs to be taken on rule execution.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['SourceArgs'] source: Data Source against which rule will Query Data
+        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -42,6 +44,10 @@ class ScheduledQueryRuleArgs:
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
+        if auto_mitigate is None:
+            auto_mitigate = False
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -92,6 +98,18 @@ class ScheduledQueryRuleArgs:
     @source.setter
     def source(self, value: pulumi.Input['SourceArgs']):
         pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_mitigate", value)
 
     @property
     @pulumi.getter
@@ -184,6 +202,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]]] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
@@ -201,6 +220,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]] action: Action needs to be taken on rule execution.
+        :param pulumi.Input[bool] auto_mitigate: The flag that indicates whether the alert should be automatically resolved or not. The default is true.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] display_name: The display name of the alert rule
         :param pulumi.Input[Union[str, 'Enabled']] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -237,6 +257,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]]] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[Union[str, 'Enabled']]] = None,
@@ -261,6 +282,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
+            if auto_mitigate is None:
+                auto_mitigate = False
+            __props__.__dict__["auto_mitigate"] = auto_mitigate
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
@@ -307,6 +331,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         __props__ = ScheduledQueryRuleArgs.__new__(ScheduledQueryRuleArgs)
 
         __props__.__dict__["action"] = None
+        __props__.__dict__["auto_mitigate"] = None
         __props__.__dict__["created_with_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -331,6 +356,14 @@ class ScheduledQueryRule(pulumi.CustomResource):
         Action needs to be taken on rule execution.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The flag that indicates whether the alert should be automatically resolved or not. The default is true.
+        """
+        return pulumi.get(self, "auto_mitigate")
 
     @property
     @pulumi.getter(name="createdWithApiVersion")

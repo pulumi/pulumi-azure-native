@@ -568,7 +568,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     }
 
     /// <summary>
-    /// Enable or Disable pubic network access to workspace
+    /// Enable or Disable public network access to workspace
     /// </summary>
     [EnumType]
     public readonly struct WorkspacePublicNetworkAccess : IEquatable<WorkspacePublicNetworkAccess>

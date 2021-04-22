@@ -27,7 +27,7 @@ type Backend struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Backend Proxy Contract Properties
 	Proxy BackendProxyContractResponsePtrOutput `pulumi:"proxy"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Backend Title.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
@@ -164,7 +164,7 @@ type backendState struct {
 	Protocol *string `pulumi:"protocol"`
 	// Backend Proxy Contract Properties
 	Proxy *BackendProxyContractResponse `pulumi:"proxy"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId *string `pulumi:"resourceId"`
 	// Backend Title.
 	Title *string `pulumi:"title"`
@@ -189,7 +189,7 @@ type BackendState struct {
 	Protocol pulumi.StringPtrInput
 	// Backend Proxy Contract Properties
 	Proxy BackendProxyContractResponsePtrInput
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId pulumi.StringPtrInput
 	// Backend Title.
 	Title pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type backendArgs struct {
 	Proxy *BackendProxyContract `pulumi:"proxy"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId *string `pulumi:"resourceId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
@@ -248,7 +248,7 @@ type BackendArgs struct {
 	Proxy BackendProxyContractPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
 	ResourceId pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput

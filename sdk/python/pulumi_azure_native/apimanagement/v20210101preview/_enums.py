@@ -282,7 +282,7 @@ class SkuType(str, Enum):
 
 class SoapApiType(str, Enum):
     """
-    Type of Api to create. 
+    Type of API to create. 
      * `http` creates a REST API 
      * `soap` creates a SOAP pass-through API  
      * `websocket` creates websocket API.

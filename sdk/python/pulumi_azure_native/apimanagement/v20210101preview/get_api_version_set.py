@@ -17,7 +17,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiVersionSetResult:
     """
-    Api Version Set Contract details.
+    API Version Set Contract details.
     """
     def __init__(__self__, description=None, display_name=None, id=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
         if description and not isinstance(description, str):
@@ -131,7 +131,7 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
                         version_set_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
-    Api Version Set Contract details.
+    API Version Set Contract details.
 
 
     :param str resource_group_name: The name of the resource group.

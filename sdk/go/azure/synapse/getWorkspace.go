@@ -55,7 +55,7 @@ type LookupWorkspaceResult struct {
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Enable or Disable pubic network access to workspace
+	// Enable or Disable public network access to workspace
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`

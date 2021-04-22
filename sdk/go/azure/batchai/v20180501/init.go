@@ -25,8 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "azure-native:batchai/v20180501:Experiment":
 		r = &Experiment{}
-	case "azure-native:batchai/v20180501:FileServer":
-		r = &FileServer{}
 	case "azure-native:batchai/v20180501:Job":
 		r = &Job{}
 	case "azure-native:batchai/v20180501:Workspace":
