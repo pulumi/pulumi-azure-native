@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureVmDiskDetailsResponse> AzureVmDiskDetails;
         /// <summary>
-        /// The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
+        /// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         /// </summary>
         public readonly string? EnableRdpOnTargetOption;
         /// <summary>
@@ -35,10 +35,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The last recovery point received time.
-        /// </summary>
-        public readonly string LastRecoveryPointReceived;
-        /// <summary>
         /// The Last replication time.
         /// </summary>
         public readonly string? LastReplicatedTime;
@@ -54,10 +50,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The operating system info.
         /// </summary>
         public readonly Outputs.OSDetailsResponse? OSDetails;
-        /// <summary>
-        /// The list of protected managed disks.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.HyperVReplicaAzureManagedDiskDetailsResponse> ProtectedManagedDisks;
         /// <summary>
         /// The recovery availability set Id.
         /// </summary>
@@ -87,10 +79,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double? RpoInSeconds;
         /// <summary>
-        /// The tags for the seed managed disks.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? SeedManagedDiskTags;
-        /// <summary>
         /// The selected recovery azure network Id.
         /// </summary>
         public readonly string? SelectedRecoveryAzureNetworkId;
@@ -107,29 +95,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? SourceVmRamSizeInMB;
         /// <summary>
-        /// The SQL Server license type.
-        /// </summary>
-        public readonly string? SqlServerLicenseType;
-        /// <summary>
         /// The target availability zone.
         /// </summary>
         public readonly string? TargetAvailabilityZone;
         /// <summary>
-        /// The tags for the target managed disks.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? TargetManagedDiskTags;
-        /// <summary>
-        /// The tags for the target NICs.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? TargetNicTags;
-        /// <summary>
         /// The target proximity placement group Id.
         /// </summary>
         public readonly string? TargetProximityPlacementGroupId;
-        /// <summary>
-        /// The target VM tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? TargetVmTags;
         /// <summary>
         /// A value indicating whether managed disks should be used during failover.
         /// </summary>
@@ -163,8 +135,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string instanceType,
 
-            string lastRecoveryPointReceived,
-
             string? lastReplicatedTime,
 
             string? lastRpoCalculatedTime,
@@ -172,8 +142,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string? licenseType,
 
             Outputs.OSDetailsResponse? oSDetails,
-
-            ImmutableArray<Outputs.HyperVReplicaAzureManagedDiskDetailsResponse> protectedManagedDisks,
 
             string? recoveryAvailabilitySetId,
 
@@ -189,8 +157,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             double? rpoInSeconds,
 
-            ImmutableDictionary<string, string>? seedManagedDiskTags,
-
             string? selectedRecoveryAzureNetworkId,
 
             string? selectedSourceNicId,
@@ -199,17 +165,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? sourceVmRamSizeInMB,
 
-            string? sqlServerLicenseType,
-
             string? targetAvailabilityZone,
 
-            ImmutableDictionary<string, string>? targetManagedDiskTags,
-
-            ImmutableDictionary<string, string>? targetNicTags,
-
             string? targetProximityPlacementGroupId,
-
-            ImmutableDictionary<string, string>? targetVmTags,
 
             string? useManagedDisks,
 
@@ -226,12 +184,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             Encryption = encryption;
             InitialReplicationDetails = initialReplicationDetails;
             InstanceType = instanceType;
-            LastRecoveryPointReceived = lastRecoveryPointReceived;
             LastReplicatedTime = lastReplicatedTime;
             LastRpoCalculatedTime = lastRpoCalculatedTime;
             LicenseType = licenseType;
             OSDetails = oSDetails;
-            ProtectedManagedDisks = protectedManagedDisks;
             RecoveryAvailabilitySetId = recoveryAvailabilitySetId;
             RecoveryAzureLogStorageAccountId = recoveryAzureLogStorageAccountId;
             RecoveryAzureResourceGroupId = recoveryAzureResourceGroupId;
@@ -239,17 +195,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             RecoveryAzureVMSize = recoveryAzureVMSize;
             RecoveryAzureVmName = recoveryAzureVmName;
             RpoInSeconds = rpoInSeconds;
-            SeedManagedDiskTags = seedManagedDiskTags;
             SelectedRecoveryAzureNetworkId = selectedRecoveryAzureNetworkId;
             SelectedSourceNicId = selectedSourceNicId;
             SourceVmCpuCount = sourceVmCpuCount;
             SourceVmRamSizeInMB = sourceVmRamSizeInMB;
-            SqlServerLicenseType = sqlServerLicenseType;
             TargetAvailabilityZone = targetAvailabilityZone;
-            TargetManagedDiskTags = targetManagedDiskTags;
-            TargetNicTags = targetNicTags;
             TargetProximityPlacementGroupId = targetProximityPlacementGroupId;
-            TargetVmTags = targetVmTags;
             UseManagedDisks = useManagedDisks;
             VmId = vmId;
             VmNics = vmNics;

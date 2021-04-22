@@ -6,7 +6,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
- (None)
+#### Breaking Changes published by Microsoft
+
+- `batchai.FileServer` resource is deprecated ([source](https://github.com/Azure/azure-rest-api-specs/pull/13944))
+- Extended location hierarchy for virtual network local gateway ([source](https://github.com/Azure/azure-rest-api-specs/pull/13943))
 
 ---
 

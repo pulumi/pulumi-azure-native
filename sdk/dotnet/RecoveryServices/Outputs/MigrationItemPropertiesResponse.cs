@@ -14,17 +14,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class MigrationItemPropertiesResponse
     {
         /// <summary>
-        /// The allowed operations on the migration item based on the current migration state of the item.
+        /// The allowed operations on the migration item, based on the current migration state of the item.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOperations;
         /// <summary>
         /// The current job details.
         /// </summary>
         public readonly Outputs.CurrentJobDetailsResponse CurrentJob;
-        /// <summary>
-        /// The correlation Id for events associated with this migration item.
-        /// </summary>
-        public readonly string EventCorrelationId;
         /// <summary>
         /// The consolidated health.
         /// </summary>
@@ -33,14 +29,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The list of health errors.
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthErrorResponse> HealthErrors;
-        /// <summary>
-        /// The status of the last test migration.
-        /// </summary>
-        public readonly string LastTestMigrationStatus;
-        /// <summary>
-        /// The last test migration time.
-        /// </summary>
-        public readonly string LastTestMigrationTime;
         /// <summary>
         /// The on-premise virtual machine name.
         /// </summary>
@@ -66,6 +54,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.VMwareCbtMigrationDetailsResponse? ProviderSpecificDetails;
         /// <summary>
+        /// The recovery services provider ARM Id.
+        /// </summary>
+        public readonly string RecoveryServicesProviderId;
+        /// <summary>
         /// The test migrate state.
         /// </summary>
         public readonly string TestMigrateState;
@@ -80,15 +72,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.CurrentJobDetailsResponse currentJob,
 
-            string eventCorrelationId,
-
             string health,
 
             ImmutableArray<Outputs.HealthErrorResponse> healthErrors,
-
-            string lastTestMigrationStatus,
-
-            string lastTestMigrationTime,
 
             string machineName,
 
@@ -102,23 +88,23 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.VMwareCbtMigrationDetailsResponse? providerSpecificDetails,
 
+            string recoveryServicesProviderId,
+
             string testMigrateState,
 
             string testMigrateStateDescription)
         {
             AllowedOperations = allowedOperations;
             CurrentJob = currentJob;
-            EventCorrelationId = eventCorrelationId;
             Health = health;
             HealthErrors = healthErrors;
-            LastTestMigrationStatus = lastTestMigrationStatus;
-            LastTestMigrationTime = lastTestMigrationTime;
             MachineName = machineName;
             MigrationState = migrationState;
             MigrationStateDescription = migrationStateDescription;
             PolicyFriendlyName = policyFriendlyName;
             PolicyId = policyId;
             ProviderSpecificDetails = providerSpecificDetails;
+            RecoveryServicesProviderId = recoveryServicesProviderId;
             TestMigrateState = testMigrateState;
             TestMigrateStateDescription = testMigrateStateDescription;
         }

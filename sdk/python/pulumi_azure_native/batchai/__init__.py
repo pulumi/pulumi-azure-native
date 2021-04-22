@@ -6,10 +6,8 @@
 from ._enums import *
 from .cluster import *
 from .experiment import *
-from .file_server import *
 from .get_cluster import *
 from .get_experiment import *
-from .get_file_server import *
 from .get_job import *
 from .get_workspace import *
 from .job import *
@@ -43,8 +41,6 @@ def _register_module():
                 return Cluster(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:batchai:Experiment":
                 return Experiment(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:batchai:FileServer":
-                return FileServer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:batchai:Job":
                 return Job(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:batchai:Workspace":

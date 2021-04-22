@@ -7,10 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cluster";
 export * from "./experiment";
-export * from "./fileServer";
 export * from "./getCluster";
 export * from "./getExperiment";
-export * from "./getFileServer";
 export * from "./getJob";
 export * from "./getWorkspace";
 export * from "./job";
@@ -36,7 +34,6 @@ export {
 // Import resources to register:
 import { Cluster } from "./cluster";
 import { Experiment } from "./experiment";
-import { FileServer } from "./fileServer";
 import { Job } from "./job";
 import { Workspace } from "./workspace";
 
@@ -48,8 +45,6 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:batchai:Experiment":
                 return new Experiment(name, <any>undefined, { urn })
-            case "azure-native:batchai:FileServer":
-                return new FileServer(name, <any>undefined, { urn })
             case "azure-native:batchai:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:batchai:Workspace":

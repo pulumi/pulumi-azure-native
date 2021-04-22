@@ -36,8 +36,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The ARM Id of discovered machine.
         /// </summary>
-        [Input("fabricDiscoveryMachineId", required: true)]
-        public Input<string> FabricDiscoveryMachineId { get; set; } = null!;
+        [Input("fabricDiscoveryMachineId")]
+        public Input<string>? FabricDiscoveryMachineId { get; set; }
 
         /// <summary>
         /// The class type.
@@ -61,8 +61,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The process server Id.
         /// </summary>
-        [Input("processServerId", required: true)]
-        public Input<string> ProcessServerId { get; set; } = null!;
+        [Input("processServerId")]
+        public Input<string>? ProcessServerId { get; set; }
 
         /// <summary>
         /// The run-as account Id.
@@ -103,8 +103,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The target resource group ARM Id.
         /// </summary>
-        [Input("targetResourceGroupId", required: true)]
-        public Input<string> TargetResourceGroupId { get; set; } = null!;
+        [Input("targetResourceGroupId")]
+        public Input<string>? TargetResourceGroupId { get; set; }
 
         /// <summary>
         /// The selected target subnet name.

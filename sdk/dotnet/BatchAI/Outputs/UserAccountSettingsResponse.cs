@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.BatchAI.Outputs
     [OutputType]
     public sealed class UserAccountSettingsResponse
     {
+        /// <summary>
+        /// Name of the administrator user account which can be used to SSH to nodes.
+        /// </summary>
         public readonly string AdminUserName;
+        /// <summary>
+        /// Password of the administrator user account.
+        /// </summary>
         public readonly string? AdminUserPassword;
+        /// <summary>
+        /// SSH public key of the administrator user account.
+        /// </summary>
         public readonly string? AdminUserSshPublicKey;
 
         [OutputConstructor]

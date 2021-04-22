@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Protection profile details.
-    /// API Version: 2021-02-10.
+    /// API Version: 2018-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationPolicy")]
     public partial class ReplicationPolicy : Pulumi.CustomResource
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     public sealed class ReplicationPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Replication policy name.
+        /// Replication policy name
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }

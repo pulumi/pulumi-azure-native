@@ -39,6 +39,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("primaryFabricId", required: true)]
         public Input<string> PrimaryFabricId { get; set; } = null!;
 
+        [Input("providerSpecificInput")]
+        private InputList<Inputs.RecoveryPlanA2AInputArgs>? _providerSpecificInput;
+
+        /// <summary>
+        /// The provider specific input.
+        /// </summary>
+        public InputList<Inputs.RecoveryPlanA2AInputArgs> ProviderSpecificInput
+        {
+            get => _providerSpecificInput ?? (_providerSpecificInput = new InputList<Inputs.RecoveryPlanA2AInputArgs>());
+            set => _providerSpecificInput = value;
+        }
+
         /// <summary>
         /// The recovery fabric Id.
         /// </summary>

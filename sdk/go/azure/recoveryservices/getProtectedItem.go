@@ -8,7 +8,7 @@ import (
 )
 
 // Base class for backup items.
-// API Version: 2021-02-10.
+// API Version: 2021-02-01.
 func LookupProtectedItem(ctx *pulumi.Context, args *LookupProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupProtectedItemResult, error) {
 	var rv LookupProtectedItemResult
 	err := ctx.Invoke("azure-native:recoveryservices:getProtectedItem", args, &rv, opts...)

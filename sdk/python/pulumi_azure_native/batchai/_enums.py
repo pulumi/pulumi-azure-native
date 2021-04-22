@@ -5,18 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'CachingType',
     'DeallocationOption',
     'JobPriority',
-    'StorageAccountType',
     'VmPriority',
 ]
-
-
-class CachingType(str, Enum):
-    NONE = "none"
-    READONLY = "readonly"
-    READWRITE = "readwrite"
 
 
 class DeallocationOption(str, Enum):
@@ -35,11 +27,6 @@ class JobPriority(str, Enum):
     LOW = "low"
     NORMAL = "normal"
     HIGH = "high"
-
-
-class StorageAccountType(str, Enum):
-    STANDARD_LRS = "Standard_LRS"
-    PREMIUM_LRS = "Premium_LRS"
 
 
 class VmPriority(str, Enum):

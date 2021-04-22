@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Protection container mapping object.
- * API Version: 2021-02-10.
+ * API Version: 2018-07-10.
  */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
     if (!opts) {

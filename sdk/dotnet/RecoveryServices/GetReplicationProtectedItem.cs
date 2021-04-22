@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Replication protected item.
-        /// API Version: 2021-02-10.
+        /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationProtectedItemResult> InvokeAsync(GetReplicationProtectedItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationProtectedItemResult>("azure-native:recoveryservices:getReplicationProtectedItem", args ?? new GetReplicationProtectedItemArgs(), options.WithVersion());

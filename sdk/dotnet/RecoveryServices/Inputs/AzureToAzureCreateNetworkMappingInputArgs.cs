@@ -25,8 +25,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The primary azure vnet Id.
         /// </summary>
-        [Input("primaryNetworkId", required: true)]
-        public Input<string> PrimaryNetworkId { get; set; } = null!;
+        [Input("primaryNetworkId")]
+        public Input<string>? PrimaryNetworkId { get; set; }
 
         public AzureToAzureCreateNetworkMappingInputArgs()
         {

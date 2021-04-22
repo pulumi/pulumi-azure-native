@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class VMwareCbtDiskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DiskEncryptionSet ARM Id.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
-
-        /// <summary>
         /// The disk Id.
         /// </summary>
         [Input("diskId", required: true)]

@@ -97,7 +97,7 @@ def get_replication_policy(policy_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationPolicyResult:
     """
     Protection profile details.
-    API Version: 2021-02-10.
+    API Version: 2018-07-10.
 
 
     :param str policy_name: Replication policy name.

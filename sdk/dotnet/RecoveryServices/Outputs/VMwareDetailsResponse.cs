@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double? TotalSpaceInBytes;
         /// <summary>
-        /// Version status.
+        /// Version status
         /// </summary>
         public readonly string? VersionStatus;
         /// <summary>

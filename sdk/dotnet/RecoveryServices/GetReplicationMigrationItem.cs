@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Migration item.
-        /// API Version: 2021-02-10.
+        /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationMigrationItemResult> InvokeAsync(GetReplicationMigrationItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationMigrationItemResult>("azure-native:recoveryservices:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemArgs(), options.WithVersion());

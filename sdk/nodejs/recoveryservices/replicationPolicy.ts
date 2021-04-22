@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Protection profile details.
- * API Version: 2021-02-10.
+ * API Version: 2018-07-10.
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
  */
 export interface ReplicationPolicyArgs {
     /**
-     * Replication policy name.
+     * Replication policy name
      */
     readonly policyName?: pulumi.Input<string>;
     /**

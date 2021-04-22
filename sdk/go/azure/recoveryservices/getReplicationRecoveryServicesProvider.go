@@ -8,7 +8,7 @@ import (
 )
 
 // Provider details.
-// API Version: 2021-02-10.
+// API Version: 2018-07-10.
 func LookupReplicationRecoveryServicesProvider(ctx *pulumi.Context, args *LookupReplicationRecoveryServicesProviderArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryServicesProviderResult, error) {
 	var rv LookupReplicationRecoveryServicesProviderResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args, &rv, opts...)
@@ -21,7 +21,7 @@ func LookupReplicationRecoveryServicesProvider(ctx *pulumi.Context, args *Lookup
 type LookupReplicationRecoveryServicesProviderArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// Recovery services provider name.
+	// Recovery services provider name
 	ProviderName string `pulumi:"providerName"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

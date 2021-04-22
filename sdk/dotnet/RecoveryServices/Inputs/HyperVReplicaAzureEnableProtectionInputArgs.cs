@@ -11,27 +11,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
-    /// HyperVReplicaAzure specific enable protection input.
+    /// Azure specific enable protection input.
     /// </summary>
     public sealed class HyperVReplicaAzureEnableProtectionInputArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The DiskEncryptionSet ARM Id.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
-
-        /// <summary>
-        /// The DiskType.
-        /// </summary>
-        [Input("diskType")]
-        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType>? DiskType { get; set; }
-
         [Input("disksToInclude")]
         private InputList<string>? _disksToInclude;
 
         /// <summary>
-        /// The list of VHD Ids of disks to be protected.
+        /// The list of VHD IDs of disks to be protected.
         /// </summary>
         public InputList<string> DisksToInclude
         {
@@ -39,26 +27,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
             set => _disksToInclude = value;
         }
 
-        [Input("disksToIncludeForManagedDisks")]
-        private InputList<Inputs.HyperVReplicaAzureDiskInputDetailsArgs>? _disksToIncludeForManagedDisks;
-
         /// <summary>
-        /// The disks to include list for managed disks.
-        /// </summary>
-        public InputList<Inputs.HyperVReplicaAzureDiskInputDetailsArgs> DisksToIncludeForManagedDisks
-        {
-            get => _disksToIncludeForManagedDisks ?? (_disksToIncludeForManagedDisks = new InputList<Inputs.HyperVReplicaAzureDiskInputDetailsArgs>());
-            set => _disksToIncludeForManagedDisks = value;
-        }
-
-        /// <summary>
-        /// The selected option to enable RDP\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
+        /// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         /// </summary>
         [Input("enableRdpOnTargetOption")]
         public Input<string>? EnableRdpOnTargetOption { get; set; }
 
         /// <summary>
-        /// The Hyper-V host VM Id.
+        /// The Hyper-V host Vm Id.
         /// </summary>
         [Input("hvHostVmId")]
         public Input<string>? HvHostVmId { get; set; }
@@ -71,43 +47,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// License type.
-        /// </summary>
-        [Input("licenseType")]
-        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LicenseType>? LicenseType { get; set; }
-
-        /// <summary>
         /// The storage account to be used for logging during replication.
         /// </summary>
         [Input("logStorageAccountId")]
         public Input<string>? LogStorageAccountId { get; set; }
 
         /// <summary>
-        /// The OS type associated with VM.
+        /// The OS type associated with vm.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
-        [Input("seedManagedDiskTags")]
-        private InputMap<string>? _seedManagedDiskTags;
-
         /// <summary>
-        /// The tags for the seed managed disks.
-        /// </summary>
-        public InputMap<string> SeedManagedDiskTags
-        {
-            get => _seedManagedDiskTags ?? (_seedManagedDiskTags = new InputMap<string>());
-            set => _seedManagedDiskTags = value;
-        }
-
-        /// <summary>
-        /// The SQL Server license type.
-        /// </summary>
-        [Input("sqlServerLicenseType")]
-        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
-
-        /// <summary>
-        /// The target availability set ARM Id for resource manager deployment.
+        /// The availability set ARM Id.
         /// </summary>
         [Input("targetAvailabilitySetId")]
         public Input<string>? TargetAvailabilitySetId { get; set; }
@@ -143,34 +95,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TargetAzureV2ResourceGroupId { get; set; }
 
         /// <summary>
-        /// The target azure VM Name.
+        /// The target azure Vm Name.
         /// </summary>
         [Input("targetAzureVmName")]
         public Input<string>? TargetAzureVmName { get; set; }
-
-        [Input("targetManagedDiskTags")]
-        private InputMap<string>? _targetManagedDiskTags;
-
-        /// <summary>
-        /// The tags for the target managed disks.
-        /// </summary>
-        public InputMap<string> TargetManagedDiskTags
-        {
-            get => _targetManagedDiskTags ?? (_targetManagedDiskTags = new InputMap<string>());
-            set => _targetManagedDiskTags = value;
-        }
-
-        [Input("targetNicTags")]
-        private InputMap<string>? _targetNicTags;
-
-        /// <summary>
-        /// The tags for the target NICs.
-        /// </summary>
-        public InputMap<string> TargetNicTags
-        {
-            get => _targetNicTags ?? (_targetNicTags = new InputMap<string>());
-            set => _targetNicTags = value;
-        }
 
         /// <summary>
         /// The proximity placement group ARM Id.
@@ -179,7 +107,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TargetProximityPlacementGroupId { get; set; }
 
         /// <summary>
-        /// The storage account Id.
+        /// The storage account name.
         /// </summary>
         [Input("targetStorageAccountId")]
         public Input<string>? TargetStorageAccountId { get; set; }
@@ -190,18 +118,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("targetVmSize")]
         public Input<string>? TargetVmSize { get; set; }
 
-        [Input("targetVmTags")]
-        private InputMap<string>? _targetVmTags;
-
-        /// <summary>
-        /// The target VM tags.
-        /// </summary>
-        public InputMap<string> TargetVmTags
-        {
-            get => _targetVmTags ?? (_targetVmTags = new InputMap<string>());
-            set => _targetVmTags = value;
-        }
-
         /// <summary>
         /// A value indicating whether managed disks should be used during failover.
         /// </summary>
@@ -209,19 +125,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? UseManagedDisks { get; set; }
 
         /// <summary>
-        /// A value indicating whether managed disks should be used during replication.
-        /// </summary>
-        [Input("useManagedDisksForReplication")]
-        public Input<string>? UseManagedDisksForReplication { get; set; }
-
-        /// <summary>
-        /// The OS disk VHD id associated with VM.
+        /// The OS disk VHD id associated with vm.
         /// </summary>
         [Input("vhdId")]
         public Input<string>? VhdId { get; set; }
 
         /// <summary>
-        /// The VM Name.
+        /// The Vm Name.
         /// </summary>
         [Input("vmName")]
         public Input<string>? VmName { get; set; }

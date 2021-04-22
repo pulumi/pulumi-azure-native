@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Recovery plan details.
- * API Version: 2021-02-10.
+ * API Version: 2018-07-10.
  */
 export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**

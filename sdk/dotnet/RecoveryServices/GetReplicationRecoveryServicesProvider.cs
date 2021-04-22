@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Provider details.
-        /// API Version: 2021-02-10.
+        /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationRecoveryServicesProviderResult> InvokeAsync(GetReplicationRecoveryServicesProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Recovery services provider name.
+        /// Recovery services provider name
         /// </summary>
         [Input("providerName", required: true)]
         public string ProviderName { get; set; } = null!;

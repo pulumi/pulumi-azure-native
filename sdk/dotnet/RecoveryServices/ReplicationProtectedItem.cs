@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Replication protected item.
-    /// API Version: 2021-02-10.
+    /// API Version: 2018-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationProtectedItem")]
     public partial class ReplicationProtectedItem : Pulumi.CustomResource

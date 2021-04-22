@@ -14,11 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class DraDetailsResponse
     {
         /// <summary>
-        /// The DRA Bios Id.
-        /// </summary>
-        public readonly string BiosId;
-        /// <summary>
-        /// The health.
+        /// The health of the DRA.
         /// </summary>
         public readonly string Health;
         /// <summary>
@@ -38,14 +34,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The version.
+        /// The DRA version.
         /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
         private DraDetailsResponse(
-            string biosId,
-
             string health,
 
             ImmutableArray<Outputs.HealthErrorResponse> healthErrors,
@@ -58,7 +52,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string version)
         {
-            BiosId = biosId;
             Health = health;
             HealthErrors = healthErrors;
             Id = id;

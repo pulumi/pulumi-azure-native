@@ -3994,354 +3994,6 @@ func (o CustomToolkitSettingsResponsePtrOutput) CommandLine() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for the data disk which would be created for the File Server.
-type DataDisks struct {
-	CachingType        *string `pulumi:"cachingType"`
-	DiskCount          int     `pulumi:"diskCount"`
-	DiskSizeInGB       int     `pulumi:"diskSizeInGB"`
-	StorageAccountType string  `pulumi:"storageAccountType"`
-}
-
-// DataDisksInput is an input type that accepts DataDisksArgs and DataDisksOutput values.
-// You can construct a concrete instance of `DataDisksInput` via:
-//
-//          DataDisksArgs{...}
-type DataDisksInput interface {
-	pulumi.Input
-
-	ToDataDisksOutput() DataDisksOutput
-	ToDataDisksOutputWithContext(context.Context) DataDisksOutput
-}
-
-// Settings for the data disk which would be created for the File Server.
-type DataDisksArgs struct {
-	CachingType        *CachingType       `pulumi:"cachingType"`
-	DiskCount          pulumi.IntInput    `pulumi:"diskCount"`
-	DiskSizeInGB       pulumi.IntInput    `pulumi:"diskSizeInGB"`
-	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
-}
-
-func (DataDisksArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataDisks)(nil)).Elem()
-}
-
-func (i DataDisksArgs) ToDataDisksOutput() DataDisksOutput {
-	return i.ToDataDisksOutputWithContext(context.Background())
-}
-
-func (i DataDisksArgs) ToDataDisksOutputWithContext(ctx context.Context) DataDisksOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDisksOutput)
-}
-
-func (i DataDisksArgs) ToDataDisksPtrOutput() DataDisksPtrOutput {
-	return i.ToDataDisksPtrOutputWithContext(context.Background())
-}
-
-func (i DataDisksArgs) ToDataDisksPtrOutputWithContext(ctx context.Context) DataDisksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDisksOutput).ToDataDisksPtrOutputWithContext(ctx)
-}
-
-// DataDisksPtrInput is an input type that accepts DataDisksArgs, DataDisksPtr and DataDisksPtrOutput values.
-// You can construct a concrete instance of `DataDisksPtrInput` via:
-//
-//          DataDisksArgs{...}
-//
-//  or:
-//
-//          nil
-type DataDisksPtrInput interface {
-	pulumi.Input
-
-	ToDataDisksPtrOutput() DataDisksPtrOutput
-	ToDataDisksPtrOutputWithContext(context.Context) DataDisksPtrOutput
-}
-
-type dataDisksPtrType DataDisksArgs
-
-func DataDisksPtr(v *DataDisksArgs) DataDisksPtrInput {
-	return (*dataDisksPtrType)(v)
-}
-
-func (*dataDisksPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataDisks)(nil)).Elem()
-}
-
-func (i *dataDisksPtrType) ToDataDisksPtrOutput() DataDisksPtrOutput {
-	return i.ToDataDisksPtrOutputWithContext(context.Background())
-}
-
-func (i *dataDisksPtrType) ToDataDisksPtrOutputWithContext(ctx context.Context) DataDisksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDisksPtrOutput)
-}
-
-// Settings for the data disk which would be created for the File Server.
-type DataDisksOutput struct{ *pulumi.OutputState }
-
-func (DataDisksOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataDisks)(nil)).Elem()
-}
-
-func (o DataDisksOutput) ToDataDisksOutput() DataDisksOutput {
-	return o
-}
-
-func (o DataDisksOutput) ToDataDisksOutputWithContext(ctx context.Context) DataDisksOutput {
-	return o
-}
-
-func (o DataDisksOutput) ToDataDisksPtrOutput() DataDisksPtrOutput {
-	return o.ToDataDisksPtrOutputWithContext(context.Background())
-}
-
-func (o DataDisksOutput) ToDataDisksPtrOutputWithContext(ctx context.Context) DataDisksPtrOutput {
-	return o.ApplyT(func(v DataDisks) *DataDisks {
-		return &v
-	}).(DataDisksPtrOutput)
-}
-func (o DataDisksOutput) CachingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisks) *string { return v.CachingType }).(pulumi.StringPtrOutput)
-}
-
-func (o DataDisksOutput) DiskCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDisks) int { return v.DiskCount }).(pulumi.IntOutput)
-}
-
-func (o DataDisksOutput) DiskSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDisks) int { return v.DiskSizeInGB }).(pulumi.IntOutput)
-}
-
-func (o DataDisksOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataDisks) string { return v.StorageAccountType }).(pulumi.StringOutput)
-}
-
-type DataDisksPtrOutput struct{ *pulumi.OutputState }
-
-func (DataDisksPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataDisks)(nil)).Elem()
-}
-
-func (o DataDisksPtrOutput) ToDataDisksPtrOutput() DataDisksPtrOutput {
-	return o
-}
-
-func (o DataDisksPtrOutput) ToDataDisksPtrOutputWithContext(ctx context.Context) DataDisksPtrOutput {
-	return o
-}
-
-func (o DataDisksPtrOutput) Elem() DataDisksOutput {
-	return o.ApplyT(func(v *DataDisks) DataDisks { return *v }).(DataDisksOutput)
-}
-
-func (o DataDisksPtrOutput) CachingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataDisks) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CachingType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataDisksPtrOutput) DiskCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataDisks) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.DiskCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DataDisksPtrOutput) DiskSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataDisks) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.DiskSizeInGB
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DataDisksPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataDisks) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Settings for the data disk which would be created for the File Server.
-type DataDisksResponse struct {
-	CachingType        *string `pulumi:"cachingType"`
-	DiskCount          int     `pulumi:"diskCount"`
-	DiskSizeInGB       int     `pulumi:"diskSizeInGB"`
-	StorageAccountType string  `pulumi:"storageAccountType"`
-}
-
-// DataDisksResponseInput is an input type that accepts DataDisksResponseArgs and DataDisksResponseOutput values.
-// You can construct a concrete instance of `DataDisksResponseInput` via:
-//
-//          DataDisksResponseArgs{...}
-type DataDisksResponseInput interface {
-	pulumi.Input
-
-	ToDataDisksResponseOutput() DataDisksResponseOutput
-	ToDataDisksResponseOutputWithContext(context.Context) DataDisksResponseOutput
-}
-
-// Settings for the data disk which would be created for the File Server.
-type DataDisksResponseArgs struct {
-	CachingType        pulumi.StringPtrInput `pulumi:"cachingType"`
-	DiskCount          pulumi.IntInput       `pulumi:"diskCount"`
-	DiskSizeInGB       pulumi.IntInput       `pulumi:"diskSizeInGB"`
-	StorageAccountType pulumi.StringInput    `pulumi:"storageAccountType"`
-}
-
-func (DataDisksResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataDisksResponse)(nil)).Elem()
-}
-
-func (i DataDisksResponseArgs) ToDataDisksResponseOutput() DataDisksResponseOutput {
-	return i.ToDataDisksResponseOutputWithContext(context.Background())
-}
-
-func (i DataDisksResponseArgs) ToDataDisksResponseOutputWithContext(ctx context.Context) DataDisksResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDisksResponseOutput)
-}
-
-func (i DataDisksResponseArgs) ToDataDisksResponsePtrOutput() DataDisksResponsePtrOutput {
-	return i.ToDataDisksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DataDisksResponseArgs) ToDataDisksResponsePtrOutputWithContext(ctx context.Context) DataDisksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDisksResponseOutput).ToDataDisksResponsePtrOutputWithContext(ctx)
-}
-
-// DataDisksResponsePtrInput is an input type that accepts DataDisksResponseArgs, DataDisksResponsePtr and DataDisksResponsePtrOutput values.
-// You can construct a concrete instance of `DataDisksResponsePtrInput` via:
-//
-//          DataDisksResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DataDisksResponsePtrInput interface {
-	pulumi.Input
-
-	ToDataDisksResponsePtrOutput() DataDisksResponsePtrOutput
-	ToDataDisksResponsePtrOutputWithContext(context.Context) DataDisksResponsePtrOutput
-}
-
-type dataDisksResponsePtrType DataDisksResponseArgs
-
-func DataDisksResponsePtr(v *DataDisksResponseArgs) DataDisksResponsePtrInput {
-	return (*dataDisksResponsePtrType)(v)
-}
-
-func (*dataDisksResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataDisksResponse)(nil)).Elem()
-}
-
-func (i *dataDisksResponsePtrType) ToDataDisksResponsePtrOutput() DataDisksResponsePtrOutput {
-	return i.ToDataDisksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dataDisksResponsePtrType) ToDataDisksResponsePtrOutputWithContext(ctx context.Context) DataDisksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDisksResponsePtrOutput)
-}
-
-// Settings for the data disk which would be created for the File Server.
-type DataDisksResponseOutput struct{ *pulumi.OutputState }
-
-func (DataDisksResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataDisksResponse)(nil)).Elem()
-}
-
-func (o DataDisksResponseOutput) ToDataDisksResponseOutput() DataDisksResponseOutput {
-	return o
-}
-
-func (o DataDisksResponseOutput) ToDataDisksResponseOutputWithContext(ctx context.Context) DataDisksResponseOutput {
-	return o
-}
-
-func (o DataDisksResponseOutput) ToDataDisksResponsePtrOutput() DataDisksResponsePtrOutput {
-	return o.ToDataDisksResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DataDisksResponseOutput) ToDataDisksResponsePtrOutputWithContext(ctx context.Context) DataDisksResponsePtrOutput {
-	return o.ApplyT(func(v DataDisksResponse) *DataDisksResponse {
-		return &v
-	}).(DataDisksResponsePtrOutput)
-}
-func (o DataDisksResponseOutput) CachingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisksResponse) *string { return v.CachingType }).(pulumi.StringPtrOutput)
-}
-
-func (o DataDisksResponseOutput) DiskCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDisksResponse) int { return v.DiskCount }).(pulumi.IntOutput)
-}
-
-func (o DataDisksResponseOutput) DiskSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDisksResponse) int { return v.DiskSizeInGB }).(pulumi.IntOutput)
-}
-
-func (o DataDisksResponseOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataDisksResponse) string { return v.StorageAccountType }).(pulumi.StringOutput)
-}
-
-type DataDisksResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DataDisksResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataDisksResponse)(nil)).Elem()
-}
-
-func (o DataDisksResponsePtrOutput) ToDataDisksResponsePtrOutput() DataDisksResponsePtrOutput {
-	return o
-}
-
-func (o DataDisksResponsePtrOutput) ToDataDisksResponsePtrOutputWithContext(ctx context.Context) DataDisksResponsePtrOutput {
-	return o
-}
-
-func (o DataDisksResponsePtrOutput) Elem() DataDisksResponseOutput {
-	return o.ApplyT(func(v *DataDisksResponse) DataDisksResponse { return *v }).(DataDisksResponseOutput)
-}
-
-func (o DataDisksResponsePtrOutput) CachingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataDisksResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CachingType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataDisksResponsePtrOutput) DiskCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataDisksResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.DiskCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DataDisksResponsePtrOutput) DiskSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DataDisksResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.DiskSizeInGB
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o DataDisksResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataDisksResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
-}
-
 // An environment variable definition.
 type EnvironmentVariable struct {
 	// The name of the environment variable.
@@ -7891,180 +7543,6 @@ func (o ManualScaleSettingsResponsePtrOutput) TargetNodeCount() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Details of the File Server.
-type MountSettingsResponse struct {
-	FileServerInternalIP *string `pulumi:"fileServerInternalIP"`
-	FileServerPublicIP   *string `pulumi:"fileServerPublicIP"`
-	FileServerType       *string `pulumi:"fileServerType"`
-	MountPoint           *string `pulumi:"mountPoint"`
-}
-
-// MountSettingsResponseInput is an input type that accepts MountSettingsResponseArgs and MountSettingsResponseOutput values.
-// You can construct a concrete instance of `MountSettingsResponseInput` via:
-//
-//          MountSettingsResponseArgs{...}
-type MountSettingsResponseInput interface {
-	pulumi.Input
-
-	ToMountSettingsResponseOutput() MountSettingsResponseOutput
-	ToMountSettingsResponseOutputWithContext(context.Context) MountSettingsResponseOutput
-}
-
-// Details of the File Server.
-type MountSettingsResponseArgs struct {
-	FileServerInternalIP pulumi.StringPtrInput `pulumi:"fileServerInternalIP"`
-	FileServerPublicIP   pulumi.StringPtrInput `pulumi:"fileServerPublicIP"`
-	FileServerType       pulumi.StringPtrInput `pulumi:"fileServerType"`
-	MountPoint           pulumi.StringPtrInput `pulumi:"mountPoint"`
-}
-
-func (MountSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountSettingsResponse)(nil)).Elem()
-}
-
-func (i MountSettingsResponseArgs) ToMountSettingsResponseOutput() MountSettingsResponseOutput {
-	return i.ToMountSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i MountSettingsResponseArgs) ToMountSettingsResponseOutputWithContext(ctx context.Context) MountSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountSettingsResponseOutput)
-}
-
-func (i MountSettingsResponseArgs) ToMountSettingsResponsePtrOutput() MountSettingsResponsePtrOutput {
-	return i.ToMountSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MountSettingsResponseArgs) ToMountSettingsResponsePtrOutputWithContext(ctx context.Context) MountSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountSettingsResponseOutput).ToMountSettingsResponsePtrOutputWithContext(ctx)
-}
-
-// MountSettingsResponsePtrInput is an input type that accepts MountSettingsResponseArgs, MountSettingsResponsePtr and MountSettingsResponsePtrOutput values.
-// You can construct a concrete instance of `MountSettingsResponsePtrInput` via:
-//
-//          MountSettingsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MountSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToMountSettingsResponsePtrOutput() MountSettingsResponsePtrOutput
-	ToMountSettingsResponsePtrOutputWithContext(context.Context) MountSettingsResponsePtrOutput
-}
-
-type mountSettingsResponsePtrType MountSettingsResponseArgs
-
-func MountSettingsResponsePtr(v *MountSettingsResponseArgs) MountSettingsResponsePtrInput {
-	return (*mountSettingsResponsePtrType)(v)
-}
-
-func (*mountSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MountSettingsResponse)(nil)).Elem()
-}
-
-func (i *mountSettingsResponsePtrType) ToMountSettingsResponsePtrOutput() MountSettingsResponsePtrOutput {
-	return i.ToMountSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mountSettingsResponsePtrType) ToMountSettingsResponsePtrOutputWithContext(ctx context.Context) MountSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountSettingsResponsePtrOutput)
-}
-
-// Details of the File Server.
-type MountSettingsResponseOutput struct{ *pulumi.OutputState }
-
-func (MountSettingsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MountSettingsResponse)(nil)).Elem()
-}
-
-func (o MountSettingsResponseOutput) ToMountSettingsResponseOutput() MountSettingsResponseOutput {
-	return o
-}
-
-func (o MountSettingsResponseOutput) ToMountSettingsResponseOutputWithContext(ctx context.Context) MountSettingsResponseOutput {
-	return o
-}
-
-func (o MountSettingsResponseOutput) ToMountSettingsResponsePtrOutput() MountSettingsResponsePtrOutput {
-	return o.ToMountSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MountSettingsResponseOutput) ToMountSettingsResponsePtrOutputWithContext(ctx context.Context) MountSettingsResponsePtrOutput {
-	return o.ApplyT(func(v MountSettingsResponse) *MountSettingsResponse {
-		return &v
-	}).(MountSettingsResponsePtrOutput)
-}
-func (o MountSettingsResponseOutput) FileServerInternalIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MountSettingsResponse) *string { return v.FileServerInternalIP }).(pulumi.StringPtrOutput)
-}
-
-func (o MountSettingsResponseOutput) FileServerPublicIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MountSettingsResponse) *string { return v.FileServerPublicIP }).(pulumi.StringPtrOutput)
-}
-
-func (o MountSettingsResponseOutput) FileServerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MountSettingsResponse) *string { return v.FileServerType }).(pulumi.StringPtrOutput)
-}
-
-func (o MountSettingsResponseOutput) MountPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MountSettingsResponse) *string { return v.MountPoint }).(pulumi.StringPtrOutput)
-}
-
-type MountSettingsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MountSettingsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MountSettingsResponse)(nil)).Elem()
-}
-
-func (o MountSettingsResponsePtrOutput) ToMountSettingsResponsePtrOutput() MountSettingsResponsePtrOutput {
-	return o
-}
-
-func (o MountSettingsResponsePtrOutput) ToMountSettingsResponsePtrOutputWithContext(ctx context.Context) MountSettingsResponsePtrOutput {
-	return o
-}
-
-func (o MountSettingsResponsePtrOutput) Elem() MountSettingsResponseOutput {
-	return o.ApplyT(func(v *MountSettingsResponse) MountSettingsResponse { return *v }).(MountSettingsResponseOutput)
-}
-
-func (o MountSettingsResponsePtrOutput) FileServerInternalIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MountSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileServerInternalIP
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MountSettingsResponsePtrOutput) FileServerPublicIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MountSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileServerPublicIP
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MountSettingsResponsePtrOutput) FileServerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MountSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileServerType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MountSettingsResponsePtrOutput) MountPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MountSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MountPoint
-	}).(pulumi.StringPtrOutput)
-}
-
 // Details of volumes to mount on the cluster.
 type MountVolumes struct {
 	// A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
@@ -11475,312 +10953,6 @@ func (o SetupTaskResponsePtrOutput) StdOutErrPathSuffix() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration settings for the VM
-type SshConfiguration struct {
-	// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-	PublicIPsToAllow []string `pulumi:"publicIPsToAllow"`
-	// Settings for user account that gets created on each on the nodes of a cluster.
-	UserAccountSettings UserAccountSettings `pulumi:"userAccountSettings"`
-}
-
-// SshConfigurationInput is an input type that accepts SshConfigurationArgs and SshConfigurationOutput values.
-// You can construct a concrete instance of `SshConfigurationInput` via:
-//
-//          SshConfigurationArgs{...}
-type SshConfigurationInput interface {
-	pulumi.Input
-
-	ToSshConfigurationOutput() SshConfigurationOutput
-	ToSshConfigurationOutputWithContext(context.Context) SshConfigurationOutput
-}
-
-// SSH configuration settings for the VM
-type SshConfigurationArgs struct {
-	// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-	PublicIPsToAllow pulumi.StringArrayInput `pulumi:"publicIPsToAllow"`
-	// Settings for user account that gets created on each on the nodes of a cluster.
-	UserAccountSettings UserAccountSettingsInput `pulumi:"userAccountSettings"`
-}
-
-func (SshConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshConfiguration)(nil)).Elem()
-}
-
-func (i SshConfigurationArgs) ToSshConfigurationOutput() SshConfigurationOutput {
-	return i.ToSshConfigurationOutputWithContext(context.Background())
-}
-
-func (i SshConfigurationArgs) ToSshConfigurationOutputWithContext(ctx context.Context) SshConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationOutput)
-}
-
-func (i SshConfigurationArgs) ToSshConfigurationPtrOutput() SshConfigurationPtrOutput {
-	return i.ToSshConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i SshConfigurationArgs) ToSshConfigurationPtrOutputWithContext(ctx context.Context) SshConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationOutput).ToSshConfigurationPtrOutputWithContext(ctx)
-}
-
-// SshConfigurationPtrInput is an input type that accepts SshConfigurationArgs, SshConfigurationPtr and SshConfigurationPtrOutput values.
-// You can construct a concrete instance of `SshConfigurationPtrInput` via:
-//
-//          SshConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type SshConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToSshConfigurationPtrOutput() SshConfigurationPtrOutput
-	ToSshConfigurationPtrOutputWithContext(context.Context) SshConfigurationPtrOutput
-}
-
-type sshConfigurationPtrType SshConfigurationArgs
-
-func SshConfigurationPtr(v *SshConfigurationArgs) SshConfigurationPtrInput {
-	return (*sshConfigurationPtrType)(v)
-}
-
-func (*sshConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshConfiguration)(nil)).Elem()
-}
-
-func (i *sshConfigurationPtrType) ToSshConfigurationPtrOutput() SshConfigurationPtrOutput {
-	return i.ToSshConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *sshConfigurationPtrType) ToSshConfigurationPtrOutputWithContext(ctx context.Context) SshConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationPtrOutput)
-}
-
-// SSH configuration settings for the VM
-type SshConfigurationOutput struct{ *pulumi.OutputState }
-
-func (SshConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshConfiguration)(nil)).Elem()
-}
-
-func (o SshConfigurationOutput) ToSshConfigurationOutput() SshConfigurationOutput {
-	return o
-}
-
-func (o SshConfigurationOutput) ToSshConfigurationOutputWithContext(ctx context.Context) SshConfigurationOutput {
-	return o
-}
-
-func (o SshConfigurationOutput) ToSshConfigurationPtrOutput() SshConfigurationPtrOutput {
-	return o.ToSshConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o SshConfigurationOutput) ToSshConfigurationPtrOutputWithContext(ctx context.Context) SshConfigurationPtrOutput {
-	return o.ApplyT(func(v SshConfiguration) *SshConfiguration {
-		return &v
-	}).(SshConfigurationPtrOutput)
-}
-
-// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-func (o SshConfigurationOutput) PublicIPsToAllow() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SshConfiguration) []string { return v.PublicIPsToAllow }).(pulumi.StringArrayOutput)
-}
-
-// Settings for user account that gets created on each on the nodes of a cluster.
-func (o SshConfigurationOutput) UserAccountSettings() UserAccountSettingsOutput {
-	return o.ApplyT(func(v SshConfiguration) UserAccountSettings { return v.UserAccountSettings }).(UserAccountSettingsOutput)
-}
-
-type SshConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (SshConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshConfiguration)(nil)).Elem()
-}
-
-func (o SshConfigurationPtrOutput) ToSshConfigurationPtrOutput() SshConfigurationPtrOutput {
-	return o
-}
-
-func (o SshConfigurationPtrOutput) ToSshConfigurationPtrOutputWithContext(ctx context.Context) SshConfigurationPtrOutput {
-	return o
-}
-
-func (o SshConfigurationPtrOutput) Elem() SshConfigurationOutput {
-	return o.ApplyT(func(v *SshConfiguration) SshConfiguration { return *v }).(SshConfigurationOutput)
-}
-
-// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-func (o SshConfigurationPtrOutput) PublicIPsToAllow() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SshConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPsToAllow
-	}).(pulumi.StringArrayOutput)
-}
-
-// Settings for user account that gets created on each on the nodes of a cluster.
-func (o SshConfigurationPtrOutput) UserAccountSettings() UserAccountSettingsPtrOutput {
-	return o.ApplyT(func(v *SshConfiguration) *UserAccountSettings {
-		if v == nil {
-			return nil
-		}
-		return &v.UserAccountSettings
-	}).(UserAccountSettingsPtrOutput)
-}
-
-// SSH configuration settings for the VM
-type SshConfigurationResponse struct {
-	// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-	PublicIPsToAllow []string `pulumi:"publicIPsToAllow"`
-	// Settings for user account that gets created on each on the nodes of a cluster.
-	UserAccountSettings UserAccountSettingsResponse `pulumi:"userAccountSettings"`
-}
-
-// SshConfigurationResponseInput is an input type that accepts SshConfigurationResponseArgs and SshConfigurationResponseOutput values.
-// You can construct a concrete instance of `SshConfigurationResponseInput` via:
-//
-//          SshConfigurationResponseArgs{...}
-type SshConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToSshConfigurationResponseOutput() SshConfigurationResponseOutput
-	ToSshConfigurationResponseOutputWithContext(context.Context) SshConfigurationResponseOutput
-}
-
-// SSH configuration settings for the VM
-type SshConfigurationResponseArgs struct {
-	// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-	PublicIPsToAllow pulumi.StringArrayInput `pulumi:"publicIPsToAllow"`
-	// Settings for user account that gets created on each on the nodes of a cluster.
-	UserAccountSettings UserAccountSettingsResponseInput `pulumi:"userAccountSettings"`
-}
-
-func (SshConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshConfigurationResponse)(nil)).Elem()
-}
-
-func (i SshConfigurationResponseArgs) ToSshConfigurationResponseOutput() SshConfigurationResponseOutput {
-	return i.ToSshConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i SshConfigurationResponseArgs) ToSshConfigurationResponseOutputWithContext(ctx context.Context) SshConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationResponseOutput)
-}
-
-func (i SshConfigurationResponseArgs) ToSshConfigurationResponsePtrOutput() SshConfigurationResponsePtrOutput {
-	return i.ToSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SshConfigurationResponseArgs) ToSshConfigurationResponsePtrOutputWithContext(ctx context.Context) SshConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationResponseOutput).ToSshConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-// SshConfigurationResponsePtrInput is an input type that accepts SshConfigurationResponseArgs, SshConfigurationResponsePtr and SshConfigurationResponsePtrOutput values.
-// You can construct a concrete instance of `SshConfigurationResponsePtrInput` via:
-//
-//          SshConfigurationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SshConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToSshConfigurationResponsePtrOutput() SshConfigurationResponsePtrOutput
-	ToSshConfigurationResponsePtrOutputWithContext(context.Context) SshConfigurationResponsePtrOutput
-}
-
-type sshConfigurationResponsePtrType SshConfigurationResponseArgs
-
-func SshConfigurationResponsePtr(v *SshConfigurationResponseArgs) SshConfigurationResponsePtrInput {
-	return (*sshConfigurationResponsePtrType)(v)
-}
-
-func (*sshConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshConfigurationResponse)(nil)).Elem()
-}
-
-func (i *sshConfigurationResponsePtrType) ToSshConfigurationResponsePtrOutput() SshConfigurationResponsePtrOutput {
-	return i.ToSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sshConfigurationResponsePtrType) ToSshConfigurationResponsePtrOutputWithContext(ctx context.Context) SshConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationResponsePtrOutput)
-}
-
-// SSH configuration settings for the VM
-type SshConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (SshConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshConfigurationResponse)(nil)).Elem()
-}
-
-func (o SshConfigurationResponseOutput) ToSshConfigurationResponseOutput() SshConfigurationResponseOutput {
-	return o
-}
-
-func (o SshConfigurationResponseOutput) ToSshConfigurationResponseOutputWithContext(ctx context.Context) SshConfigurationResponseOutput {
-	return o
-}
-
-func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutput() SshConfigurationResponsePtrOutput {
-	return o.ToSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutputWithContext(ctx context.Context) SshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v SshConfigurationResponse) *SshConfigurationResponse {
-		return &v
-	}).(SshConfigurationResponsePtrOutput)
-}
-
-// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-func (o SshConfigurationResponseOutput) PublicIPsToAllow() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SshConfigurationResponse) []string { return v.PublicIPsToAllow }).(pulumi.StringArrayOutput)
-}
-
-// Settings for user account that gets created on each on the nodes of a cluster.
-func (o SshConfigurationResponseOutput) UserAccountSettings() UserAccountSettingsResponseOutput {
-	return o.ApplyT(func(v SshConfigurationResponse) UserAccountSettingsResponse { return v.UserAccountSettings }).(UserAccountSettingsResponseOutput)
-}
-
-type SshConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SshConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshConfigurationResponse)(nil)).Elem()
-}
-
-func (o SshConfigurationResponsePtrOutput) ToSshConfigurationResponsePtrOutput() SshConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o SshConfigurationResponsePtrOutput) ToSshConfigurationResponsePtrOutputWithContext(ctx context.Context) SshConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o SshConfigurationResponsePtrOutput) Elem() SshConfigurationResponseOutput {
-	return o.ApplyT(func(v *SshConfigurationResponse) SshConfigurationResponse { return *v }).(SshConfigurationResponseOutput)
-}
-
-// Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-func (o SshConfigurationResponsePtrOutput) PublicIPsToAllow() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SshConfigurationResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPsToAllow
-	}).(pulumi.StringArrayOutput)
-}
-
-// Settings for user account that gets created on each on the nodes of a cluster.
-func (o SshConfigurationResponsePtrOutput) UserAccountSettings() UserAccountSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *SshConfigurationResponse) *UserAccountSettingsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.UserAccountSettings
-	}).(UserAccountSettingsResponsePtrOutput)
-}
-
 // TensorFlow job settings.
 type TensorFlowSettings struct {
 	// Command line arguments that need to be passed to the python script for the master task.
@@ -12497,8 +11669,11 @@ func (o UnmanagedFileSystemReferenceResponseArrayOutput) Index(i pulumi.IntInput
 
 // Settings for user account that gets created on each on the nodes of a cluster.
 type UserAccountSettings struct {
-	AdminUserName         string  `pulumi:"adminUserName"`
-	AdminUserPassword     *string `pulumi:"adminUserPassword"`
+	// Name of the administrator user account which can be used to SSH to nodes.
+	AdminUserName string `pulumi:"adminUserName"`
+	// Password of the administrator user account.
+	AdminUserPassword *string `pulumi:"adminUserPassword"`
+	// SSH public key of the administrator user account.
 	AdminUserSshPublicKey *string `pulumi:"adminUserSshPublicKey"`
 }
 
@@ -12515,8 +11690,11 @@ type UserAccountSettingsInput interface {
 
 // Settings for user account that gets created on each on the nodes of a cluster.
 type UserAccountSettingsArgs struct {
-	AdminUserName         pulumi.StringInput    `pulumi:"adminUserName"`
-	AdminUserPassword     pulumi.StringPtrInput `pulumi:"adminUserPassword"`
+	// Name of the administrator user account which can be used to SSH to nodes.
+	AdminUserName pulumi.StringInput `pulumi:"adminUserName"`
+	// Password of the administrator user account.
+	AdminUserPassword pulumi.StringPtrInput `pulumi:"adminUserPassword"`
+	// SSH public key of the administrator user account.
 	AdminUserSshPublicKey pulumi.StringPtrInput `pulumi:"adminUserSshPublicKey"`
 }
 
@@ -12597,14 +11775,18 @@ func (o UserAccountSettingsOutput) ToUserAccountSettingsPtrOutputWithContext(ctx
 		return &v
 	}).(UserAccountSettingsPtrOutput)
 }
+
+// Name of the administrator user account which can be used to SSH to nodes.
 func (o UserAccountSettingsOutput) AdminUserName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAccountSettings) string { return v.AdminUserName }).(pulumi.StringOutput)
 }
 
+// Password of the administrator user account.
 func (o UserAccountSettingsOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAccountSettings) *string { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
 }
 
+// SSH public key of the administrator user account.
 func (o UserAccountSettingsOutput) AdminUserSshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAccountSettings) *string { return v.AdminUserSshPublicKey }).(pulumi.StringPtrOutput)
 }
@@ -12627,6 +11809,7 @@ func (o UserAccountSettingsPtrOutput) Elem() UserAccountSettingsOutput {
 	return o.ApplyT(func(v *UserAccountSettings) UserAccountSettings { return *v }).(UserAccountSettingsOutput)
 }
 
+// Name of the administrator user account which can be used to SSH to nodes.
 func (o UserAccountSettingsPtrOutput) AdminUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAccountSettings) *string {
 		if v == nil {
@@ -12636,6 +11819,7 @@ func (o UserAccountSettingsPtrOutput) AdminUserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Password of the administrator user account.
 func (o UserAccountSettingsPtrOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAccountSettings) *string {
 		if v == nil {
@@ -12645,6 +11829,7 @@ func (o UserAccountSettingsPtrOutput) AdminUserPassword() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// SSH public key of the administrator user account.
 func (o UserAccountSettingsPtrOutput) AdminUserSshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAccountSettings) *string {
 		if v == nil {
@@ -12656,8 +11841,11 @@ func (o UserAccountSettingsPtrOutput) AdminUserSshPublicKey() pulumi.StringPtrOu
 
 // Settings for user account that gets created on each on the nodes of a cluster.
 type UserAccountSettingsResponse struct {
-	AdminUserName         string  `pulumi:"adminUserName"`
-	AdminUserPassword     *string `pulumi:"adminUserPassword"`
+	// Name of the administrator user account which can be used to SSH to nodes.
+	AdminUserName string `pulumi:"adminUserName"`
+	// Password of the administrator user account.
+	AdminUserPassword *string `pulumi:"adminUserPassword"`
+	// SSH public key of the administrator user account.
 	AdminUserSshPublicKey *string `pulumi:"adminUserSshPublicKey"`
 }
 
@@ -12674,8 +11862,11 @@ type UserAccountSettingsResponseInput interface {
 
 // Settings for user account that gets created on each on the nodes of a cluster.
 type UserAccountSettingsResponseArgs struct {
-	AdminUserName         pulumi.StringInput    `pulumi:"adminUserName"`
-	AdminUserPassword     pulumi.StringPtrInput `pulumi:"adminUserPassword"`
+	// Name of the administrator user account which can be used to SSH to nodes.
+	AdminUserName pulumi.StringInput `pulumi:"adminUserName"`
+	// Password of the administrator user account.
+	AdminUserPassword pulumi.StringPtrInput `pulumi:"adminUserPassword"`
+	// SSH public key of the administrator user account.
 	AdminUserSshPublicKey pulumi.StringPtrInput `pulumi:"adminUserSshPublicKey"`
 }
 
@@ -12756,14 +11947,18 @@ func (o UserAccountSettingsResponseOutput) ToUserAccountSettingsResponsePtrOutpu
 		return &v
 	}).(UserAccountSettingsResponsePtrOutput)
 }
+
+// Name of the administrator user account which can be used to SSH to nodes.
 func (o UserAccountSettingsResponseOutput) AdminUserName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAccountSettingsResponse) string { return v.AdminUserName }).(pulumi.StringOutput)
 }
 
+// Password of the administrator user account.
 func (o UserAccountSettingsResponseOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAccountSettingsResponse) *string { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
 }
 
+// SSH public key of the administrator user account.
 func (o UserAccountSettingsResponseOutput) AdminUserSshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAccountSettingsResponse) *string { return v.AdminUserSshPublicKey }).(pulumi.StringPtrOutput)
 }
@@ -12786,6 +11981,7 @@ func (o UserAccountSettingsResponsePtrOutput) Elem() UserAccountSettingsResponse
 	return o.ApplyT(func(v *UserAccountSettingsResponse) UserAccountSettingsResponse { return *v }).(UserAccountSettingsResponseOutput)
 }
 
+// Name of the administrator user account which can be used to SSH to nodes.
 func (o UserAccountSettingsResponsePtrOutput) AdminUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAccountSettingsResponse) *string {
 		if v == nil {
@@ -12795,6 +11991,7 @@ func (o UserAccountSettingsResponsePtrOutput) AdminUserName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Password of the administrator user account.
 func (o UserAccountSettingsResponsePtrOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAccountSettingsResponse) *string {
 		if v == nil {
@@ -12804,6 +12001,7 @@ func (o UserAccountSettingsResponsePtrOutput) AdminUserPassword() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// SSH public key of the administrator user account.
 func (o UserAccountSettingsResponsePtrOutput) AdminUserSshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAccountSettingsResponse) *string {
 		if v == nil {
@@ -13130,10 +12328,6 @@ func init() {
 	pulumi.RegisterOutputType(CustomToolkitSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CustomToolkitSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CustomToolkitSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataDisksOutput{})
-	pulumi.RegisterOutputType(DataDisksPtrOutput{})
-	pulumi.RegisterOutputType(DataDisksResponseOutput{})
-	pulumi.RegisterOutputType(DataDisksResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableResponseOutput{})
@@ -13182,8 +12376,6 @@ func init() {
 	pulumi.RegisterOutputType(ManualScaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ManualScaleSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ManualScaleSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(MountSettingsResponseOutput{})
-	pulumi.RegisterOutputType(MountSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(MountVolumesOutput{})
 	pulumi.RegisterOutputType(MountVolumesPtrOutput{})
 	pulumi.RegisterOutputType(MountVolumesResponseOutput{})
@@ -13226,10 +12418,6 @@ func init() {
 	pulumi.RegisterOutputType(SetupTaskPtrOutput{})
 	pulumi.RegisterOutputType(SetupTaskResponseOutput{})
 	pulumi.RegisterOutputType(SetupTaskResponsePtrOutput{})
-	pulumi.RegisterOutputType(SshConfigurationOutput{})
-	pulumi.RegisterOutputType(SshConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(SshConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(SshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(TensorFlowSettingsOutput{})
 	pulumi.RegisterOutputType(TensorFlowSettingsPtrOutput{})
 	pulumi.RegisterOutputType(TensorFlowSettingsResponseOutput{})

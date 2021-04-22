@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Protection container mapping object.
-    /// API Version: 2021-02-10.
+    /// API Version: 2018-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationProtectionContainerMapping")]
     public partial class ReplicationProtectionContainerMapping : Pulumi.CustomResource

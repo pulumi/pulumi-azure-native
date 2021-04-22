@@ -858,7 +858,6 @@ namespace Pulumi.AzureNative.RecoveryServices
         public static ReplicationProtectedItemOperation TestFailoverCleanup { get; } = new ReplicationProtectedItemOperation("TestFailoverCleanup");
         public static ReplicationProtectedItemOperation Failback { get; } = new ReplicationProtectedItemOperation("Failback");
         public static ReplicationProtectedItemOperation FinalizeFailback { get; } = new ReplicationProtectedItemOperation("FinalizeFailback");
-        public static ReplicationProtectedItemOperation CancelFailover { get; } = new ReplicationProtectedItemOperation("CancelFailover");
         public static ReplicationProtectedItemOperation ChangePit { get; } = new ReplicationProtectedItemOperation("ChangePit");
         public static ReplicationProtectedItemOperation RepairReplication { get; } = new ReplicationProtectedItemOperation("RepairReplication");
         public static ReplicationProtectedItemOperation SwitchProtection { get; } = new ReplicationProtectedItemOperation("SwitchProtection");
@@ -1100,39 +1099,6 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The SQL Server license type.
-    /// </summary>
-    [EnumType]
-    public readonly struct SqlServerLicenseType : IEquatable<SqlServerLicenseType>
-    {
-        private readonly string _value;
-
-        private SqlServerLicenseType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SqlServerLicenseType NotSpecified { get; } = new SqlServerLicenseType("NotSpecified");
-        public static SqlServerLicenseType NoLicenseType { get; } = new SqlServerLicenseType("NoLicenseType");
-        public static SqlServerLicenseType PAYG { get; } = new SqlServerLicenseType("PAYG");
-        public static SqlServerLicenseType AHUB { get; } = new SqlServerLicenseType("AHUB");
-
-        public static bool operator ==(SqlServerLicenseType left, SqlServerLicenseType right) => left.Equals(right);
-        public static bool operator !=(SqlServerLicenseType left, SqlServerLicenseType right) => !left.Equals(right);
-
-        public static explicit operator string(SqlServerLicenseType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SqlServerLicenseType other && Equals(other);
-        public bool Equals(SqlServerLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

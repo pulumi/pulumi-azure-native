@@ -8,7 +8,7 @@ import (
 )
 
 // Fabric definition.
-// API Version: 2021-02-10.
+// API Version: 2018-07-10.
 func LookupReplicationFabric(ctx *pulumi.Context, args *LookupReplicationFabricArgs, opts ...pulumi.InvokeOption) (*LookupReplicationFabricResult, error) {
 	var rv LookupReplicationFabricResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationFabric", args, &rv, opts...)
@@ -21,8 +21,6 @@ func LookupReplicationFabric(ctx *pulumi.Context, args *LookupReplicationFabricA
 type LookupReplicationFabricArgs struct {
 	// Fabric name.
 	FabricName string `pulumi:"fabricName"`
-	// OData filter options.
-	Filter *string `pulumi:"filter"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.

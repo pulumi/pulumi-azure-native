@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Base class for backup ProtectionIntent.
-        /// API Version: 2021-02-10.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());

@@ -11,27 +11,27 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
 {
 
     /// <summary>
-    /// A2A disk input details.
+    /// Azure VM disk input details.
     /// </summary>
     public sealed class A2AVmDiskInputDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The disk Uri.
         /// </summary>
-        [Input("diskUri", required: true)]
-        public Input<string> DiskUri { get; set; } = null!;
+        [Input("diskUri")]
+        public Input<string>? DiskUri { get; set; }
 
         /// <summary>
         /// The primary staging storage account Id.
         /// </summary>
-        [Input("primaryStagingAzureStorageAccountId", required: true)]
-        public Input<string> PrimaryStagingAzureStorageAccountId { get; set; } = null!;
+        [Input("primaryStagingAzureStorageAccountId")]
+        public Input<string>? PrimaryStagingAzureStorageAccountId { get; set; }
 
         /// <summary>
         /// The recovery VHD storage account Id.
         /// </summary>
-        [Input("recoveryAzureStorageAccountId", required: true)]
-        public Input<string> RecoveryAzureStorageAccountId { get; set; } = null!;
+        [Input("recoveryAzureStorageAccountId")]
+        public Input<string>? RecoveryAzureStorageAccountId { get; set; }
 
         public A2AVmDiskInputDetailsArgs()
         {

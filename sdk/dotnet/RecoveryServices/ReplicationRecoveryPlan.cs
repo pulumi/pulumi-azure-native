@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Recovery plan details.
-    /// API Version: 2021-02-10.
+    /// API Version: 2018-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : Pulumi.CustomResource

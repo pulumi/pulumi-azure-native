@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class InMageAzureV2ManagedDiskDetailsResponse
     {
         /// <summary>
-        /// The DiskEncryptionSet ARM ID.
-        /// </summary>
-        public readonly string? DiskEncryptionSetId;
-        /// <summary>
         /// The disk id.
         /// </summary>
         public readonly string? DiskId;
@@ -32,15 +28,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private InMageAzureV2ManagedDiskDetailsResponse(
-            string? diskEncryptionSetId,
-
             string? diskId,
 
             string? replicaDiskType,
 
             string? seedManagedDiskId)
         {
-            DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             ReplicaDiskType = replicaDiskType;
             SeedManagedDiskId = seedManagedDiskId;

@@ -12,7 +12,7 @@ import (
 )
 
 // Protection profile details.
-// API Version: 2021-02-10.
+// API Version: 2018-07-10.
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 
@@ -117,7 +117,7 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 }
 
 type replicationPolicyArgs struct {
-	// Replication policy name.
+	// Replication policy name
 	PolicyName *string `pulumi:"policyName"`
 	// Policy creation properties.
 	Properties *CreatePolicyInputProperties `pulumi:"properties"`
@@ -129,7 +129,7 @@ type replicationPolicyArgs struct {
 
 // The set of arguments for constructing a ReplicationPolicy resource.
 type ReplicationPolicyArgs struct {
-	// Replication policy name.
+	// Replication policy name
 	PolicyName pulumi.StringPtrInput
 	// Policy creation properties.
 	Properties CreatePolicyInputPropertiesPtrInput

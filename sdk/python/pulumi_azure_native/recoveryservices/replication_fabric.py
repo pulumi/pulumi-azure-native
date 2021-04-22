@@ -94,7 +94,7 @@ class ReplicationFabric(pulumi.CustomResource):
                  __props__=None):
         """
         Fabric definition.
-        API Version: 2021-02-10.
+        API Version: 2018-07-10.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class ReplicationFabric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Fabric definition.
-        API Version: 2021-02-10.
+        API Version: 2018-07-10.
 
         :param str resource_name: The name of the resource.
         :param ReplicationFabricArgs args: The arguments to use to populate this resource's properties.

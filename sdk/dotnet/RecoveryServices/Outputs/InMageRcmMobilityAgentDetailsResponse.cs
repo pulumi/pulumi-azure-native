@@ -34,10 +34,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string LastHeartbeatUtc;
         /// <summary>
-        /// The latest agent version release date.
-        /// </summary>
-        public readonly string LatestAgentReleaseDate;
-        /// <summary>
         /// The latest upgradeable version available without reboot.
         /// </summary>
         public readonly string LatestUpgradableVersionWithoutReboot;
@@ -66,8 +62,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string lastHeartbeatUtc,
 
-            string latestAgentReleaseDate,
-
             string latestUpgradableVersionWithoutReboot,
 
             string latestVersion,
@@ -81,7 +75,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DriverVersionExpiryDate = driverVersionExpiryDate;
             IsUpgradeable = isUpgradeable;
             LastHeartbeatUtc = lastHeartbeatUtc;
-            LatestAgentReleaseDate = latestAgentReleaseDate;
             LatestUpgradableVersionWithoutReboot = latestUpgradableVersionWithoutReboot;
             LatestVersion = latestVersion;
             ReasonsBlockingUpgrade = reasonsBlockingUpgrade;

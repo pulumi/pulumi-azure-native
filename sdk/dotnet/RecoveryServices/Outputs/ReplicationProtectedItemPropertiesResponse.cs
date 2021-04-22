@@ -26,10 +26,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.CurrentScenarioDetailsResponse? CurrentScenario;
         /// <summary>
-        /// The correlation Id for events associated with this protected item.
-        /// </summary>
-        public readonly string? EventCorrelationId;
-        /// <summary>
         /// The consolidated failover health for the VM.
         /// </summary>
         public readonly string? FailoverHealth;
@@ -134,8 +130,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.CurrentScenarioDetailsResponse? currentScenario,
 
-            string? eventCorrelationId,
-
             string? failoverHealth,
 
             string? failoverRecoveryPointId,
@@ -187,7 +181,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ActiveLocation = activeLocation;
             AllowedOperations = allowedOperations;
             CurrentScenario = currentScenario;
-            EventCorrelationId = eventCorrelationId;
             FailoverHealth = failoverHealth;
             FailoverRecoveryPointId = failoverRecoveryPointId;
             FriendlyName = friendlyName;

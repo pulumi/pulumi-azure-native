@@ -162,7 +162,7 @@ class ProtectionIntent(pulumi.CustomResource):
                  __props__=None):
         """
         Base class for backup ProtectionIntent.
-        API Version: 2021-02-10.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +183,7 @@ class ProtectionIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for backup ProtectionIntent.
-        API Version: 2021-02-10.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param ProtectionIntentArgs args: The arguments to use to populate this resource's properties.

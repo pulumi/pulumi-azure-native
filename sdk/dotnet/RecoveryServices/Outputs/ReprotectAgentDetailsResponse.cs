@@ -14,18 +14,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class ReprotectAgentDetailsResponse
     {
         /// <summary>
-        /// The reprotect agent Bios Id.
-        /// </summary>
-        public readonly string BiosId;
-        /// <summary>
-        /// The fabric object Id.
-        /// </summary>
-        public readonly string FabricObjectId;
-        /// <summary>
-        /// The reprotect agent Fqdn.
-        /// </summary>
-        public readonly string Fqdn;
-        /// <summary>
         /// The health of the reprotect agent.
         /// </summary>
         public readonly string Health;
@@ -52,12 +40,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private ReprotectAgentDetailsResponse(
-            string biosId,
-
-            string fabricObjectId,
-
-            string fqdn,
-
             string health,
 
             ImmutableArray<Outputs.HealthErrorResponse> healthErrors,
@@ -70,9 +52,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string version)
         {
-            BiosId = biosId;
-            FabricObjectId = fabricObjectId;
-            Fqdn = fqdn;
             Health = health;
             HealthErrors = healthErrors;
             Id = id;

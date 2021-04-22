@@ -35,10 +35,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The list of Mars agents.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MarsAgentDetailsResponse> MarsAgents;
-        /// <summary>
         /// The ARM Id of the physical site.
         /// </summary>
         public readonly string PhysicalSiteId;
@@ -91,8 +87,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string instanceType,
 
-            ImmutableArray<Outputs.MarsAgentDetailsResponse> marsAgents,
-
             string physicalSiteId,
 
             ImmutableArray<Outputs.ProcessServerDetailsResponse> processServers,
@@ -118,7 +112,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DataPlaneUri = dataPlaneUri;
             Dras = dras;
             InstanceType = instanceType;
-            MarsAgents = marsAgents;
             PhysicalSiteId = physicalSiteId;
             ProcessServers = processServers;
             PushInstallers = pushInstallers;

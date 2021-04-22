@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// vCenter definition.
-        /// API Version: 2021-02-10.
+        /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationvCenterResult> InvokeAsync(GetReplicationvCenterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationvCenterResult>("azure-native:recoveryservices:getReplicationvCenter", args ?? new GetReplicationvCenterArgs(), options.WithVersion());
@@ -41,10 +41,10 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// vcenter name.
+        /// vCenter name.
         /// </summary>
-        [Input("vcenterName", required: true)]
-        public string VcenterName { get; set; } = null!;
+        [Input("vCenterName", required: true)]
+        public string VCenterName { get; set; } = null!;
 
         public GetReplicationvCenterArgs()
         {

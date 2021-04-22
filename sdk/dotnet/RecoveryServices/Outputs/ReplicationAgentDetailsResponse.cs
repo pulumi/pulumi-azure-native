@@ -14,18 +14,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class ReplicationAgentDetailsResponse
     {
         /// <summary>
-        /// The replication agent Bios Id.
-        /// </summary>
-        public readonly string BiosId;
-        /// <summary>
-        /// The fabric object Id.
-        /// </summary>
-        public readonly string FabricObjectId;
-        /// <summary>
-        /// The replication agent Fqdn.
-        /// </summary>
-        public readonly string Fqdn;
-        /// <summary>
         /// The health of the replication agent.
         /// </summary>
         public readonly string Health;
@@ -46,18 +34,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The version.
+        /// The replication agent version.
         /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
         private ReplicationAgentDetailsResponse(
-            string biosId,
-
-            string fabricObjectId,
-
-            string fqdn,
-
             string health,
 
             ImmutableArray<Outputs.HealthErrorResponse> healthErrors,
@@ -70,9 +52,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string version)
         {
-            BiosId = biosId;
-            FabricObjectId = fabricObjectId;
-            Fqdn = fqdn;
             Health = health;
             HealthErrors = healthErrors;
             Id = id;

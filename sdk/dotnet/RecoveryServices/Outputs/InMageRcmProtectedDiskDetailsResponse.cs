@@ -18,15 +18,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double CapacityInBytes;
         /// <summary>
-        /// The data pending at source agent in MB.
-        /// </summary>
-        public readonly double DataPendingAtSourceAgentInMB;
-        /// <summary>
-        /// The data pending in log data store in MB.
-        /// </summary>
-        public readonly double DataPendingInLogDataStoreInMB;
-        /// <summary>
-        /// The DiskEncryptionSet ARM Id.
+        /// The disk encryption set ARM Id.
         /// </summary>
         public readonly string DiskEncryptionSetId;
         /// <summary>
@@ -40,15 +32,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The disk type.
         /// </summary>
-        public readonly string? DiskType;
-        /// <summary>
-        /// The initial replication details.
-        /// </summary>
-        public readonly Outputs.InMageRcmSyncDetailsResponse? IrDetails;
-        /// <summary>
-        /// A value indicating whether initial replication is complete or not.
-        /// </summary>
-        public readonly string IsInitialReplicationComplete;
+        public readonly string DiskType;
         /// <summary>
         /// A value indicating whether the disk is the OS disk.
         /// </summary>
@@ -57,10 +41,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The log storage account ARM Id.
         /// </summary>
         public readonly string LogStorageAccountId;
-        /// <summary>
-        /// The resync details.
-        /// </summary>
-        public readonly Outputs.InMageRcmSyncDetailsResponse? ResyncDetails;
         /// <summary>
         /// The ARM Id of the seed managed disk.
         /// </summary>
@@ -74,44 +54,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         private InMageRcmProtectedDiskDetailsResponse(
             double capacityInBytes,
 
-            double dataPendingAtSourceAgentInMB,
-
-            double dataPendingInLogDataStoreInMB,
-
             string diskEncryptionSetId,
 
             string diskId,
 
             string diskName,
 
-            string? diskType,
-
-            Outputs.InMageRcmSyncDetailsResponse? irDetails,
-
-            string isInitialReplicationComplete,
+            string diskType,
 
             string isOSDisk,
 
             string logStorageAccountId,
-
-            Outputs.InMageRcmSyncDetailsResponse? resyncDetails,
 
             string seedManagedDiskId,
 
             string targetManagedDiskId)
         {
             CapacityInBytes = capacityInBytes;
-            DataPendingAtSourceAgentInMB = dataPendingAtSourceAgentInMB;
-            DataPendingInLogDataStoreInMB = dataPendingInLogDataStoreInMB;
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             DiskName = diskName;
             DiskType = diskType;
-            IrDetails = irDetails;
-            IsInitialReplicationComplete = isInitialReplicationComplete;
             IsOSDisk = isOSDisk;
             LogStorageAccountId = logStorageAccountId;
-            ResyncDetails = resyncDetails;
             SeedManagedDiskId = seedManagedDiskId;
             TargetManagedDiskId = targetManagedDiskId;
         }

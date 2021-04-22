@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConsistencyPoints;
         /// <summary>
-        /// The datastores of the on-premise machine Value can be list of strings that contain datastore names.
+        /// The data stores of the on-premise machine Value can be list of strings that contain data store names
         /// </summary>
         public readonly ImmutableArray<string> Datastores;
         /// <summary>
@@ -58,10 +58,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The source IP address.
         /// </summary>
         public readonly string? IpAddress;
-        /// <summary>
-        /// A value indicating whether additional IR stats are available or not.
-        /// </summary>
-        public readonly bool? IsAdditionalStatsAvailable;
         /// <summary>
         /// The last heartbeat received from the source server.
         /// </summary>
@@ -119,7 +115,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? ReplicaId;
         /// <summary>
-        /// The resync details of the machine.
+        /// The resync details of the machine
         /// </summary>
         public readonly Outputs.InitialReplicationDetailsResponse? ResyncDetails;
         /// <summary>
@@ -143,14 +139,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? SourceVmRamSizeInMB;
         /// <summary>
-        /// The total transferred data in bytes.
-        /// </summary>
-        public readonly double? TotalDataTransferred;
-        /// <summary>
-        /// The progress health.
-        /// </summary>
-        public readonly string? TotalProgressHealth;
-        /// <summary>
         /// The uncompressed data change rate in MB.
         /// </summary>
         public readonly double? UncompressedDataRateInMB;
@@ -159,7 +147,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? VCenterInfrastructureId;
         /// <summary>
-        /// The validation errors of the on-premise machine Value can be list of validation errors.
+        /// The validation errors of the on-premise machine Value can be list of validation errors
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthErrorResponse> ValidationErrors;
         /// <summary>
@@ -203,8 +191,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? ipAddress,
 
-            bool? isAdditionalStatsAvailable,
-
             string? lastHeartbeat,
 
             string? lastRpoCalculatedTime,
@@ -245,10 +231,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? sourceVmRamSizeInMB,
 
-            double? totalDataTransferred,
-
-            string? totalProgressHealth,
-
             double? uncompressedDataRateInMB,
 
             string? vCenterInfrastructureId,
@@ -274,7 +256,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             InfrastructureVmId = infrastructureVmId;
             InstanceType = instanceType;
             IpAddress = ipAddress;
-            IsAdditionalStatsAvailable = isAdditionalStatsAvailable;
             LastHeartbeat = lastHeartbeat;
             LastRpoCalculatedTime = lastRpoCalculatedTime;
             LastUpdateReceivedTime = lastUpdateReceivedTime;
@@ -295,8 +276,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             RpoInSeconds = rpoInSeconds;
             SourceVmCpuCount = sourceVmCpuCount;
             SourceVmRamSizeInMB = sourceVmRamSizeInMB;
-            TotalDataTransferred = totalDataTransferred;
-            TotalProgressHealth = totalProgressHealth;
             UncompressedDataRateInMB = uncompressedDataRateInMB;
             VCenterInfrastructureId = vCenterInfrastructureId;
             ValidationErrors = validationErrors;

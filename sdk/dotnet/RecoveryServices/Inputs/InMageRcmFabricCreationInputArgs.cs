@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class InMageRcmFabricCreationInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The certificate to be used for AAD authentication.
+        /// </summary>
+        [Input("authCertificate")]
+        public Input<string>? AuthCertificate { get; set; }
+
+        /// <summary>
         /// Gets the class type.
         /// Expected value is 'InMageRcm'.
         /// </summary>
@@ -25,20 +31,20 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The ARM Id of the physical site.
         /// </summary>
-        [Input("physicalSiteId", required: true)]
-        public Input<string> PhysicalSiteId { get; set; } = null!;
+        [Input("physicalSiteId")]
+        public Input<string>? PhysicalSiteId { get; set; }
 
         /// <summary>
         /// The identity provider input for source agent authentication.
         /// </summary>
-        [Input("sourceAgentIdentity", required: true)]
-        public Input<Inputs.IdentityProviderInputArgs> SourceAgentIdentity { get; set; } = null!;
+        [Input("sourceAgentIdentity")]
+        public Input<Inputs.IdentityProviderInputArgs>? SourceAgentIdentity { get; set; }
 
         /// <summary>
         /// The ARM Id of the VMware site.
         /// </summary>
-        [Input("vmwareSiteId", required: true)]
-        public Input<string> VmwareSiteId { get; set; } = null!;
+        [Input("vmwareSiteId")]
+        public Input<string>? VmwareSiteId { get; set; }
 
         public InMageRcmFabricCreationInputArgs()
         {

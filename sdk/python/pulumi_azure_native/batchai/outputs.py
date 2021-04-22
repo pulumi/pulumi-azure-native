@@ -24,7 +24,6 @@ __all__ = [
     'ContainerSettingsResponse',
     'CustomMpiSettingsResponse',
     'CustomToolkitSettingsResponse',
-    'DataDisksResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVariableWithSecretValueResponse',
     'FileResponse',
@@ -38,7 +37,6 @@ __all__ = [
     'JobPropertiesResponseExecutionInfo',
     'KeyVaultSecretReferenceResponse',
     'ManualScaleSettingsResponse',
-    'MountSettingsResponse',
     'MountVolumesResponse',
     'NameValuePairResponse',
     'NodeSetupResponse',
@@ -51,7 +49,6 @@ __all__ = [
     'ResourceIdResponse',
     'ScaleSettingsResponse',
     'SetupTaskResponse',
-    'SshConfigurationResponse',
     'TensorFlowSettingsResponse',
     'UnmanagedFileSystemReferenceResponse',
     'UserAccountSettingsResponse',
@@ -988,71 +985,6 @@ class CustomToolkitSettingsResponse(dict):
 
 
 @pulumi.output_type
-class DataDisksResponse(dict):
-    """
-    Settings for the data disk which would be created for the File Server.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "diskCount":
-            suggest = "disk_count"
-        elif key == "diskSizeInGB":
-            suggest = "disk_size_in_gb"
-        elif key == "storageAccountType":
-            suggest = "storage_account_type"
-        elif key == "cachingType":
-            suggest = "caching_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataDisksResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataDisksResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataDisksResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 disk_count: int,
-                 disk_size_in_gb: int,
-                 storage_account_type: str,
-                 caching_type: Optional[str] = None):
-        """
-        Settings for the data disk which would be created for the File Server.
-        """
-        pulumi.set(__self__, "disk_count", disk_count)
-        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
-        if caching_type is None:
-            caching_type = 'none'
-        if caching_type is not None:
-            pulumi.set(__self__, "caching_type", caching_type)
-
-    @property
-    @pulumi.getter(name="diskCount")
-    def disk_count(self) -> int:
-        return pulumi.get(self, "disk_count")
-
-    @property
-    @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> int:
-        return pulumi.get(self, "disk_size_in_gb")
-
-    @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> str:
-        return pulumi.get(self, "storage_account_type")
-
-    @property
-    @pulumi.getter(name="cachingType")
-    def caching_type(self) -> Optional[str]:
-        return pulumi.get(self, "caching_type")
-
-
-@pulumi.output_type
 class EnvironmentVariableResponse(dict):
     """
     An environment variable definition.
@@ -1823,72 +1755,6 @@ class ManualScaleSettingsResponse(dict):
 
 
 @pulumi.output_type
-class MountSettingsResponse(dict):
-    """
-    Details of the File Server.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "fileServerInternalIP":
-            suggest = "file_server_internal_ip"
-        elif key == "fileServerPublicIP":
-            suggest = "file_server_public_ip"
-        elif key == "fileServerType":
-            suggest = "file_server_type"
-        elif key == "mountPoint":
-            suggest = "mount_point"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MountSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MountSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MountSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 file_server_internal_ip: Optional[str] = None,
-                 file_server_public_ip: Optional[str] = None,
-                 file_server_type: Optional[str] = None,
-                 mount_point: Optional[str] = None):
-        """
-        Details of the File Server.
-        """
-        if file_server_internal_ip is not None:
-            pulumi.set(__self__, "file_server_internal_ip", file_server_internal_ip)
-        if file_server_public_ip is not None:
-            pulumi.set(__self__, "file_server_public_ip", file_server_public_ip)
-        if file_server_type is not None:
-            pulumi.set(__self__, "file_server_type", file_server_type)
-        if mount_point is not None:
-            pulumi.set(__self__, "mount_point", mount_point)
-
-    @property
-    @pulumi.getter(name="fileServerInternalIP")
-    def file_server_internal_ip(self) -> Optional[str]:
-        return pulumi.get(self, "file_server_internal_ip")
-
-    @property
-    @pulumi.getter(name="fileServerPublicIP")
-    def file_server_public_ip(self) -> Optional[str]:
-        return pulumi.get(self, "file_server_public_ip")
-
-    @property
-    @pulumi.getter(name="fileServerType")
-    def file_server_type(self) -> Optional[str]:
-        return pulumi.get(self, "file_server_type")
-
-    @property
-    @pulumi.getter(name="mountPoint")
-    def mount_point(self) -> Optional[str]:
-        return pulumi.get(self, "mount_point")
-
-
-@pulumi.output_type
 class MountVolumesResponse(dict):
     """
     Details of volumes to mount on the cluster.
@@ -2635,59 +2501,6 @@ class SetupTaskResponse(dict):
 
 
 @pulumi.output_type
-class SshConfigurationResponse(dict):
-    """
-    SSH configuration settings for the VM
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userAccountSettings":
-            suggest = "user_account_settings"
-        elif key == "publicIPsToAllow":
-            suggest = "public_ips_to_allow"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SshConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SshConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SshConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 user_account_settings: 'outputs.UserAccountSettingsResponse',
-                 public_ips_to_allow: Optional[Sequence[str]] = None):
-        """
-        SSH configuration settings for the VM
-        :param 'UserAccountSettingsResponse' user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
-        :param Sequence[str] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-        """
-        pulumi.set(__self__, "user_account_settings", user_account_settings)
-        if public_ips_to_allow is not None:
-            pulumi.set(__self__, "public_ips_to_allow", public_ips_to_allow)
-
-    @property
-    @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> 'outputs.UserAccountSettingsResponse':
-        """
-        Settings for user account that gets created on each on the nodes of a cluster.
-        """
-        return pulumi.get(self, "user_account_settings")
-
-    @property
-    @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[Sequence[str]]:
-        """
-        Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-        """
-        return pulumi.get(self, "public_ips_to_allow")
-
-
-@pulumi.output_type
 class TensorFlowSettingsResponse(dict):
     """
     TensorFlow job settings.
@@ -2894,6 +2707,9 @@ class UserAccountSettingsResponse(dict):
                  admin_user_ssh_public_key: Optional[str] = None):
         """
         Settings for user account that gets created on each on the nodes of a cluster.
+        :param str admin_user_name: Name of the administrator user account which can be used to SSH to nodes.
+        :param str admin_user_password: Password of the administrator user account.
+        :param str admin_user_ssh_public_key: SSH public key of the administrator user account.
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
         if admin_user_password is not None:
@@ -2904,16 +2720,25 @@ class UserAccountSettingsResponse(dict):
     @property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> str:
+        """
+        Name of the administrator user account which can be used to SSH to nodes.
+        """
         return pulumi.get(self, "admin_user_name")
 
     @property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[str]:
+        """
+        Password of the administrator user account.
+        """
         return pulumi.get(self, "admin_user_password")
 
     @property
     @pulumi.getter(name="adminUserSshPublicKey")
     def admin_user_ssh_public_key(self) -> Optional[str]:
+        """
+        SSH public key of the administrator user account.
+        """
         return pulumi.get(self, "admin_user_ssh_public_key")
 
 

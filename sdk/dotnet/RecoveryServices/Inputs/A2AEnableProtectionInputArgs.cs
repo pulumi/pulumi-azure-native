@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class A2AEnableProtectionInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The recovery disk encryption information (for two pass flows).
+        /// The recovery disk encryption information.
         /// </summary>
         [Input("diskEncryptionInfo")]
         public Input<Inputs.DiskEncryptionInfoArgs>? DiskEncryptionInfo { get; set; }
@@ -24,8 +24,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// The fabric specific object Id of the virtual machine.
         /// </summary>
-        [Input("fabricObjectId", required: true)]
-        public Input<string> FabricObjectId { get; set; } = null!;
+        [Input("fabricObjectId")]
+        public Input<string>? FabricObjectId { get; set; }
 
         /// <summary>
         /// The class type.
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
-
-        /// <summary>
-        /// The multi vm group id.
-        /// </summary>
-        [Input("multiVmGroupId")]
-        public Input<string>? MultiVmGroupId { get; set; }
 
         /// <summary>
         /// The multi vm group name.
@@ -99,12 +93,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("recoverySubnetName")]
         public Input<string>? RecoverySubnetName { get; set; }
-
-        /// <summary>
-        /// The virtual machine scale set Id.
-        /// </summary>
-        [Input("recoveryVirtualMachineScaleSetId")]
-        public Input<string>? RecoveryVirtualMachineScaleSetId { get; set; }
 
         [Input("vmDisks")]
         private InputList<Inputs.A2AVmDiskInputDetailsArgs>? _vmDisks;

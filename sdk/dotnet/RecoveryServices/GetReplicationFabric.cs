@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Fabric definition.
-        /// API Version: 2021-02-10.
+        /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         [Input("fabricName", required: true)]
         public string FabricName { get; set; } = null!;
-
-        /// <summary>
-        /// OData filter options.
-        /// </summary>
-        [Input("filter")]
-        public string? Filter { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

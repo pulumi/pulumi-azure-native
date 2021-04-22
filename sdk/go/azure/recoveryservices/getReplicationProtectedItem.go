@@ -8,7 +8,7 @@ import (
 )
 
 // Replication protected item.
-// API Version: 2021-02-10.
+// API Version: 2018-07-10.
 func LookupReplicationProtectedItem(ctx *pulumi.Context, args *LookupReplicationProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectedItemResult, error) {
 	var rv LookupReplicationProtectedItemResult
 	err := ctx.Invoke("azure-native:recoveryservices:getReplicationProtectedItem", args, &rv, opts...)

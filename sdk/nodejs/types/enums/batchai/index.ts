@@ -12,14 +12,6 @@ export {
     v20180501,
 };
 
-export const CachingType = {
-    None: "none",
-    Readonly: "readonly",
-    Readwrite: "readwrite",
-} as const;
-
-export type CachingType = (typeof CachingType)[keyof typeof CachingType];
-
 export const DeallocationOption = {
     Requeue: "requeue",
     Terminate: "terminate",
@@ -41,13 +33,6 @@ export const JobPriority = {
  * Scheduling priority associated with the job. Possible values: low, normal, high.
  */
 export type JobPriority = (typeof JobPriority)[keyof typeof JobPriority];
-
-export const StorageAccountType = {
-    Standard_LRS: "Standard_LRS",
-    Premium_LRS: "Premium_LRS",
-} as const;
-
-export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
 
 export const VmPriority = {
     Dedicated: "dedicated",

@@ -99,7 +99,7 @@ def get_replication_protection_container_mapping(fabric_name: Optional[str] = No
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectionContainerMappingResult:
     """
     Protection container mapping object.
-    API Version: 2021-02-10.
+    API Version: 2018-07-10.
 
 
     :param str fabric_name: Fabric name.

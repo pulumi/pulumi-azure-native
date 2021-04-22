@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string BiosId;
         /// <summary>
-        /// The disks.
+        /// The details of agent disks.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentDiskDetailsResponse> Disks;
         /// <summary>

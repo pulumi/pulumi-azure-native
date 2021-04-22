@@ -37,7 +37,6 @@ __all__ = [
     'ScheduleRunType',
     'SetMultiVmSyncStatus',
     'SkuName',
-    'SqlServerLicenseType',
     'WeekOfMonth',
     'WorkloadItemType',
     'WorkloadType',
@@ -334,7 +333,6 @@ class ReplicationProtectedItemOperation(str, Enum):
     TEST_FAILOVER_CLEANUP = "TestFailoverCleanup"
     FAILBACK = "Failback"
     FINALIZE_FAILBACK = "FinalizeFailback"
-    CANCEL_FAILOVER = "CancelFailover"
     CHANGE_PIT = "ChangePit"
     REPAIR_REPLICATION = "RepairReplication"
     SWITCH_PROTECTION = "SwitchProtection"
@@ -406,16 +404,6 @@ class SkuName(str, Enum):
     """
     STANDARD = "Standard"
     RS0 = "RS0"
-
-
-class SqlServerLicenseType(str, Enum):
-    """
-    The SQL Server license type.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    NO_LICENSE_TYPE = "NoLicenseType"
-    PAYG = "PAYG"
-    AHUB = "AHUB"
 
 
 class WeekOfMonth(str, Enum):

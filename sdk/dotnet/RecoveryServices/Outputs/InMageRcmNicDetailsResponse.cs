@@ -16,11 +16,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// A value indicating whether this is the primary NIC.
         /// </summary>
-        public readonly string? IsPrimaryNic;
+        public readonly string IsPrimaryNic;
         /// <summary>
         /// A value indicating whether this NIC is selected for failover.
         /// </summary>
-        public readonly string? IsSelectedForFailover;
+        public readonly string IsSelectedForFailover;
         /// <summary>
         /// The NIC Id.
         /// </summary>
@@ -44,33 +44,33 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The target IP address.
         /// </summary>
-        public readonly string? TargetIPAddress;
+        public readonly string TargetIPAddress;
         /// <summary>
         /// The target IP address type.
         /// </summary>
-        public readonly string? TargetIPAddressType;
+        public readonly string TargetIPAddressType;
         /// <summary>
         /// Target subnet name.
         /// </summary>
-        public readonly string? TargetSubnetName;
+        public readonly string TargetSubnetName;
         /// <summary>
         /// The test IP address.
         /// </summary>
-        public readonly string? TestIPAddress;
+        public readonly string TestIPAddress;
         /// <summary>
         /// The test IP address type.
         /// </summary>
-        public readonly string? TestIPAddressType;
+        public readonly string TestIPAddressType;
         /// <summary>
         /// Test subnet name.
         /// </summary>
-        public readonly string? TestSubnetName;
+        public readonly string TestSubnetName;
 
         [OutputConstructor]
         private InMageRcmNicDetailsResponse(
-            string? isPrimaryNic,
+            string isPrimaryNic,
 
-            string? isSelectedForFailover,
+            string isSelectedForFailover,
 
             string nicId,
 
@@ -82,17 +82,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string sourceSubnetName,
 
-            string? targetIPAddress,
+            string targetIPAddress,
 
-            string? targetIPAddressType,
+            string targetIPAddressType,
 
-            string? targetSubnetName,
+            string targetSubnetName,
 
-            string? testIPAddress,
+            string testIPAddress,
 
-            string? testIPAddressType,
+            string testIPAddressType,
 
-            string? testSubnetName)
+            string testSubnetName)
         {
             IsPrimaryNic = isPrimaryNic;
             IsSelectedForFailover = isSelectedForFailover;

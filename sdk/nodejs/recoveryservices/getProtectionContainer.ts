@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
- * API Version: 2021-02-10.
+ * API Version: 2021-02-01.
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
     if (!opts) {

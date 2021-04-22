@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Fabric definition.
- * API Version: 2021-02-10.
+ * API Version: 2018-07-10.
  */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
     if (!opts) {
@@ -19,7 +19,6 @@ export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azure-native:recoveryservices:getReplicationFabric", {
         "fabricName": args.fabricName,
-        "filter": args.filter,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -30,10 +29,6 @@ export interface GetReplicationFabricArgs {
      * Fabric name.
      */
     readonly fabricName: string;
-    /**
-     * OData filter options.
-     */
-    readonly filter?: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

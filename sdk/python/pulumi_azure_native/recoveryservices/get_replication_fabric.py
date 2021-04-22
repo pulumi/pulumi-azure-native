@@ -92,23 +92,20 @@ class AwaitableGetReplicationFabricResult(GetReplicationFabricResult):
 
 
 def get_replication_fabric(fabric_name: Optional[str] = None,
-                           filter: Optional[str] = None,
                            resource_group_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationFabricResult:
     """
     Fabric definition.
-    API Version: 2021-02-10.
+    API Version: 2018-07-10.
 
 
     :param str fabric_name: Fabric name.
-    :param str filter: OData filter options.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
     __args__ = dict()
     __args__['fabricName'] = fabric_name
-    __args__['filter'] = filter
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     if opts is None:

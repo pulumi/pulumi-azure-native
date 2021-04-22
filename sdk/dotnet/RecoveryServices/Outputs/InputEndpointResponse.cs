@@ -13,9 +13,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     [OutputType]
     public sealed class InputEndpointResponse
     {
+        /// <summary>
+        /// The input endpoint name.
+        /// </summary>
         public readonly string? EndpointName;
+        /// <summary>
+        /// The input endpoint private port.
+        /// </summary>
         public readonly int? PrivatePort;
+        /// <summary>
+        /// The input endpoint protocol.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// The input endpoint public port.
+        /// </summary>
         public readonly int? PublicPort;
 
         [OutputConstructor]

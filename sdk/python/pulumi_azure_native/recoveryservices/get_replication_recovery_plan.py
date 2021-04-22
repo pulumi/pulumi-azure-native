@@ -97,7 +97,7 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryPlanResult:
     """
     Recovery plan details.
-    API Version: 2021-02-10.
+    API Version: 2018-07-10.
 
 
     :param str recovery_plan_name: Name of the recovery plan.

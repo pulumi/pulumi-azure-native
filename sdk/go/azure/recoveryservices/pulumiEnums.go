@@ -878,7 +878,6 @@ const (
 	ReplicationProtectedItemOperationTestFailoverCleanup = ReplicationProtectedItemOperation("TestFailoverCleanup")
 	ReplicationProtectedItemOperationFailback            = ReplicationProtectedItemOperation("Failback")
 	ReplicationProtectedItemOperationFinalizeFailback    = ReplicationProtectedItemOperation("FinalizeFailback")
-	ReplicationProtectedItemOperationCancelFailover      = ReplicationProtectedItemOperation("CancelFailover")
 	ReplicationProtectedItemOperationChangePit           = ReplicationProtectedItemOperation("ChangePit")
 	ReplicationProtectedItemOperationRepairReplication   = ReplicationProtectedItemOperation("RepairReplication")
 	ReplicationProtectedItemOperationSwitchProtection    = ReplicationProtectedItemOperation("SwitchProtection")
@@ -1109,36 +1108,6 @@ func (e SkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The SQL Server license type.
-type SqlServerLicenseType pulumi.String
-
-const (
-	SqlServerLicenseTypeNotSpecified  = SqlServerLicenseType("NotSpecified")
-	SqlServerLicenseTypeNoLicenseType = SqlServerLicenseType("NoLicenseType")
-	SqlServerLicenseTypePAYG          = SqlServerLicenseType("PAYG")
-	SqlServerLicenseTypeAHUB          = SqlServerLicenseType("AHUB")
-)
-
-func (SqlServerLicenseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SqlServerLicenseType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SqlServerLicenseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SqlServerLicenseType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SqlServerLicenseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

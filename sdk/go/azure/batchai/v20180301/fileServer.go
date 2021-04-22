@@ -63,12 +63,6 @@ func NewFileServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:batchai/v20180301:FileServer"),
 		},
 		{
-			Type: pulumi.String("azure-native:batchai:FileServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai:FileServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:batchai/v20170901preview:FileServer"),
 		},
 		{

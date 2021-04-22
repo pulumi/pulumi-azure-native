@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? RecoveryPoints;
         /// <summary>
-        /// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud.
+        /// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
         /// </summary>
         public readonly string? ReplicaDeletionOption;
         /// <summary>

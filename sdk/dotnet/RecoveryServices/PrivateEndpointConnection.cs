@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Private Endpoint Connection Response Properties
-    /// API Version: 2021-02-10.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource

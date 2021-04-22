@@ -376,7 +376,6 @@ export const ReplicationProtectedItemOperation = {
     TestFailoverCleanup: "TestFailoverCleanup",
     Failback: "Failback",
     FinalizeFailback: "FinalizeFailback",
-    CancelFailover: "CancelFailover",
     ChangePit: "ChangePit",
     RepairReplication: "RepairReplication",
     SwitchProtection: "SwitchProtection",
@@ -465,18 +464,6 @@ export const SkuName = {
  * The Sku name.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
-
-export const SqlServerLicenseType = {
-    NotSpecified: "NotSpecified",
-    NoLicenseType: "NoLicenseType",
-    PAYG: "PAYG",
-    AHUB: "AHUB",
-} as const;
-
-/**
- * The SQL Server license type.
- */
-export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
 
 export const WeekOfMonth = {
     First: "First",

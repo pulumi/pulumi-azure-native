@@ -12,7 +12,7 @@ import (
 )
 
 // Base class for backup policy. Workload-specific backup policies are derived from this class.
-// API Version: 2021-02-10.
+// API Version: 2021-02-01.
 type ProtectionPolicy struct {
 	pulumi.CustomResourceState
 

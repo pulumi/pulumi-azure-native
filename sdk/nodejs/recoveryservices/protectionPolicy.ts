@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for backup policy. Workload-specific backup policies are derived from this class.
- * API Version: 2021-02-10.
+ * API Version: 2021-02-01.
  */
 export class ProtectionPolicy extends pulumi.CustomResource {
     /**

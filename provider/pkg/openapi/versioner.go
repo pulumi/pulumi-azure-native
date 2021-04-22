@@ -91,17 +91,20 @@ var ignoredProviderVersions = map[string][]string{
 
 // A manually-maintained list of versions where we want to use for the top-level resource. The primary goal is to
 // avoid breaking changes within a single major version of the provider that could come with new API versions.
-// We reset this map every time we release a new major version (or a new 0.x minor version).
-// Currently populated for 0.7.* series.
+// We reset this map every time we release a new major version.
+// Currently populated for 1.* series.
+var cutoffProviderVersions = map[string]string{
+	"recoveryservices": "v20210201preview",
+}
 var lockedTypeVersions = map[string]string{
 }
 
 // A manually-maintained list of resources that were deprecated and have no direct successor. They "pollute"
 // the top-level resources, including bringing old incompatible types, so we'd rather exclude them. Note that
-// they aren't officially deprecated in the APIs. We want to keep this list as small as possible - mostly to prevent
-// type clashing problems.
+// they aren't officially deprecated in the APIs.
 var deprecatedResources = codegen.NewStringSet(
 	"apimanagement:TenantPolicy",
+	"batchai:FileServer",
 	"consumption:BudgetByResourceGroupName",
 	"containerregistry:BuildStep",
 	"containerservice:ContainerService",
@@ -153,6 +156,11 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 	latestResources = map[string]*ResourceSpec{}
 	knownResources := codegen.NewStringSet()
 	for _, version := range versions {
+		if cutoffVersion, ok := cutoffProviderVersions[strings.ToLower(provider)]; ok && version > cutoffVersion {
+			// Ignore all the versions that are newer than the cutoff version for this provider.
+			continue
+		}
+
 		items := versionMap[version]
 		res := items.Resources
 		if invokes {

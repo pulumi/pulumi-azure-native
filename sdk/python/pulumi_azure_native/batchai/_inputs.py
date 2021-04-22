@@ -22,7 +22,6 @@ __all__ = [
     'ContainerSettingsArgs',
     'CustomMpiSettingsArgs',
     'CustomToolkitSettingsArgs',
-    'DataDisksArgs',
     'EnvironmentVariableArgs',
     'EnvironmentVariableWithSecretValueArgs',
     'FileServerReferenceArgs',
@@ -43,7 +42,6 @@ __all__ = [
     'ResourceIdArgs',
     'ScaleSettingsArgs',
     'SetupTaskArgs',
-    'SshConfigurationArgs',
     'TensorFlowSettingsArgs',
     'UnmanagedFileSystemReferenceArgs',
     'UserAccountSettingsArgs',
@@ -807,61 +805,6 @@ class CustomToolkitSettingsArgs:
     @command_line.setter
     def command_line(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "command_line", value)
-
-
-@pulumi.input_type
-class DataDisksArgs:
-    def __init__(__self__, *,
-                 disk_count: pulumi.Input[int],
-                 disk_size_in_gb: pulumi.Input[int],
-                 storage_account_type: pulumi.Input[Union[str, 'StorageAccountType']],
-                 caching_type: Optional[pulumi.Input['CachingType']] = None):
-        """
-        Settings for the data disk which would be created for the File Server.
-        """
-        pulumi.set(__self__, "disk_count", disk_count)
-        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
-        if caching_type is None:
-            caching_type = 'none'
-        if caching_type is not None:
-            pulumi.set(__self__, "caching_type", caching_type)
-
-    @property
-    @pulumi.getter(name="diskCount")
-    def disk_count(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "disk_count")
-
-    @disk_count.setter
-    def disk_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "disk_count", value)
-
-    @property
-    @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "disk_size_in_gb")
-
-    @disk_size_in_gb.setter
-    def disk_size_in_gb(self, value: pulumi.Input[int]):
-        pulumi.set(self, "disk_size_in_gb", value)
-
-    @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Input[Union[str, 'StorageAccountType']]:
-        return pulumi.get(self, "storage_account_type")
-
-    @storage_account_type.setter
-    def storage_account_type(self, value: pulumi.Input[Union[str, 'StorageAccountType']]):
-        pulumi.set(self, "storage_account_type", value)
-
-    @property
-    @pulumi.getter(name="cachingType")
-    def caching_type(self) -> Optional[pulumi.Input['CachingType']]:
-        return pulumi.get(self, "caching_type")
-
-    @caching_type.setter
-    def caching_type(self, value: Optional[pulumi.Input['CachingType']]):
-        pulumi.set(self, "caching_type", value)
 
 
 @pulumi.input_type
@@ -1887,45 +1830,6 @@ class SetupTaskArgs:
 
 
 @pulumi.input_type
-class SshConfigurationArgs:
-    def __init__(__self__, *,
-                 user_account_settings: pulumi.Input['UserAccountSettingsArgs'],
-                 public_ips_to_allow: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        SSH configuration settings for the VM
-        :param pulumi.Input['UserAccountSettingsArgs'] user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-        """
-        pulumi.set(__self__, "user_account_settings", user_account_settings)
-        if public_ips_to_allow is not None:
-            pulumi.set(__self__, "public_ips_to_allow", public_ips_to_allow)
-
-    @property
-    @pulumi.getter(name="userAccountSettings")
-    def user_account_settings(self) -> pulumi.Input['UserAccountSettingsArgs']:
-        """
-        Settings for user account that gets created on each on the nodes of a cluster.
-        """
-        return pulumi.get(self, "user_account_settings")
-
-    @user_account_settings.setter
-    def user_account_settings(self, value: pulumi.Input['UserAccountSettingsArgs']):
-        pulumi.set(self, "user_account_settings", value)
-
-    @property
-    @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-        """
-        return pulumi.get(self, "public_ips_to_allow")
-
-    @public_ips_to_allow.setter
-    def public_ips_to_allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "public_ips_to_allow", value)
-
-
-@pulumi.input_type
 class TensorFlowSettingsArgs:
     def __init__(__self__, *,
                  python_script_file_path: pulumi.Input[str],
@@ -2090,6 +1994,9 @@ class UserAccountSettingsArgs:
                  admin_user_ssh_public_key: Optional[pulumi.Input[str]] = None):
         """
         Settings for user account that gets created on each on the nodes of a cluster.
+        :param pulumi.Input[str] admin_user_name: Name of the administrator user account which can be used to SSH to nodes.
+        :param pulumi.Input[str] admin_user_password: Password of the administrator user account.
+        :param pulumi.Input[str] admin_user_ssh_public_key: SSH public key of the administrator user account.
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
         if admin_user_password is not None:
@@ -2100,6 +2007,9 @@ class UserAccountSettingsArgs:
     @property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Input[str]:
+        """
+        Name of the administrator user account which can be used to SSH to nodes.
+        """
         return pulumi.get(self, "admin_user_name")
 
     @admin_user_name.setter
@@ -2109,6 +2019,9 @@ class UserAccountSettingsArgs:
     @property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password of the administrator user account.
+        """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
@@ -2118,6 +2031,9 @@ class UserAccountSettingsArgs:
     @property
     @pulumi.getter(name="adminUserSshPublicKey")
     def admin_user_ssh_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH public key of the administrator user account.
+        """
         return pulumi.get(self, "admin_user_ssh_public_key")
 
     @admin_user_ssh_public_key.setter

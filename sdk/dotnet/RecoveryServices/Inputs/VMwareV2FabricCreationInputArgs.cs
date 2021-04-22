@@ -29,16 +29,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string> MigrationSolutionId { get; set; } = null!;
 
         /// <summary>
-        /// The ARM Id of the physical site.
-        /// </summary>
-        [Input("physicalSiteId")]
-        public Input<string>? PhysicalSiteId { get; set; }
-
-        /// <summary>
         /// The ARM Id of the VMware site.
         /// </summary>
-        [Input("vmwareSiteId")]
-        public Input<string>? VmwareSiteId { get; set; }
+        [Input("vmwareSiteId", required: true)]
+        public Input<string> VmwareSiteId { get; set; } = null!;
 
         public VMwareV2FabricCreationInputArgs()
         {

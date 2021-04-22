@@ -16,15 +16,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The app consistent snapshot frequency in minutes.
         /// </summary>
-        public readonly int? AppConsistentFrequencyInMinutes;
+        public readonly int AppConsistentFrequencyInMinutes;
         /// <summary>
         /// The crash consistent snapshot frequency in minutes.
         /// </summary>
-        public readonly int? CrashConsistentFrequencyInMinutes;
+        public readonly int CrashConsistentFrequencyInMinutes;
         /// <summary>
         /// A value indicating whether multi-VM sync has to be enabled.
         /// </summary>
-        public readonly string? EnableMultiVmSync;
+        public readonly string EnableMultiVmSync;
         /// <summary>
         /// Gets the class type. Overridden in derived classes.
         /// Expected value is 'InMageRcm'.
@@ -33,19 +33,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The duration in minutes until which the recovery points need to be stored.
         /// </summary>
-        public readonly int? RecoveryPointHistoryInMinutes;
+        public readonly int RecoveryPointHistoryInMinutes;
 
         [OutputConstructor]
         private InMageRcmPolicyDetailsResponse(
-            int? appConsistentFrequencyInMinutes,
+            int appConsistentFrequencyInMinutes,
 
-            int? crashConsistentFrequencyInMinutes,
+            int crashConsistentFrequencyInMinutes,
 
-            string? enableMultiVmSync,
+            string enableMultiVmSync,
 
             string instanceType,
 
-            int? recoveryPointHistoryInMinutes)
+            int recoveryPointHistoryInMinutes)
         {
             AppConsistentFrequencyInMinutes = appConsistentFrequencyInMinutes;
             CrashConsistentFrequencyInMinutes = crashConsistentFrequencyInMinutes;

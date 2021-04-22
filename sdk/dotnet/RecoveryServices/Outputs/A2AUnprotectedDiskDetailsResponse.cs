@@ -14,21 +14,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class A2AUnprotectedDiskDetailsResponse
     {
         /// <summary>
-        /// A value indicating whether the disk auto protection is enabled.
-        /// </summary>
-        public readonly string? DiskAutoProtectionStatus;
-        /// <summary>
         /// The source lun Id for the data disk.
         /// </summary>
         public readonly int? DiskLunId;
 
         [OutputConstructor]
-        private A2AUnprotectedDiskDetailsResponse(
-            string? diskAutoProtectionStatus,
-
-            int? diskLunId)
+        private A2AUnprotectedDiskDetailsResponse(int? diskLunId)
         {
-            DiskAutoProtectionStatus = diskAutoProtectionStatus;
             DiskLunId = diskLunId;
         }
     }

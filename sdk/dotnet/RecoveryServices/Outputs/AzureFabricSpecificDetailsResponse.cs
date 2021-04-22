@@ -26,10 +26,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The Location for the Azure fabric.
         /// </summary>
         public readonly string? Location;
-        /// <summary>
-        /// The zones.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.A2AZoneDetailsResponse> Zones;
 
         [OutputConstructor]
         private AzureFabricSpecificDetailsResponse(
@@ -37,14 +33,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string instanceType,
 
-            string? location,
-
-            ImmutableArray<Outputs.A2AZoneDetailsResponse> zones)
+            string? location)
         {
             ContainerIds = containerIds;
             InstanceType = instanceType;
             Location = location;
-            Zones = zones;
         }
     }
 }

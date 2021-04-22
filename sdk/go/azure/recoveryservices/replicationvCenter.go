@@ -12,7 +12,7 @@ import (
 )
 
 // vCenter definition.
-// API Version: 2021-02-10.
+// API Version: 2018-07-10.
 type ReplicationvCenter struct {
 	pulumi.CustomResourceState
 
@@ -128,8 +128,8 @@ type replicationvCenterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
 	ResourceName string `pulumi:"resourceName"`
-	// vcenter name.
-	VcenterName *string `pulumi:"vcenterName"`
+	// vCenter name.
+	VCenterName *string `pulumi:"vCenterName"`
 }
 
 // The set of arguments for constructing a ReplicationvCenter resource.
@@ -142,8 +142,8 @@ type ReplicationvCenterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.
 	ResourceName pulumi.StringInput
-	// vcenter name.
-	VcenterName pulumi.StringPtrInput
+	// vCenter name.
+	VCenterName pulumi.StringPtrInput
 }
 
 func (ReplicationvCenterArgs) ElementType() reflect.Type {

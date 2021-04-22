@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Replication protected item.
- * API Version: 2021-02-10.
+ * API Version: 2018-07-10.
  */
 export class ReplicationProtectedItem extends pulumi.CustomResource {
     /**

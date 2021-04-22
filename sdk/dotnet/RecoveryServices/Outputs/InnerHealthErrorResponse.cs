@@ -14,13 +14,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class InnerHealthErrorResponse
     {
         /// <summary>
-        /// Error creation time (UTC).
+        /// Error creation time (UTC)
         /// </summary>
         public readonly string? CreationTimeUtc;
-        /// <summary>
-        /// Value indicating whether the health error is customer resolvable.
-        /// </summary>
-        public readonly string? CustomerResolvability;
         /// <summary>
         /// ID of the entity.
         /// </summary>
@@ -33,10 +29,6 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Error code.
         /// </summary>
         public readonly string? ErrorCode;
-        /// <summary>
-        /// The health error unique id.
-        /// </summary>
-        public readonly string? ErrorId;
         /// <summary>
         /// Level of error.
         /// </summary>
@@ -74,15 +66,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         private InnerHealthErrorResponse(
             string? creationTimeUtc,
 
-            string? customerResolvability,
-
             string? entityId,
 
             string? errorCategory,
 
             string? errorCode,
-
-            string? errorId,
 
             string? errorLevel,
 
@@ -101,11 +89,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string? summaryMessage)
         {
             CreationTimeUtc = creationTimeUtc;
-            CustomerResolvability = customerResolvability;
             EntityId = entityId;
             ErrorCategory = errorCategory;
             ErrorCode = errorCode;
-            ErrorId = errorId;
             ErrorLevel = errorLevel;
             ErrorMessage = errorMessage;
             ErrorSource = errorSource;

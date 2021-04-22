@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Base class for backup ProtectionIntent.
- * API Version: 2021-02-10.
+ * API Version: 2021-02-01.
  */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
     if (!opts) {
