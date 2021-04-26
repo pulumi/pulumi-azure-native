@@ -12,6 +12,7 @@ __all__ = [
     'InfrastructureEncryption',
     'MinimalTlsVersionEnum',
     'PublicNetworkAccessEnum',
+    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -72,6 +73,14 @@ class MinimalTlsVersionEnum(str, Enum):
 class PublicNetworkAccessEnum(str, Enum):
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ServerSecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

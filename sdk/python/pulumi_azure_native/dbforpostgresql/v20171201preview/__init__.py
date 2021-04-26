@@ -12,9 +12,11 @@ from .get_database import *
 from .get_firewall_rule import *
 from .get_server import *
 from .get_server_administrator import *
+from .get_server_security_alert_policy import *
 from .get_virtual_network_rule import *
 from .server import *
 from .server_administrator import *
+from .server_security_alert_policy import *
 from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs
@@ -41,6 +43,8 @@ def _register_module():
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator":
                 return ServerAdministrator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy":
+                return ServerSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule":
                 return VirtualNetworkRule(name, pulumi.ResourceOptions(urn=urn))
             else:
