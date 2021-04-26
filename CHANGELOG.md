@@ -8,6 +8,9 @@ CHANGELOG
 
 #### New Resources
 
+- `dbforpostgresql.ServerSecurityAlertPolicy`
+  [#788](https://github.com/pulumi/pulumi-azure-native/issues/788)
+
 New module for Video Analyzer management:
 
 - `videoanalyzer:AccessPolicy`
