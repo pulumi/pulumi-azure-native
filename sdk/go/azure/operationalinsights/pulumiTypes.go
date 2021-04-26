@@ -3538,8 +3538,6 @@ type WorkspaceSkuResponse struct {
 	CapacityReservationLevel *int `pulumi:"capacityReservationLevel"`
 	// The last time when the sku was updated.
 	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
-	// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-	MaxCapacityReservationLevel int `pulumi:"maxCapacityReservationLevel"`
 	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
@@ -3561,8 +3559,6 @@ type WorkspaceSkuResponseArgs struct {
 	CapacityReservationLevel pulumi.IntPtrInput `pulumi:"capacityReservationLevel"`
 	// The last time when the sku was updated.
 	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
-	// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-	MaxCapacityReservationLevel pulumi.IntInput `pulumi:"maxCapacityReservationLevel"`
 	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -3655,11 +3651,6 @@ func (o WorkspaceSkuResponseOutput) LastSkuUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceSkuResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
 }
 
-// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-func (o WorkspaceSkuResponseOutput) MaxCapacityReservationLevel() pulumi.IntOutput {
-	return o.ApplyT(func(v WorkspaceSkuResponse) int { return v.MaxCapacityReservationLevel }).(pulumi.IntOutput)
-}
-
 // The name of the SKU.
 func (o WorkspaceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
@@ -3701,16 +3692,6 @@ func (o WorkspaceSkuResponsePtrOutput) LastSkuUpdate() pulumi.StringPtrOutput {
 		}
 		return &v.LastSkuUpdate
 	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-func (o WorkspaceSkuResponsePtrOutput) MaxCapacityReservationLevel() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkspaceSkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxCapacityReservationLevel
-	}).(pulumi.IntPtrOutput)
 }
 
 // The name of the SKU.

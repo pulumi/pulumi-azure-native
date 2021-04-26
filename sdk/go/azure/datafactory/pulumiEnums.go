@@ -997,6 +997,7 @@ type IntegrationRuntimeEntityReferenceType pulumi.String
 const (
 	IntegrationRuntimeEntityReferenceTypeIntegrationRuntimeReference = IntegrationRuntimeEntityReferenceType("IntegrationRuntimeReference")
 	IntegrationRuntimeEntityReferenceTypeLinkedServiceReference      = IntegrationRuntimeEntityReferenceType("LinkedServiceReference")
+	IntegrationRuntimeEntityReferenceTypeCredentialReference         = IntegrationRuntimeEntityReferenceType("CredentialReference")
 )
 
 func (IntegrationRuntimeEntityReferenceType) ElementType() reflect.Type {
