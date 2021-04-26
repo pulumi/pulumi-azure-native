@@ -89,11 +89,12 @@ var ignoredProviderVersions = map[string][]string{
 	"StorSimple": {"v20161001"},
 }
 
-// A manually-maintained list of versions where we want to use for the top-level resource. The primary goal is to
+// A manually-maintained list of versions that we want to use for the top-level resource. The primary goal is to
 // avoid breaking changes within a single major version of the provider that could come with new API versions.
 // We reset this map every time we release a new major version.
 // Currently populated for 1.* series.
 var cutoffProviderVersions = map[string]string{
+	"documentdb":       "v20210315",
 	"recoveryservices": "v20210201preview",
 }
 var lockedTypeVersions = map[string]string{
