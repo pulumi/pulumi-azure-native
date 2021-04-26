@@ -13,6 +13,7 @@ __all__ = [
     'MinimalTlsVersionEnum',
     'PublicNetworkAccessEnum',
     'ServerKeyType',
+    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -83,6 +84,14 @@ class ServerKeyType(str, Enum):
     The key type like 'AzureKeyVault'.
     """
     AZURE_KEY_VAULT = "AzureKeyVault"
+
+
+class ServerSecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ServerVersion(str, Enum):

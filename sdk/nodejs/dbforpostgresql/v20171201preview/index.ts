@@ -13,9 +13,11 @@ export * from "./getDatabase";
 export * from "./getFirewallRule";
 export * from "./getServer";
 export * from "./getServerAdministrator";
+export * from "./getServerSecurityAlertPolicy";
 export * from "./getVirtualNetworkRule";
 export * from "./server";
 export * from "./serverAdministrator";
+export * from "./serverSecurityAlertPolicy";
 export * from "./virtualNetworkRule";
 
 // Export enums:
@@ -27,6 +29,7 @@ import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
 import { Server } from "./server";
 import { ServerAdministrator } from "./serverAdministrator";
+import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
 
 const _module = {
@@ -43,6 +46,8 @@ const _module = {
                 return new Server(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator":
                 return new ServerAdministrator(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy":
+                return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:

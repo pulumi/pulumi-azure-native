@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerAdministrator{}
 	case "azure-native:dbforpostgresql:ServerKey":
 		r = &ServerKey{}
+	case "azure-native:dbforpostgresql:ServerSecurityAlertPolicy":
+		r = &ServerSecurityAlertPolicy{}
 	case "azure-native:dbforpostgresql:VirtualNetworkRule":
 		r = &VirtualNetworkRule{}
 	default:

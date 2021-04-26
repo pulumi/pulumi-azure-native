@@ -14,11 +14,13 @@ from .get_private_endpoint_connection import *
 from .get_server import *
 from .get_server_administrator import *
 from .get_server_key import *
+from .get_server_security_alert_policy import *
 from .get_virtual_network_rule import *
 from .private_endpoint_connection import *
 from .server import *
 from .server_administrator import *
 from .server_key import *
+from .server_security_alert_policy import *
 from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs
@@ -63,6 +65,8 @@ def _register_module():
                 return ServerAdministrator(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:dbforpostgresql:ServerKey":
                 return ServerKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:dbforpostgresql:ServerSecurityAlertPolicy":
+                return ServerSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:dbforpostgresql:VirtualNetworkRule":
                 return VirtualNetworkRule(name, pulumi.ResourceOptions(urn=urn))
             else:

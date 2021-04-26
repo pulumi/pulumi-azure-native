@@ -45,6 +45,16 @@ export const MinimalTlsVersionEnum = {
  */
 export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
 
+export const ServerSecurityAlertPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy, whether it is enabled or disabled.
+ */
+export type ServerSecurityAlertPolicyState = (typeof ServerSecurityAlertPolicyState)[keyof typeof ServerSecurityAlertPolicyState];
+
 export const ServerVersion = {
     ServerVersion_9_5: "9.5",
     ServerVersion_9_6: "9.6",

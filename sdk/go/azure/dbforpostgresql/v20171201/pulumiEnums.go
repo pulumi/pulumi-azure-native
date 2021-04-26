@@ -210,6 +210,34 @@ func (e PublicNetworkAccessEnum) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Specifies the state of the policy, whether it is enabled or disabled.
+type ServerSecurityAlertPolicyStateEnum pulumi.String
+
+const (
+	ServerSecurityAlertPolicyStateEnumEnabled  = ServerSecurityAlertPolicyStateEnum("Enabled")
+	ServerSecurityAlertPolicyStateEnumDisabled = ServerSecurityAlertPolicyStateEnum("Disabled")
+)
+
+func (ServerSecurityAlertPolicyStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ServerSecurityAlertPolicyStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerSecurityAlertPolicyStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerSecurityAlertPolicyStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerSecurityAlertPolicyStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Server version.
 type ServerVersion pulumi.String
 

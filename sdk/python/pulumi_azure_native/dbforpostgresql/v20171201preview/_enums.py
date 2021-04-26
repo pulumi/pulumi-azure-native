@@ -9,6 +9,7 @@ __all__ = [
     'CreateMode',
     'GeoRedundantBackup',
     'MinimalTlsVersionEnum',
+    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
@@ -49,6 +50,14 @@ class MinimalTlsVersionEnum(str, Enum):
     TLS1_1 = "TLS1_1"
     TLS1_2 = "TLS1_2"
     TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
+
+
+class ServerSecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ServerVersion(str, Enum):
