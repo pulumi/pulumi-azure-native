@@ -1,10 +1,13 @@
 CHANGELOG
 =========
 
-CHANGELOG
-=========
-
 ## HEAD (Unreleased)
+
+(None)
+
+---
+
+## 1.2.0 (2020-04-26)
 
 #### New Resources
 
@@ -44,8 +47,6 @@ New module for Video Analyzer management:
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13951))
 - The `maxCapacityReservationLevel` output property was removed from `operationalinsights.WorkspaceSkuResponse`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13812))
-
----
 
 ## 1.1.0 (2020-04-20)
 
