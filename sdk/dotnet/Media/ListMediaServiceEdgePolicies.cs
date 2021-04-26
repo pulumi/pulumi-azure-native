@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// 
-        /// API Version: 2021-05-01.
+        /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());

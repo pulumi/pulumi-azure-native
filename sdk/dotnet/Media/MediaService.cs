@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Media Services account.
-    /// API Version: 2021-05-01.
+    /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:MediaService")]
     public partial class MediaService : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Output("identity")]
         public Output<Outputs.MediaServiceIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// The Key Delivery properties for Media Services account.
-        /// </summary>
-        [Output("keyDelivery")]
-        public Output<Outputs.KeyDeliveryResponse?> KeyDelivery { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -157,12 +151,6 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MediaServiceIdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// The Key Delivery properties for Media Services account.
-        /// </summary>
-        [Input("keyDelivery")]
-        public Input<Inputs.KeyDeliveryArgs>? KeyDelivery { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

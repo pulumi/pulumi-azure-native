@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'AacAudioResponse',
     'AbsoluteClipTimeResponse',
-    'AccessControlResponse',
     'AccountEncryptionResponse',
     'AkamaiAccessControlResponse',
     'AkamaiSignatureHeaderAuthenticationKeyResponse',
@@ -84,7 +83,6 @@ __all__ = [
     'JpgFormatResponse',
     'JpgImageResponse',
     'JpgLayerResponse',
-    'KeyDeliveryResponse',
     'KeyVaultPropertiesResponse',
     'LiveEventEncodingResponse',
     'LiveEventEndpointResponse',
@@ -293,56 +291,6 @@ class AbsoluteClipTimeResponse(dict):
         The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
         """
         return pulumi.get(self, "time")
-
-
-@pulumi.output_type
-class AccessControlResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "defaultAction":
-            suggest = "default_action"
-        elif key == "ipAllowList":
-            suggest = "ip_allow_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccessControlResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AccessControlResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AccessControlResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 default_action: Optional[str] = None,
-                 ip_allow_list: Optional[Sequence[str]] = None):
-        """
-        :param str default_action: The behavior for IP access control in Key Delivery.
-        :param Sequence[str] ip_allow_list: The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-        """
-        if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
-        if ip_allow_list is not None:
-            pulumi.set(__self__, "ip_allow_list", ip_allow_list)
-
-    @property
-    @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[str]:
-        """
-        The behavior for IP access control in Key Delivery.
-        """
-        return pulumi.get(self, "default_action")
-
-    @property
-    @pulumi.getter(name="ipAllowList")
-    def ip_allow_list(self) -> Optional[Sequence[str]]:
-        """
-        The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-        """
-        return pulumi.get(self, "ip_allow_list")
 
 
 @pulumi.output_type
@@ -5615,42 +5563,6 @@ class JpgLayerResponse(dict):
         The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
         return pulumi.get(self, "width")
-
-
-@pulumi.output_type
-class KeyDeliveryResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accessControl":
-            suggest = "access_control"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KeyDeliveryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KeyDeliveryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KeyDeliveryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 access_control: Optional['outputs.AccessControlResponse'] = None):
-        """
-        :param 'AccessControlResponse' access_control: The access control properties for Key Delivery.
-        """
-        if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
-
-    @property
-    @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional['outputs.AccessControlResponse']:
-        """
-        The access control properties for Key Delivery.
-        """
-        return pulumi.get(self, "access_control")
 
 
 @pulumi.output_type

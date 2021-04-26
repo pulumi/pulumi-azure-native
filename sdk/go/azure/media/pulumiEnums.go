@@ -442,36 +442,6 @@ func (e ContentKeyPolicyRestrictionTokenType) ToStringPtrOutputWithContext(ctx c
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The behavior for IP access control in Key Delivery.
-type DefaultAction pulumi.String
-
-const (
-	// All public IP addresses are allowed.
-	DefaultActionAllow = DefaultAction("Allow")
-	// Public IP addresses are blocked.
-	DefaultActionDeny = DefaultAction("Deny")
-)
-
-func (DefaultAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DefaultAction) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DefaultAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DefaultAction) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DefaultAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The deinterlacing mode. Defaults to AutoPixelAdaptive.
 type DeinterlaceMode pulumi.String
 

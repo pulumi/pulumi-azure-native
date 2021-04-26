@@ -8,7 +8,7 @@ import (
 )
 
 // A Media Services account.
-// API Version: 2021-05-01.
+// API Version: 2020-05-01.
 func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts ...pulumi.InvokeOption) (*LookupMediaServiceResult, error) {
 	var rv LookupMediaServiceResult
 	err := ctx.Invoke("azure-native:media:getMediaService", args, &rv, opts...)
@@ -33,8 +33,6 @@ type LookupMediaServiceResult struct {
 	Id string `pulumi:"id"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery *KeyDeliveryResponse `pulumi:"keyDelivery"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The Media Services account ID.

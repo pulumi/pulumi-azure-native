@@ -109,7 +109,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
-    API Version: 2021-05-01.
+    API Version: 2020-05-01.
 
 
     :param str account_name: The Media Services account name.

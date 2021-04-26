@@ -310,22 +310,6 @@ export const ContentKeyPolicyRestrictionTokenType = {
  */
 export type ContentKeyPolicyRestrictionTokenType = (typeof ContentKeyPolicyRestrictionTokenType)[keyof typeof ContentKeyPolicyRestrictionTokenType];
 
-export const DefaultAction = {
-    /**
-     * All public IP addresses are allowed.
-     */
-    Allow: "Allow",
-    /**
-     * Public IP addresses are blocked.
-     */
-    Deny: "Deny",
-} as const;
-
-/**
- * The behavior for IP access control in Key Delivery.
- */
-export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
-
 export const DeinterlaceMode = {
     /**
      * Disables de-interlacing of the source video.

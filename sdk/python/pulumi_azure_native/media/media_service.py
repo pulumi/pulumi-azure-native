@@ -20,7 +20,6 @@ class MediaServiceArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['MediaServiceIdentityArgs']] = None,
-                 key_delivery: Optional[pulumi.Input['KeyDeliveryArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
                  storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
@@ -31,7 +30,6 @@ class MediaServiceArgs:
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input['AccountEncryptionArgs'] encryption: The account encryption properties.
         :param pulumi.Input['MediaServiceIdentityArgs'] identity: The Managed Identity for the Media Services account.
-        :param pulumi.Input['KeyDeliveryArgs'] key_delivery: The Key Delivery properties for Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -43,8 +41,6 @@ class MediaServiceArgs:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if key_delivery is not None:
-            pulumi.set(__self__, "key_delivery", key_delivery)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if storage_accounts is not None:
@@ -103,18 +99,6 @@ class MediaServiceArgs:
         pulumi.set(self, "identity", value)
 
     @property
-    @pulumi.getter(name="keyDelivery")
-    def key_delivery(self) -> Optional[pulumi.Input['KeyDeliveryArgs']]:
-        """
-        The Key Delivery properties for Media Services account.
-        """
-        return pulumi.get(self, "key_delivery")
-
-    @key_delivery.setter
-    def key_delivery(self, value: Optional[pulumi.Input['KeyDeliveryArgs']]):
-        pulumi.set(self, "key_delivery", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -168,7 +152,6 @@ class MediaService(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
-                 key_delivery: Optional[pulumi.Input[pulumi.InputType['KeyDeliveryArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
@@ -177,14 +160,13 @@ class MediaService(pulumi.CustomResource):
                  __props__=None):
         """
         A Media Services account.
-        API Version: 2021-05-01.
+        API Version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: The account encryption properties.
         :param pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']] identity: The Managed Identity for the Media Services account.
-        :param pulumi.Input[pulumi.InputType['KeyDeliveryArgs']] key_delivery: The Key Delivery properties for Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
@@ -198,7 +180,7 @@ class MediaService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Media Services account.
-        API Version: 2021-05-01.
+        API Version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param MediaServiceArgs args: The arguments to use to populate this resource's properties.
@@ -218,7 +200,6 @@ class MediaService(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
-                 key_delivery: Optional[pulumi.Input[pulumi.InputType['KeyDeliveryArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
@@ -239,7 +220,6 @@ class MediaService(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["key_delivery"] = key_delivery
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -277,7 +257,6 @@ class MediaService(pulumi.CustomResource):
 
         __props__.__dict__["encryption"] = None
         __props__.__dict__["identity"] = None
-        __props__.__dict__["key_delivery"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["media_service_id"] = None
         __props__.__dict__["name"] = None
@@ -303,14 +282,6 @@ class MediaService(pulumi.CustomResource):
         The Managed Identity for the Media Services account.
         """
         return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="keyDelivery")
-    def key_delivery(self) -> pulumi.Output[Optional['outputs.KeyDeliveryResponse']]:
-        """
-        The Key Delivery properties for Media Services account.
-        """
-        return pulumi.get(self, "key_delivery")
 
     @property
     @pulumi.getter

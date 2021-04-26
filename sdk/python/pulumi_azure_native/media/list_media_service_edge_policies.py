@@ -42,7 +42,7 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceEdgePoliciesResult:
     """
-    API Version: 2021-05-01.
+    API Version: 2020-05-01.
 
 
     :param str account_name: The Media Services account name.

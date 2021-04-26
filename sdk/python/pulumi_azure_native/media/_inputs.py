@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'AacAudioArgs',
     'AbsoluteClipTimeArgs',
-    'AccessControlArgs',
     'AccountEncryptionArgs',
     'AkamaiAccessControlArgs',
     'AkamaiSignatureHeaderAuthenticationKeyArgs',
@@ -77,7 +76,6 @@ __all__ = [
     'JpgFormatArgs',
     'JpgImageArgs',
     'JpgLayerArgs',
-    'KeyDeliveryArgs',
     'KeyVaultPropertiesArgs',
     'LiveEventEncodingArgs',
     'LiveEventEndpointArgs',
@@ -273,45 +271,6 @@ class AbsoluteClipTimeArgs:
     @time.setter
     def time(self, value: pulumi.Input[str]):
         pulumi.set(self, "time", value)
-
-
-@pulumi.input_type
-class AccessControlArgs:
-    def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
-                 ip_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Union[str, 'DefaultAction']] default_action: The behavior for IP access control in Key Delivery.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_allow_list: The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-        """
-        if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
-        if ip_allow_list is not None:
-            pulumi.set(__self__, "ip_allow_list", ip_allow_list)
-
-    @property
-    @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[str, 'DefaultAction']]]:
-        """
-        The behavior for IP access control in Key Delivery.
-        """
-        return pulumi.get(self, "default_action")
-
-    @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[str, 'DefaultAction']]]):
-        pulumi.set(self, "default_action", value)
-
-    @property
-    @pulumi.getter(name="ipAllowList")
-    def ip_allow_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
-        """
-        return pulumi.get(self, "ip_allow_list")
-
-    @ip_allow_list.setter
-    def ip_allow_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "ip_allow_list", value)
 
 
 @pulumi.input_type
@@ -4779,29 +4738,6 @@ class JpgLayerArgs:
     @width.setter
     def width(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "width", value)
-
-
-@pulumi.input_type
-class KeyDeliveryArgs:
-    def __init__(__self__, *,
-                 access_control: Optional[pulumi.Input['AccessControlArgs']] = None):
-        """
-        :param pulumi.Input['AccessControlArgs'] access_control: The access control properties for Key Delivery.
-        """
-        if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
-
-    @property
-    @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional[pulumi.Input['AccessControlArgs']]:
-        """
-        The access control properties for Key Delivery.
-        """
-        return pulumi.get(self, "access_control")
-
-    @access_control.setter
-    def access_control(self, value: Optional[pulumi.Input['AccessControlArgs']]):
-        pulumi.set(self, "access_control", value)
 
 
 @pulumi.input_type

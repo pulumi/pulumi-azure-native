@@ -20,7 +20,7 @@ class GetMediaServiceResult:
     """
     A Media Services account.
     """
-    def __init__(__self__, encryption=None, id=None, identity=None, key_delivery=None, location=None, media_service_id=None, name=None, storage_accounts=None, storage_authentication=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, identity=None, location=None, media_service_id=None, name=None, storage_accounts=None, storage_authentication=None, system_data=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -30,9 +30,6 @@ class GetMediaServiceResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
-        if key_delivery and not isinstance(key_delivery, dict):
-            raise TypeError("Expected argument 'key_delivery' to be a dict")
-        pulumi.set(__self__, "key_delivery", key_delivery)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -81,14 +78,6 @@ class GetMediaServiceResult:
         The Managed Identity for the Media Services account.
         """
         return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="keyDelivery")
-    def key_delivery(self) -> Optional['outputs.KeyDeliveryResponse']:
-        """
-        The Key Delivery properties for Media Services account.
-        """
-        return pulumi.get(self, "key_delivery")
 
     @property
     @pulumi.getter
@@ -161,7 +150,6 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
             encryption=self.encryption,
             id=self.id,
             identity=self.identity,
-            key_delivery=self.key_delivery,
             location=self.location,
             media_service_id=self.media_service_id,
             name=self.name,
@@ -177,7 +165,7 @@ def get_media_service(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMediaServiceResult:
     """
     A Media Services account.
-    API Version: 2021-05-01.
+    API Version: 2020-05-01.
 
 
     :param str account_name: The Media Services account name.
@@ -196,7 +184,6 @@ def get_media_service(account_name: Optional[str] = None,
         encryption=__ret__.encryption,
         id=__ret__.id,
         identity=__ret__.identity,
-        key_delivery=__ret__.key_delivery,
         location=__ret__.location,
         media_service_id=__ret__.media_service_id,
         name=__ret__.name,

@@ -12,7 +12,7 @@ import (
 )
 
 // A Media Services account.
-// API Version: 2021-05-01.
+// API Version: 2020-05-01.
 type MediaService struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type MediaService struct {
 	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery KeyDeliveryResponsePtrOutput `pulumi:"keyDelivery"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Media Services account ID.
@@ -117,8 +115,6 @@ type mediaServiceState struct {
 	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery *KeyDeliveryResponse `pulumi:"keyDelivery"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The Media Services account ID.
@@ -141,8 +137,6 @@ type MediaServiceState struct {
 	Encryption AccountEncryptionResponsePtrInput
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityResponsePtrInput
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery KeyDeliveryResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The Media Services account ID.
@@ -171,8 +165,6 @@ type mediaServiceArgs struct {
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentity `pulumi:"identity"`
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery *KeyDelivery `pulumi:"keyDelivery"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the Azure subscription.
@@ -192,8 +184,6 @@ type MediaServiceArgs struct {
 	Encryption AccountEncryptionPtrInput
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityPtrInput
-	// The Key Delivery properties for Media Services account.
-	KeyDelivery KeyDeliveryPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the Azure subscription.

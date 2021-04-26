@@ -18,7 +18,6 @@ __all__ = [
     'ContentKeyPolicyPlayReadyLicenseType',
     'ContentKeyPolicyPlayReadyUnknownOutputPassingOption',
     'ContentKeyPolicyRestrictionTokenType',
-    'DefaultAction',
     'DeinterlaceMode',
     'DeinterlaceParity',
     'EncoderNamedPreset',
@@ -174,14 +173,6 @@ class ContentKeyPolicyRestrictionTokenType(str, Enum):
     UNKNOWN = "Unknown"
     SWT = "Swt"
     JWT = "Jwt"
-
-
-class DefaultAction(str, Enum):
-    """
-    The behavior for IP access control in Key Delivery.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
 
 
 class DeinterlaceMode(str, Enum):

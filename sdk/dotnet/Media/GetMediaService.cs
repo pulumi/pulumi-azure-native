@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// A Media Services account.
-        /// API Version: 2021-05-01.
+        /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
@@ -56,10 +56,6 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly Outputs.MediaServiceIdentityResponse? Identity;
         /// <summary>
-        /// The Key Delivery properties for Media Services account.
-        /// </summary>
-        public readonly Outputs.KeyDeliveryResponse? KeyDelivery;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -97,8 +93,6 @@ namespace Pulumi.AzureNative.Media
 
             Outputs.MediaServiceIdentityResponse? identity,
 
-            Outputs.KeyDeliveryResponse? keyDelivery,
-
             string location,
 
             string mediaServiceId,
@@ -118,7 +112,6 @@ namespace Pulumi.AzureNative.Media
             Encryption = encryption;
             Id = id;
             Identity = identity;
-            KeyDelivery = keyDelivery;
             Location = location;
             MediaServiceId = mediaServiceId;
             Name = name;

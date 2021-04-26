@@ -571,43 +571,6 @@ namespace Pulumi.AzureNative.Media
     }
 
     /// <summary>
-    /// The behavior for IP access control in Key Delivery.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultAction : IEquatable<DefaultAction>
-    {
-        private readonly string _value;
-
-        private DefaultAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// All public IP addresses are allowed.
-        /// </summary>
-        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
-        /// <summary>
-        /// Public IP addresses are blocked.
-        /// </summary>
-        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
-
-        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
-        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
-        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The deinterlacing mode. Defaults to AutoPixelAdaptive.
     /// </summary>
     [EnumType]

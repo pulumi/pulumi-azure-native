@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Media Services account.
- * API Version: 2021-05-01.
+ * API Version: 2020-05-01.
  */
 export class MediaService extends pulumi.CustomResource {
     /**
@@ -44,10 +44,6 @@ export class MediaService extends pulumi.CustomResource {
      * The Managed Identity for the Media Services account.
      */
     public readonly identity!: pulumi.Output<outputs.media.MediaServiceIdentityResponse | undefined>;
-    /**
-     * The Key Delivery properties for Media Services account.
-     */
-    public readonly keyDelivery!: pulumi.Output<outputs.media.KeyDeliveryResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -95,7 +91,6 @@ export class MediaService extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyDelivery"] = args ? args.keyDelivery : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
@@ -108,7 +103,6 @@ export class MediaService extends pulumi.CustomResource {
         } else {
             inputs["encryption"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
-            inputs["keyDelivery"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["mediaServiceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -143,10 +137,6 @@ export interface MediaServiceArgs {
      * The Managed Identity for the Media Services account.
      */
     readonly identity?: pulumi.Input<inputs.media.MediaServiceIdentityArgs>;
-    /**
-     * The Key Delivery properties for Media Services account.
-     */
-    readonly keyDelivery?: pulumi.Input<inputs.media.KeyDeliveryArgs>;
     /**
      * The geo-location where the resource lives
      */
