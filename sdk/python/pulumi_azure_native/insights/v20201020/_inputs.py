@@ -10,12 +10,12 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ManagedIdentityArgs',
-    'MyManagedIdentityArgs',
+    'MyWorkbookManagedIdentityArgs',
+    'WorkbookManagedIdentityArgs',
 ]
 
 @pulumi.input_type
-class ManagedIdentityArgs:
+class MyWorkbookManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -39,7 +39,7 @@ class ManagedIdentityArgs:
 
 
 @pulumi.input_type
-class MyManagedIdentityArgs:
+class WorkbookManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """

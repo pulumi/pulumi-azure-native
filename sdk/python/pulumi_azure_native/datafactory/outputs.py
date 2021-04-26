@@ -25887,12 +25887,14 @@ class ExcelDatasetResponse(dict):
         suggest = None
         if key == "linkedServiceName":
             suggest = "linked_service_name"
-        elif key == "sheetName":
-            suggest = "sheet_name"
         elif key == "firstRowAsHeader":
             suggest = "first_row_as_header"
         elif key == "nullValue":
             suggest = "null_value"
+        elif key == "sheetIndex":
+            suggest = "sheet_index"
+        elif key == "sheetName":
+            suggest = "sheet_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExcelDatasetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -25908,7 +25910,6 @@ class ExcelDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
-                 sheet_name: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  compression: Optional[Any] = None,
@@ -25919,12 +25920,13 @@ class ExcelDatasetResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  range: Optional[Any] = None,
                  schema: Optional[Any] = None,
+                 sheet_index: Optional[Any] = None,
+                 sheet_name: Optional[Any] = None,
                  structure: Optional[Any] = None):
         """
         Excel dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the excel storage.
-        :param Any sheet_name: The sheet of excel file. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'Excel'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -25936,11 +25938,12 @@ class ExcelDatasetResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any range: The partial data of one sheet. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any sheet_index: The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)
+        :param Any sheet_name: The sheet name of excel file. Type: string (or Expression with resultType string).
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "sheet_name", sheet_name)
         pulumi.set(__self__, "type", 'Excel')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -25960,6 +25963,10 @@ class ExcelDatasetResponse(dict):
             pulumi.set(__self__, "range", range)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if sheet_index is not None:
+            pulumi.set(__self__, "sheet_index", sheet_index)
+        if sheet_name is not None:
+            pulumi.set(__self__, "sheet_name", sheet_name)
         if structure is not None:
             pulumi.set(__self__, "structure", structure)
 
@@ -25978,14 +25985,6 @@ class ExcelDatasetResponse(dict):
         The location of the excel storage.
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="sheetName")
-    def sheet_name(self) -> Any:
-        """
-        The sheet of excel file. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "sheet_name")
 
     @property
     @pulumi.getter
@@ -26067,6 +26066,22 @@ class ExcelDatasetResponse(dict):
         Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         """
         return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter(name="sheetIndex")
+    def sheet_index(self) -> Optional[Any]:
+        """
+        The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "sheet_index")
+
+    @property
+    @pulumi.getter(name="sheetName")
+    def sheet_name(self) -> Optional[Any]:
+        """
+        The sheet name of excel file. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sheet_name")
 
     @property
     @pulumi.getter
@@ -37293,6 +37308,8 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
             suggest = "express_custom_setup_properties"
         elif key == "licenseType":
             suggest = "license_type"
+        elif key == "managedCredential":
+            suggest = "managed_credential"
         elif key == "packageStores":
             suggest = "package_stores"
 
@@ -37314,6 +37331,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  edition: Optional[str] = None,
                  express_custom_setup_properties: Optional[Sequence[Any]] = None,
                  license_type: Optional[str] = None,
+                 managed_credential: Optional['outputs.EntityReferenceResponse'] = None,
                  package_stores: Optional[Sequence['outputs.PackageStoreResponse']] = None):
         """
         SSIS properties for managed integration runtime.
@@ -37323,6 +37341,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
         :param str edition: The edition for the SSIS Integration Runtime
         :param Sequence[Union['AzPowerShellSetupResponse', 'CmdkeySetupResponse', 'ComponentSetupResponse', 'EnvironmentVariableSetupResponse']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param str license_type: License type for bringing your own license scenario.
+        :param 'EntityReferenceResponse' managed_credential: The user-assigned managed identity reference.
         :param Sequence['PackageStoreResponse'] package_stores: Package stores for the SSIS Integration Runtime.
         """
         if catalog_info is not None:
@@ -37337,6 +37356,8 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
             pulumi.set(__self__, "express_custom_setup_properties", express_custom_setup_properties)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if managed_credential is not None:
+            pulumi.set(__self__, "managed_credential", managed_credential)
         if package_stores is not None:
             pulumi.set(__self__, "package_stores", package_stores)
 
@@ -37387,6 +37408,14 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
         License type for bringing your own license scenario.
         """
         return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="managedCredential")
+    def managed_credential(self) -> Optional['outputs.EntityReferenceResponse']:
+        """
+        The user-assigned managed identity reference.
+        """
+        return pulumi.get(self, "managed_credential")
 
     @property
     @pulumi.getter(name="packageStores")

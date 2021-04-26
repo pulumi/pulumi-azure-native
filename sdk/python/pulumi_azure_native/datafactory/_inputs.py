@@ -27016,7 +27016,6 @@ class ExcelDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
                  location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
-                 sheet_name: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input[Union['DatasetBZip2CompressionArgs', 'DatasetDeflateCompressionArgs', 'DatasetGZipCompressionArgs', 'DatasetTarCompressionArgs', 'DatasetTarGZipCompressionArgs', 'DatasetZipDeflateCompressionArgs']]] = None,
@@ -27027,12 +27026,13 @@ class ExcelDatasetArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  range: Optional[Any] = None,
                  schema: Optional[Any] = None,
+                 sheet_index: Optional[Any] = None,
+                 sheet_name: Optional[Any] = None,
                  structure: Optional[Any] = None):
         """
         Excel dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the excel storage.
-        :param Any sheet_name: The sheet of excel file. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Excel'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -27044,11 +27044,12 @@ class ExcelDatasetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
         :param Any range: The partial data of one sheet. Type: string (or Expression with resultType string).
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any sheet_index: The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)
+        :param Any sheet_name: The sheet name of excel file. Type: string (or Expression with resultType string).
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "sheet_name", sheet_name)
         pulumi.set(__self__, "type", 'Excel')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -27068,6 +27069,10 @@ class ExcelDatasetArgs:
             pulumi.set(__self__, "range", range)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if sheet_index is not None:
+            pulumi.set(__self__, "sheet_index", sheet_index)
+        if sheet_name is not None:
+            pulumi.set(__self__, "sheet_name", sheet_name)
         if structure is not None:
             pulumi.set(__self__, "structure", structure)
 
@@ -27094,18 +27099,6 @@ class ExcelDatasetArgs:
     @location.setter
     def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="sheetName")
-    def sheet_name(self) -> Any:
-        """
-        The sheet of excel file. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "sheet_name")
-
-    @sheet_name.setter
-    def sheet_name(self, value: Any):
-        pulumi.set(self, "sheet_name", value)
 
     @property
     @pulumi.getter
@@ -27227,6 +27220,30 @@ class ExcelDatasetArgs:
     @schema.setter
     def schema(self, value: Optional[Any]):
         pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter(name="sheetIndex")
+    def sheet_index(self) -> Optional[Any]:
+        """
+        The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "sheet_index")
+
+    @sheet_index.setter
+    def sheet_index(self, value: Optional[Any]):
+        pulumi.set(self, "sheet_index", value)
+
+    @property
+    @pulumi.getter(name="sheetName")
+    def sheet_name(self) -> Optional[Any]:
+        """
+        The sheet name of excel file. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sheet_name")
+
+    @sheet_name.setter
+    def sheet_name(self, value: Optional[Any]):
+        pulumi.set(self, "sheet_name", value)
 
     @property
     @pulumi.getter
@@ -39100,6 +39117,7 @@ class IntegrationRuntimeSsisPropertiesArgs:
                  edition: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]] = None,
                  express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]] = None,
+                 managed_credential: Optional[pulumi.Input['EntityReferenceArgs']] = None,
                  package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]]] = None):
         """
         SSIS properties for managed integration runtime.
@@ -39109,6 +39127,7 @@ class IntegrationRuntimeSsisPropertiesArgs:
         :param pulumi.Input[Union[str, 'IntegrationRuntimeEdition']] edition: The edition for the SSIS Integration Runtime
         :param pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']] license_type: License type for bringing your own license scenario.
+        :param pulumi.Input['EntityReferenceArgs'] managed_credential: The user-assigned managed identity reference.
         :param pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]] package_stores: Package stores for the SSIS Integration Runtime.
         """
         if catalog_info is not None:
@@ -39123,6 +39142,8 @@ class IntegrationRuntimeSsisPropertiesArgs:
             pulumi.set(__self__, "express_custom_setup_properties", express_custom_setup_properties)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if managed_credential is not None:
+            pulumi.set(__self__, "managed_credential", managed_credential)
         if package_stores is not None:
             pulumi.set(__self__, "package_stores", package_stores)
 
@@ -39197,6 +39218,18 @@ class IntegrationRuntimeSsisPropertiesArgs:
     @license_type.setter
     def license_type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]):
         pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter(name="managedCredential")
+    def managed_credential(self) -> Optional[pulumi.Input['EntityReferenceArgs']]:
+        """
+        The user-assigned managed identity reference.
+        """
+        return pulumi.get(self, "managed_credential")
+
+    @managed_credential.setter
+    def managed_credential(self, value: Optional[pulumi.Input['EntityReferenceArgs']]):
+        pulumi.set(self, "managed_credential", value)
 
     @property
     @pulumi.getter(name="packageStores")

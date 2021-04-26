@@ -49,7 +49,6 @@ __all__ = [
     'LogSettingsArgs',
     'LogToMetricActionArgs',
     'LogicAppReceiverArgs',
-    'ManagedIdentityArgs',
     'ManagementEventAggregationConditionArgs',
     'ManagementEventRuleConditionArgs',
     'ManagementGroupLogSettingsArgs',
@@ -60,7 +59,7 @@ __all__ = [
     'MetricDimensionArgs',
     'MetricSettingsArgs',
     'MetricTriggerArgs',
-    'MyManagedIdentityArgs',
+    'MyWorkbookManagedIdentityArgs',
     'PerfCounterDataSourceArgs',
     'PerformanceCounterConfigurationArgs',
     'PrivateEndpointPropertyArgs',
@@ -93,6 +92,7 @@ __all__ = [
     'WebhookReceiverArgs',
     'WebtestLocationAvailabilityCriteriaArgs',
     'WindowsEventLogDataSourceArgs',
+    'WorkbookManagedIdentityArgs',
     'WorkbookTemplateGalleryArgs',
     'WorkbookTemplateLocalizedGalleryArgs',
 ]
@@ -2458,30 +2458,6 @@ class LogicAppReceiverArgs:
 
 
 @pulumi.input_type
-class ManagedIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        Customer Managed Identity
-        :param pulumi.Input[str] type: The identity type.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
 class ManagementEventAggregationConditionArgs:
     def __init__(__self__, *,
                  operator: Optional[pulumi.Input['ConditionOperator']] = None,
@@ -3187,7 +3163,7 @@ class MetricTriggerArgs:
 
 
 @pulumi.input_type
-class MyManagedIdentityArgs:
+class MyWorkbookManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -5124,6 +5100,30 @@ class WindowsEventLogDataSourceArgs:
     @x_path_queries.setter
     def x_path_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_path_queries", value)
+
+
+@pulumi.input_type
+class WorkbookManagedIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Customer Managed Identity
+        :param pulumi.Input[str] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

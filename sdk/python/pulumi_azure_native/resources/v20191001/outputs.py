@@ -32,6 +32,7 @@ __all__ = [
     'SkuResponse',
     'TagsResponse',
     'TemplateLinkResponse',
+    'ZoneMappingResponse',
 ]
 
 @pulumi.output_type
@@ -1110,6 +1111,8 @@ class ProviderResourceTypeResponse(dict):
             suggest = "api_versions"
         elif key == "resourceType":
             suggest = "resource_type"
+        elif key == "zoneMappings":
+            suggest = "zone_mappings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ProviderResourceTypeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1128,7 +1131,8 @@ class ProviderResourceTypeResponse(dict):
                  capabilities: Optional[str] = None,
                  locations: Optional[Sequence[str]] = None,
                  properties: Optional[Mapping[str, str]] = None,
-                 resource_type: Optional[str] = None):
+                 resource_type: Optional[str] = None,
+                 zone_mappings: Optional[Sequence['outputs.ZoneMappingResponse']] = None):
         """
         Resource type managed by the resource provider.
         :param Sequence['AliasResponse'] aliases: The aliases that are supported by this resource type.
@@ -1150,6 +1154,8 @@ class ProviderResourceTypeResponse(dict):
             pulumi.set(__self__, "properties", properties)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if zone_mappings is not None:
+            pulumi.set(__self__, "zone_mappings", zone_mappings)
 
     @property
     @pulumi.getter
@@ -1198,6 +1204,11 @@ class ProviderResourceTypeResponse(dict):
         The resource type.
         """
         return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="zoneMappings")
+    def zone_mappings(self) -> Optional[Sequence['outputs.ZoneMappingResponse']]:
+        return pulumi.get(self, "zone_mappings")
 
 
 @pulumi.output_type
@@ -1500,5 +1511,32 @@ class TemplateLinkResponse(dict):
         If included, must match the ContentVersion in the template.
         """
         return pulumi.get(self, "content_version")
+
+
+@pulumi.output_type
+class ZoneMappingResponse(dict):
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        :param str location: The location of the zone mapping.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the zone mapping.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "zones")
 
 

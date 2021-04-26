@@ -541,8 +541,6 @@ class WorkspaceSkuResponse(dict):
         suggest = None
         if key == "lastSkuUpdate":
             suggest = "last_sku_update"
-        elif key == "maxCapacityReservationLevel":
-            suggest = "max_capacity_reservation_level"
         elif key == "capacityReservationLevel":
             suggest = "capacity_reservation_level"
 
@@ -559,18 +557,15 @@ class WorkspaceSkuResponse(dict):
 
     def __init__(__self__, *,
                  last_sku_update: str,
-                 max_capacity_reservation_level: int,
                  name: str,
                  capacity_reservation_level: Optional[int] = None):
         """
         The SKU (tier) of a workspace.
         :param str last_sku_update: The last time when the sku was updated.
-        :param int max_capacity_reservation_level: The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
         :param str name: The name of the SKU.
         :param int capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "max_capacity_reservation_level", max_capacity_reservation_level)
         pulumi.set(__self__, "name", name)
         if capacity_reservation_level is not None:
             pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
@@ -582,14 +577,6 @@ class WorkspaceSkuResponse(dict):
         The last time when the sku was updated.
         """
         return pulumi.get(self, "last_sku_update")
-
-    @property
-    @pulumi.getter(name="maxCapacityReservationLevel")
-    def max_capacity_reservation_level(self) -> int:
-        """
-        The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-        """
-        return pulumi.get(self, "max_capacity_reservation_level")
 
     @property
     @pulumi.getter

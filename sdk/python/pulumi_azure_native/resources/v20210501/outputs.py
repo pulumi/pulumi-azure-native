@@ -7,34 +7,44 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from ._enums import *
 
 __all__ = [
-    'CustomLocationPropertiesResponseAuthentication',
+    'LinkedTemplateArtifactResponse',
     'SystemDataResponse',
+    'TemplateSpecVersionInfoResponse',
 ]
 
 @pulumi.output_type
-class CustomLocationPropertiesResponseAuthentication(dict):
+class LinkedTemplateArtifactResponse(dict):
     """
-    This is optional input that contains the authentication that should be used to generate the namespace.
+    Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
     """
     def __init__(__self__, *,
-                 type: Optional[str] = None):
+                 path: str,
+                 template: Any):
         """
-        This is optional input that contains the authentication that should be used to generate the namespace.
-        :param str type: The type of the Custom Locations authentication
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+        :param str path: A filesystem safe relative path of the artifact.
+        :param Any template: The Azure Resource Manager template.
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "template", template)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def path(self) -> str:
         """
-        The type of the Custom Locations authentication
+        A filesystem safe relative path of the artifact.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Any:
+        """
+        The Azure Resource Manager template.
+        """
+        return pulumi.get(self, "template")
 
 
 @pulumi.output_type
@@ -145,5 +155,68 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TemplateSpecVersionInfoResponse(dict):
+    """
+    High-level information about a Template Spec version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeCreated":
+            suggest = "time_created"
+        elif key == "timeModified":
+            suggest = "time_modified"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSpecVersionInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSpecVersionInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSpecVersionInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 time_created: str,
+                 time_modified: str):
+        """
+        High-level information about a Template Spec version.
+        :param str description: Template Spec version description.
+        :param str time_created: The timestamp of when the version was created.
+        :param str time_modified: The timestamp of when the version was last modified.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "time_modified", time_modified)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Template Spec version description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        The timestamp of when the version was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        The timestamp of when the version was last modified.
+        """
+        return pulumi.get(self, "time_modified")
 
 
