@@ -95,6 +95,7 @@ import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managednetwork from "./managednetwork";
 import * as managedservices from "./managedservices";
+import * as maps from "./maps";
 import * as marketplace from "./marketplace";
 import * as media from "./media";
 import * as migrate from "./migrate";
@@ -138,6 +139,7 @@ import * as streamanalytics from "./streamanalytics";
 import * as subscription from "./subscription";
 import * as synapse from "./synapse";
 import * as timeseriesinsights from "./timeseriesinsights";
+import * as videoanalyzer from "./videoanalyzer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -239,6 +241,7 @@ export {
     maintenance,
     managednetwork,
     managedservices,
+    maps,
     marketplace,
     media,
     migrate,
@@ -282,6 +285,7 @@ export {
     subscription,
     synapse,
     timeseriesinsights,
+    videoanalyzer,
     virtualmachineimages,
     visualstudio,
     vmwarecloudsimple,
