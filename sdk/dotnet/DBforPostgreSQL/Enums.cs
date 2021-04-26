@@ -263,6 +263,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// Specifies the state of the policy, whether it is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerSecurityAlertPolicyState : IEquatable<ServerSecurityAlertPolicyState>
+    {
+        private readonly string _value;
+
+        private ServerSecurityAlertPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerSecurityAlertPolicyState Enabled { get; } = new ServerSecurityAlertPolicyState("Enabled");
+        public static ServerSecurityAlertPolicyState Disabled { get; } = new ServerSecurityAlertPolicyState("Disabled");
+
+        public static bool operator ==(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => left.Equals(right);
+        public static bool operator !=(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(ServerSecurityAlertPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerSecurityAlertPolicyState other && Equals(other);
+        public bool Equals(ServerSecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Server version.
     /// </summary>
     [EnumType]
