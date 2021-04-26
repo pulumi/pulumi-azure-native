@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("licenseType")]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
 
+        /// <summary>
+        /// The user-assigned managed identity reference.
+        /// </summary>
+        [Input("managedCredential")]
+        public Input<Inputs.EntityReferenceArgs>? ManagedCredential { get; set; }
+
         [Input("packageStores")]
         private InputList<Inputs.PackageStoreArgs>? _packageStores;
 

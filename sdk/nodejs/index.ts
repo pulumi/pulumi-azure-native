@@ -167,6 +167,7 @@ import * as subscription from "./subscription";
 import * as synapse from "./synapse";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as types from "./types";
+import * as videoanalyzer from "./videoanalyzer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as visualstudio from "./visualstudio";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -335,6 +336,7 @@ export {
     synapse,
     timeseriesinsights,
     types,
+    videoanalyzer,
     virtualmachineimages,
     visualstudio,
     vmwarecloudsimple,

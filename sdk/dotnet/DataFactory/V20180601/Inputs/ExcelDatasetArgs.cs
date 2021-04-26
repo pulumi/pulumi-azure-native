@@ -94,10 +94,16 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Schema { get; set; }
 
         /// <summary>
-        /// The sheet of excel file. Type: string (or Expression with resultType string).
+        /// The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)
         /// </summary>
-        [Input("sheetName", required: true)]
-        public Input<object> SheetName { get; set; } = null!;
+        [Input("sheetIndex")]
+        public Input<object>? SheetIndex { get; set; }
+
+        /// <summary>
+        /// The sheet name of excel file. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("sheetName")]
+        public Input<object>? SheetName { get; set; }
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.

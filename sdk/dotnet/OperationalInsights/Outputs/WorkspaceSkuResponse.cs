@@ -22,10 +22,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// </summary>
         public readonly string LastSkuUpdate;
         /// <summary>
-        /// The maximum capacity reservation level available for this workspace, when CapacityReservation sku is selected.
-        /// </summary>
-        public readonly int MaxCapacityReservationLevel;
-        /// <summary>
         /// The name of the SKU.
         /// </summary>
         public readonly string Name;
@@ -36,13 +32,10 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
             string lastSkuUpdate,
 
-            int maxCapacityReservationLevel,
-
             string name)
         {
             CapacityReservationLevel = capacityReservationLevel;
             LastSkuUpdate = lastSkuUpdate;
-            MaxCapacityReservationLevel = maxCapacityReservationLevel;
             Name = name;
         }
     }

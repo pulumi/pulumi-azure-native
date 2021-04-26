@@ -62,6 +62,12 @@ func NewTemplateSpecVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20210301preview:TemplateSpecVersion"),
 		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210501:TemplateSpecVersion"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210501:TemplateSpecVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TemplateSpecVersion

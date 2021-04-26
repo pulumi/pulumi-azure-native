@@ -6,10 +6,35 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+New module for Video Analyzer management:
+
+- `videoanalyzer:AccessPolicy`
+- `videoanalyzer:EdgeModule`
+- `videoanalyzer:Video`
+- `videoanalyzer:VideoAnalyzer`
+
+#### New Functions
+
+New module for Video Analyzer management:
+
+- `videoanalyzer.getAccessPolicy`
+- `videoanalyzer.getEdgeModule`
+- `videoanalyzer.getVideo`
+- `videoanalyzer.getVideoAnalyzer`
+- `videoanalyzer.listEdgeModuleProvisioningToken`
+- `videoanalyzer.listVideoStreamingToken`
+
 #### Breaking Changes published by Microsoft
 
 - `batchai.FileServer` resource is deprecated ([source](https://github.com/Azure/azure-rest-api-specs/pull/13944))
 - Extended location hierarchy for virtual network local gateway ([source](https://github.com/Azure/azure-rest-api-specs/pull/13943))
+- `insights` has reconciled two separate types `MyManagedIdentity` and `MyWorkbookManagedIdentity` into the single type
+  `MyWorkbookManagedIdentity`. They represent the same thing but had different name by a mistake in design.
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/13951))
+- The `maxCapacityReservationLevel` output property was removed from `operationalinsights.WorkspaceSkuResponse`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/13812))
 
 ---
 

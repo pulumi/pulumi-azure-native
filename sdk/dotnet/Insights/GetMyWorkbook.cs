@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Identity used for BYOS
         /// </summary>
-        public readonly Outputs.MyManagedIdentityResponse? Identity;
+        public readonly Outputs.MyWorkbookManagedIdentityResponse? Identity;
         /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Insights
 
             string? id,
 
-            Outputs.MyManagedIdentityResponse? identity,
+            Outputs.MyWorkbookManagedIdentityResponse? identity,
 
             string? kind,
 

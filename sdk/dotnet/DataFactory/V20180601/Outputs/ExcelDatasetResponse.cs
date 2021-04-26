@@ -58,9 +58,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? Schema;
         /// <summary>
-        /// The sheet of excel file. Type: string (or Expression with resultType string).
+        /// The sheet index of excel file and default value is 0. Type: integer (or Expression with resultType integer)
         /// </summary>
-        public readonly object SheetName;
+        public readonly object? SheetIndex;
+        /// <summary>
+        /// The sheet name of excel file. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? SheetName;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
@@ -95,7 +99,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? schema,
 
-            object sheetName,
+            object? sheetIndex,
+
+            object? sheetName,
 
             object? structure,
 
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Parameters = parameters;
             Range = range;
             Schema = schema;
+            SheetIndex = sheetIndex;
             SheetName = sheetName;
             Structure = structure;
             Type = type;

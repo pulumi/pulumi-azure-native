@@ -15,6 +15,7 @@ __all__ = [
     'DiskAccountType',
     'FailoverDeploymentModel',
     'HealthStatus',
+    'InfrastructureEncryptionState',
     'LastBackupStatus',
     'LicenseType',
     'MonthOfYear',
@@ -30,10 +31,12 @@ __all__ = [
     'RecoveryPlanGroupType',
     'ReplicationProtectedItemOperation',
     'ResourceHealthStatus',
+    'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
     'SetMultiVmSyncStatus',
+    'SkuName',
     'SqlServerLicenseType',
     'WeekOfMonth',
     'WorkloadItemType',
@@ -175,6 +178,14 @@ class HealthStatus(str, Enum):
     ACTION_REQUIRED = "ActionRequired"
     ACTION_SUGGESTED = "ActionSuggested"
     INVALID = "Invalid"
+
+
+class InfrastructureEncryptionState(str, Enum):
+    """
+    Enabling/Disabling the Double Encryption state
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class LastBackupStatus(str, Enum):
@@ -342,6 +353,16 @@ class ResourceHealthStatus(str, Enum):
     INVALID = "Invalid"
 
 
+class ResourceIdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
 class RetentionDurationType(str, Enum):
     """
     Retention duration type of retention policy.
@@ -377,6 +398,14 @@ class SetMultiVmSyncStatus(str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
+
+
+class SkuName(str, Enum):
+    """
+    The Sku name.
+    """
+    STANDARD = "Standard"
+    RS0 = "RS0"
 
 
 class SqlServerLicenseType(str, Enum):

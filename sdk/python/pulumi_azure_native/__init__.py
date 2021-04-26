@@ -165,6 +165,7 @@ from . import (
     subscription,
     synapse,
     timeseriesinsights,
+    videoanalyzer,
     virtualmachineimages,
     visualstudio,
     vmwarecloudsimple,

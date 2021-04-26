@@ -134,7 +134,8 @@ var wellKnownProviderNames = map[string]string{
 // For the cases below, we use folder (SDK) name for module names instead of the ARM name.
 var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
 var folderModuleNames = map[string]string{
-	"webpubsub": "WebPubSub",
+	"videoanalyzer": "VideoAnalyzer",
+	"webpubsub":     "WebPubSub",
 }
 
 // ResourceProvider returns a provider name given Open API spec file and resource's API URI.

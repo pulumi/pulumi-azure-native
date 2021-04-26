@@ -23,7 +23,7 @@ type MyWorkbook struct {
 	// Resource etag
 	Etag pulumi.StringMapOutput `pulumi:"etag"`
 	// Identity used for BYOS
-	Identity MyManagedIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity MyWorkbookManagedIdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource location
@@ -114,7 +114,7 @@ type myWorkbookState struct {
 	// Resource etag
 	Etag map[string]string `pulumi:"etag"`
 	// Identity used for BYOS
-	Identity *MyManagedIdentityResponse `pulumi:"identity"`
+	Identity *MyWorkbookManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -147,7 +147,7 @@ type MyWorkbookState struct {
 	// Resource etag
 	Etag pulumi.StringMapInput
 	// Identity used for BYOS
-	Identity MyManagedIdentityResponsePtrInput
+	Identity MyWorkbookManagedIdentityResponsePtrInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location
@@ -186,7 +186,7 @@ type myWorkbookArgs struct {
 	// Azure resource Id
 	Id *string `pulumi:"id"`
 	// Identity used for BYOS
-	Identity *MyManagedIdentity `pulumi:"identity"`
+	Identity *MyWorkbookManagedIdentity `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -222,7 +222,7 @@ type MyWorkbookArgs struct {
 	// Azure resource Id
 	Id pulumi.StringPtrInput
 	// Identity used for BYOS
-	Identity MyManagedIdentityPtrInput
+	Identity MyWorkbookManagedIdentityPtrInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location

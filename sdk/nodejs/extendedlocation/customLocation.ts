@@ -130,7 +130,7 @@ export class CustomLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:extendedlocation:customLocation" }, { type: "azure-native:extendedlocation/v20200715privatepreview:customLocation" }, { type: "azure-nextgen:extendedlocation/v20200715privatepreview:customLocation" }, { type: "azure-native:extendedlocation/v20210315preview:customLocation" }, { type: "azure-nextgen:extendedlocation/v20210315preview:customLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:extendedlocation:customLocation" }, { type: "azure-native:extendedlocation/v20210315preview:customLocation" }, { type: "azure-nextgen:extendedlocation/v20210315preview:customLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomLocation.__pulumiType, name, inputs, opts);
     }
