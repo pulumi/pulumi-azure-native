@@ -15,11 +15,13 @@ export * from "./getPrivateEndpointConnection";
 export * from "./getServer";
 export * from "./getServerAdministrator";
 export * from "./getServerKey";
+export * from "./getServerSecurityAlertPolicy";
 export * from "./getVirtualNetworkRule";
 export * from "./privateEndpointConnection";
 export * from "./server";
 export * from "./serverAdministrator";
 export * from "./serverKey";
+export * from "./serverSecurityAlertPolicy";
 export * from "./virtualNetworkRule";
 
 // Export enums:
@@ -58,6 +60,7 @@ import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Server } from "./server";
 import { ServerAdministrator } from "./serverAdministrator";
 import { ServerKey } from "./serverKey";
+import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
 
 const _module = {
@@ -78,6 +81,8 @@ const _module = {
                 return new ServerAdministrator(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:ServerSecurityAlertPolicy":
+                return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:VirtualNetworkRule":
                 return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
