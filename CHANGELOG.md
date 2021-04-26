@@ -29,6 +29,12 @@ New module for Video Analyzer management:
 - `videoanalyzer.listEdgeModuleProvisioningToken`
 - `videoanalyzer.listVideoStreamingToken`
 
+#### Bug fixes
+
+- Fix import of SQL/Mongo databases and collections
+  [#741](https://github.com/pulumi/pulumi-azure-native/issues/741) and
+  [#777](https://github.com/pulumi/pulumi-azure-native/issues/777)
+
 #### Breaking Changes published by Microsoft
 
 - `batchai.FileServer` resource is deprecated ([source](https://github.com/Azure/azure-rest-api-specs/pull/13944))
