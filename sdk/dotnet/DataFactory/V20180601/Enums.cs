@@ -1044,6 +1044,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 
         public static IntegrationRuntimeEntityReferenceType IntegrationRuntimeReference { get; } = new IntegrationRuntimeEntityReferenceType("IntegrationRuntimeReference");
         public static IntegrationRuntimeEntityReferenceType LinkedServiceReference { get; } = new IntegrationRuntimeEntityReferenceType("LinkedServiceReference");
+        public static IntegrationRuntimeEntityReferenceType CredentialReference { get; } = new IntegrationRuntimeEntityReferenceType("CredentialReference");
 
         public static bool operator ==(IntegrationRuntimeEntityReferenceType left, IntegrationRuntimeEntityReferenceType right) => left.Equals(right);
         public static bool operator !=(IntegrationRuntimeEntityReferenceType left, IntegrationRuntimeEntityReferenceType right) => !left.Equals(right);

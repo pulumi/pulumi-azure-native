@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
+        /// The user-assigned managed identity reference.
+        /// </summary>
+        public readonly Outputs.EntityReferenceResponse? ManagedCredential;
+        /// <summary>
         /// Package stores for the SSIS Integration Runtime.
         /// </summary>
         public readonly ImmutableArray<Outputs.PackageStoreResponse> PackageStores;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? licenseType,
 
+            Outputs.EntityReferenceResponse? managedCredential,
+
             ImmutableArray<Outputs.PackageStoreResponse> packageStores)
         {
             CatalogInfo = catalogInfo;
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Edition = edition;
             ExpressCustomSetupProperties = expressCustomSetupProperties;
             LicenseType = licenseType;
+            ManagedCredential = managedCredential;
             PackageStores = packageStores;
         }
     }

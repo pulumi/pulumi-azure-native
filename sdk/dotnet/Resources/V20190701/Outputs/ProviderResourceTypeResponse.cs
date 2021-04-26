@@ -37,6 +37,7 @@ namespace Pulumi.AzureNative.Resources.V20190701.Outputs
         /// The resource type.
         /// </summary>
         public readonly string? ResourceType;
+        public readonly ImmutableArray<Outputs.ZoneMappingResponse> ZoneMappings;
 
         [OutputConstructor]
         private ProviderResourceTypeResponse(
@@ -50,7 +51,9 @@ namespace Pulumi.AzureNative.Resources.V20190701.Outputs
 
             ImmutableDictionary<string, string>? properties,
 
-            string? resourceType)
+            string? resourceType,
+
+            ImmutableArray<Outputs.ZoneMappingResponse> zoneMappings)
         {
             Aliases = aliases;
             ApiVersions = apiVersions;
@@ -58,6 +61,7 @@ namespace Pulumi.AzureNative.Resources.V20190701.Outputs
             Locations = locations;
             Properties = properties;
             ResourceType = resourceType;
+            ZoneMappings = zoneMappings;
         }
     }
 }

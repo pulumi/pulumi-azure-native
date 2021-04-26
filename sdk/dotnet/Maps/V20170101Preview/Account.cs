@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.Maps.V20170101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20180501:Account"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20210201:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
