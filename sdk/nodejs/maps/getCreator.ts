@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
- * API Version: 2021-02-01.
+ * API Version: 2020-02-01-preview.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
     if (!opts) {

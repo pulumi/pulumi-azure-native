@@ -96,7 +96,7 @@ class ManagementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The management group details.
-        API Version: 2021-04-01.
+        API Version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +113,7 @@ class ManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The management group details.
-        API Version: 2021-04-01.
+        API Version: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupArgs args: The arguments to use to populate this resource's properties.

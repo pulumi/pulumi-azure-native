@@ -16,20 +16,12 @@ namespace Pulumi.AzureNative.Maps.Outputs
         /// <summary>
         /// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-        /// </summary>
-        public readonly int StorageUnits;
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
-        private CreatorPropertiesResponse(
-            string provisioningState,
-
-            int storageUnits)
+        private CreatorPropertiesResponse(string? provisioningState)
         {
             ProvisioningState = provisioningState;
-            StorageUnits = storageUnits;
         }
     }
 }

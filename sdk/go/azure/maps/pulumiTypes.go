@@ -11,145 +11,9 @@ import (
 )
 
 // Creator resource properties
-type CreatorProperties struct {
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-	StorageUnits int `pulumi:"storageUnits"`
-}
-
-// CreatorPropertiesInput is an input type that accepts CreatorPropertiesArgs and CreatorPropertiesOutput values.
-// You can construct a concrete instance of `CreatorPropertiesInput` via:
-//
-//          CreatorPropertiesArgs{...}
-type CreatorPropertiesInput interface {
-	pulumi.Input
-
-	ToCreatorPropertiesOutput() CreatorPropertiesOutput
-	ToCreatorPropertiesOutputWithContext(context.Context) CreatorPropertiesOutput
-}
-
-// Creator resource properties
-type CreatorPropertiesArgs struct {
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-	StorageUnits pulumi.IntInput `pulumi:"storageUnits"`
-}
-
-func (CreatorPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreatorProperties)(nil)).Elem()
-}
-
-func (i CreatorPropertiesArgs) ToCreatorPropertiesOutput() CreatorPropertiesOutput {
-	return i.ToCreatorPropertiesOutputWithContext(context.Background())
-}
-
-func (i CreatorPropertiesArgs) ToCreatorPropertiesOutputWithContext(ctx context.Context) CreatorPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesOutput)
-}
-
-func (i CreatorPropertiesArgs) ToCreatorPropertiesPtrOutput() CreatorPropertiesPtrOutput {
-	return i.ToCreatorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreatorPropertiesArgs) ToCreatorPropertiesPtrOutputWithContext(ctx context.Context) CreatorPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesOutput).ToCreatorPropertiesPtrOutputWithContext(ctx)
-}
-
-// CreatorPropertiesPtrInput is an input type that accepts CreatorPropertiesArgs, CreatorPropertiesPtr and CreatorPropertiesPtrOutput values.
-// You can construct a concrete instance of `CreatorPropertiesPtrInput` via:
-//
-//          CreatorPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreatorPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreatorPropertiesPtrOutput() CreatorPropertiesPtrOutput
-	ToCreatorPropertiesPtrOutputWithContext(context.Context) CreatorPropertiesPtrOutput
-}
-
-type creatorPropertiesPtrType CreatorPropertiesArgs
-
-func CreatorPropertiesPtr(v *CreatorPropertiesArgs) CreatorPropertiesPtrInput {
-	return (*creatorPropertiesPtrType)(v)
-}
-
-func (*creatorPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreatorProperties)(nil)).Elem()
-}
-
-func (i *creatorPropertiesPtrType) ToCreatorPropertiesPtrOutput() CreatorPropertiesPtrOutput {
-	return i.ToCreatorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *creatorPropertiesPtrType) ToCreatorPropertiesPtrOutputWithContext(ctx context.Context) CreatorPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesPtrOutput)
-}
-
-// Creator resource properties
-type CreatorPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreatorPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreatorProperties)(nil)).Elem()
-}
-
-func (o CreatorPropertiesOutput) ToCreatorPropertiesOutput() CreatorPropertiesOutput {
-	return o
-}
-
-func (o CreatorPropertiesOutput) ToCreatorPropertiesOutputWithContext(ctx context.Context) CreatorPropertiesOutput {
-	return o
-}
-
-func (o CreatorPropertiesOutput) ToCreatorPropertiesPtrOutput() CreatorPropertiesPtrOutput {
-	return o.ToCreatorPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreatorPropertiesOutput) ToCreatorPropertiesPtrOutputWithContext(ctx context.Context) CreatorPropertiesPtrOutput {
-	return o.ApplyT(func(v CreatorProperties) *CreatorProperties {
-		return &v
-	}).(CreatorPropertiesPtrOutput)
-}
-
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-func (o CreatorPropertiesOutput) StorageUnits() pulumi.IntOutput {
-	return o.ApplyT(func(v CreatorProperties) int { return v.StorageUnits }).(pulumi.IntOutput)
-}
-
-type CreatorPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreatorPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreatorProperties)(nil)).Elem()
-}
-
-func (o CreatorPropertiesPtrOutput) ToCreatorPropertiesPtrOutput() CreatorPropertiesPtrOutput {
-	return o
-}
-
-func (o CreatorPropertiesPtrOutput) ToCreatorPropertiesPtrOutputWithContext(ctx context.Context) CreatorPropertiesPtrOutput {
-	return o
-}
-
-func (o CreatorPropertiesPtrOutput) Elem() CreatorPropertiesOutput {
-	return o.ApplyT(func(v *CreatorProperties) CreatorProperties { return *v }).(CreatorPropertiesOutput)
-}
-
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-func (o CreatorPropertiesPtrOutput) StorageUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreatorProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageUnits
-	}).(pulumi.IntPtrOutput)
-}
-
-// Creator resource properties
 type CreatorPropertiesResponse struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-	StorageUnits int `pulumi:"storageUnits"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 // CreatorPropertiesResponseInput is an input type that accepts CreatorPropertiesResponseArgs and CreatorPropertiesResponseOutput values.
@@ -166,9 +30,7 @@ type CreatorPropertiesResponseInput interface {
 // Creator resource properties
 type CreatorPropertiesResponseArgs struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-	StorageUnits pulumi.IntInput `pulumi:"storageUnits"`
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (CreatorPropertiesResponseArgs) ElementType() reflect.Type {
@@ -250,13 +112,8 @@ func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutputWit
 }
 
 // The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
-func (o CreatorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v CreatorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-func (o CreatorPropertiesResponseOutput) StorageUnits() pulumi.IntOutput {
-	return o.ApplyT(func(v CreatorPropertiesResponse) int { return v.StorageUnits }).(pulumi.IntOutput)
+func (o CreatorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreatorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type CreatorPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -283,162 +140,14 @@ func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.ProvisioningState
+		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
-}
-
-// The storage units to be allocated. Integer values from 1 to 100, inclusive.
-func (o CreatorPropertiesResponsePtrOutput) StorageUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreatorPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageUnits
-	}).(pulumi.IntPtrOutput)
-}
-
-// Additional Map account properties
-type MapsAccountProperties struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-}
-
-// MapsAccountPropertiesInput is an input type that accepts MapsAccountPropertiesArgs and MapsAccountPropertiesOutput values.
-// You can construct a concrete instance of `MapsAccountPropertiesInput` via:
-//
-//          MapsAccountPropertiesArgs{...}
-type MapsAccountPropertiesInput interface {
-	pulumi.Input
-
-	ToMapsAccountPropertiesOutput() MapsAccountPropertiesOutput
-	ToMapsAccountPropertiesOutputWithContext(context.Context) MapsAccountPropertiesOutput
-}
-
-// Additional Map account properties
-type MapsAccountPropertiesArgs struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-}
-
-func (MapsAccountPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MapsAccountProperties)(nil)).Elem()
-}
-
-func (i MapsAccountPropertiesArgs) ToMapsAccountPropertiesOutput() MapsAccountPropertiesOutput {
-	return i.ToMapsAccountPropertiesOutputWithContext(context.Background())
-}
-
-func (i MapsAccountPropertiesArgs) ToMapsAccountPropertiesOutputWithContext(ctx context.Context) MapsAccountPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesOutput)
-}
-
-func (i MapsAccountPropertiesArgs) ToMapsAccountPropertiesPtrOutput() MapsAccountPropertiesPtrOutput {
-	return i.ToMapsAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i MapsAccountPropertiesArgs) ToMapsAccountPropertiesPtrOutputWithContext(ctx context.Context) MapsAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesOutput).ToMapsAccountPropertiesPtrOutputWithContext(ctx)
-}
-
-// MapsAccountPropertiesPtrInput is an input type that accepts MapsAccountPropertiesArgs, MapsAccountPropertiesPtr and MapsAccountPropertiesPtrOutput values.
-// You can construct a concrete instance of `MapsAccountPropertiesPtrInput` via:
-//
-//          MapsAccountPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type MapsAccountPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToMapsAccountPropertiesPtrOutput() MapsAccountPropertiesPtrOutput
-	ToMapsAccountPropertiesPtrOutputWithContext(context.Context) MapsAccountPropertiesPtrOutput
-}
-
-type mapsAccountPropertiesPtrType MapsAccountPropertiesArgs
-
-func MapsAccountPropertiesPtr(v *MapsAccountPropertiesArgs) MapsAccountPropertiesPtrInput {
-	return (*mapsAccountPropertiesPtrType)(v)
-}
-
-func (*mapsAccountPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MapsAccountProperties)(nil)).Elem()
-}
-
-func (i *mapsAccountPropertiesPtrType) ToMapsAccountPropertiesPtrOutput() MapsAccountPropertiesPtrOutput {
-	return i.ToMapsAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *mapsAccountPropertiesPtrType) ToMapsAccountPropertiesPtrOutputWithContext(ctx context.Context) MapsAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesPtrOutput)
-}
-
-// Additional Map account properties
-type MapsAccountPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MapsAccountPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MapsAccountProperties)(nil)).Elem()
-}
-
-func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesOutput() MapsAccountPropertiesOutput {
-	return o
-}
-
-func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesOutputWithContext(ctx context.Context) MapsAccountPropertiesOutput {
-	return o
-}
-
-func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesPtrOutput() MapsAccountPropertiesPtrOutput {
-	return o.ToMapsAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesPtrOutputWithContext(ctx context.Context) MapsAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v MapsAccountProperties) *MapsAccountProperties {
-		return &v
-	}).(MapsAccountPropertiesPtrOutput)
-}
-
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-func (o MapsAccountPropertiesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MapsAccountProperties) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
-}
-
-type MapsAccountPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (MapsAccountPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MapsAccountProperties)(nil)).Elem()
-}
-
-func (o MapsAccountPropertiesPtrOutput) ToMapsAccountPropertiesPtrOutput() MapsAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o MapsAccountPropertiesPtrOutput) ToMapsAccountPropertiesPtrOutputWithContext(ctx context.Context) MapsAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o MapsAccountPropertiesPtrOutput) Elem() MapsAccountPropertiesOutput {
-	return o.ApplyT(func(v *MapsAccountProperties) MapsAccountProperties { return *v }).(MapsAccountPropertiesOutput)
-}
-
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-func (o MapsAccountPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MapsAccountProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableLocalAuth
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Additional Map account properties
 type MapsAccountPropertiesResponse struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// the state of the provisioning.
-	ProvisioningState string `pulumi:"provisioningState"`
 	// A unique identifier for the maps account
-	UniqueId string `pulumi:"uniqueId"`
+	XMsClientId *string `pulumi:"xMsClientId"`
 }
 
 // MapsAccountPropertiesResponseInput is an input type that accepts MapsAccountPropertiesResponseArgs and MapsAccountPropertiesResponseOutput values.
@@ -454,12 +163,8 @@ type MapsAccountPropertiesResponseInput interface {
 
 // Additional Map account properties
 type MapsAccountPropertiesResponseArgs struct {
-	// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// the state of the provisioning.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// A unique identifier for the maps account
-	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
+	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
 }
 
 func (MapsAccountPropertiesResponseArgs) ElementType() reflect.Type {
@@ -540,19 +245,9 @@ func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrO
 	}).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-func (o MapsAccountPropertiesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
-}
-
-// the state of the provisioning.
-func (o MapsAccountPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
 // A unique identifier for the maps account
-func (o MapsAccountPropertiesResponseOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) string { return v.UniqueId }).(pulumi.StringOutput)
+func (o MapsAccountPropertiesResponseOutput) XMsClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MapsAccountPropertiesResponse) *string { return v.XMsClientId }).(pulumi.StringPtrOutput)
 }
 
 type MapsAccountPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -573,33 +268,13 @@ func (o MapsAccountPropertiesResponsePtrOutput) Elem() MapsAccountPropertiesResp
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse { return *v }).(MapsAccountPropertiesResponseOutput)
 }
 
-// Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
-func (o MapsAccountPropertiesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableLocalAuth
-	}).(pulumi.BoolPtrOutput)
-}
-
-// the state of the provisioning.
-func (o MapsAccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 // A unique identifier for the maps account
-func (o MapsAccountPropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutput {
+func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.UniqueId
+		return v.XMsClientId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1024,242 +699,9 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
-// You can construct a concrete instance of `SystemDataResponseInput` via:
-//
-//          SystemDataResponseArgs{...}
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
-// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
-//
-//          SystemDataResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
-}
-
-// The timestamp of resource last modification (UTC)
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The timestamp of resource last modification (UTC)
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(CreatorPropertiesOutput{})
-	pulumi.RegisterOutputType(CreatorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreatorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CreatorPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(MapsAccountPropertiesOutput{})
-	pulumi.RegisterOutputType(MapsAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateAtlasPropertiesResponseOutput{})
@@ -1268,6 +710,4 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

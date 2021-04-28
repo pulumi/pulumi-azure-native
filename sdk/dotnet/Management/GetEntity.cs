@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management
     {
         /// <summary>
         /// Describes the result of the request to view entities.
-        /// API Version: 2021-04-01.
+        /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityArgs(), options.WithVersion());

@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = ['CreatorArgs', 'Creator']
 
@@ -16,7 +15,6 @@ __all__ = ['CreatorArgs', 'Creator']
 class CreatorArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
-                 properties: pulumi.Input['CreatorPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  creator_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -24,14 +22,12 @@ class CreatorArgs:
         """
         The set of arguments for constructing a Creator resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.
-        :param pulumi.Input['CreatorPropertiesArgs'] properties: The Creator resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] creator_name: The name of the Maps Creator instance.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if creator_name is not None:
             pulumi.set(__self__, "creator_name", creator_name)
@@ -51,18 +47,6 @@ class CreatorArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['CreatorPropertiesArgs']:
-        """
-        The Creator resource properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['CreatorPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -92,7 +76,7 @@ class CreatorArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The geo-location where the resource lives
+        The location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -104,7 +88,7 @@ class CreatorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags.
+        Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
         return pulumi.get(self, "tags")
 
@@ -121,22 +105,20 @@ class Creator(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  creator_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreatorPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-        API Version: 2021-02-01.
+        API Version: 2020-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.
         :param pulumi.Input[str] creator_name: The name of the Maps Creator instance.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['CreatorPropertiesArgs']] properties: The Creator resource properties.
+        :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
         ...
     @overload
@@ -146,7 +128,7 @@ class Creator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-        API Version: 2021-02-01.
+        API Version: 2020-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CreatorArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +148,6 @@ class Creator(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  creator_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CreatorPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -186,14 +167,12 @@ class Creator(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["creator_name"] = creator_name
             __props__.__dict__["location"] = location
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maps:Creator"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-nextgen:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20210201:Creator"), pulumi.Alias(type_="azure-nextgen:maps/v20210201:Creator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

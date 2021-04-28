@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management
     {
         /// <summary>
         /// The details of subscription under management group.
-        /// API Version: 2021-04-01.
+        /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithVersion());

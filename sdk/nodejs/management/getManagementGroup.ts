@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The management group details.
- * API Version: 2021-04-01.
+ * API Version: 2020-05-01.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     if (!opts) {
@@ -27,7 +27,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
 
 export interface GetManagementGroupArgs {
     /**
-     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
+     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
      */
     readonly expand?: string;
     /**

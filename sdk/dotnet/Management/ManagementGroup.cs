@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// The management group details.
-    /// API Version: 2021-04-01.
+    /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ManagementGroup")]
     public partial class ManagementGroup : Pulumi.CustomResource

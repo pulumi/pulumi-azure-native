@@ -120,7 +120,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementGroupSubscriptionResult:
     """
     The details of subscription under management group.
-    API Version: 2021-04-01.
+    API Version: 2020-05-01.
 
 
     :param str group_id: Management Group ID.

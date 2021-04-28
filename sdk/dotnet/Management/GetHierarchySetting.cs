@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Management
     {
         /// <summary>
         /// Settings defined at the Management Group scope.
-        /// API Version: 2021-04-01.
+        /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetHierarchySettingResult> InvokeAsync(GetHierarchySettingArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHierarchySettingResult>("azure-native:management:getHierarchySetting", args ?? new GetHierarchySettingArgs(), options.WithVersion());

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// An Azure resource which represents access to a suite of Maps REST APIs.
-        /// API Version: 2021-02-01.
+        /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Maps
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the Azure Resource Group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -44,19 +44,15 @@ namespace Pulumi.AzureNative.Maps
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The fully qualified Maps Account resource identifier.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Get or Set Kind property.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// The geo-location where the resource lives
+        /// The location of the resource.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the resource
+        /// The name of the Maps Account, which is unique within a Resource Group.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -68,23 +64,17 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Azure resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetAccountResult(
             string id,
-
-            string? kind,
 
             string location,
 
@@ -94,19 +84,15 @@ namespace Pulumi.AzureNative.Maps
 
             Outputs.SkuResponse sku,
 
-            Outputs.SystemDataResponse systemData,
-
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string type)
         {
             Id = id;
-            Kind = kind;
             Location = location;
             Name = name;
             Properties = properties;
             Sku = sku;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -95,6 +95,8 @@ var ignoredProviderVersions = map[string][]string{
 // Currently populated for 1.* series.
 var cutoffProviderVersions = map[string]string{
 	"documentdb":       "v20210315",
+	"management":       "v20200501",
+	"maps":             "v20200201preview",
 	"media":            "v20200501",
 	"recoveryservices": "v20210201preview",
 }

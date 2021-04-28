@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// The details of subscription under management group.
-    /// API Version: 2021-04-01.
+    /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : Pulumi.CustomResource

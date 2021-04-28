@@ -13,9 +13,6 @@ export * from "./getPrivateAtlase";
 export * from "./listAccountKeys";
 export * from "./privateAtlase";
 
-// Export enums:
-export * from "../types/enums/maps";
-
 // Export sub-modules:
 import * as v20170101preview from "./v20170101preview";
 import * as v20180501 from "./v20180501";

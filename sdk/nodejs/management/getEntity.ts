@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the result of the request to view entities.
- * API Version: 2021-04-01.
+ * API Version: 2020-05-01.
  */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     args = args || {};

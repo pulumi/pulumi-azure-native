@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Maps.Inputs
         /// The name of the SKU, in standard format (such as S0).
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Maps.Name> Name { get; set; } = null!;
+        public Input<string> Name { get; set; } = null!;
 
         public SkuArgs()
         {

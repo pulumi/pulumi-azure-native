@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
- * API Version: 2021-02-01.
+ * API Version: 2018-05-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface GetAccountArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the Azure Resource Group.
      */
     readonly resourceGroupName: string;
 }
@@ -39,19 +39,15 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The fully qualified Maps Account resource identifier.
      */
     readonly id: string;
     /**
-     * Get or Set Kind property.
-     */
-    readonly kind?: string;
-    /**
-     * The geo-location where the resource lives
+     * The location of the resource.
      */
     readonly location: string;
     /**
-     * The name of the resource
+     * The name of the Maps Account, which is unique within a Resource Group.
      */
     readonly name: string;
     /**
@@ -63,15 +59,11 @@ export interface GetAccountResult {
      */
     readonly sku: outputs.maps.SkuResponse;
     /**
-     * The system meta data relating to this resource.
+     * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
-    readonly systemData: outputs.maps.SystemDataResponse;
+    readonly tags: {[key: string]: string};
     /**
-     * Resource tags.
-     */
-    readonly tags?: {[key: string]: string};
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Azure resource type.
      */
     readonly type: string;
 }

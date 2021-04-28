@@ -8,7 +8,7 @@ import (
 )
 
 // The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
-// API Version: 2021-02-01.
+// API Version: 2018-05-01.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
 	err := ctx.Invoke("azure-native:maps:listAccountKeys", args, &rv, opts...)
@@ -21,18 +21,16 @@ func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pul
 type ListAccountKeysArgs struct {
 	// The name of the Maps Account.
 	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the Azure Resource Group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
 type ListAccountKeysResult struct {
+	// The full Azure resource identifier of the Maps Account.
+	Id string `pulumi:"id"`
 	// The primary key for accessing the Maps REST APIs.
 	PrimaryKey string `pulumi:"primaryKey"`
-	// The last updated date and time of the primary key.
-	PrimaryKeyLastUpdated string `pulumi:"primaryKeyLastUpdated"`
 	// The secondary key for accessing the Maps REST APIs.
 	SecondaryKey string `pulumi:"secondaryKey"`
-	// The last updated date and time of the secondary key.
-	SecondaryKeyLastUpdated string `pulumi:"secondaryKeyLastUpdated"`
 }

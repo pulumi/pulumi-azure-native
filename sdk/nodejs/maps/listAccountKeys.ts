@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
- * API Version: 2021-02-01.
+ * API Version: 2018-05-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface ListAccountKeysArgs {
      */
     readonly accountName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the Azure Resource Group.
      */
     readonly resourceGroupName: string;
 }
@@ -39,19 +39,15 @@ export interface ListAccountKeysArgs {
  */
 export interface ListAccountKeysResult {
     /**
+     * The full Azure resource identifier of the Maps Account.
+     */
+    readonly id: string;
+    /**
      * The primary key for accessing the Maps REST APIs.
      */
     readonly primaryKey: string;
     /**
-     * The last updated date and time of the primary key.
-     */
-    readonly primaryKeyLastUpdated: string;
-    /**
      * The secondary key for accessing the Maps REST APIs.
      */
     readonly secondaryKey: string;
-    /**
-     * The last updated date and time of the secondary key.
-     */
-    readonly secondaryKeyLastUpdated: string;
 }

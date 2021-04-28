@@ -8,7 +8,7 @@ import (
 )
 
 // Settings defined at the Management Group scope.
-// API Version: 2021-04-01.
+// API Version: 2020-05-01.
 func LookupHierarchySetting(ctx *pulumi.Context, args *LookupHierarchySettingArgs, opts ...pulumi.InvokeOption) (*LookupHierarchySettingResult, error) {
 	var rv LookupHierarchySettingResult
 	err := ctx.Invoke("azure-native:management:getHierarchySetting", args, &rv, opts...)

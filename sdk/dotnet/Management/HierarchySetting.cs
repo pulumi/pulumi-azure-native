@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// Settings defined at the Management Group scope.
-    /// API Version: 2021-04-01.
+    /// API Version: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:management:HierarchySetting")]
     public partial class HierarchySetting : Pulumi.CustomResource

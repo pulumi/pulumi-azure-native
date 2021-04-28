@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-// API Version: 2021-02-01.
+// API Version: 2020-02-01-preview.
 type Creator struct {
 	pulumi.CustomResourceState
 
@@ -37,9 +37,6 @@ func NewCreator(ctx *pulumi.Context,
 
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
-	}
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -118,13 +115,11 @@ type creatorArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the Maps Creator instance.
 	CreatorName *string `pulumi:"creatorName"`
-	// The geo-location where the resource lives
+	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The Creator resource properties.
-	Properties CreatorProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -134,13 +129,11 @@ type CreatorArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the Maps Creator instance.
 	CreatorName pulumi.StringPtrInput
-	// The geo-location where the resource lives
+	// The location of the resource.
 	Location pulumi.StringPtrInput
-	// The Creator resource properties.
-	Properties CreatorPropertiesInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags pulumi.StringMapInput
 }
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
-        /// API Version: 2021-02-01.
+        /// API Version: 2018-05-01.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Maps
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the Azure Resource Group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -44,36 +44,29 @@ namespace Pulumi.AzureNative.Maps
     public sealed class ListAccountKeysResult
     {
         /// <summary>
+        /// The full Azure resource identifier of the Maps Account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The primary key for accessing the Maps REST APIs.
         /// </summary>
         public readonly string PrimaryKey;
         /// <summary>
-        /// The last updated date and time of the primary key.
-        /// </summary>
-        public readonly string PrimaryKeyLastUpdated;
-        /// <summary>
         /// The secondary key for accessing the Maps REST APIs.
         /// </summary>
         public readonly string SecondaryKey;
-        /// <summary>
-        /// The last updated date and time of the secondary key.
-        /// </summary>
-        public readonly string SecondaryKeyLastUpdated;
 
         [OutputConstructor]
         private ListAccountKeysResult(
+            string id,
+
             string primaryKey,
 
-            string primaryKeyLastUpdated,
-
-            string secondaryKey,
-
-            string secondaryKeyLastUpdated)
+            string secondaryKey)
         {
+            Id = id;
             PrimaryKey = primaryKey;
-            PrimaryKeyLastUpdated = primaryKeyLastUpdated;
             SecondaryKey = secondaryKey;
-            SecondaryKeyLastUpdated = secondaryKeyLastUpdated;
         }
     }
 }

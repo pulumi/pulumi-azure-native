@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes published by Microsoft
+
+- `management.ManagementGroup` moved the location of the `path` property
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/13897))
 
 ---
 
