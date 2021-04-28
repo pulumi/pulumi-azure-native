@@ -1,10 +1,13 @@
 CHANGELOG
 =========
 
-CHANGELOG
-=========
-
 ## HEAD (Unreleased)
+
+(None)
+
+---
+
+## 1.2.0 (2020-04-26)
 
 #### New Resources
 
@@ -64,8 +67,6 @@ New module for Test Base management:
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13812))
 - `security.AssessmentMetadataInSubscription` fixed the property name, changing from `category` to `categories`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13883))
-
----
 
 ## 1.1.0 (2020-04-20)
 
