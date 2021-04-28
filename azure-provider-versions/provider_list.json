@@ -30223,7 +30223,149 @@
           "West Europe"
         ],
         "properties": null,
-        "resourceType": "hostingEnvironments"
+        "resourceType": "hostingEnvironments",
+        "zoneMappings": [
+          {
+            "location": "East US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Central US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "France Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Southeast Asia",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "North Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "East US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "UK South",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Japan East",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Australia East",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "South Africa North",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "South Central US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Canada Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Germany West Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Brazil South",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Central India",
+            "zones": []
+          },
+          {
+            "location": "Korea Central",
+            "zones": []
+          },
+          {
+            "location": "Norway East",
+            "zones": []
+          }
+        ]
       },
       {
         "aliases": null,
@@ -62269,6 +62411,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01",
           "2020-02-01-preview",
           "2018-05-01",
           "2017-01-01-preview"
@@ -62306,6 +62449,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01",
           "2020-02-01-preview",
           "2018-05-01"
         ],
@@ -62320,6 +62464,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01",
           "2020-02-01-preview",
           "2018-05-01",
           "2017-01-01-preview"
@@ -63328,79 +63473,6 @@
         "apiProfiles": null,
         "apiVersions": [
           "2016-06-15"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "updateCommunicationPreference"
-      }
-    ]
-  },
-  {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Mailjet.Email",
-    "namespace": "Mailjet.Email",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2017-10-01",
-          "2017-02-03"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US",
-          "West Europe"
-        ],
-        "properties": null,
-        "resourceType": "services"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2018-07-01",
-          "2017-10-01",
-          "2017-05-29",
-          "2017-02-03",
-          "2016-11-01",
-          "2016-07-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2017-10-01",
-          "2017-02-03",
-          "2016-11-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "listCommunicationPreference"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2017-10-01",
-          "2017-02-03",
-          "2016-11-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -66394,11 +66466,16 @@
     "authorizations": [
       {
         "applicationId": "1412d89f-b8a8-4111-b4fd-e82905cbd85d",
+        "managedByRoleDefinitionId": "5ece1ad5-ab30-4099-b16c-3aa7c8f5acb9",
         "roleDefinitionId": "90ffa33f-4875-44d8-b86f-d41c3aa6050e"
       },
       {
         "applicationId": "1322e676-dee7-41ee-a874-ac923822781c",
         "roleDefinitionId": "e91a9804-9f4d-4501-bf85-03bd4ea78451"
+      },
+      {
+        "applicationId": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+        "roleDefinitionId": "12580382-2aec-4b61-ae1c-ecbdb4a0a25f"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureStackHCI",
@@ -66410,23 +66487,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US",
-          "West Europe",
-          "Southeast Asia"
-        ],
-        "properties": null,
-        "resourceType": "clusters"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
+          "2021-01-01-preview",
           "2020-11-01-preview",
           "2020-10-01",
           "2020-03-01-preview"
@@ -66436,7 +66497,7 @@
         "locationMappings": null,
         "locations": [],
         "properties": null,
-        "resourceType": "operations"
+        "resourceType": "Operations"
       },
       {
         "aliases": null,
@@ -66469,6 +66530,23 @@
         ],
         "properties": null,
         "resourceType": "Locations/OperationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Europe",
+          "Southeast Asia"
+        ],
+        "properties": null,
+        "resourceType": "clusters"
       }
     ]
   },
@@ -86774,68 +86852,6 @@
         ],
         "properties": null,
         "resourceType": "operations"
-      }
-    ]
-  },
-  {
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Sparkpost.Basic",
-    "namespace": "Sparkpost.Basic",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-08-01"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
-        "properties": null,
-        "resourceType": "services"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-08-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-08-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "listCommunicationPreference"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2016-08-01"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "updateCommunicationPreference"
       }
     ]
   },

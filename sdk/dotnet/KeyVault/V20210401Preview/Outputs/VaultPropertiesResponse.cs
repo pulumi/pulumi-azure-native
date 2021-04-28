@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AccessPolicyEntryResponse> AccessPolicies;
         /// <summary>
-        /// The vault's create mode to indicate whether the vault need to be recovered or not.
-        /// </summary>
-        public readonly string? CreateMode;
-        /// <summary>
         /// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         /// </summary>
         public readonly bool? EnablePurgeProtection;
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
         /// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         /// </summary>
         public readonly bool? EnabledForTemplateDeployment;
+        /// <summary>
+        /// The resource id of HSM Pool.
+        /// </summary>
+        public readonly string HsmPoolResourceId;
         /// <summary>
         /// Rules governing the accessibility of the key vault from specific network locations.
         /// </summary>
@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
         private VaultPropertiesResponse(
             ImmutableArray<Outputs.AccessPolicyEntryResponse> accessPolicies,
 
-            string? createMode,
-
             bool? enablePurgeProtection,
 
             bool? enableRbacAuthorization,
@@ -91,6 +89,8 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
             bool? enabledForDiskEncryption,
 
             bool? enabledForTemplateDeployment,
+
+            string hsmPoolResourceId,
 
             Outputs.NetworkRuleSetResponse? networkAcls,
 
@@ -107,13 +107,13 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
             string? vaultUri)
         {
             AccessPolicies = accessPolicies;
-            CreateMode = createMode;
             EnablePurgeProtection = enablePurgeProtection;
             EnableRbacAuthorization = enableRbacAuthorization;
             EnableSoftDelete = enableSoftDelete;
             EnabledForDeployment = enabledForDeployment;
             EnabledForDiskEncryption = enabledForDiskEncryption;
             EnabledForTemplateDeployment = enabledForTemplateDeployment;
+            HsmPoolResourceId = hsmPoolResourceId;
             NetworkAcls = networkAcls;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

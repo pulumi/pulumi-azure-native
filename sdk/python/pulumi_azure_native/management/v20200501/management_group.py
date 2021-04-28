@@ -149,10 +149,9 @@ class ManagementGroup(pulumi.CustomResource):
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["name"] = name
             __props__.__dict__["children"] = None
-            __props__.__dict__["path"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroup"), pulumi.Alias(type_="azure-native:management:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200201:ManagementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:management/v20200501:ManagementGroup"), pulumi.Alias(type_="azure-native:management:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20171101preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180101preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20180301preview:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20191101:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20200201:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20201001:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20201001:ManagementGroup"), pulumi.Alias(type_="azure-native:management/v20210401:ManagementGroup"), pulumi.Alias(type_="azure-nextgen:management/v20210401:ManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroup, __self__).__init__(
             'azure-native:management/v20200501:ManagementGroup',
@@ -180,7 +179,6 @@ class ManagementGroup(pulumi.CustomResource):
         __props__.__dict__["details"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["path"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return ManagementGroup(resource_name, opts=opts, __props__=__props__)
@@ -216,14 +214,6 @@ class ManagementGroup(pulumi.CustomResource):
         The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def path(self) -> pulumi.Output[Optional[Sequence['outputs.ManagementGroupPathElementResponse']]]:
-        """
-        The path from the root to the current group.
-        """
-        return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="tenantId")

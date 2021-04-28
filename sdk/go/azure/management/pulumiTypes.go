@@ -891,6 +891,8 @@ func (o ManagementGroupChildInfoResponseArrayOutput) Index(i pulumi.IntInput) Ma
 type ManagementGroupDetailsResponse struct {
 	// (Optional) The ID of the parent management group.
 	Parent *ParentGroupInfoResponse `pulumi:"parent"`
+	// The path from the root to the current group.
+	Path []ManagementGroupPathElementResponse `pulumi:"path"`
 	// The identity of the principal or process that updated the object.
 	UpdatedBy *string `pulumi:"updatedBy"`
 	// The date and time when this object was last updated.
@@ -914,6 +916,8 @@ type ManagementGroupDetailsResponseInput interface {
 type ManagementGroupDetailsResponseArgs struct {
 	// (Optional) The ID of the parent management group.
 	Parent ParentGroupInfoResponsePtrInput `pulumi:"parent"`
+	// The path from the root to the current group.
+	Path ManagementGroupPathElementResponseArrayInput `pulumi:"path"`
 	// The identity of the principal or process that updated the object.
 	UpdatedBy pulumi.StringPtrInput `pulumi:"updatedBy"`
 	// The date and time when this object was last updated.
@@ -1005,6 +1009,11 @@ func (o ManagementGroupDetailsResponseOutput) Parent() ParentGroupInfoResponsePt
 	return o.ApplyT(func(v ManagementGroupDetailsResponse) *ParentGroupInfoResponse { return v.Parent }).(ParentGroupInfoResponsePtrOutput)
 }
 
+// The path from the root to the current group.
+func (o ManagementGroupDetailsResponseOutput) Path() ManagementGroupPathElementResponseArrayOutput {
+	return o.ApplyT(func(v ManagementGroupDetailsResponse) []ManagementGroupPathElementResponse { return v.Path }).(ManagementGroupPathElementResponseArrayOutput)
+}
+
 // The identity of the principal or process that updated the object.
 func (o ManagementGroupDetailsResponseOutput) UpdatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupDetailsResponse) *string { return v.UpdatedBy }).(pulumi.StringPtrOutput)
@@ -1046,6 +1055,16 @@ func (o ManagementGroupDetailsResponsePtrOutput) Parent() ParentGroupInfoRespons
 		}
 		return v.Parent
 	}).(ParentGroupInfoResponsePtrOutput)
+}
+
+// The path from the root to the current group.
+func (o ManagementGroupDetailsResponsePtrOutput) Path() ManagementGroupPathElementResponseArrayOutput {
+	return o.ApplyT(func(v *ManagementGroupDetailsResponse) []ManagementGroupPathElementResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(ManagementGroupPathElementResponseArrayOutput)
 }
 
 // The identity of the principal or process that updated the object.

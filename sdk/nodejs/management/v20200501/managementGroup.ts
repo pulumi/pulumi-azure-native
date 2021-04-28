@@ -52,10 +52,6 @@ export class ManagementGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The path from the root to the current group.
-     */
-    public /*out*/ readonly path!: pulumi.Output<outputs.management.v20200501.ManagementGroupPathElementResponse[] | undefined>;
-    /**
      * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
      */
     public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
@@ -80,7 +76,6 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["groupId"] = args ? args.groupId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["children"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -88,14 +83,13 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["details"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/v20200501:ManagementGroup" }, { type: "azure-native:management:ManagementGroup" }, { type: "azure-nextgen:management:ManagementGroup" }, { type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-nextgen:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-nextgen:management/v20200201:ManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:management/v20200501:ManagementGroup" }, { type: "azure-native:management:ManagementGroup" }, { type: "azure-nextgen:management:ManagementGroup" }, { type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20180301preview:ManagementGroup" }, { type: "azure-nextgen:management/v20180301preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-nextgen:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-nextgen:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20201001:ManagementGroup" }, { type: "azure-nextgen:management/v20201001:ManagementGroup" }, { type: "azure-native:management/v20210401:ManagementGroup" }, { type: "azure-nextgen:management/v20210401:ManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }

@@ -23,8 +23,6 @@ type ManagementGroup struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The path from the root to the current group.
-	Path ManagementGroupPathElementResponseArrayOutput `pulumi:"path"`
 	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
 	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// The type of the resource.  For example, Microsoft.Management/managementGroups
@@ -78,6 +76,18 @@ func NewManagementGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:management/v20200501:ManagementGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:management/v20201001:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:management/v20201001:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:management/v20210401:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:management/v20210401:ManagementGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementGroup
@@ -110,8 +120,6 @@ type managementGroupState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
 	Name *string `pulumi:"name"`
-	// The path from the root to the current group.
-	Path []ManagementGroupPathElementResponse `pulumi:"path"`
 	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
 	TenantId *string `pulumi:"tenantId"`
 	// The type of the resource.  For example, Microsoft.Management/managementGroups
@@ -127,8 +135,6 @@ type ManagementGroupState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
 	Name pulumi.StringPtrInput
-	// The path from the root to the current group.
-	Path ManagementGroupPathElementResponseArrayInput
 	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
 	TenantId pulumi.StringPtrInput
 	// The type of the resource.  For example, Microsoft.Management/managementGroups

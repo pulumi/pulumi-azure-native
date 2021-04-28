@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Management.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroupSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroupSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20201001:ManagementGroupSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20210401:ManagementGroupSubscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20210401:ManagementGroupSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

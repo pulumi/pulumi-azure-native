@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Management.Outputs
         /// </summary>
         public readonly Outputs.ParentGroupInfoResponse? Parent;
         /// <summary>
+        /// The path from the root to the current group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagementGroupPathElementResponse> Path;
+        /// <summary>
         /// The identity of the principal or process that updated the object.
         /// </summary>
         public readonly string? UpdatedBy;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNative.Management.Outputs
         private ManagementGroupDetailsResponse(
             Outputs.ParentGroupInfoResponse? parent,
 
+            ImmutableArray<Outputs.ManagementGroupPathElementResponse> path,
+
             string? updatedBy,
 
             string? updatedTime,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.Management.Outputs
             double? version)
         {
             Parent = parent;
+            Path = path;
             UpdatedBy = updatedBy;
             UpdatedTime = updatedTime;
             Version = version;

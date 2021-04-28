@@ -14,6 +14,14 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
     public sealed class PrivateEndpointConnectionItemResponse
     {
         /// <summary>
+        /// Modified whenever there is a change in the state of private endpoint connection.
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
+        /// Id of private endpoint connection.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Properties of the private endpoint object.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
@@ -28,12 +36,18 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
 
         [OutputConstructor]
         private PrivateEndpointConnectionItemResponse(
+            string? etag,
+
+            string? id,
+
             Outputs.PrivateEndpointResponse? privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
             string provisioningState)
         {
+            Etag = etag;
+            Id = id;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;

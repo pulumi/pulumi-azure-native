@@ -20,7 +20,7 @@ class GetManagementGroupResult:
     """
     The management group details.
     """
-    def __init__(__self__, children=None, details=None, display_name=None, id=None, name=None, path=None, tenant_id=None, type=None):
+    def __init__(__self__, children=None, details=None, display_name=None, id=None, name=None, tenant_id=None, type=None):
         if children and not isinstance(children, list):
             raise TypeError("Expected argument 'children' to be a list")
         pulumi.set(__self__, "children", children)
@@ -36,9 +36,6 @@ class GetManagementGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if path and not isinstance(path, list):
-            raise TypeError("Expected argument 'path' to be a list")
-        pulumi.set(__self__, "path", path)
         if tenant_id and not isinstance(tenant_id, str):
             raise TypeError("Expected argument 'tenant_id' to be a str")
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -87,14 +84,6 @@ class GetManagementGroupResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def path(self) -> Optional[Sequence['outputs.ManagementGroupPathElementResponse']]:
-        """
-        The path from the root to the current group.
-        """
-        return pulumi.get(self, "path")
-
-    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
@@ -122,7 +111,6 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
             display_name=self.display_name,
             id=self.id,
             name=self.name,
-            path=self.path,
             tenant_id=self.tenant_id,
             type=self.type)
 
@@ -158,6 +146,5 @@ def get_management_group(expand: Optional[str] = None,
         display_name=__ret__.display_name,
         id=__ret__.id,
         name=__ret__.name,
-        path=__ret__.path,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)

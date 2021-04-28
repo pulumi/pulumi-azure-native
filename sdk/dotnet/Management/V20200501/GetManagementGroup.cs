@@ -75,10 +75,6 @@ namespace Pulumi.AzureNative.Management.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The path from the root to the current group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementGroupPathElementResponse> Path;
-        /// <summary>
         /// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         public readonly string? TenantId;
@@ -99,8 +95,6 @@ namespace Pulumi.AzureNative.Management.V20200501
 
             string name,
 
-            ImmutableArray<Outputs.ManagementGroupPathElementResponse> path,
-
             string? tenantId,
 
             string type)
@@ -110,7 +104,6 @@ namespace Pulumi.AzureNative.Management.V20200501
             DisplayName = displayName;
             Id = id;
             Name = name;
-            Path = path;
             TenantId = tenantId;
             Type = type;
         }

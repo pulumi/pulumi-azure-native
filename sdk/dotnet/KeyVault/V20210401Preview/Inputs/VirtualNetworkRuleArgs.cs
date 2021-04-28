@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Inputs
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+        /// </summary>
+        [Input("ignoreMissingVnetServiceEndpoint")]
+        public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }
+
         public VirtualNetworkRuleArgs()
         {
         }

@@ -3333,6 +3333,10 @@ func (o PermissionsResponseOutput) Storage() pulumi.StringArrayOutput {
 
 // Private endpoint connection item.
 type PrivateEndpointConnectionItemResponse struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag *string `pulumi:"etag"`
+	// Id of private endpoint connection.
+	Id *string `pulumi:"id"`
 	// Properties of the private endpoint object.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	// Approval state of the private link connection.
@@ -3354,6 +3358,10 @@ type PrivateEndpointConnectionItemResponseInput interface {
 
 // Private endpoint connection item.
 type PrivateEndpointConnectionItemResponseArgs struct {
+	// Modified whenever there is a change in the state of private endpoint connection.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Id of private endpoint connection.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Properties of the private endpoint object.
 	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
 	// Approval state of the private link connection.
@@ -3412,6 +3420,16 @@ func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnection
 
 func (o PrivateEndpointConnectionItemResponseOutput) ToPrivateEndpointConnectionItemResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionItemResponseOutput {
 	return o
+}
+
+// Modified whenever there is a change in the state of private endpoint connection.
+func (o PrivateEndpointConnectionItemResponseOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Id of private endpoint connection.
+func (o PrivateEndpointConnectionItemResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionItemResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Properties of the private endpoint object.
@@ -5615,8 +5633,6 @@ func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 type VaultPropertiesResponse struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies []AccessPolicyEntryResponse `pulumi:"accessPolicies"`
-	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *string `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -5629,6 +5645,8 @@ type VaultPropertiesResponse struct {
 	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
 	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
+	// The resource id of HSM Pool.
+	HsmPoolResourceId string `pulumi:"hsmPoolResourceId"`
 	// Rules governing the accessibility of the key vault from specific network locations.
 	NetworkAcls *NetworkRuleSetResponse `pulumi:"networkAcls"`
 	// List of private endpoint connections associated with the key vault.
@@ -5660,8 +5678,6 @@ type VaultPropertiesResponseInput interface {
 type VaultPropertiesResponseArgs struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
-	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -5674,6 +5690,8 @@ type VaultPropertiesResponseArgs struct {
 	EnabledForDiskEncryption pulumi.BoolPtrInput `pulumi:"enabledForDiskEncryption"`
 	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
+	// The resource id of HSM Pool.
+	HsmPoolResourceId pulumi.StringInput `pulumi:"hsmPoolResourceId"`
 	// Rules governing the accessibility of the key vault from specific network locations.
 	NetworkAcls NetworkRuleSetResponsePtrInput `pulumi:"networkAcls"`
 	// List of private endpoint connections associated with the key vault.
@@ -5773,11 +5791,6 @@ func (o VaultPropertiesResponseOutput) AccessPolicies() AccessPolicyEntryRespons
 	return o.ApplyT(func(v VaultPropertiesResponse) []AccessPolicyEntryResponse { return v.AccessPolicies }).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesResponseOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
-}
-
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 func (o VaultPropertiesResponseOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnablePurgeProtection }).(pulumi.BoolPtrOutput)
@@ -5806,6 +5819,11 @@ func (o VaultPropertiesResponseOutput) EnabledForDiskEncryption() pulumi.BoolPtr
 // Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesResponseOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
+}
+
+// The resource id of HSM Pool.
+func (o VaultPropertiesResponseOutput) HsmPoolResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.HsmPoolResourceId }).(pulumi.StringOutput)
 }
 
 // Rules governing the accessibility of the key vault from specific network locations.
@@ -5873,16 +5891,6 @@ func (o VaultPropertiesResponsePtrOutput) AccessPolicies() AccessPolicyEntryResp
 	}).(AccessPolicyEntryResponseArrayOutput)
 }
 
-// The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesResponsePtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreateMode
-	}).(pulumi.StringPtrOutput)
-}
-
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 func (o VaultPropertiesResponsePtrOutput) EnablePurgeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *bool {
@@ -5941,6 +5949,16 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForTemplateDeployment() pulumi.
 		}
 		return v.EnabledForTemplateDeployment
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The resource id of HSM Pool.
+func (o VaultPropertiesResponsePtrOutput) HsmPoolResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HsmPoolResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Rules governing the accessibility of the key vault from specific network locations.
@@ -6017,6 +6035,8 @@ func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 type VirtualNetworkRule struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -6034,6 +6054,8 @@ type VirtualNetworkRuleInput interface {
 type VirtualNetworkRuleArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -6093,6 +6115,11 @@ func (o VirtualNetworkRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 type VirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
@@ -6117,6 +6144,8 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 type VirtualNetworkRuleResponse struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id string `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 // VirtualNetworkRuleResponseInput is an input type that accepts VirtualNetworkRuleResponseArgs and VirtualNetworkRuleResponseOutput values.
@@ -6134,6 +6163,8 @@ type VirtualNetworkRuleResponseInput interface {
 type VirtualNetworkRuleResponseArgs struct {
 	// Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
@@ -6191,6 +6222,11 @@ func (o VirtualNetworkRuleResponseOutput) ToVirtualNetworkRuleResponseOutputWith
 // Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 func (o VirtualNetworkRuleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkRuleResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+func (o VirtualNetworkRuleResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 type VirtualNetworkRuleResponseArrayOutput struct{ *pulumi.OutputState }

@@ -819,15 +819,23 @@ class PrivateEndpointConnectionItemResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: str,
+                 etag: Optional[str] = None,
+                 id: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private endpoint connection item.
         :param str provisioning_state: Provisioning state of the private endpoint connection.
+        :param str etag: Modified whenever there is a change in the state of private endpoint connection.
+        :param str id: Id of private endpoint connection.
         :param 'PrivateEndpointResponse' private_endpoint: Properties of the private endpoint object.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Approval state of the private link connection.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
@@ -840,6 +848,22 @@ class PrivateEndpointConnectionItemResponse(dict):
         Provisioning state of the private endpoint connection.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        Modified whenever there is a change in the state of private endpoint connection.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of private endpoint connection.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -1271,14 +1295,14 @@ class VaultPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateEndpointConnections":
+        if key == "hsmPoolResourceId":
+            suggest = "hsm_pool_resource_id"
+        elif key == "privateEndpointConnections":
             suggest = "private_endpoint_connections"
         elif key == "tenantId":
             suggest = "tenant_id"
         elif key == "accessPolicies":
             suggest = "access_policies"
-        elif key == "createMode":
-            suggest = "create_mode"
         elif key == "enablePurgeProtection":
             suggest = "enable_purge_protection"
         elif key == "enableRbacAuthorization":
@@ -1312,11 +1336,11 @@ class VaultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 hsm_pool_resource_id: str,
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionItemResponse'],
                  sku: 'outputs.SkuResponse',
                  tenant_id: str,
                  access_policies: Optional[Sequence['outputs.AccessPolicyEntryResponse']] = None,
-                 create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_rbac_authorization: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
@@ -1329,11 +1353,11 @@ class VaultPropertiesResponse(dict):
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
+        :param str hsm_pool_resource_id: The resource id of HSM Pool.
         :param Sequence['PrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
         :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-        :param str create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -1345,13 +1369,12 @@ class VaultPropertiesResponse(dict):
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
+        pulumi.set(__self__, "hsm_pool_resource_id", hsm_pool_resource_id)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
-        if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
         if enable_purge_protection is not None:
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
         if enable_rbac_authorization is None:
@@ -1378,6 +1401,14 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if vault_uri is not None:
             pulumi.set(__self__, "vault_uri", vault_uri)
+
+    @property
+    @pulumi.getter(name="hsmPoolResourceId")
+    def hsm_pool_resource_id(self) -> str:
+        """
+        The resource id of HSM Pool.
+        """
+        return pulumi.get(self, "hsm_pool_resource_id")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -1410,14 +1441,6 @@ class VaultPropertiesResponse(dict):
         An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         """
         return pulumi.get(self, "access_policies")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The vault's create mode to indicate whether the vault need to be recovered or not.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="enablePurgeProtection")
@@ -1505,13 +1528,34 @@ class VirtualNetworkRuleResponse(dict):
     """
     A rule governing the accessibility of a vault from a specific virtual network.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreMissingVnetServiceEndpoint":
+            suggest = "ignore_missing_vnet_service_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 id: str):
+                 id: str,
+                 ignore_missing_vnet_service_endpoint: Optional[bool] = None):
         """
         A rule governing the accessibility of a vault from a specific virtual network.
         :param str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
+        :param bool ignore_missing_vnet_service_endpoint: Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
         """
         pulumi.set(__self__, "id", id)
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter
@@ -1520,5 +1564,13 @@ class VirtualNetworkRuleResponse(dict):
         Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
+        """
+        Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
 

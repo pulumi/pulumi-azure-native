@@ -40,8 +40,6 @@ type LookupManagementGroupResult struct {
 	Id string `pulumi:"id"`
 	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
 	Name string `pulumi:"name"`
-	// The path from the root to the current group.
-	Path []ManagementGroupPathElementResponse `pulumi:"path"`
 	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
 	TenantId *string `pulumi:"tenantId"`
 	// The type of the resource.  For example, Microsoft.Management/managementGroups

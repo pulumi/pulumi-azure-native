@@ -339,18 +339,22 @@ class ManagementGroupDetailsResponse(dict):
 
     def __init__(__self__, *,
                  parent: Optional['outputs.ParentGroupInfoResponse'] = None,
+                 path: Optional[Sequence['outputs.ManagementGroupPathElementResponse']] = None,
                  updated_by: Optional[str] = None,
                  updated_time: Optional[str] = None,
                  version: Optional[float] = None):
         """
         The details of a management group.
         :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
+        :param Sequence['ManagementGroupPathElementResponse'] path: The path from the root to the current group.
         :param str updated_by: The identity of the principal or process that updated the object.
         :param str updated_time: The date and time when this object was last updated.
         :param float version: The version number of the object.
         """
         if parent is not None:
             pulumi.set(__self__, "parent", parent)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if updated_by is not None:
             pulumi.set(__self__, "updated_by", updated_by)
         if updated_time is not None:
@@ -365,6 +369,14 @@ class ManagementGroupDetailsResponse(dict):
         (Optional) The ID of the parent management group.
         """
         return pulumi.get(self, "parent")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[Sequence['outputs.ManagementGroupPathElementResponse']]:
+        """
+        The path from the root to the current group.
+        """
+        return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="updatedBy")

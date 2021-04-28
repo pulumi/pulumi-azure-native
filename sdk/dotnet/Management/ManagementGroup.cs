@@ -41,12 +41,6 @@ namespace Pulumi.AzureNative.Management
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The path from the root to the current group.
-        /// </summary>
-        [Output("path")]
-        public Output<ImmutableArray<Outputs.ManagementGroupPathElementResponse>> Path { get; private set; } = null!;
-
-        /// <summary>
         /// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         [Output("tenantId")]
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.Management
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200201:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20200501:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20201001:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-native:management/v20210401:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:management/v20210401:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
