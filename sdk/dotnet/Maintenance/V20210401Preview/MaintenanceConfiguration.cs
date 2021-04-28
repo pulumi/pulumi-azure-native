@@ -139,6 +139,8 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20210501:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20210501:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

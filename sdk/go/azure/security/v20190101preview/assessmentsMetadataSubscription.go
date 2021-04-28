@@ -17,7 +17,7 @@ type AssessmentsMetadataSubscription struct {
 
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringOutput      `pulumi:"assessmentType"`
-	Category       pulumi.StringArrayOutput `pulumi:"category"`
+	Categories     pulumi.StringArrayOutput `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -99,7 +99,7 @@ func GetAssessmentsMetadataSubscription(ctx *pulumi.Context,
 type assessmentsMetadataSubscriptionState struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType *string  `pulumi:"assessmentType"`
-	Category       []string `pulumi:"category"`
+	Categories     []string `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description *string `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -126,7 +126,7 @@ type assessmentsMetadataSubscriptionState struct {
 type AssessmentsMetadataSubscriptionState struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringPtrInput
-	Category       pulumi.StringArrayInput
+	Categories     pulumi.StringArrayInput
 	// Human readable description of the assessment
 	Description pulumi.StringPtrInput
 	// User friendly display name of the assessment
@@ -159,7 +159,7 @@ type assessmentsMetadataSubscriptionArgs struct {
 	AssessmentMetadataName *string `pulumi:"assessmentMetadataName"`
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
-	Category       []string `pulumi:"category"`
+	Categories     []string `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description *string `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -183,7 +183,7 @@ type AssessmentsMetadataSubscriptionArgs struct {
 	AssessmentMetadataName pulumi.StringPtrInput
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput
-	Category       pulumi.StringArrayInput
+	Categories     pulumi.StringArrayInput
 	// Human readable description of the assessment
 	Description pulumi.StringPtrInput
 	// User friendly display name of the assessment

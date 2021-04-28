@@ -9,6 +9,7 @@ export * from "./getMonitor";
 export * from "./getTagRule";
 export * from "./listDeploymentInfo";
 export * from "./listMonitoredResource";
+export * from "./listVMHost";
 export * from "./monitor";
 export * from "./tagRule";
 

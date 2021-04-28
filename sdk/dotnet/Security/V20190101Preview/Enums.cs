@@ -122,32 +122,32 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     }
 
     /// <summary>
-    /// The category of resource that is at risk when the assessment is unhealthy
+    /// The categories of resource that is at risk when the assessment is unhealthy
     /// </summary>
     [EnumType]
-    public readonly struct Category : IEquatable<Category>
+    public readonly struct Categories : IEquatable<Categories>
     {
         private readonly string _value;
 
-        private Category(string value)
+        private Categories(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Category Compute { get; } = new Category("Compute");
-        public static Category Networking { get; } = new Category("Networking");
-        public static Category Data { get; } = new Category("Data");
-        public static Category IdentityAndAccess { get; } = new Category("IdentityAndAccess");
-        public static Category IoT { get; } = new Category("IoT");
+        public static Categories Compute { get; } = new Categories("Compute");
+        public static Categories Networking { get; } = new Categories("Networking");
+        public static Categories Data { get; } = new Categories("Data");
+        public static Categories IdentityAndAccess { get; } = new Categories("IdentityAndAccess");
+        public static Categories IoT { get; } = new Categories("IoT");
 
-        public static bool operator ==(Category left, Category right) => left.Equals(right);
-        public static bool operator !=(Category left, Category right) => !left.Equals(right);
+        public static bool operator ==(Categories left, Categories right) => left.Equals(right);
+        public static bool operator !=(Categories left, Categories right) => !left.Equals(right);
 
-        public static explicit operator string(Category value) => value._value;
+        public static explicit operator string(Categories value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Category other && Equals(other);
-        public bool Equals(Category other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Categories other && Equals(other);
+        public bool Equals(Categories other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

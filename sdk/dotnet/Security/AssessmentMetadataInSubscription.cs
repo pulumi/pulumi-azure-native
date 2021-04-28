@@ -22,8 +22,8 @@ namespace Pulumi.AzureNative.Security
         [Output("assessmentType")]
         public Output<string> AssessmentType { get; private set; } = null!;
 
-        [Output("category")]
-        public Output<ImmutableArray<string>> Category { get; private set; } = null!;
+        [Output("categories")]
+        public Output<ImmutableArray<string>> Categories { get; private set; } = null!;
 
         /// <summary>
         /// Human readable description of the assessment
@@ -159,12 +159,12 @@ namespace Pulumi.AzureNative.Security
         [Input("assessmentType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Security.AssessmentType> AssessmentType { get; set; } = null!;
 
-        [Input("category")]
-        private InputList<Union<string, Pulumi.AzureNative.Security.Category>>? _category;
-        public InputList<Union<string, Pulumi.AzureNative.Security.Category>> Category
+        [Input("categories")]
+        private InputList<Union<string, Pulumi.AzureNative.Security.Categories>>? _categories;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Categories>> Categories
         {
-            get => _category ?? (_category = new InputList<Union<string, Pulumi.AzureNative.Security.Category>>());
-            set => _category = value;
+            get => _categories ?? (_categories = new InputList<Union<string, Pulumi.AzureNative.Security.Categories>>());
+            set => _categories = value;
         }
 
         /// <summary>

@@ -72,11 +72,11 @@ class DashboardLensArgs:
 class DashboardPartsArgs:
     def __init__(__self__, *,
                  position: pulumi.Input['DashboardPartsPositionArgs'],
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 metadata: Optional[Any] = None):
         """
         A dashboard part.
         :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard part's metadata.
+        :param Any metadata: A dashboard part metadata.
         """
         pulumi.set(__self__, "position", position)
         if metadata is not None:
@@ -96,14 +96,14 @@ class DashboardPartsArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
-        The dashboard part's metadata.
+        A dashboard part metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 

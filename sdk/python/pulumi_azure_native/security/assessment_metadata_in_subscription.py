@@ -20,7 +20,7 @@ class AssessmentMetadataInSubscriptionArgs:
                  display_name: pulumi.Input[str],
                  severity: pulumi.Input[Union[str, 'Severity']],
                  assessment_metadata_name: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
@@ -46,8 +46,8 @@ class AssessmentMetadataInSubscriptionArgs:
         pulumi.set(__self__, "severity", severity)
         if assessment_metadata_name is not None:
             pulumi.set(__self__, "assessment_metadata_name", assessment_metadata_name)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if implementation_effort is not None:
@@ -113,12 +113,12 @@ class AssessmentMetadataInSubscriptionArgs:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]]:
-        return pulumi.get(self, "category")
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]]:
+        return pulumi.get(self, "categories")
 
-    @category.setter
-    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]]):
-        pulumi.set(self, "category", value)
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]]):
+        pulumi.set(self, "categories", value)
 
     @property
     @pulumi.getter
@@ -209,7 +209,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
-                 category: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
@@ -264,7 +264,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
-                 category: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
@@ -290,7 +290,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             if assessment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_type'")
             __props__.__dict__["assessment_type"] = assessment_type
-            __props__.__dict__["category"] = category
+            __props__.__dict__["categories"] = categories
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -332,7 +332,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         __props__ = AssessmentMetadataInSubscriptionArgs.__new__(AssessmentMetadataInSubscriptionArgs)
 
         __props__.__dict__["assessment_type"] = None
-        __props__.__dict__["category"] = None
+        __props__.__dict__["categories"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["implementation_effort"] = None
@@ -357,8 +357,8 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "category")
+    def categories(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter

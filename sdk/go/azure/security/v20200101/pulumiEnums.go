@@ -76,34 +76,34 @@ func (e AssessmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The category of resource that is at risk when the assessment is unhealthy
-type Category pulumi.String
+// The categories of resource that is at risk when the assessment is unhealthy
+type Categories pulumi.String
 
 const (
-	CategoryCompute           = Category("Compute")
-	CategoryNetworking        = Category("Networking")
-	CategoryData              = Category("Data")
-	CategoryIdentityAndAccess = Category("IdentityAndAccess")
-	CategoryIoT               = Category("IoT")
+	CategoriesCompute           = Categories("Compute")
+	CategoriesNetworking        = Categories("Networking")
+	CategoriesData              = Categories("Data")
+	CategoriesIdentityAndAccess = Categories("IdentityAndAccess")
+	CategoriesIoT               = Categories("IoT")
 )
 
-func (Category) ElementType() reflect.Type {
+func (Categories) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e Category) ToStringOutput() pulumi.StringOutput {
+func (e Categories) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e Category) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Categories) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e Category) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Categories) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e Category) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Categories) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

@@ -7,7 +7,7 @@ from enum import Enum
 __all__ = [
     'AssessmentStatusCode',
     'AssessmentType',
-    'Category',
+    'Categories',
     'ImplementationEffort',
     'Protocol',
     'Severity',
@@ -38,9 +38,9 @@ class AssessmentType(str, Enum):
     VERIFIED_PARTNER = "VerifiedPartner"
 
 
-class Category(str, Enum):
+class Categories(str, Enum):
     """
-    The category of resource that is at risk when the assessment is unhealthy
+    The categories of resource that is at risk when the assessment is unhealthy
     """
     COMPUTE = "Compute"
     NETWORKING = "Networking"

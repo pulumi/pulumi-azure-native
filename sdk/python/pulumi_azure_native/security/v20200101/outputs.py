@@ -1123,7 +1123,7 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
                  display_name: str,
                  policy_definition_id: str,
                  severity: str,
-                 category: Optional[Sequence[str]] = None,
+                 categories: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
                  implementation_effort: Optional[str] = None,
                  partner_data: Optional['outputs.SecurityAssessmentMetadataPartnerDataResponse'] = None,
@@ -1148,8 +1148,8 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         pulumi.set(__self__, "severity", severity)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if implementation_effort is not None:
@@ -1199,8 +1199,8 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "category")
+    def categories(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter

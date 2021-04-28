@@ -138,6 +138,7 @@ import * as storsimple from "./storsimple";
 import * as streamanalytics from "./streamanalytics";
 import * as subscription from "./subscription";
 import * as synapse from "./synapse";
+import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as videoanalyzer from "./videoanalyzer";
 import * as virtualmachineimages from "./virtualmachineimages";
@@ -284,6 +285,7 @@ export {
     streamanalytics,
     subscription,
     synapse,
+    testbase,
     timeseriesinsights,
     videoanalyzer,
     virtualmachineimages,

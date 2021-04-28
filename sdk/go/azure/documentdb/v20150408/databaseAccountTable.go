@@ -138,6 +138,12 @@ func NewDatabaseAccountTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:DatabaseAccountTable"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210415:DatabaseAccountTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210415:DatabaseAccountTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountTable

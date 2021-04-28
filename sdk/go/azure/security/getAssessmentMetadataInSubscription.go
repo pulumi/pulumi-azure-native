@@ -27,7 +27,7 @@ type LookupAssessmentMetadataInSubscriptionArgs struct {
 type LookupAssessmentMetadataInSubscriptionResult struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
-	Category       []string `pulumi:"category"`
+	Categories     []string `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description *string `pulumi:"description"`
 	// User friendly display name of the assessment

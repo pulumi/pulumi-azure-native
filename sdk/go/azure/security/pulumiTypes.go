@@ -7924,7 +7924,7 @@ func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) Secret() pulumi.
 type SecurityAssessmentMetadataProperties struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
-	Category       []string `pulumi:"category"`
+	Categories     []string `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description *string `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -7959,7 +7959,7 @@ type SecurityAssessmentMetadataPropertiesInput interface {
 type SecurityAssessmentMetadataPropertiesArgs struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput      `pulumi:"assessmentType"`
-	Category       pulumi.StringArrayInput `pulumi:"category"`
+	Categories     pulumi.StringArrayInput `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -8062,8 +8062,8 @@ func (o SecurityAssessmentMetadataPropertiesOutput) AssessmentType() pulumi.Stri
 	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) string { return v.AssessmentType }).(pulumi.StringOutput)
 }
 
-func (o SecurityAssessmentMetadataPropertiesOutput) Category() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) []string { return v.Category }).(pulumi.StringArrayOutput)
+func (o SecurityAssessmentMetadataPropertiesOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) []string { return v.Categories }).(pulumi.StringArrayOutput)
 }
 
 // Human readable description of the assessment
@@ -8140,12 +8140,12 @@ func (o SecurityAssessmentMetadataPropertiesPtrOutput) AssessmentType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SecurityAssessmentMetadataPropertiesPtrOutput) Category() pulumi.StringArrayOutput {
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) []string {
 		if v == nil {
 			return nil
 		}
-		return v.Category
+		return v.Categories
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -8242,7 +8242,7 @@ func (o SecurityAssessmentMetadataPropertiesPtrOutput) UserImpact() pulumi.Strin
 type SecurityAssessmentMetadataPropertiesResponse struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType string   `pulumi:"assessmentType"`
-	Category       []string `pulumi:"category"`
+	Categories     []string `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description *string `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -8279,7 +8279,7 @@ type SecurityAssessmentMetadataPropertiesResponseInput interface {
 type SecurityAssessmentMetadataPropertiesResponseArgs struct {
 	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
 	AssessmentType pulumi.StringInput      `pulumi:"assessmentType"`
-	Category       pulumi.StringArrayInput `pulumi:"category"`
+	Categories     pulumi.StringArrayInput `pulumi:"categories"`
 	// Human readable description of the assessment
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// User friendly display name of the assessment
@@ -8384,8 +8384,8 @@ func (o SecurityAssessmentMetadataPropertiesResponseOutput) AssessmentType() pul
 	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) string { return v.AssessmentType }).(pulumi.StringOutput)
 }
 
-func (o SecurityAssessmentMetadataPropertiesResponseOutput) Category() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) []string { return v.Category }).(pulumi.StringArrayOutput)
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) []string { return v.Categories }).(pulumi.StringArrayOutput)
 }
 
 // Human readable description of the assessment
@@ -8469,12 +8469,12 @@ func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) AssessmentType() 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Category() pulumi.StringArrayOutput {
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) []string {
 		if v == nil {
 			return nil
 		}
-		return v.Category
+		return v.Categories
 	}).(pulumi.StringArrayOutput)
 }
 

@@ -21,12 +21,12 @@ namespace Pulumi.AzureNative.Security.Inputs
         [Input("assessmentType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Security.AssessmentType> AssessmentType { get; set; } = null!;
 
-        [Input("category")]
-        private InputList<Union<string, Pulumi.AzureNative.Security.Category>>? _category;
-        public InputList<Union<string, Pulumi.AzureNative.Security.Category>> Category
+        [Input("categories")]
+        private InputList<Union<string, Pulumi.AzureNative.Security.Categories>>? _categories;
+        public InputList<Union<string, Pulumi.AzureNative.Security.Categories>> Categories
         {
-            get => _category ?? (_category = new InputList<Union<string, Pulumi.AzureNative.Security.Category>>());
-            set => _category = value;
+            get => _categories ?? (_categories = new InputList<Union<string, Pulumi.AzureNative.Security.Categories>>());
+            set => _categories = value;
         }
 
         /// <summary>

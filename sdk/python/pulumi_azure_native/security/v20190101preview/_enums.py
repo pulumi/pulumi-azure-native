@@ -8,7 +8,7 @@ __all__ = [
     'ActionType',
     'AssessmentStatusCode',
     'AssessmentType',
-    'Category',
+    'Categories',
     'EventSource',
     'ImplementationEffort',
     'Operator',
@@ -48,9 +48,9 @@ class AssessmentType(str, Enum):
     CUSTOMER_MANAGED = "CustomerManaged"
 
 
-class Category(str, Enum):
+class Categories(str, Enum):
     """
-    The category of resource that is at risk when the assessment is unhealthy
+    The categories of resource that is at risk when the assessment is unhealthy
     """
     COMPUTE = "Compute"
     NETWORKING = "Networking"

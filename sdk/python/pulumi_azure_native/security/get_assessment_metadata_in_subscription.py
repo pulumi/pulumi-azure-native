@@ -20,13 +20,13 @@ class GetAssessmentMetadataInSubscriptionResult:
     """
     Security assessment metadata
     """
-    def __init__(__self__, assessment_type=None, category=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, partner_data=None, policy_definition_id=None, preview=None, remediation_description=None, severity=None, threats=None, type=None, user_impact=None):
+    def __init__(__self__, assessment_type=None, categories=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, partner_data=None, policy_definition_id=None, preview=None, remediation_description=None, severity=None, threats=None, type=None, user_impact=None):
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
-        if category and not isinstance(category, list):
-            raise TypeError("Expected argument 'category' to be a list")
-        pulumi.set(__self__, "category", category)
+        if categories and not isinstance(categories, list):
+            raise TypeError("Expected argument 'categories' to be a list")
+        pulumi.set(__self__, "categories", categories)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -77,8 +77,8 @@ class GetAssessmentMetadataInSubscriptionResult:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "category")
+    def categories(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "categories")
 
     @property
     @pulumi.getter
@@ -189,7 +189,7 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
             yield self
         return GetAssessmentMetadataInSubscriptionResult(
             assessment_type=self.assessment_type,
-            category=self.category,
+            categories=self.categories,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -224,7 +224,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
 
     return AwaitableGetAssessmentMetadataInSubscriptionResult(
         assessment_type=__ret__.assessment_type,
-        category=__ret__.category,
+        categories=__ret__.categories,
         description=__ret__.description,
         display_name=__ret__.display_name,
         id=__ret__.id,

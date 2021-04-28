@@ -73,6 +73,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180110
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210210:ReplicationProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationProtectedItem"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210301:ReplicationProtectedItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

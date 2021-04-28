@@ -130,7 +130,7 @@ export const AutoProvision = {
  */
 export type AutoProvision = (typeof AutoProvision)[keyof typeof AutoProvision];
 
-export const Category = {
+export const Categories = {
     Compute: "Compute",
     Networking: "Networking",
     Data: "Data",
@@ -139,9 +139,9 @@ export const Category = {
 } as const;
 
 /**
- * The category of resource that is at risk when the assessment is unhealthy
+ * The categories of resource that is at risk when the assessment is unhealthy
  */
-export type Category = (typeof Category)[keyof typeof Category];
+export type Categories = (typeof Categories)[keyof typeof Categories];
 
 export const DataSource = {
     /**

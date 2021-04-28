@@ -39,7 +39,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     public readonly assessmentType!: pulumi.Output<string>;
-    public readonly category!: pulumi.Output<string[] | undefined>;
+    public readonly categories!: pulumi.Output<string[] | undefined>;
     /**
      * Human readable description of the assessment
      */
@@ -108,7 +108,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             }
             inputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
             inputs["assessmentType"] = args ? args.assessmentType : undefined;
-            inputs["category"] = args ? args.category : undefined;
+            inputs["categories"] = args ? args.categories : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["implementationEffort"] = args ? args.implementationEffort : undefined;
@@ -123,7 +123,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["assessmentType"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
+            inputs["categories"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["implementationEffort"] = undefined /*out*/;
@@ -158,7 +158,7 @@ export interface AssessmentMetadataInSubscriptionArgs {
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     readonly assessmentType: pulumi.Input<string | enums.security.v20200101.AssessmentType>;
-    readonly category?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Category>[]>;
+    readonly categories?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Categories>[]>;
     /**
      * Human readable description of the assessment
      */

@@ -12,7 +12,7 @@ __all__ = [
     'AssessmentType',
     'AuthenticationType',
     'AutoProvision',
-    'Category',
+    'Categories',
     'DataSource',
     'EventSource',
     'ExportData',
@@ -99,9 +99,9 @@ class AutoProvision(str, Enum):
     OFF = "Off"
 
 
-class Category(str, Enum):
+class Categories(str, Enum):
     """
-    The category of resource that is at risk when the assessment is unhealthy
+    The categories of resource that is at risk when the assessment is unhealthy
     """
     COMPUTE = "Compute"
     NETWORKING = "Networking"

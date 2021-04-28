@@ -107,6 +107,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:DatabaseAccountCassandraTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210401preview:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:DatabaseAccountCassandraTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210415:DatabaseAccountCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

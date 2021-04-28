@@ -248,8 +248,8 @@ func (o DashboardLensResponseMapOutput) MapIndex(k pulumi.StringInput) Dashboard
 
 // A dashboard part.
 type DashboardParts struct {
-	// The dashboard part's metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	// A dashboard part metadata.
+	Metadata interface{} `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsPosition `pulumi:"position"`
 }
@@ -267,8 +267,8 @@ type DashboardPartsInput interface {
 
 // A dashboard part.
 type DashboardPartsArgs struct {
-	// The dashboard part's metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	// A dashboard part metadata.
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsPositionInput `pulumi:"position"`
 }
@@ -325,9 +325,9 @@ func (o DashboardPartsOutput) ToDashboardPartsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The dashboard part's metadata.
-func (o DashboardPartsOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v DashboardParts) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+// A dashboard part metadata.
+func (o DashboardPartsOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v DashboardParts) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The dashboard's part position.
@@ -448,8 +448,8 @@ func (o DashboardPartsPositionOutput) Y() pulumi.IntOutput {
 
 // A dashboard part.
 type DashboardPartsResponse struct {
-	// The dashboard part's metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
+	// A dashboard part metadata.
+	Metadata interface{} `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsResponsePosition `pulumi:"position"`
 }
@@ -467,8 +467,8 @@ type DashboardPartsResponseInput interface {
 
 // A dashboard part.
 type DashboardPartsResponseArgs struct {
-	// The dashboard part's metadata.
-	Metadata pulumi.MapInput `pulumi:"metadata"`
+	// A dashboard part metadata.
+	Metadata pulumi.Input `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsResponsePositionInput `pulumi:"position"`
 }
@@ -525,9 +525,9 @@ func (o DashboardPartsResponseOutput) ToDashboardPartsResponseOutputWithContext(
 	return o
 }
 
-// The dashboard part's metadata.
-func (o DashboardPartsResponseOutput) Metadata() pulumi.MapOutput {
-	return o.ApplyT(func(v DashboardPartsResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+// A dashboard part metadata.
+func (o DashboardPartsResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v DashboardPartsResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
 // The dashboard's part position.

@@ -164,6 +164,7 @@ from . import (
     streamanalytics,
     subscription,
     synapse,
+    testbase,
     timeseriesinsights,
     videoanalyzer,
     virtualmachineimages,

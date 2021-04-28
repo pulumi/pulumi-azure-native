@@ -9,12 +9,32 @@ from .get_protected_item import *
 from .get_protection_container import *
 from .get_protection_intent import *
 from .get_protection_policy import *
+from .get_replication_fabric import *
+from .get_replication_migration_item import *
+from .get_replication_network_mapping import *
+from .get_replication_policy import *
+from .get_replication_protected_item import *
+from .get_replication_protection_container_mapping import *
+from .get_replication_recovery_plan import *
+from .get_replication_recovery_services_provider import *
+from .get_replication_storage_classification_mapping import *
+from .get_replicationv_center import *
 from .get_vault import *
 from .private_endpoint_connection import *
 from .protected_item import *
 from .protection_container import *
 from .protection_intent import *
 from .protection_policy import *
+from .replication_fabric import *
+from .replication_migration_item import *
+from .replication_network_mapping import *
+from .replication_policy import *
+from .replication_protected_item import *
+from .replication_protection_container_mapping import *
+from .replication_recovery_plan import *
+from .replication_recovery_services_provider import *
+from .replication_storage_classification_mapping import *
+from .replicationv_center import *
 from .vault import *
 from ._inputs import *
 from . import outputs
@@ -41,6 +61,26 @@ def _register_module():
                 return ProtectionIntent(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:recoveryservices/v20210301:ProtectionPolicy":
                 return ProtectionPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationFabric":
+                return ReplicationFabric(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationMigrationItem":
+                return ReplicationMigrationItem(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationNetworkMapping":
+                return ReplicationNetworkMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationPolicy":
+                return ReplicationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationProtectedItem":
+                return ReplicationProtectedItem(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationProtectionContainerMapping":
+                return ReplicationProtectionContainerMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan":
+                return ReplicationRecoveryPlan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationRecoveryServicesProvider":
+                return ReplicationRecoveryServicesProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationStorageClassificationMapping":
+                return ReplicationStorageClassificationMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices/v20210301:ReplicationvCenter":
+                return ReplicationvCenter(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:recoveryservices/v20210301:Vault":
                 return Vault(name, pulumi.ResourceOptions(urn=urn))
             else:

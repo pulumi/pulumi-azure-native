@@ -3527,6 +3527,106 @@ func (o UserInfoResponseOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
+// The vm resource properties that is currently being monitored by the Elastic monitor resource.
+type VMResourcesResponse struct {
+	// The ARM id of the VM resource.
+	VmResourceId *string `pulumi:"vmResourceId"`
+}
+
+// VMResourcesResponseInput is an input type that accepts VMResourcesResponseArgs and VMResourcesResponseOutput values.
+// You can construct a concrete instance of `VMResourcesResponseInput` via:
+//
+//          VMResourcesResponseArgs{...}
+type VMResourcesResponseInput interface {
+	pulumi.Input
+
+	ToVMResourcesResponseOutput() VMResourcesResponseOutput
+	ToVMResourcesResponseOutputWithContext(context.Context) VMResourcesResponseOutput
+}
+
+// The vm resource properties that is currently being monitored by the Elastic monitor resource.
+type VMResourcesResponseArgs struct {
+	// The ARM id of the VM resource.
+	VmResourceId pulumi.StringPtrInput `pulumi:"vmResourceId"`
+}
+
+func (VMResourcesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMResourcesResponse)(nil)).Elem()
+}
+
+func (i VMResourcesResponseArgs) ToVMResourcesResponseOutput() VMResourcesResponseOutput {
+	return i.ToVMResourcesResponseOutputWithContext(context.Background())
+}
+
+func (i VMResourcesResponseArgs) ToVMResourcesResponseOutputWithContext(ctx context.Context) VMResourcesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMResourcesResponseOutput)
+}
+
+// VMResourcesResponseArrayInput is an input type that accepts VMResourcesResponseArray and VMResourcesResponseArrayOutput values.
+// You can construct a concrete instance of `VMResourcesResponseArrayInput` via:
+//
+//          VMResourcesResponseArray{ VMResourcesResponseArgs{...} }
+type VMResourcesResponseArrayInput interface {
+	pulumi.Input
+
+	ToVMResourcesResponseArrayOutput() VMResourcesResponseArrayOutput
+	ToVMResourcesResponseArrayOutputWithContext(context.Context) VMResourcesResponseArrayOutput
+}
+
+type VMResourcesResponseArray []VMResourcesResponseInput
+
+func (VMResourcesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMResourcesResponse)(nil)).Elem()
+}
+
+func (i VMResourcesResponseArray) ToVMResourcesResponseArrayOutput() VMResourcesResponseArrayOutput {
+	return i.ToVMResourcesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VMResourcesResponseArray) ToVMResourcesResponseArrayOutputWithContext(ctx context.Context) VMResourcesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMResourcesResponseArrayOutput)
+}
+
+// The vm resource properties that is currently being monitored by the Elastic monitor resource.
+type VMResourcesResponseOutput struct{ *pulumi.OutputState }
+
+func (VMResourcesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMResourcesResponse)(nil)).Elem()
+}
+
+func (o VMResourcesResponseOutput) ToVMResourcesResponseOutput() VMResourcesResponseOutput {
+	return o
+}
+
+func (o VMResourcesResponseOutput) ToVMResourcesResponseOutputWithContext(ctx context.Context) VMResourcesResponseOutput {
+	return o
+}
+
+// The ARM id of the VM resource.
+func (o VMResourcesResponseOutput) VmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMResourcesResponse) *string { return v.VmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type VMResourcesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMResourcesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMResourcesResponse)(nil)).Elem()
+}
+
+func (o VMResourcesResponseArrayOutput) ToVMResourcesResponseArrayOutput() VMResourcesResponseArrayOutput {
+	return o
+}
+
+func (o VMResourcesResponseArrayOutput) ToVMResourcesResponseArrayOutputWithContext(ctx context.Context) VMResourcesResponseArrayOutput {
+	return o
+}
+
+func (o VMResourcesResponseArrayOutput) Index(i pulumi.IntInput) VMResourcesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMResourcesResponse {
+		return vs[0].([]VMResourcesResponse)[vs[1].(int)]
+	}).(VMResourcesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CompanyInfoOutput{})
 	pulumi.RegisterOutputType(CompanyInfoPtrOutput{})
@@ -3569,4 +3669,6 @@ func init() {
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})
+	pulumi.RegisterOutputType(VMResourcesResponseOutput{})
+	pulumi.RegisterOutputType(VMResourcesResponseArrayOutput{})
 }

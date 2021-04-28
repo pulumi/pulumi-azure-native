@@ -36,7 +36,7 @@ export interface GetAssessmentsMetadataSubscriptionResult {
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     readonly assessmentType: string;
-    readonly category?: string[];
+    readonly categories?: string[];
     /**
      * Human readable description of the assessment
      */

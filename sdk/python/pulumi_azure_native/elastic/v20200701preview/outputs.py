@@ -22,6 +22,7 @@ __all__ = [
     'MonitoringTagRulesPropertiesResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
+    'VMResourcesResponse',
 ]
 
 @pulumi.output_type
@@ -770,5 +771,28 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class VMResourcesResponse(dict):
+    """
+    The vm resource properties that is currently being monitored by the Elastic monitor resource.
+    """
+    def __init__(__self__, *,
+                 vm_resource_id: Optional[str] = None):
+        """
+        The vm resource properties that is currently being monitored by the Elastic monitor resource.
+        :param str vm_resource_id: The ARM id of the VM resource.
+        """
+        if vm_resource_id is not None:
+            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+
+    @property
+    @pulumi.getter(name="vmResourceId")
+    def vm_resource_id(self) -> Optional[str]:
+        """
+        The ARM id of the VM resource.
+        """
+        return pulumi.get(self, "vm_resource_id")
 
 

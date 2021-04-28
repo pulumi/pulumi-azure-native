@@ -998,7 +998,7 @@ class SecurityAssessmentMetadataPropertiesArgs:
                  assessment_type: pulumi.Input[Union[str, 'AssessmentType']],
                  display_name: pulumi.Input[str],
                  severity: pulumi.Input[Union[str, 'Severity']],
-                 category: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
@@ -1021,8 +1021,8 @@ class SecurityAssessmentMetadataPropertiesArgs:
         pulumi.set(__self__, "assessment_type", assessment_type)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "severity", severity)
-        if category is not None:
-            pulumi.set(__self__, "category", category)
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if implementation_effort is not None:
@@ -1076,12 +1076,12 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]]:
-        return pulumi.get(self, "category")
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]]:
+        return pulumi.get(self, "categories")
 
-    @category.setter
-    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]]):
-        pulumi.set(self, "category", value)
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]]):
+        pulumi.set(self, "categories", value)
 
     @property
     @pulumi.getter

@@ -92,7 +92,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20210401preview:SqlResourceSqlRoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20210401preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20210415:SqlResourceSqlRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlRoleDefinition.__pulumiType, name, inputs, opts);
     }

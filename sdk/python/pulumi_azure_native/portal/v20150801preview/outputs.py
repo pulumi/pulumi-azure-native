@@ -67,11 +67,11 @@ class DashboardPartsResponse(dict):
     """
     def __init__(__self__, *,
                  position: 'outputs.DashboardPartsResponsePosition',
-                 metadata: Optional[Mapping[str, Any]] = None):
+                 metadata: Optional[Any] = None):
         """
         A dashboard part.
         :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
-        :param Mapping[str, Any] metadata: The dashboard part's metadata.
+        :param Any metadata: A dashboard part metadata.
         """
         pulumi.set(__self__, "position", position)
         if metadata is not None:
@@ -87,9 +87,9 @@ class DashboardPartsResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
-        The dashboard part's metadata.
+        A dashboard part metadata.
         """
         return pulumi.get(self, "metadata")
 

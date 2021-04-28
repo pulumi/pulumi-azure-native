@@ -142,6 +142,12 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210315:GremlinResourceGremlinGraph"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210415:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210415:GremlinResourceGremlinGraph"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GremlinResourceGremlinGraph

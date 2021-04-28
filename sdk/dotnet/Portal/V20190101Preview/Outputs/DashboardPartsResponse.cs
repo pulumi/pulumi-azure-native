@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Portal.V20190101Preview.Outputs
     public sealed class DashboardPartsResponse
     {
         /// <summary>
-        /// The dashboard part's metadata.
+        /// A dashboard part metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The dashboard's part position.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Portal.V20190101Preview.Outputs
 
         [OutputConstructor]
         private DashboardPartsResponse(
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             Outputs.DashboardPartsResponsePosition position)
         {

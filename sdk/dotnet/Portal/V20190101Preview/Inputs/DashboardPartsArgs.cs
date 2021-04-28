@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.Portal.V20190101Preview.Inputs
     /// </summary>
     public sealed class DashboardPartsArgs : Pulumi.ResourceArgs
     {
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
-        /// The dashboard part's metadata.
+        /// A dashboard part metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The dashboard's part position.

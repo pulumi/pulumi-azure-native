@@ -18,7 +18,15 @@ New module for Video Analyzer management:
 - `videoanalyzer:Video`
 - `videoanalyzer:VideoAnalyzer`
 
+New module for Test Base management:
+
+- `testbase.TestBaseAccount`
+- `testbase.Package`
+- `testbase.FavoriteProcess`
+
 #### New Functions
+
+- `elastic.listVMHost`
 
 New module for Video Analyzer management:
 
@@ -28,6 +36,16 @@ New module for Video Analyzer management:
 - `videoanalyzer.getVideoAnalyzer`
 - `videoanalyzer.listEdgeModuleProvisioningToken`
 - `videoanalyzer.listVideoStreamingToken`
+
+New module for Test Base management:
+
+- `testbase.getTestResultDownloadURL`
+- `testbase.getTestBaseAccountFileUploadUrl`
+- `testbase.getTestResultVideoDownloadURL`
+- `testbase.getPackageDownloadURL`
+- `testbase.getTestBaseAccount`
+- `testbase.getPackage`
+- `testbase.getFavoriteProcess`
 
 #### Bug fixes
 
@@ -44,6 +62,8 @@ New module for Video Analyzer management:
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13951))
 - The `maxCapacityReservationLevel` output property was removed from `operationalinsights.WorkspaceSkuResponse`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13812))
+- `security.AssessmentMetadataInSubscription` fixed the property name, changing from `category` to `categories`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/13883))
 
 ---
 

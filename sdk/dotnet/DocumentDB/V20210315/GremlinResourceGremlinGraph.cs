@@ -101,6 +101,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210401preview:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210415:GremlinResourceGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
