@@ -33890,6 +33890,7 @@
         "apiProfiles": null,
         "apiVersions": [
           "2021-03-01",
+          "2021-02-01-preview",
           "2020-10-01-preview",
           "2020-04-01-preview"
         ],
@@ -61903,7 +61904,9 @@
           "Korea Central",
           "France Central",
           "South India",
-          "Norway East"
+          "Norway East",
+          "Germany West Central",
+          "Uae North"
         ],
         "properties": null,
         "resourceType": "streamingjobs"
@@ -61944,7 +61947,9 @@
           "Korea Central",
           "France Central",
           "South India",
-          "Norway East"
+          "Norway East",
+          "Germany West Central",
+          "Uae North"
         ],
         "properties": null,
         "resourceType": "clusters"
@@ -61985,7 +61990,9 @@
           "Korea Central",
           "France Central",
           "South India",
-          "Norway East"
+          "Norway East",
+          "Germany West Central",
+          "Uae North"
         ],
         "properties": null,
         "resourceType": "clusters/privateEndpoints"
@@ -62036,7 +62043,9 @@
           "Korea Central",
           "France Central",
           "South India",
-          "Norway East"
+          "Norway East",
+          "Germany West Central",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -62129,6 +62138,7 @@
           "Central India",
           "West Central US",
           "UK South",
+          "Germany West Central",
           "UK West",
           "Canada Central",
           "Canada East",
@@ -62136,7 +62146,8 @@
           "Korea Central",
           "France Central",
           "South India",
-          "Norway East"
+          "Norway East",
+          "Uae North"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -76749,31 +76760,6 @@
     ]
   },
   {
-    "authorizations": [],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.FluidRelay",
-    "namespace": "Microsoft.FluidRelay",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-03-12-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "North Europe",
-          "East US 2 EUAP"
-        ],
-        "properties": null,
-        "resourceType": "fluidRelayServers"
-      }
-    ]
-  },
-  {
     "authorizations": [
       {
         "applicationId": "e935b4a5-8968-416d-8414-caed51c782a9",
@@ -78521,6 +78507,80 @@
     ]
   },
   {
+    "authorizations": [
+      {
+        "applicationId": "a5472e16-e1d2-4bbe-81b3-ecdcd459b536",
+        "roleDefinitionId": "bd91f1c6-cda0-4e9d-9982-18a494ec938e"
+      },
+      {
+        "applicationId": "0ecb6dbc-7807-4951-9a69-b5d3dfa5a0b5",
+        "roleDefinitionId": "b15da9ae-5633-4997-8e2c-b0941fb54476"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Logz",
+    "namespace": "Microsoft.Logz",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-10-01-preview",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "registeredSubscriptions"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Central US EUAP",
+          "East US 2 EUAP",
+          "West US 2"
+        ],
+        "properties": null,
+        "resourceType": "locations/operationStatuses"
+      }
+    ]
+  },
+  {
     "authorization": {
       "applicationId": "0736f41a-0425-4b46-bdb5-1563eff02385",
       "roleDefinitionId": "1cc297bc-1829-4524-941f-966373421033"
@@ -79396,6 +79456,61 @@
         ],
         "properties": null,
         "resourceType": "locations/rmsOperationResults"
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
+        "applicationId": "b8ed041c-aa91-418e-8f47-20c70abc2de1",
+        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MobileNetwork",
+    "namespace": "Microsoft.MobileNetwork",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Operations"
       }
     ]
   },
