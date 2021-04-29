@@ -6,6 +6,7 @@ name: nightly-sdk-generation
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  PROVIDER: azure-native
 
 jobs:
   generate-sdk:
