@@ -13,6 +13,11 @@ CHANGELOG
 - `synapse.getDatabasePrincipalAssignment`
 - `synapse.getKustoPoolPrincipalAssignment`
 
+#### Bug fixes
+
+- Fix constant value discriminator resolution for multi-level discriminated unions
+  [#765](https://github.com/pulumi/pulumi-azure-native/issues/765)
+
 #### Breaking Changes published by Microsoft
 
 - `management.ManagementGroup` moved the location of the `path` property
