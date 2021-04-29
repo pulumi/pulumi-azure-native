@@ -33890,6 +33890,7 @@
         "apiProfiles": null,
         "apiVersions": [
           "2021-03-01",
+          "2021-02-01-preview",
           "2020-10-01-preview",
           "2020-04-01-preview"
         ],
@@ -76745,31 +76746,6 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
-      }
-    ]
-  },
-  {
-    "authorizations": [],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.FluidRelay",
-    "namespace": "Microsoft.FluidRelay",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-03-12-preview"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "North Europe",
-          "East US 2 EUAP"
-        ],
-        "properties": null,
-        "resourceType": "fluidRelayServers"
       }
     ]
   },
