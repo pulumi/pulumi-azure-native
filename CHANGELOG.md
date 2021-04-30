@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Improvements
+
+- Load Python modules lazily to speed up program execution
+  [#738](https://github.com/pulumi/pulumi-azure-native/issues/738)
 
 ---
 
