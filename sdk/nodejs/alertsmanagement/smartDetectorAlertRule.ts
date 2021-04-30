@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The alert rule information
- * API Version: 2021-04-01.
+ * API Version: 2019-06-01.
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
      */
     public readonly detector!: pulumi.Output<outputs.alertsmanagement.DetectorResponse>;
     /**
-     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
      */
     public readonly frequency!: pulumi.Output<string>;
     /**
@@ -175,7 +175,7 @@ export interface SmartDetectorAlertRuleArgs {
      */
     readonly detector: pulumi.Input<inputs.alertsmanagement.DetectorArgs>;
     /**
-     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
      */
     readonly frequency: pulumi.Input<string>;
     /**

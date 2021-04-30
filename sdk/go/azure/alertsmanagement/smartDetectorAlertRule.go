@@ -12,7 +12,7 @@ import (
 )
 
 // The alert rule information
-// API Version: 2021-04-01.
+// API Version: 2019-06-01.
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type SmartDetectorAlertRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The alert rule's detector.
 	Detector DetectorResponseOutput `pulumi:"detector"`
-	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
@@ -125,7 +125,7 @@ type smartDetectorAlertRuleState struct {
 	Description *string `pulumi:"description"`
 	// The alert rule's detector.
 	Detector *DetectorResponse `pulumi:"detector"`
-	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency *string `pulumi:"frequency"`
 	// The resource location.
 	Location *string `pulumi:"location"`
@@ -152,7 +152,7 @@ type SmartDetectorAlertRuleState struct {
 	Description pulumi.StringPtrInput
 	// The alert rule's detector.
 	Detector DetectorResponsePtrInput
-	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type smartDetectorAlertRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// The alert rule's detector.
 	Detector Detector `pulumi:"detector"`
-	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency string `pulumi:"frequency"`
 	// The resource location.
 	Location *string `pulumi:"location"`
@@ -213,7 +213,7 @@ type SmartDetectorAlertRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// The alert rule's detector.
 	Detector DetectorInput
-	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput

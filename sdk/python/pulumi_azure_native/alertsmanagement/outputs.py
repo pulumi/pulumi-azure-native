@@ -15,7 +15,6 @@ __all__ = [
     'ActionGroupsInformationResponse',
     'ConditionResponse',
     'ConditionsResponse',
-    'DetectorParameterDefinitionResponse',
     'DetectorResponse',
     'DiagnosticsResponse',
     'HealthAlertActionResponse',
@@ -404,96 +403,6 @@ class ConditionsResponse(dict):
 
 
 @pulumi.output_type
-class DetectorParameterDefinitionResponse(dict):
-    """
-    The detector parameter definition.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayName":
-            suggest = "display_name"
-        elif key == "isMandatory":
-            suggest = "is_mandatory"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DetectorParameterDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DetectorParameterDefinitionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DetectorParameterDefinitionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 display_name: Optional[str] = None,
-                 is_mandatory: Optional[bool] = None,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        The detector parameter definition.
-        :param str description: The detector parameter description.
-        :param str display_name: The detector parameter display name.
-        :param bool is_mandatory: A value indicating whether this detector parameter is mandatory.
-        :param str name: The detector parameter name.
-        :param str type: The detector parameter type.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if is_mandatory is not None:
-            pulumi.set(__self__, "is_mandatory", is_mandatory)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The detector parameter description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        The detector parameter display name.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="isMandatory")
-    def is_mandatory(self) -> Optional[bool]:
-        """
-        A value indicating whether this detector parameter is mandatory.
-        """
-        return pulumi.get(self, "is_mandatory")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The detector parameter name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The detector parameter type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class DetectorResponse(dict):
     """
     The detector information. By default this is not populated, unless it's specified in expandDetector
@@ -503,10 +412,6 @@ class DetectorResponse(dict):
         suggest = None
         if key == "imagePaths":
             suggest = "image_paths"
-        elif key == "parameterDefinitions":
-            suggest = "parameter_definitions"
-        elif key == "supportedCadences":
-            suggest = "supported_cadences"
         elif key == "supportedResourceTypes":
             suggest = "supported_resource_types"
 
@@ -522,42 +427,32 @@ class DetectorResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 description: str,
                  id: str,
-                 image_paths: Sequence[str],
-                 name: str,
-                 parameter_definitions: Sequence['outputs.DetectorParameterDefinitionResponse'],
-                 supported_cadences: Sequence[int],
-                 supported_resource_types: Sequence[str],
-                 parameters: Optional[Mapping[str, Any]] = None):
+                 description: Optional[str] = None,
+                 image_paths: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 parameters: Optional[Mapping[str, Any]] = None,
+                 supported_resource_types: Optional[Sequence[str]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
-        :param str description: The Smart Detector description.
         :param str id: The detector id.
+        :param str description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
         :param Sequence[str] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-        :param str name: The Smart Detector name.
-        :param Sequence['DetectorParameterDefinitionResponse'] parameter_definitions: The Smart Detector parameters definitions.'
-        :param Sequence[int] supported_cadences: The Smart Detector supported cadences.
-        :param Sequence[str] supported_resource_types: The Smart Detector supported resource types.
+        :param str name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
         :param Mapping[str, Any] parameters: The detector's parameters.'
+        :param Sequence[str] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
-        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "image_paths", image_paths)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameter_definitions", parameter_definitions)
-        pulumi.set(__self__, "supported_cadences", supported_cadences)
-        pulumi.set(__self__, "supported_resource_types", supported_resource_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if image_paths is not None:
+            pulumi.set(__self__, "image_paths", image_paths)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        The Smart Detector description.
-        """
-        return pulumi.get(self, "description")
+        if supported_resource_types is not None:
+            pulumi.set(__self__, "supported_resource_types", supported_resource_types)
 
     @property
     @pulumi.getter
@@ -568,8 +463,16 @@ class DetectorResponse(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="imagePaths")
-    def image_paths(self) -> Sequence[str]:
+    def image_paths(self) -> Optional[Sequence[str]]:
         """
         The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         """
@@ -577,35 +480,11 @@ class DetectorResponse(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        The Smart Detector name.
+        The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="parameterDefinitions")
-    def parameter_definitions(self) -> Sequence['outputs.DetectorParameterDefinitionResponse']:
-        """
-        The Smart Detector parameters definitions.'
-        """
-        return pulumi.get(self, "parameter_definitions")
-
-    @property
-    @pulumi.getter(name="supportedCadences")
-    def supported_cadences(self) -> Sequence[int]:
-        """
-        The Smart Detector supported cadences.
-        """
-        return pulumi.get(self, "supported_cadences")
-
-    @property
-    @pulumi.getter(name="supportedResourceTypes")
-    def supported_resource_types(self) -> Sequence[str]:
-        """
-        The Smart Detector supported resource types.
-        """
-        return pulumi.get(self, "supported_resource_types")
 
     @property
     @pulumi.getter
@@ -614,6 +493,14 @@ class DetectorResponse(dict):
         The detector's parameters.'
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="supportedResourceTypes")
+    def supported_resource_types(self) -> Optional[Sequence[str]]:
+        """
+        The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+        """
+        return pulumi.get(self, "supported_resource_types")
 
 
 @pulumi.output_type

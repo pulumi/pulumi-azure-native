@@ -1400,10 +1400,18 @@ func (o ConditionsResponsePtrOutput) TargetResourceType() ConditionResponsePtrOu
 
 // The detector information. By default this is not populated, unless it's specified in expandDetector
 type Detector struct {
+	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+	Description *string `pulumi:"description"`
 	// The detector id.
 	Id string `pulumi:"id"`
+	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+	ImagePaths []string `pulumi:"imagePaths"`
+	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+	Name *string `pulumi:"name"`
 	// The detector's parameters.'
 	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+	SupportedResourceTypes []string `pulumi:"supportedResourceTypes"`
 }
 
 // DetectorInput is an input type that accepts DetectorArgs and DetectorOutput values.
@@ -1419,10 +1427,18 @@ type DetectorInput interface {
 
 // The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorArgs struct {
+	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The detector id.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+	ImagePaths pulumi.StringArrayInput `pulumi:"imagePaths"`
+	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The detector's parameters.'
 	Parameters pulumi.MapInput `pulumi:"parameters"`
+	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+	SupportedResourceTypes pulumi.StringArrayInput `pulumi:"supportedResourceTypes"`
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -1503,14 +1519,34 @@ func (o DetectorOutput) ToDetectorPtrOutputWithContext(ctx context.Context) Dete
 	}).(DetectorPtrOutput)
 }
 
+// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Detector) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // The detector id.
 func (o DetectorOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v Detector) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorOutput) ImagePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Detector) []string { return v.ImagePaths }).(pulumi.StringArrayOutput)
+}
+
+// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Detector) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 // The detector's parameters.'
 func (o DetectorOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v Detector) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+}
+
+// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Detector) []string { return v.SupportedResourceTypes }).(pulumi.StringArrayOutput)
 }
 
 type DetectorPtrOutput struct{ *pulumi.OutputState }
@@ -1531,6 +1567,16 @@ func (o DetectorPtrOutput) Elem() DetectorOutput {
 	return o.ApplyT(func(v *Detector) Detector { return *v }).(DetectorOutput)
 }
 
+// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Detector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
 // The detector id.
 func (o DetectorPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) *string {
@@ -1538,6 +1584,26 @@ func (o DetectorPtrOutput) Id() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorPtrOutput) ImagePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Detector) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ImagePaths
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Detector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1551,159 +1617,29 @@ func (o DetectorPtrOutput) Parameters() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// The detector parameter definition.
-type DetectorParameterDefinitionResponse struct {
-	// The detector parameter description.
-	Description *string `pulumi:"description"`
-	// The detector parameter display name.
-	DisplayName *string `pulumi:"displayName"`
-	// A value indicating whether this detector parameter is mandatory.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// The detector parameter name.
-	Name *string `pulumi:"name"`
-	// The detector parameter type.
-	Type *string `pulumi:"type"`
-}
-
-// DetectorParameterDefinitionResponseInput is an input type that accepts DetectorParameterDefinitionResponseArgs and DetectorParameterDefinitionResponseOutput values.
-// You can construct a concrete instance of `DetectorParameterDefinitionResponseInput` via:
-//
-//          DetectorParameterDefinitionResponseArgs{...}
-type DetectorParameterDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToDetectorParameterDefinitionResponseOutput() DetectorParameterDefinitionResponseOutput
-	ToDetectorParameterDefinitionResponseOutputWithContext(context.Context) DetectorParameterDefinitionResponseOutput
-}
-
-// The detector parameter definition.
-type DetectorParameterDefinitionResponseArgs struct {
-	// The detector parameter description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The detector parameter display name.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// A value indicating whether this detector parameter is mandatory.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// The detector parameter name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The detector parameter type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (DetectorParameterDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorParameterDefinitionResponse)(nil)).Elem()
-}
-
-func (i DetectorParameterDefinitionResponseArgs) ToDetectorParameterDefinitionResponseOutput() DetectorParameterDefinitionResponseOutput {
-	return i.ToDetectorParameterDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i DetectorParameterDefinitionResponseArgs) ToDetectorParameterDefinitionResponseOutputWithContext(ctx context.Context) DetectorParameterDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorParameterDefinitionResponseOutput)
-}
-
-// DetectorParameterDefinitionResponseArrayInput is an input type that accepts DetectorParameterDefinitionResponseArray and DetectorParameterDefinitionResponseArrayOutput values.
-// You can construct a concrete instance of `DetectorParameterDefinitionResponseArrayInput` via:
-//
-//          DetectorParameterDefinitionResponseArray{ DetectorParameterDefinitionResponseArgs{...} }
-type DetectorParameterDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToDetectorParameterDefinitionResponseArrayOutput() DetectorParameterDefinitionResponseArrayOutput
-	ToDetectorParameterDefinitionResponseArrayOutputWithContext(context.Context) DetectorParameterDefinitionResponseArrayOutput
-}
-
-type DetectorParameterDefinitionResponseArray []DetectorParameterDefinitionResponseInput
-
-func (DetectorParameterDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorParameterDefinitionResponse)(nil)).Elem()
-}
-
-func (i DetectorParameterDefinitionResponseArray) ToDetectorParameterDefinitionResponseArrayOutput() DetectorParameterDefinitionResponseArrayOutput {
-	return i.ToDetectorParameterDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DetectorParameterDefinitionResponseArray) ToDetectorParameterDefinitionResponseArrayOutputWithContext(ctx context.Context) DetectorParameterDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorParameterDefinitionResponseArrayOutput)
-}
-
-// The detector parameter definition.
-type DetectorParameterDefinitionResponseOutput struct{ *pulumi.OutputState }
-
-func (DetectorParameterDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorParameterDefinitionResponse)(nil)).Elem()
-}
-
-func (o DetectorParameterDefinitionResponseOutput) ToDetectorParameterDefinitionResponseOutput() DetectorParameterDefinitionResponseOutput {
-	return o
-}
-
-func (o DetectorParameterDefinitionResponseOutput) ToDetectorParameterDefinitionResponseOutputWithContext(ctx context.Context) DetectorParameterDefinitionResponseOutput {
-	return o
-}
-
-// The detector parameter description.
-func (o DetectorParameterDefinitionResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The detector parameter display name.
-func (o DetectorParameterDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether this detector parameter is mandatory.
-func (o DetectorParameterDefinitionResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
-}
-
-// The detector parameter name.
-func (o DetectorParameterDefinitionResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The detector parameter type.
-func (o DetectorParameterDefinitionResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type DetectorParameterDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DetectorParameterDefinitionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DetectorParameterDefinitionResponse)(nil)).Elem()
-}
-
-func (o DetectorParameterDefinitionResponseArrayOutput) ToDetectorParameterDefinitionResponseArrayOutput() DetectorParameterDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o DetectorParameterDefinitionResponseArrayOutput) ToDetectorParameterDefinitionResponseArrayOutputWithContext(ctx context.Context) DetectorParameterDefinitionResponseArrayOutput {
-	return o
-}
-
-func (o DetectorParameterDefinitionResponseArrayOutput) Index(i pulumi.IntInput) DetectorParameterDefinitionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorParameterDefinitionResponse {
-		return vs[0].([]DetectorParameterDefinitionResponse)[vs[1].(int)]
-	}).(DetectorParameterDefinitionResponseOutput)
+// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorPtrOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Detector) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedResourceTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorResponse struct {
-	// The Smart Detector description.
-	Description string `pulumi:"description"`
+	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+	Description *string `pulumi:"description"`
 	// The detector id.
 	Id string `pulumi:"id"`
 	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
 	ImagePaths []string `pulumi:"imagePaths"`
-	// The Smart Detector name.
-	Name string `pulumi:"name"`
-	// The Smart Detector parameters definitions.'
-	ParameterDefinitions []DetectorParameterDefinitionResponse `pulumi:"parameterDefinitions"`
+	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+	Name *string `pulumi:"name"`
 	// The detector's parameters.'
 	Parameters map[string]interface{} `pulumi:"parameters"`
-	// The Smart Detector supported cadences.
-	SupportedCadences []int `pulumi:"supportedCadences"`
-	// The Smart Detector supported resource types.
+	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 	SupportedResourceTypes []string `pulumi:"supportedResourceTypes"`
 }
 
@@ -1720,21 +1656,17 @@ type DetectorResponseInput interface {
 
 // The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorResponseArgs struct {
-	// The Smart Detector description.
-	Description pulumi.StringInput `pulumi:"description"`
+	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The detector id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
 	ImagePaths pulumi.StringArrayInput `pulumi:"imagePaths"`
-	// The Smart Detector name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Smart Detector parameters definitions.'
-	ParameterDefinitions DetectorParameterDefinitionResponseArrayInput `pulumi:"parameterDefinitions"`
+	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The detector's parameters.'
 	Parameters pulumi.MapInput `pulumi:"parameters"`
-	// The Smart Detector supported cadences.
-	SupportedCadences pulumi.IntArrayInput `pulumi:"supportedCadences"`
-	// The Smart Detector supported resource types.
+	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 	SupportedResourceTypes pulumi.StringArrayInput `pulumi:"supportedResourceTypes"`
 }
 
@@ -1816,9 +1748,9 @@ func (o DetectorResponseOutput) ToDetectorResponsePtrOutputWithContext(ctx conte
 	}).(DetectorResponsePtrOutput)
 }
 
-// The Smart Detector description.
-func (o DetectorResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorResponse) string { return v.Description }).(pulumi.StringOutput)
+// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The detector id.
@@ -1831,14 +1763,9 @@ func (o DetectorResponseOutput) ImagePaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DetectorResponse) []string { return v.ImagePaths }).(pulumi.StringArrayOutput)
 }
 
-// The Smart Detector name.
-func (o DetectorResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Smart Detector parameters definitions.'
-func (o DetectorResponseOutput) ParameterDefinitions() DetectorParameterDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v DetectorResponse) []DetectorParameterDefinitionResponse { return v.ParameterDefinitions }).(DetectorParameterDefinitionResponseArrayOutput)
+// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The detector's parameters.'
@@ -1846,12 +1773,7 @@ func (o DetectorResponseOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v DetectorResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
-// The Smart Detector supported cadences.
-func (o DetectorResponseOutput) SupportedCadences() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v DetectorResponse) []int { return v.SupportedCadences }).(pulumi.IntArrayOutput)
-}
-
-// The Smart Detector supported resource types.
+// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 func (o DetectorResponseOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DetectorResponse) []string { return v.SupportedResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -1874,13 +1796,13 @@ func (o DetectorResponsePtrOutput) Elem() DetectorResponseOutput {
 	return o.ApplyT(func(v *DetectorResponse) DetectorResponse { return *v }).(DetectorResponseOutput)
 }
 
-// The Smart Detector description.
+// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
 func (o DetectorResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Description
+		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1904,24 +1826,14 @@ func (o DetectorResponsePtrOutput) ImagePaths() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Smart Detector name.
+// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
 func (o DetectorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Name
+		return v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The Smart Detector parameters definitions.'
-func (o DetectorResponsePtrOutput) ParameterDefinitions() DetectorParameterDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v *DetectorResponse) []DetectorParameterDefinitionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ParameterDefinitions
-	}).(DetectorParameterDefinitionResponseArrayOutput)
 }
 
 // The detector's parameters.'
@@ -1934,17 +1846,7 @@ func (o DetectorResponsePtrOutput) Parameters() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// The Smart Detector supported cadences.
-func (o DetectorResponsePtrOutput) SupportedCadences() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *DetectorResponse) []int {
-		if v == nil {
-			return nil
-		}
-		return v.SupportedCadences
-	}).(pulumi.IntArrayOutput)
-}
-
-// The Smart Detector supported resource types.
+// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 func (o DetectorResponsePtrOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DetectorResponse) []string {
 		if v == nil {
@@ -4523,8 +4425,6 @@ func init() {
 	pulumi.RegisterOutputType(ConditionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(DetectorOutput{})
 	pulumi.RegisterOutputType(DetectorPtrOutput{})
-	pulumi.RegisterOutputType(DetectorParameterDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(DetectorParameterDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DetectorResponseOutput{})
 	pulumi.RegisterOutputType(DetectorResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsOutput{})

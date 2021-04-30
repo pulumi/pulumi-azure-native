@@ -350,15 +350,31 @@ class ConditionsArgs:
 class DetectorArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 image_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 supported_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[str] id: The detector id.
+        :param pulumi.Input[str] description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+        :param pulumi.Input[str] name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
         :param pulumi.Input[Mapping[str, Any]] parameters: The detector's parameters.'
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
         pulumi.set(__self__, "id", id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if image_paths is not None:
+            pulumi.set(__self__, "image_paths", image_paths)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if supported_resource_types is not None:
+            pulumi.set(__self__, "supported_resource_types", supported_resource_types)
 
     @property
     @pulumi.getter
@@ -374,6 +390,42 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="imagePaths")
+    def image_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+        """
+        return pulumi.get(self, "image_paths")
+
+    @image_paths.setter
+    def image_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "image_paths", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The detector's parameters.'
@@ -383,6 +435,18 @@ class DetectorArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="supportedResourceTypes")
+    def supported_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+        """
+        return pulumi.get(self, "supported_resource_types")
+
+    @supported_resource_types.setter
+    def supported_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_resource_types", value)
 
 
 @pulumi.input_type

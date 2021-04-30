@@ -3,10 +3,23 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `synapse.DatabasePrincipalAssignment`
+- `synapse.KustoPoolPrincipalAssignment`
+
+#### New Functions
+
+- `synapse.getDatabasePrincipalAssignment`
+- `synapse.getKustoPoolPrincipalAssignment`
+
 #### Breaking Changes published by Microsoft
 
 - `management.ManagementGroup` moved the location of the `path` property
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13897))
+- Changes in `network` resources that are still in private preview:
+  `AdminRule`, `UserRule`, `SecurityAdminConfigurations`, `ConnectivityConfiguration`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/13827))
 
 ---
 
