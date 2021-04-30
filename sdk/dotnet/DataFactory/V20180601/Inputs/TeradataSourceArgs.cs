@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Copy source type.
-        /// Expected value is 'TabularSource'.
+        /// Expected value is 'TeradataSource'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

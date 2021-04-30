@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly string Name;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'SetVariable'.
         /// </summary>
         public readonly string Type;
         /// <summary>

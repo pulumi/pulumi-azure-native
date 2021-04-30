@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Security.V20190801.Inputs
 
         /// <summary>
         /// The type of the custom alert rule.
-        /// Expected value is 'ListCustomAlertRule'.
+        /// Expected value is 'DenylistCustomAlertRule'.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

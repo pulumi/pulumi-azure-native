@@ -5195,7 +5195,7 @@ type AzureMLBatchExecutionActivity struct {
 	// Activity policy.
 	Policy *ActivityPolicy `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLBatchExecution'.
 	Type string `pulumi:"type"`
 	// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
 	WebServiceInputs map[string]AzureMLWebServiceFile `pulumi:"webServiceInputs"`
@@ -5229,7 +5229,7 @@ type AzureMLBatchExecutionActivityArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyPtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLBatchExecution'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
 	WebServiceInputs AzureMLWebServiceFileMapInput `pulumi:"webServiceInputs"`
@@ -5295,7 +5295,7 @@ func (o AzureMLBatchExecutionActivityOutput) Policy() ActivityPolicyPtrOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'AzureMLBatchExecution'.
 func (o AzureMLBatchExecutionActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLBatchExecutionActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5325,7 +5325,7 @@ type AzureMLBatchExecutionActivityResponse struct {
 	// Activity policy.
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLBatchExecution'.
 	Type string `pulumi:"type"`
 	// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
 	WebServiceInputs map[string]AzureMLWebServiceFileResponse `pulumi:"webServiceInputs"`
@@ -5359,7 +5359,7 @@ type AzureMLBatchExecutionActivityResponseArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyResponsePtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLBatchExecution'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
 	WebServiceInputs AzureMLWebServiceFileResponseMapInput `pulumi:"webServiceInputs"`
@@ -5427,7 +5427,7 @@ func (o AzureMLBatchExecutionActivityResponseOutput) Policy() ActivityPolicyResp
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'AzureMLBatchExecution'.
 func (o AzureMLBatchExecutionActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLBatchExecutionActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5779,7 +5779,7 @@ type AzureMLUpdateResourceActivity struct {
 	// Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
 	TrainedModelName interface{} `pulumi:"trainedModelName"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLUpdateResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -5813,7 +5813,7 @@ type AzureMLUpdateResourceActivityArgs struct {
 	// Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
 	TrainedModelName pulumi.Input `pulumi:"trainedModelName"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLUpdateResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5885,7 +5885,7 @@ func (o AzureMLUpdateResourceActivityOutput) TrainedModelName() pulumi.AnyOutput
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'AzureMLUpdateResource'.
 func (o AzureMLUpdateResourceActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLUpdateResourceActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5909,7 +5909,7 @@ type AzureMLUpdateResourceActivityResponse struct {
 	// Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
 	TrainedModelName interface{} `pulumi:"trainedModelName"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLUpdateResource'.
 	Type string `pulumi:"type"`
 }
 
@@ -5943,7 +5943,7 @@ type AzureMLUpdateResourceActivityResponseArgs struct {
 	// Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
 	TrainedModelName pulumi.Input `pulumi:"trainedModelName"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'AzureMLUpdateResource'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6019,7 +6019,7 @@ func (o AzureMLUpdateResourceActivityResponseOutput) TrainedModelName() pulumi.A
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'AzureMLUpdateResource'.
 func (o AzureMLUpdateResourceActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMLUpdateResourceActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10267,7 +10267,7 @@ type BlobEventsTrigger struct {
 	// The ARM resource ID of the Storage Account.
 	Scope string `pulumi:"scope"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobEventsTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -10299,7 +10299,7 @@ type BlobEventsTriggerArgs struct {
 	// The ARM resource ID of the Storage Account.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobEventsTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10366,7 +10366,7 @@ func (o BlobEventsTriggerOutput) Scope() pulumi.StringOutput {
 }
 
 // Trigger type.
-// Expected value is 'MultiplePipelineTrigger'.
+// Expected value is 'BlobEventsTrigger'.
 func (o BlobEventsTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobEventsTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10390,7 +10390,7 @@ type BlobEventsTriggerResponse struct {
 	// The ARM resource ID of the Storage Account.
 	Scope string `pulumi:"scope"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobEventsTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -10424,7 +10424,7 @@ type BlobEventsTriggerResponseArgs struct {
 	// The ARM resource ID of the Storage Account.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobEventsTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10496,7 +10496,7 @@ func (o BlobEventsTriggerResponseOutput) Scope() pulumi.StringOutput {
 }
 
 // Trigger type.
-// Expected value is 'MultiplePipelineTrigger'.
+// Expected value is 'BlobEventsTrigger'.
 func (o BlobEventsTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobEventsTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10980,7 +10980,7 @@ type BlobTrigger struct {
 	// Pipelines that need to be started.
 	Pipelines []TriggerPipelineReference `pulumi:"pipelines"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -11008,7 +11008,7 @@ type BlobTriggerArgs struct {
 	// Pipelines that need to be started.
 	Pipelines TriggerPipelineReferenceArrayInput `pulumi:"pipelines"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11065,7 +11065,7 @@ func (o BlobTriggerOutput) Pipelines() TriggerPipelineReferenceArrayOutput {
 }
 
 // Trigger type.
-// Expected value is 'MultiplePipelineTrigger'.
+// Expected value is 'BlobTrigger'.
 func (o BlobTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -11085,7 +11085,7 @@ type BlobTriggerResponse struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState string `pulumi:"runtimeState"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -11115,7 +11115,7 @@ type BlobTriggerResponseArgs struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'BlobTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -11177,7 +11177,7 @@ func (o BlobTriggerResponseOutput) RuntimeState() pulumi.StringOutput {
 }
 
 // Trigger type.
-// Expected value is 'MultiplePipelineTrigger'.
+// Expected value is 'BlobTrigger'.
 func (o BlobTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -12803,7 +12803,7 @@ type CopyActivity struct {
 	// Copy activity translator. If not specified, tabular translator is used.
 	Translator interface{} `pulumi:"translator"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Copy'.
 	Type string `pulumi:"type"`
 }
 
@@ -12853,7 +12853,7 @@ type CopyActivityArgs struct {
 	// Copy activity translator. If not specified, tabular translator is used.
 	Translator pulumi.Input `pulumi:"translator"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Copy'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12965,7 +12965,7 @@ func (o CopyActivityOutput) Translator() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'Copy'.
 func (o CopyActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13005,7 +13005,7 @@ type CopyActivityResponse struct {
 	// Copy activity translator. If not specified, tabular translator is used.
 	Translator interface{} `pulumi:"translator"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Copy'.
 	Type string `pulumi:"type"`
 }
 
@@ -13055,7 +13055,7 @@ type CopyActivityResponseArgs struct {
 	// Copy activity translator. If not specified, tabular translator is used.
 	Translator pulumi.Input `pulumi:"translator"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Copy'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -13169,7 +13169,7 @@ func (o CopyActivityResponseOutput) Translator() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'Copy'.
 func (o CopyActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14021,7 +14021,7 @@ type CustomActivity struct {
 	// Resource linked service reference.
 	ResourceLinkedService *LinkedServiceReference `pulumi:"resourceLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Custom'.
 	Type string `pulumi:"type"`
 }
 
@@ -14059,7 +14059,7 @@ type CustomActivityArgs struct {
 	// Resource linked service reference.
 	ResourceLinkedService LinkedServiceReferencePtrInput `pulumi:"resourceLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Custom'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14141,7 +14141,7 @@ func (o CustomActivityOutput) ResourceLinkedService() LinkedServiceReferencePtrO
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'Custom'.
 func (o CustomActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14477,7 +14477,7 @@ type CustomActivityResponse struct {
 	// Resource linked service reference.
 	ResourceLinkedService *LinkedServiceReferenceResponse `pulumi:"resourceLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Custom'.
 	Type string `pulumi:"type"`
 }
 
@@ -14515,7 +14515,7 @@ type CustomActivityResponseArgs struct {
 	// Resource linked service reference.
 	ResourceLinkedService LinkedServiceReferenceResponsePtrInput `pulumi:"resourceLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Custom'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14597,7 +14597,7 @@ func (o CustomActivityResponseOutput) ResourceLinkedService() LinkedServiceRefer
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'Custom'.
 func (o CustomActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15027,7 +15027,7 @@ type DataLakeAnalyticsUSQLActivity struct {
 	// Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
 	ScriptPath interface{} `pulumi:"scriptPath"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DataLakeAnalyticsU-SQL'.
 	Type string `pulumi:"type"`
 }
 
@@ -15069,7 +15069,7 @@ type DataLakeAnalyticsUSQLActivityArgs struct {
 	// Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
 	ScriptPath pulumi.Input `pulumi:"scriptPath"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DataLakeAnalyticsU-SQL'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15161,7 +15161,7 @@ func (o DataLakeAnalyticsUSQLActivityOutput) ScriptPath() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'DataLakeAnalyticsU-SQL'.
 func (o DataLakeAnalyticsUSQLActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeAnalyticsUSQLActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15193,7 +15193,7 @@ type DataLakeAnalyticsUSQLActivityResponse struct {
 	// Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
 	ScriptPath interface{} `pulumi:"scriptPath"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DataLakeAnalyticsU-SQL'.
 	Type string `pulumi:"type"`
 }
 
@@ -15235,7 +15235,7 @@ type DataLakeAnalyticsUSQLActivityResponseArgs struct {
 	// Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
 	ScriptPath pulumi.Input `pulumi:"scriptPath"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DataLakeAnalyticsU-SQL'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15331,7 +15331,7 @@ func (o DataLakeAnalyticsUSQLActivityResponseOutput) ScriptPath() pulumi.AnyOutp
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'DataLakeAnalyticsU-SQL'.
 func (o DataLakeAnalyticsUSQLActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DataLakeAnalyticsUSQLActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15353,7 +15353,7 @@ type DatabricksNotebookActivity struct {
 	// Activity policy.
 	Policy *ActivityPolicy `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DatabricksNotebook'.
 	Type string `pulumi:"type"`
 }
 
@@ -15385,7 +15385,7 @@ type DatabricksNotebookActivityArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyPtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DatabricksNotebook'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15452,7 +15452,7 @@ func (o DatabricksNotebookActivityOutput) Policy() ActivityPolicyPtrOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'DatabricksNotebook'.
 func (o DatabricksNotebookActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabricksNotebookActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15474,7 +15474,7 @@ type DatabricksNotebookActivityResponse struct {
 	// Activity policy.
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DatabricksNotebook'.
 	Type string `pulumi:"type"`
 }
 
@@ -15506,7 +15506,7 @@ type DatabricksNotebookActivityResponseArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyResponsePtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'DatabricksNotebook'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15573,7 +15573,7 @@ func (o DatabricksNotebookActivityResponseOutput) Policy() ActivityPolicyRespons
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'DatabricksNotebook'.
 func (o DatabricksNotebookActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabricksNotebookActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20169,7 +20169,7 @@ type ExecutePipelineActivity struct {
 	// Pipeline reference.
 	Pipeline PipelineReference `pulumi:"pipeline"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ExecutePipeline'.
 	Type string `pulumi:"type"`
 	// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
 	WaitOnCompletion *bool `pulumi:"waitOnCompletion"`
@@ -20199,7 +20199,7 @@ type ExecutePipelineActivityArgs struct {
 	// Pipeline reference.
 	Pipeline PipelineReferenceInput `pulumi:"pipeline"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ExecutePipeline'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
 	WaitOnCompletion pulumi.BoolPtrInput `pulumi:"waitOnCompletion"`
@@ -20258,7 +20258,7 @@ func (o ExecutePipelineActivityOutput) Pipeline() PipelineReferenceOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'ExecutePipeline'.
 func (o ExecutePipelineActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExecutePipelineActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20281,7 +20281,7 @@ type ExecutePipelineActivityResponse struct {
 	// Pipeline reference.
 	Pipeline PipelineReferenceResponse `pulumi:"pipeline"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ExecutePipeline'.
 	Type string `pulumi:"type"`
 	// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
 	WaitOnCompletion *bool `pulumi:"waitOnCompletion"`
@@ -20311,7 +20311,7 @@ type ExecutePipelineActivityResponseArgs struct {
 	// Pipeline reference.
 	Pipeline PipelineReferenceResponseInput `pulumi:"pipeline"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ExecutePipeline'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
 	WaitOnCompletion pulumi.BoolPtrInput `pulumi:"waitOnCompletion"`
@@ -20370,7 +20370,7 @@ func (o ExecutePipelineActivityResponseOutput) Pipeline() PipelineReferenceRespo
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'ExecutePipeline'.
 func (o ExecutePipelineActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExecutePipelineActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20417,7 +20417,7 @@ type ExecuteSSISPackageActivity struct {
 	// Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
 	Runtime interface{} `pulumi:"runtime"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'ExecuteSSISPackage'.
 	Type string `pulumi:"type"`
 }
 
@@ -20469,7 +20469,7 @@ type ExecuteSSISPackageActivityArgs struct {
 	// Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
 	Runtime pulumi.Input `pulumi:"runtime"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'ExecuteSSISPackage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20590,7 +20590,7 @@ func (o ExecuteSSISPackageActivityOutput) Runtime() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'ExecuteSSISPackage'.
 func (o ExecuteSSISPackageActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExecuteSSISPackageActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20632,7 +20632,7 @@ type ExecuteSSISPackageActivityResponse struct {
 	// Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
 	Runtime interface{} `pulumi:"runtime"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'ExecuteSSISPackage'.
 	Type string `pulumi:"type"`
 }
 
@@ -20684,7 +20684,7 @@ type ExecuteSSISPackageActivityResponseArgs struct {
 	// Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
 	Runtime pulumi.Input `pulumi:"runtime"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'ExecuteSSISPackage'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20813,7 +20813,7 @@ func (o ExecuteSSISPackageActivityResponseOutput) Runtime() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'ExecuteSSISPackage'.
 func (o ExecuteSSISPackageActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExecuteSSISPackageActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -22899,7 +22899,7 @@ type FilterActivity struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Filter'.
 	Type string `pulumi:"type"`
 }
 
@@ -22927,7 +22927,7 @@ type FilterActivityArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Filter'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22984,7 +22984,7 @@ func (o FilterActivityOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'Filter'.
 func (o FilterActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23002,7 +23002,7 @@ type FilterActivityResponse struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Filter'.
 	Type string `pulumi:"type"`
 }
 
@@ -23030,7 +23030,7 @@ type FilterActivityResponseArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Filter'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23087,7 +23087,7 @@ func (o FilterActivityResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'Filter'.
 func (o FilterActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23109,7 +23109,7 @@ type ForEachActivity struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ForEach'.
 	Type string `pulumi:"type"`
 }
 
@@ -23141,7 +23141,7 @@ type ForEachActivityArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ForEach'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23208,7 +23208,7 @@ func (o ForEachActivityOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'ForEach'.
 func (o ForEachActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ForEachActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23230,7 +23230,7 @@ type ForEachActivityResponse struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ForEach'.
 	Type string `pulumi:"type"`
 }
 
@@ -23262,7 +23262,7 @@ type ForEachActivityResponseArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'ForEach'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23329,7 +23329,7 @@ func (o ForEachActivityResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'ForEach'.
 func (o ForEachActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ForEachActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23683,7 +23683,7 @@ type GetMetadataActivity struct {
 	// Activity policy.
 	Policy *ActivityPolicy `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'GetMetadata'.
 	Type string `pulumi:"type"`
 }
 
@@ -23715,7 +23715,7 @@ type GetMetadataActivityArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyPtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'GetMetadata'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23782,7 +23782,7 @@ func (o GetMetadataActivityOutput) Policy() ActivityPolicyPtrOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'GetMetadata'.
 func (o GetMetadataActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23804,7 +23804,7 @@ type GetMetadataActivityResponse struct {
 	// Activity policy.
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'GetMetadata'.
 	Type string `pulumi:"type"`
 }
 
@@ -23836,7 +23836,7 @@ type GetMetadataActivityResponseArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyResponsePtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'GetMetadata'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23903,7 +23903,7 @@ func (o GetMetadataActivityResponseOutput) Policy() ActivityPolicyResponsePtrOut
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'GetMetadata'.
 func (o GetMetadataActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMetadataActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26079,7 +26079,7 @@ type HDInsightHiveActivity struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReference `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightHive'.
 	Type string `pulumi:"type"`
 }
 
@@ -26119,7 +26119,7 @@ type HDInsightHiveActivityArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightHive'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26206,7 +26206,7 @@ func (o HDInsightHiveActivityOutput) StorageLinkedServices() LinkedServiceRefere
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightHive'.
 func (o HDInsightHiveActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightHiveActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26236,7 +26236,7 @@ type HDInsightHiveActivityResponse struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReferenceResponse `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightHive'.
 	Type string `pulumi:"type"`
 }
 
@@ -26276,7 +26276,7 @@ type HDInsightHiveActivityResponseArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceResponseArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightHive'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26363,7 +26363,7 @@ func (o HDInsightHiveActivityResponseOutput) StorageLinkedServices() LinkedServi
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightHive'.
 func (o HDInsightHiveActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightHiveActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26695,7 +26695,7 @@ type HDInsightMapReduceActivity struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReference `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightMapReduce'.
 	Type string `pulumi:"type"`
 }
 
@@ -26739,7 +26739,7 @@ type HDInsightMapReduceActivityArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightMapReduce'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26836,7 +26836,7 @@ func (o HDInsightMapReduceActivityOutput) StorageLinkedServices() LinkedServiceR
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightMapReduce'.
 func (o HDInsightMapReduceActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightMapReduceActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -26870,7 +26870,7 @@ type HDInsightMapReduceActivityResponse struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReferenceResponse `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightMapReduce'.
 	Type string `pulumi:"type"`
 }
 
@@ -26914,7 +26914,7 @@ type HDInsightMapReduceActivityResponseArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceResponseArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightMapReduce'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27013,7 +27013,7 @@ func (o HDInsightMapReduceActivityResponseOutput) StorageLinkedServices() Linked
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightMapReduce'.
 func (o HDInsightMapReduceActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightMapReduceActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27781,7 +27781,7 @@ type HDInsightPigActivity struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReference `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightPig'.
 	Type string `pulumi:"type"`
 }
 
@@ -27821,7 +27821,7 @@ type HDInsightPigActivityArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightPig'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27908,7 +27908,7 @@ func (o HDInsightPigActivityOutput) StorageLinkedServices() LinkedServiceReferen
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightPig'.
 func (o HDInsightPigActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightPigActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27938,7 +27938,7 @@ type HDInsightPigActivityResponse struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReferenceResponse `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightPig'.
 	Type string `pulumi:"type"`
 }
 
@@ -27978,7 +27978,7 @@ type HDInsightPigActivityResponseArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceResponseArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightPig'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28065,7 +28065,7 @@ func (o HDInsightPigActivityResponseOutput) StorageLinkedServices() LinkedServic
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightPig'.
 func (o HDInsightPigActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightPigActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28099,7 +28099,7 @@ type HDInsightSparkActivity struct {
 	// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
 	SparkJobLinkedService *LinkedServiceReference `pulumi:"sparkJobLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightSpark'.
 	Type string `pulumi:"type"`
 }
 
@@ -28143,7 +28143,7 @@ type HDInsightSparkActivityArgs struct {
 	// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
 	SparkJobLinkedService LinkedServiceReferencePtrInput `pulumi:"sparkJobLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightSpark'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28240,7 +28240,7 @@ func (o HDInsightSparkActivityOutput) SparkJobLinkedService() LinkedServiceRefer
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightSpark'.
 func (o HDInsightSparkActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightSparkActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28274,7 +28274,7 @@ type HDInsightSparkActivityResponse struct {
 	// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
 	SparkJobLinkedService *LinkedServiceReferenceResponse `pulumi:"sparkJobLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightSpark'.
 	Type string `pulumi:"type"`
 }
 
@@ -28318,7 +28318,7 @@ type HDInsightSparkActivityResponseArgs struct {
 	// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
 	SparkJobLinkedService LinkedServiceReferenceResponsePtrInput `pulumi:"sparkJobLinkedService"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightSpark'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28415,7 +28415,7 @@ func (o HDInsightSparkActivityResponseOutput) SparkJobLinkedService() LinkedServ
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightSpark'.
 func (o HDInsightSparkActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightSparkActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28457,7 +28457,7 @@ type HDInsightStreamingActivity struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReference `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightStreaming'.
 	Type string `pulumi:"type"`
 }
 
@@ -28509,7 +28509,7 @@ type HDInsightStreamingActivityArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightStreaming'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28626,7 +28626,7 @@ func (o HDInsightStreamingActivityOutput) StorageLinkedServices() LinkedServiceR
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightStreaming'.
 func (o HDInsightStreamingActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightStreamingActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -28668,7 +28668,7 @@ type HDInsightStreamingActivityResponse struct {
 	// Storage linked service references.
 	StorageLinkedServices []LinkedServiceReferenceResponse `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightStreaming'.
 	Type string `pulumi:"type"`
 }
 
@@ -28720,7 +28720,7 @@ type HDInsightStreamingActivityResponseArgs struct {
 	// Storage linked service references.
 	StorageLinkedServices LinkedServiceReferenceResponseArrayInput `pulumi:"storageLinkedServices"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'HDInsightStreaming'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -28839,7 +28839,7 @@ func (o HDInsightStreamingActivityResponseOutput) StorageLinkedServices() Linked
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'HDInsightStreaming'.
 func (o HDInsightStreamingActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HDInsightStreamingActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31731,7 +31731,7 @@ type IfConditionActivity struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'IfCondition'.
 	Type string `pulumi:"type"`
 }
 
@@ -31761,7 +31761,7 @@ type IfConditionActivityArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'IfCondition'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31823,7 +31823,7 @@ func (o IfConditionActivityOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'IfCondition'.
 func (o IfConditionActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IfConditionActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31843,7 +31843,7 @@ type IfConditionActivityResponse struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'IfCondition'.
 	Type string `pulumi:"type"`
 }
 
@@ -31873,7 +31873,7 @@ type IfConditionActivityResponseArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'IfCondition'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -31935,7 +31935,7 @@ func (o IfConditionActivityResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'IfCondition'.
 func (o IfConditionActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IfConditionActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -37055,7 +37055,7 @@ type LookupActivity struct {
 	// Dataset-specific source properties, same as copy activity source.
 	Source interface{} `pulumi:"source"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Lookup'.
 	Type string `pulumi:"type"`
 }
 
@@ -37089,7 +37089,7 @@ type LookupActivityArgs struct {
 	// Dataset-specific source properties, same as copy activity source.
 	Source pulumi.Input `pulumi:"source"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Lookup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -37161,7 +37161,7 @@ func (o LookupActivityOutput) Source() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'Lookup'.
 func (o LookupActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -37185,7 +37185,7 @@ type LookupActivityResponse struct {
 	// Dataset-specific source properties, same as copy activity source.
 	Source interface{} `pulumi:"source"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Lookup'.
 	Type string `pulumi:"type"`
 }
 
@@ -37219,7 +37219,7 @@ type LookupActivityResponseArgs struct {
 	// Dataset-specific source properties, same as copy activity source.
 	Source pulumi.Input `pulumi:"source"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'Lookup'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -37291,7 +37291,7 @@ func (o LookupActivityResponseOutput) Source() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'Lookup'.
 func (o LookupActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -37976,7 +37976,7 @@ type ManagedIntegrationRuntime struct {
 	Description *string `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
@@ -38000,7 +38000,7 @@ type ManagedIntegrationRuntimeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties IntegrationRuntimeSsisPropertiesPtrInput `pulumi:"ssisProperties"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -38047,7 +38047,7 @@ func (o ManagedIntegrationRuntimeOutput) SsisProperties() IntegrationRuntimeSsis
 	return o.ApplyT(func(v ManagedIntegrationRuntime) *IntegrationRuntimeSsisProperties { return v.SsisProperties }).(IntegrationRuntimeSsisPropertiesPtrOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
@@ -38410,7 +38410,7 @@ type ManagedIntegrationRuntimeResponse struct {
 	SsisProperties *IntegrationRuntimeSsisPropertiesResponse `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State string `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
@@ -38436,7 +38436,7 @@ type ManagedIntegrationRuntimeResponseArgs struct {
 	SsisProperties IntegrationRuntimeSsisPropertiesResponsePtrInput `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -38492,7 +38492,7 @@ func (o ManagedIntegrationRuntimeResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -38512,7 +38512,7 @@ type ManagedIntegrationRuntimeStatusResponse struct {
 	OtherErrors []ManagedIntegrationRuntimeErrorResponse `pulumi:"otherErrors"`
 	// The state of integration runtime.
 	State string `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type *string `pulumi:"type"`
 }
@@ -38542,7 +38542,7 @@ type ManagedIntegrationRuntimeStatusResponseArgs struct {
 	OtherErrors ManagedIntegrationRuntimeErrorResponseArrayInput `pulumi:"otherErrors"`
 	// The state of integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -38610,7 +38610,7 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutp
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -55994,7 +55994,7 @@ type ScheduleTrigger struct {
 	// Recurrence schedule configuration.
 	Recurrence ScheduleTriggerRecurrence `pulumi:"recurrence"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'ScheduleTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -56018,7 +56018,7 @@ type ScheduleTriggerArgs struct {
 	// Recurrence schedule configuration.
 	Recurrence ScheduleTriggerRecurrenceInput `pulumi:"recurrence"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'ScheduleTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56065,7 +56065,7 @@ func (o ScheduleTriggerOutput) Recurrence() ScheduleTriggerRecurrenceOutput {
 }
 
 // Trigger type.
-// Expected value is 'MultiplePipelineTrigger'.
+// Expected value is 'ScheduleTrigger'.
 func (o ScheduleTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTrigger) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56281,7 +56281,7 @@ type ScheduleTriggerResponse struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState string `pulumi:"runtimeState"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'ScheduleTrigger'.
 	Type string `pulumi:"type"`
 }
 
@@ -56307,7 +56307,7 @@ type ScheduleTriggerResponseArgs struct {
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
 	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
 	// Trigger type.
-	// Expected value is 'MultiplePipelineTrigger'.
+	// Expected value is 'ScheduleTrigger'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -56359,7 +56359,7 @@ func (o ScheduleTriggerResponseOutput) RuntimeState() pulumi.StringOutput {
 }
 
 // Trigger type.
-// Expected value is 'MultiplePipelineTrigger'.
+// Expected value is 'ScheduleTrigger'.
 func (o ScheduleTriggerResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTriggerResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -56684,7 +56684,7 @@ type SelfHostedIntegrationRuntime struct {
 	Description *string `pulumi:"description"`
 	// The base definition of a secret type.
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
@@ -56706,7 +56706,7 @@ type SelfHostedIntegrationRuntimeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The base definition of a secret type.
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -56748,7 +56748,7 @@ func (o SelfHostedIntegrationRuntimeOutput) LinkedInfo() pulumi.AnyOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
@@ -57013,7 +57013,7 @@ type SelfHostedIntegrationRuntimeResponse struct {
 	Description *string `pulumi:"description"`
 	// The base definition of a secret type.
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
@@ -57035,7 +57035,7 @@ type SelfHostedIntegrationRuntimeResponseArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The base definition of a secret type.
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -57077,7 +57077,7 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) LinkedInfo() pulumi.AnyOutpu
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -57109,7 +57109,7 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	State string `pulumi:"state"`
 	// The task queue id of the integration runtime.
 	TaskQueueId string `pulumi:"taskQueueId"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type *string `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
@@ -57157,7 +57157,7 @@ type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
 	State pulumi.StringInput `pulumi:"state"`
 	// The task queue id of the integration runtime.
 	TaskQueueId pulumi.StringInput `pulumi:"taskQueueId"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
@@ -57257,7 +57257,7 @@ func (o SelfHostedIntegrationRuntimeStatusResponseOutput) TaskQueueId() pulumi.S
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.TaskQueueId }).(pulumi.StringOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -60621,7 +60621,7 @@ type SqlServerStoredProcedureActivity struct {
 	// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
 	StoredProcedureParameters map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'SqlServerStoredProcedure'.
 	Type string `pulumi:"type"`
 }
 
@@ -60653,7 +60653,7 @@ type SqlServerStoredProcedureActivityArgs struct {
 	// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
 	StoredProcedureParameters StoredProcedureParameterMapInput `pulumi:"storedProcedureParameters"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'SqlServerStoredProcedure'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -60722,7 +60722,7 @@ func (o SqlServerStoredProcedureActivityOutput) StoredProcedureParameters() Stor
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'SqlServerStoredProcedure'.
 func (o SqlServerStoredProcedureActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerStoredProcedureActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -60744,7 +60744,7 @@ type SqlServerStoredProcedureActivityResponse struct {
 	// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
 	StoredProcedureParameters map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'SqlServerStoredProcedure'.
 	Type string `pulumi:"type"`
 }
 
@@ -60776,7 +60776,7 @@ type SqlServerStoredProcedureActivityResponseArgs struct {
 	// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
 	StoredProcedureParameters StoredProcedureParameterResponseMapInput `pulumi:"storedProcedureParameters"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'SqlServerStoredProcedure'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -60847,7 +60847,7 @@ func (o SqlServerStoredProcedureActivityResponseOutput) StoredProcedureParameter
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'SqlServerStoredProcedure'.
 func (o SqlServerStoredProcedureActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerStoredProcedureActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64242,7 +64242,7 @@ type UntilActivity struct {
 	// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
 	Timeout interface{} `pulumi:"timeout"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Until'.
 	Type string `pulumi:"type"`
 }
 
@@ -64272,7 +64272,7 @@ type UntilActivityArgs struct {
 	// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
 	Timeout pulumi.Input `pulumi:"timeout"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Until'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -64334,7 +64334,7 @@ func (o UntilActivityOutput) Timeout() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'Until'.
 func (o UntilActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v UntilActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -64354,7 +64354,7 @@ type UntilActivityResponse struct {
 	// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
 	Timeout interface{} `pulumi:"timeout"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Until'.
 	Type string `pulumi:"type"`
 }
 
@@ -64384,7 +64384,7 @@ type UntilActivityResponseArgs struct {
 	// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
 	Timeout pulumi.Input `pulumi:"timeout"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Until'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -64446,7 +64446,7 @@ func (o UntilActivityResponseOutput) Timeout() pulumi.AnyOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'Until'.
 func (o UntilActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v UntilActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65060,7 +65060,7 @@ type WaitActivity struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Wait'.
 	Type string `pulumi:"type"`
 	// Duration in seconds.
 	WaitTimeInSeconds int `pulumi:"waitTimeInSeconds"`
@@ -65086,7 +65086,7 @@ type WaitActivityArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Wait'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Duration in seconds.
 	WaitTimeInSeconds pulumi.IntInput `pulumi:"waitTimeInSeconds"`
@@ -65135,7 +65135,7 @@ func (o WaitActivityOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'Wait'.
 func (o WaitActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65154,7 +65154,7 @@ type WaitActivityResponse struct {
 	// Activity name.
 	Name string `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Wait'.
 	Type string `pulumi:"type"`
 	// Duration in seconds.
 	WaitTimeInSeconds int `pulumi:"waitTimeInSeconds"`
@@ -65180,7 +65180,7 @@ type WaitActivityResponseArgs struct {
 	// Activity name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Type of activity.
-	// Expected value is 'Container'.
+	// Expected value is 'Wait'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Duration in seconds.
 	WaitTimeInSeconds pulumi.IntInput `pulumi:"waitTimeInSeconds"`
@@ -65229,7 +65229,7 @@ func (o WaitActivityResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Type of activity.
-// Expected value is 'Container'.
+// Expected value is 'Wait'.
 func (o WaitActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WaitActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65264,7 +65264,7 @@ type WebActivity struct {
 	// Activity policy.
 	Policy *ActivityPolicy `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'WebActivity'.
 	Type string `pulumi:"type"`
 	// Web activity target endpoint and path. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -65306,7 +65306,7 @@ type WebActivityArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyPtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'WebActivity'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Web activity target endpoint and path. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -65395,7 +65395,7 @@ func (o WebActivityOutput) Policy() ActivityPolicyPtrOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'WebActivity'.
 func (o WebActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebActivity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -65850,7 +65850,7 @@ type WebActivityResponse struct {
 	// Activity policy.
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'WebActivity'.
 	Type string `pulumi:"type"`
 	// Web activity target endpoint and path. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
@@ -65892,7 +65892,7 @@ type WebActivityResponseArgs struct {
 	// Activity policy.
 	Policy ActivityPolicyResponsePtrInput `pulumi:"policy"`
 	// Type of activity.
-	// Expected value is 'Execution'.
+	// Expected value is 'WebActivity'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Web activity target endpoint and path. Type: string (or Expression with resultType string).
 	Url pulumi.Input `pulumi:"url"`
@@ -65981,7 +65981,7 @@ func (o WebActivityResponseOutput) Policy() ActivityPolicyResponsePtrOutput {
 }
 
 // Type of activity.
-// Expected value is 'Execution'.
+// Expected value is 'WebActivity'.
 func (o WebActivityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebActivityResponse) string { return v.Type }).(pulumi.StringOutput)
 }

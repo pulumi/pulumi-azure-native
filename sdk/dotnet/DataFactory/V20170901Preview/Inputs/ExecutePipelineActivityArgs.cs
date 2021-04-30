@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'ExecutePipeline'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

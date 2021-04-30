@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Type of metadata.
+        /// The type of SSIS object metadata.
         /// Expected value is 'Environment'.
         /// </summary>
         public readonly string Type;

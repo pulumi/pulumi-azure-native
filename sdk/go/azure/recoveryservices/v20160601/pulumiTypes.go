@@ -27,7 +27,7 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId *string `pulumi:"policyId"`
 	// The backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -69,7 +69,7 @@ type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// The backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
 	ProtectionState *ProtectionState `pulumi:"protectionState"`
@@ -148,7 +148,7 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) PolicyId() pulumi.StringPt
 }
 
 // The backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
+// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -195,7 +195,7 @@ type AzureIaaSComputeVMProtectedItem struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId *string `pulumi:"policyId"`
 	// The backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -237,7 +237,7 @@ type AzureIaaSComputeVMProtectedItemArgs struct {
 	// The ID of the backup policy associated with this backup item.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// The backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
 	ProtectionState *ProtectionState `pulumi:"protectionState"`
@@ -314,7 +314,7 @@ func (o AzureIaaSComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput
 }
 
 // The backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }

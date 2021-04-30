@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Media.Outputs
         public readonly string? Mode;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+        /// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
         /// </summary>
         public readonly string OdataType;
 

@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly string EndTimeUtc;
         /// <summary>
-        /// The entity query kind type.
+        /// The entity query kind
         /// Expected value is 'SecurityAlert'.
         /// </summary>
         public readonly string Kind;

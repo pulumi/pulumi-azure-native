@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'Lookup'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

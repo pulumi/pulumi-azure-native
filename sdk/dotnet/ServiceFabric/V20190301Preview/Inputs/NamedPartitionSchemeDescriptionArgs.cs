@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview.Inputs
         }
 
         /// <summary>
-        /// Specifies how the service is partitioned.
+        /// Enumerates the ways that a service can be partitioned.
         /// Expected value is 'Named'.
         /// </summary>
         [Input("partitionScheme", required: true)]

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview.Inputs
         public InputUnion<Inputs.LinkedIntegrationRuntimeKeyAuthorizationArgs, Inputs.LinkedIntegrationRuntimeRbacAuthorizationArgs>? LinkedInfo { get; set; }
 
         /// <summary>
-        /// Type of integration runtime.
+        /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>
         [Input("type", required: true)]

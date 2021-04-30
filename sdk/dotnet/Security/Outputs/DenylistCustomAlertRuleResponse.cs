@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         public readonly bool IsEnabled;
         /// <summary>
         /// The type of the custom alert rule.
-        /// Expected value is 'ListCustomAlertRule'.
+        /// Expected value is 'DenylistCustomAlertRule'.
         /// </summary>
         public readonly string RuleType;
         /// <summary>

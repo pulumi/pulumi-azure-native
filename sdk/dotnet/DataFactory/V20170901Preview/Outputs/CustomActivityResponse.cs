@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         public readonly Outputs.LinkedServiceReferenceResponse? ResourceLinkedService;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'Custom'.
         /// </summary>
         public readonly string Type;
 

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
         public readonly int? MaxBitrate;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.VideoLayer'.
+        /// Expected value is '#Microsoft.Media.H264Layer'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

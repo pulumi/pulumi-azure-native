@@ -911,7 +911,7 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -975,7 +975,7 @@ type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1109,7 +1109,7 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemDataId() pulu
 }
 
 // backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
+// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -1180,7 +1180,7 @@ type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1246,7 +1246,7 @@ type AzureIaaSClassicComputeVMProtectedItemResponseArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1391,7 +1391,7 @@ func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectedItemDataI
 }
 
 // backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
+// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -1460,7 +1460,7 @@ type AzureIaaSComputeVMProtectedItem struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1524,7 +1524,7 @@ type AzureIaaSComputeVMProtectedItemArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1656,7 +1656,7 @@ func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemDataId() pulumi.Stri
 }
 
 // backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -1727,7 +1727,7 @@ type AzureIaaSComputeVMProtectedItemResponse struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -1793,7 +1793,7 @@ type AzureIaaSComputeVMProtectedItemResponseArgs struct {
 	// Data ID of the protected item.
 	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
 	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -1936,7 +1936,7 @@ func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectedItemDataId() pul
 }
 
 // backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -4678,7 +4678,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -4744,7 +4744,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -4883,7 +4883,7 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectedItemHealthSta
 }
 
 // backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
+// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -4956,7 +4956,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -5024,7 +5024,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -5176,7 +5176,7 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectedItemH
 }
 
 // backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
+// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -5247,7 +5247,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -5313,7 +5313,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -5452,7 +5452,7 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectedItemHealthSt
 }
 
 // backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
+// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -5525,7 +5525,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -5593,7 +5593,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -5749,7 +5749,7 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectedItem
 }
 
 // backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
+// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -5820,7 +5820,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSQLDatabase'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -5886,7 +5886,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSQLDatabase'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -6025,7 +6025,7 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectedItemHealthStatus
 }
 
 // backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
+// Expected value is 'AzureVmWorkloadSQLDatabase'.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
@@ -6098,7 +6098,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSQLDatabase'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -6166,7 +6166,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs struct {
 	// Health status of the backup item, evaluated based on last heartbeat received
 	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
 	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	// Expected value is 'AzureVmWorkloadSQLDatabase'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -6314,7 +6314,7 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectedItemHeal
 }
 
 // backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
+// Expected value is 'AzureVmWorkloadSQLDatabase'.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }

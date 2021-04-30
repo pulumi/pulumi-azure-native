@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string TaskQueueId;
         /// <summary>
-        /// Type of integration runtime.
+        /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>
         public readonly string Type;

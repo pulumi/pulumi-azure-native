@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly object? SourceRetryWait;
         /// <summary>
         /// Copy source type.
-        /// Expected value is 'TabularSource'.
+        /// Expected value is 'TeradataSource'.
         /// </summary>
         public readonly string Type;
 

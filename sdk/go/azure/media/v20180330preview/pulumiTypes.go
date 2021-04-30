@@ -19,7 +19,7 @@ type AacAudio struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
+	// Expected value is '#Microsoft.Media.AacAudio'.
 	OdataType string `pulumi:"odataType"`
 	// The encoding profile to be used when encoding audio with AAC.
 	Profile *string `pulumi:"profile"`
@@ -47,7 +47,7 @@ type AacAudioArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
+	// Expected value is '#Microsoft.Media.AacAudio'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The encoding profile to be used when encoding audio with AAC.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
@@ -98,7 +98,7 @@ func (o AacAudioOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Audio'.
+// Expected value is '#Microsoft.Media.AacAudio'.
 func (o AacAudioOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AacAudio) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -122,7 +122,7 @@ type AacAudioResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
+	// Expected value is '#Microsoft.Media.AacAudio'.
 	OdataType string `pulumi:"odataType"`
 	// The encoding profile to be used when encoding audio with AAC.
 	Profile *string `pulumi:"profile"`
@@ -150,7 +150,7 @@ type AacAudioResponseArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Audio'.
+	// Expected value is '#Microsoft.Media.AacAudio'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The encoding profile to be used when encoding audio with AAC.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
@@ -201,7 +201,7 @@ func (o AacAudioResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Audio'.
+// Expected value is '#Microsoft.Media.AacAudio'.
 func (o AacAudioResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AacAudioResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -8930,7 +8930,7 @@ type H264Layer struct {
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoLayer'.
+	// Expected value is '#Microsoft.Media.H264Layer'.
 	OdataType string `pulumi:"odataType"`
 	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
 	Profile *string `pulumi:"profile"`
@@ -8976,7 +8976,7 @@ type H264LayerArgs struct {
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoLayer'.
+	// Expected value is '#Microsoft.Media.H264Layer'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
@@ -9091,7 +9091,7 @@ func (o H264LayerOutput) MaxBitrate() pulumi.IntPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.VideoLayer'.
+// Expected value is '#Microsoft.Media.H264Layer'.
 func (o H264LayerOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264Layer) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9159,7 +9159,7 @@ type H264LayerResponse struct {
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoLayer'.
+	// Expected value is '#Microsoft.Media.H264Layer'.
 	OdataType string `pulumi:"odataType"`
 	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
 	Profile *string `pulumi:"profile"`
@@ -9205,7 +9205,7 @@ type H264LayerResponseArgs struct {
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.VideoLayer'.
+	// Expected value is '#Microsoft.Media.H264Layer'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Which profile of the H.264 standard should be used when encoding this layer. Default is Auto.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
@@ -9320,7 +9320,7 @@ func (o H264LayerResponseOutput) MaxBitrate() pulumi.IntPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.VideoLayer'.
+// Expected value is '#Microsoft.Media.H264Layer'.
 func (o H264LayerResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264LayerResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9376,7 +9376,7 @@ type H264Video struct {
 	// The collection of output H.264 layers to be produced by the encoder.
 	Layers []H264Layer `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.H264Video'.
 	OdataType string `pulumi:"odataType"`
 	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
@@ -9406,7 +9406,7 @@ type H264VideoArgs struct {
 	// The collection of output H.264 layers to be produced by the encoder.
 	Layers H264LayerArrayInput `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.H264Video'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
@@ -9462,7 +9462,7 @@ func (o H264VideoOutput) Layers() H264LayerArrayOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.H264Video'.
 func (o H264VideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264Video) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -9488,7 +9488,7 @@ type H264VideoResponse struct {
 	// The collection of output H.264 layers to be produced by the encoder.
 	Layers []H264LayerResponse `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.H264Video'.
 	OdataType string `pulumi:"odataType"`
 	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
@@ -9518,7 +9518,7 @@ type H264VideoResponseArgs struct {
 	// The collection of output H.264 layers to be produced by the encoder.
 	Layers H264LayerResponseArrayInput `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.H264Video'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
 	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
@@ -9574,7 +9574,7 @@ func (o H264VideoResponseOutput) Layers() H264LayerResponseArrayOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.H264Video'.
 func (o H264VideoResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v H264VideoResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -10368,7 +10368,7 @@ type Image struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.Image'.
 	OdataType string `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range *string `pulumi:"range"`
@@ -10398,7 +10398,7 @@ type ImageArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.Image'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -10448,7 +10448,7 @@ func (o ImageOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.Image'.
 func (o ImageOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Image) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -10614,7 +10614,7 @@ type ImageResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.Image'.
 	OdataType string `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range *string `pulumi:"range"`
@@ -10644,7 +10644,7 @@ type ImageResponseArgs struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.Image'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -10694,7 +10694,7 @@ func (o ImageResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.Image'.
 func (o ImageResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -10928,7 +10928,7 @@ type JobInputAsset struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputAsset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -10952,7 +10952,7 @@ type JobInputAssetArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputAsset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -10999,7 +10999,7 @@ func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputClip'.
+// Expected value is '#Microsoft.Media.JobInputAsset'.
 func (o JobInputAssetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAsset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11013,7 +11013,7 @@ type JobInputAssetResponse struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputAsset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -11037,7 +11037,7 @@ type JobInputAssetResponseArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputAsset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11084,7 +11084,7 @@ func (o JobInputAssetResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputClip'.
+// Expected value is '#Microsoft.Media.JobInputAsset'.
 func (o JobInputAssetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAssetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11250,7 +11250,7 @@ type JobInputHttp struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputHttp'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -11274,7 +11274,7 @@ type JobInputHttpArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputHttp'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11321,7 +11321,7 @@ func (o JobInputHttpOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputClip'.
+// Expected value is '#Microsoft.Media.JobInputHttp'.
 func (o JobInputHttpOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputHttp) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11335,7 +11335,7 @@ type JobInputHttpResponse struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label *string `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputHttp'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -11359,7 +11359,7 @@ type JobInputHttpResponseArgs struct {
 	// A label that is assigned to a JobInput, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.JobInputClip'.
+	// Expected value is '#Microsoft.Media.JobInputHttp'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11406,7 +11406,7 @@ func (o JobInputHttpResponseOutput) Label() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.JobInputClip'.
+// Expected value is '#Microsoft.Media.JobInputHttp'.
 func (o JobInputHttpResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputHttpResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11819,7 +11819,7 @@ type JpgFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.JpgFormat'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -11839,7 +11839,7 @@ type JpgFormatArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.JpgFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11876,7 +11876,7 @@ func (o JpgFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ImageFormat'.
+// Expected value is '#Microsoft.Media.JpgFormat'.
 func (o JpgFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11886,7 +11886,7 @@ type JpgFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.JpgFormat'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -11906,7 +11906,7 @@ type JpgFormatResponseArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.JpgFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -11943,7 +11943,7 @@ func (o JpgFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ImageFormat'.
+// Expected value is '#Microsoft.Media.JpgFormat'.
 func (o JpgFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -11957,7 +11957,7 @@ type JpgImage struct {
 	// A collection of output JPEG image layers to be produced by the encoder.
 	Layers []JpgLayer `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.JpgImage'.
 	OdataType string `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range *string `pulumi:"range"`
@@ -11989,7 +11989,7 @@ type JpgImageArgs struct {
 	// A collection of output JPEG image layers to be produced by the encoder.
 	Layers JpgLayerArrayInput `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.JpgImage'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -12044,7 +12044,7 @@ func (o JpgImageOutput) Layers() JpgLayerArrayOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.JpgImage'.
 func (o JpgImageOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgImage) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -12078,7 +12078,7 @@ type JpgImageResponse struct {
 	// A collection of output JPEG image layers to be produced by the encoder.
 	Layers []JpgLayerResponse `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.JpgImage'.
 	OdataType string `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range *string `pulumi:"range"`
@@ -12110,7 +12110,7 @@ type JpgImageResponseArgs struct {
 	// A collection of output JPEG image layers to be produced by the encoder.
 	Layers JpgLayerResponseArrayInput `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.JpgImage'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -12165,7 +12165,7 @@ func (o JpgImageResponseOutput) Layers() JpgLayerResponseArrayOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.JpgImage'.
 func (o JpgImageResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JpgImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -14029,7 +14029,7 @@ type Mp4Format struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.Mp4Format'.
 	OdataType string `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles []OutputFile `pulumi:"outputFiles"`
@@ -14051,7 +14051,7 @@ type Mp4FormatArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.Mp4Format'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
@@ -14090,7 +14090,7 @@ func (o Mp4FormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+// Expected value is '#Microsoft.Media.Mp4Format'.
 func (o Mp4FormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Mp4Format) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -14105,7 +14105,7 @@ type Mp4FormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.Mp4Format'.
 	OdataType string `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
@@ -14127,7 +14127,7 @@ type Mp4FormatResponseArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.Mp4Format'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
@@ -14166,7 +14166,7 @@ func (o Mp4FormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+// Expected value is '#Microsoft.Media.Mp4Format'.
 func (o Mp4FormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v Mp4FormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -14801,7 +14801,7 @@ type PngFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.PngFormat'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -14821,7 +14821,7 @@ type PngFormatArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.PngFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -14858,7 +14858,7 @@ func (o PngFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ImageFormat'.
+// Expected value is '#Microsoft.Media.PngFormat'.
 func (o PngFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -14868,7 +14868,7 @@ type PngFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.PngFormat'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -14888,7 +14888,7 @@ type PngFormatResponseArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.ImageFormat'.
+	// Expected value is '#Microsoft.Media.PngFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -14925,7 +14925,7 @@ func (o PngFormatResponseOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.ImageFormat'.
+// Expected value is '#Microsoft.Media.PngFormat'.
 func (o PngFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -14939,7 +14939,7 @@ type PngImage struct {
 	// A collection of output PNG image layers to be produced by the encoder.
 	Layers []PngLayer `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.PngImage'.
 	OdataType string `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range *string `pulumi:"range"`
@@ -14971,7 +14971,7 @@ type PngImageArgs struct {
 	// A collection of output PNG image layers to be produced by the encoder.
 	Layers PngLayerArrayInput `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.PngImage'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -15026,7 +15026,7 @@ func (o PngImageOutput) Layers() PngLayerArrayOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.PngImage'.
 func (o PngImageOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngImage) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -15060,7 +15060,7 @@ type PngImageResponse struct {
 	// A collection of output PNG image layers to be produced by the encoder.
 	Layers []PngLayerResponse `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.PngImage'.
 	OdataType string `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range *string `pulumi:"range"`
@@ -15092,7 +15092,7 @@ type PngImageResponseArgs struct {
 	// A collection of output PNG image layers to be produced by the encoder.
 	Layers PngLayerResponseArrayInput `pulumi:"layers"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.Video'.
+	// Expected value is '#Microsoft.Media.PngImage'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -15147,7 +15147,7 @@ func (o PngImageResponseOutput) Layers() PngLayerResponseArrayOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.Video'.
+// Expected value is '#Microsoft.Media.PngImage'.
 func (o PngImageResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngImageResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -19120,7 +19120,7 @@ type TransportStreamFormat struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 	OdataType string `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles []OutputFile `pulumi:"outputFiles"`
@@ -19142,7 +19142,7 @@ type TransportStreamFormatArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles OutputFileArrayInput `pulumi:"outputFiles"`
@@ -19181,7 +19181,7 @@ func (o TransportStreamFormatOutput) FilenamePattern() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 func (o TransportStreamFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransportStreamFormat) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -19196,7 +19196,7 @@ type TransportStreamFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern *string `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 	OdataType string `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
@@ -19218,7 +19218,7 @@ type TransportStreamFormatResponseArgs struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern pulumi.StringPtrInput `pulumi:"filenamePattern"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 	OutputFiles OutputFileResponseArrayInput `pulumi:"outputFiles"`
@@ -19257,7 +19257,7 @@ func (o TransportStreamFormatResponseOutput) FilenamePattern() pulumi.StringPtrO
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+// Expected value is '#Microsoft.Media.TransportStreamFormat'.
 func (o TransportStreamFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v TransportStreamFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -19359,7 +19359,7 @@ type VideoAnalyzerPreset struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage *string `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -19381,7 +19381,7 @@ type VideoAnalyzerPresetArgs struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -19423,7 +19423,7 @@ func (o VideoAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 func (o VideoAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerPreset) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -19435,7 +19435,7 @@ type VideoAnalyzerPresetResponse struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage *string `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -19457,7 +19457,7 @@ type VideoAnalyzerPresetResponseArgs struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
 	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -19499,7 +19499,7 @@ func (o VideoAnalyzerPresetResponseOutput) AudioLanguage() pulumi.StringPtrOutpu
 }
 
 // The discriminator for derived types.
-// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+// Expected value is '#Microsoft.Media.VideoAnalyzerPreset'.
 func (o VideoAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }

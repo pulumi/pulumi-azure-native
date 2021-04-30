@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly Outputs.PipelineReferenceResponse Pipeline;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'ExecutePipeline'.
         /// </summary>
         public readonly string Type;
         /// <summary>

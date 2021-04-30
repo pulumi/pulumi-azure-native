@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? StoredProcedureParameters;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'SqlServerStoredProcedure'.
         /// </summary>
         public readonly string Type;
         /// <summary>

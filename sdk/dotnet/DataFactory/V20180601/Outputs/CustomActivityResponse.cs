@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly object? RetentionTimeInDays;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'Custom'.
         /// </summary>
         public readonly string Type;
         /// <summary>

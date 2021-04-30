@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
         public readonly string? Label;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.Audio'.
+        /// Expected value is '#Microsoft.Media.AacAudio'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

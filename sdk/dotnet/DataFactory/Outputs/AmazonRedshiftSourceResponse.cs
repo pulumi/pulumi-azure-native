@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly object? SourceRetryWait;
         /// <summary>
         /// Copy source type.
-        /// Expected value is 'TabularSource'.
+        /// Expected value is 'AmazonRedshiftSource'.
         /// </summary>
         public readonly string Type;
 

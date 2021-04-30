@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// Type of integration runtime.
+        /// The type of integration runtime.
         /// Expected value is 'Managed'.
         /// </summary>
         public readonly string Type;

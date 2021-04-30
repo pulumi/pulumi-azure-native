@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public InputUnion<Inputs.LinkedIntegrationRuntimeKeyArgs, Inputs.LinkedIntegrationRuntimeRbacArgs>? LinkedInfo { get; set; }
 
         /// <summary>
-        /// Type of integration runtime.
+        /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>
         [Input("type", required: true)]

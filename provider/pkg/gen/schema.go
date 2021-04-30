@@ -1082,8 +1082,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		// For a derived type, set the discriminator property to the const value, if any.
-		if allOfSchema.Discriminator != "" {
-			discriminator := allOfSchema.Discriminator
+		discriminator, discriminatorDesc, isDU, err := m.getDiscriminator(allOfSchema)
+		if err != nil {
+			return nil, err
+		}
+		if isDU {
 			prop := allOfProperties.properties[discriminator]
 			sdkDiscriminator := discriminator
 			if prop.SdkName != "" {
@@ -1101,7 +1104,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			propSpec.OneOf = nil
 
 			// Add the discriminator value to the property description to help users fill it.
-			propSpec.Description = fmt.Sprintf("%s\nExpected value is '%s'.", propSpec.Description, discriminatorValue)
+			propSpec.Description = fmt.Sprintf("%s\nExpected value is '%s'.", discriminatorDesc, discriminatorValue)
 
 			allOfProperties.specs[sdkDiscriminator] = propSpec
 			prop.Const = discriminatorValue
@@ -1122,6 +1125,33 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 	}
 	return result, nil
+}
+
+// getDiscriminator returns a property name and description for a discriminator if it's defined on the schema.
+// The boolean return flag is true when a discriminator is found.
+func (m *moduleGenerator) getDiscriminator(resolvedSchema *openapi.Schema) (string, string, bool, error) {
+	if resolvedSchema.Discriminator != "" {
+		property := resolvedSchema.Properties[resolvedSchema.Discriminator]
+		resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
+		if err != nil {
+			return "", "", false, err
+		}
+		return resolvedSchema.Discriminator, resolvedProperty.Description, true, nil
+	}
+	for _, s := range resolvedSchema.AllOf {
+		parentSchema, err := resolvedSchema.ResolveSchema(&s)
+		if err != nil {
+			return "", "", false, err
+		}
+		parentDiscriminator, parentDescription, has, err := m.getDiscriminator(parentSchema)
+		if err != nil {
+			return "", "", false, err
+		}
+		if has {
+			return parentDiscriminator, parentDescription, true, nil
+		}
+	}
+	return "", "", false, nil
 }
 
 // isWriteOnly return true for properties which are annotated with mutability extension that contain no 'read' value.

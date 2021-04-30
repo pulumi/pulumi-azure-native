@@ -1807,7 +1807,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
@@ -1834,7 +1834,7 @@ class ManagedIntegrationRuntimeResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
@@ -1885,7 +1885,7 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
         :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
         :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         """
         pulumi.set(__self__, "create_time", create_time)
@@ -1948,7 +1948,7 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
@@ -2597,7 +2597,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
                  linked_info: Optional[Any] = None):
         """
         Self-hosted integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
         :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponse', 'LinkedIntegrationRuntimeRbacAuthorizationResponse'] linked_info: Linked integration runtime type from data factory
@@ -2612,7 +2612,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
@@ -2676,7 +2676,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
         :param str state: The state of integration runtime.
         :param str task_queue_id: The task queue id of the integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str update_delay_offset: The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
         :param str version: Version of the integration runtime.
@@ -2823,7 +2823,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
@@ -3011,7 +3011,7 @@ class SsisEnvironmentResponse(dict):
                  variables: Optional[Sequence['outputs.SsisVariableResponse']] = None):
         """
         Ssis environment.
-        :param str type: Type of metadata.
+        :param str type: The type of SSIS object metadata.
                Expected value is 'Environment'.
         :param str description: Metadata description.
         :param float folder_id: Folder id which contains environment.
@@ -3035,7 +3035,7 @@ class SsisEnvironmentResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of metadata.
+        The type of SSIS object metadata.
         Expected value is 'Environment'.
         """
         return pulumi.get(self, "type")
@@ -3093,7 +3093,7 @@ class SsisFolderResponse(dict):
                  name: Optional[str] = None):
         """
         Ssis folder.
-        :param str type: Type of metadata.
+        :param str type: The type of SSIS object metadata.
                Expected value is 'Folder'.
         :param str description: Metadata description.
         :param float id: Metadata id.
@@ -3111,7 +3111,7 @@ class SsisFolderResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of metadata.
+        The type of SSIS object metadata.
         Expected value is 'Folder'.
         """
         return pulumi.get(self, "type")
@@ -3157,7 +3157,7 @@ class SsisPackageResponse(dict):
                  project_version: Optional[float] = None):
         """
         Ssis Package.
-        :param str type: Type of metadata.
+        :param str type: The type of SSIS object metadata.
                Expected value is 'Package'.
         :param str description: Metadata description.
         :param float folder_id: Folder id which contains package.
@@ -3187,7 +3187,7 @@ class SsisPackageResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of metadata.
+        The type of SSIS object metadata.
         Expected value is 'Package'.
         """
         return pulumi.get(self, "type")
@@ -3420,7 +3420,7 @@ class SsisProjectResponse(dict):
                  version: Optional[float] = None):
         """
         Ssis project.
-        :param str type: Type of metadata.
+        :param str type: The type of SSIS object metadata.
                Expected value is 'Project'.
         :param str description: Metadata description.
         :param Sequence['SsisEnvironmentReferenceResponse'] environment_refs: Environment reference in project
@@ -3450,7 +3450,7 @@ class SsisProjectResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of metadata.
+        The type of SSIS object metadata.
         Expected value is 'Project'.
         """
         return pulumi.get(self, "type")

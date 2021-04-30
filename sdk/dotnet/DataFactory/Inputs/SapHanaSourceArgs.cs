@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 
         /// <summary>
         /// Copy source type.
-        /// Expected value is 'TabularSource'.
+        /// Expected value is 'SapHanaSource'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

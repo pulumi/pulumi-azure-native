@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 
         /// <summary>
         /// The type of dependency reference.
-        /// Expected value is 'TriggerDependencyReference'.
+        /// Expected value is 'TumblingWindowTriggerDependencyReference'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

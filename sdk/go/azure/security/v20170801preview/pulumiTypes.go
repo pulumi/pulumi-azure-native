@@ -17,7 +17,7 @@ type AllowlistCustomAlertRule struct {
 	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'AllowlistCustomAlertRule'.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -39,7 +39,7 @@ type AllowlistCustomAlertRuleArgs struct {
 	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'AllowlistCustomAlertRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -106,7 +106,7 @@ func (o AllowlistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 }
 
 // The type of the custom alert rule.
-// Expected value is 'ListCustomAlertRule'.
+// Expected value is 'AllowlistCustomAlertRule'.
 func (o AllowlistCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -142,7 +142,7 @@ type AllowlistCustomAlertRuleResponse struct {
 	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'AllowlistCustomAlertRule'.
 	RuleType string `pulumi:"ruleType"`
 	// The value type of the items in the list.
 	ValueType string `pulumi:"valueType"`
@@ -170,7 +170,7 @@ type AllowlistCustomAlertRuleResponseArgs struct {
 	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'AllowlistCustomAlertRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// The value type of the items in the list.
 	ValueType pulumi.StringInput `pulumi:"valueType"`
@@ -249,7 +249,7 @@ func (o AllowlistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 }
 
 // The type of the custom alert rule.
-// Expected value is 'ListCustomAlertRule'.
+// Expected value is 'AllowlistCustomAlertRule'.
 func (o AllowlistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -286,7 +286,7 @@ type DenylistCustomAlertRule struct {
 	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'DenylistCustomAlertRule'.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -308,7 +308,7 @@ type DenylistCustomAlertRuleArgs struct {
 	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'DenylistCustomAlertRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -375,7 +375,7 @@ func (o DenylistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 }
 
 // The type of the custom alert rule.
-// Expected value is 'ListCustomAlertRule'.
+// Expected value is 'DenylistCustomAlertRule'.
 func (o DenylistCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -411,7 +411,7 @@ type DenylistCustomAlertRuleResponse struct {
 	// Status of the custom alert.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'DenylistCustomAlertRule'.
 	RuleType string `pulumi:"ruleType"`
 	// The value type of the items in the list.
 	ValueType string `pulumi:"valueType"`
@@ -439,7 +439,7 @@ type DenylistCustomAlertRuleResponseArgs struct {
 	// Status of the custom alert.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The type of the custom alert rule.
-	// Expected value is 'ListCustomAlertRule'.
+	// Expected value is 'DenylistCustomAlertRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// The value type of the items in the list.
 	ValueType pulumi.StringInput `pulumi:"valueType"`
@@ -518,7 +518,7 @@ func (o DenylistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 }
 
 // The type of the custom alert rule.
-// Expected value is 'ListCustomAlertRule'.
+// Expected value is 'DenylistCustomAlertRule'.
 func (o DenylistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -1059,7 +1059,7 @@ type TimeWindowCustomAlertRule struct {
 	// The minimum threshold.
 	MinThreshold int `pulumi:"minThreshold"`
 	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
+	// Expected value is 'TimeWindowCustomAlertRule'.
 	RuleType string `pulumi:"ruleType"`
 	// The time window size in iso8601 format.
 	TimeWindowSize string `pulumi:"timeWindowSize"`
@@ -1085,7 +1085,7 @@ type TimeWindowCustomAlertRuleArgs struct {
 	// The minimum threshold.
 	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
 	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
+	// Expected value is 'TimeWindowCustomAlertRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// The time window size in iso8601 format.
 	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
@@ -1159,7 +1159,7 @@ func (o TimeWindowCustomAlertRuleOutput) MinThreshold() pulumi.IntOutput {
 }
 
 // The type of the custom alert rule.
-// Expected value is 'ThresholdCustomAlertRule'.
+// Expected value is 'TimeWindowCustomAlertRule'.
 func (o TimeWindowCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -1202,7 +1202,7 @@ type TimeWindowCustomAlertRuleResponse struct {
 	// The minimum threshold.
 	MinThreshold int `pulumi:"minThreshold"`
 	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
+	// Expected value is 'TimeWindowCustomAlertRule'.
 	RuleType string `pulumi:"ruleType"`
 	// The time window size in iso8601 format.
 	TimeWindowSize string `pulumi:"timeWindowSize"`
@@ -1232,7 +1232,7 @@ type TimeWindowCustomAlertRuleResponseArgs struct {
 	// The minimum threshold.
 	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
 	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
+	// Expected value is 'TimeWindowCustomAlertRule'.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// The time window size in iso8601 format.
 	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
@@ -1316,7 +1316,7 @@ func (o TimeWindowCustomAlertRuleResponseOutput) MinThreshold() pulumi.IntOutput
 }
 
 // The type of the custom alert rule.
-// Expected value is 'ThresholdCustomAlertRule'.
+// Expected value is 'TimeWindowCustomAlertRule'.
 func (o TimeWindowCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }

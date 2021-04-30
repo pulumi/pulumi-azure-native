@@ -59,7 +59,7 @@ class ActivityTimelineItemResponse(dict):
         :param str bucket_start_time_utc: The grouping bucket start time.
         :param str content: The activity timeline content.
         :param str first_activity_time_utc: The time of the first activity in the grouping bucket.
-        :param str kind: The entity query kind type.
+        :param str kind: The entity query kind
                Expected value is 'Activity'.
         :param str last_activity_time_utc: The time of the last activity in the grouping bucket.
         :param str query_id: The activity query id.
@@ -110,7 +110,7 @@ class ActivityTimelineItemResponse(dict):
     @pulumi.getter
     def kind(self) -> str:
         """
-        The entity query kind type.
+        The entity query kind
         Expected value is 'Activity'.
         """
         return pulumi.get(self, "kind")
@@ -667,7 +667,7 @@ class BookmarkTimelineItemResponse(dict):
         """
         Represents bookmark timeline item.
         :param str azure_resource_id: The bookmark azure resource id.
-        :param str kind: The entity query kind type.
+        :param str kind: The entity query kind
                Expected value is 'Bookmark'.
         :param 'UserInfoResponse' created_by: Describes a user that created the bookmark
         :param str display_name: The bookmark display name.
@@ -706,7 +706,7 @@ class BookmarkTimelineItemResponse(dict):
     @pulumi.getter
     def kind(self) -> str:
         """
-        The entity query kind type.
+        The entity query kind
         Expected value is 'Bookmark'.
         """
         return pulumi.get(self, "kind")
@@ -1406,7 +1406,7 @@ class SecurityAlertTimelineItemResponse(dict):
         :param str azure_resource_id: The alert azure resource id.
         :param str display_name: The alert name.
         :param str end_time_utc: The alert end time.
-        :param str kind: The entity query kind type.
+        :param str kind: The entity query kind
                Expected value is 'SecurityAlert'.
         :param str severity: The alert severity.
         :param str start_time_utc: The alert start time.
@@ -1463,7 +1463,7 @@ class SecurityAlertTimelineItemResponse(dict):
     @pulumi.getter
     def kind(self) -> str:
         """
-        The entity query kind type.
+        The entity query kind
         Expected value is 'SecurityAlert'.
         """
         return pulumi.get(self, "kind")

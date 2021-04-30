@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
 
         /// <summary>
         /// backup protectionIntent type.
-        /// Expected value is 'RecoveryServiceVaultItem'.
+        /// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
         /// </summary>
         [Input("protectionIntentItemType", required: true)]
         public Input<string> ProtectionIntentItemType { get; set; } = null!;

@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         public readonly object? Translator;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'Copy'.
         /// </summary>
         public readonly string Type;
 

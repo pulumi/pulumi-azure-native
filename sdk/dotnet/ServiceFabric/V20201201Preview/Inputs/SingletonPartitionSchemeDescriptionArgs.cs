@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview.Inputs
     public sealed class SingletonPartitionSchemeDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how the service is partitioned.
+        /// Enumerates the ways that a service can be partitioned.
         /// Expected value is 'Singleton'.
         /// </summary>
         [Input("partitionScheme", required: true)]

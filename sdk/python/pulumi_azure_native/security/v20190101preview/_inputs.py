@@ -533,7 +533,7 @@ class OnPremiseSqlResourceDetailsArgs:
         :param pulumi.Input[str] machine_name: The name of the machine
         :param pulumi.Input[str] server_name: The Sql server name installed on the machine
         :param pulumi.Input[str] source: The platform where the assessed resource resides
-               Expected value is 'OnPremise'.
+               Expected value is 'OnPremiseSql'.
         :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
@@ -541,7 +541,7 @@ class OnPremiseSqlResourceDetailsArgs:
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source", 'OnPremiseSql')
         pulumi.set(__self__, "source_computer_id", source_computer_id)
         pulumi.set(__self__, "vmuuid", vmuuid)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -587,7 +587,7 @@ class OnPremiseSqlResourceDetailsArgs:
     def source(self) -> pulumi.Input[str]:
         """
         The platform where the assessed resource resides
-        Expected value is 'OnPremise'.
+        Expected value is 'OnPremiseSql'.
         """
         return pulumi.get(self, "source")
 

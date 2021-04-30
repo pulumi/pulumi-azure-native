@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly object? StoreSettings;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'GetMetadata'.
         /// </summary>
         public readonly string Type;
         /// <summary>

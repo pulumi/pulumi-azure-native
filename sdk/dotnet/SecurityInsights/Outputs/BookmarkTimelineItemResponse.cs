@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly string? EventTime;
         /// <summary>
-        /// The entity query kind type.
+        /// The entity query kind
         /// Expected value is 'Bookmark'.
         /// </summary>
         public readonly string Kind;

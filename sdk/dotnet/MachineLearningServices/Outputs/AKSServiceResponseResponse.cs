@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         public readonly string? ComputeName;
         /// <summary>
         /// The compute environment type for the service.
-        /// Expected value is 'Custom'.
+        /// Expected value is 'AKS'.
         /// </summary>
         public readonly string ComputeType;
         /// <summary>

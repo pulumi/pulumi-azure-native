@@ -1189,7 +1189,7 @@ class ManagedIntegrationRuntimeArgs:
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-        :param pulumi.Input[str] type: Type of integration runtime.
+        :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -1207,7 +1207,7 @@ class ManagedIntegrationRuntimeArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
@@ -1445,7 +1445,7 @@ class SelfHostedIntegrationRuntimeArgs:
                  linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None):
         """
         Self-hosted integration runtime.
-        :param pulumi.Input[str] type: Type of integration runtime.
+        :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: Linked integration runtime type from data factory
@@ -1460,7 +1460,7 @@ class SelfHostedIntegrationRuntimeArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")

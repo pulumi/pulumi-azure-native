@@ -2916,7 +2916,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
         Azure ML Batch Execution activity.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureMLBatchExecution'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
@@ -2926,7 +2926,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
         :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureMLBatchExecution')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -2955,7 +2955,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureMLBatchExecution'.
         """
         return pulumi.get(self, "type")
 
@@ -3246,7 +3246,7 @@ class AzureMLUpdateResourceActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
         :param Any trained_model_name: Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureMLUpdateResource'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
@@ -3256,7 +3256,7 @@ class AzureMLUpdateResourceActivityResponse(dict):
         pulumi.set(__self__, "trained_model_file_path", trained_model_file_path)
         pulumi.set(__self__, "trained_model_linked_service_name", trained_model_linked_service_name)
         pulumi.set(__self__, "trained_model_name", trained_model_name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureMLUpdateResource')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -3303,7 +3303,7 @@ class AzureMLUpdateResourceActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureMLUpdateResource'.
         """
         return pulumi.get(self, "type")
 
@@ -5512,7 +5512,7 @@ class BlobEventsTriggerResponse(dict):
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str scope: The ARM resource ID of the Storage Account.
         :param str type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'BlobEventsTrigger'.
         :param str blob_path_begins_with: The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
         :param str blob_path_ends_with: The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
         :param str description: Trigger description.
@@ -5522,7 +5522,7 @@ class BlobEventsTriggerResponse(dict):
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "runtime_state", runtime_state)
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'BlobEventsTrigger')
         if blob_path_begins_with is not None:
             pulumi.set(__self__, "blob_path_begins_with", blob_path_begins_with)
         if blob_path_ends_with is not None:
@@ -5563,7 +5563,7 @@ class BlobEventsTriggerResponse(dict):
     def type(self) -> str:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'BlobEventsTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -5909,7 +5909,7 @@ class BlobTriggerResponse(dict):
         :param int max_concurrency: The max number of parallel files to handle when it is triggered.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'BlobTrigger'.
         :param str description: Trigger description.
         :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
@@ -5917,7 +5917,7 @@ class BlobTriggerResponse(dict):
         pulumi.set(__self__, "linked_service", linked_service)
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "runtime_state", runtime_state)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'BlobTrigger')
         if description is not None:
             pulumi.set(__self__, "description", description)
         if pipelines is not None:
@@ -5960,7 +5960,7 @@ class BlobTriggerResponse(dict):
     def type(self) -> str:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'BlobTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -6860,7 +6860,7 @@ class CopyActivityResponse(dict):
         :param Union['AzureDataLakeStoreSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureTableSinkResponse', 'BlobSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SqlDWSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
         :param Union['AmazonMWSSourceResponse', 'AmazonRedshiftSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureTableSourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'ConcurSourceResponse', 'CouchbaseSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'FileSystemSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'JiraSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MongoDbSourceResponse', 'NetezzaSourceResponse', 'OracleSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'ServiceNowSourceResponse', 'ShopifySourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Copy'.
         :param Any cloud_data_movement_units: Maximum number of cloud data movement units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
@@ -6878,7 +6878,7 @@ class CopyActivityResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sink", sink)
         pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Copy')
         if cloud_data_movement_units is not None:
             pulumi.set(__self__, "cloud_data_movement_units", cloud_data_movement_units)
         if depends_on is not None:
@@ -6935,7 +6935,7 @@ class CopyActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Copy'.
         """
         return pulumi.get(self, "type")
 
@@ -7557,7 +7557,7 @@ class CustomActivityResponse(dict):
         :param Any command: Command for custom activity Type: string (or Expression with resultType string).
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Custom'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
@@ -7569,7 +7569,7 @@ class CustomActivityResponse(dict):
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Custom')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -7608,7 +7608,7 @@ class CustomActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Custom'.
         """
         return pulumi.get(self, "type")
 
@@ -7920,7 +7920,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'DataLakeAnalyticsU-SQL'.
         :param Any compilation_mode: Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
         :param Any degree_of_parallelism: The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -7934,7 +7934,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "script_linked_service", script_linked_service)
         pulumi.set(__self__, "script_path", script_path)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'DataLakeAnalyticsU-SQL')
         if compilation_mode is not None:
             pulumi.set(__self__, "compilation_mode", compilation_mode)
         if degree_of_parallelism is not None:
@@ -7983,7 +7983,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'DataLakeAnalyticsU-SQL'.
         """
         return pulumi.get(self, "type")
 
@@ -8102,7 +8102,7 @@ class DatabricksNotebookActivityResponse(dict):
         :param str name: Activity name.
         :param Any notebook_path: The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'DatabricksNotebook'.
         :param Mapping[str, Any] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
@@ -8111,7 +8111,7 @@ class DatabricksNotebookActivityResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "notebook_path", notebook_path)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'DatabricksNotebook')
         if base_parameters is not None:
             pulumi.set(__self__, "base_parameters", base_parameters)
         if depends_on is not None:
@@ -8144,7 +8144,7 @@ class DatabricksNotebookActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'DatabricksNotebook'.
         """
         return pulumi.get(self, "type")
 
@@ -10191,7 +10191,7 @@ class ExecutePipelineActivityResponse(dict):
         :param str name: Activity name.
         :param 'PipelineReferenceResponse' pipeline: Pipeline reference.
         :param str type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'ExecutePipeline'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] parameters: Pipeline parameters.
@@ -10199,7 +10199,7 @@ class ExecutePipelineActivityResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pipeline", pipeline)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'ExecutePipeline')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -10230,7 +10230,7 @@ class ExecutePipelineActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'ExecutePipeline'.
         """
         return pulumi.get(self, "type")
 
@@ -10338,7 +10338,7 @@ class ExecuteSSISPackageActivityResponse(dict):
         :param str name: Activity name.
         :param 'SSISPackageLocationResponse' package_location: SSIS package location.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'ExecuteSSISPackage'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any environment_path: The environment path to execute the SSIS package. Type: string (or Expression with resultType string).
@@ -10357,7 +10357,7 @@ class ExecuteSSISPackageActivityResponse(dict):
         pulumi.set(__self__, "connect_via", connect_via)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "package_location", package_location)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'ExecuteSSISPackage')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -10416,7 +10416,7 @@ class ExecuteSSISPackageActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'ExecuteSSISPackage'.
         """
         return pulumi.get(self, "type")
 
@@ -11384,14 +11384,14 @@ class FilterActivityResponse(dict):
         :param 'ExpressionResponse' items: Input array on which filter should be applied.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Filter'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         """
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Filter')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -11426,7 +11426,7 @@ class FilterActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Filter'.
         """
         return pulumi.get(self, "type")
 
@@ -11488,7 +11488,7 @@ class ForEachActivityResponse(dict):
         :param 'ExpressionResponse' items: Collection to iterate.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'ForEach'.
         :param int batch_count: Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
@@ -11497,7 +11497,7 @@ class ForEachActivityResponse(dict):
         pulumi.set(__self__, "activities", activities)
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'ForEach')
         if batch_count is not None:
             pulumi.set(__self__, "batch_count", batch_count)
         if depends_on is not None:
@@ -11536,7 +11536,7 @@ class ForEachActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'ForEach'.
         """
         return pulumi.get(self, "type")
 
@@ -11807,7 +11807,7 @@ class GetMetadataActivityResponse(dict):
         :param 'DatasetReferenceResponse' dataset: GetMetadata activity dataset reference.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'GetMetadata'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Any] field_list: Fields of metadata to get from dataset.
@@ -11816,7 +11816,7 @@ class GetMetadataActivityResponse(dict):
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'GetMetadata')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -11849,7 +11849,7 @@ class GetMetadataActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'GetMetadata'.
         """
         return pulumi.get(self, "type")
 
@@ -13081,7 +13081,7 @@ class HDInsightHiveActivityResponse(dict):
         HDInsight Hive activity type.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightHive'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for Hive job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -13094,7 +13094,7 @@ class HDInsightHiveActivityResponse(dict):
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightHive')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if defines is not None:
@@ -13129,7 +13129,7 @@ class HDInsightHiveActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightHive'.
         """
         return pulumi.get(self, "type")
 
@@ -13441,7 +13441,7 @@ class HDInsightMapReduceActivityResponse(dict):
         :param Any jar_file_path: Jar path. Type: string (or Expression with resultType string).
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightMapReduce'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for the MapReduce job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -13456,7 +13456,7 @@ class HDInsightMapReduceActivityResponse(dict):
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "jar_file_path", jar_file_path)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightMapReduce')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if defines is not None:
@@ -13507,7 +13507,7 @@ class HDInsightMapReduceActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightMapReduce'.
         """
         return pulumi.get(self, "type")
 
@@ -14139,7 +14139,7 @@ class HDInsightPigActivityResponse(dict):
         HDInsight Pig activity type.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightPig'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Mapping[str, Any] defines: Allows user to specify defines for Pig job request.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -14152,7 +14152,7 @@ class HDInsightPigActivityResponse(dict):
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightPig')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if defines is not None:
@@ -14187,7 +14187,7 @@ class HDInsightPigActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightPig'.
         """
         return pulumi.get(self, "type")
 
@@ -14331,7 +14331,7 @@ class HDInsightSparkActivityResponse(dict):
         :param str name: Activity name.
         :param Any root_path: The root path in 'sparkJobLinkedService' for all the job’s files. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightSpark'.
         :param Sequence[Any] arguments: The user-specified arguments to HDInsightSparkActivity.
         :param str class_name: The application's Java/Spark main class.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -14346,7 +14346,7 @@ class HDInsightSparkActivityResponse(dict):
         pulumi.set(__self__, "entry_file_path", entry_file_path)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "root_path", root_path)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightSpark')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if class_name is not None:
@@ -14397,7 +14397,7 @@ class HDInsightSparkActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightSpark'.
         """
         return pulumi.get(self, "type")
 
@@ -14544,7 +14544,7 @@ class HDInsightStreamingActivityResponse(dict):
         :param Any output: Output blob path. Type: string (or Expression with resultType string).
         :param Any reducer: Reducer executable name. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightStreaming'.
         :param Sequence[Any] arguments: User specified arguments to HDInsightActivity.
         :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
         :param Sequence[Any] command_environment: Command line environment values.
@@ -14563,7 +14563,7 @@ class HDInsightStreamingActivityResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "output", output)
         pulumi.set(__self__, "reducer", reducer)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightStreaming')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if combiner is not None:
@@ -14640,7 +14640,7 @@ class HDInsightStreamingActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightStreaming'.
         """
         return pulumi.get(self, "type")
 
@@ -16355,7 +16355,7 @@ class IfConditionActivityResponse(dict):
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'IfCondition'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence[Union['AzureMLBatchExecutionActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'UntilActivityResponse', 'WaitActivityResponse', 'WebActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
@@ -16363,7 +16363,7 @@ class IfConditionActivityResponse(dict):
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'IfCondition')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -16394,7 +16394,7 @@ class IfConditionActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'IfCondition'.
         """
         return pulumi.get(self, "type")
 
@@ -18126,7 +18126,7 @@ class LookupActivityResponse(dict):
         :param str name: Activity name.
         :param Union['AmazonMWSSourceResponse', 'AmazonRedshiftSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureTableSourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'ConcurSourceResponse', 'CouchbaseSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'FileSystemSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'JiraSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MongoDbSourceResponse', 'NetezzaSourceResponse', 'OracleSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'ServiceNowSourceResponse', 'ShopifySourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Lookup'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any first_row_only: Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
@@ -18136,7 +18136,7 @@ class LookupActivityResponse(dict):
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Lookup')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -18177,7 +18177,7 @@ class LookupActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Lookup'.
         """
         return pulumi.get(self, "type")
 
@@ -18781,7 +18781,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param str description: Integration runtime description.
@@ -18808,7 +18808,7 @@ class ManagedIntegrationRuntimeResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
@@ -18859,7 +18859,7 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
         :param Sequence['ManagedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for managed integration runtime.
         :param Sequence['ManagedIntegrationRuntimeErrorResponse'] other_errors: The errors that occurred on this integration runtime.
         :param str state: The state of integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         """
         pulumi.set(__self__, "create_time", create_time)
@@ -18923,7 +18923,7 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
@@ -26754,13 +26754,13 @@ class ScheduleTriggerResponse(dict):
         :param 'ScheduleTriggerRecurrenceResponse' recurrence: Recurrence schedule configuration.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'ScheduleTrigger'.
         :param str description: Trigger description.
         :param Sequence['TriggerPipelineReferenceResponse'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "recurrence", recurrence)
         pulumi.set(__self__, "runtime_state", runtime_state)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'ScheduleTrigger')
         if description is not None:
             pulumi.set(__self__, "description", description)
         if pipelines is not None:
@@ -26787,7 +26787,7 @@ class ScheduleTriggerResponse(dict):
     def type(self) -> str:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'ScheduleTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -27080,7 +27080,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
                  linked_info: Optional[Any] = None):
         """
         Self-hosted integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
         :param Union['LinkedIntegrationRuntimeKeyResponse', 'LinkedIntegrationRuntimeRbacResponse'] linked_info: The base definition of a secret type.
@@ -27095,7 +27095,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
@@ -27156,7 +27156,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         :param str version_status: Status of the integration runtime version.
         :param Sequence['LinkedIntegrationRuntimeResponse'] links: The list of linked integration runtimes that are created to share with this integration runtime.
         :param Sequence['SelfHostedIntegrationRuntimeNodeResponse'] nodes: The list of nodes for this integration runtime.
-        :param str type: Type of integration runtime.
+        :param str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         """
         pulumi.set(__self__, "auto_update", auto_update)
@@ -27303,7 +27303,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
@@ -29178,7 +29178,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
         :param str name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'SqlServerStoredProcedure'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -29187,7 +29187,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "stored_procedure_name", stored_procedure_name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'SqlServerStoredProcedure')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -29226,7 +29226,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'SqlServerStoredProcedure'.
         """
         return pulumi.get(self, "type")
 
@@ -30877,7 +30877,7 @@ class UntilActivityResponse(dict):
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Until'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -30885,7 +30885,7 @@ class UntilActivityResponse(dict):
         pulumi.set(__self__, "activities", activities)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Until')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -30922,7 +30922,7 @@ class UntilActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Until'.
         """
         return pulumi.get(self, "type")
 
@@ -31281,13 +31281,13 @@ class WaitActivityResponse(dict):
         This activity suspends pipeline execution for the specified interval.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Wait'.
         :param int wait_time_in_seconds: Duration in seconds.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Wait')
         pulumi.set(__self__, "wait_time_in_seconds", wait_time_in_seconds)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
@@ -31307,7 +31307,7 @@ class WaitActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Wait'.
         """
         return pulumi.get(self, "type")
 
@@ -31451,7 +31451,7 @@ class WebActivityResponse(dict):
         :param str method: Rest API method for target endpoint.
         :param str name: Activity name.
         :param str type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'WebActivity'.
         :param Any url: Web activity target endpoint and path. Type: string (or Expression with resultType string).
         :param 'WebActivityAuthenticationResponse' authentication: Authentication method used for calling the endpoint.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
@@ -31465,7 +31465,7 @@ class WebActivityResponse(dict):
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'WebActivity')
         pulumi.set(__self__, "url", url)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
@@ -31507,7 +31507,7 @@ class WebActivityResponse(dict):
     def type(self) -> str:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'WebActivity'.
         """
         return pulumi.get(self, "type")
 

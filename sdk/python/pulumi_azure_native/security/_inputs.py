@@ -122,11 +122,11 @@ class AllowlistCustomAlertRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowlist_values: The values to allow. The format of the values depends on the rule type.
         :param pulumi.Input[bool] is_enabled: Status of the custom alert.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
-               Expected value is 'ListCustomAlertRule'.
+               Expected value is 'AllowlistCustomAlertRule'.
         """
         pulumi.set(__self__, "allowlist_values", allowlist_values)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
+        pulumi.set(__self__, "rule_type", 'AllowlistCustomAlertRule')
 
     @property
     @pulumi.getter(name="allowlistValues")
@@ -157,7 +157,7 @@ class AllowlistCustomAlertRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
         The type of the custom alert rule.
-        Expected value is 'ListCustomAlertRule'.
+        Expected value is 'AllowlistCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -694,11 +694,11 @@ class DenylistCustomAlertRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] denylist_values: The values to deny. The format of the values depends on the rule type.
         :param pulumi.Input[bool] is_enabled: Status of the custom alert.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
-               Expected value is 'ListCustomAlertRule'.
+               Expected value is 'DenylistCustomAlertRule'.
         """
         pulumi.set(__self__, "denylist_values", denylist_values)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
+        pulumi.set(__self__, "rule_type", 'DenylistCustomAlertRule')
 
     @property
     @pulumi.getter(name="denylistValues")
@@ -729,7 +729,7 @@ class DenylistCustomAlertRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
         The type of the custom alert rule.
-        Expected value is 'ListCustomAlertRule'.
+        Expected value is 'DenylistCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 
@@ -1457,7 +1457,7 @@ class OnPremiseSqlResourceDetailsArgs:
         :param pulumi.Input[str] machine_name: The name of the machine
         :param pulumi.Input[str] server_name: The Sql server name installed on the machine
         :param pulumi.Input[str] source: The platform where the assessed resource resides
-               Expected value is 'OnPremise'.
+               Expected value is 'OnPremiseSql'.
         :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
         :param pulumi.Input[str] vmuuid: The unique Id of the machine
         :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
@@ -1465,7 +1465,7 @@ class OnPremiseSqlResourceDetailsArgs:
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source", 'OnPremiseSql')
         pulumi.set(__self__, "source_computer_id", source_computer_id)
         pulumi.set(__self__, "vmuuid", vmuuid)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -1511,7 +1511,7 @@ class OnPremiseSqlResourceDetailsArgs:
     def source(self) -> pulumi.Input[str]:
         """
         The platform where the assessed resource resides
-        Expected value is 'OnPremise'.
+        Expected value is 'OnPremiseSql'.
         """
         return pulumi.get(self, "source")
 
@@ -2439,13 +2439,13 @@ class TimeWindowCustomAlertRuleArgs:
         :param pulumi.Input[int] max_threshold: The maximum threshold.
         :param pulumi.Input[int] min_threshold: The minimum threshold.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
-               Expected value is 'ThresholdCustomAlertRule'.
+               Expected value is 'TimeWindowCustomAlertRule'.
         :param pulumi.Input[str] time_window_size: The time window size in iso8601 format.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
+        pulumi.set(__self__, "rule_type", 'TimeWindowCustomAlertRule')
         pulumi.set(__self__, "time_window_size", time_window_size)
 
     @property
@@ -2489,7 +2489,7 @@ class TimeWindowCustomAlertRuleArgs:
     def rule_type(self) -> pulumi.Input[str]:
         """
         The type of the custom alert rule.
-        Expected value is 'ThresholdCustomAlertRule'.
+        Expected value is 'TimeWindowCustomAlertRule'.
         """
         return pulumi.get(self, "rule_type")
 

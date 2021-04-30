@@ -449,7 +449,7 @@ type AzureWorkloadAutoProtectionIntent struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadAutoProtectionIntent'.
 	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -477,7 +477,7 @@ type AzureWorkloadAutoProtectionIntentArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadAutoProtectionIntent'.
 	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -528,7 +528,7 @@ func (o AzureWorkloadAutoProtectionIntentOutput) PolicyId() pulumi.StringPtrOutp
 }
 
 // backup protectionIntent type.
-// Expected value is 'RecoveryServiceVaultItem'.
+// Expected value is 'AzureWorkloadAutoProtectionIntent'.
 func (o AzureWorkloadAutoProtectionIntentOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntent) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
 }
@@ -552,7 +552,7 @@ type AzureWorkloadAutoProtectionIntentResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadAutoProtectionIntent'.
 	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -580,7 +580,7 @@ type AzureWorkloadAutoProtectionIntentResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadAutoProtectionIntent'.
 	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -631,7 +631,7 @@ func (o AzureWorkloadAutoProtectionIntentResponseOutput) PolicyId() pulumi.Strin
 }
 
 // backup protectionIntent type.
-// Expected value is 'RecoveryServiceVaultItem'.
+// Expected value is 'AzureWorkloadAutoProtectionIntent'.
 func (o AzureWorkloadAutoProtectionIntentResponseOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadAutoProtectionIntentResponse) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
 }
@@ -655,7 +655,7 @@ type AzureWorkloadSQLAutoProtectionIntent struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
 	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -685,7 +685,7 @@ type AzureWorkloadSQLAutoProtectionIntentArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
 	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -738,7 +738,7 @@ func (o AzureWorkloadSQLAutoProtectionIntentOutput) PolicyId() pulumi.StringPtrO
 }
 
 // backup protectionIntent type.
-// Expected value is 'RecoveryServiceVaultItem'.
+// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
 func (o AzureWorkloadSQLAutoProtectionIntentOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntent) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
 }
@@ -767,7 +767,7 @@ type AzureWorkloadSQLAutoProtectionIntentResponse struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId *string `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
 	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState *string `pulumi:"protectionState"`
@@ -797,7 +797,7 @@ type AzureWorkloadSQLAutoProtectionIntentResponseArgs struct {
 	// ID of the backup policy with which this item is backed up.
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// backup protectionIntent type.
-	// Expected value is 'RecoveryServiceVaultItem'.
+	// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
 	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
 	// Backup state of this backup item.
 	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
@@ -850,7 +850,7 @@ func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) PolicyId() pulumi.St
 }
 
 // backup protectionIntent type.
-// Expected value is 'RecoveryServiceVaultItem'.
+// Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
 func (o AzureWorkloadSQLAutoProtectionIntentResponseOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadSQLAutoProtectionIntentResponse) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
 }

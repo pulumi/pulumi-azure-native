@@ -1251,7 +1251,7 @@ class NamedPartitionSchemeDescriptionResponse(dict):
         Describes the named partition scheme of the service.
         :param int count: The number of partitions.
         :param Sequence[str] names: Array of size specified by the ‘Count’ parameter, for the names of the partitions.
-        :param str partition_scheme: Specifies how the service is partitioned.
+        :param str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Named'.
         """
         pulumi.set(__self__, "count", count)
@@ -1278,7 +1278,7 @@ class NamedPartitionSchemeDescriptionResponse(dict):
     @pulumi.getter(name="partitionScheme")
     def partition_scheme(self) -> str:
         """
-        Specifies how the service is partitioned.
+        Enumerates the ways that a service can be partitioned.
         Expected value is 'Named'.
         """
         return pulumi.get(self, "partition_scheme")
@@ -1718,7 +1718,7 @@ class SingletonPartitionSchemeDescriptionResponse(dict):
                  partition_scheme: str):
         """
         Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
-        :param str partition_scheme: Specifies how the service is partitioned.
+        :param str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'Singleton'.
         """
         pulumi.set(__self__, "partition_scheme", 'Singleton')
@@ -1727,7 +1727,7 @@ class SingletonPartitionSchemeDescriptionResponse(dict):
     @pulumi.getter(name="partitionScheme")
     def partition_scheme(self) -> str:
         """
-        Specifies how the service is partitioned.
+        Enumerates the ways that a service can be partitioned.
         Expected value is 'Singleton'.
         """
         return pulumi.get(self, "partition_scheme")
@@ -1771,7 +1771,7 @@ class UniformInt64RangePartitionSchemeDescriptionResponse(dict):
                should be split between the partition ‘Count’
         :param str low_key: String indicating the lower bound of the partition key range that
                should be split between the partition ‘Count’
-        :param str partition_scheme: Specifies how the service is partitioned.
+        :param str partition_scheme: Enumerates the ways that a service can be partitioned.
                Expected value is 'UniformInt64Range'.
         """
         pulumi.set(__self__, "count", count)
@@ -1809,7 +1809,7 @@ class UniformInt64RangePartitionSchemeDescriptionResponse(dict):
     @pulumi.getter(name="partitionScheme")
     def partition_scheme(self) -> str:
         """
-        Specifies how the service is partitioned.
+        Enumerates the ways that a service can be partitioned.
         Expected value is 'UniformInt64Range'.
         """
         return pulumi.get(self, "partition_scheme")

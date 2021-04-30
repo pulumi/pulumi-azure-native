@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly object? Timeout;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'Until'.
         /// </summary>
         public readonly string Type;
         /// <summary>

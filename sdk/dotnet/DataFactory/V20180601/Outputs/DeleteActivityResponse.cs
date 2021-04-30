@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly object? StoreSettings;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'Delete'.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
     public sealed class AutoScalingResourceMetricResponse
     {
         /// <summary>
-        /// The type of auto scaling metric
+        /// Enumerates the metrics that are used for triggering auto scaling.
         /// Expected value is 'Resource'.
         /// </summary>
         public readonly string Kind;

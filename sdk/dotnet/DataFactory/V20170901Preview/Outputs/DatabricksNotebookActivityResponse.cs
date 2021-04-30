@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'DatabricksNotebook'.
         /// </summary>
         public readonly string Type;
 

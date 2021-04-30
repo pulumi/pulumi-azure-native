@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Media.Outputs
     {
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        /// Expected value is '#Microsoft.Media.SelectVideoTrackById'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

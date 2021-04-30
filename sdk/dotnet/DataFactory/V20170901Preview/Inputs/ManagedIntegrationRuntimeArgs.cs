@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         public Input<Inputs.IntegrationRuntimeSsisPropertiesArgs>? SsisProperties { get; set; }
 
         /// <summary>
-        /// Type of integration runtime.
+        /// The type of integration runtime.
         /// Expected value is 'Managed'.
         /// </summary>
         [Input("type", required: true)]

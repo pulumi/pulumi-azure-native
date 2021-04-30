@@ -2159,7 +2159,7 @@ type OnPremiseSqlResourceDetails struct {
 	// The Sql server name installed on the machine
 	ServerName string `pulumi:"serverName"`
 	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
+	// Expected value is 'OnPremiseSql'.
 	Source string `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId string `pulumi:"sourceComputerId"`
@@ -2189,7 +2189,7 @@ type OnPremiseSqlResourceDetailsArgs struct {
 	// The Sql server name installed on the machine
 	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
+	// Expected value is 'OnPremiseSql'.
 	Source pulumi.StringInput `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
@@ -2242,7 +2242,7 @@ func (o OnPremiseSqlResourceDetailsOutput) ServerName() pulumi.StringOutput {
 }
 
 // The platform where the assessed resource resides
-// Expected value is 'OnPremise'.
+// Expected value is 'OnPremiseSql'.
 func (o OnPremiseSqlResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -2271,7 +2271,7 @@ type OnPremiseSqlResourceDetailsResponse struct {
 	// The Sql server name installed on the machine
 	ServerName string `pulumi:"serverName"`
 	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
+	// Expected value is 'OnPremiseSql'.
 	Source string `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId string `pulumi:"sourceComputerId"`
@@ -2301,7 +2301,7 @@ type OnPremiseSqlResourceDetailsResponseArgs struct {
 	// The Sql server name installed on the machine
 	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
+	// Expected value is 'OnPremiseSql'.
 	Source pulumi.StringInput `pulumi:"source"`
 	// The oms agent Id installed on the machine
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
@@ -2354,7 +2354,7 @@ func (o OnPremiseSqlResourceDetailsResponseOutput) ServerName() pulumi.StringOut
 }
 
 // The platform where the assessed resource resides
-// Expected value is 'OnPremise'.
+// Expected value is 'OnPremiseSql'.
 func (o OnPremiseSqlResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }

@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Media.V20180330Preview.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.JobInputClip'.
+        /// Expected value is '#Microsoft.Media.JobInputHttp'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

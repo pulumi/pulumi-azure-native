@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         public readonly string ServerName;
         /// <summary>
         /// The platform where the assessed resource resides
-        /// Expected value is 'OnPremise'.
+        /// Expected value is 'OnPremiseSql'.
         /// </summary>
         public readonly string Source;
         /// <summary>
