@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Type of metadata.
+        /// The type of SSIS object metadata.
         /// Expected value is 'Folder'.
         /// </summary>
         public readonly string Type;

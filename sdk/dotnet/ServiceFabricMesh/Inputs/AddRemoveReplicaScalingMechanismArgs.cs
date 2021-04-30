@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.Inputs
     public sealed class AddRemoveReplicaScalingMechanismArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of auto scaling mechanism.
+        /// Enumerates the mechanisms for auto scaling.
         /// Expected value is 'AddRemoveReplica'.
         /// </summary>
         [Input("kind", required: true)]

@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly string? Timeout;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'WebHook'.
         /// </summary>
         public readonly string Type;
         /// <summary>

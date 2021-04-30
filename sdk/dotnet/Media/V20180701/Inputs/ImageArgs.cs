@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.Video'.
+        /// Expected value is '#Microsoft.Media.Image'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Outputs
         public readonly string? FilterValue;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+        /// Expected value is '#Microsoft.Media.SelectAudioTrackByAttribute'.
         /// </summary>
         public readonly string OdataType;
 

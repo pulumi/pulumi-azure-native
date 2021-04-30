@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190513.Outputs
         public readonly string? ProtectedItemHealthStatus;
         /// <summary>
         /// backup item type.
-        /// Expected value is 'AzureVmWorkloadProtectedItem'.
+        /// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         /// </summary>
         public readonly string? ProtectedItemType;
         /// <summary>

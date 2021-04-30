@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200301.Inputs
         public Input<string> LowKey { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how the service is partitioned.
+        /// Enumerates the ways that a service can be partitioned.
         /// Expected value is 'UniformInt64Range'.
         /// </summary>
         [Input("partitionScheme", required: true)]

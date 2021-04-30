@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? StoredProcedureParameters;
         /// <summary>
         /// Copy source type.
-        /// Expected value is 'TabularSource'.
+        /// Expected value is 'SqlSource'.
         /// </summary>
         public readonly string Type;
 

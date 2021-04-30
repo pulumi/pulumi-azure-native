@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20190615.Inputs
 
         /// <summary>
         /// backup item type.
-        /// Expected value is 'AzureIaaSVMProtectedItem'.
+        /// Expected value is 'Microsoft.Compute/virtualMachines'.
         /// </summary>
         [Input("protectedItemType", required: true)]
         public Input<string> ProtectedItemType { get; set; } = null!;

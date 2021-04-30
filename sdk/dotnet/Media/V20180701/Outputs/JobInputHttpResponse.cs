@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Media.V20180701.Outputs
         public readonly string? Label;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.JobInputClip'.
+        /// Expected value is '#Microsoft.Media.JobInputHttp'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Media.Outputs
         public readonly ImmutableArray<Outputs.PngLayerResponse> Layers;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.Video'.
+        /// Expected value is '#Microsoft.Media.PngImage'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

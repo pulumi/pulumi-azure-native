@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20201201.Inputs
 
         /// <summary>
         /// backup item type.
-        /// Expected value is 'AzureVmWorkloadProtectedItem'.
+        /// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         /// </summary>
         [Input("protectedItemType", required: true)]
         public Input<string> ProtectedItemType { get; set; } = null!;

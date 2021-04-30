@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly Outputs.ExpressionResponse On;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'Switch'.
         /// </summary>
         public readonly string Type;
         /// <summary>

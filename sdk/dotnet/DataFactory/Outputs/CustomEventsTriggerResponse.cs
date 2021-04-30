@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly string? SubjectEndsWith;
         /// <summary>
         /// Trigger type.
-        /// Expected value is 'MultiplePipelineTrigger'.
+        /// Expected value is 'CustomEventsTrigger'.
         /// </summary>
         public readonly string Type;
 

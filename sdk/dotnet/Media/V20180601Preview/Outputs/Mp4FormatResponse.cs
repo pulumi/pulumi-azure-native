@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
         public readonly string? FilenamePattern;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+        /// Expected value is '#Microsoft.Media.Mp4Format'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

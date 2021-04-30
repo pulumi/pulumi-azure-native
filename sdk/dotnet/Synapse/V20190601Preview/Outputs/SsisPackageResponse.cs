@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly double? ProjectVersion;
         /// <summary>
-        /// Type of metadata.
+        /// The type of SSIS object metadata.
         /// Expected value is 'Package'.
         /// </summary>
         public readonly string Type;

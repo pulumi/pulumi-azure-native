@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200301.Outputs
     public sealed class SingletonPartitionSchemeDescriptionResponse
     {
         /// <summary>
-        /// Specifies how the service is partitioned.
+        /// Enumerates the ways that a service can be partitioned.
         /// Expected value is 'Singleton'.
         /// </summary>
         public readonly string PartitionScheme;

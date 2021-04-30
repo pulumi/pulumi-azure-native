@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'Wait'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

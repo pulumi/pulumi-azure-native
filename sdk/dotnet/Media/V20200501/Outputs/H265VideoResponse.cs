@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Outputs
         public readonly ImmutableArray<Outputs.H265LayerResponse> Layers;
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.Video'.
+        /// Expected value is '#Microsoft.Media.H265Video'.
         /// </summary>
         public readonly string OdataType;
         /// <summary>

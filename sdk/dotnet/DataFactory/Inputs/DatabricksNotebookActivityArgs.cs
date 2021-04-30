@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'DatabricksNotebook'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

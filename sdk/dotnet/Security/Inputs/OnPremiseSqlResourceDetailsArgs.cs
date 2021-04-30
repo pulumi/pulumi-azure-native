@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Security.Inputs
 
         /// <summary>
         /// The platform where the assessed resource resides
-        /// Expected value is 'OnPremise'.
+        /// Expected value is 'OnPremiseSql'.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

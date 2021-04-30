@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'AzureDataExplorerCommand'.
         /// </summary>
         public readonly string Type;
         /// <summary>

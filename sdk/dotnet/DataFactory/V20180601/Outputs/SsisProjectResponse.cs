@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SsisParameterResponse> Parameters;
         /// <summary>
-        /// Type of metadata.
+        /// The type of SSIS object metadata.
         /// Expected value is 'Project'.
         /// </summary>
         public readonly string Type;

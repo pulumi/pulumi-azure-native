@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Outputs
         /// </summary>
         public readonly string LowKey;
         /// <summary>
-        /// Specifies how the service is partitioned.
+        /// Enumerates the ways that a service can be partitioned.
         /// Expected value is 'UniformInt64Range'.
         /// </summary>
         public readonly string PartitionScheme;

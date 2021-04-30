@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly ImmutableArray<Outputs.LinkedServiceReferenceResponse> StorageLinkedServices;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'HDInsightPig'.
         /// </summary>
         public readonly string Type;
         /// <summary>

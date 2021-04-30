@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly string Name;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Container'.
+        /// Expected value is 'Filter'.
         /// </summary>
         public readonly string Type;
         /// <summary>

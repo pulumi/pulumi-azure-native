@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         public readonly string RuntimeState;
         /// <summary>
         /// Trigger type.
-        /// Expected value is 'MultiplePipelineTrigger'.
+        /// Expected value is 'BlobTrigger'.
         /// </summary>
         public readonly string Type;
 

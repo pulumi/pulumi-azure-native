@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly Outputs.LinkedServiceReferenceResponse? SparkJobLinkedService;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'HDInsightSpark'.
         /// </summary>
         public readonly string Type;
         /// <summary>

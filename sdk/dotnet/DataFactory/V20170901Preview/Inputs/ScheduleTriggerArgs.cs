@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
 
         /// <summary>
         /// Trigger type.
-        /// Expected value is 'MultiplePipelineTrigger'.
+        /// Expected value is 'ScheduleTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

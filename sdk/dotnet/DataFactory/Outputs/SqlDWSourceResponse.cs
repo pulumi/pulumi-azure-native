@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly object? StoredProcedureParameters;
         /// <summary>
         /// Copy source type.
-        /// Expected value is 'TabularSource'.
+        /// Expected value is 'SqlDWSource'.
         /// </summary>
         public readonly string Type;
 

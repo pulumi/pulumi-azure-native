@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         public readonly ImmutableArray<Outputs.LinkedServiceReferenceResponse> StorageLinkedServices;
         /// <summary>
         /// Type of activity.
-        /// Expected value is 'Execution'.
+        /// Expected value is 'HDInsightStreaming'.
         /// </summary>
         public readonly string Type;
 

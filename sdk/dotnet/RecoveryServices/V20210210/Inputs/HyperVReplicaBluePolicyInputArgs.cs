@@ -40,8 +40,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210210.Inputs
         public Input<string>? InitialReplicationMethod { get; set; }
 
         /// <summary>
-        /// The class type.
-        /// Expected value is 'HyperVReplica2012'.
+        /// 
         /// Expected value is 'HyperVReplica2012R2'.
         /// </summary>
         [Input("instanceType")]

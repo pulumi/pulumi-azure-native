@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Names;
         /// <summary>
-        /// Specifies how the service is partitioned.
+        /// Enumerates the ways that a service can be partitioned.
         /// Expected value is 'Named'.
         /// </summary>
         public readonly string PartitionScheme;

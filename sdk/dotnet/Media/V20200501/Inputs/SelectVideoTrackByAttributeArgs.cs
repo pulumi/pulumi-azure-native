@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Media.V20200501.Inputs
 
         /// <summary>
         /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+        /// Expected value is '#Microsoft.Media.SelectVideoTrackByAttribute'.
         /// </summary>
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

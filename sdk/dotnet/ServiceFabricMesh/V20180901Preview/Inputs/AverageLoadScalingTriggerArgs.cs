@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Inputs
     public sealed class AverageLoadScalingTriggerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of auto scaling trigger
+        /// Enumerates the triggers for auto scaling.
         /// Expected value is 'AverageLoad'.
         /// </summary>
         [Input("kind", required: true)]

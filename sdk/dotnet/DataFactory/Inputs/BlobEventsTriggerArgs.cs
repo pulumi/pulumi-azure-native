@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 
         /// <summary>
         /// Trigger type.
-        /// Expected value is 'MultiplePipelineTrigger'.
+        /// Expected value is 'BlobEventsTrigger'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

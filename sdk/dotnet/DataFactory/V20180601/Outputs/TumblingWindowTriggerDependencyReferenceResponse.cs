@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         public readonly string? Size;
         /// <summary>
         /// The type of dependency reference.
-        /// Expected value is 'TriggerDependencyReference'.
+        /// Expected value is 'TumblingWindowTriggerDependencyReference'.
         /// </summary>
         public readonly string Type;
 
