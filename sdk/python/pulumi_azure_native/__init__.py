@@ -4563,6 +4563,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20210410privatepreview",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20210410privatepreview",
+  "classes": {
+   "azure-native:dbforpostgresql/v20210410privatepreview:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20210410privatepreview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "delegatednetwork",
   "fqn": "pulumi_azure_native.delegatednetwork",
   "classes": {
@@ -11348,6 +11358,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "resources/v20210401",
+  "fqn": "pulumi_azure_native.resources.v20210401",
+  "classes": {
+   "azure-native:resources/v20210401:Deployment": "Deployment",
+   "azure-native:resources/v20210401:DeploymentAtManagementGroupScope": "DeploymentAtManagementGroupScope",
+   "azure-native:resources/v20210401:DeploymentAtScope": "DeploymentAtScope",
+   "azure-native:resources/v20210401:DeploymentAtSubscriptionScope": "DeploymentAtSubscriptionScope",
+   "azure-native:resources/v20210401:DeploymentAtTenantScope": "DeploymentAtTenantScope",
+   "azure-native:resources/v20210401:Resource": "Resource",
+   "azure-native:resources/v20210401:ResourceGroup": "ResourceGroup",
+   "azure-native:resources/v20210401:TagAtScope": "TagAtScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "resources/v20210501",
   "fqn": "pulumi_azure_native.resources.v20210501",
   "classes": {
@@ -11679,6 +11704,7 @@ _utilities.register(
   "mod": "securityinsights/v20210301preview",
   "fqn": "pulumi_azure_native.securityinsights.v20210301preview",
   "classes": {
+   "azure-native:securityinsights/v20210301preview:DataConnector": "DataConnector",
    "azure-native:securityinsights/v20210301preview:ProductSetting": "ProductSetting",
    "azure-native:securityinsights/v20210301preview:Watchlist": "Watchlist",
    "azure-native:securityinsights/v20210301preview:WatchlistItem": "WatchlistItem"

@@ -6,6 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .data_connector import *
+from .get_data_connector import *
 from .get_product_setting import *
 from .get_watchlist import *
 from .get_watchlist_item import *

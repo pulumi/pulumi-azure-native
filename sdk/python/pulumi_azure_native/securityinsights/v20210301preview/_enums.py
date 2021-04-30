@@ -5,9 +5,30 @@
 from enum import Enum
 
 __all__ = [
+    'DataConnectorKind',
     'SettingKind',
     'Source',
 ]
+
+
+class DataConnectorKind(str, Enum):
+    """
+    The data connector kind
+    """
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+    AZURE_SECURITY_CENTER = "AzureSecurityCenter"
+    MICROSOFT_CLOUD_APP_SECURITY = "MicrosoftCloudAppSecurity"
+    THREAT_INTELLIGENCE = "ThreatIntelligence"
+    THREAT_INTELLIGENCE_TAXII = "ThreatIntelligenceTaxii"
+    OFFICE365 = "Office365"
+    OFFICE_ATP = "OfficeATP"
+    AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
+    AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
+    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
+    DYNAMICS365 = "Dynamics365"
+    MICROSOFT_THREAT_PROTECTION = "MicrosoftThreatProtection"
+    MICROSOFT_THREAT_INTELLIGENCE = "MicrosoftThreatIntelligence"
+    GENERIC_UI = "GenericUI"
 
 
 class SettingKind(str, Enum):

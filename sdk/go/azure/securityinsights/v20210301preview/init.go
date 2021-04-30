@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:securityinsights/v20210301preview:DataConnector":
+		r = &DataConnector{}
 	case "azure-native:securityinsights/v20210301preview:ProductSetting":
 		r = &ProductSetting{}
 	case "azure-native:securityinsights/v20210301preview:Watchlist":

@@ -2,6 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DataConnectorKind = {
+    AzureActiveDirectory: "AzureActiveDirectory",
+    AzureSecurityCenter: "AzureSecurityCenter",
+    MicrosoftCloudAppSecurity: "MicrosoftCloudAppSecurity",
+    ThreatIntelligence: "ThreatIntelligence",
+    ThreatIntelligenceTaxii: "ThreatIntelligenceTaxii",
+    Office365: "Office365",
+    OfficeATP: "OfficeATP",
+    AmazonWebServicesCloudTrail: "AmazonWebServicesCloudTrail",
+    AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
+    MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
+    Dynamics365: "Dynamics365",
+    MicrosoftThreatProtection: "MicrosoftThreatProtection",
+    MicrosoftThreatIntelligence: "MicrosoftThreatIntelligence",
+    GenericUI: "GenericUI",
+} as const;
+
+/**
+ * The data connector kind
+ */
+export type DataConnectorKind = (typeof DataConnectorKind)[keyof typeof DataConnectorKind];
+
 export const SettingKind = {
     EyesOn: "EyesOn",
     EntityAnalytics: "EntityAnalytics",

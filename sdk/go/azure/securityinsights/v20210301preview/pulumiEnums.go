@@ -10,6 +10,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The data connector kind
+type DataConnectorKind pulumi.String
+
+const (
+	DataConnectorKindAzureActiveDirectory                      = DataConnectorKind("AzureActiveDirectory")
+	DataConnectorKindAzureSecurityCenter                       = DataConnectorKind("AzureSecurityCenter")
+	DataConnectorKindMicrosoftCloudAppSecurity                 = DataConnectorKind("MicrosoftCloudAppSecurity")
+	DataConnectorKindThreatIntelligence                        = DataConnectorKind("ThreatIntelligence")
+	DataConnectorKindThreatIntelligenceTaxii                   = DataConnectorKind("ThreatIntelligenceTaxii")
+	DataConnectorKindOffice365                                 = DataConnectorKind("Office365")
+	DataConnectorKindOfficeATP                                 = DataConnectorKind("OfficeATP")
+	DataConnectorKindAmazonWebServicesCloudTrail               = DataConnectorKind("AmazonWebServicesCloudTrail")
+	DataConnectorKindAzureAdvancedThreatProtection             = DataConnectorKind("AzureAdvancedThreatProtection")
+	DataConnectorKindMicrosoftDefenderAdvancedThreatProtection = DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection")
+	DataConnectorKindDynamics365                               = DataConnectorKind("Dynamics365")
+	DataConnectorKindMicrosoftThreatProtection                 = DataConnectorKind("MicrosoftThreatProtection")
+	DataConnectorKindMicrosoftThreatIntelligence               = DataConnectorKind("MicrosoftThreatIntelligence")
+	DataConnectorKindGenericUI                                 = DataConnectorKind("GenericUI")
+)
+
+func (DataConnectorKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataConnectorKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataConnectorKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataConnectorKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataConnectorKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The kind of the setting
 type SettingKind pulumi.String
 

@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./dataConnector";
+export * from "./getDataConnector";
 export * from "./getProductSetting";
 export * from "./getWatchlist";
 export * from "./getWatchlistItem";
@@ -16,6 +18,7 @@ export * from "./watchlistItem";
 export * from "../../types/enums/securityinsights/v20210301preview";
 
 // Import resources to register:
+import { DataConnector } from "./dataConnector";
 import { ProductSetting } from "./productSetting";
 import { Watchlist } from "./watchlist";
 import { WatchlistItem } from "./watchlistItem";
@@ -24,6 +27,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:securityinsights/v20210301preview:DataConnector":
+                return new DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:Watchlist":

@@ -56,6 +56,12 @@ func NewConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214preview:Configuration"),
 		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210410privatepreview:Configuration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210410privatepreview:Configuration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Configuration

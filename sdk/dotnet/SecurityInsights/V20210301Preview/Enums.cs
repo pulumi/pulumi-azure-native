@@ -8,6 +8,49 @@ using Pulumi;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
     /// <summary>
+    /// The data connector kind
+    /// </summary>
+    [EnumType]
+    public readonly struct DataConnectorKind : IEquatable<DataConnectorKind>
+    {
+        private readonly string _value;
+
+        private DataConnectorKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataConnectorKind AzureActiveDirectory { get; } = new DataConnectorKind("AzureActiveDirectory");
+        public static DataConnectorKind AzureSecurityCenter { get; } = new DataConnectorKind("AzureSecurityCenter");
+        public static DataConnectorKind MicrosoftCloudAppSecurity { get; } = new DataConnectorKind("MicrosoftCloudAppSecurity");
+        public static DataConnectorKind ThreatIntelligence { get; } = new DataConnectorKind("ThreatIntelligence");
+        public static DataConnectorKind ThreatIntelligenceTaxii { get; } = new DataConnectorKind("ThreatIntelligenceTaxii");
+        public static DataConnectorKind Office365 { get; } = new DataConnectorKind("Office365");
+        public static DataConnectorKind OfficeATP { get; } = new DataConnectorKind("OfficeATP");
+        public static DataConnectorKind AmazonWebServicesCloudTrail { get; } = new DataConnectorKind("AmazonWebServicesCloudTrail");
+        public static DataConnectorKind AzureAdvancedThreatProtection { get; } = new DataConnectorKind("AzureAdvancedThreatProtection");
+        public static DataConnectorKind MicrosoftDefenderAdvancedThreatProtection { get; } = new DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection");
+        public static DataConnectorKind Dynamics365 { get; } = new DataConnectorKind("Dynamics365");
+        public static DataConnectorKind MicrosoftThreatProtection { get; } = new DataConnectorKind("MicrosoftThreatProtection");
+        public static DataConnectorKind MicrosoftThreatIntelligence { get; } = new DataConnectorKind("MicrosoftThreatIntelligence");
+        public static DataConnectorKind GenericUI { get; } = new DataConnectorKind("GenericUI");
+
+        public static bool operator ==(DataConnectorKind left, DataConnectorKind right) => left.Equals(right);
+        public static bool operator !=(DataConnectorKind left, DataConnectorKind right) => !left.Equals(right);
+
+        public static explicit operator string(DataConnectorKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataConnectorKind other && Equals(other);
+        public bool Equals(DataConnectorKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of the setting
     /// </summary>
     [EnumType]

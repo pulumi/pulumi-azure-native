@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210410privatepreview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

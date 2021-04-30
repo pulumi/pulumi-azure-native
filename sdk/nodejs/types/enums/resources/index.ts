@@ -21,6 +21,7 @@ import * as v20200601 from "./v20200601";
 import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
 import * as v20210101 from "./v20210101";
+import * as v20210401 from "./v20210401";
 
 export {
     v20151101,
@@ -42,6 +43,7 @@ export {
     v20200801,
     v20201001,
     v20210101,
+    v20210401,
 };
 
 export const DeploymentMode = {

@@ -27610,7 +27610,18 @@
           "Switzerland North",
           "Norway East",
           "Norway West",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Australia Central 2",
+          "Germany West Central",
+          "Switzerland West",
+          "UAE Central",
+          "Japan West",
+          "Brazil Southeast",
+          "UAE North",
+          "Australia Central",
+          "France South",
+          "South India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "workbooks"
@@ -27650,7 +27661,18 @@
           "Switzerland North",
           "Norway East",
           "Norway West",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Australia Central 2",
+          "Germany West Central",
+          "Switzerland West",
+          "UAE Central",
+          "Japan West",
+          "Brazil Southeast",
+          "UAE North",
+          "Australia Central",
+          "France South",
+          "South India",
+          "West Central US"
         ],
         "properties": null,
         "resourceType": "workbooktemplates"
@@ -60690,6 +60712,100 @@
     ]
   },
   {
+    "authorizations": [
+      {
+        "applicationId": "e935b4a5-8968-416d-8414-caed51c782a9",
+        "roleDefinitionId": "9c6ffa40-421e-4dc0-9739-76b0699a11de"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.GuestConfiguration",
+    "namespace": "Microsoft.GuestConfiguration",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "Registered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-25",
+          "2018-11-20",
+          "2018-06-30-preview",
+          "2018-01-20-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "guestConfigurationAssignments"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2018-06-30-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2",
+          "South Central US"
+        ],
+        "properties": null,
+        "resourceType": "software"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2018-06-30-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2",
+          "South Central US"
+        ],
+        "properties": null,
+        "resourceType": "softwareUpdates"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2018-06-30-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2",
+          "South Central US"
+        ],
+        "properties": null,
+        "resourceType": "softwareUpdateProfile"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-06-25",
+          "2018-11-20",
+          "2018-06-30-preview",
+          "2018-01-20-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
+      }
+    ]
+  },
+  {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.D365CustomerInsights",
     "namespace": "Microsoft.D365CustomerInsights",
     "registrationPolicy": "RegistrationRequired",
@@ -76760,100 +76876,6 @@
     ]
   },
   {
-    "authorizations": [
-      {
-        "applicationId": "e935b4a5-8968-416d-8414-caed51c782a9",
-        "roleDefinitionId": "9c6ffa40-421e-4dc0-9739-76b0699a11de"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.GuestConfiguration",
-    "namespace": "Microsoft.GuestConfiguration",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-25",
-          "2018-11-20",
-          "2018-06-30-preview",
-          "2018-01-20-preview"
-        ],
-        "capabilities": "SupportsExtension",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "guestConfigurationAssignments"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2018-06-30-preview"
-        ],
-        "capabilities": "SupportsExtension",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US 2",
-          "South Central US"
-        ],
-        "properties": null,
-        "resourceType": "software"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2018-06-30-preview"
-        ],
-        "capabilities": "SupportsExtension",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US 2",
-          "South Central US"
-        ],
-        "properties": null,
-        "resourceType": "softwareUpdates"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2018-06-30-preview"
-        ],
-        "capabilities": "SupportsExtension",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US 2",
-          "South Central US"
-        ],
-        "properties": null,
-        "resourceType": "softwareUpdateProfile"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-25",
-          "2018-11-20",
-          "2018-06-30-preview",
-          "2018-01-20-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
-      }
-    ]
-  },
-  {
     "authorization": {
       "applicationId": "cc5476ec-3074-44d1-8461-711f5d9b0e39",
       "managedByRoleDefinitionId": "9e3af657-a8ff-583c-a75c-2fe7c4bcb635",
@@ -79456,61 +79478,6 @@
         ],
         "properties": null,
         "resourceType": "locations/rmsOperationResults"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
-        "applicationId": "b8ed041c-aa91-418e-8f47-20c70abc2de1",
-        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MobileNetwork",
-    "namespace": "Microsoft.MobileNetwork",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US 2 EUAP"
-        ],
-        "properties": null,
-        "resourceType": "Locations/OperationStatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Operations"
       }
     ]
   },
