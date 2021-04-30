@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.3.0 (2020-04-30)
+
 #### New Resources
 
 - `synapse.DatabasePrincipalAssignment`
@@ -26,9 +32,7 @@ CHANGELOG
   `AdminRule`, `UserRule`, `SecurityAdminConfigurations`, `ConnectivityConfiguration`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13827))
 
----
-
-## 1.2.0 (2020-04-26)
+## 1.2.0 (2020-04-28)
 
 #### New Resources
 
