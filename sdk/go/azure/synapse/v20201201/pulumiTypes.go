@@ -6578,7 +6578,7 @@ type ManagedIntegrationRuntime struct {
 	Description *string `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties *IntegrationRuntimeSsisProperties `pulumi:"ssisProperties"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
@@ -6602,7 +6602,7 @@ type ManagedIntegrationRuntimeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
 	SsisProperties IntegrationRuntimeSsisPropertiesPtrInput `pulumi:"ssisProperties"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -6649,7 +6649,7 @@ func (o ManagedIntegrationRuntimeOutput) SsisProperties() IntegrationRuntimeSsis
 	return o.ApplyT(func(v ManagedIntegrationRuntime) *IntegrationRuntimeSsisProperties { return v.SsisProperties }).(IntegrationRuntimeSsisPropertiesPtrOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
@@ -7012,7 +7012,7 @@ type ManagedIntegrationRuntimeResponse struct {
 	SsisProperties *IntegrationRuntimeSsisPropertiesResponse `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State string `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
@@ -7038,7 +7038,7 @@ type ManagedIntegrationRuntimeResponseArgs struct {
 	SsisProperties IntegrationRuntimeSsisPropertiesResponsePtrInput `pulumi:"ssisProperties"`
 	// Integration runtime state, only valid for managed dedicated integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7094,7 +7094,7 @@ func (o ManagedIntegrationRuntimeResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -7114,7 +7114,7 @@ type ManagedIntegrationRuntimeStatusResponse struct {
 	OtherErrors []ManagedIntegrationRuntimeErrorResponse `pulumi:"otherErrors"`
 	// The state of integration runtime.
 	State string `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type string `pulumi:"type"`
 }
@@ -7144,7 +7144,7 @@ type ManagedIntegrationRuntimeStatusResponseArgs struct {
 	OtherErrors ManagedIntegrationRuntimeErrorResponseArrayInput `pulumi:"otherErrors"`
 	// The state of integration runtime.
 	State pulumi.StringInput `pulumi:"state"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'Managed'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7212,7 +7212,7 @@ func (o ManagedIntegrationRuntimeStatusResponseOutput) State() pulumi.StringOutp
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'Managed'.
 func (o ManagedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -8991,7 +8991,7 @@ type SelfHostedIntegrationRuntime struct {
 	Description *string `pulumi:"description"`
 	// Linked integration runtime type from data factory
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
@@ -9013,7 +9013,7 @@ type SelfHostedIntegrationRuntimeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Linked integration runtime type from data factory
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -9055,7 +9055,7 @@ func (o SelfHostedIntegrationRuntimeOutput) LinkedInfo() pulumi.AnyOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
@@ -9320,7 +9320,7 @@ type SelfHostedIntegrationRuntimeResponse struct {
 	Description *string `pulumi:"description"`
 	// Linked integration runtime type from data factory
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 }
@@ -9342,7 +9342,7 @@ type SelfHostedIntegrationRuntimeResponseArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Linked integration runtime type from data factory
 	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -9384,7 +9384,7 @@ func (o SelfHostedIntegrationRuntimeResponseOutput) LinkedInfo() pulumi.AnyOutpu
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -9424,7 +9424,7 @@ type SelfHostedIntegrationRuntimeStatusResponse struct {
 	State string `pulumi:"state"`
 	// The task queue id of the integration runtime.
 	TaskQueueId string `pulumi:"taskQueueId"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type string `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
@@ -9480,7 +9480,7 @@ type SelfHostedIntegrationRuntimeStatusResponseArgs struct {
 	State pulumi.StringInput `pulumi:"state"`
 	// The task queue id of the integration runtime.
 	TaskQueueId pulumi.StringInput `pulumi:"taskQueueId"`
-	// Type of integration runtime.
+	// The type of integration runtime.
 	// Expected value is 'SelfHosted'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours
@@ -9602,7 +9602,7 @@ func (o SelfHostedIntegrationRuntimeStatusResponseOutput) TaskQueueId() pulumi.S
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.TaskQueueId }).(pulumi.StringOutput)
 }
 
-// Type of integration runtime.
+// The type of integration runtime.
 // Expected value is 'SelfHosted'.
 func (o SelfHostedIntegrationRuntimeStatusResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelfHostedIntegrationRuntimeStatusResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -10304,7 +10304,7 @@ type SsisEnvironmentResponse struct {
 	Id *float64 `pulumi:"id"`
 	// Metadata name.
 	Name *string `pulumi:"name"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Environment'.
 	Type string `pulumi:"type"`
 	// Variable in environment
@@ -10332,7 +10332,7 @@ type SsisEnvironmentResponseArgs struct {
 	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Environment'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Variable in environment
@@ -10386,7 +10386,7 @@ func (o SsisEnvironmentResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SsisEnvironmentResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of metadata.
+// The type of SSIS object metadata.
 // Expected value is 'Environment'.
 func (o SsisEnvironmentResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisEnvironmentResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -10405,7 +10405,7 @@ type SsisFolderResponse struct {
 	Id *float64 `pulumi:"id"`
 	// Metadata name.
 	Name *string `pulumi:"name"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Folder'.
 	Type string `pulumi:"type"`
 }
@@ -10429,7 +10429,7 @@ type SsisFolderResponseArgs struct {
 	Id pulumi.Float64PtrInput `pulumi:"id"`
 	// Metadata name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Folder'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10476,7 +10476,7 @@ func (o SsisFolderResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SsisFolderResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of metadata.
+// The type of SSIS object metadata.
 // Expected value is 'Folder'.
 func (o SsisFolderResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisFolderResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -10498,7 +10498,7 @@ type SsisPackageResponse struct {
 	ProjectId *float64 `pulumi:"projectId"`
 	// Project version which contains package.
 	ProjectVersion *float64 `pulumi:"projectVersion"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Package'.
 	Type string `pulumi:"type"`
 }
@@ -10530,7 +10530,7 @@ type SsisPackageResponseArgs struct {
 	ProjectId pulumi.Float64PtrInput `pulumi:"projectId"`
 	// Project version which contains package.
 	ProjectVersion pulumi.Float64PtrInput `pulumi:"projectVersion"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Package'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10597,7 +10597,7 @@ func (o SsisPackageResponseOutput) ProjectVersion() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SsisPackageResponse) *float64 { return v.ProjectVersion }).(pulumi.Float64PtrOutput)
 }
 
-// Type of metadata.
+// The type of SSIS object metadata.
 // Expected value is 'Package'.
 func (o SsisPackageResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisPackageResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -10816,7 +10816,7 @@ type SsisProjectResponse struct {
 	Name *string `pulumi:"name"`
 	// Parameters in project
 	Parameters []SsisParameterResponse `pulumi:"parameters"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Project'.
 	Type string `pulumi:"type"`
 	// Project version.
@@ -10848,7 +10848,7 @@ type SsisProjectResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Parameters in project
 	Parameters SsisParameterResponseArrayInput `pulumi:"parameters"`
-	// Type of metadata.
+	// The type of SSIS object metadata.
 	// Expected value is 'Project'.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Project version.
@@ -10912,7 +10912,7 @@ func (o SsisProjectResponseOutput) Parameters() SsisParameterResponseArrayOutput
 	return o.ApplyT(func(v SsisProjectResponse) []SsisParameterResponse { return v.Parameters }).(SsisParameterResponseArrayOutput)
 }
 
-// Type of metadata.
+// The type of SSIS object metadata.
 // Expected value is 'Project'.
 func (o SsisProjectResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SsisProjectResponse) string { return v.Type }).(pulumi.StringOutput)

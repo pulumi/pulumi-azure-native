@@ -12,7 +12,7 @@ import (
 
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanism struct {
-	// The type of auto scaling mechanism.
+	// Enumerates the mechanisms for auto scaling.
 	// Expected value is 'AddRemoveReplica'.
 	Kind string `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
@@ -36,7 +36,7 @@ type AddRemoveReplicaScalingMechanismInput interface {
 
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismArgs struct {
-	// The type of auto scaling mechanism.
+	// Enumerates the mechanisms for auto scaling.
 	// Expected value is 'AddRemoveReplica'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
@@ -74,7 +74,7 @@ func (o AddRemoveReplicaScalingMechanismOutput) ToAddRemoveReplicaScalingMechani
 	return o
 }
 
-// The type of auto scaling mechanism.
+// Enumerates the mechanisms for auto scaling.
 // Expected value is 'AddRemoveReplica'.
 func (o AddRemoveReplicaScalingMechanismOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) string { return v.Kind }).(pulumi.StringOutput)
@@ -97,7 +97,7 @@ func (o AddRemoveReplicaScalingMechanismOutput) ScaleIncrement() pulumi.IntOutpu
 
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponse struct {
-	// The type of auto scaling mechanism.
+	// Enumerates the mechanisms for auto scaling.
 	// Expected value is 'AddRemoveReplica'.
 	Kind string `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
@@ -121,7 +121,7 @@ type AddRemoveReplicaScalingMechanismResponseInput interface {
 
 // Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
 type AddRemoveReplicaScalingMechanismResponseArgs struct {
-	// The type of auto scaling mechanism.
+	// Enumerates the mechanisms for auto scaling.
 	// Expected value is 'AddRemoveReplica'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Maximum number of containers (scale up won't be performed above this number).
@@ -159,7 +159,7 @@ func (o AddRemoveReplicaScalingMechanismResponseOutput) ToAddRemoveReplicaScalin
 	return o
 }
 
-// The type of auto scaling mechanism.
+// Enumerates the mechanisms for auto scaling.
 // Expected value is 'AddRemoveReplica'.
 func (o AddRemoveReplicaScalingMechanismResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) string { return v.Kind }).(pulumi.StringOutput)
@@ -832,7 +832,7 @@ func (o AutoScalingPolicyResponseArrayOutput) Index(i pulumi.IntInput) AutoScali
 
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetric struct {
-	// The type of auto scaling metric
+	// Enumerates the metrics that are used for triggering auto scaling.
 	// Expected value is 'Resource'.
 	Kind string `pulumi:"kind"`
 	// Name of the resource.
@@ -852,7 +852,7 @@ type AutoScalingResourceMetricInput interface {
 
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricArgs struct {
-	// The type of auto scaling metric
+	// Enumerates the metrics that are used for triggering auto scaling.
 	// Expected value is 'Resource'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Name of the resource.
@@ -886,7 +886,7 @@ func (o AutoScalingResourceMetricOutput) ToAutoScalingResourceMetricOutputWithCo
 	return o
 }
 
-// The type of auto scaling metric
+// Enumerates the metrics that are used for triggering auto scaling.
 // Expected value is 'Resource'.
 func (o AutoScalingResourceMetricOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetric) string { return v.Kind }).(pulumi.StringOutput)
@@ -899,7 +899,7 @@ func (o AutoScalingResourceMetricOutput) Name() pulumi.StringOutput {
 
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponse struct {
-	// The type of auto scaling metric
+	// Enumerates the metrics that are used for triggering auto scaling.
 	// Expected value is 'Resource'.
 	Kind string `pulumi:"kind"`
 	// Name of the resource.
@@ -919,7 +919,7 @@ type AutoScalingResourceMetricResponseInput interface {
 
 // Describes the resource that is used for triggering auto scaling.
 type AutoScalingResourceMetricResponseArgs struct {
-	// The type of auto scaling metric
+	// Enumerates the metrics that are used for triggering auto scaling.
 	// Expected value is 'Resource'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Name of the resource.
@@ -953,7 +953,7 @@ func (o AutoScalingResourceMetricResponseOutput) ToAutoScalingResourceMetricResp
 	return o
 }
 
-// The type of auto scaling metric
+// Enumerates the metrics that are used for triggering auto scaling.
 // Expected value is 'Resource'.
 func (o AutoScalingResourceMetricResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingResourceMetricResponse) string { return v.Kind }).(pulumi.StringOutput)
@@ -966,7 +966,7 @@ func (o AutoScalingResourceMetricResponseOutput) Name() pulumi.StringOutput {
 
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTrigger struct {
-	// The type of auto scaling trigger
+	// Enumerates the triggers for auto scaling.
 	// Expected value is 'AverageLoad'.
 	Kind string `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
@@ -992,7 +992,7 @@ type AverageLoadScalingTriggerInput interface {
 
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerArgs struct {
-	// The type of auto scaling trigger
+	// Enumerates the triggers for auto scaling.
 	// Expected value is 'AverageLoad'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
@@ -1032,7 +1032,7 @@ func (o AverageLoadScalingTriggerOutput) ToAverageLoadScalingTriggerOutputWithCo
 	return o
 }
 
-// The type of auto scaling trigger
+// Enumerates the triggers for auto scaling.
 // Expected value is 'AverageLoad'.
 func (o AverageLoadScalingTriggerOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AverageLoadScalingTrigger) string { return v.Kind }).(pulumi.StringOutput)
@@ -1060,7 +1060,7 @@ func (o AverageLoadScalingTriggerOutput) UpperLoadThreshold() pulumi.Float64Outp
 
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponse struct {
-	// The type of auto scaling trigger
+	// Enumerates the triggers for auto scaling.
 	// Expected value is 'AverageLoad'.
 	Kind string `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
@@ -1086,7 +1086,7 @@ type AverageLoadScalingTriggerResponseInput interface {
 
 // Describes the average load trigger used for auto scaling.
 type AverageLoadScalingTriggerResponseArgs struct {
-	// The type of auto scaling trigger
+	// Enumerates the triggers for auto scaling.
 	// Expected value is 'AverageLoad'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Lower load threshold (if average load is below this threshold, service will scale down).
@@ -1126,7 +1126,7 @@ func (o AverageLoadScalingTriggerResponseOutput) ToAverageLoadScalingTriggerResp
 	return o
 }
 
-// The type of auto scaling trigger
+// Enumerates the triggers for auto scaling.
 // Expected value is 'AverageLoad'.
 func (o AverageLoadScalingTriggerResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) string { return v.Kind }).(pulumi.StringOutput)

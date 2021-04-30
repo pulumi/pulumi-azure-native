@@ -22,7 +22,7 @@ type AzureBackupServerContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'DPMContainer'.
+	// Expected value is 'AzureBackupServerContainer'.
 	ContainerType *string `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
@@ -67,7 +67,7 @@ type AzureBackupServerContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'DPMContainer'.
+	// Expected value is 'AzureBackupServerContainer'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
@@ -135,7 +135,7 @@ func (o AzureBackupServerContainerOutput) ContainerId() pulumi.StringPtrOutput {
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'DPMContainer'.
+// Expected value is 'AzureBackupServerContainer'.
 func (o AzureBackupServerContainerOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -197,7 +197,7 @@ type AzureBackupServerContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'DPMContainer'.
+	// Expected value is 'AzureBackupServerContainer'.
 	ContainerType *string `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
@@ -242,7 +242,7 @@ type AzureBackupServerContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'DPMContainer'.
+	// Expected value is 'AzureBackupServerContainer'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Backup engine Agent version
 	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
@@ -310,7 +310,7 @@ func (o AzureBackupServerContainerResponseOutput) ContainerId() pulumi.StringPtr
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'DPMContainer'.
+// Expected value is 'AzureBackupServerContainer'.
 func (o AzureBackupServerContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -368,7 +368,7 @@ type AzureIaaSClassicComputeVMContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ContainerType *string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -403,7 +403,7 @@ type AzureIaaSClassicComputeVMContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -455,7 +455,7 @@ func (o AzureIaaSClassicComputeVMContainerOutput) BackupManagementType() pulumi.
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'IaaSVMContainer'.
+// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMContainerOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -498,7 +498,7 @@ type AzureIaaSClassicComputeVMContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ContainerType *string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -533,7 +533,7 @@ type AzureIaaSClassicComputeVMContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -585,7 +585,7 @@ func (o AzureIaaSClassicComputeVMContainerResponseOutput) BackupManagementType()
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'IaaSVMContainer'.
+// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -628,7 +628,7 @@ type AzureIaaSComputeVMContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ContainerType *string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -663,7 +663,7 @@ type AzureIaaSComputeVMContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -715,7 +715,7 @@ func (o AzureIaaSComputeVMContainerOutput) BackupManagementType() pulumi.StringP
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'IaaSVMContainer'.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMContainerOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -758,7 +758,7 @@ type AzureIaaSComputeVMContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ContainerType *string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -793,7 +793,7 @@ type AzureIaaSComputeVMContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
@@ -845,7 +845,7 @@ func (o AzureIaaSComputeVMContainerResponseOutput) BackupManagementType() pulumi
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'IaaSVMContainer'.
+// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -888,7 +888,7 @@ type AzureSQLAGWorkloadContainerProtectionContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'SQLAGWorkLoadContainer'.
 	ContainerType *string `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
@@ -927,7 +927,7 @@ type AzureSQLAGWorkloadContainerProtectionContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'SQLAGWorkLoadContainer'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
@@ -983,7 +983,7 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) BackupManagementTy
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'AzureWorkloadContainer'.
+// Expected value is 'SQLAGWorkLoadContainer'.
 func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -1038,7 +1038,7 @@ type AzureSQLAGWorkloadContainerProtectionContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'SQLAGWorkLoadContainer'.
 	ContainerType *string `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
@@ -1077,7 +1077,7 @@ type AzureSQLAGWorkloadContainerProtectionContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'SQLAGWorkLoadContainer'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
@@ -1133,7 +1133,7 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) BackupMana
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'AzureWorkloadContainer'.
+// Expected value is 'SQLAGWorkLoadContainer'.
 func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -1672,7 +1672,7 @@ type AzureVMAppContainerProtectionContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'VMAppContainer'.
 	ContainerType *string `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
@@ -1711,7 +1711,7 @@ type AzureVMAppContainerProtectionContainerArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'VMAppContainer'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
@@ -1767,7 +1767,7 @@ func (o AzureVMAppContainerProtectionContainerOutput) BackupManagementType() pul
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'AzureWorkloadContainer'.
+// Expected value is 'VMAppContainer'.
 func (o AzureVMAppContainerProtectionContainerOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
@@ -1822,7 +1822,7 @@ type AzureVMAppContainerProtectionContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'VMAppContainer'.
 	ContainerType *string `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
@@ -1861,7 +1861,7 @@ type AzureVMAppContainerProtectionContainerResponseArgs struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'AzureWorkloadContainer'.
+	// Expected value is 'VMAppContainer'.
 	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
 	// Additional details of a workload container.
 	ExtendedInfo AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
@@ -1917,7 +1917,7 @@ func (o AzureVMAppContainerProtectionContainerResponseOutput) BackupManagementTy
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-// Expected value is 'AzureWorkloadContainer'.
+// Expected value is 'VMAppContainer'.
 func (o AzureVMAppContainerProtectionContainerResponseOutput) ContainerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }

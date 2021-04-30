@@ -1960,7 +1960,7 @@ type AKSServiceResponseResponse struct {
 	// The name of the compute resource.
 	ComputeName *string `pulumi:"computeName"`
 	// The compute environment type for the service.
-	// Expected value is 'Custom'.
+	// Expected value is 'AKS'.
 	ComputeType string `pulumi:"computeType"`
 	// The container resource requirements.
 	ContainerResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"containerResourceRequirements"`
@@ -2034,7 +2034,7 @@ type AKSServiceResponseResponseArgs struct {
 	// The name of the compute resource.
 	ComputeName pulumi.StringPtrInput `pulumi:"computeName"`
 	// The compute environment type for the service.
-	// Expected value is 'Custom'.
+	// Expected value is 'AKS'.
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// The container resource requirements.
 	ContainerResourceRequirements ContainerResourceRequirementsResponsePtrInput `pulumi:"containerResourceRequirements"`
@@ -2137,7 +2137,7 @@ func (o AKSServiceResponseResponseOutput) ComputeName() pulumi.StringPtrOutput {
 }
 
 // The compute environment type for the service.
-// Expected value is 'Custom'.
+// Expected value is 'AKS'.
 func (o AKSServiceResponseResponseOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v AKSServiceResponseResponse) string { return v.ComputeType }).(pulumi.StringOutput)
 }
