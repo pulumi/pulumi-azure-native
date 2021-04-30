@@ -105,7 +105,7 @@ class AzureBackupServerContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'DPMContainer'.
+               Expected value is 'AzureBackupServerContainer'.
         :param str dpm_agent_version: Backup engine Agent version
         :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
         :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
@@ -123,7 +123,7 @@ class AzureBackupServerContainerResponse(dict):
         if container_id is not None:
             pulumi.set(__self__, "container_id", container_id)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", 'DPMContainer')
+            pulumi.set(__self__, "container_type", 'AzureBackupServerContainer')
         if dpm_agent_version is not None:
             pulumi.set(__self__, "dpm_agent_version", dpm_agent_version)
         if dpm_servers is not None:
@@ -175,7 +175,7 @@ class AzureBackupServerContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'DPMContainer'.
+        Expected value is 'AzureBackupServerContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -304,7 +304,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'IaaSVMContainer'.
+               Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -315,7 +315,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+            pulumi.set(__self__, "container_type", 'Microsoft.ClassicCompute/virtualMachines')
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
@@ -345,7 +345,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'IaaSVMContainer'.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "container_type")
 
@@ -450,7 +450,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'IaaSVMContainer'.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -461,7 +461,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+            pulumi.set(__self__, "container_type", 'Microsoft.Compute/virtualMachines')
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
@@ -491,7 +491,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'IaaSVMContainer'.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "container_type")
 
@@ -602,7 +602,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'AzureWorkloadContainer'.
+               Expected value is 'SQLAGWorkLoadContainer'.
         :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -615,7 +615,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+            pulumi.set(__self__, "container_type", 'SQLAGWorkLoadContainer')
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
@@ -649,7 +649,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'AzureWorkloadContainer'.
+        Expected value is 'SQLAGWorkLoadContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -1040,7 +1040,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'AzureWorkloadContainer'.
+               Expected value is 'VMAppContainer'.
         :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -1053,7 +1053,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+            pulumi.set(__self__, "container_type", 'VMAppContainer')
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
@@ -1087,7 +1087,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'AzureWorkloadContainer'.
+        Expected value is 'VMAppContainer'.
         """
         return pulumi.get(self, "container_type")
 

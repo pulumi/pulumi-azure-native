@@ -569,7 +569,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -615,7 +615,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+            pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
@@ -784,7 +784,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -947,7 +947,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -993,7 +993,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+            pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
@@ -1162,7 +1162,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2624,7 +2624,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str server_name: Host/Cluster Name for instance or AG
@@ -2672,7 +2672,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+            pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
@@ -2849,7 +2849,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3016,7 +3016,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str server_name: Host/Cluster Name for instance or AG
@@ -3064,7 +3064,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+            pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
@@ -3241,7 +3241,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3408,7 +3408,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSQLDatabase'.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param str server_name: Host/Cluster Name for instance or AG
@@ -3456,7 +3456,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+            pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
@@ -3633,7 +3633,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> Optional[str]:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSQLDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 

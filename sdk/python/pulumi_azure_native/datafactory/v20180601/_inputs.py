@@ -1113,7 +1113,7 @@ class AmazonMWSSourceArgs:
         """
         A copy activity Amazon Marketplace Web Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AmazonMWSSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -1121,7 +1121,7 @@ class AmazonMWSSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AmazonMWSSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -1140,7 +1140,7 @@ class AmazonMWSSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AmazonMWSSource'.
         """
         return pulumi.get(self, "type")
 
@@ -1418,7 +1418,7 @@ class AmazonRedshiftSourceArgs:
         """
         A copy activity source for Amazon Redshift Source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AmazonRedshiftSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -1427,7 +1427,7 @@ class AmazonRedshiftSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AmazonRedshiftSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -1448,7 +1448,7 @@ class AmazonRedshiftSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AmazonRedshiftSource'.
         """
         return pulumi.get(self, "type")
 
@@ -2920,7 +2920,7 @@ class AppendVariableActivityArgs:
         Append value for a Variable of type Array.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'AppendVariable'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -2928,7 +2928,7 @@ class AppendVariableActivityArgs:
         :param pulumi.Input[str] variable_name: Name of the variable whose value needs to be appended to.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'AppendVariable')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -2957,7 +2957,7 @@ class AppendVariableActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'AppendVariable'.
         """
         return pulumi.get(self, "type")
 
@@ -5660,7 +5660,7 @@ class AzureDataExplorerCommandActivityArgs:
         :param Any command: A control command, according to the Azure Data Explorer command syntax. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureDataExplorerCommand'.
         :param Any command_timeout: Control command timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9]))..)
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -5670,7 +5670,7 @@ class AzureDataExplorerCommandActivityArgs:
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureDataExplorerCommand')
         if command_timeout is not None:
             pulumi.set(__self__, "command_timeout", command_timeout)
         if depends_on is not None:
@@ -5713,7 +5713,7 @@ class AzureDataExplorerCommandActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureDataExplorerCommand'.
         """
         return pulumi.get(self, "type")
 
@@ -9258,7 +9258,7 @@ class AzureFunctionActivityArgs:
         :param pulumi.Input[Union[str, 'AzureFunctionActivityMethod']] method: Rest API method for target endpoint.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureFunctionActivity'.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -9270,7 +9270,7 @@ class AzureFunctionActivityArgs:
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureFunctionActivity')
         if body is not None:
             pulumi.set(__self__, "body", body)
         if depends_on is not None:
@@ -9327,7 +9327,7 @@ class AzureFunctionActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureFunctionActivity'.
         """
         return pulumi.get(self, "type")
 
@@ -9748,7 +9748,7 @@ class AzureMLBatchExecutionActivityArgs:
         Azure ML Batch Execution activity.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureMLBatchExecution'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Mapping[str, Any]] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
@@ -9759,7 +9759,7 @@ class AzureMLBatchExecutionActivityArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['AzureMLWebServiceFileArgs']]] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureMLBatchExecution')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -9794,7 +9794,7 @@ class AzureMLBatchExecutionActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureMLBatchExecution'.
         """
         return pulumi.get(self, "type")
 
@@ -9921,7 +9921,7 @@ class AzureMLExecutePipelineActivityArgs:
         Azure ML Execute Pipeline activity.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureMLExecutePipeline'.
         :param Any continue_on_step_failure: Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
         :param Any data_path_assignments: Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -9937,7 +9937,7 @@ class AzureMLExecutePipelineActivityArgs:
         :param Any version: Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureMLExecutePipeline')
         if continue_on_step_failure is not None:
             pulumi.set(__self__, "continue_on_step_failure", continue_on_step_failure)
         if data_path_assignments is not None:
@@ -9982,7 +9982,7 @@ class AzureMLExecutePipelineActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureMLExecutePipeline'.
         """
         return pulumi.get(self, "type")
 
@@ -10564,7 +10564,7 @@ class AzureMLUpdateResourceActivityArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
         :param Any trained_model_name: Name of the Trained Model module in the Web Service experiment to be updated. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'AzureMLUpdateResource'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
@@ -10575,7 +10575,7 @@ class AzureMLUpdateResourceActivityArgs:
         pulumi.set(__self__, "trained_model_file_path", trained_model_file_path)
         pulumi.set(__self__, "trained_model_linked_service_name", trained_model_linked_service_name)
         pulumi.set(__self__, "trained_model_name", trained_model_name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'AzureMLUpdateResource')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -10640,7 +10640,7 @@ class AzureMLUpdateResourceActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'AzureMLUpdateResource'.
         """
         return pulumi.get(self, "type")
 
@@ -10897,7 +10897,7 @@ class AzureMariaDBSourceArgs:
         """
         A copy activity Azure MariaDB source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AzureMariaDBSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -10905,7 +10905,7 @@ class AzureMariaDBSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AzureMariaDBSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -10924,7 +10924,7 @@ class AzureMariaDBSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AzureMariaDBSource'.
         """
         return pulumi.get(self, "type")
 
@@ -11427,7 +11427,7 @@ class AzureMySqlSourceArgs:
         """
         A copy activity Azure MySQL source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AzureMySqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -11435,7 +11435,7 @@ class AzureMySqlSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AzureMySqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -11454,7 +11454,7 @@ class AzureMySqlSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AzureMySqlSource'.
         """
         return pulumi.get(self, "type")
 
@@ -11974,7 +11974,7 @@ class AzurePostgreSqlSourceArgs:
         """
         A copy activity Azure PostgreSQL source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AzurePostgreSqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -11982,7 +11982,7 @@ class AzurePostgreSqlSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AzurePostgreSqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -12001,7 +12001,7 @@ class AzurePostgreSqlSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AzurePostgreSqlSource'.
         """
         return pulumi.get(self, "type")
 
@@ -13950,7 +13950,7 @@ class AzureSqlSourceArgs:
         """
         A copy activity Azure SQL source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AzureSqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -13963,7 +13963,7 @@ class AzureSqlSourceArgs:
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AzureSqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -13992,7 +13992,7 @@ class AzureSqlSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AzureSqlSource'.
         """
         return pulumi.get(self, "type")
 
@@ -14804,7 +14804,7 @@ class AzureTableSourceArgs:
         """
         A copy activity Azure Table source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'AzureTableSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any azure_table_source_ignore_table_not_found: Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
         :param Any azure_table_source_query: Azure Table source query. Type: string (or Expression with resultType string).
@@ -14813,7 +14813,7 @@ class AzureTableSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'AzureTableSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if azure_table_source_ignore_table_not_found is not None:
@@ -14834,7 +14834,7 @@ class AzureTableSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'AzureTableSource'.
         """
         return pulumi.get(self, "type")
 
@@ -15547,7 +15547,7 @@ class BlobEventsTriggerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'BlobEventTypes']]]] events: The type of events that cause this trigger to fire.
         :param pulumi.Input[str] scope: The ARM resource ID of the Storage Account.
         :param pulumi.Input[str] type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'BlobEventsTrigger'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] blob_path_begins_with: The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
         :param pulumi.Input[str] blob_path_ends_with: The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. At least one of these must be provided: blobPathBeginsWith, blobPathEndsWith.
@@ -15557,7 +15557,7 @@ class BlobEventsTriggerArgs:
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'BlobEventsTrigger')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if blob_path_begins_with is not None:
@@ -15600,7 +15600,7 @@ class BlobEventsTriggerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'BlobEventsTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -15987,7 +15987,7 @@ class BlobTriggerArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: The Azure Storage linked service reference.
         :param pulumi.Input[int] max_concurrency: The max number of parallel files to handle when it is triggered.
         :param pulumi.Input[str] type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'BlobTrigger'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] description: Trigger description.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
@@ -15995,7 +15995,7 @@ class BlobTriggerArgs:
         pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "linked_service", linked_service)
         pulumi.set(__self__, "max_concurrency", max_concurrency)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'BlobTrigger')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -16044,7 +16044,7 @@ class BlobTriggerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'BlobTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -16311,7 +16311,7 @@ class CassandraSourceArgs:
         """
         A copy activity source for a Cassandra database.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'CassandraSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']] consistency_level: The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -16320,7 +16320,7 @@ class CassandraSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'CassandraSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if consistency_level is not None:
@@ -16341,7 +16341,7 @@ class CassandraSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'CassandraSource'.
         """
         return pulumi.get(self, "type")
 
@@ -17898,7 +17898,7 @@ class ConcurSourceArgs:
         """
         A copy activity Concur Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'ConcurSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -17906,7 +17906,7 @@ class ConcurSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'ConcurSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -17925,7 +17925,7 @@ class ConcurSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'ConcurSource'.
         """
         return pulumi.get(self, "type")
 
@@ -18127,7 +18127,7 @@ class CopyActivityArgs:
         :param pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']] sink: Copy activity sink.
         :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -18152,7 +18152,7 @@ class CopyActivityArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sink", sink)
         pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Copy')
         if data_integration_units is not None:
             pulumi.set(__self__, "data_integration_units", data_integration_units)
         if depends_on is not None:
@@ -18235,7 +18235,7 @@ class CopyActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Copy'.
         """
         return pulumi.get(self, "type")
 
@@ -19908,7 +19908,7 @@ class CouchbaseSourceArgs:
         """
         A copy activity Couchbase server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'CouchbaseSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -19916,7 +19916,7 @@ class CouchbaseSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'CouchbaseSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -19935,7 +19935,7 @@ class CouchbaseSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'CouchbaseSource'.
         """
         return pulumi.get(self, "type")
 
@@ -20190,7 +20190,7 @@ class CustomActivityArgs:
         :param Any command: Command for custom activity Type: string (or Expression with resultType string).
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Custom'.
         :param Any auto_user_specification: Elevation level and scope for the user, default is nonadmin task. Type: string (or Expression with resultType double).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -20205,7 +20205,7 @@ class CustomActivityArgs:
         """
         pulumi.set(__self__, "command", command)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Custom')
         if auto_user_specification is not None:
             pulumi.set(__self__, "auto_user_specification", auto_user_specification)
         if depends_on is not None:
@@ -20258,7 +20258,7 @@ class CustomActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Custom'.
         """
         return pulumi.get(self, "type")
 
@@ -20680,7 +20680,7 @@ class CustomEventsTriggerArgs:
         :param pulumi.Input[Sequence[Any]] events: The list of event types that cause this trigger to fire.
         :param pulumi.Input[str] scope: The ARM resource ID of the Azure Event Grid Topic.
         :param pulumi.Input[str] type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'CustomEventsTrigger'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] description: Trigger description.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
@@ -20689,7 +20689,7 @@ class CustomEventsTriggerArgs:
         """
         pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'CustomEventsTrigger')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -20730,7 +20730,7 @@ class CustomEventsTriggerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'CustomEventsTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -21194,7 +21194,7 @@ class DataLakeAnalyticsUSQLActivityArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] script_linked_service: Script linked service reference.
         :param Any script_path: Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'DataLakeAnalyticsU-SQL'.
         :param Any compilation_mode: Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).
         :param Any degree_of_parallelism: The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -21209,7 +21209,7 @@ class DataLakeAnalyticsUSQLActivityArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "script_linked_service", script_linked_service)
         pulumi.set(__self__, "script_path", script_path)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'DataLakeAnalyticsU-SQL')
         if compilation_mode is not None:
             pulumi.set(__self__, "compilation_mode", compilation_mode)
         if degree_of_parallelism is not None:
@@ -21272,7 +21272,7 @@ class DataLakeAnalyticsUSQLActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'DataLakeAnalyticsU-SQL'.
         """
         return pulumi.get(self, "type")
 
@@ -21419,7 +21419,7 @@ class DatabricksNotebookActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param Any notebook_path: The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'DatabricksNotebook'.
         :param pulumi.Input[Mapping[str, Any]] base_parameters: Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -21430,7 +21430,7 @@ class DatabricksNotebookActivityArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "notebook_path", notebook_path)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'DatabricksNotebook')
         if base_parameters is not None:
             pulumi.set(__self__, "base_parameters", base_parameters)
         if depends_on is not None:
@@ -21475,7 +21475,7 @@ class DatabricksNotebookActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'DatabricksNotebook'.
         """
         return pulumi.get(self, "type")
 
@@ -21586,7 +21586,7 @@ class DatabricksSparkJarActivityArgs:
         :param Any main_class_name: The full name of the class containing the main method to be executed. This class must be contained in a JAR provided as a library. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'DatabricksSparkJar'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] libraries: A list of libraries to be installed on the cluster that will execute the job.
@@ -21597,7 +21597,7 @@ class DatabricksSparkJarActivityArgs:
         """
         pulumi.set(__self__, "main_class_name", main_class_name)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'DatabricksSparkJar')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -21642,7 +21642,7 @@ class DatabricksSparkJarActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'DatabricksSparkJar'.
         """
         return pulumi.get(self, "type")
 
@@ -21753,7 +21753,7 @@ class DatabricksSparkPythonActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param Any python_file: The URI of the Python file to be executed. DBFS paths are supported. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'DatabricksSparkPython'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] libraries: A list of libraries to be installed on the cluster that will execute the job.
@@ -21764,7 +21764,7 @@ class DatabricksSparkPythonActivityArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "python_file", python_file)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'DatabricksSparkPython')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -21809,7 +21809,7 @@ class DatabricksSparkPythonActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'DatabricksSparkPython'.
         """
         return pulumi.get(self, "type")
 
@@ -22440,7 +22440,7 @@ class Db2SourceArgs:
         """
         A copy activity source for Db2 databases.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'Db2Source'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -22448,7 +22448,7 @@ class Db2SourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'Db2Source')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -22467,7 +22467,7 @@ class Db2SourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'Db2Source'.
         """
         return pulumi.get(self, "type")
 
@@ -22737,7 +22737,7 @@ class DeleteActivityArgs:
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Delete activity dataset reference.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Delete'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param Any enable_logging: Whether to record detailed logs of delete-activity execution. Default value is false. Type: boolean (or Expression with resultType boolean).
@@ -22751,7 +22751,7 @@ class DeleteActivityArgs:
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Delete')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -22802,7 +22802,7 @@ class DeleteActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Delete'.
         """
         return pulumi.get(self, "type")
 
@@ -24254,7 +24254,7 @@ class DrillSourceArgs:
         """
         A copy activity Drill server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'DrillSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -24262,7 +24262,7 @@ class DrillSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'DrillSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -24281,7 +24281,7 @@ class DrillSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'DrillSource'.
         """
         return pulumi.get(self, "type")
 
@@ -24875,7 +24875,7 @@ class DynamicsAXSourceArgs:
         """
         A copy activity Dynamics AX source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'DynamicsAXSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -24884,7 +24884,7 @@ class DynamicsAXSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'DynamicsAXSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if http_request_timeout is not None:
@@ -24905,7 +24905,7 @@ class DynamicsAXSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'DynamicsAXSource'.
         """
         return pulumi.get(self, "type")
 
@@ -26738,7 +26738,7 @@ class EloquaSourceArgs:
         """
         A copy activity Eloqua server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'EloquaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -26746,7 +26746,7 @@ class EloquaSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'EloquaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -26765,7 +26765,7 @@ class EloquaSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'EloquaSource'.
         """
         return pulumi.get(self, "type")
 
@@ -27385,7 +27385,7 @@ class ExecuteDataFlowActivityArgs:
         :param pulumi.Input['DataFlowReferenceArgs'] data_flow: Data flow reference.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'ExecuteDataFlow'.
         :param pulumi.Input['ExecuteDataFlowActivityTypePropertiesComputeArgs'] compute: Compute properties for data flow activity.
         :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -27400,7 +27400,7 @@ class ExecuteDataFlowActivityArgs:
         """
         pulumi.set(__self__, "data_flow", data_flow)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'ExecuteDataFlow')
         if compute is not None:
             pulumi.set(__self__, "compute", compute)
         if continue_on_error is not None:
@@ -27453,7 +27453,7 @@ class ExecuteDataFlowActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'ExecuteDataFlow'.
         """
         return pulumi.get(self, "type")
 
@@ -27650,7 +27650,7 @@ class ExecutePipelineActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input['PipelineReferenceArgs'] pipeline: Pipeline reference.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'ExecutePipeline'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Mapping[str, Any]] parameters: Pipeline parameters.
@@ -27659,7 +27659,7 @@ class ExecutePipelineActivityArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pipeline", pipeline)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'ExecutePipeline')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -27700,7 +27700,7 @@ class ExecutePipelineActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'ExecutePipeline'.
         """
         return pulumi.get(self, "type")
 
@@ -27797,7 +27797,7 @@ class ExecuteSSISPackageActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input['SSISPackageLocationArgs'] package_location: SSIS package location.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'ExecuteSSISPackage'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param Any environment_path: The environment path to execute the SSIS package. Type: string (or Expression with resultType string).
@@ -27817,7 +27817,7 @@ class ExecuteSSISPackageActivityArgs:
         pulumi.set(__self__, "connect_via", connect_via)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "package_location", package_location)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'ExecuteSSISPackage')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -27890,7 +27890,7 @@ class ExecuteSSISPackageActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'ExecuteSSISPackage'.
         """
         return pulumi.get(self, "type")
 
@@ -29482,7 +29482,7 @@ class FilterActivityArgs:
         :param pulumi.Input['ExpressionArgs'] items: Input array on which filter should be applied.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Filter'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -29490,7 +29490,7 @@ class FilterActivityArgs:
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Filter')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -29539,7 +29539,7 @@ class FilterActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Filter'.
         """
         return pulumi.get(self, "type")
 
@@ -29602,7 +29602,7 @@ class ForEachActivityArgs:
         :param pulumi.Input['ExpressionArgs'] items: Collection to iterate.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'ForEach'.
         :param pulumi.Input[int] batch_count: Batch count to be used for controlling the number of parallel execution (when isSequential is set to false).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -29612,7 +29612,7 @@ class ForEachActivityArgs:
         pulumi.set(__self__, "activities", activities)
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'ForEach')
         if batch_count is not None:
             pulumi.set(__self__, "batch_count", batch_count)
         if depends_on is not None:
@@ -29665,7 +29665,7 @@ class ForEachActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'ForEach'.
         """
         return pulumi.get(self, "type")
 
@@ -30195,7 +30195,7 @@ class GetMetadataActivityArgs:
         :param pulumi.Input['DatasetReferenceArgs'] dataset: GetMetadata activity dataset reference.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'GetMetadata'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[Any]] field_list: Fields of metadata to get from dataset.
@@ -30207,7 +30207,7 @@ class GetMetadataActivityArgs:
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'GetMetadata')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -30254,7 +30254,7 @@ class GetMetadataActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'GetMetadata'.
         """
         return pulumi.get(self, "type")
 
@@ -30824,7 +30824,7 @@ class GoogleAdWordsSourceArgs:
         """
         A copy activity Google AdWords service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'GoogleAdWordsSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -30832,7 +30832,7 @@ class GoogleAdWordsSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'GoogleAdWordsSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -30851,7 +30851,7 @@ class GoogleAdWordsSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'GoogleAdWordsSource'.
         """
         return pulumi.get(self, "type")
 
@@ -31408,7 +31408,7 @@ class GoogleBigQuerySourceArgs:
         """
         A copy activity Google BigQuery service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'GoogleBigQuerySource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -31416,7 +31416,7 @@ class GoogleBigQuerySourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'GoogleBigQuerySource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -31435,7 +31435,7 @@ class GoogleBigQuerySourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'GoogleBigQuerySource'.
         """
         return pulumi.get(self, "type")
 
@@ -32109,7 +32109,7 @@ class GreenplumSourceArgs:
         """
         A copy activity Greenplum Database source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'GreenplumSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -32117,7 +32117,7 @@ class GreenplumSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'GreenplumSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -32136,7 +32136,7 @@ class GreenplumSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'GreenplumSource'.
         """
         return pulumi.get(self, "type")
 
@@ -32813,7 +32813,7 @@ class HBaseSourceArgs:
         """
         A copy activity HBase server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'HBaseSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -32821,7 +32821,7 @@ class HBaseSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'HBaseSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -32840,7 +32840,7 @@ class HBaseSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'HBaseSource'.
         """
         return pulumi.get(self, "type")
 
@@ -32943,7 +32943,7 @@ class HDInsightHiveActivityArgs:
         HDInsight Hive activity type.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightHive'.
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
         :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for Hive job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -32959,7 +32959,7 @@ class HDInsightHiveActivityArgs:
         :param pulumi.Input[Sequence[Any]] variables: User specified arguments under hivevar namespace.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightHive')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if defines is not None:
@@ -33004,7 +33004,7 @@ class HDInsightHiveActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightHive'.
         """
         return pulumi.get(self, "type")
 
@@ -33409,7 +33409,7 @@ class HDInsightMapReduceActivityArgs:
         :param Any jar_file_path: Jar path. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightMapReduce'.
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
         :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for the MapReduce job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -33425,7 +33425,7 @@ class HDInsightMapReduceActivityArgs:
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "jar_file_path", jar_file_path)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightMapReduce')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if defines is not None:
@@ -33490,7 +33490,7 @@ class HDInsightMapReduceActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightMapReduce'.
         """
         return pulumi.get(self, "type")
 
@@ -34261,7 +34261,7 @@ class HDInsightPigActivityArgs:
         HDInsight Pig activity type.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightPig'.
         :param Any arguments: User specified arguments to HDInsightActivity. Type: array (or Expression with resultType array).
         :param pulumi.Input[Mapping[str, Any]] defines: Allows user to specify defines for Pig job request.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -34275,7 +34275,7 @@ class HDInsightPigActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightPig')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if defines is not None:
@@ -34316,7 +34316,7 @@ class HDInsightPigActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightPig'.
         """
         return pulumi.get(self, "type")
 
@@ -34481,7 +34481,7 @@ class HDInsightSparkActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param Any root_path: The root path in 'sparkJobLinkedService' for all the job’s files. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightSpark'.
         :param pulumi.Input[Sequence[Any]] arguments: The user-specified arguments to HDInsightSparkActivity.
         :param pulumi.Input[str] class_name: The application's Java/Spark main class.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -34497,7 +34497,7 @@ class HDInsightSparkActivityArgs:
         pulumi.set(__self__, "entry_file_path", entry_file_path)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "root_path", root_path)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightSpark')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if class_name is not None:
@@ -34562,7 +34562,7 @@ class HDInsightSparkActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightSpark'.
         """
         return pulumi.get(self, "type")
 
@@ -34734,7 +34734,7 @@ class HDInsightStreamingActivityArgs:
         :param Any output: Output blob path. Type: string (or Expression with resultType string).
         :param Any reducer: Reducer executable name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'HDInsightStreaming'.
         :param pulumi.Input[Sequence[Any]] arguments: User specified arguments to HDInsightActivity.
         :param Any combiner: Combiner executable name. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] command_environment: Command line environment values.
@@ -34754,7 +34754,7 @@ class HDInsightStreamingActivityArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "output", output)
         pulumi.set(__self__, "reducer", reducer)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'HDInsightStreaming')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if combiner is not None:
@@ -34857,7 +34857,7 @@ class HDInsightStreamingActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'HDInsightStreaming'.
         """
         return pulumi.get(self, "type")
 
@@ -36081,7 +36081,7 @@ class HiveSourceArgs:
         """
         A copy activity Hive Server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'HiveSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -36089,7 +36089,7 @@ class HiveSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'HiveSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -36108,7 +36108,7 @@ class HiveSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'HiveSource'.
         """
         return pulumi.get(self, "type")
 
@@ -37337,7 +37337,7 @@ class HubspotSourceArgs:
         """
         A copy activity Hubspot Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'HubspotSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -37345,7 +37345,7 @@ class HubspotSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'HubspotSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -37364,7 +37364,7 @@ class HubspotSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'HubspotSource'.
         """
         return pulumi.get(self, "type")
 
@@ -37461,7 +37461,7 @@ class IfConditionActivityArgs:
         :param pulumi.Input['ExpressionArgs'] expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'IfCondition'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
@@ -37470,7 +37470,7 @@ class IfConditionActivityArgs:
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'IfCondition')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -37511,7 +37511,7 @@ class IfConditionActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'IfCondition'.
         """
         return pulumi.get(self, "type")
 
@@ -38024,7 +38024,7 @@ class ImpalaSourceArgs:
         """
         A copy activity Impala server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'ImpalaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -38032,7 +38032,7 @@ class ImpalaSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'ImpalaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -38051,7 +38051,7 @@ class ImpalaSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'ImpalaSource'.
         """
         return pulumi.get(self, "type")
 
@@ -38450,7 +38450,7 @@ class InformixSourceArgs:
         """
         A copy activity source for Informix.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'InformixSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -38458,7 +38458,7 @@ class InformixSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'InformixSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -38477,7 +38477,7 @@ class InformixSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'InformixSource'.
         """
         return pulumi.get(self, "type")
 
@@ -39680,7 +39680,7 @@ class JiraSourceArgs:
         """
         A copy activity Jira Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'JiraSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -39688,7 +39688,7 @@ class JiraSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'JiraSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -39707,7 +39707,7 @@ class JiraSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'JiraSource'.
         """
         return pulumi.get(self, "type")
 
@@ -40766,7 +40766,7 @@ class LookupActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'Lookup'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param Any first_row_only: Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
@@ -40777,7 +40777,7 @@ class LookupActivityArgs:
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'Lookup')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -40832,7 +40832,7 @@ class LookupActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'Lookup'.
         """
         return pulumi.get(self, "type")
 
@@ -41262,7 +41262,7 @@ class MagentoSourceArgs:
         """
         A copy activity Magento server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'MagentoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -41270,7 +41270,7 @@ class MagentoSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'MagentoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -41289,7 +41289,7 @@ class MagentoSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'MagentoSource'.
         """
         return pulumi.get(self, "type")
 
@@ -41380,7 +41380,7 @@ class ManagedIntegrationRuntimeArgs:
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-        :param pulumi.Input[str] type: Type of integration runtime.
+        :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -41401,7 +41401,7 @@ class ManagedIntegrationRuntimeArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'Managed'.
         """
         return pulumi.get(self, "type")
@@ -41841,7 +41841,7 @@ class MariaDBSourceArgs:
         """
         A copy activity MariaDB server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'MariaDBSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -41849,7 +41849,7 @@ class MariaDBSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'MariaDBSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -41868,7 +41868,7 @@ class MariaDBSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'MariaDBSource'.
         """
         return pulumi.get(self, "type")
 
@@ -42465,7 +42465,7 @@ class MarketoSourceArgs:
         """
         A copy activity Marketo server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'MarketoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -42473,7 +42473,7 @@ class MarketoSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'MarketoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -42492,7 +42492,7 @@ class MarketoSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'MarketoSource'.
         """
         return pulumi.get(self, "type")
 
@@ -45020,7 +45020,7 @@ class MySqlSourceArgs:
         """
         A copy activity source for MySQL databases.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'MySqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -45028,7 +45028,7 @@ class MySqlSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'MySqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -45047,7 +45047,7 @@ class MySqlSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'MySqlSource'.
         """
         return pulumi.get(self, "type")
 
@@ -45488,7 +45488,7 @@ class NetezzaSourceArgs:
         """
         A copy activity Netezza source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'NetezzaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Netezza read in parallel. Possible values include: "None", "DataSlice", "DynamicRange".
@@ -45498,7 +45498,7 @@ class NetezzaSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'NetezzaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -45521,7 +45521,7 @@ class NetezzaSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'NetezzaSource'.
         """
         return pulumi.get(self, "type")
 
@@ -46697,7 +46697,7 @@ class OdbcSourceArgs:
         """
         A copy activity source for ODBC databases.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'OdbcSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -46705,7 +46705,7 @@ class OdbcSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'OdbcSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -46724,7 +46724,7 @@ class OdbcSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'OdbcSource'.
         """
         return pulumi.get(self, "type")
 
@@ -48472,7 +48472,7 @@ class OracleServiceCloudSourceArgs:
         """
         A copy activity Oracle Service Cloud source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'OracleServiceCloudSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -48480,7 +48480,7 @@ class OracleServiceCloudSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'OracleServiceCloudSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -48499,7 +48499,7 @@ class OracleServiceCloudSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'OracleServiceCloudSource'.
         """
         return pulumi.get(self, "type")
 
@@ -50501,7 +50501,7 @@ class PaypalSourceArgs:
         """
         A copy activity Paypal Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'PaypalSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -50509,7 +50509,7 @@ class PaypalSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'PaypalSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -50528,7 +50528,7 @@ class PaypalSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'PaypalSource'.
         """
         return pulumi.get(self, "type")
 
@@ -51069,7 +51069,7 @@ class PhoenixSourceArgs:
         """
         A copy activity Phoenix server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'PhoenixSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -51077,7 +51077,7 @@ class PhoenixSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'PhoenixSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -51096,7 +51096,7 @@ class PhoenixSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'PhoenixSource'.
         """
         return pulumi.get(self, "type")
 
@@ -51524,7 +51524,7 @@ class PostgreSqlSourceArgs:
         """
         A copy activity source for PostgreSQL databases.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'PostgreSqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -51532,7 +51532,7 @@ class PostgreSqlSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'PostgreSqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -51551,7 +51551,7 @@ class PostgreSqlSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'PostgreSqlSource'.
         """
         return pulumi.get(self, "type")
 
@@ -52290,7 +52290,7 @@ class PrestoSourceArgs:
         """
         A copy activity Presto server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'PrestoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -52298,7 +52298,7 @@ class PrestoSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'PrestoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -52317,7 +52317,7 @@ class PrestoSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'PrestoSource'.
         """
         return pulumi.get(self, "type")
 
@@ -52876,7 +52876,7 @@ class QuickBooksSourceArgs:
         """
         A copy activity QuickBooks server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'QuickBooksSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -52884,7 +52884,7 @@ class QuickBooksSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'QuickBooksSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -52903,7 +52903,7 @@ class QuickBooksSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'QuickBooksSource'.
         """
         return pulumi.get(self, "type")
 
@@ -53927,7 +53927,7 @@ class ResponsysSourceArgs:
         """
         A copy activity Responsys source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'ResponsysSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -53935,7 +53935,7 @@ class ResponsysSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'ResponsysSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -53954,7 +53954,7 @@ class ResponsysSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'ResponsysSource'.
         """
         return pulumi.get(self, "type")
 
@@ -55967,7 +55967,7 @@ class SalesforceMarketingCloudSourceArgs:
         """
         A copy activity Salesforce Marketing Cloud source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SalesforceMarketingCloudSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -55975,7 +55975,7 @@ class SalesforceMarketingCloudSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SalesforceMarketingCloudSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -55994,7 +55994,7 @@ class SalesforceMarketingCloudSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SalesforceMarketingCloudSource'.
         """
         return pulumi.get(self, "type")
 
@@ -57021,7 +57021,7 @@ class SalesforceSourceArgs:
         """
         A copy activity Salesforce source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SalesforceSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -57030,7 +57030,7 @@ class SalesforceSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SalesforceSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -57051,7 +57051,7 @@ class SalesforceSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SalesforceSource'.
         """
         return pulumi.get(self, "type")
 
@@ -57475,7 +57475,7 @@ class SapBwSourceArgs:
         """
         A copy activity source for SapBW server via MDX.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SapBwSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: MDX query. Type: string (or Expression with resultType string).
@@ -57483,7 +57483,7 @@ class SapBwSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SapBwSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -57502,7 +57502,7 @@ class SapBwSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SapBwSource'.
         """
         return pulumi.get(self, "type")
 
@@ -58037,7 +58037,7 @@ class SapCloudForCustomerSourceArgs:
         """
         A copy activity source for SAP Cloud for Customer source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SapCloudForCustomerSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -58046,7 +58046,7 @@ class SapCloudForCustomerSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SapCloudForCustomerSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if http_request_timeout is not None:
@@ -58067,7 +58067,7 @@ class SapCloudForCustomerSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SapCloudForCustomerSource'.
         """
         return pulumi.get(self, "type")
 
@@ -58477,7 +58477,7 @@ class SapEccSourceArgs:
         """
         A copy activity source for SAP ECC source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SapEccSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -58486,7 +58486,7 @@ class SapEccSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SapEccSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if http_request_timeout is not None:
@@ -58507,7 +58507,7 @@ class SapEccSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SapEccSource'.
         """
         return pulumi.get(self, "type")
 
@@ -58825,7 +58825,7 @@ class SapHanaSourceArgs:
         """
         A copy activity source for SAP HANA source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SapHanaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any packet_size: The packet size of data read from SAP HANA. Type: integer(or Expression with resultType integer).
@@ -58836,7 +58836,7 @@ class SapHanaSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SapHanaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -58861,7 +58861,7 @@ class SapHanaSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SapHanaSource'.
         """
         return pulumi.get(self, "type")
 
@@ -59411,7 +59411,7 @@ class SapOpenHubSourceArgs:
         """
         A copy activity source for SAP Business Warehouse Open Hub Destination source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SapOpenHubSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
@@ -59422,7 +59422,7 @@ class SapOpenHubSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SapOpenHubSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if base_request_id is not None:
@@ -59447,7 +59447,7 @@ class SapOpenHubSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SapOpenHubSource'.
         """
         return pulumi.get(self, "type")
 
@@ -60336,7 +60336,7 @@ class SapTableSourceArgs:
         """
         A copy activity source for SAP Table source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SapTableSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
@@ -60352,7 +60352,7 @@ class SapTableSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SapTableSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if batch_size is not None:
@@ -60387,7 +60387,7 @@ class SapTableSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SapTableSource'.
         """
         return pulumi.get(self, "type")
 
@@ -60576,13 +60576,13 @@ class ScheduleTriggerArgs:
         Trigger that creates pipeline runs periodically, on schedule.
         :param pulumi.Input['ScheduleTriggerRecurrenceArgs'] recurrence: Recurrence schedule configuration.
         :param pulumi.Input[str] type: Trigger type.
-               Expected value is 'MultiplePipelineTrigger'.
+               Expected value is 'ScheduleTrigger'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
         :param pulumi.Input[str] description: Trigger description.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "recurrence", recurrence)
-        pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
+        pulumi.set(__self__, "type", 'ScheduleTrigger')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -60607,7 +60607,7 @@ class ScheduleTriggerArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Trigger type.
-        Expected value is 'MultiplePipelineTrigger'.
+        Expected value is 'ScheduleTrigger'.
         """
         return pulumi.get(self, "type")
 
@@ -60929,7 +60929,7 @@ class SelfHostedIntegrationRuntimeArgs:
                  linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None):
         """
         Self-hosted integration runtime.
-        :param pulumi.Input[str] type: Type of integration runtime.
+        :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: The base definition of a linked integration runtime.
@@ -60944,7 +60944,7 @@ class SelfHostedIntegrationRuntimeArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of integration runtime.
+        The type of integration runtime.
         Expected value is 'SelfHosted'.
         """
         return pulumi.get(self, "type")
@@ -61390,7 +61390,7 @@ class ServiceNowSourceArgs:
         """
         A copy activity ServiceNow server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'ServiceNowSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -61398,7 +61398,7 @@ class ServiceNowSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'ServiceNowSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -61417,7 +61417,7 @@ class ServiceNowSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'ServiceNowSource'.
         """
         return pulumi.get(self, "type")
 
@@ -61512,7 +61512,7 @@ class SetVariableActivityArgs:
         Set value for a Variable.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'SetVariable'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -61520,7 +61520,7 @@ class SetVariableActivityArgs:
         :param pulumi.Input[str] variable_name: Name of the variable whose value needs to be set.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'SetVariable')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -61549,7 +61549,7 @@ class SetVariableActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'SetVariable'.
         """
         return pulumi.get(self, "type")
 
@@ -62984,7 +62984,7 @@ class ShopifySourceArgs:
         """
         A copy activity Shopify Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'ShopifySource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -62992,7 +62992,7 @@ class ShopifySourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'ShopifySource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -63011,7 +63011,7 @@ class ShopifySourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'ShopifySource'.
         """
         return pulumi.get(self, "type")
 
@@ -64267,7 +64267,7 @@ class SparkSourceArgs:
         """
         A copy activity Spark Server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SparkSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -64275,7 +64275,7 @@ class SparkSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SparkSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -64294,7 +64294,7 @@ class SparkSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SparkSource'.
         """
         return pulumi.get(self, "type")
 
@@ -64648,7 +64648,7 @@ class SqlDWSourceArgs:
         """
         A copy activity SQL Data Warehouse source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SqlDWSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -64660,7 +64660,7 @@ class SqlDWSourceArgs:
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Data Warehouse source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
         :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}". Type: object (or Expression with resultType object), itemType: StoredProcedureParameter.
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SqlDWSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -64687,7 +64687,7 @@ class SqlDWSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SqlDWSource'.
         """
         return pulumi.get(self, "type")
 
@@ -65035,7 +65035,7 @@ class SqlMISourceArgs:
         """
         A copy activity Azure SQL Managed Instance source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SqlMISource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -65048,7 +65048,7 @@ class SqlMISourceArgs:
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a Azure SQL Managed Instance source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SqlMISource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -65077,7 +65077,7 @@ class SqlMISourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SqlMISource'.
         """
         return pulumi.get(self, "type")
 
@@ -65661,7 +65661,7 @@ class SqlServerSourceArgs:
         """
         A copy activity SQL server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SqlServerSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -65674,7 +65674,7 @@ class SqlServerSourceArgs:
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SqlServerSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -65703,7 +65703,7 @@ class SqlServerSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SqlServerSource'.
         """
         return pulumi.get(self, "type")
 
@@ -65862,7 +65862,7 @@ class SqlServerStoredProcedureActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'SqlServerStoredProcedure'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -65872,7 +65872,7 @@ class SqlServerStoredProcedureActivityArgs:
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "stored_procedure_name", stored_procedure_name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'SqlServerStoredProcedure')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -65925,7 +65925,7 @@ class SqlServerStoredProcedureActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'SqlServerStoredProcedure'.
         """
         return pulumi.get(self, "type")
 
@@ -66381,7 +66381,7 @@ class SqlSourceArgs:
         """
         A copy activity SQL source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SqlSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -66394,7 +66394,7 @@ class SqlSourceArgs:
         :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SqlSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if isolation_level is not None:
@@ -66423,7 +66423,7 @@ class SqlSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SqlSource'.
         """
         return pulumi.get(self, "type")
 
@@ -66962,7 +66962,7 @@ class SquareSourceArgs:
         """
         A copy activity Square Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SquareSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -66970,7 +66970,7 @@ class SquareSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SquareSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -66989,7 +66989,7 @@ class SquareSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SquareSource'.
         """
         return pulumi.get(self, "type")
 
@@ -67181,7 +67181,7 @@ class SwitchActivityArgs:
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input['ExpressionArgs'] on: An expression that would evaluate to a string or integer. This is used to determine the block of activities in cases that will be executed.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Switch'.
         :param pulumi.Input[Sequence[pulumi.Input['SwitchCaseArgs']]] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecutionActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -67190,7 +67190,7 @@ class SwitchActivityArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "on", on)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Switch')
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
         if default_activities is not None:
@@ -67231,7 +67231,7 @@ class SwitchActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Switch'.
         """
         return pulumi.get(self, "type")
 
@@ -67552,7 +67552,7 @@ class SybaseSourceArgs:
         """
         A copy activity source for Sybase databases.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'SybaseSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -67560,7 +67560,7 @@ class SybaseSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'SybaseSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -67579,7 +67579,7 @@ class SybaseSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'SybaseSource'.
         """
         return pulumi.get(self, "type")
 
@@ -68255,7 +68255,7 @@ class TeradataSourceArgs:
         """
         A copy activity Teradata source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'TeradataSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for teradata read in parallel. Possible values include: "None", "Hash", "DynamicRange".
@@ -68265,7 +68265,7 @@ class TeradataSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'TeradataSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -68288,7 +68288,7 @@ class TeradataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'TeradataSource'.
         """
         return pulumi.get(self, "type")
 
@@ -69126,12 +69126,12 @@ class TumblingWindowTriggerDependencyReferenceArgs:
         Referenced tumbling window trigger dependency.
         :param pulumi.Input['TriggerReferenceArgs'] reference_trigger: Referenced trigger.
         :param pulumi.Input[str] type: The type of dependency reference.
-               Expected value is 'TriggerDependencyReference'.
+               Expected value is 'TumblingWindowTriggerDependencyReference'.
         :param pulumi.Input[str] offset: Timespan applied to the start time of a tumbling window when evaluating dependency.
         :param pulumi.Input[str] size: The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
         """
         pulumi.set(__self__, "reference_trigger", reference_trigger)
-        pulumi.set(__self__, "type", 'TriggerDependencyReference')
+        pulumi.set(__self__, "type", 'TumblingWindowTriggerDependencyReference')
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
         if size is not None:
@@ -69154,7 +69154,7 @@ class TumblingWindowTriggerDependencyReferenceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of dependency reference.
-        Expected value is 'TriggerDependencyReference'.
+        Expected value is 'TumblingWindowTriggerDependencyReference'.
         """
         return pulumi.get(self, "type")
 
@@ -69204,7 +69204,7 @@ class UntilActivityArgs:
         :param pulumi.Input['ExpressionArgs'] expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Until'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -69213,7 +69213,7 @@ class UntilActivityArgs:
         pulumi.set(__self__, "activities", activities)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Until')
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -69264,7 +69264,7 @@ class UntilActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Until'.
         """
         return pulumi.get(self, "type")
 
@@ -69377,7 +69377,7 @@ class ValidationActivityArgs:
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Validation activity dataset reference.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Validation'.
         :param Any child_items: Can be used if dataset points to a folder. If set to true, the folder must have at least one file. If set to false, the folder must be empty. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
@@ -69388,7 +69388,7 @@ class ValidationActivityArgs:
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Validation')
         if child_items is not None:
             pulumi.set(__self__, "child_items", child_items)
         if depends_on is not None:
@@ -69433,7 +69433,7 @@ class ValidationActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Validation'.
         """
         return pulumi.get(self, "type")
 
@@ -69715,7 +69715,7 @@ class VerticaSourceArgs:
         """
         A copy activity Vertica source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'VerticaSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -69723,7 +69723,7 @@ class VerticaSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'VerticaSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -69742,7 +69742,7 @@ class VerticaSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'VerticaSource'.
         """
         return pulumi.get(self, "type")
 
@@ -70004,14 +70004,14 @@ class WaitActivityArgs:
         This activity suspends pipeline execution for the specified interval.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'Wait'.
         :param Any wait_time_in_seconds: Duration in seconds.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'Wait')
         pulumi.set(__self__, "wait_time_in_seconds", wait_time_in_seconds)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
@@ -70037,7 +70037,7 @@ class WaitActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'Wait'.
         """
         return pulumi.get(self, "type")
 
@@ -70117,7 +70117,7 @@ class WebActivityArgs:
         :param pulumi.Input[Union[str, 'WebActivityMethod']] method: Rest API method for target endpoint.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Execution'.
+               Expected value is 'WebActivity'.
         :param Any url: Web activity target endpoint and path. Type: string (or Expression with resultType string).
         :param pulumi.Input['WebActivityAuthenticationArgs'] authentication: Authentication method used for calling the endpoint.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
@@ -70133,7 +70133,7 @@ class WebActivityArgs:
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Execution')
+        pulumi.set(__self__, "type", 'WebActivity')
         pulumi.set(__self__, "url", url)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
@@ -70187,7 +70187,7 @@ class WebActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Execution'.
+        Expected value is 'WebActivity'.
         """
         return pulumi.get(self, "type")
 
@@ -70643,7 +70643,7 @@ class WebHookActivityArgs:
         :param pulumi.Input[Union[str, 'WebHookActivityMethod']] method: Rest API method for target endpoint.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
-               Expected value is 'Container'.
+               Expected value is 'WebHook'.
         :param Any url: WebHook activity target endpoint and path. Type: string (or Expression with resultType string).
         :param pulumi.Input['WebActivityAuthenticationArgs'] authentication: Authentication method used for calling the endpoint.
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
@@ -70656,7 +70656,7 @@ class WebHookActivityArgs:
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Container')
+        pulumi.set(__self__, "type", 'WebHook')
         pulumi.set(__self__, "url", url)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
@@ -70704,7 +70704,7 @@ class WebHookActivityArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of activity.
-        Expected value is 'Container'.
+        Expected value is 'WebHook'.
         """
         return pulumi.get(self, "type")
 
@@ -71565,7 +71565,7 @@ class XeroSourceArgs:
         """
         A copy activity Xero Service source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'XeroSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -71573,7 +71573,7 @@ class XeroSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'XeroSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -71592,7 +71592,7 @@ class XeroSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'XeroSource'.
         """
         return pulumi.get(self, "type")
 
@@ -72505,7 +72505,7 @@ class ZohoSourceArgs:
         """
         A copy activity Zoho server source.
         :param pulumi.Input[str] type: Copy source type.
-               Expected value is 'TabularSource'.
+               Expected value is 'ZohoSource'.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -72513,7 +72513,7 @@ class ZohoSourceArgs:
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
-        pulumi.set(__self__, "type", 'TabularSource')
+        pulumi.set(__self__, "type", 'ZohoSource')
         if additional_columns is not None:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if max_concurrent_connections is not None:
@@ -72532,7 +72532,7 @@ class ZohoSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Copy source type.
-        Expected value is 'TabularSource'.
+        Expected value is 'ZohoSource'.
         """
         return pulumi.get(self, "type")
 

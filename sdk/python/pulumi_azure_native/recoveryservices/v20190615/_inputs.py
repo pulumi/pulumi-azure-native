@@ -465,7 +465,7 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
         """
         IaaS VM workload-specific backup item representing the Classic Compute VM.
         :param pulumi.Input[str] protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -491,7 +491,7 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
         :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -546,7 +546,7 @@ class AzureIaaSClassicComputeVMProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -874,7 +874,7 @@ class AzureIaaSComputeVMProtectedItemArgs:
         """
         IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
         :param pulumi.Input[str] protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -900,7 +900,7 @@ class AzureIaaSComputeVMProtectedItemArgs:
         :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -955,7 +955,7 @@ class AzureIaaSComputeVMProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2567,7 +2567,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         """
         Azure VM workload-specific protected item representing SAP ASE Database.
         :param pulumi.Input[str] protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -2594,7 +2594,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -2651,7 +2651,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2992,7 +2992,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         """
         Azure VM workload-specific protected item representing SAP HANA Database.
         :param pulumi.Input[str] protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -3019,7 +3019,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -3076,7 +3076,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3417,7 +3417,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
         """
         Azure VM workload-specific protected item representing SQL Database.
         :param pulumi.Input[str] protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSQLDatabase'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
@@ -3444,7 +3444,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -3501,7 +3501,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
     def protected_item_type(self) -> pulumi.Input[str]:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSQLDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 

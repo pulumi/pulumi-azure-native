@@ -554,7 +554,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         """
         IaaS VM workload-specific backup item representing the Classic Compute VM.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -581,7 +581,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -638,7 +638,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -945,7 +945,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         """
         IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -972,7 +972,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -1029,7 +1029,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -2659,7 +2659,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item representing SAP ASE Database.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -2687,7 +2687,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -2746,7 +2746,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3064,7 +3064,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item representing SAP HANA Database.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -3092,7 +3092,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -3151,7 +3151,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3469,7 +3469,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item representing SQL Database.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSQLDatabase'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -3497,7 +3497,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -3556,7 +3556,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSQLDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 

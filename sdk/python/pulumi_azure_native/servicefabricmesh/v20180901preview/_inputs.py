@@ -55,7 +55,7 @@ class AddRemoveReplicaScalingMechanismArgs:
                  scale_increment: pulumi.Input[int]):
         """
         Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
-        :param pulumi.Input[str] kind: The type of auto scaling mechanism.
+        :param pulumi.Input[str] kind: Enumerates the mechanisms for auto scaling.
                Expected value is 'AddRemoveReplica'.
         :param pulumi.Input[int] max_count: Maximum number of containers (scale up won't be performed above this number).
         :param pulumi.Input[int] min_count: Minimum number of containers (scale down won't be performed below this number).
@@ -70,7 +70,7 @@ class AddRemoveReplicaScalingMechanismArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        The type of auto scaling mechanism.
+        Enumerates the mechanisms for auto scaling.
         Expected value is 'AddRemoveReplica'.
         """
         return pulumi.get(self, "kind")
@@ -301,7 +301,7 @@ class AutoScalingResourceMetricArgs:
                  name: pulumi.Input[Union[str, 'AutoScalingResourceMetricName']]):
         """
         Describes the resource that is used for triggering auto scaling.
-        :param pulumi.Input[str] kind: The type of auto scaling metric
+        :param pulumi.Input[str] kind: Enumerates the metrics that are used for triggering auto scaling.
                Expected value is 'Resource'.
         :param pulumi.Input[Union[str, 'AutoScalingResourceMetricName']] name: Name of the resource.
         """
@@ -312,7 +312,7 @@ class AutoScalingResourceMetricArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        The type of auto scaling metric
+        Enumerates the metrics that are used for triggering auto scaling.
         Expected value is 'Resource'.
         """
         return pulumi.get(self, "kind")
@@ -344,7 +344,7 @@ class AverageLoadScalingTriggerArgs:
                  upper_load_threshold: pulumi.Input[float]):
         """
         Describes the average load trigger used for auto scaling.
-        :param pulumi.Input[str] kind: The type of auto scaling trigger
+        :param pulumi.Input[str] kind: Enumerates the triggers for auto scaling.
                Expected value is 'AverageLoad'.
         :param pulumi.Input[float] lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
         :param pulumi.Input['AutoScalingResourceMetricArgs'] metric: Description of the metric that is used for scaling.
@@ -361,7 +361,7 @@ class AverageLoadScalingTriggerArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        The type of auto scaling trigger
+        Enumerates the triggers for auto scaling.
         Expected value is 'AverageLoad'.
         """
         return pulumi.get(self, "kind")

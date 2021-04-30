@@ -2006,7 +2006,7 @@ class AzureBackupServerContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'DPMContainer'.
+               Expected value is 'AzureBackupServerContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Specifies whether the container is re-registrable.
         :param str container_id: ID of container.
@@ -2020,7 +2020,7 @@ class AzureBackupServerContainerResponse(dict):
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param bool upgrade_available: To check if upgrade available
         """
-        pulumi.set(__self__, "container_type", 'DPMContainer')
+        pulumi.set(__self__, "container_type", 'AzureBackupServerContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if can_re_register is not None:
@@ -2054,7 +2054,7 @@ class AzureBackupServerContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'DPMContainer'.
+        Expected value is 'AzureBackupServerContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -2799,7 +2799,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'IaaSVMContainer'.
+               Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -2808,7 +2808,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
         :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
         """
-        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        pulumi.set(__self__, "container_type", 'Microsoft.ClassicCompute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if friendly_name is not None:
@@ -2832,7 +2832,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'IaaSVMContainer'.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "container_type")
 
@@ -2995,7 +2995,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         """
         IaaS VM workload-specific backup item representing the Classic Compute VM.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -3022,7 +3022,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -3079,7 +3079,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -3335,7 +3335,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'IaaSVMContainer'.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -3344,7 +3344,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
         :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
         """
-        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        pulumi.set(__self__, "container_type", 'Microsoft.Compute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if friendly_name is not None:
@@ -3368,7 +3368,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'IaaSVMContainer'.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "container_type")
 
@@ -3531,7 +3531,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         """
         IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureIaaSVMProtectedItem'.
+               Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -3558,7 +3558,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -3615,7 +3615,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureIaaSVMProtectedItem'.
+        Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -4748,7 +4748,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'AzureWorkloadContainer'.
+               Expected value is 'SQLAGWorkLoadContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
@@ -4759,7 +4759,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
         """
-        pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+        pulumi.set(__self__, "container_type", 'SQLAGWorkLoadContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if extended_info is not None:
@@ -4787,7 +4787,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'AzureWorkloadContainer'.
+        Expected value is 'SQLAGWorkLoadContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -5706,7 +5706,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'AzureWorkloadContainer'.
+               Expected value is 'VMAppContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param 'AzureWorkloadContainerExtendedInfoResponse' extended_info: Additional details of a workload container.
         :param str friendly_name: Friendly name of the container.
@@ -5717,7 +5717,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
         """
-        pulumi.set(__self__, "container_type", 'AzureWorkloadContainer')
+        pulumi.set(__self__, "container_type", 'VMAppContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if extended_info is not None:
@@ -5745,7 +5745,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'AzureWorkloadContainer'.
+        Expected value is 'VMAppContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -6661,7 +6661,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item representing SAP ASE Database.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -6689,7 +6689,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -6748,7 +6748,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -7066,7 +7066,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item representing SAP HANA Database.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -7094,7 +7094,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -7153,7 +7153,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -7471,7 +7471,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         """
         Azure VM workload-specific protected item representing SQL Database.
         :param str protected_item_type: backup item type.
-               Expected value is 'AzureVmWorkloadProtectedItem'.
+               Expected value is 'AzureVmWorkloadSQLDatabase'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -7499,7 +7499,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_type: Type of workload this item represents.
         """
-        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
@@ -7558,7 +7558,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
     def protected_item_type(self) -> str:
         """
         backup item type.
-        Expected value is 'AzureVmWorkloadProtectedItem'.
+        Expected value is 'AzureVmWorkloadSQLDatabase'.
         """
         return pulumi.get(self, "protected_item_type")
 
@@ -7813,14 +7813,14 @@ class AzureWorkloadAutoProtectionIntentResponse(dict):
         """
         Azure Recovery Services Vault specific protection intent item.
         :param str protection_intent_item_type: backup protectionIntent type.
-               Expected value is 'RecoveryServiceVaultItem'.
+               Expected value is 'AzureWorkloadAutoProtectionIntent'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str protection_state: Backup state of this backup item.
         :param str source_resource_id: ARM ID of the resource to be backed up.
         """
-        pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
+        pulumi.set(__self__, "protection_intent_item_type", 'AzureWorkloadAutoProtectionIntent')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if item_id is not None:
@@ -7837,7 +7837,7 @@ class AzureWorkloadAutoProtectionIntentResponse(dict):
     def protection_intent_item_type(self) -> str:
         """
         backup protectionIntent type.
-        Expected value is 'RecoveryServiceVaultItem'.
+        Expected value is 'AzureWorkloadAutoProtectionIntent'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 
@@ -8168,7 +8168,7 @@ class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
         """
         Azure Workload SQL Auto Protection intent item.
         :param str protection_intent_item_type: backup protectionIntent type.
-               Expected value is 'RecoveryServiceVaultItem'.
+               Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param str policy_id: ID of the backup policy with which this item is backed up.
@@ -8176,7 +8176,7 @@ class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
         :param str source_resource_id: ARM ID of the resource to be backed up.
         :param str workload_item_type: Workload item type of the item for which intent is to be set
         """
-        pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
+        pulumi.set(__self__, "protection_intent_item_type", 'AzureWorkloadSQLAutoProtectionIntent')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if item_id is not None:
@@ -8195,7 +8195,7 @@ class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
     def protection_intent_item_type(self) -> str:
         """
         backup protectionIntent type.
-        Expected value is 'RecoveryServiceVaultItem'.
+        Expected value is 'AzureWorkloadSQLAutoProtectionIntent'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 

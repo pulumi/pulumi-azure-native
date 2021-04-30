@@ -1136,7 +1136,7 @@ class AKSServiceResponseResponse(dict):
         """
         The response for an AKS service.
         :param str compute_type: The compute environment type for the service.
-               Expected value is 'Custom'.
+               Expected value is 'AKS'.
         :param 'AKSServiceResponseResponseDeploymentStatus' deployment_status: The deployment status.
         :param 'ServiceResponseBaseResponseError' error: The error details.
         :param Mapping[str, Any] model_config_map: Details on the models and configurations.
@@ -1166,7 +1166,7 @@ class AKSServiceResponseResponse(dict):
         :param float traffic_percentile: The amount of traffic variant receives.
         :param str type: The type of the variant.
         """
-        pulumi.set(__self__, "compute_type", 'Custom')
+        pulumi.set(__self__, "compute_type", 'AKS')
         pulumi.set(__self__, "deployment_status", deployment_status)
         pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "model_config_map", model_config_map)
@@ -1223,7 +1223,7 @@ class AKSServiceResponseResponse(dict):
     def compute_type(self) -> str:
         """
         The compute environment type for the service.
-        Expected value is 'Custom'.
+        Expected value is 'AKS'.
         """
         return pulumi.get(self, "compute_type")
 
