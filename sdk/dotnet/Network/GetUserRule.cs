@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network
     public static class GetUserRule
     {
         /// <summary>
-        /// Network security admin rule.
+        /// Network base rule.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetUserRuleResult> InvokeAsync(GetUserRuleArgs args, InvokeOptions? options = null)
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public string RuleCollectionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("ruleName", required: true)]
@@ -56,26 +62,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetUserRuleResult
     {
         /// <summary>
-        /// A description for this rule. Restricted to 140 chars.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The destination address prefixes. CIDR or destination IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Destination;
-        /// <summary>
-        /// The destination port ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationPortRanges;
-        /// <summary>
-        /// Indicates if the traffic matched against the rule in inbound or outbound.
-        /// </summary>
-        public readonly string Direction;
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -84,25 +70,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Whether the rule is custom or default.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Network protocol this rule applies to.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// The provisioning state of the security Configuration resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The CIDR or source IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Source;
-        /// <summary>
-        /// The source port ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> SourcePortRanges;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -114,46 +88,22 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetUserRuleResult(
-            string? description,
-
-            ImmutableArray<Outputs.AddressPrefixItemResponse> destination,
-
-            ImmutableArray<string> destinationPortRanges,
-
-            string direction,
-
-            string? displayName,
-
             string etag,
 
             string id,
 
+            string kind,
+
             string name,
-
-            string protocol,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.AddressPrefixItemResponse> source,
-
-            ImmutableArray<string> sourcePortRanges,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            Description = description;
-            Destination = destination;
-            DestinationPortRanges = destinationPortRanges;
-            Direction = direction;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
+            Kind = kind;
             Name = name;
-            Protocol = protocol;
-            ProvisioningState = provisioningState;
-            Source = source;
-            SourcePortRanges = sourcePortRanges;
             SystemData = systemData;
             Type = type;
         }

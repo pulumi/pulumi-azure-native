@@ -6,31 +6,43 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./adminRule";
+export * from "./adminRuleCollection";
 export * from "./connectivityConfiguration";
 export * from "./getAdminRule";
+export * from "./getAdminRuleCollection";
 export * from "./getConnectivityConfiguration";
 export * from "./getNetworkGroup";
 export * from "./getNetworkManager";
-export * from "./getSecurityConfiguration";
+export * from "./getSecurityAdminConfiguration";
+export * from "./getSecurityUserConfiguration";
 export * from "./getUserRule";
+export * from "./getUserRuleCollection";
+export * from "./listActiveConfiguration";
+export * from "./listEffectiveConfiguration";
+export * from "./listEffectiveConfigurationBySubnet";
 export * from "./listEffectiveVirtualNetworkByNetworkGroup";
 export * from "./listEffectiveVirtualNetworkByNetworkManager";
 export * from "./listNetworkManagerDeploymentStatus";
 export * from "./networkGroup";
 export * from "./networkManager";
-export * from "./securityConfiguration";
+export * from "./securityAdminConfiguration";
+export * from "./securityUserConfiguration";
 export * from "./userRule";
+export * from "./userRuleCollection";
 
 // Export enums:
 export * from "../../types/enums/network/v20210201preview";
 
 // Import resources to register:
 import { AdminRule } from "./adminRule";
+import { AdminRuleCollection } from "./adminRuleCollection";
 import { ConnectivityConfiguration } from "./connectivityConfiguration";
 import { NetworkGroup } from "./networkGroup";
 import { NetworkManager } from "./networkManager";
-import { SecurityConfiguration } from "./securityConfiguration";
+import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
+import { SecurityUserConfiguration } from "./securityUserConfiguration";
 import { UserRule } from "./userRule";
+import { UserRuleCollection } from "./userRuleCollection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -38,16 +50,22 @@ const _module = {
         switch (type) {
             case "azure-native:network/v20210201preview:AdminRule":
                 return new AdminRule(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:AdminRuleCollection":
+                return new AdminRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:ConnectivityConfiguration":
                 return new ConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkGroup":
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
-            case "azure-native:network/v20210201preview:SecurityConfiguration":
-                return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:SecurityAdminConfiguration":
+                return new SecurityAdminConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:SecurityUserConfiguration":
+                return new SecurityUserConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:UserRule":
                 return new UserRule(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:UserRuleCollection":
+                return new UserRuleCollection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

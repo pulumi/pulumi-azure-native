@@ -10,7 +10,6 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AddressPrefixItemArgs',
     'ConnectivityGroupItemArgs',
     'GroupMembersItemArgs',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
@@ -18,57 +17,17 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class AddressPrefixItemArgs:
-    def __init__(__self__, *,
-                 address_prefix: Optional[pulumi.Input[str]] = None,
-                 address_prefix_type: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]] = None):
-        """
-        Address prefix item.
-        :param pulumi.Input[str] address_prefix: Address prefix.
-        :param pulumi.Input[Union[str, 'AddressPrefixType']] address_prefix_type: Address prefix type.
-        """
-        if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
-        if address_prefix_type is not None:
-            pulumi.set(__self__, "address_prefix_type", address_prefix_type)
-
-    @property
-    @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Address prefix.
-        """
-        return pulumi.get(self, "address_prefix")
-
-    @address_prefix.setter
-    def address_prefix(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address_prefix", value)
-
-    @property
-    @pulumi.getter(name="addressPrefixType")
-    def address_prefix_type(self) -> Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]:
-        """
-        Address prefix type.
-        """
-        return pulumi.get(self, "address_prefix_type")
-
-    @address_prefix_type.setter
-    def address_prefix_type(self, value: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]):
-        pulumi.set(self, "address_prefix_type", value)
-
-
-@pulumi.input_type
 class ConnectivityGroupItemArgs:
     def __init__(__self__, *,
                  group_connectivity: Optional[pulumi.Input[Union[str, 'GroupConnectivity']]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None,
+                 is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
                  network_group_id: Optional[pulumi.Input[str]] = None,
-                 use_hub_gateway: Optional[pulumi.Input[bool]] = None):
+                 use_hub_gateway: Optional[pulumi.Input[Union[str, 'UseHubGateway']]] = None):
         """
         :param pulumi.Input[Union[str, 'GroupConnectivity']] group_connectivity: Group connectivity type.
-        :param pulumi.Input[bool] is_global: Flag if global is supported.
+        :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global is supported.
         :param pulumi.Input[str] network_group_id: Network group Id.
-        :param pulumi.Input[bool] use_hub_gateway: Flag if need to use hub gateway.
+        :param pulumi.Input[Union[str, 'UseHubGateway']] use_hub_gateway: Flag if need to use hub gateway.
         """
         if group_connectivity is not None:
             pulumi.set(__self__, "group_connectivity", group_connectivity)
@@ -93,14 +52,14 @@ class ConnectivityGroupItemArgs:
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[bool]]:
+    def is_global(self) -> Optional[pulumi.Input[Union[str, 'IsGlobal']]]:
         """
         Flag if global is supported.
         """
         return pulumi.get(self, "is_global")
 
     @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[bool]]):
+    def is_global(self, value: Optional[pulumi.Input[Union[str, 'IsGlobal']]]):
         pulumi.set(self, "is_global", value)
 
     @property
@@ -117,39 +76,55 @@ class ConnectivityGroupItemArgs:
 
     @property
     @pulumi.getter(name="useHubGateway")
-    def use_hub_gateway(self) -> Optional[pulumi.Input[bool]]:
+    def use_hub_gateway(self) -> Optional[pulumi.Input[Union[str, 'UseHubGateway']]]:
         """
         Flag if need to use hub gateway.
         """
         return pulumi.get(self, "use_hub_gateway")
 
     @use_hub_gateway.setter
-    def use_hub_gateway(self, value: Optional[pulumi.Input[bool]]):
+    def use_hub_gateway(self, value: Optional[pulumi.Input[Union[str, 'UseHubGateway']]]):
         pulumi.set(self, "use_hub_gateway", value)
 
 
 @pulumi.input_type
 class GroupMembersItemArgs:
     def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[str]] = None):
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_id: Optional[pulumi.Input[str]] = None):
         """
         GroupMembers Item.
-        :param pulumi.Input[str] resource_id: Resource Id.
+        :param pulumi.Input[str] subnet_id: Subnet Id.
+        :param pulumi.Input[str] vnet_id: Vnet Id.
         """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vnet_id is not None:
+            pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource Id.
+        Subnet Id.
         """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "subnet_id")
 
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="vnetId")
+    def vnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Vnet Id.
+        """
+        return pulumi.get(self, "vnet_id")
+
+    @vnet_id.setter
+    def vnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_id", value)
 
 
 @pulumi.input_type

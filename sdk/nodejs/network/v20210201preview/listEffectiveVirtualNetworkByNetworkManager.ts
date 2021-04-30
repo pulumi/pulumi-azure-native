@@ -39,7 +39,7 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * SkipToken is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+     * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
     readonly skipToken?: string;
     /**
@@ -53,21 +53,9 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerArgs {
  */
 export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
     /**
-     * First Index.
+     * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
      */
-    readonly firstIndex?: number;
-    /**
-     * Gets the URL to get the next set of results.
-     */
-    readonly nextLink?: string;
-    /**
-     * Page Size.
-     */
-    readonly pageSize?: number;
-    /**
-     * Total Records.
-     */
-    readonly totalRecords?: number;
+    readonly skipToken?: string;
     /**
      * Gets a page of EffectiveVirtualNetwork
      */

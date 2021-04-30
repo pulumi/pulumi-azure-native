@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Inputs
         /// Flag if global is supported.
         /// </summary>
         [Input("isGlobal")]
-        public Input<bool>? IsGlobal { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20210201Preview.IsGlobal>? IsGlobal { get; set; }
 
         /// <summary>
         /// Network group Id.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Inputs
         /// Flag if need to use hub gateway.
         /// </summary>
         [Input("useHubGateway")]
-        public Input<bool>? UseHubGateway { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20210201Preview.UseHubGateway>? UseHubGateway { get; set; }
 
         public ConnectivityGroupItemArgs()
         {

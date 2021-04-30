@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Network admin rule.
+ * Network base admin rule.
  */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
     if (!opts) {
@@ -20,6 +20,7 @@ export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,
         "resourceGroupName": args.resourceGroupName,
+        "ruleCollectionName": args.ruleCollectionName,
         "ruleName": args.ruleName,
     }, opts);
 }
@@ -38,43 +39,19 @@ export interface GetAdminRuleArgs {
      */
     readonly resourceGroupName: string;
     /**
+     * The name of the network manager security Configuration rule collection.
+     */
+    readonly ruleCollectionName: string;
+    /**
      * The name of the rule.
      */
     readonly ruleName: string;
 }
 
 /**
- * Network admin rule.
+ * Network base admin rule.
  */
 export interface GetAdminRuleResult {
-    /**
-     * Indicates the access allowed for this particular rule
-     */
-    readonly access: string;
-    /**
-     * Groups for configuration
-     */
-    readonly appliesToGroups?: outputs.network.v20210201preview.NetworkManagerSecurityGroupItemResponse[];
-    /**
-     * A description for this rule.
-     */
-    readonly description?: string;
-    /**
-     * The destination address prefixes. CIDR or destination IP ranges.
-     */
-    readonly destination?: outputs.network.v20210201preview.AddressPrefixItemResponse[];
-    /**
-     * The destination port ranges.
-     */
-    readonly destinationPortRanges?: string[];
-    /**
-     * Indicates if the traffic matched against the rule in inbound or outbound.
-     */
-    readonly direction: string;
-    /**
-     * A friendly name for the rule.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -84,29 +61,13 @@ export interface GetAdminRuleResult {
      */
     readonly id: string;
     /**
+     * Whether the rule is custom or default.
+     */
+    readonly kind: string;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-     */
-    readonly priority?: number;
-    /**
-     * Network protocol this rule applies to.
-     */
-    readonly protocol: string;
-    /**
-     * The provisioning state of the security Configuration resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The CIDR or source IP ranges.
-     */
-    readonly source?: outputs.network.v20210201preview.AddressPrefixItemResponse[];
-    /**
-     * The source port ranges.
-     */
-    readonly sourcePortRanges?: string[];
     /**
      * The system metadata related to this resource.
      */

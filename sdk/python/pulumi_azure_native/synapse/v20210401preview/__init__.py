@@ -7,15 +7,18 @@ from ._enums import *
 from .big_data_pool import *
 from .data_connection import *
 from .database import *
+from .database_principal_assignment import *
 from .get_big_data_pool import *
 from .get_data_connection import *
 from .get_database import *
+from .get_database_principal_assignment import *
 from .get_integration_runtime import *
 from .get_integration_runtime_connection_info import *
 from .get_integration_runtime_object_metadatum import *
 from .get_integration_runtime_status import *
 from .get_ip_firewall_rule import *
 from .get_key import *
+from .get_kusto_pool_principal_assignment import *
 from .get_private_endpoint_connection import *
 from .get_private_link_hub import *
 from .get_sql_pool import *
@@ -34,6 +37,7 @@ from .integration_runtime import *
 from .ip_firewall_rule import *
 from .key import *
 from .kusto_pool import *
+from .kusto_pool_principal_assignment import *
 from .list_integration_runtime_auth_key import *
 from .private_endpoint_connection import *
 from .private_link_hub import *
@@ -69,12 +73,16 @@ def _register_module():
                 return DataConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse/v20210401preview:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment":
+                return DatabasePrincipalAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse/v20210401preview:IntegrationRuntime":
                 return IntegrationRuntime(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse/v20210401preview:IpFirewallRule":
                 return IpFirewallRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse/v20210401preview:Key":
                 return Key(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment":
+                return KustoPoolPrincipalAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse/v20210401preview:PrivateEndpointConnection":
                 return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:synapse/v20210401preview:PrivateLinkHub":

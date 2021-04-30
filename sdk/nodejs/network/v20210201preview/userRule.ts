@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Network security admin rule.
+ * Network base rule.
  */
 export class UserRule extends pulumi.CustomResource {
     /**
@@ -36,49 +36,17 @@ export class UserRule extends pulumi.CustomResource {
     }
 
     /**
-     * A description for this rule. Restricted to 140 chars.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The destination address prefixes. CIDR or destination IP ranges.
-     */
-    public readonly destination!: pulumi.Output<outputs.network.v20210201preview.AddressPrefixItemResponse[] | undefined>;
-    /**
-     * The destination port ranges.
-     */
-    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
-    /**
-     * Indicates if the traffic matched against the rule in inbound or outbound.
-     */
-    public readonly direction!: pulumi.Output<string>;
-    /**
-     * A friendly name for the rule.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Whether the rule is custom or default.
+     */
+    public readonly kind!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Network protocol this rule applies to.
-     */
-    public readonly protocol!: pulumi.Output<string>;
-    /**
-     * The provisioning state of the security Configuration resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The CIDR or source IP ranges.
-     */
-    public readonly source!: pulumi.Output<outputs.network.v20210201preview.AddressPrefixItemResponse[] | undefined>;
-    /**
-     * The source port ranges.
-     */
-    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
     /**
      * The system metadata related to this resource.
      */
@@ -102,47 +70,32 @@ export class UserRule extends pulumi.CustomResource {
             if ((!args || args.configurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.direction === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'direction'");
+            if ((!args || args.kind === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'kind'");
             }
             if ((!args || args.networkManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'protocol'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ruleCollectionName'");
+            }
             inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            inputs["direction"] = args ? args.direction : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
             inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["destination"] = undefined /*out*/;
-            inputs["destinationPortRanges"] = undefined /*out*/;
-            inputs["direction"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["sourcePortRanges"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -164,47 +117,23 @@ export interface UserRuleArgs {
      */
     readonly configurationName: pulumi.Input<string>;
     /**
-     * A description for this rule. Restricted to 140 chars.
+     * Whether the rule is custom or default.
      */
-    readonly description?: pulumi.Input<string>;
-    /**
-     * The destination address prefixes. CIDR or destination IP ranges.
-     */
-    readonly destination?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.AddressPrefixItemArgs>[]>;
-    /**
-     * The destination port ranges.
-     */
-    readonly destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Indicates if the traffic matched against the rule in inbound or outbound.
-     */
-    readonly direction: pulumi.Input<string | enums.network.v20210201preview.SecurityConfigurationRuleDirection>;
-    /**
-     * A friendly name for the rule.
-     */
-    readonly displayName?: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.network.v20210201preview.UserRuleKind>;
     /**
      * The name of the network manager.
      */
     readonly networkManagerName: pulumi.Input<string>;
     /**
-     * Network protocol this rule applies to.
-     */
-    readonly protocol: pulumi.Input<string | enums.network.v20210201preview.SecurityConfigurationRuleProtocol>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The name of the network manager security Configuration rule collection.
+     */
+    readonly ruleCollectionName: pulumi.Input<string>;
+    /**
      * The name of the rule.
      */
     readonly ruleName?: pulumi.Input<string>;
-    /**
-     * The CIDR or source IP ranges.
-     */
-    readonly source?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.AddressPrefixItemArgs>[]>;
-    /**
-     * The source port ranges.
-     */
-    readonly sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

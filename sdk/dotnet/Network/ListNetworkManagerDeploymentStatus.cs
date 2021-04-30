@@ -23,14 +23,14 @@ namespace Pulumi.AzureNative.Network
     public sealed class ListNetworkManagerDeploymentStatusArgs : Pulumi.InvokeArgs
     {
         [Input("deploymentTypes")]
-        private List<Union<string, Pulumi.AzureNative.Network.DeploymentType>>? _deploymentTypes;
+        private List<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _deploymentTypes;
 
         /// <summary>
-        /// List of configurations' deployment types.
+        /// List of deployment types.
         /// </summary>
-        public List<Union<string, Pulumi.AzureNative.Network.DeploymentType>> DeploymentTypes
+        public List<Union<string, Pulumi.AzureNative.Network.ConfigurationType>> DeploymentTypes
         {
-            get => _deploymentTypes ?? (_deploymentTypes = new List<Union<string, Pulumi.AzureNative.Network.DeploymentType>>());
+            get => _deploymentTypes ?? (_deploymentTypes = new List<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>());
             set => _deploymentTypes = value;
         }
 
@@ -59,16 +59,10 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SkipToken is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+        /// Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
         /// </summary>
         [Input("skipToken")]
         public string? SkipToken { get; set; }
-
-        /// <summary>
-        /// An optional query parameter which specifies the maximum number of records to be returned by the server.
-        /// </summary>
-        [Input("top")]
-        public int? Top { get; set; }
 
         public ListNetworkManagerDeploymentStatusArgs()
         {
@@ -80,9 +74,9 @@ namespace Pulumi.AzureNative.Network
     public sealed class ListNetworkManagerDeploymentStatusResult
     {
         /// <summary>
-        /// Gets the URL to get the next page of results.
+        /// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
         /// </summary>
-        public readonly string? NextLink;
+        public readonly string? SkipToken;
         /// <summary>
         /// Gets a page of Network Manager Deployment Status
         /// </summary>
@@ -90,11 +84,11 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private ListNetworkManagerDeploymentStatusResult(
-            string? nextLink,
+            string? skipToken,
 
             ImmutableArray<Outputs.NetworkManagerDeploymentStatusResponse> value)
         {
-            NextLink = nextLink;
+            SkipToken = skipToken;
             Value = value;
         }
     }

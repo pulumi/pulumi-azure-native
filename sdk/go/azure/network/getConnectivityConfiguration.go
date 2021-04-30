@@ -34,7 +34,7 @@ type LookupConnectivityConfigurationResult struct {
 	// Connectivity topology type.
 	ConnectivityTopology string `pulumi:"connectivityTopology"`
 	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering *bool `pulumi:"deleteExistingPeering"`
+	DeleteExistingPeering *string `pulumi:"deleteExistingPeering"`
 	// A description of the connectivity configuration.
 	Description *string `pulumi:"description"`
 	// A friendly name for the resource.
@@ -46,7 +46,7 @@ type LookupConnectivityConfigurationResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Flag if global mesh is supported.
-	IsGlobal *bool `pulumi:"isGlobal"`
+	IsGlobal *string `pulumi:"isGlobal"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the connectivity configuration resource.

@@ -23,15 +23,14 @@ export function listNetworkManagerDeploymentStatus(args: ListNetworkManagerDeplo
         "regions": args.regions,
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,
-        "top": args.top,
     }, opts);
 }
 
 export interface ListNetworkManagerDeploymentStatusArgs {
     /**
-     * List of configurations' deployment types.
+     * List of deployment types.
      */
-    readonly deploymentTypes?: string | enums.network.DeploymentType[];
+    readonly deploymentTypes?: string | enums.network.ConfigurationType[];
     /**
      * The name of the network manager.
      */
@@ -45,13 +44,9 @@ export interface ListNetworkManagerDeploymentStatusArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * SkipToken is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+     * Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
      */
     readonly skipToken?: string;
-    /**
-     * An optional query parameter which specifies the maximum number of records to be returned by the server.
-     */
-    readonly top?: number;
 }
 
 /**
@@ -59,9 +54,9 @@ export interface ListNetworkManagerDeploymentStatusArgs {
  */
 export interface ListNetworkManagerDeploymentStatusResult {
     /**
-     * Gets the URL to get the next page of results.
+     * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
      */
-    readonly nextLink?: string;
+    readonly skipToken?: string;
     /**
      * Gets a page of Network Manager Deployment Status
      */

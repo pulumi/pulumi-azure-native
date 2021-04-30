@@ -27,8 +27,8 @@ class GetConnectivityConfigurationResult:
         if connectivity_topology and not isinstance(connectivity_topology, str):
             raise TypeError("Expected argument 'connectivity_topology' to be a str")
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
-        if delete_existing_peering and not isinstance(delete_existing_peering, bool):
-            raise TypeError("Expected argument 'delete_existing_peering' to be a bool")
+        if delete_existing_peering and not isinstance(delete_existing_peering, str):
+            raise TypeError("Expected argument 'delete_existing_peering' to be a str")
         pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -45,8 +45,8 @@ class GetConnectivityConfigurationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_global and not isinstance(is_global, bool):
-            raise TypeError("Expected argument 'is_global' to be a bool")
+        if is_global and not isinstance(is_global, str):
+            raise TypeError("Expected argument 'is_global' to be a str")
         pulumi.set(__self__, "is_global", is_global)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -79,7 +79,7 @@ class GetConnectivityConfigurationResult:
 
     @property
     @pulumi.getter(name="deleteExistingPeering")
-    def delete_existing_peering(self) -> Optional[bool]:
+    def delete_existing_peering(self) -> Optional[str]:
         """
         Flag if need to remove current existing peerings.
         """
@@ -127,7 +127,7 @@ class GetConnectivityConfigurationResult:
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[bool]:
+    def is_global(self) -> Optional[str]:
         """
         Flag if global mesh is supported.
         """

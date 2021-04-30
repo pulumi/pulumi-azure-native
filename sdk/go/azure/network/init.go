@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:network:AdminRule":
 		r = &AdminRule{}
+	case "azure-native:network:AdminRuleCollection":
+		r = &AdminRuleCollection{}
 	case "azure-native:network:ApplicationGateway":
 		r = &ApplicationGateway{}
 	case "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
@@ -151,12 +153,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteTable{}
 	case "azure-native:network:RulesEngine":
 		r = &RulesEngine{}
-	case "azure-native:network:SecurityConfiguration":
-		r = &SecurityConfiguration{}
+	case "azure-native:network:SecurityAdminConfiguration":
+		r = &SecurityAdminConfiguration{}
 	case "azure-native:network:SecurityPartnerProvider":
 		r = &SecurityPartnerProvider{}
 	case "azure-native:network:SecurityRule":
 		r = &SecurityRule{}
+	case "azure-native:network:SecurityUserConfiguration":
+		r = &SecurityUserConfiguration{}
 	case "azure-native:network:ServiceEndpointPolicy":
 		r = &ServiceEndpointPolicy{}
 	case "azure-native:network:ServiceEndpointPolicyDefinition":
@@ -167,6 +171,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TrafficManagerUserMetricsKey{}
 	case "azure-native:network:UserRule":
 		r = &UserRule{}
+	case "azure-native:network:UserRuleCollection":
+		r = &UserRuleCollection{}
 	case "azure-native:network:VirtualApplianceSite":
 		r = &VirtualApplianceSite{}
 	case "azure-native:network:VirtualHub":

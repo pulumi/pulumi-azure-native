@@ -8,15 +8,18 @@ import * as utilities from "../../utilities";
 export * from "./bigDataPool";
 export * from "./dataConnection";
 export * from "./database";
+export * from "./databasePrincipalAssignment";
 export * from "./getBigDataPool";
 export * from "./getDataConnection";
 export * from "./getDatabase";
+export * from "./getDatabasePrincipalAssignment";
 export * from "./getIntegrationRuntime";
 export * from "./getIntegrationRuntimeConnectionInfo";
 export * from "./getIntegrationRuntimeObjectMetadatum";
 export * from "./getIntegrationRuntimeStatus";
 export * from "./getIpFirewallRule";
 export * from "./getKey";
+export * from "./getKustoPoolPrincipalAssignment";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkHub";
 export * from "./getSqlPool";
@@ -35,6 +38,7 @@ export * from "./integrationRuntime";
 export * from "./ipFirewallRule";
 export * from "./key";
 export * from "./kustoPool";
+export * from "./kustoPoolPrincipalAssignment";
 export * from "./listIntegrationRuntimeAuthKey";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkHub";
@@ -57,9 +61,11 @@ export * from "../../types/enums/synapse/v20210401preview";
 import { BigDataPool } from "./bigDataPool";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
+import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { IntegrationRuntime } from "./integrationRuntime";
 import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
+import { KustoPoolPrincipalAssignment } from "./kustoPoolPrincipalAssignment";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkHub } from "./privateLinkHub";
 import { SqlPool } from "./sqlPool";
@@ -85,12 +91,16 @@ const _module = {
                 return new DataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment":
+                return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:IpFirewallRule":
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment":
+                return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:PrivateLinkHub":

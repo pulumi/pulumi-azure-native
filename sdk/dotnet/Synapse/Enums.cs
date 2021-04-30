@@ -93,6 +93,37 @@ namespace Pulumi.AzureNative.Synapse
     }
 
     /// <summary>
+    /// Cluster principal role.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterPrincipalRole : IEquatable<ClusterPrincipalRole>
+    {
+        private readonly string _value;
+
+        private ClusterPrincipalRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterPrincipalRole AllDatabasesAdmin { get; } = new ClusterPrincipalRole("AllDatabasesAdmin");
+        public static ClusterPrincipalRole AllDatabasesViewer { get; } = new ClusterPrincipalRole("AllDatabasesViewer");
+
+        public static bool operator ==(ClusterPrincipalRole left, ClusterPrincipalRole right) => left.Equals(right);
+        public static bool operator !=(ClusterPrincipalRole left, ClusterPrincipalRole right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterPrincipalRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterPrincipalRole other && Equals(other);
+        public bool Equals(ClusterPrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Kind of the endpoint for the data connection
     /// </summary>
     [EnumType]
@@ -149,6 +180,41 @@ namespace Pulumi.AzureNative.Synapse
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataFlowComputeType other && Equals(other);
         public bool Equals(DataFlowComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Database principal role.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatabasePrincipalRole : IEquatable<DatabasePrincipalRole>
+    {
+        private readonly string _value;
+
+        private DatabasePrincipalRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatabasePrincipalRole Admin { get; } = new DatabasePrincipalRole("Admin");
+        public static DatabasePrincipalRole Ingestor { get; } = new DatabasePrincipalRole("Ingestor");
+        public static DatabasePrincipalRole Monitor { get; } = new DatabasePrincipalRole("Monitor");
+        public static DatabasePrincipalRole User { get; } = new DatabasePrincipalRole("User");
+        public static DatabasePrincipalRole UnrestrictedViewer { get; } = new DatabasePrincipalRole("UnrestrictedViewer");
+        public static DatabasePrincipalRole Viewer { get; } = new DatabasePrincipalRole("Viewer");
+
+        public static bool operator ==(DatabasePrincipalRole left, DatabasePrincipalRole right) => left.Equals(right);
+        public static bool operator !=(DatabasePrincipalRole left, DatabasePrincipalRole right) => !left.Equals(right);
+
+        public static explicit operator string(DatabasePrincipalRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatabasePrincipalRole other && Equals(other);
+        public bool Equals(DatabasePrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -435,6 +501,38 @@ namespace Pulumi.AzureNative.Synapse
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NodeSizeFamily other && Equals(other);
         public bool Equals(NodeSizeFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Principal type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrincipalType : IEquatable<PrincipalType>
+    {
+        private readonly string _value;
+
+        private PrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrincipalType App { get; } = new PrincipalType("App");
+        public static PrincipalType Group { get; } = new PrincipalType("Group");
+        public static PrincipalType User { get; } = new PrincipalType("User");
+
+        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
+        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(PrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
+        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -41,16 +41,10 @@ namespace Pulumi.AzureNative.Network
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SkipToken is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+        /// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
         /// </summary>
         [Input("skipToken")]
         public string? SkipToken { get; set; }
-
-        /// <summary>
-        /// An optional query parameter which specifies the maximum number of records to be returned by the server.
-        /// </summary>
-        [Input("top")]
-        public int? Top { get; set; }
 
         public ListEffectiveVirtualNetworkByNetworkGroupArgs()
         {
@@ -62,21 +56,9 @@ namespace Pulumi.AzureNative.Network
     public sealed class ListEffectiveVirtualNetworkByNetworkGroupResult
     {
         /// <summary>
-        /// First Index.
+        /// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
         /// </summary>
-        public readonly int? FirstIndex;
-        /// <summary>
-        /// Gets the URL to get the next set of results.
-        /// </summary>
-        public readonly string? NextLink;
-        /// <summary>
-        /// Page Size.
-        /// </summary>
-        public readonly int? PageSize;
-        /// <summary>
-        /// Total Records.
-        /// </summary>
-        public readonly int? TotalRecords;
+        public readonly string? SkipToken;
         /// <summary>
         /// Gets a page of EffectiveVirtualNetwork
         /// </summary>
@@ -84,20 +66,11 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private ListEffectiveVirtualNetworkByNetworkGroupResult(
-            int? firstIndex,
-
-            string? nextLink,
-
-            int? pageSize,
-
-            int? totalRecords,
+            string? skipToken,
 
             ImmutableArray<Outputs.EffectiveVirtualNetworkResponse> value)
         {
-            FirstIndex = firstIndex;
-            NextLink = nextLink;
-            PageSize = pageSize;
-            TotalRecords = totalRecords;
+            SkipToken = skipToken;
             Value = value;
         }
     }

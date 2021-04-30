@@ -22,7 +22,7 @@ class NetworkManagerArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
-                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]]] = None,
+                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]] = None,
                  network_manager_scopes: Optional[pulumi.Input['NetworkManagerPropertiesNetworkManagerScopesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -33,7 +33,7 @@ class NetworkManagerArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]] network_manager_scope_accesses: Scope Access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]] network_manager_scope_accesses: Scope Access.
         :param pulumi.Input['NetworkManagerPropertiesNetworkManagerScopesArgs'] network_manager_scopes: Scope of Network Manager.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -129,14 +129,14 @@ class NetworkManagerArgs:
 
     @property
     @pulumi.getter(name="networkManagerScopeAccesses")
-    def network_manager_scope_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]]]:
+    def network_manager_scope_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]]:
         """
         Scope Access.
         """
         return pulumi.get(self, "network_manager_scope_accesses")
 
     @network_manager_scope_accesses.setter
-    def network_manager_scope_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]]]):
+    def network_manager_scope_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]]):
         pulumi.set(self, "network_manager_scope_accesses", value)
 
     @property
@@ -174,7 +174,7 @@ class NetworkManager(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
-                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]]] = None,
+                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]] = None,
                  network_manager_scopes: Optional[pulumi.Input[pulumi.InputType['NetworkManagerPropertiesNetworkManagerScopesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -190,7 +190,7 @@ class NetworkManager(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]] network_manager_scope_accesses: Scope Access.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]] network_manager_scope_accesses: Scope Access.
         :param pulumi.Input[pulumi.InputType['NetworkManagerPropertiesNetworkManagerScopesArgs']] network_manager_scopes: Scope of Network Manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -225,7 +225,7 @@ class NetworkManager(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
-                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ScopeAccesses']]]]] = None,
+                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]] = None,
                  network_manager_scopes: Optional[pulumi.Input[pulumi.InputType['NetworkManagerPropertiesNetworkManagerScopesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

@@ -157,7 +157,7 @@ export interface NetworkManagerArgs {
     /**
      * Scope Access.
      */
-    readonly networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.v20210201preview.ScopeAccesses>[]>;
+    readonly networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.v20210201preview.ConfigurationType>[]>;
     /**
      * Scope of Network Manager.
      */

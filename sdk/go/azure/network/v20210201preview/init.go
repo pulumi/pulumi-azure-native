@@ -23,16 +23,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:network/v20210201preview:AdminRule":
 		r = &AdminRule{}
+	case "azure-native:network/v20210201preview:AdminRuleCollection":
+		r = &AdminRuleCollection{}
 	case "azure-native:network/v20210201preview:ConnectivityConfiguration":
 		r = &ConnectivityConfiguration{}
 	case "azure-native:network/v20210201preview:NetworkGroup":
 		r = &NetworkGroup{}
 	case "azure-native:network/v20210201preview:NetworkManager":
 		r = &NetworkManager{}
-	case "azure-native:network/v20210201preview:SecurityConfiguration":
-		r = &SecurityConfiguration{}
+	case "azure-native:network/v20210201preview:SecurityAdminConfiguration":
+		r = &SecurityAdminConfiguration{}
+	case "azure-native:network/v20210201preview:SecurityUserConfiguration":
+		r = &SecurityUserConfiguration{}
 	case "azure-native:network/v20210201preview:UserRule":
 		r = &UserRule{}
+	case "azure-native:network/v20210201preview:UserRuleCollection":
+		r = &UserRuleCollection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

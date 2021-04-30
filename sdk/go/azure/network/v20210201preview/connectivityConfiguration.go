@@ -20,7 +20,7 @@ type ConnectivityConfiguration struct {
 	// Connectivity topology type.
 	ConnectivityTopology pulumi.StringOutput `pulumi:"connectivityTopology"`
 	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering pulumi.BoolPtrOutput `pulumi:"deleteExistingPeering"`
+	DeleteExistingPeering pulumi.StringPtrOutput `pulumi:"deleteExistingPeering"`
 	// A description of the connectivity configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A friendly name for the resource.
@@ -30,7 +30,7 @@ type ConnectivityConfiguration struct {
 	// The hub vnet Id.
 	HubId pulumi.StringPtrOutput `pulumi:"hubId"`
 	// Flag if global mesh is supported.
-	IsGlobal pulumi.BoolPtrOutput `pulumi:"isGlobal"`
+	IsGlobal pulumi.StringPtrOutput `pulumi:"isGlobal"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the connectivity configuration resource.
@@ -96,7 +96,7 @@ type connectivityConfigurationState struct {
 	// Connectivity topology type.
 	ConnectivityTopology *string `pulumi:"connectivityTopology"`
 	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering *bool `pulumi:"deleteExistingPeering"`
+	DeleteExistingPeering *string `pulumi:"deleteExistingPeering"`
 	// A description of the connectivity configuration.
 	Description *string `pulumi:"description"`
 	// A friendly name for the resource.
@@ -106,7 +106,7 @@ type connectivityConfigurationState struct {
 	// The hub vnet Id.
 	HubId *string `pulumi:"hubId"`
 	// Flag if global mesh is supported.
-	IsGlobal *bool `pulumi:"isGlobal"`
+	IsGlobal *string `pulumi:"isGlobal"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the connectivity configuration resource.
@@ -123,7 +123,7 @@ type ConnectivityConfigurationState struct {
 	// Connectivity topology type.
 	ConnectivityTopology pulumi.StringPtrInput
 	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering pulumi.BoolPtrInput
+	DeleteExistingPeering pulumi.StringPtrInput
 	// A description of the connectivity configuration.
 	Description pulumi.StringPtrInput
 	// A friendly name for the resource.
@@ -133,7 +133,7 @@ type ConnectivityConfigurationState struct {
 	// The hub vnet Id.
 	HubId pulumi.StringPtrInput
 	// Flag if global mesh is supported.
-	IsGlobal pulumi.BoolPtrInput
+	IsGlobal pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The provisioning state of the connectivity configuration resource.
@@ -156,7 +156,7 @@ type connectivityConfigurationArgs struct {
 	// Connectivity topology type.
 	ConnectivityTopology string `pulumi:"connectivityTopology"`
 	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering *bool `pulumi:"deleteExistingPeering"`
+	DeleteExistingPeering *string `pulumi:"deleteExistingPeering"`
 	// A description of the connectivity configuration.
 	Description *string `pulumi:"description"`
 	// A friendly name for the resource.
@@ -164,7 +164,7 @@ type connectivityConfigurationArgs struct {
 	// The hub vnet Id.
 	HubId *string `pulumi:"hubId"`
 	// Flag if global mesh is supported.
-	IsGlobal *bool `pulumi:"isGlobal"`
+	IsGlobal *string `pulumi:"isGlobal"`
 	// The name of the network manager.
 	NetworkManagerName string `pulumi:"networkManagerName"`
 	// The name of the resource group.
@@ -180,7 +180,7 @@ type ConnectivityConfigurationArgs struct {
 	// Connectivity topology type.
 	ConnectivityTopology pulumi.StringInput
 	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering pulumi.BoolPtrInput
+	DeleteExistingPeering pulumi.StringPtrInput
 	// A description of the connectivity configuration.
 	Description pulumi.StringPtrInput
 	// A friendly name for the resource.
@@ -188,7 +188,7 @@ type ConnectivityConfigurationArgs struct {
 	// The hub vnet Id.
 	HubId pulumi.StringPtrInput
 	// Flag if global mesh is supported.
-	IsGlobal pulumi.BoolPtrInput
+	IsGlobal pulumi.StringPtrInput
 	// The name of the network manager.
 	NetworkManagerName pulumi.StringInput
 	// The name of the resource group.

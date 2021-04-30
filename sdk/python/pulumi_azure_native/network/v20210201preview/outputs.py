@@ -7,43 +7,81 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActiveConfigurationResponse',
     'AddressPrefixItemResponse',
+    'ConfigurationGroupResponse',
     'ConnectivityGroupItemResponse',
+    'EffectiveAdminRuleResponse',
+    'EffectiveConnectivityConfigurationResponse',
+    'EffectiveDefaultAdminRuleResponse',
+    'EffectiveDefaultUserRuleResponse',
+    'EffectiveUserRuleResponse',
     'EffectiveVirtualNetworkResponse',
     'GroupMembersItemResponse',
     'NetworkManagerDeploymentStatusResponse',
     'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
+    'SecurityAdminRuleCollectionResponse',
+    'SecurityUserRuleCollectionResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ActiveConfigurationResponse(dict):
+    """
+    Active Configuration.
+    """
+    def __init__(__self__, *,
+                 commit_time: Optional[str] = None,
+                 committed_configuration: Optional[Any] = None,
+                 region: Optional[str] = None):
+        """
+        Active Configuration.
+        :param str commit_time: Deployment time string.
+        :param Union['EffectiveConnectivityConfigurationResponse', 'SecurityAdminRuleCollectionResponse', 'SecurityUserRuleCollectionResponse'] committed_configuration: Configuration such as connectivity configuration or security rule collection.
+        :param str region: Deployment region.
+        """
+        if commit_time is not None:
+            pulumi.set(__self__, "commit_time", commit_time)
+        if committed_configuration is not None:
+            pulumi.set(__self__, "committed_configuration", committed_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="commitTime")
+    def commit_time(self) -> Optional[str]:
+        """
+        Deployment time string.
+        """
+        return pulumi.get(self, "commit_time")
+
+    @property
+    @pulumi.getter(name="committedConfiguration")
+    def committed_configuration(self) -> Optional[Any]:
+        """
+        Configuration such as connectivity configuration or security rule collection.
+        """
+        return pulumi.get(self, "committed_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Deployment region.
+        """
+        return pulumi.get(self, "region")
+
 
 @pulumi.output_type
 class AddressPrefixItemResponse(dict):
     """
     Address prefix item.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "addressPrefix":
-            suggest = "address_prefix"
-        elif key == "addressPrefixType":
-            suggest = "address_prefix_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AddressPrefixItemResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AddressPrefixItemResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AddressPrefixItemResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  address_prefix: Optional[str] = None,
                  address_prefix_type: Optional[str] = None):
@@ -75,6 +113,100 @@ class AddressPrefixItemResponse(dict):
 
 
 @pulumi.output_type
+class ConfigurationGroupResponse(dict):
+    """
+    The network configuration group resource
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 conditional_membership: Optional[str] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 group_members: Optional[Sequence['outputs.GroupMembersItemResponse']] = None,
+                 id: Optional[str] = None,
+                 member_type: Optional[str] = None):
+        """
+        The network configuration group resource
+        :param str provisioning_state: The provisioning state of the scope assignment resource.
+        :param str conditional_membership: Network group conditional filter.
+        :param str description: A description of the network group.
+        :param str display_name: A friendly name for the network group.
+        :param Sequence['GroupMembersItemResponse'] group_members: Group members of network group.
+        :param str id: Resource ID.
+        :param str member_type: Group member type.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if conditional_membership is not None:
+            pulumi.set(__self__, "conditional_membership", conditional_membership)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if group_members is not None:
+            pulumi.set(__self__, "group_members", group_members)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if member_type is not None:
+            pulumi.set(__self__, "member_type", member_type)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the scope assignment resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="conditionalMembership")
+    def conditional_membership(self) -> Optional[str]:
+        """
+        Network group conditional filter.
+        """
+        return pulumi.get(self, "conditional_membership")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the network group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A friendly name for the network group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="groupMembers")
+    def group_members(self) -> Optional[Sequence['outputs.GroupMembersItemResponse']]:
+        """
+        Group members of network group.
+        """
+        return pulumi.get(self, "group_members")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[str]:
+        """
+        Group member type.
+        """
+        return pulumi.get(self, "member_type")
+
+
+@pulumi.output_type
 class ConnectivityGroupItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -101,14 +233,14 @@ class ConnectivityGroupItemResponse(dict):
 
     def __init__(__self__, *,
                  group_connectivity: Optional[str] = None,
-                 is_global: Optional[bool] = None,
+                 is_global: Optional[str] = None,
                  network_group_id: Optional[str] = None,
-                 use_hub_gateway: Optional[bool] = None):
+                 use_hub_gateway: Optional[str] = None):
         """
         :param str group_connectivity: Group connectivity type.
-        :param bool is_global: Flag if global is supported.
+        :param str is_global: Flag if global is supported.
         :param str network_group_id: Network group Id.
-        :param bool use_hub_gateway: Flag if need to use hub gateway.
+        :param str use_hub_gateway: Flag if need to use hub gateway.
         """
         if group_connectivity is not None:
             pulumi.set(__self__, "group_connectivity", group_connectivity)
@@ -129,7 +261,7 @@ class ConnectivityGroupItemResponse(dict):
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[bool]:
+    def is_global(self) -> Optional[str]:
         """
         Flag if global is supported.
         """
@@ -145,11 +277,774 @@ class ConnectivityGroupItemResponse(dict):
 
     @property
     @pulumi.getter(name="useHubGateway")
-    def use_hub_gateway(self) -> Optional[bool]:
+    def use_hub_gateway(self) -> Optional[str]:
         """
         Flag if need to use hub gateway.
         """
         return pulumi.get(self, "use_hub_gateway")
+
+
+@pulumi.output_type
+class EffectiveAdminRuleResponse(dict):
+    """
+    Network admin rule.
+    """
+    def __init__(__self__, *,
+                 access: str,
+                 direction: str,
+                 kind: str,
+                 protocol: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 destination_port_ranges: Optional[Sequence[str]] = None,
+                 destinations: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 source_port_ranges: Optional[Sequence[str]] = None,
+                 sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None):
+        """
+        Network admin rule.
+        :param str access: Indicates the access allowed for this particular rule
+        :param str direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param str kind: Whether the rule collection is custom or default.
+               Expected value is 'Custom'.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param str display_name: A friendly name for the rule.
+        :param str id: Resource ID.
+        :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "kind", 'Custom')
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        Indicates the access allowed for this particular rule
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Whether the rule collection is custom or default.
+        Expected value is 'Custom'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A friendly name for the rule.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class EffectiveConnectivityConfigurationResponse(dict):
+    """
+    The network manager connectivity configuration resource
+    """
+    def __init__(__self__, *,
+                 connectivity_topology: str,
+                 kind: str,
+                 provisioning_state: str,
+                 applies_to_groups: Optional[Sequence['outputs.ConnectivityGroupItemResponse']] = None,
+                 configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+                 delete_existing_peering: Optional[str] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 hub_id: Optional[str] = None,
+                 id: Optional[str] = None,
+                 is_global: Optional[str] = None):
+        """
+        The network manager connectivity configuration resource
+        :param str connectivity_topology: Connectivity topology type.
+        :param str kind: Effective configuration Type.
+               Expected value is 'ConnectivityConfiguration'.
+        :param str provisioning_state: The provisioning state of the connectivity configuration resource.
+        :param Sequence['ConnectivityGroupItemResponse'] applies_to_groups: Groups for configuration
+        :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
+        :param str delete_existing_peering: Flag if need to remove current existing peerings.
+        :param str description: A description of the connectivity configuration.
+        :param str display_name: A friendly name for the resource.
+        :param str hub_id: The hub vnet Id.
+        :param str id: Resource ID.
+        :param str is_global: Flag if global mesh is supported.
+        """
+        pulumi.set(__self__, "connectivity_topology", connectivity_topology)
+        pulumi.set(__self__, "kind", 'ConnectivityConfiguration')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if applies_to_groups is not None:
+            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if configuration_groups is not None:
+            pulumi.set(__self__, "configuration_groups", configuration_groups)
+        if delete_existing_peering is not None:
+            pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if hub_id is not None:
+            pulumi.set(__self__, "hub_id", hub_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_global is not None:
+            pulumi.set(__self__, "is_global", is_global)
+
+    @property
+    @pulumi.getter(name="connectivityTopology")
+    def connectivity_topology(self) -> str:
+        """
+        Connectivity topology type.
+        """
+        return pulumi.get(self, "connectivity_topology")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Effective configuration Type.
+        Expected value is 'ConnectivityConfiguration'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the connectivity configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="appliesToGroups")
+    def applies_to_groups(self) -> Optional[Sequence['outputs.ConnectivityGroupItemResponse']]:
+        """
+        Groups for configuration
+        """
+        return pulumi.get(self, "applies_to_groups")
+
+    @property
+    @pulumi.getter(name="configurationGroups")
+    def configuration_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponse']]:
+        """
+        Effective configuration groups.
+        """
+        return pulumi.get(self, "configuration_groups")
+
+    @property
+    @pulumi.getter(name="deleteExistingPeering")
+    def delete_existing_peering(self) -> Optional[str]:
+        """
+        Flag if need to remove current existing peerings.
+        """
+        return pulumi.get(self, "delete_existing_peering")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the connectivity configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A friendly name for the resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="hubId")
+    def hub_id(self) -> Optional[str]:
+        """
+        The hub vnet Id.
+        """
+        return pulumi.get(self, "hub_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isGlobal")
+    def is_global(self) -> Optional[str]:
+        """
+        Flag if global mesh is supported.
+        """
+        return pulumi.get(self, "is_global")
+
+
+@pulumi.output_type
+class EffectiveDefaultAdminRuleResponse(dict):
+    """
+    Network default admin rule.
+    """
+    def __init__(__self__, *,
+                 access: str,
+                 description: str,
+                 destination_port_ranges: Sequence[str],
+                 destinations: Sequence['outputs.AddressPrefixItemResponse'],
+                 direction: str,
+                 display_name: str,
+                 kind: str,
+                 priority: int,
+                 protocol: str,
+                 provisioning_state: str,
+                 source_port_ranges: Sequence[str],
+                 sources: Sequence['outputs.AddressPrefixItemResponse'],
+                 flag: Optional[str] = None,
+                 id: Optional[str] = None):
+        """
+        Network default admin rule.
+        :param str access: Indicates the access allowed for this particular rule
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param str direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param str display_name: A friendly name for the rule.
+        :param str kind: Whether the rule collection is custom or default.
+               Expected value is 'Default'.
+        :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
+        :param str flag: Default rule flag.
+        :param str id: Resource ID.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "kind", 'Default')
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        pulumi.set(__self__, "sources", sources)
+        if flag is not None:
+            pulumi.set(__self__, "flag", flag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        Indicates the access allowed for this particular rule
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Sequence[str]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.AddressPrefixItemResponse']:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        A friendly name for the rule.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Whether the rule collection is custom or default.
+        Expected value is 'Default'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Sequence[str]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.AddressPrefixItemResponse']:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
+    def flag(self) -> Optional[str]:
+        """
+        Default rule flag.
+        """
+        return pulumi.get(self, "flag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class EffectiveDefaultUserRuleResponse(dict):
+    """
+    Network security default user rule.
+    """
+    def __init__(__self__, *,
+                 description: str,
+                 destination_port_ranges: Sequence[str],
+                 destinations: Sequence['outputs.AddressPrefixItemResponse'],
+                 direction: str,
+                 display_name: str,
+                 kind: str,
+                 protocol: str,
+                 provisioning_state: str,
+                 source_port_ranges: Sequence[str],
+                 sources: Sequence['outputs.AddressPrefixItemResponse'],
+                 flag: Optional[str] = None,
+                 id: Optional[str] = None):
+        """
+        Network security default user rule.
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param str direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param str display_name: A friendly name for the rule.
+        :param str kind: Whether the rule collection is custom or default.
+               Expected value is 'Default'.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the security configuration user rule resource.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
+        :param str flag: Default rule flag.
+        :param str id: Resource ID.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "kind", 'Default')
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        pulumi.set(__self__, "sources", sources)
+        if flag is not None:
+            pulumi.set(__self__, "flag", flag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Sequence[str]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.AddressPrefixItemResponse']:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        A friendly name for the rule.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Whether the rule collection is custom or default.
+        Expected value is 'Default'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the security configuration user rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Sequence[str]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.AddressPrefixItemResponse']:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
+    def flag(self) -> Optional[str]:
+        """
+        Default rule flag.
+        """
+        return pulumi.get(self, "flag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class EffectiveUserRuleResponse(dict):
+    """
+    Network security user rule.
+    """
+    def __init__(__self__, *,
+                 direction: str,
+                 kind: str,
+                 protocol: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 destination_port_ranges: Optional[Sequence[str]] = None,
+                 destinations: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 source_port_ranges: Optional[Sequence[str]] = None,
+                 sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None):
+        """
+        Network security user rule.
+        :param str direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param str kind: Whether the rule collection is custom or default.
+               Expected value is 'Custom'.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the security configuration user rule resource.
+        :param str description: A description for this rule.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param str display_name: A friendly name for the rule.
+        :param str id: Resource ID.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "kind", 'Custom')
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Whether the rule collection is custom or default.
+        Expected value is 'Custom'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the security configuration user rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A friendly name for the rule.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
 
 
 @pulumi.output_type
@@ -207,8 +1102,10 @@ class GroupMembersItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceId":
-            suggest = "resource_id"
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "vnetId":
+            suggest = "vnet_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GroupMembersItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -222,21 +1119,33 @@ class GroupMembersItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_id: Optional[str] = None):
+                 subnet_id: Optional[str] = None,
+                 vnet_id: Optional[str] = None):
         """
         GroupMembers Item.
-        :param str resource_id: Resource Id.
+        :param str subnet_id: Subnet Id.
+        :param str vnet_id: Vnet Id.
         """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vnet_id is not None:
+            pulumi.set(__self__, "vnet_id", vnet_id)
 
     @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
         """
-        Resource Id.
+        Subnet Id.
         """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="vnetId")
+    def vnet_id(self) -> Optional[str]:
+        """
+        Vnet Id.
+        """
+        return pulumi.get(self, "vnet_id")
 
 
 @pulumi.output_type
@@ -412,6 +1321,268 @@ class NetworkManagerSecurityGroupItemResponse(dict):
         Network manager group Id.
         """
         return pulumi.get(self, "network_group_id")
+
+
+@pulumi.output_type
+class SecurityAdminRuleCollectionResponse(dict):
+    """
+    The network manager effective security admin rule collection
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 provisioning_state: str,
+                 applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+                 configuration_description: Optional[str] = None,
+                 configuration_display_name: Optional[str] = None,
+                 configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 rules: Optional[Sequence[Any]] = None):
+        """
+        The network manager effective security admin rule collection
+        :param str kind: Effective configuration Type.
+               Expected value is 'SecurityAdminRuleCollection'.
+        :param str provisioning_state: The provisioning state of the the resource.
+        :param Sequence['NetworkManagerSecurityGroupItemResponse'] applies_to_groups: Groups for configuration
+        :param str configuration_description: A description of the rule collection.
+        :param str configuration_display_name: A display name of the rule collection.
+        :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
+        :param str description: A description of the rule collection.
+        :param str display_name: A display name of the rule collection.
+        :param str id: Resource ID.
+        :param Sequence[Union['EffectiveAdminRuleResponse', 'EffectiveDefaultAdminRuleResponse']] rules: Base admin rule List
+        """
+        pulumi.set(__self__, "kind", 'SecurityAdminRuleCollection')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if applies_to_groups is not None:
+            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if configuration_description is not None:
+            pulumi.set(__self__, "configuration_description", configuration_description)
+        if configuration_display_name is not None:
+            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+        if configuration_groups is not None:
+            pulumi.set(__self__, "configuration_groups", configuration_groups)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Effective configuration Type.
+        Expected value is 'SecurityAdminRuleCollection'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="appliesToGroups")
+    def applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]:
+        """
+        Groups for configuration
+        """
+        return pulumi.get(self, "applies_to_groups")
+
+    @property
+    @pulumi.getter(name="configurationDescription")
+    def configuration_description(self) -> Optional[str]:
+        """
+        A description of the rule collection.
+        """
+        return pulumi.get(self, "configuration_description")
+
+    @property
+    @pulumi.getter(name="configurationDisplayName")
+    def configuration_display_name(self) -> Optional[str]:
+        """
+        A display name of the rule collection.
+        """
+        return pulumi.get(self, "configuration_display_name")
+
+    @property
+    @pulumi.getter(name="configurationGroups")
+    def configuration_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponse']]:
+        """
+        Effective configuration groups.
+        """
+        return pulumi.get(self, "configuration_groups")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the rule collection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A display name of the rule collection.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence[Any]]:
+        """
+        Base admin rule List
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class SecurityUserRuleCollectionResponse(dict):
+    """
+    The network manager effective security user rule collection
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 provisioning_state: str,
+                 applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+                 configuration_description: Optional[str] = None,
+                 configuration_display_name: Optional[str] = None,
+                 configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 rules: Optional[Sequence[Any]] = None):
+        """
+        The network manager effective security user rule collection
+        :param str kind: Effective configuration Type.
+               Expected value is 'SecurityUserRuleCollection'.
+        :param str provisioning_state: The provisioning state of the the resource.
+        :param Sequence['NetworkManagerSecurityGroupItemResponse'] applies_to_groups: Groups for configuration
+        :param str configuration_description: A description of the rule collection.
+        :param str configuration_display_name: A display name of the rule collection.
+        :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
+        :param str description: A description of the rule collection.
+        :param str display_name: A display name of the rule collection.
+        :param str id: Resource ID.
+        :param Sequence[Union['EffectiveDefaultUserRuleResponse', 'EffectiveUserRuleResponse']] rules: Base user rule List
+        """
+        pulumi.set(__self__, "kind", 'SecurityUserRuleCollection')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if applies_to_groups is not None:
+            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if configuration_description is not None:
+            pulumi.set(__self__, "configuration_description", configuration_description)
+        if configuration_display_name is not None:
+            pulumi.set(__self__, "configuration_display_name", configuration_display_name)
+        if configuration_groups is not None:
+            pulumi.set(__self__, "configuration_groups", configuration_groups)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Effective configuration Type.
+        Expected value is 'SecurityUserRuleCollection'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="appliesToGroups")
+    def applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]:
+        """
+        Groups for configuration
+        """
+        return pulumi.get(self, "applies_to_groups")
+
+    @property
+    @pulumi.getter(name="configurationDescription")
+    def configuration_description(self) -> Optional[str]:
+        """
+        A description of the rule collection.
+        """
+        return pulumi.get(self, "configuration_description")
+
+    @property
+    @pulumi.getter(name="configurationDisplayName")
+    def configuration_display_name(self) -> Optional[str]:
+        """
+        A display name of the rule collection.
+        """
+        return pulumi.get(self, "configuration_display_name")
+
+    @property
+    @pulumi.getter(name="configurationGroups")
+    def configuration_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponse']]:
+        """
+        Effective configuration groups.
+        """
+        return pulumi.get(self, "configuration_groups")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the rule collection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        A display name of the rule collection.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence[Any]]:
+        """
+        Base user rule List
+        """
+        return pulumi.get(self, "rules")
 
 
 @pulumi.output_type

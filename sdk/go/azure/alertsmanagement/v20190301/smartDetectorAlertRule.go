@@ -81,6 +81,12 @@ func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:alertsmanagement/v20210401:SmartDetectorAlertRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SmartDetectorAlertRule

@@ -7,7 +7,7 @@ from enum import Enum
 __all__ = [
     'Access',
     'ActionType',
-    'AddressPrefixType',
+    'AdminRuleKind',
     'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
@@ -31,6 +31,7 @@ __all__ = [
     'AzureFirewallThreatIntelMode',
     'BackendEnabledState',
     'CommissionedState',
+    'ConfigurationType',
     'ConnectionMonitorEndpointFilterItemType',
     'ConnectionMonitorEndpointFilterType',
     'ConnectionMonitorTestConfigurationProtocol',
@@ -40,7 +41,8 @@ __all__ = [
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
     'DdosSettingsProtectionCoverage',
-    'DeploymentType',
+    'DeleteExistingNSGs',
+    'DeleteExistingPeering',
     'DestinationPortBehavior',
     'DhGroup',
     'DynamicCompressionEnabled',
@@ -92,6 +94,7 @@ __all__ = [
     'IpAllocationType',
     'IpsecEncryption',
     'IpsecIntegrity',
+    'IsGlobal',
     'LoadBalancerOutboundRuleProtocol',
     'LoadBalancerSkuName',
     'LoadBalancerSkuTier',
@@ -129,10 +132,6 @@ __all__ = [
     'RuleType',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
-    'ScopeAccesses',
-    'SecurityConfigurationRuleAccess',
-    'SecurityConfigurationRuleDirection',
-    'SecurityConfigurationRuleProtocol',
     'SecurityProviderName',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
@@ -147,6 +146,8 @@ __all__ = [
     'Transform',
     'TransformType',
     'TransportProtocol',
+    'UseHubGateway',
+    'UserRuleKind',
     'VirtualNetworkGatewayConnectionMode',
     'VirtualNetworkGatewayConnectionProtocol',
     'VirtualNetworkGatewayConnectionType',
@@ -193,12 +194,12 @@ class ActionType(str, Enum):
     REDIRECT = "Redirect"
 
 
-class AddressPrefixType(str, Enum):
+class AdminRuleKind(str, Enum):
     """
-    Address prefix type.
+    Whether the rule is custom or default.
     """
-    IP_PREFIX = "IPPrefix"
-    SERVICE_TAG = "ServiceTag"
+    CUSTOM = "Custom"
+    DEFAULT = "Default"
 
 
 class AllowedEndpointRecordType(str, Enum):
@@ -432,6 +433,15 @@ class CommissionedState(str, Enum):
     DEPROVISIONING = "Deprovisioning"
 
 
+class ConfigurationType(str, Enum):
+    """
+    Configuration Deployment Type.
+    """
+    ADMIN_SECURITY = "AdminSecurity"
+    USER_SECURITY = "UserSecurity"
+    CONNECTIVITY = "Connectivity"
+
+
 class ConnectionMonitorEndpointFilterItemType(str, Enum):
     """
     The type of item included in the filter. Currently only 'AgentAddress' is supported.
@@ -459,8 +469,8 @@ class ConnectivityTopology(str, Enum):
     """
     Connectivity topology type.
     """
-    HUB_AND_SPOKE_TOPOLOGY = "HubAndSpokeTopology"
-    MESH_TOPOLOGY = "MeshTopology"
+    HUB_AND_SPOKE = "HubAndSpoke"
+    MESH = "Mesh"
 
 
 class CoverageLevel(str, Enum):
@@ -510,14 +520,20 @@ class DdosSettingsProtectionCoverage(str, Enum):
     STANDARD = "Standard"
 
 
-class DeploymentType(str, Enum):
+class DeleteExistingNSGs(str, Enum):
     """
-    Configuration Deployment Type.
+    Flag if need to delete existing network security groups.
     """
-    ADMIN_POLICY = "AdminPolicy"
-    USER_POLICY = "UserPolicy"
-    ROUTING = "Routing"
-    CONNECTIVITY = "Connectivity"
+    FALSE = "False"
+    TRUE = "True"
+
+
+class DeleteExistingPeering(str, Enum):
+    """
+    Flag if need to remove current existing peerings.
+    """
+    FALSE = "False"
+    TRUE = "True"
 
 
 class DestinationPortBehavior(str, Enum):
@@ -985,6 +1001,14 @@ class IpsecIntegrity(str, Enum):
     GCMAES256 = "GCMAES256"
 
 
+class IsGlobal(str, Enum):
+    """
+    Flag if global mesh is supported.
+    """
+    FALSE = "False"
+    TRUE = "True"
+
+
 class LoadBalancerOutboundRuleProtocol(str, Enum):
     """
     The protocol for the outbound rule in load balancer.
@@ -1343,41 +1367,6 @@ class RulesEngineOperator(str, Enum):
     ENDS_WITH = "EndsWith"
 
 
-class ScopeAccesses(str, Enum):
-    SECURITY = "Security"
-    ROUTING = "Routing"
-    CONNECTIVITY = "Connectivity"
-
-
-class SecurityConfigurationRuleAccess(str, Enum):
-    """
-    Indicates the access allowed for this particular rule
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-    ALWAYS_ALLOW = "AlwaysAllow"
-
-
-class SecurityConfigurationRuleDirection(str, Enum):
-    """
-    Indicates if the traffic matched against the rule in inbound or outbound.
-    """
-    INBOUND = "Inbound"
-    OUTBOUND = "Outbound"
-
-
-class SecurityConfigurationRuleProtocol(str, Enum):
-    """
-    Network protocol this rule applies to.
-    """
-    TCP = "Tcp"
-    UDP = "Udp"
-    ICMP = "Icmp"
-    ESP = "Esp"
-    ANY = "Any"
-    AH = "Ah"
-
-
 class SecurityProviderName(str, Enum):
     """
     The security provider name.
@@ -1509,6 +1498,22 @@ class TransportProtocol(str, Enum):
     UDP = "Udp"
     TCP = "Tcp"
     ALL = "All"
+
+
+class UseHubGateway(str, Enum):
+    """
+    Flag if need to use hub gateway.
+    """
+    FALSE = "False"
+    TRUE = "True"
+
+
+class UserRuleKind(str, Enum):
+    """
+    Whether the rule is custom or default.
+    """
+    CUSTOM = "Custom"
+    DEFAULT = "Default"
 
 
 class VirtualNetworkGatewayConnectionMode(str, Enum):

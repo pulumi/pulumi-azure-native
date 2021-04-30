@@ -46,7 +46,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
     /**
      * Flag if need to remove current existing peerings.
      */
-    public readonly deleteExistingPeering!: pulumi.Output<boolean | undefined>;
+    public readonly deleteExistingPeering!: pulumi.Output<string | undefined>;
     /**
      * A description of the connectivity configuration.
      */
@@ -66,7 +66,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
     /**
      * Flag if global mesh is supported.
      */
-    public readonly isGlobal!: pulumi.Output<boolean | undefined>;
+    public readonly isGlobal!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -161,7 +161,7 @@ export interface ConnectivityConfigurationArgs {
     /**
      * Flag if need to remove current existing peerings.
      */
-    readonly deleteExistingPeering?: pulumi.Input<boolean>;
+    readonly deleteExistingPeering?: pulumi.Input<string | enums.network.v20210201preview.DeleteExistingPeering>;
     /**
      * A description of the connectivity configuration.
      */
@@ -177,7 +177,7 @@ export interface ConnectivityConfigurationArgs {
     /**
      * Flag if global mesh is supported.
      */
-    readonly isGlobal?: pulumi.Input<boolean>;
+    readonly isGlobal?: pulumi.Input<string | enums.network.v20210201preview.IsGlobal>;
     /**
      * The name of the network manager.
      */

@@ -24,22 +24,14 @@ type ListEffectiveVirtualNetworkByNetworkGroupArgs struct {
 	NetworkManagerName string `pulumi:"networkManagerName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SkipToken is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
+	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
 	SkipToken *string `pulumi:"skipToken"`
-	// An optional query parameter which specifies the maximum number of records to be returned by the server.
-	Top *int `pulumi:"top"`
 }
 
 // Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
 type ListEffectiveVirtualNetworkByNetworkGroupResult struct {
-	// First Index.
-	FirstIndex *int `pulumi:"firstIndex"`
-	// Gets the URL to get the next set of results.
-	NextLink *string `pulumi:"nextLink"`
-	// Page Size.
-	PageSize *int `pulumi:"pageSize"`
-	// Total Records.
-	TotalRecords *int `pulumi:"totalRecords"`
+	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
+	SkipToken *string `pulumi:"skipToken"`
 	// Gets a page of EffectiveVirtualNetwork
 	Value []EffectiveVirtualNetworkResponse `pulumi:"value"`
 }

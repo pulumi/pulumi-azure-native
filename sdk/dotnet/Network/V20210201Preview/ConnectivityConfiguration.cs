@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// Flag if need to remove current existing peerings.
         /// </summary>
         [Output("deleteExistingPeering")]
-        public Output<bool?> DeleteExistingPeering { get; private set; } = null!;
+        public Output<string?> DeleteExistingPeering { get; private set; } = null!;
 
         /// <summary>
         /// A description of the connectivity configuration.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// Flag if global mesh is supported.
         /// </summary>
         [Output("isGlobal")]
-        public Output<bool?> IsGlobal { get; private set; } = null!;
+        public Output<string?> IsGlobal { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// Flag if need to remove current existing peerings.
         /// </summary>
         [Input("deleteExistingPeering")]
-        public Input<bool>? DeleteExistingPeering { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20210201Preview.DeleteExistingPeering>? DeleteExistingPeering { get; set; }
 
         /// <summary>
         /// A description of the connectivity configuration.
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// Flag if global mesh is supported.
         /// </summary>
         [Input("isGlobal")]
-        public Input<bool>? IsGlobal { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20210201Preview.IsGlobal>? IsGlobal { get; set; }
 
         /// <summary>
         /// The name of the network manager.

@@ -53,7 +53,7 @@ export interface GetConnectivityConfigurationResult {
     /**
      * Flag if need to remove current existing peerings.
      */
-    readonly deleteExistingPeering?: boolean;
+    readonly deleteExistingPeering?: string;
     /**
      * A description of the connectivity configuration.
      */
@@ -77,7 +77,7 @@ export interface GetConnectivityConfigurationResult {
     /**
      * Flag if global mesh is supported.
      */
-    readonly isGlobal?: boolean;
+    readonly isGlobal?: string;
     /**
      * Resource name.
      */

@@ -27,12 +27,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnection{}
 	case "azure-native:synapse/v20210401preview:Database":
 		r = &Database{}
+	case "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment":
+		r = &DatabasePrincipalAssignment{}
 	case "azure-native:synapse/v20210401preview:IntegrationRuntime":
 		r = &IntegrationRuntime{}
 	case "azure-native:synapse/v20210401preview:IpFirewallRule":
 		r = &IpFirewallRule{}
 	case "azure-native:synapse/v20210401preview:Key":
 		r = &Key{}
+	case "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment":
+		r = &KustoPoolPrincipalAssignment{}
 	case "azure-native:synapse/v20210401preview:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:synapse/v20210401preview:PrivateLinkHub":

@@ -9,7 +9,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['UserRuleArgs', 'UserRule']
 
@@ -17,51 +16,27 @@ __all__ = ['UserRuleArgs', 'UserRule']
 class UserRuleArgs:
     def __init__(__self__, *,
                  configuration_name: pulumi.Input[str],
-                 direction: pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']],
+                 kind: pulumi.Input[Union[str, 'UserRuleKind']],
                  network_manager_name: pulumi.Input[str],
-                 protocol: pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']],
                  resource_group_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 rule_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 rule_collection_name: pulumi.Input[str],
+                 rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserRule resource.
         :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
-        :param pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']] direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param pulumi.Input[Union[str, 'UserRuleKind']] kind: Whether the rule is custom or default.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
-        :param pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
-        :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] destination: The destination address prefixes. CIDR or destination IP ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
-        :param pulumi.Input[str] display_name: A friendly name for the rule.
+        :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]] source: The CIDR or source IP ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         """
         pulumi.set(__self__, "configuration_name", configuration_name)
-        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "rule_collection_name", rule_collection_name)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -77,15 +52,15 @@ class UserRuleArgs:
 
     @property
     @pulumi.getter
-    def direction(self) -> pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]:
+    def kind(self) -> pulumi.Input[Union[str, 'UserRuleKind']]:
         """
-        Indicates if the traffic matched against the rule in inbound or outbound.
+        Whether the rule is custom or default.
         """
-        return pulumi.get(self, "direction")
+        return pulumi.get(self, "kind")
 
-    @direction.setter
-    def direction(self, value: pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]):
-        pulumi.set(self, "direction", value)
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'UserRuleKind']]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter(name="networkManagerName")
@@ -100,18 +75,6 @@ class UserRuleArgs:
         pulumi.set(self, "network_manager_name", value)
 
     @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']]:
-        """
-        Network protocol this rule applies to.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']]):
-        pulumi.set(self, "protocol", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -124,52 +87,16 @@ class UserRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="ruleCollectionName")
+    def rule_collection_name(self) -> pulumi.Input[str]:
         """
-        A description for this rule. Restricted to 140 chars.
+        The name of the network manager security Configuration rule collection.
         """
-        return pulumi.get(self, "description")
+        return pulumi.get(self, "rule_collection_name")
 
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]]:
-        """
-        The destination address prefixes. CIDR or destination IP ranges.
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]]):
-        pulumi.set(self, "destination", value)
-
-    @property
-    @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The destination port ranges.
-        """
-        return pulumi.get(self, "destination_port_ranges")
-
-    @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "destination_port_ranges", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
+    @rule_collection_name.setter
+    def rule_collection_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_collection_name", value)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -183,30 +110,6 @@ class UserRuleArgs:
     def rule_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rule_name", value)
 
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]]:
-        """
-        The CIDR or source IP ranges.
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddressPrefixItemArgs']]]]):
-        pulumi.set(self, "source", value)
-
-    @property
-    @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The source port ranges.
-        """
-        return pulumi.get(self, "source_port_ranges")
-
-    @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "source_port_ranges", value)
-
 
 class UserRule(pulumi.CustomResource):
     @overload
@@ -214,35 +117,23 @@ class UserRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 direction: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'UserRuleKind']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_collection_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Network security admin rule.
+        Network base rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
-        :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]] destination: The destination address prefixes. CIDR or destination IP ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
-        :param pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']] direction: Indicates if the traffic matched against the rule in inbound or outbound.
-        :param pulumi.Input[str] display_name: A friendly name for the rule.
+        :param pulumi.Input[Union[str, 'UserRuleKind']] kind: Whether the rule is custom or default.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
-        :param pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]] source: The CIDR or source IP ranges.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         """
         ...
     @overload
@@ -251,7 +142,7 @@ class UserRule(pulumi.CustomResource):
                  args: UserRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Network security admin rule.
+        Network base rule.
 
         :param str resource_name: The name of the resource.
         :param UserRuleArgs args: The arguments to use to populate this resource's properties.
@@ -269,17 +160,11 @@ class UserRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 direction: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleDirection']]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'UserRuleKind']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[Union[str, 'SecurityConfigurationRuleProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rule_collection_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddressPrefixItemArgs']]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -295,28 +180,21 @@ class UserRule(pulumi.CustomResource):
             if configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
-            __props__.__dict__["description"] = description
-            __props__.__dict__["destination"] = destination
-            __props__.__dict__["destination_port_ranges"] = destination_port_ranges
-            if direction is None and not opts.urn:
-                raise TypeError("Missing required property 'direction'")
-            __props__.__dict__["direction"] = direction
-            __props__.__dict__["display_name"] = display_name
+            if kind is None and not opts.urn:
+                raise TypeError("Missing required property 'kind'")
+            __props__.__dict__["kind"] = kind
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
-            if protocol is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol'")
-            __props__.__dict__["protocol"] = protocol
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rule_collection_name is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_collection_name'")
+            __props__.__dict__["rule_collection_name"] = rule_collection_name
             __props__.__dict__["rule_name"] = rule_name
-            __props__.__dict__["source"] = source
-            __props__.__dict__["source_port_ranges"] = source_port_ranges
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20210201preview:UserRule"), pulumi.Alias(type_="azure-native:network:UserRule"), pulumi.Alias(type_="azure-nextgen:network:UserRule")])
@@ -343,60 +221,12 @@ class UserRule(pulumi.CustomResource):
 
         __props__ = UserRuleArgs.__new__(UserRuleArgs)
 
-        __props__.__dict__["description"] = None
-        __props__.__dict__["destination"] = None
-        __props__.__dict__["destination_port_ranges"] = None
-        __props__.__dict__["direction"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["protocol"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["source"] = None
-        __props__.__dict__["source_port_ranges"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return UserRule(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description for this rule. Restricted to 140 chars.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def destination(self) -> pulumi.Output[Optional[Sequence['outputs.AddressPrefixItemResponse']]]:
-        """
-        The destination address prefixes. CIDR or destination IP ranges.
-        """
-        return pulumi.get(self, "destination")
-
-    @property
-    @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The destination port ranges.
-        """
-        return pulumi.get(self, "destination_port_ranges")
-
-    @property
-    @pulumi.getter
-    def direction(self) -> pulumi.Output[str]:
-        """
-        Indicates if the traffic matched against the rule in inbound or outbound.
-        """
-        return pulumi.get(self, "direction")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -408,43 +238,19 @@ class UserRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Whether the rule is custom or default.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Output[str]:
-        """
-        Network protocol this rule applies to.
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        The provisioning state of the security Configuration resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def source(self) -> pulumi.Output[Optional[Sequence['outputs.AddressPrefixItemResponse']]]:
-        """
-        The CIDR or source IP ranges.
-        """
-        return pulumi.get(self, "source")
-
-    @property
-    @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The source port ranges.
-        """
-        return pulumi.get(self, "source_port_ranges")
 
     @property
     @pulumi.getter(name="systemData")

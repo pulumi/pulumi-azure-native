@@ -94,6 +94,7 @@ var ignoredProviderVersions = map[string][]string{
 // We reset this map every time we release a new major version.
 // Currently populated for 1.* series.
 var cutoffProviderVersions = map[string]string{
+	"alertsmanagement": "v20200804preview",
 	"documentdb":       "v20210315",
 	"management":       "v20200501",
 	"maps":             "v20200201preview",

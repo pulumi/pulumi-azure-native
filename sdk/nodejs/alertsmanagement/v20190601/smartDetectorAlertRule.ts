@@ -147,7 +147,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/v20190601:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20190301:SmartDetectorAlertRule" }, { type: "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule" }, { type: "azure-nextgen:alertsmanagement/v20210401:SmartDetectorAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SmartDetectorAlertRule.__pulumiType, name, inputs, opts);
     }

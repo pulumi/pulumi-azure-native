@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Outputs
         /// <summary>
         /// Flag if global is supported.
         /// </summary>
-        public readonly bool? IsGlobal;
+        public readonly string? IsGlobal;
         /// <summary>
         /// Network group Id.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Outputs
         /// <summary>
         /// Flag if need to use hub gateway.
         /// </summary>
-        public readonly bool? UseHubGateway;
+        public readonly string? UseHubGateway;
 
         [OutputConstructor]
         private ConnectivityGroupItemResponse(
             string? groupConnectivity,
 
-            bool? isGlobal,
+            string? isGlobal,
 
             string? networkGroupId,
 
-            bool? useHubGateway)
+            string? useHubGateway)
         {
             GroupConnectivity = groupConnectivity;
             IsGlobal = isGlobal;

@@ -45,6 +45,16 @@ export const AzureSkuTier = {
  */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
+export const ClusterPrincipalRole = {
+    AllDatabasesAdmin: "AllDatabasesAdmin",
+    AllDatabasesViewer: "AllDatabasesViewer",
+} as const;
+
+/**
+ * Cluster principal role.
+ */
+export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
+
 export const DataConnectionKind = {
     EventHub: "EventHub",
     EventGrid: "EventGrid",
@@ -66,6 +76,20 @@ export const DataFlowComputeType = {
  * Compute type of the cluster which will execute data flow job.
  */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
+
+export const DatabasePrincipalRole = {
+    Admin: "Admin",
+    Ingestor: "Ingestor",
+    Monitor: "Monitor",
+    User: "User",
+    UnrestrictedViewer: "UnrestrictedViewer",
+    Viewer: "Viewer",
+} as const;
+
+/**
+ * Database principal role.
+ */
+export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
 
 export const EngineType = {
     V2: "V2",
@@ -163,6 +187,17 @@ export const NodeSizeFamily = {
  * The kind of nodes that the Big Data pool provides.
  */
 export type NodeSizeFamily = (typeof NodeSizeFamily)[keyof typeof NodeSizeFamily];
+
+export const PrincipalType = {
+    App: "App",
+    Group: "Group",
+    User: "User",
+} as const;
+
+/**
+ * Principal type.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const ResourceIdentityType = {
     None: "None",

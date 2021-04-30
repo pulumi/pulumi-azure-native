@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Network security admin rule.
+ * Network base rule.
  * API Version: 2021-02-01-preview.
  */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
@@ -21,6 +21,7 @@ export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions):
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,
         "resourceGroupName": args.resourceGroupName,
+        "ruleCollectionName": args.ruleCollectionName,
         "ruleName": args.ruleName,
     }, opts);
 }
@@ -39,35 +40,19 @@ export interface GetUserRuleArgs {
      */
     readonly resourceGroupName: string;
     /**
+     * The name of the network manager security Configuration rule collection.
+     */
+    readonly ruleCollectionName: string;
+    /**
      * The name of the rule.
      */
     readonly ruleName: string;
 }
 
 /**
- * Network security admin rule.
+ * Network base rule.
  */
 export interface GetUserRuleResult {
-    /**
-     * A description for this rule. Restricted to 140 chars.
-     */
-    readonly description?: string;
-    /**
-     * The destination address prefixes. CIDR or destination IP ranges.
-     */
-    readonly destination?: outputs.network.AddressPrefixItemResponse[];
-    /**
-     * The destination port ranges.
-     */
-    readonly destinationPortRanges?: string[];
-    /**
-     * Indicates if the traffic matched against the rule in inbound or outbound.
-     */
-    readonly direction: string;
-    /**
-     * A friendly name for the rule.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -77,25 +62,13 @@ export interface GetUserRuleResult {
      */
     readonly id: string;
     /**
+     * Whether the rule is custom or default.
+     */
+    readonly kind: string;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * Network protocol this rule applies to.
-     */
-    readonly protocol: string;
-    /**
-     * The provisioning state of the security Configuration resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The CIDR or source IP ranges.
-     */
-    readonly source?: outputs.network.AddressPrefixItemResponse[];
-    /**
-     * The source port ranges.
-     */
-    readonly sourcePortRanges?: string[];
     /**
      * The system metadata related to this resource.
      */

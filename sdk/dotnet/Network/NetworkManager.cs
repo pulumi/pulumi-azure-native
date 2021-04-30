@@ -164,14 +164,14 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? NetworkManagerName { get; set; }
 
         [Input("networkManagerScopeAccesses")]
-        private InputList<Union<string, Pulumi.AzureNative.Network.ScopeAccesses>>? _networkManagerScopeAccesses;
+        private InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _networkManagerScopeAccesses;
 
         /// <summary>
         /// Scope Access.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.Network.ScopeAccesses>> NetworkManagerScopeAccesses
+        public InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>> NetworkManagerScopeAccesses
         {
-            get => _networkManagerScopeAccesses ?? (_networkManagerScopeAccesses = new InputList<Union<string, Pulumi.AzureNative.Network.ScopeAccesses>>());
+            get => _networkManagerScopeAccesses ?? (_networkManagerScopeAccesses = new InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>());
             set => _networkManagerScopeAccesses = value;
         }
 

@@ -11,32 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network security admin rule.
+// Network base rule.
 type UserRule struct {
 	pulumi.CustomResourceState
 
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destination AddressPrefixItemResponseArrayOutput `pulumi:"destination"`
-	// The destination port ranges.
-	DestinationPortRanges pulumi.StringArrayOutput `pulumi:"destinationPortRanges"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction pulumi.StringOutput `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Whether the rule is custom or default.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network protocol this rule applies to.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The provisioning state of the security Configuration resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The CIDR or source IP ranges.
-	Source AddressPrefixItemResponseArrayOutput `pulumi:"source"`
-	// The source port ranges.
-	SourcePortRanges pulumi.StringArrayOutput `pulumi:"sourcePortRanges"`
 	// The system metadata related to this resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
@@ -53,17 +37,17 @@ func NewUserRule(ctx *pulumi.Context,
 	if args.ConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
 	}
-	if args.Direction == nil {
-		return nil, errors.New("invalid value for required argument 'Direction'")
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
 	if args.NetworkManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkManagerName'")
 	}
-	if args.Protocol == nil {
-		return nil, errors.New("invalid value for required argument 'Protocol'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleCollectionName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleCollectionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -99,28 +83,12 @@ func GetUserRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserRule resources.
 type userRuleState struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destination []AddressPrefixItemResponse `pulumi:"destination"`
-	// The destination port ranges.
-	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction *string `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName *string `pulumi:"displayName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Whether the rule is custom or default.
+	Kind *string `pulumi:"kind"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Network protocol this rule applies to.
-	Protocol *string `pulumi:"protocol"`
-	// The provisioning state of the security Configuration resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The CIDR or source IP ranges.
-	Source []AddressPrefixItemResponse `pulumi:"source"`
-	// The source port ranges.
-	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 	// The system metadata related to this resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
@@ -128,28 +96,12 @@ type userRuleState struct {
 }
 
 type UserRuleState struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destination AddressPrefixItemResponseArrayInput
-	// The destination port ranges.
-	DestinationPortRanges pulumi.StringArrayInput
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction pulumi.StringPtrInput
-	// A friendly name for the rule.
-	DisplayName pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Whether the rule is custom or default.
+	Kind pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Network protocol this rule applies to.
-	Protocol pulumi.StringPtrInput
-	// The provisioning state of the security Configuration resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The CIDR or source IP ranges.
-	Source AddressPrefixItemResponseArrayInput
-	// The source port ranges.
-	SourcePortRanges pulumi.StringArrayInput
 	// The system metadata related to this resource.
 	SystemData SystemDataResponsePtrInput
 	// Resource type.
@@ -163,56 +115,32 @@ func (UserRuleState) ElementType() reflect.Type {
 type userRuleArgs struct {
 	// The name of the network manager security Configuration.
 	ConfigurationName string `pulumi:"configurationName"`
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destination []AddressPrefixItem `pulumi:"destination"`
-	// The destination port ranges.
-	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction string `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName *string `pulumi:"displayName"`
+	// Whether the rule is custom or default.
+	Kind string `pulumi:"kind"`
 	// The name of the network manager.
 	NetworkManagerName string `pulumi:"networkManagerName"`
-	// Network protocol this rule applies to.
-	Protocol string `pulumi:"protocol"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the network manager security Configuration rule collection.
+	RuleCollectionName string `pulumi:"ruleCollectionName"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
-	// The CIDR or source IP ranges.
-	Source []AddressPrefixItem `pulumi:"source"`
-	// The source port ranges.
-	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
 // The set of arguments for constructing a UserRule resource.
 type UserRuleArgs struct {
 	// The name of the network manager security Configuration.
 	ConfigurationName pulumi.StringInput
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destination AddressPrefixItemArrayInput
-	// The destination port ranges.
-	DestinationPortRanges pulumi.StringArrayInput
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction pulumi.StringInput
-	// A friendly name for the rule.
-	DisplayName pulumi.StringPtrInput
+	// Whether the rule is custom or default.
+	Kind pulumi.StringInput
 	// The name of the network manager.
 	NetworkManagerName pulumi.StringInput
-	// Network protocol this rule applies to.
-	Protocol pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The name of the network manager security Configuration rule collection.
+	RuleCollectionName pulumi.StringInput
 	// The name of the rule.
 	RuleName pulumi.StringPtrInput
-	// The CIDR or source IP ranges.
-	Source AddressPrefixItemArrayInput
-	// The source port ranges.
-	SourcePortRanges pulumi.StringArrayInput
 }
 
 func (UserRuleArgs) ElementType() reflect.Type {

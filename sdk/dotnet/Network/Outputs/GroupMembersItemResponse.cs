@@ -14,14 +14,22 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class GroupMembersItemResponse
     {
         /// <summary>
-        /// Resource Id.
+        /// Subnet Id.
         /// </summary>
-        public readonly string? ResourceId;
+        public readonly string? SubnetId;
+        /// <summary>
+        /// Vnet Id.
+        /// </summary>
+        public readonly string? VnetId;
 
         [OutputConstructor]
-        private GroupMembersItemResponse(string? resourceId)
+        private GroupMembersItemResponse(
+            string? subnetId,
+
+            string? vnetId)
         {
-            ResourceId = resourceId;
+            SubnetId = subnetId;
+            VnetId = vnetId;
         }
     }
 }

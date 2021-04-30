@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     public static class GetAdminRule
     {
         /// <summary>
-        /// Network admin rule.
+        /// Network base admin rule.
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network/v20210201preview:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithVersion());
@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public string RuleCollectionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("ruleName", required: true)]
@@ -55,34 +61,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     public sealed class GetAdminRuleResult
     {
         /// <summary>
-        /// Indicates the access allowed for this particular rule
-        /// </summary>
-        public readonly string Access;
-        /// <summary>
-        /// Groups for configuration
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> AppliesToGroups;
-        /// <summary>
-        /// A description for this rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The destination address prefixes. CIDR or destination IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Destination;
-        /// <summary>
-        /// The destination port ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationPortRanges;
-        /// <summary>
-        /// Indicates if the traffic matched against the rule in inbound or outbound.
-        /// </summary>
-        public readonly string Direction;
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -91,29 +69,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Whether the rule is custom or default.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        /// </summary>
-        public readonly int? Priority;
-        /// <summary>
-        /// Network protocol this rule applies to.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// The provisioning state of the security Configuration resource.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The CIDR or source IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Source;
-        /// <summary>
-        /// The source port ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> SourcePortRanges;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -125,55 +87,22 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 
         [OutputConstructor]
         private GetAdminRuleResult(
-            string access,
-
-            ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> appliesToGroups,
-
-            string? description,
-
-            ImmutableArray<Outputs.AddressPrefixItemResponse> destination,
-
-            ImmutableArray<string> destinationPortRanges,
-
-            string direction,
-
-            string? displayName,
-
             string etag,
 
             string id,
 
+            string kind,
+
             string name,
-
-            int? priority,
-
-            string protocol,
-
-            string provisioningState,
-
-            ImmutableArray<Outputs.AddressPrefixItemResponse> source,
-
-            ImmutableArray<string> sourcePortRanges,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            Access = access;
-            AppliesToGroups = appliesToGroups;
-            Description = description;
-            Destination = destination;
-            DestinationPortRanges = destinationPortRanges;
-            Direction = direction;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
+            Kind = kind;
             Name = name;
-            Priority = priority;
-            Protocol = protocol;
-            ProvisioningState = provisioningState;
-            Source = source;
-            SourcePortRanges = sourcePortRanges;
             SystemData = systemData;
             Type = type;
         }

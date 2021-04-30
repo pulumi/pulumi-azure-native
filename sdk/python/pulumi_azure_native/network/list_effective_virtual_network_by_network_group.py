@@ -20,54 +20,21 @@ class ListEffectiveVirtualNetworkByNetworkGroupResult:
     """
     Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
     """
-    def __init__(__self__, first_index=None, next_link=None, page_size=None, total_records=None, value=None):
-        if first_index and not isinstance(first_index, int):
-            raise TypeError("Expected argument 'first_index' to be a int")
-        pulumi.set(__self__, "first_index", first_index)
-        if next_link and not isinstance(next_link, str):
-            raise TypeError("Expected argument 'next_link' to be a str")
-        pulumi.set(__self__, "next_link", next_link)
-        if page_size and not isinstance(page_size, int):
-            raise TypeError("Expected argument 'page_size' to be a int")
-        pulumi.set(__self__, "page_size", page_size)
-        if total_records and not isinstance(total_records, int):
-            raise TypeError("Expected argument 'total_records' to be a int")
-        pulumi.set(__self__, "total_records", total_records)
+    def __init__(__self__, skip_token=None, value=None):
+        if skip_token and not isinstance(skip_token, str):
+            raise TypeError("Expected argument 'skip_token' to be a str")
+        pulumi.set(__self__, "skip_token", skip_token)
         if value and not isinstance(value, list):
             raise TypeError("Expected argument 'value' to be a list")
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter(name="firstIndex")
-    def first_index(self) -> Optional[int]:
+    @pulumi.getter(name="skipToken")
+    def skip_token(self) -> Optional[str]:
         """
-        First Index.
+        When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
         """
-        return pulumi.get(self, "first_index")
-
-    @property
-    @pulumi.getter(name="nextLink")
-    def next_link(self) -> Optional[str]:
-        """
-        Gets the URL to get the next set of results.
-        """
-        return pulumi.get(self, "next_link")
-
-    @property
-    @pulumi.getter(name="pageSize")
-    def page_size(self) -> Optional[int]:
-        """
-        Page Size.
-        """
-        return pulumi.get(self, "page_size")
-
-    @property
-    @pulumi.getter(name="totalRecords")
-    def total_records(self) -> Optional[int]:
-        """
-        Total Records.
-        """
-        return pulumi.get(self, "total_records")
+        return pulumi.get(self, "skip_token")
 
     @property
     @pulumi.getter
@@ -84,10 +51,7 @@ class AwaitableListEffectiveVirtualNetworkByNetworkGroupResult(ListEffectiveVirt
         if False:
             yield self
         return ListEffectiveVirtualNetworkByNetworkGroupResult(
-            first_index=self.first_index,
-            next_link=self.next_link,
-            page_size=self.page_size,
-            total_records=self.total_records,
+            skip_token=self.skip_token,
             value=self.value)
 
 
@@ -95,7 +59,6 @@ def list_effective_virtual_network_by_network_group(network_group_name: Optional
                                                     network_manager_name: Optional[str] = None,
                                                     resource_group_name: Optional[str] = None,
                                                     skip_token: Optional[str] = None,
-                                                    top: Optional[int] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEffectiveVirtualNetworkByNetworkGroupResult:
     """
     Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
@@ -105,15 +68,13 @@ def list_effective_virtual_network_by_network_group(network_group_name: Optional
     :param str network_group_name: The name of the network group to get.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
-    :param str skip_token: SkipToken is only used if a previous operation returned a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
-    :param int top: An optional query parameter which specifies the maximum number of records to be returned by the server.
+    :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
     """
     __args__ = dict()
     __args__['networkGroupName'] = network_group_name
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
-    __args__['top'] = top
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -121,8 +82,5 @@ def list_effective_virtual_network_by_network_group(network_group_name: Optional
     __ret__ = pulumi.runtime.invoke('azure-native:network:listEffectiveVirtualNetworkByNetworkGroup', __args__, opts=opts, typ=ListEffectiveVirtualNetworkByNetworkGroupResult).value
 
     return AwaitableListEffectiveVirtualNetworkByNetworkGroupResult(
-        first_index=__ret__.first_index,
-        next_link=__ret__.next_link,
-        page_size=__ret__.page_size,
-        total_records=__ret__.total_records,
+        skip_token=__ret__.skip_token,
         value=__ret__.value)

@@ -21,11 +21,11 @@ class ConnectivityConfigurationArgs:
                  resource_group_name: pulumi.Input[str],
                  applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 delete_existing_peering: Optional[pulumi.Input[bool]] = None,
+                 delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  hub_id: Optional[pulumi.Input[str]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None):
+                 is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None):
         """
         The set of arguments for constructing a ConnectivityConfiguration resource.
         :param pulumi.Input[Union[str, 'ConnectivityTopology']] connectivity_topology: Connectivity topology type.
@@ -33,11 +33,11 @@ class ConnectivityConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectivityGroupItemArgs']]] applies_to_groups: Groups for configuration
         :param pulumi.Input[str] configuration_name: The name of the network manager connectivity configuration.
-        :param pulumi.Input[bool] delete_existing_peering: Flag if need to remove current existing peerings.
+        :param pulumi.Input[Union[str, 'DeleteExistingPeering']] delete_existing_peering: Flag if need to remove current existing peerings.
         :param pulumi.Input[str] description: A description of the connectivity configuration.
         :param pulumi.Input[str] display_name: A friendly name for the resource.
         :param pulumi.Input[str] hub_id: The hub vnet Id.
-        :param pulumi.Input[bool] is_global: Flag if global mesh is supported.
+        :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global mesh is supported.
         """
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
@@ -119,14 +119,14 @@ class ConnectivityConfigurationArgs:
 
     @property
     @pulumi.getter(name="deleteExistingPeering")
-    def delete_existing_peering(self) -> Optional[pulumi.Input[bool]]:
+    def delete_existing_peering(self) -> Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]]:
         """
         Flag if need to remove current existing peerings.
         """
         return pulumi.get(self, "delete_existing_peering")
 
     @delete_existing_peering.setter
-    def delete_existing_peering(self, value: Optional[pulumi.Input[bool]]):
+    def delete_existing_peering(self, value: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]]):
         pulumi.set(self, "delete_existing_peering", value)
 
     @property
@@ -167,14 +167,14 @@ class ConnectivityConfigurationArgs:
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> Optional[pulumi.Input[bool]]:
+    def is_global(self) -> Optional[pulumi.Input[Union[str, 'IsGlobal']]]:
         """
         Flag if global mesh is supported.
         """
         return pulumi.get(self, "is_global")
 
     @is_global.setter
-    def is_global(self, value: Optional[pulumi.Input[bool]]):
+    def is_global(self, value: Optional[pulumi.Input[Union[str, 'IsGlobal']]]):
         pulumi.set(self, "is_global", value)
 
 
@@ -186,11 +186,11 @@ class ConnectivityConfiguration(pulumi.CustomResource):
                  applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectivityGroupItemArgs']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  connectivity_topology: Optional[pulumi.Input[Union[str, 'ConnectivityTopology']]] = None,
-                 delete_existing_peering: Optional[pulumi.Input[bool]] = None,
+                 delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  hub_id: Optional[pulumi.Input[str]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None,
+                 is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -203,11 +203,11 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectivityGroupItemArgs']]]] applies_to_groups: Groups for configuration
         :param pulumi.Input[str] configuration_name: The name of the network manager connectivity configuration.
         :param pulumi.Input[Union[str, 'ConnectivityTopology']] connectivity_topology: Connectivity topology type.
-        :param pulumi.Input[bool] delete_existing_peering: Flag if need to remove current existing peerings.
+        :param pulumi.Input[Union[str, 'DeleteExistingPeering']] delete_existing_peering: Flag if need to remove current existing peerings.
         :param pulumi.Input[str] description: A description of the connectivity configuration.
         :param pulumi.Input[str] display_name: A friendly name for the resource.
         :param pulumi.Input[str] hub_id: The hub vnet Id.
-        :param pulumi.Input[bool] is_global: Flag if global mesh is supported.
+        :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global mesh is supported.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -239,11 +239,11 @@ class ConnectivityConfiguration(pulumi.CustomResource):
                  applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectivityGroupItemArgs']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  connectivity_topology: Optional[pulumi.Input[Union[str, 'ConnectivityTopology']]] = None,
-                 delete_existing_peering: Optional[pulumi.Input[bool]] = None,
+                 delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  hub_id: Optional[pulumi.Input[str]] = None,
-                 is_global: Optional[pulumi.Input[bool]] = None,
+                 is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -335,7 +335,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteExistingPeering")
-    def delete_existing_peering(self) -> pulumi.Output[Optional[bool]]:
+    def delete_existing_peering(self) -> pulumi.Output[Optional[str]]:
         """
         Flag if need to remove current existing peerings.
         """
@@ -375,7 +375,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isGlobal")
-    def is_global(self) -> pulumi.Output[Optional[bool]]:
+    def is_global(self) -> pulumi.Output[Optional[str]]:
         """
         Flag if global mesh is supported.
         """

@@ -10,42 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// Network security admin rule.
+    /// Network base rule.
     /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:UserRule")]
     public partial class UserRule : Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description for this rule. Restricted to 140 chars.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// The destination address prefixes. CIDR or destination IP ranges.
-        /// </summary>
-        [Output("destination")]
-        public Output<ImmutableArray<Outputs.AddressPrefixItemResponse>> Destination { get; private set; } = null!;
-
-        /// <summary>
-        /// The destination port ranges.
-        /// </summary>
-        [Output("destinationPortRanges")]
-        public Output<ImmutableArray<string>> DestinationPortRanges { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates if the traffic matched against the rule in inbound or outbound.
-        /// </summary>
-        [Output("direction")]
-        public Output<string> Direction { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -53,34 +23,16 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the rule is custom or default.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Network protocol this rule applies to.
-        /// </summary>
-        [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the security Configuration resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The CIDR or source IP ranges.
-        /// </summary>
-        [Output("source")]
-        public Output<ImmutableArray<Outputs.AddressPrefixItemResponse>> Source { get; private set; } = null!;
-
-        /// <summary>
-        /// The source port ranges.
-        /// </summary>
-        [Output("sourcePortRanges")]
-        public Output<ImmutableArray<string>> SourcePortRanges { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -152,46 +104,10 @@ namespace Pulumi.AzureNative.Network
         public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// A description for this rule. Restricted to 140 chars.
+        /// Whether the rule is custom or default.
         /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("destination")]
-        private InputList<Inputs.AddressPrefixItemArgs>? _destination;
-
-        /// <summary>
-        /// The destination address prefixes. CIDR or destination IP ranges.
-        /// </summary>
-        public InputList<Inputs.AddressPrefixItemArgs> Destination
-        {
-            get => _destination ?? (_destination = new InputList<Inputs.AddressPrefixItemArgs>());
-            set => _destination = value;
-        }
-
-        [Input("destinationPortRanges")]
-        private InputList<string>? _destinationPortRanges;
-
-        /// <summary>
-        /// The destination port ranges.
-        /// </summary>
-        public InputList<string> DestinationPortRanges
-        {
-            get => _destinationPortRanges ?? (_destinationPortRanges = new InputList<string>());
-            set => _destinationPortRanges = value;
-        }
-
-        /// <summary>
-        /// Indicates if the traffic matched against the rule in inbound or outbound.
-        /// </summary>
-        [Input("direction", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.SecurityConfigurationRuleDirection> Direction { get; set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        [Input("kind", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Network.UserRuleKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The name of the network manager.
@@ -200,46 +116,22 @@ namespace Pulumi.AzureNative.Network
         public Input<string> NetworkManagerName { get; set; } = null!;
 
         /// <summary>
-        /// Network protocol this rule applies to.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.SecurityConfigurationRuleProtocol> Protocol { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the network manager security Configuration rule collection.
+        /// </summary>
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
-
-        [Input("source")]
-        private InputList<Inputs.AddressPrefixItemArgs>? _source;
-
-        /// <summary>
-        /// The CIDR or source IP ranges.
-        /// </summary>
-        public InputList<Inputs.AddressPrefixItemArgs> Source
-        {
-            get => _source ?? (_source = new InputList<Inputs.AddressPrefixItemArgs>());
-            set => _source = value;
-        }
-
-        [Input("sourcePortRanges")]
-        private InputList<string>? _sourcePortRanges;
-
-        /// <summary>
-        /// The source port ranges.
-        /// </summary>
-        public InputList<string> SourcePortRanges
-        {
-            get => _sourcePortRanges ?? (_sourcePortRanges = new InputList<string>());
-            set => _sourcePortRanges = value;
-        }
 
         public UserRuleArgs()
         {

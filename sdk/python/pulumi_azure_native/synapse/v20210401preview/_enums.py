@@ -7,8 +7,10 @@ from enum import Enum
 __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
+    'ClusterPrincipalRole',
     'DataConnectionKind',
     'DataFlowComputeType',
+    'DatabasePrincipalRole',
     'EngineType',
     'IntegrationRuntimeEdition',
     'IntegrationRuntimeEntityReferenceType',
@@ -18,6 +20,7 @@ __all__ = [
     'Kind',
     'NodeSize',
     'NodeSizeFamily',
+    'PrincipalType',
     'ResourceIdentityType',
     'SensitivityLabelRank',
     'StorageAccountType',
@@ -65,6 +68,14 @@ class AzureSkuTier(str, Enum):
     STANDARD = "Standard"
 
 
+class ClusterPrincipalRole(str, Enum):
+    """
+    Cluster principal role.
+    """
+    ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
+    ALL_DATABASES_VIEWER = "AllDatabasesViewer"
+
+
 class DataConnectionKind(str, Enum):
     """
     Kind of the endpoint for the data connection
@@ -81,6 +92,18 @@ class DataFlowComputeType(str, Enum):
     GENERAL = "General"
     MEMORY_OPTIMIZED = "MemoryOptimized"
     COMPUTE_OPTIMIZED = "ComputeOptimized"
+
+
+class DatabasePrincipalRole(str, Enum):
+    """
+    Database principal role.
+    """
+    ADMIN = "Admin"
+    INGESTOR = "Ingestor"
+    MONITOR = "Monitor"
+    USER = "User"
+    UNRESTRICTED_VIEWER = "UnrestrictedViewer"
+    VIEWER = "Viewer"
 
 
 class EngineType(str, Enum):
@@ -160,6 +183,15 @@ class NodeSizeFamily(str, Enum):
     """
     NONE = "None"
     MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class PrincipalType(str, Enum):
+    """
+    Principal type.
+    """
+    APP = "App"
+    GROUP = "Group"
+    USER = "User"
 
 
 class ResourceIdentityType(str, Enum):

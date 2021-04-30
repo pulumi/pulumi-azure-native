@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./adminRule";
+export * from "./adminRuleCollection";
 export * from "./applicationGateway";
 export * from "./applicationGatewayPrivateEndpointConnection";
 export * from "./applicationSecurityGroup";
@@ -34,6 +35,7 @@ export * from "./flowLog";
 export * from "./frontDoor";
 export * from "./getActiveSessions";
 export * from "./getAdminRule";
+export * from "./getAdminRuleCollection";
 export * from "./getApplicationGateway";
 export * from "./getApplicationGatewayBackendHealthOnDemand";
 export * from "./getApplicationGatewayPrivateEndpointConnection";
@@ -103,14 +105,16 @@ export * from "./getRouteFilter";
 export * from "./getRouteFilterRule";
 export * from "./getRouteTable";
 export * from "./getRulesEngine";
-export * from "./getSecurityConfiguration";
+export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityPartnerProvider";
 export * from "./getSecurityRule";
+export * from "./getSecurityUserConfiguration";
 export * from "./getServiceEndpointPolicy";
 export * from "./getServiceEndpointPolicyDefinition";
 export * from "./getSubnet";
 export * from "./getTrafficManagerUserMetricsKey";
 export * from "./getUserRule";
+export * from "./getUserRuleCollection";
 export * from "./getVirtualApplianceSite";
 export * from "./getVirtualHub";
 export * from "./getVirtualHubBgpConnection";
@@ -141,6 +145,9 @@ export * from "./hubVirtualNetworkConnection";
 export * from "./inboundNatRule";
 export * from "./ipAllocation";
 export * from "./ipGroup";
+export * from "./listActiveConfiguration";
+export * from "./listEffectiveConfiguration";
+export * from "./listEffectiveConfigurationBySubnet";
 export * from "./listEffectiveVirtualNetworkByNetworkGroup";
 export * from "./listEffectiveVirtualNetworkByNetworkManager";
 export * from "./listNetworkManagerDeploymentStatus";
@@ -177,14 +184,16 @@ export * from "./routeFilter";
 export * from "./routeFilterRule";
 export * from "./routeTable";
 export * from "./rulesEngine";
-export * from "./securityConfiguration";
+export * from "./securityAdminConfiguration";
 export * from "./securityPartnerProvider";
 export * from "./securityRule";
+export * from "./securityUserConfiguration";
 export * from "./serviceEndpointPolicy";
 export * from "./serviceEndpointPolicyDefinition";
 export * from "./subnet";
 export * from "./trafficManagerUserMetricsKey";
 export * from "./userRule";
+export * from "./userRuleCollection";
 export * from "./virtualApplianceSite";
 export * from "./virtualHub";
 export * from "./virtualHubBgpConnection";
@@ -316,6 +325,7 @@ export {
 
 // Import resources to register:
 import { AdminRule } from "./adminRule";
+import { AdminRuleCollection } from "./adminRuleCollection";
 import { ApplicationGateway } from "./applicationGateway";
 import { ApplicationGatewayPrivateEndpointConnection } from "./applicationGatewayPrivateEndpointConnection";
 import { ApplicationSecurityGroup } from "./applicationSecurityGroup";
@@ -380,14 +390,16 @@ import { RouteFilter } from "./routeFilter";
 import { RouteFilterRule } from "./routeFilterRule";
 import { RouteTable } from "./routeTable";
 import { RulesEngine } from "./rulesEngine";
-import { SecurityConfiguration } from "./securityConfiguration";
+import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityPartnerProvider } from "./securityPartnerProvider";
 import { SecurityRule } from "./securityRule";
+import { SecurityUserConfiguration } from "./securityUserConfiguration";
 import { ServiceEndpointPolicy } from "./serviceEndpointPolicy";
 import { ServiceEndpointPolicyDefinition } from "./serviceEndpointPolicyDefinition";
 import { Subnet } from "./subnet";
 import { TrafficManagerUserMetricsKey } from "./trafficManagerUserMetricsKey";
 import { UserRule } from "./userRule";
+import { UserRuleCollection } from "./userRuleCollection";
 import { VirtualApplianceSite } from "./virtualApplianceSite";
 import { VirtualHub } from "./virtualHub";
 import { VirtualHubBgpConnection } from "./virtualHubBgpConnection";
@@ -415,6 +427,8 @@ const _module = {
         switch (type) {
             case "azure-native:network:AdminRule":
                 return new AdminRule(name, <any>undefined, { urn })
+            case "azure-native:network:AdminRuleCollection":
+                return new AdminRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network:ApplicationGateway":
                 return new ApplicationGateway(name, <any>undefined, { urn })
             case "azure-native:network:ApplicationGatewayPrivateEndpointConnection":
@@ -543,12 +557,14 @@ const _module = {
                 return new RouteTable(name, <any>undefined, { urn })
             case "azure-native:network:RulesEngine":
                 return new RulesEngine(name, <any>undefined, { urn })
-            case "azure-native:network:SecurityConfiguration":
-                return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network:SecurityAdminConfiguration":
+                return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:SecurityPartnerProvider":
                 return new SecurityPartnerProvider(name, <any>undefined, { urn })
             case "azure-native:network:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
+            case "azure-native:network:SecurityUserConfiguration":
+                return new SecurityUserConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicy":
                 return new ServiceEndpointPolicy(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicyDefinition":
@@ -559,6 +575,8 @@ const _module = {
                 return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
             case "azure-native:network:UserRule":
                 return new UserRule(name, <any>undefined, { urn })
+            case "azure-native:network:UserRuleCollection":
+                return new UserRuleCollection(name, <any>undefined, { urn })
             case "azure-native:network:VirtualApplianceSite":
                 return new VirtualApplianceSite(name, <any>undefined, { urn })
             case "azure-native:network:VirtualHub":

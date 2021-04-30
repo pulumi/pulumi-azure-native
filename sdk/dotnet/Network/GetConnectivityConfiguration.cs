@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Flag if need to remove current existing peerings.
         /// </summary>
-        public readonly bool? DeleteExistingPeering;
+        public readonly string? DeleteExistingPeering;
         /// <summary>
         /// A description of the connectivity configuration.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Flag if global mesh is supported.
         /// </summary>
-        public readonly bool? IsGlobal;
+        public readonly string? IsGlobal;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Network
 
             string connectivityTopology,
 
-            bool? deleteExistingPeering,
+            string? deleteExistingPeering,
 
             string? description,
 
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Network
 
             string id,
 
-            bool? isGlobal,
+            string? isGlobal,
 
             string name,
 
