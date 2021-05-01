@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:machinelearningservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());

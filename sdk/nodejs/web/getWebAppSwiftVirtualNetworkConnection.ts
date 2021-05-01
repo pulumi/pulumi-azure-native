@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
- * API Version: 2020-12-01.
+ * API Version: 2020-10-01.
  */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
     if (!opts) {
@@ -58,6 +58,10 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
      * A flag that specifies if the scale unit this Web App is on supports Swift integration.
      */
     readonly swiftSupported?: boolean;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

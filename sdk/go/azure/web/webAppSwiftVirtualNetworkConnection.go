@@ -12,7 +12,7 @@ import (
 )
 
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-// API Version: 2020-12-01.
+// API Version: 2020-10-01.
 type WebAppSwiftVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 
@@ -24,6 +24,8 @@ type WebAppSwiftVirtualNetworkConnection struct {
 	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported pulumi.BoolPtrOutput `pulumi:"swiftSupported"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -119,6 +121,8 @@ type webAppSwiftVirtualNetworkConnectionState struct {
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported *bool `pulumi:"swiftSupported"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -132,6 +136,8 @@ type WebAppSwiftVirtualNetworkConnectionState struct {
 	SubnetResourceId pulumi.StringPtrInput
 	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
 	SwiftSupported pulumi.BoolPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

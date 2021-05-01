@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
- * API Version: 2020-12-01.
+ * API Version: 2020-10-01.
  */
 export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -52,6 +53,10 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
      */
     public readonly swiftSupported!: pulumi.Output<boolean | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -78,12 +83,14 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["subnetResourceId"] = undefined /*out*/;
             inputs["swiftSupported"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

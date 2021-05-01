@@ -8,7 +8,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-// API Version: 2021-04-01.
+// API Version: 2021-01-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getWorkspace", args, &rv, opts...)
@@ -79,8 +79,6 @@ type LookupWorkspaceResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
-	// The tenant id associated with this workspace.
-	TenantId string `pulumi:"tenantId"`
 	// Specifies the type of the resource.
 	Type string `pulumi:"type"`
 	// The immutable id associated with this workspace.

@@ -196,7 +196,7 @@ class MachineLearningService(pulumi.CustomResource):
                  __props__=None):
         """
         Machine Learning service object wrapped into ARM resource envelope.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +219,7 @@ class MachineLearningService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning service object wrapped into ARM resource envelope.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param MachineLearningServiceArgs args: The arguments to use to populate this resource's properties.

@@ -146,7 +146,7 @@ def get_machine_learning_service(expand: Optional[bool] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningServiceResult:
     """
     Machine Learning service object wrapped into ARM resource envelope.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param bool expand: Set to True to include Model details.

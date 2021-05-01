@@ -8,7 +8,7 @@ import (
 )
 
 // Compute node information related to a AmlCompute.
-// API Version: 2021-04-01.
+// API Version: 2021-01-01.
 func ListMachineLearningComputeNodes(ctx *pulumi.Context, args *ListMachineLearningComputeNodesArgs, opts ...pulumi.InvokeOption) (*ListMachineLearningComputeNodesResult, error) {
 	var rv ListMachineLearningComputeNodesResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listMachineLearningComputeNodes", args, &rv, opts...)

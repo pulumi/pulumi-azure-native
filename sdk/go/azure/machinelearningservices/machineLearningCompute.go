@@ -12,7 +12,7 @@ import (
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.
-// API Version: 2021-04-01.
+// API Version: 2021-01-01.
 type MachineLearningCompute struct {
 	pulumi.CustomResourceState
 

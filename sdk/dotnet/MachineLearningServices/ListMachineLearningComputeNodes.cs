@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Compute node information related to a AmlCompute.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListMachineLearningComputeNodesResult> InvokeAsync(ListMachineLearningComputeNodesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMachineLearningComputeNodesResult>("azure-native:machinelearningservices:listMachineLearningComputeNodes", args ?? new ListMachineLearningComputeNodesArgs(), options.WithVersion());

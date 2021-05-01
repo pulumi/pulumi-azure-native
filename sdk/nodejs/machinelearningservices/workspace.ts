@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * API Version: 2021-04-01.
+ * API Version: 2021-01-01.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -137,10 +137,6 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The tenant id associated with this workspace.
-     */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
-    /**
      * Specifies the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -190,7 +186,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         } else {
@@ -219,7 +214,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["storageAccount"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }

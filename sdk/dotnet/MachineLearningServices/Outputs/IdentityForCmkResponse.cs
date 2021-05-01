@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// The ArmId of the user assigned identity that will be used to access the customer managed key vault
         /// </summary>
-        public readonly string? UserAssignedIdentity;
+        public readonly string UserAssignedIdentity;
 
         [OutputConstructor]
-        private IdentityForCmkResponse(string? userAssignedIdentity)
+        private IdentityForCmkResponse(string userAssignedIdentity)
         {
             UserAssignedIdentity = userAssignedIdentity;
         }

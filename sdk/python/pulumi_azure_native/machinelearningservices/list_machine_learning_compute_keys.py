@@ -48,7 +48,7 @@ def list_machine_learning_compute_keys(compute_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMachineLearningComputeKeysResult:
     """
     Secrets related to a Machine Learning compute. Might differ for every type of compute.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

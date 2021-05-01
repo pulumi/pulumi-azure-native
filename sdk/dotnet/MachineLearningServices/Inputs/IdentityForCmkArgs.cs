@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// <summary>
         /// The ArmId of the user assigned identity that will be used to access the customer managed key vault
         /// </summary>
-        [Input("userAssignedIdentity")]
-        public Input<string>? UserAssignedIdentity { get; set; }
+        [Input("userAssignedIdentity", required: true)]
+        public Input<string> UserAssignedIdentity { get; set; } = null!;
 
         public IdentityForCmkArgs()
         {

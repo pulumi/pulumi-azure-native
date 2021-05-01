@@ -152,7 +152,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ComputeType HDInsight { get; } = new ComputeType("HDInsight");
         public static ComputeType Databricks { get; } = new ComputeType("Databricks");
         public static ComputeType DataLakeAnalytics { get; } = new ComputeType("DataLakeAnalytics");
-        public static ComputeType SynapseSpark { get; } = new ComputeType("SynapseSpark");
 
         public static bool operator ==(ComputeType left, ComputeType right) => left.Equals(right);
         public static bool operator !=(ComputeType left, ComputeType right) => !left.Equals(right);
@@ -356,37 +355,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LinkedServiceLinkType other && Equals(other);
         public bool Equals(LinkedServiceLinkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Load Balancer Type
-    /// </summary>
-    [EnumType]
-    public readonly struct LoadBalancerType : IEquatable<LoadBalancerType>
-    {
-        private readonly string _value;
-
-        private LoadBalancerType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static LoadBalancerType PublicIp { get; } = new LoadBalancerType("PublicIp");
-        public static LoadBalancerType InternalLoadBalancer { get; } = new LoadBalancerType("InternalLoadBalancer");
-
-        public static bool operator ==(LoadBalancerType left, LoadBalancerType right) => left.Equals(right);
-        public static bool operator !=(LoadBalancerType left, LoadBalancerType right) => !left.Equals(right);
-
-        public static explicit operator string(LoadBalancerType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LoadBalancerType other && Equals(other);
-        public bool Equals(LoadBalancerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

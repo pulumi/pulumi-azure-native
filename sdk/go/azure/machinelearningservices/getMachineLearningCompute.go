@@ -8,7 +8,7 @@ import (
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.
-// API Version: 2021-04-01.
+// API Version: 2021-01-01.
 func LookupMachineLearningCompute(ctx *pulumi.Context, args *LookupMachineLearningComputeArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningComputeResult, error) {
 	var rv LookupMachineLearningComputeResult
 	err := ctx.Invoke("azure-native:machinelearningservices:getMachineLearningCompute", args, &rv, opts...)

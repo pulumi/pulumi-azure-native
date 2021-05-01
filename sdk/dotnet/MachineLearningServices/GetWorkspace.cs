@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// An object that represents a machine learning workspace.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
@@ -148,10 +148,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The tenant id associated with this workspace.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
         /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
@@ -214,8 +210,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             ImmutableDictionary<string, string>? tags,
 
-            string tenantId,
-
             string type,
 
             string workspaceId)
@@ -246,7 +240,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
             StorageAccount = storageAccount;
             SystemData = systemData;
             Tags = tags;
-            TenantId = tenantId;
             Type = type;
             WorkspaceId = workspaceId;
         }

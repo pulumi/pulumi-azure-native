@@ -372,7 +372,7 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a machine learning workspace.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -405,7 +405,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a machine learning workspace.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -487,7 +487,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_provisioned_resource_group"] = None
             __props__.__dict__["system_data"] = None
-            __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workspace_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20180301preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20180301preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20181119:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20181119:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190501:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20190601:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20191101:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200101:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200218preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200218preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200301:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200401:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200601:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200801:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200901preview:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210101:Workspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20210401:Workspace")])
@@ -539,7 +538,6 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["storage_account"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["workspace_id"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
@@ -743,14 +741,6 @@ class Workspace(pulumi.CustomResource):
         Contains resource tags defined as key/value pairs.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[str]:
-        """
-        The tenant id associated with this workspace.
-        """
-        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

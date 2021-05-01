@@ -25,12 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.VirtualMachineSshCredentialsArgs>? AdministratorAccount { get; set; }
 
         /// <summary>
-        /// Indicates whether this compute will be used for running notebooks.
-        /// </summary>
-        [Input("isNotebookInstanceCompute")]
-        public Input<bool>? IsNotebookInstanceCompute { get; set; }
-
-        /// <summary>
         /// Port open for ssh connections.
         /// </summary>
         [Input("sshPort")]

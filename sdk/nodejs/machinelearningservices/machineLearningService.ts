@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Machine Learning service object wrapped into ARM resource envelope.
- * API Version: 2021-04-01.
+ * API Version: 2021-01-01.
  */
 export class MachineLearningService extends pulumi.CustomResource {
     /**

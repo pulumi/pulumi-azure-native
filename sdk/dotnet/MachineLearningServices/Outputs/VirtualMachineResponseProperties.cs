@@ -22,10 +22,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.VirtualMachineSshCredentialsResponse? AdministratorAccount;
         /// <summary>
-        /// Indicates whether this compute will be used for running notebooks.
-        /// </summary>
-        public readonly bool? IsNotebookInstanceCompute;
-        /// <summary>
         /// Port open for ssh connections.
         /// </summary>
         public readonly int? SshPort;
@@ -40,15 +36,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.VirtualMachineSshCredentialsResponse? administratorAccount,
 
-            bool? isNotebookInstanceCompute,
-
             int? sshPort,
 
             string? virtualMachineSize)
         {
             Address = address;
             AdministratorAccount = administratorAccount;
-            IsNotebookInstanceCompute = isNotebookInstanceCompute;
             SshPort = sshPort;
             VirtualMachineSize = virtualMachineSize;
         }

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-04-01.
+// API Version: 2021-01-01.
 func ListWorkspaceNotebookAccessToken(ctx *pulumi.Context, args *ListWorkspaceNotebookAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListWorkspaceNotebookAccessTokenResult, error) {
 	var rv ListWorkspaceNotebookAccessTokenResult
 	err := ctx.Invoke("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", args, &rv, opts...)

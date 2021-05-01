@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
- * API Version: 2021-04-01.
+ * API Version: 2021-01-01.
  */
 export class MachineLearningCompute extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
     /**
      * Compute properties
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.AKSResponse | outputs.machinelearningservices.AmlComputeResponse | outputs.machinelearningservices.ComputeInstanceResponse | outputs.machinelearningservices.DataFactoryResponse | outputs.machinelearningservices.DataLakeAnalyticsResponse | outputs.machinelearningservices.DatabricksResponse | outputs.machinelearningservices.HDInsightResponse | outputs.machinelearningservices.SynapseSparkResponse | outputs.machinelearningservices.VirtualMachineResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.AKSResponse | outputs.machinelearningservices.AmlComputeResponse | outputs.machinelearningservices.ComputeInstanceResponse | outputs.machinelearningservices.DataFactoryResponse | outputs.machinelearningservices.DataLakeAnalyticsResponse | outputs.machinelearningservices.DatabricksResponse | outputs.machinelearningservices.HDInsightResponse | outputs.machinelearningservices.VirtualMachineResponse>;
     /**
      * The sku of the workspace.
      */
@@ -135,7 +135,7 @@ export interface MachineLearningComputeArgs {
     /**
      * Compute properties
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.AKSArgs | inputs.machinelearningservices.AmlComputeArgs | inputs.machinelearningservices.ComputeInstanceArgs | inputs.machinelearningservices.DataFactoryArgs | inputs.machinelearningservices.DataLakeAnalyticsArgs | inputs.machinelearningservices.DatabricksArgs | inputs.machinelearningservices.HDInsightArgs | inputs.machinelearningservices.SynapseSparkArgs | inputs.machinelearningservices.VirtualMachineArgs>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.AKSArgs | inputs.machinelearningservices.AmlComputeArgs | inputs.machinelearningservices.ComputeInstanceArgs | inputs.machinelearningservices.DataFactoryArgs | inputs.machinelearningservices.DataLakeAnalyticsArgs | inputs.machinelearningservices.DatabricksArgs | inputs.machinelearningservices.HDInsightArgs | inputs.machinelearningservices.VirtualMachineArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

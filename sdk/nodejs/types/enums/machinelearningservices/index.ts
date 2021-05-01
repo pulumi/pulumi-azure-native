@@ -87,7 +87,6 @@ export const ComputeType = {
     HDInsight: "HDInsight",
     Databricks: "Databricks",
     DataLakeAnalytics: "DataLakeAnalytics",
-    SynapseSpark: "SynapseSpark",
 } as const;
 
 /**
@@ -162,16 +161,6 @@ export const LinkedServiceLinkType = {
  * Type of the link target.
  */
 export type LinkedServiceLinkType = (typeof LinkedServiceLinkType)[keyof typeof LinkedServiceLinkType];
-
-export const LoadBalancerType = {
-    PublicIp: "PublicIp",
-    InternalLoadBalancer: "InternalLoadBalancer",
-} as const;
-
-/**
- * Load Balancer Type
- */
-export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
 export const MediaType = {
     Image: "Image",

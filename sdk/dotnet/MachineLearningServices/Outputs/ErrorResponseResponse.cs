@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Error message.
         /// </summary>
         public readonly string Message;
-        /// <summary>
-        /// The target of the particular error
-        /// </summary>
-        public readonly string Target;
 
         [OutputConstructor]
         private ErrorResponseResponse(
@@ -36,14 +32,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableArray<Outputs.ErrorDetailResponse> details,
 
-            string message,
-
-            string target)
+            string message)
         {
             Code = code;
             Details = details;
             Message = message;
-            Target = target;
         }
     }
 }

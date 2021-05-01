@@ -46,18 +46,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ClusterPurpose>? ClusterPurpose { get; set; }
 
         /// <summary>
-        /// Load Balancer Subnet
-        /// </summary>
-        [Input("loadBalancerSubnet")]
-        public Input<string>? LoadBalancerSubnet { get; set; }
-
-        /// <summary>
-        /// Load Balancer Type
-        /// </summary>
-        [Input("loadBalancerType")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.LoadBalancerType>? LoadBalancerType { get; set; }
-
-        /// <summary>
         /// SSL configuration
         /// </summary>
         [Input("sslConfiguration")]
@@ -66,7 +54,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public AKSPropertiesArgs()
         {
             ClusterPurpose = "FastProd";
-            LoadBalancerType = "PublicIp";
         }
     }
 }

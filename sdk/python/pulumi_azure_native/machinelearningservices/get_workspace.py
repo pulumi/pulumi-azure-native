@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, location=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, system_data=None, tags=None, tenant_id=None, type=None, workspace_id=None):
+    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, image_build_compute=None, key_vault=None, location=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, system_data=None, tags=None, type=None, workspace_id=None):
         if allow_public_access_when_behind_vnet and not isinstance(allow_public_access_when_behind_vnet, bool):
             raise TypeError("Expected argument 'allow_public_access_when_behind_vnet' to be a bool")
         pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
@@ -99,9 +99,6 @@ class GetWorkspaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        pulumi.set(__self__, "tenant_id", tenant_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -318,14 +315,6 @@ class GetWorkspaceResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant id associated with this workspace.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -374,7 +363,6 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             storage_account=self.storage_account,
             system_data=self.system_data,
             tags=self.tags,
-            tenant_id=self.tenant_id,
             type=self.type,
             workspace_id=self.workspace_id)
 
@@ -384,7 +372,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str resource_group_name: Name of the resource group in which workspace is located.
@@ -426,6 +414,5 @@ def get_workspace(resource_group_name: Optional[str] = None,
         storage_account=__ret__.storage_account,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)

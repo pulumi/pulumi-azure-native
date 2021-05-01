@@ -77,7 +77,7 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str resource_group_name: Name of the resource group in which workspace is located.

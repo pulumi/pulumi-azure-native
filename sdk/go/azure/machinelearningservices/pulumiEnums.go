@@ -134,7 +134,6 @@ const (
 	ComputeTypeHDInsight         = ComputeType("HDInsight")
 	ComputeTypeDatabricks        = ComputeType("Databricks")
 	ComputeTypeDataLakeAnalytics = ComputeType("DataLakeAnalytics")
-	ComputeTypeSynapseSpark      = ComputeType("SynapseSpark")
 )
 
 func (ComputeType) ElementType() reflect.Type {
@@ -330,34 +329,6 @@ func (e LinkedServiceLinkType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e LinkedServiceLinkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Load Balancer Type
-type LoadBalancerType pulumi.String
-
-const (
-	LoadBalancerTypePublicIp             = LoadBalancerType("PublicIp")
-	LoadBalancerTypeInternalLoadBalancer = LoadBalancerType("InternalLoadBalancer")
-)
-
-func (LoadBalancerType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e LoadBalancerType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e LoadBalancerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e LoadBalancerType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e LoadBalancerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

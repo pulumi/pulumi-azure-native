@@ -145,7 +145,7 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningComputeResult:
     """
     Machine Learning compute object wrapped into ARM resource envelope.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

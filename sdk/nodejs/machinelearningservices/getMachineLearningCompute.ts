@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
- * API Version: 2021-04-01.
+ * API Version: 2021-01-01.
  */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
     if (!opts) {
@@ -62,7 +62,7 @@ export interface GetMachineLearningComputeResult {
     /**
      * Compute properties
      */
-    readonly properties: outputs.machinelearningservices.AKSResponse | outputs.machinelearningservices.AmlComputeResponse | outputs.machinelearningservices.ComputeInstanceResponse | outputs.machinelearningservices.DataFactoryResponse | outputs.machinelearningservices.DataLakeAnalyticsResponse | outputs.machinelearningservices.DatabricksResponse | outputs.machinelearningservices.HDInsightResponse | outputs.machinelearningservices.SynapseSparkResponse | outputs.machinelearningservices.VirtualMachineResponse;
+    readonly properties: outputs.machinelearningservices.AKSResponse | outputs.machinelearningservices.AmlComputeResponse | outputs.machinelearningservices.ComputeInstanceResponse | outputs.machinelearningservices.DataFactoryResponse | outputs.machinelearningservices.DataLakeAnalyticsResponse | outputs.machinelearningservices.DatabricksResponse | outputs.machinelearningservices.HDInsightResponse | outputs.machinelearningservices.VirtualMachineResponse;
     /**
      * The sku of the workspace.
      */

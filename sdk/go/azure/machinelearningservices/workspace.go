@@ -12,7 +12,7 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-// API Version: 2021-04-01.
+// API Version: 2021-01-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -66,8 +66,6 @@ type Workspace struct {
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The tenant id associated with this workspace.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Specifies the type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The immutable id associated with this workspace.
@@ -264,8 +262,6 @@ type workspaceState struct {
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
-	// The tenant id associated with this workspace.
-	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of the resource.
 	Type *string `pulumi:"type"`
 	// The immutable id associated with this workspace.
@@ -323,8 +319,6 @@ type WorkspaceState struct {
 	SystemData SystemDataResponsePtrInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
-	// The tenant id associated with this workspace.
-	TenantId pulumi.StringPtrInput
 	// Specifies the type of the resource.
 	Type pulumi.StringPtrInput
 	// The immutable id associated with this workspace.

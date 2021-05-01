@@ -16,7 +16,6 @@ __all__ = [
     'Header',
     'ImageAnnotationType',
     'LinkedServiceLinkType',
-    'LoadBalancerType',
     'MediaType',
     'OsType',
     'PrivateEndpointServiceConnectionStatus',
@@ -73,7 +72,6 @@ class ComputeType(str, Enum):
     HD_INSIGHT = "HDInsight"
     DATABRICKS = "Databricks"
     DATA_LAKE_ANALYTICS = "DataLakeAnalytics"
-    SYNAPSE_SPARK = "SynapseSpark"
 
 
 class DatasetType(str, Enum):
@@ -130,14 +128,6 @@ class LinkedServiceLinkType(str, Enum):
     Type of the link target.
     """
     SYNAPSE = "Synapse"
-
-
-class LoadBalancerType(str, Enum):
-    """
-    Load Balancer Type
-    """
-    PUBLIC_IP = "PublicIp"
-    INTERNAL_LOAD_BALANCER = "InternalLoadBalancer"
 
 
 class MediaType(str, Enum):

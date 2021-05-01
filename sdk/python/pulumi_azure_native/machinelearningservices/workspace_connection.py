@@ -178,7 +178,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace connection.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +200,7 @@ class WorkspaceConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace connection.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceConnectionArgs args: The arguments to use to populate this resource's properties.

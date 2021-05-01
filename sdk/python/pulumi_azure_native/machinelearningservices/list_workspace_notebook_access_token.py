@@ -103,7 +103,7 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
                                          workspace_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookAccessTokenResult:
     """
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str resource_group_name: Name of the resource group in which workspace is located.

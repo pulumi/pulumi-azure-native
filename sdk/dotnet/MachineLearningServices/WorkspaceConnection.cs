@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Workspace connection.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:WorkspaceConnection")]
     public partial class WorkspaceConnection : Pulumi.CustomResource

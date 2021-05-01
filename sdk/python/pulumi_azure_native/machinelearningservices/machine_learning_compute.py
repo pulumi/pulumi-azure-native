@@ -21,7 +21,7 @@ class MachineLearningComputeArgs:
                  compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -31,7 +31,7 @@ class MachineLearningComputeArgs:
         :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']] properties: Compute properties
+        :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']] properties: Compute properties
         :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         """
@@ -112,14 +112,14 @@ class MachineLearningComputeArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']]]:
+    def properties(self) -> Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']]]:
         """
         Compute properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']]]):
+    def properties(self, value: Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'VirtualMachineArgs']]]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -155,7 +155,7 @@ class MachineLearningCompute(pulumi.CustomResource):
                  compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['SynapseSparkArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -163,14 +163,14 @@ class MachineLearningCompute(pulumi.CustomResource):
                  __props__=None):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['SynapseSparkArgs'], pulumi.InputType['VirtualMachineArgs']]] properties: Compute properties
+        :param pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]] properties: Compute properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
@@ -184,7 +184,7 @@ class MachineLearningCompute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param MachineLearningComputeArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +204,7 @@ class MachineLearningCompute(pulumi.CustomResource):
                  compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['SynapseSparkArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

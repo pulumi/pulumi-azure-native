@@ -132,7 +132,7 @@ def get_workspace_connection(connection_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceConnectionResult:
     """
     Workspace connection.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str connection_name: Friendly name of the workspace connection

@@ -34,18 +34,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Leaf domain label of public endpoint
-        /// </summary>
-        [Input("leafDomainLabel")]
-        public Input<string>? LeafDomainLabel { get; set; }
-
-        /// <summary>
-        /// Indicates whether to overwrite existing domain label.
-        /// </summary>
-        [Input("overwriteExistingDomain")]
-        public Input<bool>? OverwriteExistingDomain { get; set; }
-
-        /// <summary>
         /// Enable or disable ssl for scoring
         /// </summary>
         [Input("status")]

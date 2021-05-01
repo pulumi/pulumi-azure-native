@@ -34,14 +34,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? ClusterPurpose;
         /// <summary>
-        /// Load Balancer Subnet
-        /// </summary>
-        public readonly string? LoadBalancerSubnet;
-        /// <summary>
-        /// Load Balancer Type
-        /// </summary>
-        public readonly string? LoadBalancerType;
-        /// <summary>
         /// SSL configuration
         /// </summary>
         public readonly Outputs.SslConfigurationResponse? SslConfiguration;
@@ -62,10 +54,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? clusterPurpose,
 
-            string? loadBalancerSubnet,
-
-            string? loadBalancerType,
-
             Outputs.SslConfigurationResponse? sslConfiguration,
 
             ImmutableArray<Outputs.SystemServiceResponse> systemServices)
@@ -75,8 +63,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             AksNetworkingConfiguration = aksNetworkingConfiguration;
             ClusterFqdn = clusterFqdn;
             ClusterPurpose = clusterPurpose;
-            LoadBalancerSubnet = loadBalancerSubnet;
-            LoadBalancerType = loadBalancerType;
             SslConfiguration = sslConfiguration;
             SystemServices = systemServices;
         }

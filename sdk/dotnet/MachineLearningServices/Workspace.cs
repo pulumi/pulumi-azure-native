@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -165,12 +165,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The tenant id associated with this workspace.
-        /// </summary>
-        [Output("tenantId")]
-        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of the resource.

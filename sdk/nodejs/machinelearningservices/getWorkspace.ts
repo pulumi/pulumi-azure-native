@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- * API Version: 2021-04-01.
+ * API Version: 2021-01-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -142,10 +142,6 @@ export interface GetWorkspaceResult {
      * Contains resource tags defined as key/value pairs.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The tenant id associated with this workspace.
-     */
-    readonly tenantId: string;
     /**
      * Specifies the type of the resource.
      */
