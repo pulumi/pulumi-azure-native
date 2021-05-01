@@ -10,31 +10,57 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+    /// </summary>
     public sealed class IdentityProvidersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration settings of the Apple provider.
+        /// </summary>
         [Input("apple")]
         public Input<Inputs.AppleArgs>? Apple { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the Azure Active directory provider.
+        /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.AzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the Azure Static Web Apps provider.
+        /// </summary>
         [Input("azureStaticWebApps")]
         public Input<Inputs.AzureStaticWebAppsArgs>? AzureStaticWebApps { get; set; }
 
         [Input("customOpenIdConnectProviders")]
         private InputMap<Inputs.CustomOpenIdConnectProviderArgs>? _customOpenIdConnectProviders;
+
+        /// <summary>
+        /// The map of the name of the alias of each custom Open ID Connect provider to the
+        /// configuration settings of the custom Open ID Connect provider.
+        /// </summary>
         public InputMap<Inputs.CustomOpenIdConnectProviderArgs> CustomOpenIdConnectProviders
         {
             get => _customOpenIdConnectProviders ?? (_customOpenIdConnectProviders = new InputMap<Inputs.CustomOpenIdConnectProviderArgs>());
             set => _customOpenIdConnectProviders = value;
         }
 
+        /// <summary>
+        /// The configuration settings of the Facebook provider.
+        /// </summary>
         [Input("facebook")]
         public Input<Inputs.FacebookArgs>? Facebook { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the GitHub provider.
+        /// </summary>
         [Input("gitHub")]
         public Input<Inputs.GitHubArgs>? GitHub { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the Google provider.
+        /// </summary>
         [Input("google")]
         public Input<Inputs.GoogleArgs>? Google { get; set; }
 
@@ -44,9 +70,15 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the legacy Microsoft Account provider.
+        /// </summary>
         [Input("legacyMicrosoftAccount")]
         public Input<Inputs.LegacyMicrosoftAccountArgs>? LegacyMicrosoftAccount { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the Twitter provider.
+        /// </summary>
         [Input("twitter")]
         public Input<Inputs.TwitterArgs>? Twitter { get; set; }
 

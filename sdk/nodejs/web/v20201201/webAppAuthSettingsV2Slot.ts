@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+ */
 export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
     /**
      * Get an existing WebAppAuthSettingsV2Slot resource's state with the given name, ID, and optional extra
@@ -32,18 +35,33 @@ export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppAuthSettingsV2Slot.__pulumiType;
     }
 
+    /**
+     * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+     */
     public readonly globalValidation!: pulumi.Output<outputs.web.v20201201.GlobalValidationResponse | undefined>;
+    /**
+     * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+     */
     public readonly httpSettings!: pulumi.Output<outputs.web.v20201201.HttpSettingsResponse | undefined>;
+    /**
+     * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+     */
     public readonly identityProviders!: pulumi.Output<outputs.web.v20201201.IdentityProvidersResponse | undefined>;
     /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration settings of the login flow of users using App Service Authentication/Authorization.
+     */
     public readonly login!: pulumi.Output<outputs.web.v20201201.LoginResponse | undefined>;
     /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The configuration settings of the platform of App Service Authentication/Authorization.
+     */
     public readonly platform!: pulumi.Output<outputs.web.v20201201.AuthPlatformResponse | undefined>;
     /**
      * Resource type.
@@ -103,18 +121,33 @@ export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAppAuthSettingsV2Slot resource.
  */
 export interface WebAppAuthSettingsV2SlotArgs {
+    /**
+     * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+     */
     readonly globalValidation?: pulumi.Input<inputs.web.v20201201.GlobalValidationArgs>;
+    /**
+     * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+     */
     readonly httpSettings?: pulumi.Input<inputs.web.v20201201.HttpSettingsArgs>;
+    /**
+     * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+     */
     readonly identityProviders?: pulumi.Input<inputs.web.v20201201.IdentityProvidersArgs>;
     /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
+    /**
+     * The configuration settings of the login flow of users using App Service Authentication/Authorization.
+     */
     readonly login?: pulumi.Input<inputs.web.v20201201.LoginArgs>;
     /**
      * Name of web app.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * The configuration settings of the platform of App Service Authentication/Authorization.
+     */
     readonly platform?: pulumi.Input<inputs.web.v20201201.AuthPlatformArgs>;
     /**
      * Name of the resource group to which the resource belongs.

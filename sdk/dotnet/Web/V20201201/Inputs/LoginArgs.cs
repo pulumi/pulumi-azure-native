@@ -10,16 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the login flow of users using App Service Authentication/Authorization.
+    /// </summary>
     public sealed class LoginArgs : Pulumi.ResourceArgs
     {
         [Input("allowedExternalRedirectUrls")]
         private InputList<string>? _allowedExternalRedirectUrls;
+
+        /// <summary>
+        /// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+        /// This is an advanced setting typically only needed by Windows Store application backends.
+        /// Note that URLs within the current domain are always implicitly allowed.
+        /// </summary>
         public InputList<string> AllowedExternalRedirectUrls
         {
             get => _allowedExternalRedirectUrls ?? (_allowedExternalRedirectUrls = new InputList<string>());
             set => _allowedExternalRedirectUrls = value;
         }
 
+        /// <summary>
+        /// The configuration settings of the session cookie's expiration.
+        /// </summary>
         [Input("cookieExpiration")]
         public Input<Inputs.CookieExpirationArgs>? CookieExpiration { get; set; }
 
@@ -29,15 +41,27 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the nonce used in the login flow.
+        /// </summary>
         [Input("nonce")]
         public Input<Inputs.NonceArgs>? Nonce { get; set; }
 
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the fragments from the request are preserved after the login request is made; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
         [Input("preserveUrlFragmentsForLogins")]
         public Input<bool>? PreserveUrlFragmentsForLogins { get; set; }
 
+        /// <summary>
+        /// The routes that specify the endpoints used for login and logout requests.
+        /// </summary>
         [Input("routes")]
         public Input<Inputs.LoginRoutesArgs>? Routes { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the token store.
+        /// </summary>
         [Input("tokenStore")]
         public Input<Inputs.TokenStoreArgs>? TokenStore { get; set; }
 

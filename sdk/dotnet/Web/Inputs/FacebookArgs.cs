@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Facebook provider.
+    /// </summary>
     public sealed class FacebookArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Facebook provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The version of the Facebook api to be used while logging in.
+        /// </summary>
         [Input("graphApiVersion")]
         public Input<string>? GraphApiVersion { get; set; }
 
@@ -24,9 +33,15 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the login flow.
+        /// </summary>
         [Input("login")]
         public Input<Inputs.LoginScopesArgs>? Login { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the app registration for the Facebook provider.
+        /// </summary>
         [Input("registration")]
         public Input<Inputs.AppRegistrationArgs>? Registration { get; set; }
 

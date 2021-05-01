@@ -90,6 +90,9 @@ class ClientCertMode(str, Enum):
 
 
 class ClientCredentialMethod(str, Enum):
+    """
+    The method that should be used to authenticate the user.
+    """
     CLIENT_SECRET_POST = "ClientSecretPost"
 
 
@@ -111,6 +114,9 @@ class ConnectionStringType(str, Enum):
 
 
 class CookieExpirationConvention(str, Enum):
+    """
+    The convention used when determining the session cookie's expiration.
+    """
     FIXED_TIME = "FixedTime"
     IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
 
@@ -134,6 +140,9 @@ class DatabaseType(str, Enum):
 
 
 class ForwardProxyConvention(str, Enum):
+    """
+    The convention used to determine the url of the request made.
+    """
     NO_PROXY = "NoProxy"
     STANDARD = "Standard"
     CUSTOM = "Custom"
@@ -321,6 +330,9 @@ class UnauthenticatedClientAction(str, Enum):
 
 
 class UnauthenticatedClientActionV2(str, Enum):
+    """
+    The action to take when an unauthenticated client attempts to access the app.
+    """
     REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
     ALLOW_ANONYMOUS = "AllowAnonymous"
     RETURN401 = "Return401"

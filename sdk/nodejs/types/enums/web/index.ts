@@ -106,6 +106,9 @@ export const ClientCredentialMethod = {
     ClientSecretPost: "ClientSecretPost",
 } as const;
 
+/**
+ * The method that should be used to authenticate the user.
+ */
 export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
 
 export const ConnectionParameterType = {
@@ -149,6 +152,9 @@ export const CookieExpirationConvention = {
     IdentityProviderDerived: "IdentityProviderDerived",
 } as const;
 
+/**
+ * The convention used when determining the session cookie's expiration.
+ */
 export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
 
 export const CustomHostNameDnsRecordType = {
@@ -179,6 +185,9 @@ export const ForwardProxyConvention = {
     Custom: "Custom",
 } as const;
 
+/**
+ * The convention used to determine the url of the request made.
+ */
 export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
 export const FrequencyUnit = {
@@ -405,6 +414,9 @@ export const UnauthenticatedClientActionV2 = {
     Return403: "Return403",
 } as const;
 
+/**
+ * The action to take when an unauthenticated client attempts to access the app.
+ */
 export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];
 
 export const WsdlImportMethod = {

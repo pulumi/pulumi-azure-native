@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the nonce used in the login flow.
+    /// </summary>
     public sealed class NonceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,9 +21,15 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The time after the request is made when the nonce should expire.
+        /// </summary>
         [Input("nonceExpirationInterval")]
         public Input<string>? NonceExpirationInterval { get; set; }
 
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the nonce should not be validated while completing the login flow; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         [Input("validateNonce")]
         public Input<bool>? ValidateNonce { get; set; }
 

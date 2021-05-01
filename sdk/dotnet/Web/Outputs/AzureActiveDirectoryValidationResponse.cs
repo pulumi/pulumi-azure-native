@@ -13,11 +13,17 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class AzureActiveDirectoryValidationResponse
     {
+        /// <summary>
+        /// The list of audiences that can make successful authentication/authorization requests.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The configuration settings of the checks that should be made while validating the JWT Claims.
+        /// </summary>
         public readonly Outputs.JwtClaimChecksResponse? JwtClaimChecks;
         /// <summary>
         /// Kind of resource.

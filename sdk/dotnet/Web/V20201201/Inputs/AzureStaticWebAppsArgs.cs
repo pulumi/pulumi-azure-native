@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Azure Static Web Apps provider.
+    /// </summary>
     public sealed class AzureStaticWebAppsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -21,6 +27,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the Azure Static Web Apps registration.
+        /// </summary>
         [Input("registration")]
         public Input<Inputs.AzureStaticWebAppsRegistrationArgs>? Registration { get; set; }
 

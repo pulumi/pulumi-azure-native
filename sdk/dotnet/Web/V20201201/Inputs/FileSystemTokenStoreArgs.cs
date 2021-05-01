@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the storage of the tokens if a file system is used.
+    /// </summary>
     public sealed class FileSystemTokenStoreArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The directory in which the tokens will be stored.
+        /// </summary>
         [Input("directory")]
         public Input<string>? Directory { get; set; }
 

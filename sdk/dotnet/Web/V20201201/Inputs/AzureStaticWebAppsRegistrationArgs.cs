@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the registration for the Azure Static Web Apps provider
+    /// </summary>
     public sealed class AzureStaticWebAppsRegistrationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Client ID of the app used for login.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 

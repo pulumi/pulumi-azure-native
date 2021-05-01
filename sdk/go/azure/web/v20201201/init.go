@@ -125,6 +125,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WebAppSourceControl{}
 	case "azure-native:web/v20201201:WebAppSourceControlSlot":
 		r = &WebAppSourceControlSlot{}
+	case "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection":
+		r = &WebAppSwiftVirtualNetworkConnection{}
 	case "azure-native:web/v20201201:WebAppVnetConnection":
 		r = &WebAppVnetConnection{}
 	case "azure-native:web/v20201201:WebAppVnetConnectionSlot":

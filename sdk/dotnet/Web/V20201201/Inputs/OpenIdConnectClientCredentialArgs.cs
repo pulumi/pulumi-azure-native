@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The authentication client credentials of the custom Open ID Connect provider.
+    /// </summary>
     public sealed class OpenIdConnectClientCredentialArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The app setting that contains the client secret for the custom Open ID Connect provider.
+        /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
 
@@ -21,6 +27,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The method that should be used to authenticate the user.
+        /// </summary>
         [Input("method")]
         public Input<Pulumi.AzureNative.Web.V20201201.ClientCredentialMethod>? Method { get; set; }
 

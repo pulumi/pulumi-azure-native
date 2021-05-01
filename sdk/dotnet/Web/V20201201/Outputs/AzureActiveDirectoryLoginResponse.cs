@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when
+        /// a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public readonly ImmutableArray<string> LoginParameters;
         /// <summary>
         /// Resource Name.

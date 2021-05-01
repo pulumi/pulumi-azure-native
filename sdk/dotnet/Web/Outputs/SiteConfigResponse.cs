@@ -191,6 +191,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
         /// <summary>
+        /// Property to allow or block all public traffic.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Publishing user name.
         /// </summary>
         public readonly string? PublishingUsername;
@@ -363,6 +367,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             int? preWarmedInstanceCount,
 
+            string? publicNetworkAccess,
+
             string? publishingUsername,
 
             Outputs.PushSettingsResponse? push,
@@ -448,6 +454,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             PhpVersion = phpVersion;
             PowerShellVersion = powerShellVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
+            PublicNetworkAccess = publicNetworkAccess;
             PublishingUsername = publishingUsername;
             Push = push;
             PythonVersion = pythonVersion;

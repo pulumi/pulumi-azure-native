@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the GitHub provider.
+    /// </summary>
     public sealed class GitHubArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the GitHub provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -21,9 +27,15 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the login flow.
+        /// </summary>
         [Input("login")]
         public Input<Inputs.LoginScopesArgs>? Login { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the app registration for the GitHub provider.
+        /// </summary>
         [Input("registration")]
         public Input<Inputs.ClientRegistrationArgs>? Registration { get; set; }
 

@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Azure Active Directory token validation flow.
+    /// </summary>
     public sealed class AzureActiveDirectoryValidationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// The list of audiences that can make successful authentication/authorization requests.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
             set => _allowedAudiences = value;
         }
 
+        /// <summary>
+        /// The configuration settings of the checks that should be made while validating the JWT Claims.
+        /// </summary>
         [Input("jwtClaimChecks")]
         public Input<Inputs.JwtClaimChecksArgs>? JwtClaimChecks { get; set; }
 

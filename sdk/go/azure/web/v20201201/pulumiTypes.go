@@ -893,8 +893,11 @@ func (o ApiManagementConfigResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistration struct {
-	AppId                *string `pulumi:"appId"`
+	// The App ID of the app used for login.
+	AppId *string `pulumi:"appId"`
+	// The app setting name that contains the app secret.
 	AppSecretSettingName *string `pulumi:"appSecretSettingName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -911,8 +914,11 @@ type AppRegistrationInput interface {
 	ToAppRegistrationOutputWithContext(context.Context) AppRegistrationOutput
 }
 
+// The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistrationArgs struct {
-	AppId                pulumi.StringPtrInput `pulumi:"appId"`
+	// The App ID of the app used for login.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+	// The app setting name that contains the app secret.
 	AppSecretSettingName pulumi.StringPtrInput `pulumi:"appSecretSettingName"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -971,6 +977,7 @@ func (i *appRegistrationPtrType) ToAppRegistrationPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppRegistrationPtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistrationOutput struct{ *pulumi.OutputState }
 
 func (AppRegistrationOutput) ElementType() reflect.Type {
@@ -994,10 +1001,13 @@ func (o AppRegistrationOutput) ToAppRegistrationPtrOutputWithContext(ctx context
 		return &v
 	}).(AppRegistrationPtrOutput)
 }
+
+// The App ID of the app used for login.
 func (o AppRegistrationOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistration) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the app secret.
 func (o AppRegistrationOutput) AppSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistration) *string { return v.AppSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -1025,6 +1035,7 @@ func (o AppRegistrationPtrOutput) Elem() AppRegistrationOutput {
 	return o.ApplyT(func(v *AppRegistration) AppRegistration { return *v }).(AppRegistrationOutput)
 }
 
+// The App ID of the app used for login.
 func (o AppRegistrationPtrOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppRegistration) *string {
 		if v == nil {
@@ -1034,6 +1045,7 @@ func (o AppRegistrationPtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the app secret.
 func (o AppRegistrationPtrOutput) AppSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppRegistration) *string {
 		if v == nil {
@@ -1053,8 +1065,11 @@ func (o AppRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistrationResponse struct {
-	AppId                *string `pulumi:"appId"`
+	// The App ID of the app used for login.
+	AppId *string `pulumi:"appId"`
+	// The app setting name that contains the app secret.
 	AppSecretSettingName *string `pulumi:"appSecretSettingName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -1077,8 +1092,11 @@ type AppRegistrationResponseInput interface {
 	ToAppRegistrationResponseOutputWithContext(context.Context) AppRegistrationResponseOutput
 }
 
+// The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistrationResponseArgs struct {
-	AppId                pulumi.StringPtrInput `pulumi:"appId"`
+	// The App ID of the app used for login.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+	// The app setting name that contains the app secret.
 	AppSecretSettingName pulumi.StringPtrInput `pulumi:"appSecretSettingName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1143,6 +1161,7 @@ func (i *appRegistrationResponsePtrType) ToAppRegistrationResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AppRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (AppRegistrationResponseOutput) ElementType() reflect.Type {
@@ -1166,10 +1185,13 @@ func (o AppRegistrationResponseOutput) ToAppRegistrationResponsePtrOutputWithCon
 		return &v
 	}).(AppRegistrationResponsePtrOutput)
 }
+
+// The App ID of the app used for login.
 func (o AppRegistrationResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistrationResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the app secret.
 func (o AppRegistrationResponseOutput) AppSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistrationResponse) *string { return v.AppSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -1212,6 +1234,7 @@ func (o AppRegistrationResponsePtrOutput) Elem() AppRegistrationResponseOutput {
 	return o.ApplyT(func(v *AppRegistrationResponse) AppRegistrationResponse { return *v }).(AppRegistrationResponseOutput)
 }
 
+// The App ID of the app used for login.
 func (o AppRegistrationResponsePtrOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppRegistrationResponse) *string {
 		if v == nil {
@@ -1221,6 +1244,7 @@ func (o AppRegistrationResponsePtrOutput) AppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the app secret.
 func (o AppRegistrationResponsePtrOutput) AppSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppRegistrationResponse) *string {
 		if v == nil {
@@ -1270,11 +1294,15 @@ func (o AppRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Apple provider.
 type Apple struct {
+	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string            `pulumi:"kind"`
-	Login        *LoginScopes       `pulumi:"login"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login *LoginScopes `pulumi:"login"`
+	// The configuration settings of the Apple registration.
 	Registration *AppleRegistration `pulumi:"registration"`
 }
 
@@ -1289,11 +1317,15 @@ type AppleInput interface {
 	ToAppleOutputWithContext(context.Context) AppleOutput
 }
 
+// The configuration settings of the Apple provider.
 type AppleArgs struct {
+	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput     `pulumi:"kind"`
-	Login        LoginScopesPtrInput       `pulumi:"login"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login LoginScopesPtrInput `pulumi:"login"`
+	// The configuration settings of the Apple registration.
 	Registration AppleRegistrationPtrInput `pulumi:"registration"`
 }
 
@@ -1350,6 +1382,7 @@ func (i *applePtrType) ToApplePtrOutputWithContext(ctx context.Context) ApplePtr
 	return pulumi.ToOutputWithContext(ctx, i).(ApplePtrOutput)
 }
 
+// The configuration settings of the Apple provider.
 type AppleOutput struct{ *pulumi.OutputState }
 
 func (AppleOutput) ElementType() reflect.Type {
@@ -1373,6 +1406,8 @@ func (o AppleOutput) ToApplePtrOutputWithContext(ctx context.Context) ApplePtrOu
 		return &v
 	}).(ApplePtrOutput)
 }
+
+// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AppleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Apple) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1382,10 +1417,12 @@ func (o AppleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Apple) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o AppleOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v Apple) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the Apple registration.
 func (o AppleOutput) Registration() AppleRegistrationPtrOutput {
 	return o.ApplyT(func(v Apple) *AppleRegistration { return v.Registration }).(AppleRegistrationPtrOutput)
 }
@@ -1408,6 +1445,7 @@ func (o ApplePtrOutput) Elem() AppleOutput {
 	return o.ApplyT(func(v *Apple) Apple { return *v }).(AppleOutput)
 }
 
+// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o ApplePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Apple) *bool {
 		if v == nil {
@@ -1427,6 +1465,7 @@ func (o ApplePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o ApplePtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *Apple) *LoginScopes {
 		if v == nil {
@@ -1436,6 +1475,7 @@ func (o ApplePtrOutput) Login() LoginScopesPtrOutput {
 	}).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the Apple registration.
 func (o ApplePtrOutput) Registration() AppleRegistrationPtrOutput {
 	return o.ApplyT(func(v *Apple) *AppleRegistration {
 		if v == nil {
@@ -1445,8 +1485,11 @@ func (o ApplePtrOutput) Registration() AppleRegistrationPtrOutput {
 	}).(AppleRegistrationPtrOutput)
 }
 
+// The configuration settings of the registration for the Apple provider
 type AppleRegistration struct {
-	ClientId                *string `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId *string `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -1463,8 +1506,11 @@ type AppleRegistrationInput interface {
 	ToAppleRegistrationOutputWithContext(context.Context) AppleRegistrationOutput
 }
 
+// The configuration settings of the registration for the Apple provider
 type AppleRegistrationArgs struct {
-	ClientId                pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -1523,6 +1569,7 @@ func (i *appleRegistrationPtrType) ToAppleRegistrationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationPtrOutput)
 }
 
+// The configuration settings of the registration for the Apple provider
 type AppleRegistrationOutput struct{ *pulumi.OutputState }
 
 func (AppleRegistrationOutput) ElementType() reflect.Type {
@@ -1546,10 +1593,13 @@ func (o AppleRegistrationOutput) ToAppleRegistrationPtrOutputWithContext(ctx con
 		return &v
 	}).(AppleRegistrationPtrOutput)
 }
+
+// The Client ID of the app used for login.
 func (o AppleRegistrationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppleRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o AppleRegistrationOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppleRegistration) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -1577,6 +1627,7 @@ func (o AppleRegistrationPtrOutput) Elem() AppleRegistrationOutput {
 	return o.ApplyT(func(v *AppleRegistration) AppleRegistration { return *v }).(AppleRegistrationOutput)
 }
 
+// The Client ID of the app used for login.
 func (o AppleRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppleRegistration) *string {
 		if v == nil {
@@ -1586,6 +1637,7 @@ func (o AppleRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o AppleRegistrationPtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppleRegistration) *string {
 		if v == nil {
@@ -1605,8 +1657,11 @@ func (o AppleRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the registration for the Apple provider
 type AppleRegistrationResponse struct {
-	ClientId                *string `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId *string `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -1629,8 +1684,11 @@ type AppleRegistrationResponseInput interface {
 	ToAppleRegistrationResponseOutputWithContext(context.Context) AppleRegistrationResponseOutput
 }
 
+// The configuration settings of the registration for the Apple provider
 type AppleRegistrationResponseArgs struct {
-	ClientId                pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1695,6 +1753,7 @@ func (i *appleRegistrationResponsePtrType) ToAppleRegistrationResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the registration for the Apple provider
 type AppleRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (AppleRegistrationResponseOutput) ElementType() reflect.Type {
@@ -1718,10 +1777,13 @@ func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponsePtrOutputWit
 		return &v
 	}).(AppleRegistrationResponsePtrOutput)
 }
+
+// The Client ID of the app used for login.
 func (o AppleRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppleRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o AppleRegistrationResponseOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppleRegistrationResponse) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -1764,6 +1826,7 @@ func (o AppleRegistrationResponsePtrOutput) Elem() AppleRegistrationResponseOutp
 	return o.ApplyT(func(v *AppleRegistrationResponse) AppleRegistrationResponse { return *v }).(AppleRegistrationResponseOutput)
 }
 
+// The Client ID of the app used for login.
 func (o AppleRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
 		if v == nil {
@@ -1773,6 +1836,7 @@ func (o AppleRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o AppleRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
 		if v == nil {
@@ -1822,15 +1886,19 @@ func (o AppleRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Apple provider.
 type AppleResponse struct {
+	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind  *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                     `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the Apple registration.
 	Registration *AppleRegistrationResponse `pulumi:"registration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -1847,15 +1915,19 @@ type AppleResponseInput interface {
 	ToAppleResponseOutputWithContext(context.Context) AppleResponseOutput
 }
 
+// The configuration settings of the Apple provider.
 type AppleResponseArgs struct {
+	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput                `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the Apple registration.
 	Registration AppleRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1914,6 +1986,7 @@ func (i *appleResponsePtrType) ToAppleResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AppleResponsePtrOutput)
 }
 
+// The configuration settings of the Apple provider.
 type AppleResponseOutput struct{ *pulumi.OutputState }
 
 func (AppleResponseOutput) ElementType() reflect.Type {
@@ -1937,6 +2010,8 @@ func (o AppleResponseOutput) ToAppleResponsePtrOutputWithContext(ctx context.Con
 		return &v
 	}).(AppleResponsePtrOutput)
 }
+
+// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AppleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1951,6 +2026,7 @@ func (o AppleResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppleResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o AppleResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v AppleResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
@@ -1960,6 +2036,7 @@ func (o AppleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Apple registration.
 func (o AppleResponseOutput) Registration() AppleRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v AppleResponse) *AppleRegistrationResponse { return v.Registration }).(AppleRegistrationResponsePtrOutput)
 }
@@ -1987,6 +2064,7 @@ func (o AppleResponsePtrOutput) Elem() AppleResponseOutput {
 	return o.ApplyT(func(v *AppleResponse) AppleResponse { return *v }).(AppleResponseOutput)
 }
 
+// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AppleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppleResponse) *bool {
 		if v == nil {
@@ -2016,6 +2094,7 @@ func (o AppleResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o AppleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *AppleResponse) *LoginScopesResponse {
 		if v == nil {
@@ -2035,6 +2114,7 @@ func (o AppleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Apple registration.
 func (o AppleResponsePtrOutput) Registration() AppleRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *AppleResponse) *AppleRegistrationResponse {
 		if v == nil {
@@ -2741,11 +2821,17 @@ func (o ArmPlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the platform of App Service Authentication/Authorization.
 type AuthPlatform struct {
+	// The path of the config file containing auth settings if they come from a file.
+	// If the path is relative, base will the site's root directory.
 	ConfigFilePath *string `pulumi:"configFilePath"`
-	Enabled        *bool   `pulumi:"enabled"`
+	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind           *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 }
 
@@ -2760,11 +2846,17 @@ type AuthPlatformInput interface {
 	ToAuthPlatformOutputWithContext(context.Context) AuthPlatformOutput
 }
 
+// The configuration settings of the platform of App Service Authentication/Authorization.
 type AuthPlatformArgs struct {
+	// The path of the config file containing auth settings if they come from a file.
+	// If the path is relative, base will the site's root directory.
 	ConfigFilePath pulumi.StringPtrInput `pulumi:"configFilePath"`
-	Enabled        pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind           pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
 
@@ -2821,6 +2913,7 @@ func (i *authPlatformPtrType) ToAuthPlatformPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AuthPlatformPtrOutput)
 }
 
+// The configuration settings of the platform of App Service Authentication/Authorization.
 type AuthPlatformOutput struct{ *pulumi.OutputState }
 
 func (AuthPlatformOutput) ElementType() reflect.Type {
@@ -2844,10 +2937,14 @@ func (o AuthPlatformOutput) ToAuthPlatformPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(AuthPlatformPtrOutput)
 }
+
+// The path of the config file containing auth settings if they come from a file.
+// If the path is relative, base will the site's root directory.
 func (o AuthPlatformOutput) ConfigFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthPlatform) *string { return v.ConfigFilePath }).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
 func (o AuthPlatformOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AuthPlatform) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2857,6 +2954,8 @@ func (o AuthPlatformOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthPlatform) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 func (o AuthPlatformOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthPlatform) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
@@ -2879,6 +2978,8 @@ func (o AuthPlatformPtrOutput) Elem() AuthPlatformOutput {
 	return o.ApplyT(func(v *AuthPlatform) AuthPlatform { return *v }).(AuthPlatformOutput)
 }
 
+// The path of the config file containing auth settings if they come from a file.
+// If the path is relative, base will the site's root directory.
 func (o AuthPlatformPtrOutput) ConfigFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthPlatform) *string {
 		if v == nil {
@@ -2888,6 +2989,7 @@ func (o AuthPlatformPtrOutput) ConfigFilePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
 func (o AuthPlatformPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AuthPlatform) *bool {
 		if v == nil {
@@ -2907,6 +3009,8 @@ func (o AuthPlatformPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 func (o AuthPlatformPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthPlatform) *string {
 		if v == nil {
@@ -2916,15 +3020,21 @@ func (o AuthPlatformPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the platform of App Service Authentication/Authorization.
 type AuthPlatformResponse struct {
+	// The path of the config file containing auth settings if they come from a file.
+	// If the path is relative, base will the site's root directory.
 	ConfigFilePath *string `pulumi:"configFilePath"`
-	Enabled        *bool   `pulumi:"enabled"`
+	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name           string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -2941,15 +3051,21 @@ type AuthPlatformResponseInput interface {
 	ToAuthPlatformResponseOutputWithContext(context.Context) AuthPlatformResponseOutput
 }
 
+// The configuration settings of the platform of App Service Authentication/Authorization.
 type AuthPlatformResponseArgs struct {
+	// The path of the config file containing auth settings if they come from a file.
+	// If the path is relative, base will the site's root directory.
 	ConfigFilePath pulumi.StringPtrInput `pulumi:"configFilePath"`
-	Enabled        pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name           pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -3008,6 +3124,7 @@ func (i *authPlatformResponsePtrType) ToAuthPlatformResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AuthPlatformResponsePtrOutput)
 }
 
+// The configuration settings of the platform of App Service Authentication/Authorization.
 type AuthPlatformResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthPlatformResponseOutput) ElementType() reflect.Type {
@@ -3031,10 +3148,14 @@ func (o AuthPlatformResponseOutput) ToAuthPlatformResponsePtrOutputWithContext(c
 		return &v
 	}).(AuthPlatformResponsePtrOutput)
 }
+
+// The path of the config file containing auth settings if they come from a file.
+// If the path is relative, base will the site's root directory.
 func (o AuthPlatformResponseOutput) ConfigFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthPlatformResponse) *string { return v.ConfigFilePath }).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
 func (o AuthPlatformResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AuthPlatformResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3054,6 +3175,8 @@ func (o AuthPlatformResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthPlatformResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 func (o AuthPlatformResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthPlatformResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
@@ -3081,6 +3204,8 @@ func (o AuthPlatformResponsePtrOutput) Elem() AuthPlatformResponseOutput {
 	return o.ApplyT(func(v *AuthPlatformResponse) AuthPlatformResponse { return *v }).(AuthPlatformResponseOutput)
 }
 
+// The path of the config file containing auth settings if they come from a file.
+// If the path is relative, base will the site's root directory.
 func (o AuthPlatformResponsePtrOutput) ConfigFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthPlatformResponse) *string {
 		if v == nil {
@@ -3090,6 +3215,7 @@ func (o AuthPlatformResponsePtrOutput) ConfigFilePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
 func (o AuthPlatformResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AuthPlatformResponse) *bool {
 		if v == nil {
@@ -3129,6 +3255,8 @@ func (o AuthPlatformResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 func (o AuthPlatformResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthPlatformResponse) *string {
 		if v == nil {
@@ -4576,14 +4704,22 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodesRange() StatusCodesRangeBa
 	}).(StatusCodesRangeBasedTriggerResponseArrayOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 type AzureActiveDirectory struct {
-	Enabled           *bool `pulumi:"enabled"`
+	// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+	Enabled *bool `pulumi:"enabled"`
+	// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+	// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+	// read or write to this property.
 	IsAutoProvisioned *bool `pulumi:"isAutoProvisioned"`
 	// Kind of resource.
-	Kind         *string                           `pulumi:"kind"`
-	Login        *AzureActiveDirectoryLogin        `pulumi:"login"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the Azure Active Directory login flow.
+	Login *AzureActiveDirectoryLogin `pulumi:"login"`
+	// The configuration settings of the Azure Active Directory app registration.
 	Registration *AzureActiveDirectoryRegistration `pulumi:"registration"`
-	Validation   *AzureActiveDirectoryValidation   `pulumi:"validation"`
+	// The configuration settings of the Azure Active Directory token validation flow.
+	Validation *AzureActiveDirectoryValidation `pulumi:"validation"`
 }
 
 // AzureActiveDirectoryInput is an input type that accepts AzureActiveDirectoryArgs and AzureActiveDirectoryOutput values.
@@ -4597,14 +4733,22 @@ type AzureActiveDirectoryInput interface {
 	ToAzureActiveDirectoryOutputWithContext(context.Context) AzureActiveDirectoryOutput
 }
 
+// The configuration settings of the Azure Active directory provider.
 type AzureActiveDirectoryArgs struct {
-	Enabled           pulumi.BoolPtrInput `pulumi:"enabled"`
+	// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+	// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+	// read or write to this property.
 	IsAutoProvisioned pulumi.BoolPtrInput `pulumi:"isAutoProvisioned"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput                    `pulumi:"kind"`
-	Login        AzureActiveDirectoryLoginPtrInput        `pulumi:"login"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the Azure Active Directory login flow.
+	Login AzureActiveDirectoryLoginPtrInput `pulumi:"login"`
+	// The configuration settings of the Azure Active Directory app registration.
 	Registration AzureActiveDirectoryRegistrationPtrInput `pulumi:"registration"`
-	Validation   AzureActiveDirectoryValidationPtrInput   `pulumi:"validation"`
+	// The configuration settings of the Azure Active Directory token validation flow.
+	Validation AzureActiveDirectoryValidationPtrInput `pulumi:"validation"`
 }
 
 func (AzureActiveDirectoryArgs) ElementType() reflect.Type {
@@ -4660,6 +4804,7 @@ func (i *azureActiveDirectoryPtrType) ToAzureActiveDirectoryPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryPtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 type AzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryOutput) ElementType() reflect.Type {
@@ -4683,10 +4828,15 @@ func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutputWithContext(c
 		return &v
 	}).(AzureActiveDirectoryPtrOutput)
 }
+
+// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureActiveDirectoryOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+// read or write to this property.
 func (o AzureActiveDirectoryOutput) IsAutoProvisioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *bool { return v.IsAutoProvisioned }).(pulumi.BoolPtrOutput)
 }
@@ -4696,14 +4846,17 @@ func (o AzureActiveDirectoryOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 func (o AzureActiveDirectoryOutput) Login() AzureActiveDirectoryLoginPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectoryLogin { return v.Login }).(AzureActiveDirectoryLoginPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 func (o AzureActiveDirectoryOutput) Registration() AzureActiveDirectoryRegistrationPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectoryRegistration { return v.Registration }).(AzureActiveDirectoryRegistrationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o AzureActiveDirectoryOutput) Validation() AzureActiveDirectoryValidationPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectoryValidation { return v.Validation }).(AzureActiveDirectoryValidationPtrOutput)
 }
@@ -4726,6 +4879,7 @@ func (o AzureActiveDirectoryPtrOutput) Elem() AzureActiveDirectoryOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory { return *v }).(AzureActiveDirectoryOutput)
 }
 
+// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureActiveDirectoryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *bool {
 		if v == nil {
@@ -4735,6 +4889,9 @@ func (o AzureActiveDirectoryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+// read or write to this property.
 func (o AzureActiveDirectoryPtrOutput) IsAutoProvisioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *bool {
 		if v == nil {
@@ -4754,6 +4911,7 @@ func (o AzureActiveDirectoryPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 func (o AzureActiveDirectoryPtrOutput) Login() AzureActiveDirectoryLoginPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *AzureActiveDirectoryLogin {
 		if v == nil {
@@ -4763,6 +4921,7 @@ func (o AzureActiveDirectoryPtrOutput) Login() AzureActiveDirectoryLoginPtrOutpu
 	}).(AzureActiveDirectoryLoginPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 func (o AzureActiveDirectoryPtrOutput) Registration() AzureActiveDirectoryRegistrationPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *AzureActiveDirectoryRegistration {
 		if v == nil {
@@ -4772,6 +4931,7 @@ func (o AzureActiveDirectoryPtrOutput) Registration() AzureActiveDirectoryRegist
 	}).(AzureActiveDirectoryRegistrationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o AzureActiveDirectoryPtrOutput) Validation() AzureActiveDirectoryValidationPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *AzureActiveDirectoryValidation {
 		if v == nil {
@@ -4781,10 +4941,13 @@ func (o AzureActiveDirectoryPtrOutput) Validation() AzureActiveDirectoryValidati
 	}).(AzureActiveDirectoryValidationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 type AzureActiveDirectoryLogin struct {
 	DisableWWWAuthenticate *bool `pulumi:"disableWWWAuthenticate"`
 	// Kind of resource.
-	Kind            *string  `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when
+	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters []string `pulumi:"loginParameters"`
 }
 
@@ -4799,10 +4962,13 @@ type AzureActiveDirectoryLoginInput interface {
 	ToAzureActiveDirectoryLoginOutputWithContext(context.Context) AzureActiveDirectoryLoginOutput
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 type AzureActiveDirectoryLoginArgs struct {
 	DisableWWWAuthenticate pulumi.BoolPtrInput `pulumi:"disableWWWAuthenticate"`
 	// Kind of resource.
-	Kind            pulumi.StringPtrInput   `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when
+	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters pulumi.StringArrayInput `pulumi:"loginParameters"`
 }
 
@@ -4859,6 +5025,7 @@ func (i *azureActiveDirectoryLoginPtrType) ToAzureActiveDirectoryLoginPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryLoginPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 type AzureActiveDirectoryLoginOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryLoginOutput) ElementType() reflect.Type {
@@ -4891,6 +5058,8 @@ func (o AzureActiveDirectoryLoginOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLogin) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when
+// a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginOutput) LoginParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLogin) []string { return v.LoginParameters }).(pulumi.StringArrayOutput)
 }
@@ -4932,6 +5101,8 @@ func (o AzureActiveDirectoryLoginPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when
+// a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginPtrOutput) LoginParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryLogin) []string {
 		if v == nil {
@@ -4941,12 +5112,15 @@ func (o AzureActiveDirectoryLoginPtrOutput) LoginParameters() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 type AzureActiveDirectoryLoginResponse struct {
 	DisableWWWAuthenticate *bool `pulumi:"disableWWWAuthenticate"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind            *string  `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when
+	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters []string `pulumi:"loginParameters"`
 	// Resource Name.
 	Name string `pulumi:"name"`
@@ -4965,12 +5139,15 @@ type AzureActiveDirectoryLoginResponseInput interface {
 	ToAzureActiveDirectoryLoginResponseOutputWithContext(context.Context) AzureActiveDirectoryLoginResponseOutput
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 type AzureActiveDirectoryLoginResponseArgs struct {
 	DisableWWWAuthenticate pulumi.BoolPtrInput `pulumi:"disableWWWAuthenticate"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind            pulumi.StringPtrInput   `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when
+	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters pulumi.StringArrayInput `pulumi:"loginParameters"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5031,6 +5208,7 @@ func (i *azureActiveDirectoryLoginResponsePtrType) ToAzureActiveDirectoryLoginRe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryLoginResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 type AzureActiveDirectoryLoginResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryLoginResponseOutput) ElementType() reflect.Type {
@@ -5068,6 +5246,8 @@ func (o AzureActiveDirectoryLoginResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when
+// a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginResponseOutput) LoginParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) []string { return v.LoginParameters }).(pulumi.StringArrayOutput)
 }
@@ -5129,6 +5309,8 @@ func (o AzureActiveDirectoryLoginResponsePtrOutput) Kind() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when
+// a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginResponsePtrOutput) LoginParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) []string {
 		if v == nil {
@@ -5158,12 +5340,24 @@ func (o AzureActiveDirectoryLoginResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 type AzureActiveDirectoryRegistration struct {
-	ClientId                          *string `pulumi:"clientId"`
+	// The Client ID of this relying party application, known as the client_id.
+	// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+	// other 3rd party OpenID Connect providers.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientId *string `pulumi:"clientId"`
+	// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+	// a replacement for the Client Secret. It is also optional.
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
-	ClientSecretSettingName           *string `pulumi:"clientSecretSettingName"`
+	// The app setting name that contains the client secret of the relying party application.
+	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
-	Kind         *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+	// This URI is a case-sensitive identifier for the token issuer.
+	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 	OpenIdIssuer *string `pulumi:"openIdIssuer"`
 }
 
@@ -5178,12 +5372,24 @@ type AzureActiveDirectoryRegistrationInput interface {
 	ToAzureActiveDirectoryRegistrationOutputWithContext(context.Context) AzureActiveDirectoryRegistrationOutput
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 type AzureActiveDirectoryRegistrationArgs struct {
-	ClientId                          pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client ID of this relying party application, known as the client_id.
+	// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+	// other 3rd party OpenID Connect providers.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+	// a replacement for the Client Secret. It is also optional.
 	ClientSecretCertificateThumbprint pulumi.StringPtrInput `pulumi:"clientSecretCertificateThumbprint"`
-	ClientSecretSettingName           pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
+	// The app setting name that contains the client secret of the relying party application.
+	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+	// This URI is a case-sensitive identifier for the token issuer.
+	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 	OpenIdIssuer pulumi.StringPtrInput `pulumi:"openIdIssuer"`
 }
 
@@ -5240,6 +5446,7 @@ func (i *azureActiveDirectoryRegistrationPtrType) ToAzureActiveDirectoryRegistra
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryRegistrationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 type AzureActiveDirectoryRegistrationOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryRegistrationOutput) ElementType() reflect.Type {
@@ -5263,14 +5470,22 @@ func (o AzureActiveDirectoryRegistrationOutput) ToAzureActiveDirectoryRegistrati
 		return &v
 	}).(AzureActiveDirectoryRegistrationPtrOutput)
 }
+
+// The Client ID of this relying party application, known as the client_id.
+// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+// other 3rd party OpenID Connect providers.
+// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
 func (o AzureActiveDirectoryRegistrationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+// a replacement for the Client Secret. It is also optional.
 func (o AzureActiveDirectoryRegistrationOutput) ClientSecretCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.ClientSecretCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret of the relying party application.
 func (o AzureActiveDirectoryRegistrationOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -5280,6 +5495,10 @@ func (o AzureActiveDirectoryRegistrationOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+// This URI is a case-sensitive identifier for the token issuer.
+// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 func (o AzureActiveDirectoryRegistrationOutput) OpenIdIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.OpenIdIssuer }).(pulumi.StringPtrOutput)
 }
@@ -5302,6 +5521,10 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) Elem() AzureActiveDirectoryRe
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) AzureActiveDirectoryRegistration { return *v }).(AzureActiveDirectoryRegistrationOutput)
 }
 
+// The Client ID of this relying party application, known as the client_id.
+// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+// other 3rd party OpenID Connect providers.
+// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
 func (o AzureActiveDirectoryRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) *string {
 		if v == nil {
@@ -5311,6 +5534,8 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) ClientId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+// a replacement for the Client Secret. It is also optional.
 func (o AzureActiveDirectoryRegistrationPtrOutput) ClientSecretCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) *string {
 		if v == nil {
@@ -5320,6 +5545,7 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) ClientSecretCertificateThumbp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret of the relying party application.
 func (o AzureActiveDirectoryRegistrationPtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) *string {
 		if v == nil {
@@ -5339,6 +5565,10 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) Kind() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+// This URI is a case-sensitive identifier for the token issuer.
+// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 func (o AzureActiveDirectoryRegistrationPtrOutput) OpenIdIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) *string {
 		if v == nil {
@@ -5348,16 +5578,28 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) OpenIdIssuer() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 type AzureActiveDirectoryRegistrationResponse struct {
-	ClientId                          *string `pulumi:"clientId"`
+	// The Client ID of this relying party application, known as the client_id.
+	// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+	// other 3rd party OpenID Connect providers.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientId *string `pulumi:"clientId"`
+	// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+	// a replacement for the Client Secret. It is also optional.
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
-	ClientSecretSettingName           *string `pulumi:"clientSecretSettingName"`
+	// The app setting name that contains the client secret of the relying party application.
+	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name         string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+	// This URI is a case-sensitive identifier for the token issuer.
+	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 	OpenIdIssuer *string `pulumi:"openIdIssuer"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -5374,16 +5616,28 @@ type AzureActiveDirectoryRegistrationResponseInput interface {
 	ToAzureActiveDirectoryRegistrationResponseOutputWithContext(context.Context) AzureActiveDirectoryRegistrationResponseOutput
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 type AzureActiveDirectoryRegistrationResponseArgs struct {
-	ClientId                          pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client ID of this relying party application, known as the client_id.
+	// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+	// other 3rd party OpenID Connect providers.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+	// a replacement for the Client Secret. It is also optional.
 	ClientSecretCertificateThumbprint pulumi.StringPtrInput `pulumi:"clientSecretCertificateThumbprint"`
-	ClientSecretSettingName           pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
+	// The app setting name that contains the client secret of the relying party application.
+	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name         pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+	// This URI is a case-sensitive identifier for the token issuer.
+	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 	OpenIdIssuer pulumi.StringPtrInput `pulumi:"openIdIssuer"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -5442,6 +5696,7 @@ func (i *azureActiveDirectoryRegistrationResponsePtrType) ToAzureActiveDirectory
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 type AzureActiveDirectoryRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryRegistrationResponseOutput) ElementType() reflect.Type {
@@ -5465,14 +5720,22 @@ func (o AzureActiveDirectoryRegistrationResponseOutput) ToAzureActiveDirectoryRe
 		return &v
 	}).(AzureActiveDirectoryRegistrationResponsePtrOutput)
 }
+
+// The Client ID of this relying party application, known as the client_id.
+// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+// other 3rd party OpenID Connect providers.
+// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
 func (o AzureActiveDirectoryRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+// a replacement for the Client Secret. It is also optional.
 func (o AzureActiveDirectoryRegistrationResponseOutput) ClientSecretCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.ClientSecretCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret of the relying party application.
 func (o AzureActiveDirectoryRegistrationResponseOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -5492,6 +5755,10 @@ func (o AzureActiveDirectoryRegistrationResponseOutput) Name() pulumi.StringOutp
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+// This URI is a case-sensitive identifier for the token issuer.
+// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 func (o AzureActiveDirectoryRegistrationResponseOutput) OpenIdIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.OpenIdIssuer }).(pulumi.StringPtrOutput)
 }
@@ -5519,6 +5786,10 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Elem() AzureActiveDir
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) AzureActiveDirectoryRegistrationResponse { return *v }).(AzureActiveDirectoryRegistrationResponseOutput)
 }
 
+// The Client ID of this relying party application, known as the client_id.
+// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+// other 3rd party OpenID Connect providers.
+// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
 func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
 		if v == nil {
@@ -5528,6 +5799,8 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ClientId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+// a replacement for the Client Secret. It is also optional.
 func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ClientSecretCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
 		if v == nil {
@@ -5537,6 +5810,7 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ClientSecretCertifica
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret of the relying party application.
 func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
 		if v == nil {
@@ -5576,6 +5850,10 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+// This URI is a case-sensitive identifier for the token issuer.
+// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 func (o AzureActiveDirectoryRegistrationResponsePtrOutput) OpenIdIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
 		if v == nil {
@@ -5595,19 +5873,27 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Type() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 type AzureActiveDirectoryResponse struct {
+	// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
-	Id                string `pulumi:"id"`
-	IsAutoProvisioned *bool  `pulumi:"isAutoProvisioned"`
+	Id string `pulumi:"id"`
+	// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+	// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+	// read or write to this property.
+	IsAutoProvisioned *bool `pulumi:"isAutoProvisioned"`
 	// Kind of resource.
-	Kind  *string                            `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the Azure Active Directory login flow.
 	Login *AzureActiveDirectoryLoginResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                                    `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the Azure Active Directory app registration.
 	Registration *AzureActiveDirectoryRegistrationResponse `pulumi:"registration"`
 	// Resource type.
-	Type       string                                  `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The configuration settings of the Azure Active Directory token validation flow.
 	Validation *AzureActiveDirectoryValidationResponse `pulumi:"validation"`
 }
 
@@ -5622,19 +5908,27 @@ type AzureActiveDirectoryResponseInput interface {
 	ToAzureActiveDirectoryResponseOutputWithContext(context.Context) AzureActiveDirectoryResponseOutput
 }
 
+// The configuration settings of the Azure Active directory provider.
 type AzureActiveDirectoryResponseArgs struct {
+	// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
-	Id                pulumi.StringInput  `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+	// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+	// read or write to this property.
 	IsAutoProvisioned pulumi.BoolPtrInput `pulumi:"isAutoProvisioned"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput                     `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the Azure Active Directory login flow.
 	Login AzureActiveDirectoryLoginResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput                               `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the Azure Active Directory app registration.
 	Registration AzureActiveDirectoryRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
-	Type       pulumi.StringInput                             `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The configuration settings of the Azure Active Directory token validation flow.
 	Validation AzureActiveDirectoryValidationResponsePtrInput `pulumi:"validation"`
 }
 
@@ -5691,6 +5985,7 @@ func (i *azureActiveDirectoryResponsePtrType) ToAzureActiveDirectoryResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 type AzureActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -5714,6 +6009,8 @@ func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOut
 		return &v
 	}).(AzureActiveDirectoryResponsePtrOutput)
 }
+
+// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureActiveDirectoryResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5723,6 +6020,9 @@ func (o AzureActiveDirectoryResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+// read or write to this property.
 func (o AzureActiveDirectoryResponseOutput) IsAutoProvisioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *bool { return v.IsAutoProvisioned }).(pulumi.BoolPtrOutput)
 }
@@ -5732,6 +6032,7 @@ func (o AzureActiveDirectoryResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 func (o AzureActiveDirectoryResponseOutput) Login() AzureActiveDirectoryLoginResponsePtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryLoginResponse { return v.Login }).(AzureActiveDirectoryLoginResponsePtrOutput)
 }
@@ -5741,6 +6042,7 @@ func (o AzureActiveDirectoryResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 func (o AzureActiveDirectoryResponseOutput) Registration() AzureActiveDirectoryRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryRegistrationResponse { return v.Registration }).(AzureActiveDirectoryRegistrationResponsePtrOutput)
 }
@@ -5750,6 +6052,7 @@ func (o AzureActiveDirectoryResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o AzureActiveDirectoryResponseOutput) Validation() AzureActiveDirectoryValidationResponsePtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryValidationResponse { return v.Validation }).(AzureActiveDirectoryValidationResponsePtrOutput)
 }
@@ -5772,6 +6075,7 @@ func (o AzureActiveDirectoryResponsePtrOutput) Elem() AzureActiveDirectoryRespon
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse { return *v }).(AzureActiveDirectoryResponseOutput)
 }
 
+// <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureActiveDirectoryResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *bool {
 		if v == nil {
@@ -5791,6 +6095,9 @@ func (o AzureActiveDirectoryResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+// read or write to this property.
 func (o AzureActiveDirectoryResponsePtrOutput) IsAutoProvisioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *bool {
 		if v == nil {
@@ -5810,6 +6117,7 @@ func (o AzureActiveDirectoryResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory login flow.
 func (o AzureActiveDirectoryResponsePtrOutput) Login() AzureActiveDirectoryLoginResponsePtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *AzureActiveDirectoryLoginResponse {
 		if v == nil {
@@ -5829,6 +6137,7 @@ func (o AzureActiveDirectoryResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory app registration.
 func (o AzureActiveDirectoryResponsePtrOutput) Registration() AzureActiveDirectoryRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *AzureActiveDirectoryRegistrationResponse {
 		if v == nil {
@@ -5848,6 +6157,7 @@ func (o AzureActiveDirectoryResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o AzureActiveDirectoryResponsePtrOutput) Validation() AzureActiveDirectoryValidationResponsePtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *AzureActiveDirectoryValidationResponse {
 		if v == nil {
@@ -5857,9 +6167,12 @@ func (o AzureActiveDirectoryResponsePtrOutput) Validation() AzureActiveDirectory
 	}).(AzureActiveDirectoryValidationResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidation struct {
-	AllowedAudiences []string        `pulumi:"allowedAudiences"`
-	JwtClaimChecks   *JwtClaimChecks `pulumi:"jwtClaimChecks"`
+	// The list of audiences that can make successful authentication/authorization requests.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The configuration settings of the checks that should be made while validating the JWT Claims.
+	JwtClaimChecks *JwtClaimChecks `pulumi:"jwtClaimChecks"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 }
@@ -5875,9 +6188,12 @@ type AzureActiveDirectoryValidationInput interface {
 	ToAzureActiveDirectoryValidationOutputWithContext(context.Context) AzureActiveDirectoryValidationOutput
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidationArgs struct {
+	// The list of audiences that can make successful authentication/authorization requests.
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
-	JwtClaimChecks   JwtClaimChecksPtrInput  `pulumi:"jwtClaimChecks"`
+	// The configuration settings of the checks that should be made while validating the JWT Claims.
+	JwtClaimChecks JwtClaimChecksPtrInput `pulumi:"jwtClaimChecks"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
@@ -5935,6 +6251,7 @@ func (i *azureActiveDirectoryValidationPtrType) ToAzureActiveDirectoryValidation
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryValidationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidationOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryValidationOutput) ElementType() reflect.Type {
@@ -5958,10 +6275,13 @@ func (o AzureActiveDirectoryValidationOutput) ToAzureActiveDirectoryValidationPt
 		return &v
 	}).(AzureActiveDirectoryValidationPtrOutput)
 }
+
+// The list of audiences that can make successful authentication/authorization requests.
 func (o AzureActiveDirectoryValidationOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidation) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 func (o AzureActiveDirectoryValidationOutput) JwtClaimChecks() JwtClaimChecksPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidation) *JwtClaimChecks { return v.JwtClaimChecks }).(JwtClaimChecksPtrOutput)
 }
@@ -5989,6 +6309,7 @@ func (o AzureActiveDirectoryValidationPtrOutput) Elem() AzureActiveDirectoryVali
 	return o.ApplyT(func(v *AzureActiveDirectoryValidation) AzureActiveDirectoryValidation { return *v }).(AzureActiveDirectoryValidationOutput)
 }
 
+// The list of audiences that can make successful authentication/authorization requests.
 func (o AzureActiveDirectoryValidationPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryValidation) []string {
 		if v == nil {
@@ -5998,6 +6319,7 @@ func (o AzureActiveDirectoryValidationPtrOutput) AllowedAudiences() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 func (o AzureActiveDirectoryValidationPtrOutput) JwtClaimChecks() JwtClaimChecksPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryValidation) *JwtClaimChecks {
 		if v == nil {
@@ -6017,10 +6339,13 @@ func (o AzureActiveDirectoryValidationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidationResponse struct {
+	// The list of audiences that can make successful authentication/authorization requests.
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
 	// Resource Id.
-	Id             string                  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The configuration settings of the checks that should be made while validating the JWT Claims.
 	JwtClaimChecks *JwtClaimChecksResponse `pulumi:"jwtClaimChecks"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -6041,10 +6366,13 @@ type AzureActiveDirectoryValidationResponseInput interface {
 	ToAzureActiveDirectoryValidationResponseOutputWithContext(context.Context) AzureActiveDirectoryValidationResponseOutput
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidationResponseArgs struct {
+	// The list of audiences that can make successful authentication/authorization requests.
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
 	// Resource Id.
-	Id             pulumi.StringInput             `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The configuration settings of the checks that should be made while validating the JWT Claims.
 	JwtClaimChecks JwtClaimChecksResponsePtrInput `pulumi:"jwtClaimChecks"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -6107,6 +6435,7 @@ func (i *azureActiveDirectoryValidationResponsePtrType) ToAzureActiveDirectoryVa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryValidationResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidationResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryValidationResponseOutput) ElementType() reflect.Type {
@@ -6130,6 +6459,8 @@ func (o AzureActiveDirectoryValidationResponseOutput) ToAzureActiveDirectoryVali
 		return &v
 	}).(AzureActiveDirectoryValidationResponsePtrOutput)
 }
+
+// The list of audiences that can make successful authentication/authorization requests.
 func (o AzureActiveDirectoryValidationResponseOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
@@ -6139,6 +6470,7 @@ func (o AzureActiveDirectoryValidationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 func (o AzureActiveDirectoryValidationResponseOutput) JwtClaimChecks() JwtClaimChecksResponsePtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) *JwtClaimChecksResponse { return v.JwtClaimChecks }).(JwtClaimChecksResponsePtrOutput)
 }
@@ -6176,6 +6508,7 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) Elem() AzureActiveDirec
 	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) AzureActiveDirectoryValidationResponse { return *v }).(AzureActiveDirectoryValidationResponseOutput)
 }
 
+// The list of audiences that can make successful authentication/authorization requests.
 func (o AzureActiveDirectoryValidationResponsePtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) []string {
 		if v == nil {
@@ -6195,6 +6528,7 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) Id() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 func (o AzureActiveDirectoryValidationResponsePtrOutput) JwtClaimChecks() JwtClaimChecksResponsePtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *JwtClaimChecksResponse {
 		if v == nil {
@@ -6956,10 +7290,13 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebApps struct {
+	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string                         `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the Azure Static Web Apps registration.
 	Registration *AzureStaticWebAppsRegistration `pulumi:"registration"`
 }
 
@@ -6974,10 +7311,13 @@ type AzureStaticWebAppsInput interface {
 	ToAzureStaticWebAppsOutputWithContext(context.Context) AzureStaticWebAppsOutput
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebAppsArgs struct {
+	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput                  `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the Azure Static Web Apps registration.
 	Registration AzureStaticWebAppsRegistrationPtrInput `pulumi:"registration"`
 }
 
@@ -7034,6 +7374,7 @@ func (i *azureStaticWebAppsPtrType) ToAzureStaticWebAppsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebAppsOutput struct{ *pulumi.OutputState }
 
 func (AzureStaticWebAppsOutput) ElementType() reflect.Type {
@@ -7057,6 +7398,8 @@ func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsPtrOutputWithContext(ctx c
 		return &v
 	}).(AzureStaticWebAppsPtrOutput)
 }
+
+// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureStaticWebAppsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebApps) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -7066,6 +7409,7 @@ func (o AzureStaticWebAppsOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebApps) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsOutput) Registration() AzureStaticWebAppsRegistrationPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebApps) *AzureStaticWebAppsRegistration { return v.Registration }).(AzureStaticWebAppsRegistrationPtrOutput)
 }
@@ -7088,6 +7432,7 @@ func (o AzureStaticWebAppsPtrOutput) Elem() AzureStaticWebAppsOutput {
 	return o.ApplyT(func(v *AzureStaticWebApps) AzureStaticWebApps { return *v }).(AzureStaticWebAppsOutput)
 }
 
+// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureStaticWebAppsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebApps) *bool {
 		if v == nil {
@@ -7107,6 +7452,7 @@ func (o AzureStaticWebAppsPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsPtrOutput) Registration() AzureStaticWebAppsRegistrationPtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebApps) *AzureStaticWebAppsRegistration {
 		if v == nil {
@@ -7116,7 +7462,9 @@ func (o AzureStaticWebAppsPtrOutput) Registration() AzureStaticWebAppsRegistrati
 	}).(AzureStaticWebAppsRegistrationPtrOutput)
 }
 
+// The configuration settings of the registration for the Azure Static Web Apps provider
 type AzureStaticWebAppsRegistration struct {
+	// The Client ID of the app used for login.
 	ClientId *string `pulumi:"clientId"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -7133,7 +7481,9 @@ type AzureStaticWebAppsRegistrationInput interface {
 	ToAzureStaticWebAppsRegistrationOutputWithContext(context.Context) AzureStaticWebAppsRegistrationOutput
 }
 
+// The configuration settings of the registration for the Azure Static Web Apps provider
 type AzureStaticWebAppsRegistrationArgs struct {
+	// The Client ID of the app used for login.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -7192,6 +7542,7 @@ func (i *azureStaticWebAppsRegistrationPtrType) ToAzureStaticWebAppsRegistration
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationPtrOutput)
 }
 
+// The configuration settings of the registration for the Azure Static Web Apps provider
 type AzureStaticWebAppsRegistrationOutput struct{ *pulumi.OutputState }
 
 func (AzureStaticWebAppsRegistrationOutput) ElementType() reflect.Type {
@@ -7215,6 +7566,8 @@ func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationPt
 		return &v
 	}).(AzureStaticWebAppsRegistrationPtrOutput)
 }
+
+// The Client ID of the app used for login.
 func (o AzureStaticWebAppsRegistrationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -7242,6 +7595,7 @@ func (o AzureStaticWebAppsRegistrationPtrOutput) Elem() AzureStaticWebAppsRegist
 	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) AzureStaticWebAppsRegistration { return *v }).(AzureStaticWebAppsRegistrationOutput)
 }
 
+// The Client ID of the app used for login.
 func (o AzureStaticWebAppsRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) *string {
 		if v == nil {
@@ -7261,7 +7615,9 @@ func (o AzureStaticWebAppsRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the registration for the Azure Static Web Apps provider
 type AzureStaticWebAppsRegistrationResponse struct {
+	// The Client ID of the app used for login.
 	ClientId *string `pulumi:"clientId"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -7284,7 +7640,9 @@ type AzureStaticWebAppsRegistrationResponseInput interface {
 	ToAzureStaticWebAppsRegistrationResponseOutputWithContext(context.Context) AzureStaticWebAppsRegistrationResponseOutput
 }
 
+// The configuration settings of the registration for the Azure Static Web Apps provider
 type AzureStaticWebAppsRegistrationResponseArgs struct {
+	// The Client ID of the app used for login.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -7349,6 +7707,7 @@ func (i *azureStaticWebAppsRegistrationResponsePtrType) ToAzureStaticWebAppsRegi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the registration for the Azure Static Web Apps provider
 type AzureStaticWebAppsRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureStaticWebAppsRegistrationResponseOutput) ElementType() reflect.Type {
@@ -7372,6 +7731,8 @@ func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegist
 		return &v
 	}).(AzureStaticWebAppsRegistrationResponsePtrOutput)
 }
+
+// The Client ID of the app used for login.
 func (o AzureStaticWebAppsRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -7414,6 +7775,7 @@ func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Elem() AzureStaticWebAp
 	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) AzureStaticWebAppsRegistrationResponse { return *v }).(AzureStaticWebAppsRegistrationResponseOutput)
 }
 
+// The Client ID of the app used for login.
 func (o AzureStaticWebAppsRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) *string {
 		if v == nil {
@@ -7463,14 +7825,17 @@ func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Type() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebAppsResponse struct {
+	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name         string                                  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the Azure Static Web Apps registration.
 	Registration *AzureStaticWebAppsRegistrationResponse `pulumi:"registration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -7487,14 +7852,17 @@ type AzureStaticWebAppsResponseInput interface {
 	ToAzureStaticWebAppsResponseOutputWithContext(context.Context) AzureStaticWebAppsResponseOutput
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebAppsResponseArgs struct {
+	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name         pulumi.StringInput                             `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the Azure Static Web Apps registration.
 	Registration AzureStaticWebAppsRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -7553,6 +7921,7 @@ func (i *azureStaticWebAppsResponsePtrType) ToAzureStaticWebAppsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebAppsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureStaticWebAppsResponseOutput) ElementType() reflect.Type {
@@ -7576,6 +7945,8 @@ func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponsePtrOutputW
 		return &v
 	}).(AzureStaticWebAppsResponsePtrOutput)
 }
+
+// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureStaticWebAppsResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -7595,6 +7966,7 @@ func (o AzureStaticWebAppsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsResponseOutput) Registration() AzureStaticWebAppsRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsResponse) *AzureStaticWebAppsRegistrationResponse { return v.Registration }).(AzureStaticWebAppsRegistrationResponsePtrOutput)
 }
@@ -7622,6 +7994,7 @@ func (o AzureStaticWebAppsResponsePtrOutput) Elem() AzureStaticWebAppsResponseOu
 	return o.ApplyT(func(v *AzureStaticWebAppsResponse) AzureStaticWebAppsResponse { return *v }).(AzureStaticWebAppsResponseOutput)
 }
 
+// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o AzureStaticWebAppsResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *bool {
 		if v == nil {
@@ -7661,6 +8034,7 @@ func (o AzureStaticWebAppsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsResponsePtrOutput) Registration() AzureStaticWebAppsRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *AzureStaticWebAppsRegistrationResponse {
 		if v == nil {
@@ -8952,9 +9326,11 @@ func (o BackupScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStore struct {
 	// Kind of resource.
-	Kind              *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName *string `pulumi:"sasUrlSettingName"`
 }
 
@@ -8969,9 +9345,11 @@ type BlobStorageTokenStoreInput interface {
 	ToBlobStorageTokenStoreOutputWithContext(context.Context) BlobStorageTokenStoreOutput
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreArgs struct {
 	// Kind of resource.
-	Kind              pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName pulumi.StringPtrInput `pulumi:"sasUrlSettingName"`
 }
 
@@ -9028,6 +9406,7 @@ func (i *blobStorageTokenStorePtrType) ToBlobStorageTokenStorePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageTokenStorePtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreOutput struct{ *pulumi.OutputState }
 
 func (BlobStorageTokenStoreOutput) ElementType() reflect.Type {
@@ -9057,6 +9436,7 @@ func (o BlobStorageTokenStoreOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageTokenStore) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStoreOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageTokenStore) *string { return v.SasUrlSettingName }).(pulumi.StringPtrOutput)
 }
@@ -9089,6 +9469,7 @@ func (o BlobStorageTokenStorePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStorePtrOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobStorageTokenStore) *string {
 		if v == nil {
@@ -9098,13 +9479,15 @@ func (o BlobStorageTokenStorePtrOutput) SasUrlSettingName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name              string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName *string `pulumi:"sasUrlSettingName"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -9121,13 +9504,15 @@ type BlobStorageTokenStoreResponseInput interface {
 	ToBlobStorageTokenStoreResponseOutputWithContext(context.Context) BlobStorageTokenStoreResponseOutput
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name              pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName pulumi.StringPtrInput `pulumi:"sasUrlSettingName"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -9186,6 +9571,7 @@ func (i *blobStorageTokenStoreResponsePtrType) ToBlobStorageTokenStoreResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageTokenStoreResponsePtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobStorageTokenStoreResponseOutput) ElementType() reflect.Type {
@@ -9225,6 +9611,7 @@ func (o BlobStorageTokenStoreResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobStorageTokenStoreResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStoreResponseOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageTokenStoreResponse) *string { return v.SasUrlSettingName }).(pulumi.StringPtrOutput)
 }
@@ -9282,6 +9669,7 @@ func (o BlobStorageTokenStoreResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStoreResponsePtrOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *string {
 		if v == nil {
@@ -9537,8 +9925,11 @@ func (o CapabilityResponseArrayOutput) Index(i pulumi.IntInput) CapabilityRespon
 	}).(CapabilityResponseOutput)
 }
 
+// The configuration settings of the app registration for providers that have client ids and client secrets
 type ClientRegistration struct {
-	ClientId                *string `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId *string `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -9555,8 +9946,11 @@ type ClientRegistrationInput interface {
 	ToClientRegistrationOutputWithContext(context.Context) ClientRegistrationOutput
 }
 
+// The configuration settings of the app registration for providers that have client ids and client secrets
 type ClientRegistrationArgs struct {
-	ClientId                pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -9615,6 +10009,7 @@ func (i *clientRegistrationPtrType) ToClientRegistrationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClientRegistrationPtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have client ids and client secrets
 type ClientRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ClientRegistrationOutput) ElementType() reflect.Type {
@@ -9638,10 +10033,13 @@ func (o ClientRegistrationOutput) ToClientRegistrationPtrOutputWithContext(ctx c
 		return &v
 	}).(ClientRegistrationPtrOutput)
 }
+
+// The Client ID of the app used for login.
 func (o ClientRegistrationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o ClientRegistrationOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientRegistration) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -9669,6 +10067,7 @@ func (o ClientRegistrationPtrOutput) Elem() ClientRegistrationOutput {
 	return o.ApplyT(func(v *ClientRegistration) ClientRegistration { return *v }).(ClientRegistrationOutput)
 }
 
+// The Client ID of the app used for login.
 func (o ClientRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientRegistration) *string {
 		if v == nil {
@@ -9678,6 +10077,7 @@ func (o ClientRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o ClientRegistrationPtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientRegistration) *string {
 		if v == nil {
@@ -9697,8 +10097,11 @@ func (o ClientRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have client ids and client secrets
 type ClientRegistrationResponse struct {
-	ClientId                *string `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId *string `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -9721,8 +10124,11 @@ type ClientRegistrationResponseInput interface {
 	ToClientRegistrationResponseOutputWithContext(context.Context) ClientRegistrationResponseOutput
 }
 
+// The configuration settings of the app registration for providers that have client ids and client secrets
 type ClientRegistrationResponseArgs struct {
-	ClientId                pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client ID of the app used for login.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The app setting name that contains the client secret.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -9787,6 +10193,7 @@ func (i *clientRegistrationResponsePtrType) ToClientRegistrationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClientRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the app registration for providers that have client ids and client secrets
 type ClientRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientRegistrationResponseOutput) ElementType() reflect.Type {
@@ -9810,10 +10217,13 @@ func (o ClientRegistrationResponseOutput) ToClientRegistrationResponsePtrOutputW
 		return &v
 	}).(ClientRegistrationResponsePtrOutput)
 }
+
+// The Client ID of the app used for login.
 func (o ClientRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o ClientRegistrationResponseOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientRegistrationResponse) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -9856,6 +10266,7 @@ func (o ClientRegistrationResponsePtrOutput) Elem() ClientRegistrationResponseOu
 	return o.ApplyT(func(v *ClientRegistrationResponse) ClientRegistrationResponse { return *v }).(ClientRegistrationResponseOutput)
 }
 
+// The Client ID of the app used for login.
 func (o ClientRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientRegistrationResponse) *string {
 		if v == nil {
@@ -9865,6 +10276,7 @@ func (o ClientRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the client secret.
 func (o ClientRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientRegistrationResponse) *string {
 		if v == nil {
@@ -10872,10 +11284,13 @@ func (o ConnStringValueTypePairResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ConnStringValueTypePairResponseOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 type CookieExpiration struct {
+	// The convention used when determining the session cookie's expiration.
 	Convention *string `pulumi:"convention"`
 	// Kind of resource.
-	Kind             *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The time after the request is made when the session cookie should expire.
 	TimeToExpiration *string `pulumi:"timeToExpiration"`
 }
 
@@ -10890,10 +11305,13 @@ type CookieExpirationInput interface {
 	ToCookieExpirationOutputWithContext(context.Context) CookieExpirationOutput
 }
 
+// The configuration settings of the session cookie's expiration.
 type CookieExpirationArgs struct {
+	// The convention used when determining the session cookie's expiration.
 	Convention *CookieExpirationConvention `pulumi:"convention"`
 	// Kind of resource.
-	Kind             pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The time after the request is made when the session cookie should expire.
 	TimeToExpiration pulumi.StringPtrInput `pulumi:"timeToExpiration"`
 }
 
@@ -10950,6 +11368,7 @@ func (i *cookieExpirationPtrType) ToCookieExpirationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CookieExpirationPtrOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 type CookieExpirationOutput struct{ *pulumi.OutputState }
 
 func (CookieExpirationOutput) ElementType() reflect.Type {
@@ -10973,6 +11392,8 @@ func (o CookieExpirationOutput) ToCookieExpirationPtrOutputWithContext(ctx conte
 		return &v
 	}).(CookieExpirationPtrOutput)
 }
+
+// The convention used when determining the session cookie's expiration.
 func (o CookieExpirationOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CookieExpiration) *string { return v.Convention }).(pulumi.StringPtrOutput)
 }
@@ -10982,6 +11403,7 @@ func (o CookieExpirationOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CookieExpiration) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The time after the request is made when the session cookie should expire.
 func (o CookieExpirationOutput) TimeToExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CookieExpiration) *string { return v.TimeToExpiration }).(pulumi.StringPtrOutput)
 }
@@ -11004,6 +11426,7 @@ func (o CookieExpirationPtrOutput) Elem() CookieExpirationOutput {
 	return o.ApplyT(func(v *CookieExpiration) CookieExpiration { return *v }).(CookieExpirationOutput)
 }
 
+// The convention used when determining the session cookie's expiration.
 func (o CookieExpirationPtrOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CookieExpiration) *string {
 		if v == nil {
@@ -11023,6 +11446,7 @@ func (o CookieExpirationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time after the request is made when the session cookie should expire.
 func (o CookieExpirationPtrOutput) TimeToExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CookieExpiration) *string {
 		if v == nil {
@@ -11032,14 +11456,17 @@ func (o CookieExpirationPtrOutput) TimeToExpiration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 type CookieExpirationResponse struct {
+	// The convention used when determining the session cookie's expiration.
 	Convention *string `pulumi:"convention"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name             string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The time after the request is made when the session cookie should expire.
 	TimeToExpiration *string `pulumi:"timeToExpiration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -11056,14 +11483,17 @@ type CookieExpirationResponseInput interface {
 	ToCookieExpirationResponseOutputWithContext(context.Context) CookieExpirationResponseOutput
 }
 
+// The configuration settings of the session cookie's expiration.
 type CookieExpirationResponseArgs struct {
+	// The convention used when determining the session cookie's expiration.
 	Convention pulumi.StringPtrInput `pulumi:"convention"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name             pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The time after the request is made when the session cookie should expire.
 	TimeToExpiration pulumi.StringPtrInput `pulumi:"timeToExpiration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -11122,6 +11552,7 @@ func (i *cookieExpirationResponsePtrType) ToCookieExpirationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CookieExpirationResponsePtrOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 type CookieExpirationResponseOutput struct{ *pulumi.OutputState }
 
 func (CookieExpirationResponseOutput) ElementType() reflect.Type {
@@ -11145,6 +11576,8 @@ func (o CookieExpirationResponseOutput) ToCookieExpirationResponsePtrOutputWithC
 		return &v
 	}).(CookieExpirationResponsePtrOutput)
 }
+
+// The convention used when determining the session cookie's expiration.
 func (o CookieExpirationResponseOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CookieExpirationResponse) *string { return v.Convention }).(pulumi.StringPtrOutput)
 }
@@ -11164,6 +11597,7 @@ func (o CookieExpirationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CookieExpirationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The time after the request is made when the session cookie should expire.
 func (o CookieExpirationResponseOutput) TimeToExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CookieExpirationResponse) *string { return v.TimeToExpiration }).(pulumi.StringPtrOutput)
 }
@@ -11191,6 +11625,7 @@ func (o CookieExpirationResponsePtrOutput) Elem() CookieExpirationResponseOutput
 	return o.ApplyT(func(v *CookieExpirationResponse) CookieExpirationResponse { return *v }).(CookieExpirationResponseOutput)
 }
 
+// The convention used when determining the session cookie's expiration.
 func (o CookieExpirationResponsePtrOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CookieExpirationResponse) *string {
 		if v == nil {
@@ -11230,6 +11665,7 @@ func (o CookieExpirationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time after the request is made when the session cookie should expire.
 func (o CookieExpirationResponsePtrOutput) TimeToExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CookieExpirationResponse) *string {
 		if v == nil {
@@ -11579,11 +12015,15 @@ func (o CorsSettingsResponsePtrOutput) SupportCredentials() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProvider struct {
+	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string                    `pulumi:"kind"`
-	Login        *OpenIdConnectLogin        `pulumi:"login"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow of the custom Open ID Connect provider.
+	Login *OpenIdConnectLogin `pulumi:"login"`
+	// The configuration settings of the app registration for the custom Open ID Connect provider.
 	Registration *OpenIdConnectRegistration `pulumi:"registration"`
 }
 
@@ -11598,11 +12038,15 @@ type CustomOpenIdConnectProviderInput interface {
 	ToCustomOpenIdConnectProviderOutputWithContext(context.Context) CustomOpenIdConnectProviderOutput
 }
 
+// The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProviderArgs struct {
+	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput             `pulumi:"kind"`
-	Login        OpenIdConnectLoginPtrInput        `pulumi:"login"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow of the custom Open ID Connect provider.
+	Login OpenIdConnectLoginPtrInput `pulumi:"login"`
+	// The configuration settings of the app registration for the custom Open ID Connect provider.
 	Registration OpenIdConnectRegistrationPtrInput `pulumi:"registration"`
 }
 
@@ -11643,6 +12087,7 @@ func (i CustomOpenIdConnectProviderMap) ToCustomOpenIdConnectProviderMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CustomOpenIdConnectProviderMapOutput)
 }
 
+// The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProviderOutput struct{ *pulumi.OutputState }
 
 func (CustomOpenIdConnectProviderOutput) ElementType() reflect.Type {
@@ -11657,6 +12102,7 @@ func (o CustomOpenIdConnectProviderOutput) ToCustomOpenIdConnectProviderOutputWi
 	return o
 }
 
+// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 func (o CustomOpenIdConnectProviderOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProvider) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11666,10 +12112,12 @@ func (o CustomOpenIdConnectProviderOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProvider) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderOutput) Login() OpenIdConnectLoginPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProvider) *OpenIdConnectLogin { return v.Login }).(OpenIdConnectLoginPtrOutput)
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderOutput) Registration() OpenIdConnectRegistrationPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProvider) *OpenIdConnectRegistration { return v.Registration }).(OpenIdConnectRegistrationPtrOutput)
 }
@@ -11694,15 +12142,19 @@ func (o CustomOpenIdConnectProviderMapOutput) MapIndex(k pulumi.StringInput) Cus
 	}).(CustomOpenIdConnectProviderOutput)
 }
 
+// The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProviderResponse struct {
+	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind  *string                     `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow of the custom Open ID Connect provider.
 	Login *OpenIdConnectLoginResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                             `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the app registration for the custom Open ID Connect provider.
 	Registration *OpenIdConnectRegistrationResponse `pulumi:"registration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -11719,15 +12171,19 @@ type CustomOpenIdConnectProviderResponseInput interface {
 	ToCustomOpenIdConnectProviderResponseOutputWithContext(context.Context) CustomOpenIdConnectProviderResponseOutput
 }
 
+// The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProviderResponseArgs struct {
+	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput              `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow of the custom Open ID Connect provider.
 	Login OpenIdConnectLoginResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput                        `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the app registration for the custom Open ID Connect provider.
 	Registration OpenIdConnectRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -11770,6 +12226,7 @@ func (i CustomOpenIdConnectProviderResponseMap) ToCustomOpenIdConnectProviderRes
 	return pulumi.ToOutputWithContext(ctx, i).(CustomOpenIdConnectProviderResponseMapOutput)
 }
 
+// The configuration settings of the custom Open ID Connect provider.
 type CustomOpenIdConnectProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomOpenIdConnectProviderResponseOutput) ElementType() reflect.Type {
@@ -11784,6 +12241,7 @@ func (o CustomOpenIdConnectProviderResponseOutput) ToCustomOpenIdConnectProvider
 	return o
 }
 
+// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 func (o CustomOpenIdConnectProviderResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11798,6 +12256,7 @@ func (o CustomOpenIdConnectProviderResponseOutput) Kind() pulumi.StringPtrOutput
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderResponseOutput) Login() OpenIdConnectLoginResponsePtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *OpenIdConnectLoginResponse { return v.Login }).(OpenIdConnectLoginResponsePtrOutput)
 }
@@ -11807,6 +12266,7 @@ func (o CustomOpenIdConnectProviderResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderResponseOutput) Registration() OpenIdConnectRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *OpenIdConnectRegistrationResponse { return v.Registration }).(OpenIdConnectRegistrationResponsePtrOutput)
 }
@@ -12900,12 +13360,17 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 	}).(RampUpRuleResponseArrayOutput)
 }
 
+// The configuration settings of the Facebook provider.
 type Facebook struct {
-	Enabled         *bool   `pulumi:"enabled"`
+	// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+	Enabled *bool `pulumi:"enabled"`
+	// The version of the Facebook api to be used while logging in.
 	GraphApiVersion *string `pulumi:"graphApiVersion"`
 	// Kind of resource.
-	Kind         *string          `pulumi:"kind"`
-	Login        *LoginScopes     `pulumi:"login"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login *LoginScopes `pulumi:"login"`
+	// The configuration settings of the app registration for the Facebook provider.
 	Registration *AppRegistration `pulumi:"registration"`
 }
 
@@ -12920,12 +13385,17 @@ type FacebookInput interface {
 	ToFacebookOutputWithContext(context.Context) FacebookOutput
 }
 
+// The configuration settings of the Facebook provider.
 type FacebookArgs struct {
-	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The version of the Facebook api to be used while logging in.
 	GraphApiVersion pulumi.StringPtrInput `pulumi:"graphApiVersion"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput   `pulumi:"kind"`
-	Login        LoginScopesPtrInput     `pulumi:"login"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login LoginScopesPtrInput `pulumi:"login"`
+	// The configuration settings of the app registration for the Facebook provider.
 	Registration AppRegistrationPtrInput `pulumi:"registration"`
 }
 
@@ -12982,6 +13452,7 @@ func (i *facebookPtrType) ToFacebookPtrOutputWithContext(ctx context.Context) Fa
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookPtrOutput)
 }
 
+// The configuration settings of the Facebook provider.
 type FacebookOutput struct{ *pulumi.OutputState }
 
 func (FacebookOutput) ElementType() reflect.Type {
@@ -13005,10 +13476,13 @@ func (o FacebookOutput) ToFacebookPtrOutputWithContext(ctx context.Context) Face
 		return &v
 	}).(FacebookPtrOutput)
 }
+
+// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o FacebookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Facebook) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The version of the Facebook api to be used while logging in.
 func (o FacebookOutput) GraphApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Facebook) *string { return v.GraphApiVersion }).(pulumi.StringPtrOutput)
 }
@@ -13018,10 +13492,12 @@ func (o FacebookOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Facebook) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o FacebookOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v Facebook) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the Facebook provider.
 func (o FacebookOutput) Registration() AppRegistrationPtrOutput {
 	return o.ApplyT(func(v Facebook) *AppRegistration { return v.Registration }).(AppRegistrationPtrOutput)
 }
@@ -13044,6 +13520,7 @@ func (o FacebookPtrOutput) Elem() FacebookOutput {
 	return o.ApplyT(func(v *Facebook) Facebook { return *v }).(FacebookOutput)
 }
 
+// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o FacebookPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Facebook) *bool {
 		if v == nil {
@@ -13053,6 +13530,7 @@ func (o FacebookPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The version of the Facebook api to be used while logging in.
 func (o FacebookPtrOutput) GraphApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Facebook) *string {
 		if v == nil {
@@ -13072,6 +13550,7 @@ func (o FacebookPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o FacebookPtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *Facebook) *LoginScopes {
 		if v == nil {
@@ -13081,6 +13560,7 @@ func (o FacebookPtrOutput) Login() LoginScopesPtrOutput {
 	}).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the Facebook provider.
 func (o FacebookPtrOutput) Registration() AppRegistrationPtrOutput {
 	return o.ApplyT(func(v *Facebook) *AppRegistration {
 		if v == nil {
@@ -13090,16 +13570,21 @@ func (o FacebookPtrOutput) Registration() AppRegistrationPtrOutput {
 	}).(AppRegistrationPtrOutput)
 }
 
+// The configuration settings of the Facebook provider.
 type FacebookResponse struct {
-	Enabled         *bool   `pulumi:"enabled"`
+	// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+	Enabled *bool `pulumi:"enabled"`
+	// The version of the Facebook api to be used while logging in.
 	GraphApiVersion *string `pulumi:"graphApiVersion"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind  *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the app registration for the Facebook provider.
 	Registration *AppRegistrationResponse `pulumi:"registration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -13116,16 +13601,21 @@ type FacebookResponseInput interface {
 	ToFacebookResponseOutputWithContext(context.Context) FacebookResponseOutput
 }
 
+// The configuration settings of the Facebook provider.
 type FacebookResponseArgs struct {
-	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The version of the Facebook api to be used while logging in.
 	GraphApiVersion pulumi.StringPtrInput `pulumi:"graphApiVersion"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput              `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the app registration for the Facebook provider.
 	Registration AppRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -13184,6 +13674,7 @@ func (i *facebookResponsePtrType) ToFacebookResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FacebookResponsePtrOutput)
 }
 
+// The configuration settings of the Facebook provider.
 type FacebookResponseOutput struct{ *pulumi.OutputState }
 
 func (FacebookResponseOutput) ElementType() reflect.Type {
@@ -13207,10 +13698,13 @@ func (o FacebookResponseOutput) ToFacebookResponsePtrOutputWithContext(ctx conte
 		return &v
 	}).(FacebookResponsePtrOutput)
 }
+
+// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o FacebookResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FacebookResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The version of the Facebook api to be used while logging in.
 func (o FacebookResponseOutput) GraphApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FacebookResponse) *string { return v.GraphApiVersion }).(pulumi.StringPtrOutput)
 }
@@ -13225,6 +13719,7 @@ func (o FacebookResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FacebookResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o FacebookResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v FacebookResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
@@ -13234,6 +13729,7 @@ func (o FacebookResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FacebookResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the app registration for the Facebook provider.
 func (o FacebookResponseOutput) Registration() AppRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v FacebookResponse) *AppRegistrationResponse { return v.Registration }).(AppRegistrationResponsePtrOutput)
 }
@@ -13261,6 +13757,7 @@ func (o FacebookResponsePtrOutput) Elem() FacebookResponseOutput {
 	return o.ApplyT(func(v *FacebookResponse) FacebookResponse { return *v }).(FacebookResponseOutput)
 }
 
+// <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o FacebookResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FacebookResponse) *bool {
 		if v == nil {
@@ -13270,6 +13767,7 @@ func (o FacebookResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The version of the Facebook api to be used while logging in.
 func (o FacebookResponsePtrOutput) GraphApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FacebookResponse) *string {
 		if v == nil {
@@ -13299,6 +13797,7 @@ func (o FacebookResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o FacebookResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *FacebookResponse) *LoginScopesResponse {
 		if v == nil {
@@ -13318,6 +13817,7 @@ func (o FacebookResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the Facebook provider.
 func (o FacebookResponsePtrOutput) Registration() AppRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *FacebookResponse) *AppRegistrationResponse {
 		if v == nil {
@@ -13981,7 +14481,9 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInMb() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 type FileSystemTokenStore struct {
+	// The directory in which the tokens will be stored.
 	Directory *string `pulumi:"directory"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -13998,7 +14500,9 @@ type FileSystemTokenStoreInput interface {
 	ToFileSystemTokenStoreOutputWithContext(context.Context) FileSystemTokenStoreOutput
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 type FileSystemTokenStoreArgs struct {
+	// The directory in which the tokens will be stored.
 	Directory pulumi.StringPtrInput `pulumi:"directory"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -14057,6 +14561,7 @@ func (i *fileSystemTokenStorePtrType) ToFileSystemTokenStorePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemTokenStorePtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 type FileSystemTokenStoreOutput struct{ *pulumi.OutputState }
 
 func (FileSystemTokenStoreOutput) ElementType() reflect.Type {
@@ -14080,6 +14585,8 @@ func (o FileSystemTokenStoreOutput) ToFileSystemTokenStorePtrOutputWithContext(c
 		return &v
 	}).(FileSystemTokenStorePtrOutput)
 }
+
+// The directory in which the tokens will be stored.
 func (o FileSystemTokenStoreOutput) Directory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemTokenStore) *string { return v.Directory }).(pulumi.StringPtrOutput)
 }
@@ -14107,6 +14614,7 @@ func (o FileSystemTokenStorePtrOutput) Elem() FileSystemTokenStoreOutput {
 	return o.ApplyT(func(v *FileSystemTokenStore) FileSystemTokenStore { return *v }).(FileSystemTokenStoreOutput)
 }
 
+// The directory in which the tokens will be stored.
 func (o FileSystemTokenStorePtrOutput) Directory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemTokenStore) *string {
 		if v == nil {
@@ -14126,7 +14634,9 @@ func (o FileSystemTokenStorePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 type FileSystemTokenStoreResponse struct {
+	// The directory in which the tokens will be stored.
 	Directory *string `pulumi:"directory"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -14149,7 +14659,9 @@ type FileSystemTokenStoreResponseInput interface {
 	ToFileSystemTokenStoreResponseOutputWithContext(context.Context) FileSystemTokenStoreResponseOutput
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 type FileSystemTokenStoreResponseArgs struct {
+	// The directory in which the tokens will be stored.
 	Directory pulumi.StringPtrInput `pulumi:"directory"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -14214,6 +14726,7 @@ func (i *fileSystemTokenStoreResponsePtrType) ToFileSystemTokenStoreResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemTokenStoreResponsePtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 type FileSystemTokenStoreResponseOutput struct{ *pulumi.OutputState }
 
 func (FileSystemTokenStoreResponseOutput) ElementType() reflect.Type {
@@ -14237,6 +14750,8 @@ func (o FileSystemTokenStoreResponseOutput) ToFileSystemTokenStoreResponsePtrOut
 		return &v
 	}).(FileSystemTokenStoreResponsePtrOutput)
 }
+
+// The directory in which the tokens will be stored.
 func (o FileSystemTokenStoreResponseOutput) Directory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemTokenStoreResponse) *string { return v.Directory }).(pulumi.StringPtrOutput)
 }
@@ -14279,6 +14794,7 @@ func (o FileSystemTokenStoreResponsePtrOutput) Elem() FileSystemTokenStoreRespon
 	return o.ApplyT(func(v *FileSystemTokenStoreResponse) FileSystemTokenStoreResponse { return *v }).(FileSystemTokenStoreResponseOutput)
 }
 
+// The directory in which the tokens will be stored.
 func (o FileSystemTokenStoreResponsePtrOutput) Directory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemTokenStoreResponse) *string {
 		if v == nil {
@@ -14328,9 +14844,13 @@ func (o FileSystemTokenStoreResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 type ForwardProxy struct {
-	Convention            *string `pulumi:"convention"`
-	CustomHostHeaderName  *string `pulumi:"customHostHeaderName"`
+	// The convention used to determine the url of the request made.
+	Convention *string `pulumi:"convention"`
+	// The name of the header containing the host of the request.
+	CustomHostHeaderName *string `pulumi:"customHostHeaderName"`
+	// The name of the header containing the scheme of the request.
 	CustomProtoHeaderName *string `pulumi:"customProtoHeaderName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -14347,10 +14867,14 @@ type ForwardProxyInput interface {
 	ToForwardProxyOutputWithContext(context.Context) ForwardProxyOutput
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 type ForwardProxyArgs struct {
-	Convention            *ForwardProxyConvention `pulumi:"convention"`
-	CustomHostHeaderName  pulumi.StringPtrInput   `pulumi:"customHostHeaderName"`
-	CustomProtoHeaderName pulumi.StringPtrInput   `pulumi:"customProtoHeaderName"`
+	// The convention used to determine the url of the request made.
+	Convention *ForwardProxyConvention `pulumi:"convention"`
+	// The name of the header containing the host of the request.
+	CustomHostHeaderName pulumi.StringPtrInput `pulumi:"customHostHeaderName"`
+	// The name of the header containing the scheme of the request.
+	CustomProtoHeaderName pulumi.StringPtrInput `pulumi:"customProtoHeaderName"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
@@ -14408,6 +14932,7 @@ func (i *forwardProxyPtrType) ToForwardProxyPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ForwardProxyPtrOutput)
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 type ForwardProxyOutput struct{ *pulumi.OutputState }
 
 func (ForwardProxyOutput) ElementType() reflect.Type {
@@ -14431,14 +14956,18 @@ func (o ForwardProxyOutput) ToForwardProxyPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(ForwardProxyPtrOutput)
 }
+
+// The convention used to determine the url of the request made.
 func (o ForwardProxyOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardProxy) *string { return v.Convention }).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the host of the request.
 func (o ForwardProxyOutput) CustomHostHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardProxy) *string { return v.CustomHostHeaderName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the scheme of the request.
 func (o ForwardProxyOutput) CustomProtoHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardProxy) *string { return v.CustomProtoHeaderName }).(pulumi.StringPtrOutput)
 }
@@ -14466,6 +14995,7 @@ func (o ForwardProxyPtrOutput) Elem() ForwardProxyOutput {
 	return o.ApplyT(func(v *ForwardProxy) ForwardProxy { return *v }).(ForwardProxyOutput)
 }
 
+// The convention used to determine the url of the request made.
 func (o ForwardProxyPtrOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardProxy) *string {
 		if v == nil {
@@ -14475,6 +15005,7 @@ func (o ForwardProxyPtrOutput) Convention() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the host of the request.
 func (o ForwardProxyPtrOutput) CustomHostHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardProxy) *string {
 		if v == nil {
@@ -14484,6 +15015,7 @@ func (o ForwardProxyPtrOutput) CustomHostHeaderName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the scheme of the request.
 func (o ForwardProxyPtrOutput) CustomProtoHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardProxy) *string {
 		if v == nil {
@@ -14503,9 +15035,13 @@ func (o ForwardProxyPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 type ForwardProxyResponse struct {
-	Convention            *string `pulumi:"convention"`
-	CustomHostHeaderName  *string `pulumi:"customHostHeaderName"`
+	// The convention used to determine the url of the request made.
+	Convention *string `pulumi:"convention"`
+	// The name of the header containing the host of the request.
+	CustomHostHeaderName *string `pulumi:"customHostHeaderName"`
+	// The name of the header containing the scheme of the request.
 	CustomProtoHeaderName *string `pulumi:"customProtoHeaderName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -14528,9 +15064,13 @@ type ForwardProxyResponseInput interface {
 	ToForwardProxyResponseOutputWithContext(context.Context) ForwardProxyResponseOutput
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 type ForwardProxyResponseArgs struct {
-	Convention            pulumi.StringPtrInput `pulumi:"convention"`
-	CustomHostHeaderName  pulumi.StringPtrInput `pulumi:"customHostHeaderName"`
+	// The convention used to determine the url of the request made.
+	Convention pulumi.StringPtrInput `pulumi:"convention"`
+	// The name of the header containing the host of the request.
+	CustomHostHeaderName pulumi.StringPtrInput `pulumi:"customHostHeaderName"`
+	// The name of the header containing the scheme of the request.
 	CustomProtoHeaderName pulumi.StringPtrInput `pulumi:"customProtoHeaderName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -14595,6 +15135,7 @@ func (i *forwardProxyResponsePtrType) ToForwardProxyResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ForwardProxyResponsePtrOutput)
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 type ForwardProxyResponseOutput struct{ *pulumi.OutputState }
 
 func (ForwardProxyResponseOutput) ElementType() reflect.Type {
@@ -14618,14 +15159,18 @@ func (o ForwardProxyResponseOutput) ToForwardProxyResponsePtrOutputWithContext(c
 		return &v
 	}).(ForwardProxyResponsePtrOutput)
 }
+
+// The convention used to determine the url of the request made.
 func (o ForwardProxyResponseOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardProxyResponse) *string { return v.Convention }).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the host of the request.
 func (o ForwardProxyResponseOutput) CustomHostHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardProxyResponse) *string { return v.CustomHostHeaderName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the scheme of the request.
 func (o ForwardProxyResponseOutput) CustomProtoHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ForwardProxyResponse) *string { return v.CustomProtoHeaderName }).(pulumi.StringPtrOutput)
 }
@@ -14668,6 +15213,7 @@ func (o ForwardProxyResponsePtrOutput) Elem() ForwardProxyResponseOutput {
 	return o.ApplyT(func(v *ForwardProxyResponse) ForwardProxyResponse { return *v }).(ForwardProxyResponseOutput)
 }
 
+// The convention used to determine the url of the request made.
 func (o ForwardProxyResponsePtrOutput) Convention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardProxyResponse) *string {
 		if v == nil {
@@ -14677,6 +15223,7 @@ func (o ForwardProxyResponsePtrOutput) Convention() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the host of the request.
 func (o ForwardProxyResponsePtrOutput) CustomHostHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardProxyResponse) *string {
 		if v == nil {
@@ -14686,6 +15233,7 @@ func (o ForwardProxyResponsePtrOutput) CustomHostHeaderName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the header containing the scheme of the request.
 func (o ForwardProxyResponsePtrOutput) CustomProtoHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ForwardProxyResponse) *string {
 		if v == nil {
@@ -14735,11 +15283,15 @@ func (o ForwardProxyResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 type GitHub struct {
+	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string             `pulumi:"kind"`
-	Login        *LoginScopes        `pulumi:"login"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login *LoginScopes `pulumi:"login"`
+	// The configuration settings of the app registration for the GitHub provider.
 	Registration *ClientRegistration `pulumi:"registration"`
 }
 
@@ -14754,11 +15306,15 @@ type GitHubInput interface {
 	ToGitHubOutputWithContext(context.Context) GitHubOutput
 }
 
+// The configuration settings of the GitHub provider.
 type GitHubArgs struct {
+	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput      `pulumi:"kind"`
-	Login        LoginScopesPtrInput        `pulumi:"login"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login LoginScopesPtrInput `pulumi:"login"`
+	// The configuration settings of the app registration for the GitHub provider.
 	Registration ClientRegistrationPtrInput `pulumi:"registration"`
 }
 
@@ -14815,6 +15371,7 @@ func (i *gitHubPtrType) ToGitHubPtrOutputWithContext(ctx context.Context) GitHub
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubPtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 type GitHubOutput struct{ *pulumi.OutputState }
 
 func (GitHubOutput) ElementType() reflect.Type {
@@ -14838,6 +15395,8 @@ func (o GitHubOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPt
 		return &v
 	}).(GitHubPtrOutput)
 }
+
+// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GitHubOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitHub) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -14847,10 +15406,12 @@ func (o GitHubOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitHub) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GitHubOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v GitHub) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the GitHub provider.
 func (o GitHubOutput) Registration() ClientRegistrationPtrOutput {
 	return o.ApplyT(func(v GitHub) *ClientRegistration { return v.Registration }).(ClientRegistrationPtrOutput)
 }
@@ -14873,6 +15434,7 @@ func (o GitHubPtrOutput) Elem() GitHubOutput {
 	return o.ApplyT(func(v *GitHub) GitHub { return *v }).(GitHubOutput)
 }
 
+// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GitHubPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GitHub) *bool {
 		if v == nil {
@@ -14892,6 +15454,7 @@ func (o GitHubPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GitHubPtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *GitHub) *LoginScopes {
 		if v == nil {
@@ -14901,6 +15464,7 @@ func (o GitHubPtrOutput) Login() LoginScopesPtrOutput {
 	}).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the GitHub provider.
 func (o GitHubPtrOutput) Registration() ClientRegistrationPtrOutput {
 	return o.ApplyT(func(v *GitHub) *ClientRegistration {
 		if v == nil {
@@ -15986,15 +16550,19 @@ func (o GitHubActionContainerConfigurationResponsePtrOutput) Username() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 type GitHubResponse struct {
+	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind  *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                      `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the app registration for the GitHub provider.
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -16011,15 +16579,19 @@ type GitHubResponseInput interface {
 	ToGitHubResponseOutputWithContext(context.Context) GitHubResponseOutput
 }
 
+// The configuration settings of the GitHub provider.
 type GitHubResponseArgs struct {
+	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput                 `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the app registration for the GitHub provider.
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -16078,6 +16650,7 @@ func (i *gitHubResponsePtrType) ToGitHubResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubResponsePtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 type GitHubResponseOutput struct{ *pulumi.OutputState }
 
 func (GitHubResponseOutput) ElementType() reflect.Type {
@@ -16101,6 +16674,8 @@ func (o GitHubResponseOutput) ToGitHubResponsePtrOutputWithContext(ctx context.C
 		return &v
 	}).(GitHubResponsePtrOutput)
 }
+
+// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GitHubResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16115,6 +16690,7 @@ func (o GitHubResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GitHubResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
@@ -16124,6 +16700,7 @@ func (o GitHubResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the app registration for the GitHub provider.
 func (o GitHubResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
 }
@@ -16151,6 +16728,7 @@ func (o GitHubResponsePtrOutput) Elem() GitHubResponseOutput {
 	return o.ApplyT(func(v *GitHubResponse) GitHubResponse { return *v }).(GitHubResponseOutput)
 }
 
+// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GitHubResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GitHubResponse) *bool {
 		if v == nil {
@@ -16180,6 +16758,7 @@ func (o GitHubResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GitHubResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *GitHubResponse) *LoginScopesResponse {
 		if v == nil {
@@ -16199,6 +16778,7 @@ func (o GitHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the GitHub provider.
 func (o GitHubResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *GitHubResponse) *ClientRegistrationResponse {
 		if v == nil {
@@ -16218,12 +16798,19 @@ func (o GitHubResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 type GlobalValidation struct {
+	// The paths for which unauthenticated flow would not be redirected to the login page.
 	ExcludedPaths []string `pulumi:"excludedPaths"`
 	// Kind of resource.
-	Kind                        *string `pulumi:"kind"`
-	RedirectToProvider          *string `pulumi:"redirectToProvider"`
-	RequireAuthentication       *bool   `pulumi:"requireAuthentication"`
+	Kind *string `pulumi:"kind"`
+	// The default authentication provider to use when multiple providers are configured.
+	// This setting is only needed if multiple providers are configured and the unauthenticated client
+	// action is set to "RedirectToLoginPage".
+	RedirectToProvider *string `pulumi:"redirectToProvider"`
+	// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+	RequireAuthentication *bool `pulumi:"requireAuthentication"`
+	// The action to take when an unauthenticated client attempts to access the app.
 	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
@@ -16238,12 +16825,19 @@ type GlobalValidationInput interface {
 	ToGlobalValidationOutputWithContext(context.Context) GlobalValidationOutput
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 type GlobalValidationArgs struct {
+	// The paths for which unauthenticated flow would not be redirected to the login page.
 	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
 	// Kind of resource.
-	Kind                        pulumi.StringPtrInput          `pulumi:"kind"`
-	RedirectToProvider          pulumi.StringPtrInput          `pulumi:"redirectToProvider"`
-	RequireAuthentication       pulumi.BoolPtrInput            `pulumi:"requireAuthentication"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The default authentication provider to use when multiple providers are configured.
+	// This setting is only needed if multiple providers are configured and the unauthenticated client
+	// action is set to "RedirectToLoginPage".
+	RedirectToProvider pulumi.StringPtrInput `pulumi:"redirectToProvider"`
+	// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+	RequireAuthentication pulumi.BoolPtrInput `pulumi:"requireAuthentication"`
+	// The action to take when an unauthenticated client attempts to access the app.
 	UnauthenticatedClientAction *UnauthenticatedClientActionV2 `pulumi:"unauthenticatedClientAction"`
 }
 
@@ -16300,6 +16894,7 @@ func (i *globalValidationPtrType) ToGlobalValidationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalValidationPtrOutput)
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 type GlobalValidationOutput struct{ *pulumi.OutputState }
 
 func (GlobalValidationOutput) ElementType() reflect.Type {
@@ -16323,6 +16918,8 @@ func (o GlobalValidationOutput) ToGlobalValidationPtrOutputWithContext(ctx conte
 		return &v
 	}).(GlobalValidationPtrOutput)
 }
+
+// The paths for which unauthenticated flow would not be redirected to the login page.
 func (o GlobalValidationOutput) ExcludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlobalValidation) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
 }
@@ -16332,14 +16929,19 @@ func (o GlobalValidationOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalValidation) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The default authentication provider to use when multiple providers are configured.
+// This setting is only needed if multiple providers are configured and the unauthenticated client
+// action is set to "RedirectToLoginPage".
 func (o GlobalValidationOutput) RedirectToProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalValidation) *string { return v.RedirectToProvider }).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
 func (o GlobalValidationOutput) RequireAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalValidation) *bool { return v.RequireAuthentication }).(pulumi.BoolPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app.
 func (o GlobalValidationOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalValidation) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
@@ -16362,6 +16964,7 @@ func (o GlobalValidationPtrOutput) Elem() GlobalValidationOutput {
 	return o.ApplyT(func(v *GlobalValidation) GlobalValidation { return *v }).(GlobalValidationOutput)
 }
 
+// The paths for which unauthenticated flow would not be redirected to the login page.
 func (o GlobalValidationPtrOutput) ExcludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlobalValidation) []string {
 		if v == nil {
@@ -16381,6 +16984,9 @@ func (o GlobalValidationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default authentication provider to use when multiple providers are configured.
+// This setting is only needed if multiple providers are configured and the unauthenticated client
+// action is set to "RedirectToLoginPage".
 func (o GlobalValidationPtrOutput) RedirectToProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalValidation) *string {
 		if v == nil {
@@ -16390,6 +16996,7 @@ func (o GlobalValidationPtrOutput) RedirectToProvider() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
 func (o GlobalValidationPtrOutput) RequireAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalValidation) *bool {
 		if v == nil {
@@ -16399,6 +17006,7 @@ func (o GlobalValidationPtrOutput) RequireAuthentication() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app.
 func (o GlobalValidationPtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalValidation) *string {
 		if v == nil {
@@ -16408,18 +17016,25 @@ func (o GlobalValidationPtrOutput) UnauthenticatedClientAction() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 type GlobalValidationResponse struct {
+	// The paths for which unauthenticated flow would not be redirected to the login page.
 	ExcludedPaths []string `pulumi:"excludedPaths"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name                  string  `pulumi:"name"`
-	RedirectToProvider    *string `pulumi:"redirectToProvider"`
-	RequireAuthentication *bool   `pulumi:"requireAuthentication"`
+	Name string `pulumi:"name"`
+	// The default authentication provider to use when multiple providers are configured.
+	// This setting is only needed if multiple providers are configured and the unauthenticated client
+	// action is set to "RedirectToLoginPage".
+	RedirectToProvider *string `pulumi:"redirectToProvider"`
+	// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+	RequireAuthentication *bool `pulumi:"requireAuthentication"`
 	// Resource type.
-	Type                        string  `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The action to take when an unauthenticated client attempts to access the app.
 	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
@@ -16434,18 +17049,25 @@ type GlobalValidationResponseInput interface {
 	ToGlobalValidationResponseOutputWithContext(context.Context) GlobalValidationResponseOutput
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 type GlobalValidationResponseArgs struct {
+	// The paths for which unauthenticated flow would not be redirected to the login page.
 	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name                  pulumi.StringInput    `pulumi:"name"`
-	RedirectToProvider    pulumi.StringPtrInput `pulumi:"redirectToProvider"`
-	RequireAuthentication pulumi.BoolPtrInput   `pulumi:"requireAuthentication"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The default authentication provider to use when multiple providers are configured.
+	// This setting is only needed if multiple providers are configured and the unauthenticated client
+	// action is set to "RedirectToLoginPage".
+	RedirectToProvider pulumi.StringPtrInput `pulumi:"redirectToProvider"`
+	// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+	RequireAuthentication pulumi.BoolPtrInput `pulumi:"requireAuthentication"`
 	// Resource type.
-	Type                        pulumi.StringInput    `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The action to take when an unauthenticated client attempts to access the app.
 	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
 }
 
@@ -16502,6 +17124,7 @@ func (i *globalValidationResponsePtrType) ToGlobalValidationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalValidationResponsePtrOutput)
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
 type GlobalValidationResponseOutput struct{ *pulumi.OutputState }
 
 func (GlobalValidationResponseOutput) ElementType() reflect.Type {
@@ -16525,6 +17148,8 @@ func (o GlobalValidationResponseOutput) ToGlobalValidationResponsePtrOutputWithC
 		return &v
 	}).(GlobalValidationResponsePtrOutput)
 }
+
+// The paths for which unauthenticated flow would not be redirected to the login page.
 func (o GlobalValidationResponseOutput) ExcludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
 }
@@ -16544,10 +17169,14 @@ func (o GlobalValidationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The default authentication provider to use when multiple providers are configured.
+// This setting is only needed if multiple providers are configured and the unauthenticated client
+// action is set to "RedirectToLoginPage".
 func (o GlobalValidationResponseOutput) RedirectToProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) *string { return v.RedirectToProvider }).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
 func (o GlobalValidationResponseOutput) RequireAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) *bool { return v.RequireAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -16557,6 +17186,7 @@ func (o GlobalValidationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app.
 func (o GlobalValidationResponseOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
@@ -16579,6 +17209,7 @@ func (o GlobalValidationResponsePtrOutput) Elem() GlobalValidationResponseOutput
 	return o.ApplyT(func(v *GlobalValidationResponse) GlobalValidationResponse { return *v }).(GlobalValidationResponseOutput)
 }
 
+// The paths for which unauthenticated flow would not be redirected to the login page.
 func (o GlobalValidationResponsePtrOutput) ExcludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlobalValidationResponse) []string {
 		if v == nil {
@@ -16618,6 +17249,9 @@ func (o GlobalValidationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default authentication provider to use when multiple providers are configured.
+// This setting is only needed if multiple providers are configured and the unauthenticated client
+// action is set to "RedirectToLoginPage".
 func (o GlobalValidationResponsePtrOutput) RedirectToProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalValidationResponse) *string {
 		if v == nil {
@@ -16627,6 +17261,7 @@ func (o GlobalValidationResponsePtrOutput) RedirectToProvider() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
 func (o GlobalValidationResponsePtrOutput) RequireAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalValidationResponse) *bool {
 		if v == nil {
@@ -16646,6 +17281,7 @@ func (o GlobalValidationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app.
 func (o GlobalValidationResponsePtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalValidationResponse) *string {
 		if v == nil {
@@ -16655,13 +17291,18 @@ func (o GlobalValidationResponsePtrOutput) UnauthenticatedClientAction() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Google provider.
 type Google struct {
+	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string                     `pulumi:"kind"`
-	Login        *LoginScopes                `pulumi:"login"`
-	Registration *ClientRegistration         `pulumi:"registration"`
-	Validation   *AllowedAudiencesValidation `pulumi:"validation"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login *LoginScopes `pulumi:"login"`
+	// The configuration settings of the app registration for the Google provider.
+	Registration *ClientRegistration `pulumi:"registration"`
+	// The configuration settings of the Azure Active Directory token validation flow.
+	Validation *AllowedAudiencesValidation `pulumi:"validation"`
 }
 
 // GoogleInput is an input type that accepts GoogleArgs and GoogleOutput values.
@@ -16675,13 +17316,18 @@ type GoogleInput interface {
 	ToGoogleOutputWithContext(context.Context) GoogleOutput
 }
 
+// The configuration settings of the Google provider.
 type GoogleArgs struct {
+	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput              `pulumi:"kind"`
-	Login        LoginScopesPtrInput                `pulumi:"login"`
-	Registration ClientRegistrationPtrInput         `pulumi:"registration"`
-	Validation   AllowedAudiencesValidationPtrInput `pulumi:"validation"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login LoginScopesPtrInput `pulumi:"login"`
+	// The configuration settings of the app registration for the Google provider.
+	Registration ClientRegistrationPtrInput `pulumi:"registration"`
+	// The configuration settings of the Azure Active Directory token validation flow.
+	Validation AllowedAudiencesValidationPtrInput `pulumi:"validation"`
 }
 
 func (GoogleArgs) ElementType() reflect.Type {
@@ -16737,6 +17383,7 @@ func (i *googlePtrType) ToGooglePtrOutputWithContext(ctx context.Context) Google
 	return pulumi.ToOutputWithContext(ctx, i).(GooglePtrOutput)
 }
 
+// The configuration settings of the Google provider.
 type GoogleOutput struct{ *pulumi.OutputState }
 
 func (GoogleOutput) ElementType() reflect.Type {
@@ -16760,6 +17407,8 @@ func (o GoogleOutput) ToGooglePtrOutputWithContext(ctx context.Context) GooglePt
 		return &v
 	}).(GooglePtrOutput)
 }
+
+// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GoogleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Google) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16769,14 +17418,17 @@ func (o GoogleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Google) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GoogleOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v Google) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the Google provider.
 func (o GoogleOutput) Registration() ClientRegistrationPtrOutput {
 	return o.ApplyT(func(v Google) *ClientRegistration { return v.Registration }).(ClientRegistrationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o GoogleOutput) Validation() AllowedAudiencesValidationPtrOutput {
 	return o.ApplyT(func(v Google) *AllowedAudiencesValidation { return v.Validation }).(AllowedAudiencesValidationPtrOutput)
 }
@@ -16799,6 +17451,7 @@ func (o GooglePtrOutput) Elem() GoogleOutput {
 	return o.ApplyT(func(v *Google) Google { return *v }).(GoogleOutput)
 }
 
+// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GooglePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Google) *bool {
 		if v == nil {
@@ -16818,6 +17471,7 @@ func (o GooglePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GooglePtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *Google) *LoginScopes {
 		if v == nil {
@@ -16827,6 +17481,7 @@ func (o GooglePtrOutput) Login() LoginScopesPtrOutput {
 	}).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the Google provider.
 func (o GooglePtrOutput) Registration() ClientRegistrationPtrOutput {
 	return o.ApplyT(func(v *Google) *ClientRegistration {
 		if v == nil {
@@ -16836,6 +17491,7 @@ func (o GooglePtrOutput) Registration() ClientRegistrationPtrOutput {
 	}).(ClientRegistrationPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o GooglePtrOutput) Validation() AllowedAudiencesValidationPtrOutput {
 	return o.ApplyT(func(v *Google) *AllowedAudiencesValidation {
 		if v == nil {
@@ -16845,18 +17501,23 @@ func (o GooglePtrOutput) Validation() AllowedAudiencesValidationPtrOutput {
 	}).(AllowedAudiencesValidationPtrOutput)
 }
 
+// The configuration settings of the Google provider.
 type GoogleResponse struct {
+	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind  *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                      `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the app registration for the Google provider.
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
 	// Resource type.
-	Type       string                              `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The configuration settings of the Azure Active Directory token validation flow.
 	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
 }
 
@@ -16871,18 +17532,23 @@ type GoogleResponseInput interface {
 	ToGoogleResponseOutputWithContext(context.Context) GoogleResponseOutput
 }
 
+// The configuration settings of the Google provider.
 type GoogleResponseArgs struct {
+	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput                 `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the app registration for the Google provider.
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
-	Type       pulumi.StringInput                         `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The configuration settings of the Azure Active Directory token validation flow.
 	Validation AllowedAudiencesValidationResponsePtrInput `pulumi:"validation"`
 }
 
@@ -16939,6 +17605,7 @@ func (i *googleResponsePtrType) ToGoogleResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GoogleResponsePtrOutput)
 }
 
+// The configuration settings of the Google provider.
 type GoogleResponseOutput struct{ *pulumi.OutputState }
 
 func (GoogleResponseOutput) ElementType() reflect.Type {
@@ -16962,6 +17629,8 @@ func (o GoogleResponseOutput) ToGoogleResponsePtrOutputWithContext(ctx context.C
 		return &v
 	}).(GoogleResponsePtrOutput)
 }
+
+// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GoogleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -16976,6 +17645,7 @@ func (o GoogleResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GoogleResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
@@ -16985,6 +17655,7 @@ func (o GoogleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the app registration for the Google provider.
 func (o GoogleResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
 }
@@ -16994,6 +17665,7 @@ func (o GoogleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o GoogleResponseOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *AllowedAudiencesValidationResponse { return v.Validation }).(AllowedAudiencesValidationResponsePtrOutput)
 }
@@ -17016,6 +17688,7 @@ func (o GoogleResponsePtrOutput) Elem() GoogleResponseOutput {
 	return o.ApplyT(func(v *GoogleResponse) GoogleResponse { return *v }).(GoogleResponseOutput)
 }
 
+// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o GoogleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GoogleResponse) *bool {
 		if v == nil {
@@ -17045,6 +17718,7 @@ func (o GoogleResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o GoogleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *GoogleResponse) *LoginScopesResponse {
 		if v == nil {
@@ -17064,6 +17738,7 @@ func (o GoogleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the Google provider.
 func (o GoogleResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *GoogleResponse) *ClientRegistrationResponse {
 		if v == nil {
@@ -17083,6 +17758,7 @@ func (o GoogleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Azure Active Directory token validation flow.
 func (o GoogleResponsePtrOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
 	return o.ApplyT(func(v *GoogleResponse) *AllowedAudiencesValidationResponse {
 		if v == nil {
@@ -18236,12 +18912,16 @@ func (o HttpLogsConfigResponsePtrOutput) FileSystem() FileSystemHttpLogsConfigRe
 	}).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
 
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 type HttpSettings struct {
+	// The configuration settings of a forward proxy used to make the requests.
 	ForwardProxy *ForwardProxy `pulumi:"forwardProxy"`
 	// Kind of resource.
-	Kind         *string             `pulumi:"kind"`
-	RequireHttps *bool               `pulumi:"requireHttps"`
-	Routes       *HttpSettingsRoutes `pulumi:"routes"`
+	Kind *string `pulumi:"kind"`
+	// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+	RequireHttps *bool `pulumi:"requireHttps"`
+	// The configuration settings of the paths HTTP requests.
+	Routes *HttpSettingsRoutes `pulumi:"routes"`
 }
 
 // HttpSettingsInput is an input type that accepts HttpSettingsArgs and HttpSettingsOutput values.
@@ -18255,12 +18935,16 @@ type HttpSettingsInput interface {
 	ToHttpSettingsOutputWithContext(context.Context) HttpSettingsOutput
 }
 
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 type HttpSettingsArgs struct {
+	// The configuration settings of a forward proxy used to make the requests.
 	ForwardProxy ForwardProxyPtrInput `pulumi:"forwardProxy"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput      `pulumi:"kind"`
-	RequireHttps pulumi.BoolPtrInput        `pulumi:"requireHttps"`
-	Routes       HttpSettingsRoutesPtrInput `pulumi:"routes"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+	RequireHttps pulumi.BoolPtrInput `pulumi:"requireHttps"`
+	// The configuration settings of the paths HTTP requests.
+	Routes HttpSettingsRoutesPtrInput `pulumi:"routes"`
 }
 
 func (HttpSettingsArgs) ElementType() reflect.Type {
@@ -18316,6 +19000,7 @@ func (i *httpSettingsPtrType) ToHttpSettingsPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(HttpSettingsPtrOutput)
 }
 
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 type HttpSettingsOutput struct{ *pulumi.OutputState }
 
 func (HttpSettingsOutput) ElementType() reflect.Type {
@@ -18339,6 +19024,8 @@ func (o HttpSettingsOutput) ToHttpSettingsPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(HttpSettingsPtrOutput)
 }
+
+// The configuration settings of a forward proxy used to make the requests.
 func (o HttpSettingsOutput) ForwardProxy() ForwardProxyPtrOutput {
 	return o.ApplyT(func(v HttpSettings) *ForwardProxy { return v.ForwardProxy }).(ForwardProxyPtrOutput)
 }
@@ -18348,10 +19035,12 @@ func (o HttpSettingsOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpSettings) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
 func (o HttpSettingsOutput) RequireHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HttpSettings) *bool { return v.RequireHttps }).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 func (o HttpSettingsOutput) Routes() HttpSettingsRoutesPtrOutput {
 	return o.ApplyT(func(v HttpSettings) *HttpSettingsRoutes { return v.Routes }).(HttpSettingsRoutesPtrOutput)
 }
@@ -18374,6 +19063,7 @@ func (o HttpSettingsPtrOutput) Elem() HttpSettingsOutput {
 	return o.ApplyT(func(v *HttpSettings) HttpSettings { return *v }).(HttpSettingsOutput)
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 func (o HttpSettingsPtrOutput) ForwardProxy() ForwardProxyPtrOutput {
 	return o.ApplyT(func(v *HttpSettings) *ForwardProxy {
 		if v == nil {
@@ -18393,6 +19083,7 @@ func (o HttpSettingsPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
 func (o HttpSettingsPtrOutput) RequireHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HttpSettings) *bool {
 		if v == nil {
@@ -18402,6 +19093,7 @@ func (o HttpSettingsPtrOutput) RequireHttps() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 func (o HttpSettingsPtrOutput) Routes() HttpSettingsRoutesPtrOutput {
 	return o.ApplyT(func(v *HttpSettings) *HttpSettingsRoutes {
 		if v == nil {
@@ -18411,16 +19103,20 @@ func (o HttpSettingsPtrOutput) Routes() HttpSettingsRoutesPtrOutput {
 	}).(HttpSettingsRoutesPtrOutput)
 }
 
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 type HttpSettingsResponse struct {
+	// The configuration settings of a forward proxy used to make the requests.
 	ForwardProxy *ForwardProxyResponse `pulumi:"forwardProxy"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name         string                      `pulumi:"name"`
-	RequireHttps *bool                       `pulumi:"requireHttps"`
-	Routes       *HttpSettingsRoutesResponse `pulumi:"routes"`
+	Name string `pulumi:"name"`
+	// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+	RequireHttps *bool `pulumi:"requireHttps"`
+	// The configuration settings of the paths HTTP requests.
+	Routes *HttpSettingsRoutesResponse `pulumi:"routes"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -18436,16 +19132,20 @@ type HttpSettingsResponseInput interface {
 	ToHttpSettingsResponseOutputWithContext(context.Context) HttpSettingsResponseOutput
 }
 
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 type HttpSettingsResponseArgs struct {
+	// The configuration settings of a forward proxy used to make the requests.
 	ForwardProxy ForwardProxyResponsePtrInput `pulumi:"forwardProxy"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name         pulumi.StringInput                 `pulumi:"name"`
-	RequireHttps pulumi.BoolPtrInput                `pulumi:"requireHttps"`
-	Routes       HttpSettingsRoutesResponsePtrInput `pulumi:"routes"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+	RequireHttps pulumi.BoolPtrInput `pulumi:"requireHttps"`
+	// The configuration settings of the paths HTTP requests.
+	Routes HttpSettingsRoutesResponsePtrInput `pulumi:"routes"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -18503,6 +19203,7 @@ func (i *httpSettingsResponsePtrType) ToHttpSettingsResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HttpSettingsResponsePtrOutput)
 }
 
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
 type HttpSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpSettingsResponseOutput) ElementType() reflect.Type {
@@ -18526,6 +19227,8 @@ func (o HttpSettingsResponseOutput) ToHttpSettingsResponsePtrOutputWithContext(c
 		return &v
 	}).(HttpSettingsResponsePtrOutput)
 }
+
+// The configuration settings of a forward proxy used to make the requests.
 func (o HttpSettingsResponseOutput) ForwardProxy() ForwardProxyResponsePtrOutput {
 	return o.ApplyT(func(v HttpSettingsResponse) *ForwardProxyResponse { return v.ForwardProxy }).(ForwardProxyResponsePtrOutput)
 }
@@ -18545,10 +19248,12 @@ func (o HttpSettingsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpSettingsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
 func (o HttpSettingsResponseOutput) RequireHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HttpSettingsResponse) *bool { return v.RequireHttps }).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 func (o HttpSettingsResponseOutput) Routes() HttpSettingsRoutesResponsePtrOutput {
 	return o.ApplyT(func(v HttpSettingsResponse) *HttpSettingsRoutesResponse { return v.Routes }).(HttpSettingsRoutesResponsePtrOutput)
 }
@@ -18576,6 +19281,7 @@ func (o HttpSettingsResponsePtrOutput) Elem() HttpSettingsResponseOutput {
 	return o.ApplyT(func(v *HttpSettingsResponse) HttpSettingsResponse { return *v }).(HttpSettingsResponseOutput)
 }
 
+// The configuration settings of a forward proxy used to make the requests.
 func (o HttpSettingsResponsePtrOutput) ForwardProxy() ForwardProxyResponsePtrOutput {
 	return o.ApplyT(func(v *HttpSettingsResponse) *ForwardProxyResponse {
 		if v == nil {
@@ -18615,6 +19321,7 @@ func (o HttpSettingsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
 func (o HttpSettingsResponsePtrOutput) RequireHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HttpSettingsResponse) *bool {
 		if v == nil {
@@ -18624,6 +19331,7 @@ func (o HttpSettingsResponsePtrOutput) RequireHttps() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 func (o HttpSettingsResponsePtrOutput) Routes() HttpSettingsRoutesResponsePtrOutput {
 	return o.ApplyT(func(v *HttpSettingsResponse) *HttpSettingsRoutesResponse {
 		if v == nil {
@@ -18643,7 +19351,9 @@ func (o HttpSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 type HttpSettingsRoutes struct {
+	// The prefix that should precede all the authentication/authorization paths.
 	ApiPrefix *string `pulumi:"apiPrefix"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -18660,7 +19370,9 @@ type HttpSettingsRoutesInput interface {
 	ToHttpSettingsRoutesOutputWithContext(context.Context) HttpSettingsRoutesOutput
 }
 
+// The configuration settings of the paths HTTP requests.
 type HttpSettingsRoutesArgs struct {
+	// The prefix that should precede all the authentication/authorization paths.
 	ApiPrefix pulumi.StringPtrInput `pulumi:"apiPrefix"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -18719,6 +19431,7 @@ func (i *httpSettingsRoutesPtrType) ToHttpSettingsRoutesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(HttpSettingsRoutesPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 type HttpSettingsRoutesOutput struct{ *pulumi.OutputState }
 
 func (HttpSettingsRoutesOutput) ElementType() reflect.Type {
@@ -18742,6 +19455,8 @@ func (o HttpSettingsRoutesOutput) ToHttpSettingsRoutesPtrOutputWithContext(ctx c
 		return &v
 	}).(HttpSettingsRoutesPtrOutput)
 }
+
+// The prefix that should precede all the authentication/authorization paths.
 func (o HttpSettingsRoutesOutput) ApiPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpSettingsRoutes) *string { return v.ApiPrefix }).(pulumi.StringPtrOutput)
 }
@@ -18769,6 +19484,7 @@ func (o HttpSettingsRoutesPtrOutput) Elem() HttpSettingsRoutesOutput {
 	return o.ApplyT(func(v *HttpSettingsRoutes) HttpSettingsRoutes { return *v }).(HttpSettingsRoutesOutput)
 }
 
+// The prefix that should precede all the authentication/authorization paths.
 func (o HttpSettingsRoutesPtrOutput) ApiPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HttpSettingsRoutes) *string {
 		if v == nil {
@@ -18788,7 +19504,9 @@ func (o HttpSettingsRoutesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 type HttpSettingsRoutesResponse struct {
+	// The prefix that should precede all the authentication/authorization paths.
 	ApiPrefix *string `pulumi:"apiPrefix"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -18811,7 +19529,9 @@ type HttpSettingsRoutesResponseInput interface {
 	ToHttpSettingsRoutesResponseOutputWithContext(context.Context) HttpSettingsRoutesResponseOutput
 }
 
+// The configuration settings of the paths HTTP requests.
 type HttpSettingsRoutesResponseArgs struct {
+	// The prefix that should precede all the authentication/authorization paths.
 	ApiPrefix pulumi.StringPtrInput `pulumi:"apiPrefix"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -18876,6 +19596,7 @@ func (i *httpSettingsRoutesResponsePtrType) ToHttpSettingsRoutesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HttpSettingsRoutesResponsePtrOutput)
 }
 
+// The configuration settings of the paths HTTP requests.
 type HttpSettingsRoutesResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpSettingsRoutesResponseOutput) ElementType() reflect.Type {
@@ -18899,6 +19620,8 @@ func (o HttpSettingsRoutesResponseOutput) ToHttpSettingsRoutesResponsePtrOutputW
 		return &v
 	}).(HttpSettingsRoutesResponsePtrOutput)
 }
+
+// The prefix that should precede all the authentication/authorization paths.
 func (o HttpSettingsRoutesResponseOutput) ApiPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HttpSettingsRoutesResponse) *string { return v.ApiPrefix }).(pulumi.StringPtrOutput)
 }
@@ -18941,6 +19664,7 @@ func (o HttpSettingsRoutesResponsePtrOutput) Elem() HttpSettingsRoutesResponseOu
 	return o.ApplyT(func(v *HttpSettingsRoutesResponse) HttpSettingsRoutesResponse { return *v }).(HttpSettingsRoutesResponseOutput)
 }
 
+// The prefix that should precede all the authentication/authorization paths.
 func (o HttpSettingsRoutesResponsePtrOutput) ApiPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HttpSettingsRoutesResponse) *string {
 		if v == nil {
@@ -19126,18 +19850,29 @@ func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierRespon
 	}).(IdentifierResponseOutput)
 }
 
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 type IdentityProviders struct {
-	Apple                        *Apple                                 `pulumi:"apple"`
-	AzureActiveDirectory         *AzureActiveDirectory                  `pulumi:"azureActiveDirectory"`
-	AzureStaticWebApps           *AzureStaticWebApps                    `pulumi:"azureStaticWebApps"`
+	// The configuration settings of the Apple provider.
+	Apple *Apple `pulumi:"apple"`
+	// The configuration settings of the Azure Active directory provider.
+	AzureActiveDirectory *AzureActiveDirectory `pulumi:"azureActiveDirectory"`
+	// The configuration settings of the Azure Static Web Apps provider.
+	AzureStaticWebApps *AzureStaticWebApps `pulumi:"azureStaticWebApps"`
+	// The map of the name of the alias of each custom Open ID Connect provider to the
+	// configuration settings of the custom Open ID Connect provider.
 	CustomOpenIdConnectProviders map[string]CustomOpenIdConnectProvider `pulumi:"customOpenIdConnectProviders"`
-	Facebook                     *Facebook                              `pulumi:"facebook"`
-	GitHub                       *GitHub                                `pulumi:"gitHub"`
-	Google                       *Google                                `pulumi:"google"`
+	// The configuration settings of the Facebook provider.
+	Facebook *Facebook `pulumi:"facebook"`
+	// The configuration settings of the GitHub provider.
+	GitHub *GitHub `pulumi:"gitHub"`
+	// The configuration settings of the Google provider.
+	Google *Google `pulumi:"google"`
 	// Kind of resource.
-	Kind                   *string                 `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the legacy Microsoft Account provider.
 	LegacyMicrosoftAccount *LegacyMicrosoftAccount `pulumi:"legacyMicrosoftAccount"`
-	Twitter                *Twitter                `pulumi:"twitter"`
+	// The configuration settings of the Twitter provider.
+	Twitter *Twitter `pulumi:"twitter"`
 }
 
 // IdentityProvidersInput is an input type that accepts IdentityProvidersArgs and IdentityProvidersOutput values.
@@ -19151,18 +19886,29 @@ type IdentityProvidersInput interface {
 	ToIdentityProvidersOutputWithContext(context.Context) IdentityProvidersOutput
 }
 
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 type IdentityProvidersArgs struct {
-	Apple                        ApplePtrInput                       `pulumi:"apple"`
-	AzureActiveDirectory         AzureActiveDirectoryPtrInput        `pulumi:"azureActiveDirectory"`
-	AzureStaticWebApps           AzureStaticWebAppsPtrInput          `pulumi:"azureStaticWebApps"`
+	// The configuration settings of the Apple provider.
+	Apple ApplePtrInput `pulumi:"apple"`
+	// The configuration settings of the Azure Active directory provider.
+	AzureActiveDirectory AzureActiveDirectoryPtrInput `pulumi:"azureActiveDirectory"`
+	// The configuration settings of the Azure Static Web Apps provider.
+	AzureStaticWebApps AzureStaticWebAppsPtrInput `pulumi:"azureStaticWebApps"`
+	// The map of the name of the alias of each custom Open ID Connect provider to the
+	// configuration settings of the custom Open ID Connect provider.
 	CustomOpenIdConnectProviders CustomOpenIdConnectProviderMapInput `pulumi:"customOpenIdConnectProviders"`
-	Facebook                     FacebookPtrInput                    `pulumi:"facebook"`
-	GitHub                       GitHubPtrInput                      `pulumi:"gitHub"`
-	Google                       GooglePtrInput                      `pulumi:"google"`
+	// The configuration settings of the Facebook provider.
+	Facebook FacebookPtrInput `pulumi:"facebook"`
+	// The configuration settings of the GitHub provider.
+	GitHub GitHubPtrInput `pulumi:"gitHub"`
+	// The configuration settings of the Google provider.
+	Google GooglePtrInput `pulumi:"google"`
 	// Kind of resource.
-	Kind                   pulumi.StringPtrInput          `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the legacy Microsoft Account provider.
 	LegacyMicrosoftAccount LegacyMicrosoftAccountPtrInput `pulumi:"legacyMicrosoftAccount"`
-	Twitter                TwitterPtrInput                `pulumi:"twitter"`
+	// The configuration settings of the Twitter provider.
+	Twitter TwitterPtrInput `pulumi:"twitter"`
 }
 
 func (IdentityProvidersArgs) ElementType() reflect.Type {
@@ -19218,6 +19964,7 @@ func (i *identityProvidersPtrType) ToIdentityProvidersPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProvidersPtrOutput)
 }
 
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 type IdentityProvidersOutput struct{ *pulumi.OutputState }
 
 func (IdentityProvidersOutput) ElementType() reflect.Type {
@@ -19241,32 +19988,41 @@ func (o IdentityProvidersOutput) ToIdentityProvidersPtrOutputWithContext(ctx con
 		return &v
 	}).(IdentityProvidersPtrOutput)
 }
+
+// The configuration settings of the Apple provider.
 func (o IdentityProvidersOutput) Apple() ApplePtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Apple { return v.Apple }).(ApplePtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 func (o IdentityProvidersOutput) AzureActiveDirectory() AzureActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *AzureActiveDirectory { return v.AzureActiveDirectory }).(AzureActiveDirectoryPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 func (o IdentityProvidersOutput) AzureStaticWebApps() AzureStaticWebAppsPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *AzureStaticWebApps { return v.AzureStaticWebApps }).(AzureStaticWebAppsPtrOutput)
 }
 
+// The map of the name of the alias of each custom Open ID Connect provider to the
+// configuration settings of the custom Open ID Connect provider.
 func (o IdentityProvidersOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderMapOutput {
 	return o.ApplyT(func(v IdentityProviders) map[string]CustomOpenIdConnectProvider {
 		return v.CustomOpenIdConnectProviders
 	}).(CustomOpenIdConnectProviderMapOutput)
 }
 
+// The configuration settings of the Facebook provider.
 func (o IdentityProvidersOutput) Facebook() FacebookPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Facebook { return v.Facebook }).(FacebookPtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 func (o IdentityProvidersOutput) GitHub() GitHubPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *GitHub { return v.GitHub }).(GitHubPtrOutput)
 }
 
+// The configuration settings of the Google provider.
 func (o IdentityProvidersOutput) Google() GooglePtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Google { return v.Google }).(GooglePtrOutput)
 }
@@ -19276,10 +20032,12 @@ func (o IdentityProvidersOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 func (o IdentityProvidersOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *LegacyMicrosoftAccount { return v.LegacyMicrosoftAccount }).(LegacyMicrosoftAccountPtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 func (o IdentityProvidersOutput) Twitter() TwitterPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Twitter { return v.Twitter }).(TwitterPtrOutput)
 }
@@ -19302,6 +20060,7 @@ func (o IdentityProvidersPtrOutput) Elem() IdentityProvidersOutput {
 	return o.ApplyT(func(v *IdentityProviders) IdentityProviders { return *v }).(IdentityProvidersOutput)
 }
 
+// The configuration settings of the Apple provider.
 func (o IdentityProvidersPtrOutput) Apple() ApplePtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *Apple {
 		if v == nil {
@@ -19311,6 +20070,7 @@ func (o IdentityProvidersPtrOutput) Apple() ApplePtrOutput {
 	}).(ApplePtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 func (o IdentityProvidersPtrOutput) AzureActiveDirectory() AzureActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *AzureActiveDirectory {
 		if v == nil {
@@ -19320,6 +20080,7 @@ func (o IdentityProvidersPtrOutput) AzureActiveDirectory() AzureActiveDirectoryP
 	}).(AzureActiveDirectoryPtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 func (o IdentityProvidersPtrOutput) AzureStaticWebApps() AzureStaticWebAppsPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *AzureStaticWebApps {
 		if v == nil {
@@ -19329,6 +20090,8 @@ func (o IdentityProvidersPtrOutput) AzureStaticWebApps() AzureStaticWebAppsPtrOu
 	}).(AzureStaticWebAppsPtrOutput)
 }
 
+// The map of the name of the alias of each custom Open ID Connect provider to the
+// configuration settings of the custom Open ID Connect provider.
 func (o IdentityProvidersPtrOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderMapOutput {
 	return o.ApplyT(func(v *IdentityProviders) map[string]CustomOpenIdConnectProvider {
 		if v == nil {
@@ -19338,6 +20101,7 @@ func (o IdentityProvidersPtrOutput) CustomOpenIdConnectProviders() CustomOpenIdC
 	}).(CustomOpenIdConnectProviderMapOutput)
 }
 
+// The configuration settings of the Facebook provider.
 func (o IdentityProvidersPtrOutput) Facebook() FacebookPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *Facebook {
 		if v == nil {
@@ -19347,6 +20111,7 @@ func (o IdentityProvidersPtrOutput) Facebook() FacebookPtrOutput {
 	}).(FacebookPtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 func (o IdentityProvidersPtrOutput) GitHub() GitHubPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *GitHub {
 		if v == nil {
@@ -19356,6 +20121,7 @@ func (o IdentityProvidersPtrOutput) GitHub() GitHubPtrOutput {
 	}).(GitHubPtrOutput)
 }
 
+// The configuration settings of the Google provider.
 func (o IdentityProvidersPtrOutput) Google() GooglePtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *Google {
 		if v == nil {
@@ -19375,6 +20141,7 @@ func (o IdentityProvidersPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 func (o IdentityProvidersPtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *LegacyMicrosoftAccount {
 		if v == nil {
@@ -19384,6 +20151,7 @@ func (o IdentityProvidersPtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAcco
 	}).(LegacyMicrosoftAccountPtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 func (o IdentityProvidersPtrOutput) Twitter() TwitterPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *Twitter {
 		if v == nil {
@@ -19393,21 +20161,32 @@ func (o IdentityProvidersPtrOutput) Twitter() TwitterPtrOutput {
 	}).(TwitterPtrOutput)
 }
 
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 type IdentityProvidersResponse struct {
-	Apple                        *AppleResponse                                 `pulumi:"apple"`
-	AzureActiveDirectory         *AzureActiveDirectoryResponse                  `pulumi:"azureActiveDirectory"`
-	AzureStaticWebApps           *AzureStaticWebAppsResponse                    `pulumi:"azureStaticWebApps"`
+	// The configuration settings of the Apple provider.
+	Apple *AppleResponse `pulumi:"apple"`
+	// The configuration settings of the Azure Active directory provider.
+	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
+	// The configuration settings of the Azure Static Web Apps provider.
+	AzureStaticWebApps *AzureStaticWebAppsResponse `pulumi:"azureStaticWebApps"`
+	// The map of the name of the alias of each custom Open ID Connect provider to the
+	// configuration settings of the custom Open ID Connect provider.
 	CustomOpenIdConnectProviders map[string]CustomOpenIdConnectProviderResponse `pulumi:"customOpenIdConnectProviders"`
-	Facebook                     *FacebookResponse                              `pulumi:"facebook"`
-	GitHub                       *GitHubResponse                                `pulumi:"gitHub"`
-	Google                       *GoogleResponse                                `pulumi:"google"`
+	// The configuration settings of the Facebook provider.
+	Facebook *FacebookResponse `pulumi:"facebook"`
+	// The configuration settings of the GitHub provider.
+	GitHub *GitHubResponse `pulumi:"gitHub"`
+	// The configuration settings of the Google provider.
+	Google *GoogleResponse `pulumi:"google"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind                   *string                         `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the legacy Microsoft Account provider.
 	LegacyMicrosoftAccount *LegacyMicrosoftAccountResponse `pulumi:"legacyMicrosoftAccount"`
 	// Resource Name.
-	Name    string           `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the Twitter provider.
 	Twitter *TwitterResponse `pulumi:"twitter"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -19424,21 +20203,32 @@ type IdentityProvidersResponseInput interface {
 	ToIdentityProvidersResponseOutputWithContext(context.Context) IdentityProvidersResponseOutput
 }
 
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 type IdentityProvidersResponseArgs struct {
-	Apple                        AppleResponsePtrInput                       `pulumi:"apple"`
-	AzureActiveDirectory         AzureActiveDirectoryResponsePtrInput        `pulumi:"azureActiveDirectory"`
-	AzureStaticWebApps           AzureStaticWebAppsResponsePtrInput          `pulumi:"azureStaticWebApps"`
+	// The configuration settings of the Apple provider.
+	Apple AppleResponsePtrInput `pulumi:"apple"`
+	// The configuration settings of the Azure Active directory provider.
+	AzureActiveDirectory AzureActiveDirectoryResponsePtrInput `pulumi:"azureActiveDirectory"`
+	// The configuration settings of the Azure Static Web Apps provider.
+	AzureStaticWebApps AzureStaticWebAppsResponsePtrInput `pulumi:"azureStaticWebApps"`
+	// The map of the name of the alias of each custom Open ID Connect provider to the
+	// configuration settings of the custom Open ID Connect provider.
 	CustomOpenIdConnectProviders CustomOpenIdConnectProviderResponseMapInput `pulumi:"customOpenIdConnectProviders"`
-	Facebook                     FacebookResponsePtrInput                    `pulumi:"facebook"`
-	GitHub                       GitHubResponsePtrInput                      `pulumi:"gitHub"`
-	Google                       GoogleResponsePtrInput                      `pulumi:"google"`
+	// The configuration settings of the Facebook provider.
+	Facebook FacebookResponsePtrInput `pulumi:"facebook"`
+	// The configuration settings of the GitHub provider.
+	GitHub GitHubResponsePtrInput `pulumi:"gitHub"`
+	// The configuration settings of the Google provider.
+	Google GoogleResponsePtrInput `pulumi:"google"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind                   pulumi.StringPtrInput                  `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the legacy Microsoft Account provider.
 	LegacyMicrosoftAccount LegacyMicrosoftAccountResponsePtrInput `pulumi:"legacyMicrosoftAccount"`
 	// Resource Name.
-	Name    pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the Twitter provider.
 	Twitter TwitterResponsePtrInput `pulumi:"twitter"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -19497,6 +20287,7 @@ func (i *identityProvidersResponsePtrType) ToIdentityProvidersResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProvidersResponsePtrOutput)
 }
 
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
 type IdentityProvidersResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityProvidersResponseOutput) ElementType() reflect.Type {
@@ -19520,32 +20311,41 @@ func (o IdentityProvidersResponseOutput) ToIdentityProvidersResponsePtrOutputWit
 		return &v
 	}).(IdentityProvidersResponsePtrOutput)
 }
+
+// The configuration settings of the Apple provider.
 func (o IdentityProvidersResponseOutput) Apple() AppleResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *AppleResponse { return v.Apple }).(AppleResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 func (o IdentityProvidersResponseOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *AzureActiveDirectoryResponse { return v.AzureActiveDirectory }).(AzureActiveDirectoryResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 func (o IdentityProvidersResponseOutput) AzureStaticWebApps() AzureStaticWebAppsResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *AzureStaticWebAppsResponse { return v.AzureStaticWebApps }).(AzureStaticWebAppsResponsePtrOutput)
 }
 
+// The map of the name of the alias of each custom Open ID Connect provider to the
+// configuration settings of the custom Open ID Connect provider.
 func (o IdentityProvidersResponseOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderResponseMapOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) map[string]CustomOpenIdConnectProviderResponse {
 		return v.CustomOpenIdConnectProviders
 	}).(CustomOpenIdConnectProviderResponseMapOutput)
 }
 
+// The configuration settings of the Facebook provider.
 func (o IdentityProvidersResponseOutput) Facebook() FacebookResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *FacebookResponse { return v.Facebook }).(FacebookResponsePtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 func (o IdentityProvidersResponseOutput) GitHub() GitHubResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *GitHubResponse { return v.GitHub }).(GitHubResponsePtrOutput)
 }
 
+// The configuration settings of the Google provider.
 func (o IdentityProvidersResponseOutput) Google() GoogleResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *GoogleResponse { return v.Google }).(GoogleResponsePtrOutput)
 }
@@ -19560,6 +20360,7 @@ func (o IdentityProvidersResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 func (o IdentityProvidersResponseOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *LegacyMicrosoftAccountResponse { return v.LegacyMicrosoftAccount }).(LegacyMicrosoftAccountResponsePtrOutput)
 }
@@ -19569,6 +20370,7 @@ func (o IdentityProvidersResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the Twitter provider.
 func (o IdentityProvidersResponseOutput) Twitter() TwitterResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *TwitterResponse { return v.Twitter }).(TwitterResponsePtrOutput)
 }
@@ -19596,6 +20398,7 @@ func (o IdentityProvidersResponsePtrOutput) Elem() IdentityProvidersResponseOutp
 	return o.ApplyT(func(v *IdentityProvidersResponse) IdentityProvidersResponse { return *v }).(IdentityProvidersResponseOutput)
 }
 
+// The configuration settings of the Apple provider.
 func (o IdentityProvidersResponsePtrOutput) Apple() AppleResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *AppleResponse {
 		if v == nil {
@@ -19605,6 +20408,7 @@ func (o IdentityProvidersResponsePtrOutput) Apple() AppleResponsePtrOutput {
 	}).(AppleResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Active directory provider.
 func (o IdentityProvidersResponsePtrOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *AzureActiveDirectoryResponse {
 		if v == nil {
@@ -19614,6 +20418,7 @@ func (o IdentityProvidersResponsePtrOutput) AzureActiveDirectory() AzureActiveDi
 	}).(AzureActiveDirectoryResponsePtrOutput)
 }
 
+// The configuration settings of the Azure Static Web Apps provider.
 func (o IdentityProvidersResponsePtrOutput) AzureStaticWebApps() AzureStaticWebAppsResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *AzureStaticWebAppsResponse {
 		if v == nil {
@@ -19623,6 +20428,8 @@ func (o IdentityProvidersResponsePtrOutput) AzureStaticWebApps() AzureStaticWebA
 	}).(AzureStaticWebAppsResponsePtrOutput)
 }
 
+// The map of the name of the alias of each custom Open ID Connect provider to the
+// configuration settings of the custom Open ID Connect provider.
 func (o IdentityProvidersResponsePtrOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderResponseMapOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) map[string]CustomOpenIdConnectProviderResponse {
 		if v == nil {
@@ -19632,6 +20439,7 @@ func (o IdentityProvidersResponsePtrOutput) CustomOpenIdConnectProviders() Custo
 	}).(CustomOpenIdConnectProviderResponseMapOutput)
 }
 
+// The configuration settings of the Facebook provider.
 func (o IdentityProvidersResponsePtrOutput) Facebook() FacebookResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *FacebookResponse {
 		if v == nil {
@@ -19641,6 +20449,7 @@ func (o IdentityProvidersResponsePtrOutput) Facebook() FacebookResponsePtrOutput
 	}).(FacebookResponsePtrOutput)
 }
 
+// The configuration settings of the GitHub provider.
 func (o IdentityProvidersResponsePtrOutput) GitHub() GitHubResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *GitHubResponse {
 		if v == nil {
@@ -19650,6 +20459,7 @@ func (o IdentityProvidersResponsePtrOutput) GitHub() GitHubResponsePtrOutput {
 	}).(GitHubResponsePtrOutput)
 }
 
+// The configuration settings of the Google provider.
 func (o IdentityProvidersResponsePtrOutput) Google() GoogleResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *GoogleResponse {
 		if v == nil {
@@ -19679,6 +20489,7 @@ func (o IdentityProvidersResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 func (o IdentityProvidersResponsePtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *LegacyMicrosoftAccountResponse {
 		if v == nil {
@@ -19698,6 +20509,7 @@ func (o IdentityProvidersResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 func (o IdentityProvidersResponsePtrOutput) Twitter() TwitterResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *TwitterResponse {
 		if v == nil {
@@ -20205,9 +21017,12 @@ func (o IpSecurityRestrictionResponseArrayOutput) Index(i pulumi.IntInput) IpSec
 	}).(IpSecurityRestrictionResponseOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 type JwtClaimChecks struct {
+	// The list of the allowed client applications.
 	AllowedClientApplications []string `pulumi:"allowedClientApplications"`
-	AllowedGroups             []string `pulumi:"allowedGroups"`
+	// The list of the allowed groups.
+	AllowedGroups []string `pulumi:"allowedGroups"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 }
@@ -20223,9 +21038,12 @@ type JwtClaimChecksInput interface {
 	ToJwtClaimChecksOutputWithContext(context.Context) JwtClaimChecksOutput
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 type JwtClaimChecksArgs struct {
+	// The list of the allowed client applications.
 	AllowedClientApplications pulumi.StringArrayInput `pulumi:"allowedClientApplications"`
-	AllowedGroups             pulumi.StringArrayInput `pulumi:"allowedGroups"`
+	// The list of the allowed groups.
+	AllowedGroups pulumi.StringArrayInput `pulumi:"allowedGroups"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
@@ -20283,6 +21101,7 @@ func (i *jwtClaimChecksPtrType) ToJwtClaimChecksPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(JwtClaimChecksPtrOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 type JwtClaimChecksOutput struct{ *pulumi.OutputState }
 
 func (JwtClaimChecksOutput) ElementType() reflect.Type {
@@ -20306,10 +21125,13 @@ func (o JwtClaimChecksOutput) ToJwtClaimChecksPtrOutputWithContext(ctx context.C
 		return &v
 	}).(JwtClaimChecksPtrOutput)
 }
+
+// The list of the allowed client applications.
 func (o JwtClaimChecksOutput) AllowedClientApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtClaimChecks) []string { return v.AllowedClientApplications }).(pulumi.StringArrayOutput)
 }
 
+// The list of the allowed groups.
 func (o JwtClaimChecksOutput) AllowedGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtClaimChecks) []string { return v.AllowedGroups }).(pulumi.StringArrayOutput)
 }
@@ -20337,6 +21159,7 @@ func (o JwtClaimChecksPtrOutput) Elem() JwtClaimChecksOutput {
 	return o.ApplyT(func(v *JwtClaimChecks) JwtClaimChecks { return *v }).(JwtClaimChecksOutput)
 }
 
+// The list of the allowed client applications.
 func (o JwtClaimChecksPtrOutput) AllowedClientApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtClaimChecks) []string {
 		if v == nil {
@@ -20346,6 +21169,7 @@ func (o JwtClaimChecksPtrOutput) AllowedClientApplications() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of the allowed groups.
 func (o JwtClaimChecksPtrOutput) AllowedGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtClaimChecks) []string {
 		if v == nil {
@@ -20365,9 +21189,12 @@ func (o JwtClaimChecksPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 type JwtClaimChecksResponse struct {
+	// The list of the allowed client applications.
 	AllowedClientApplications []string `pulumi:"allowedClientApplications"`
-	AllowedGroups             []string `pulumi:"allowedGroups"`
+	// The list of the allowed groups.
+	AllowedGroups []string `pulumi:"allowedGroups"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
@@ -20389,9 +21216,12 @@ type JwtClaimChecksResponseInput interface {
 	ToJwtClaimChecksResponseOutputWithContext(context.Context) JwtClaimChecksResponseOutput
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 type JwtClaimChecksResponseArgs struct {
+	// The list of the allowed client applications.
 	AllowedClientApplications pulumi.StringArrayInput `pulumi:"allowedClientApplications"`
-	AllowedGroups             pulumi.StringArrayInput `pulumi:"allowedGroups"`
+	// The list of the allowed groups.
+	AllowedGroups pulumi.StringArrayInput `pulumi:"allowedGroups"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
@@ -20455,6 +21285,7 @@ func (i *jwtClaimChecksResponsePtrType) ToJwtClaimChecksResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(JwtClaimChecksResponsePtrOutput)
 }
 
+// The configuration settings of the checks that should be made while validating the JWT Claims.
 type JwtClaimChecksResponseOutput struct{ *pulumi.OutputState }
 
 func (JwtClaimChecksResponseOutput) ElementType() reflect.Type {
@@ -20478,10 +21309,13 @@ func (o JwtClaimChecksResponseOutput) ToJwtClaimChecksResponsePtrOutputWithConte
 		return &v
 	}).(JwtClaimChecksResponsePtrOutput)
 }
+
+// The list of the allowed client applications.
 func (o JwtClaimChecksResponseOutput) AllowedClientApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtClaimChecksResponse) []string { return v.AllowedClientApplications }).(pulumi.StringArrayOutput)
 }
 
+// The list of the allowed groups.
 func (o JwtClaimChecksResponseOutput) AllowedGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtClaimChecksResponse) []string { return v.AllowedGroups }).(pulumi.StringArrayOutput)
 }
@@ -20524,6 +21358,7 @@ func (o JwtClaimChecksResponsePtrOutput) Elem() JwtClaimChecksResponseOutput {
 	return o.ApplyT(func(v *JwtClaimChecksResponse) JwtClaimChecksResponse { return *v }).(JwtClaimChecksResponseOutput)
 }
 
+// The list of the allowed client applications.
 func (o JwtClaimChecksResponsePtrOutput) AllowedClientApplications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtClaimChecksResponse) []string {
 		if v == nil {
@@ -20533,6 +21368,7 @@ func (o JwtClaimChecksResponsePtrOutput) AllowedClientApplications() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of the allowed groups.
 func (o JwtClaimChecksResponsePtrOutput) AllowedGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtClaimChecksResponse) []string {
 		if v == nil {
@@ -20888,13 +21724,18 @@ func (o KubeEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 type LegacyMicrosoftAccount struct {
+	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string                     `pulumi:"kind"`
-	Login        *LoginScopes                `pulumi:"login"`
-	Registration *ClientRegistration         `pulumi:"registration"`
-	Validation   *AllowedAudiencesValidation `pulumi:"validation"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login *LoginScopes `pulumi:"login"`
+	// The configuration settings of the app registration for the legacy Microsoft Account provider.
+	Registration *ClientRegistration `pulumi:"registration"`
+	// The configuration settings of the legacy Microsoft Account provider token validation flow.
+	Validation *AllowedAudiencesValidation `pulumi:"validation"`
 }
 
 // LegacyMicrosoftAccountInput is an input type that accepts LegacyMicrosoftAccountArgs and LegacyMicrosoftAccountOutput values.
@@ -20908,13 +21749,18 @@ type LegacyMicrosoftAccountInput interface {
 	ToLegacyMicrosoftAccountOutputWithContext(context.Context) LegacyMicrosoftAccountOutput
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 type LegacyMicrosoftAccountArgs struct {
+	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput              `pulumi:"kind"`
-	Login        LoginScopesPtrInput                `pulumi:"login"`
-	Registration ClientRegistrationPtrInput         `pulumi:"registration"`
-	Validation   AllowedAudiencesValidationPtrInput `pulumi:"validation"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
+	Login LoginScopesPtrInput `pulumi:"login"`
+	// The configuration settings of the app registration for the legacy Microsoft Account provider.
+	Registration ClientRegistrationPtrInput `pulumi:"registration"`
+	// The configuration settings of the legacy Microsoft Account provider token validation flow.
+	Validation AllowedAudiencesValidationPtrInput `pulumi:"validation"`
 }
 
 func (LegacyMicrosoftAccountArgs) ElementType() reflect.Type {
@@ -20970,6 +21816,7 @@ func (i *legacyMicrosoftAccountPtrType) ToLegacyMicrosoftAccountPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 type LegacyMicrosoftAccountOutput struct{ *pulumi.OutputState }
 
 func (LegacyMicrosoftAccountOutput) ElementType() reflect.Type {
@@ -20993,6 +21840,8 @@ func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutputWithConte
 		return &v
 	}).(LegacyMicrosoftAccountPtrOutput)
 }
+
+// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o LegacyMicrosoftAccountOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -21002,14 +21851,17 @@ func (o LegacyMicrosoftAccountOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the legacy Microsoft Account provider.
 func (o LegacyMicrosoftAccountOutput) Registration() ClientRegistrationPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *ClientRegistration { return v.Registration }).(ClientRegistrationPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider token validation flow.
 func (o LegacyMicrosoftAccountOutput) Validation() AllowedAudiencesValidationPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *AllowedAudiencesValidation { return v.Validation }).(AllowedAudiencesValidationPtrOutput)
 }
@@ -21032,6 +21884,7 @@ func (o LegacyMicrosoftAccountPtrOutput) Elem() LegacyMicrosoftAccountOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccount) LegacyMicrosoftAccount { return *v }).(LegacyMicrosoftAccountOutput)
 }
 
+// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o LegacyMicrosoftAccountPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccount) *bool {
 		if v == nil {
@@ -21051,6 +21904,7 @@ func (o LegacyMicrosoftAccountPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountPtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccount) *LoginScopes {
 		if v == nil {
@@ -21060,6 +21914,7 @@ func (o LegacyMicrosoftAccountPtrOutput) Login() LoginScopesPtrOutput {
 	}).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the app registration for the legacy Microsoft Account provider.
 func (o LegacyMicrosoftAccountPtrOutput) Registration() ClientRegistrationPtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccount) *ClientRegistration {
 		if v == nil {
@@ -21069,6 +21924,7 @@ func (o LegacyMicrosoftAccountPtrOutput) Registration() ClientRegistrationPtrOut
 	}).(ClientRegistrationPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider token validation flow.
 func (o LegacyMicrosoftAccountPtrOutput) Validation() AllowedAudiencesValidationPtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccount) *AllowedAudiencesValidation {
 		if v == nil {
@@ -21078,18 +21934,23 @@ func (o LegacyMicrosoftAccountPtrOutput) Validation() AllowedAudiencesValidation
 	}).(AllowedAudiencesValidationPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 type LegacyMicrosoftAccountResponse struct {
+	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind  *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
 	// Resource Name.
-	Name         string                      `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the app registration for the legacy Microsoft Account provider.
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
 	// Resource type.
-	Type       string                              `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The configuration settings of the legacy Microsoft Account provider token validation flow.
 	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
 }
 
@@ -21104,18 +21965,23 @@ type LegacyMicrosoftAccountResponseInput interface {
 	ToLegacyMicrosoftAccountResponseOutputWithContext(context.Context) LegacyMicrosoftAccountResponseOutput
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 type LegacyMicrosoftAccountResponseArgs struct {
+	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
 	// Resource Name.
-	Name         pulumi.StringInput                 `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the app registration for the legacy Microsoft Account provider.
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
-	Type       pulumi.StringInput                         `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The configuration settings of the legacy Microsoft Account provider token validation flow.
 	Validation AllowedAudiencesValidationResponsePtrInput `pulumi:"validation"`
 }
 
@@ -21172,6 +22038,7 @@ func (i *legacyMicrosoftAccountResponsePtrType) ToLegacyMicrosoftAccountResponse
 	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountResponsePtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider.
 type LegacyMicrosoftAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (LegacyMicrosoftAccountResponseOutput) ElementType() reflect.Type {
@@ -21195,6 +22062,8 @@ func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponsePt
 		return &v
 	}).(LegacyMicrosoftAccountResponsePtrOutput)
 }
+
+// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o LegacyMicrosoftAccountResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -21209,6 +22078,7 @@ func (o LegacyMicrosoftAccountResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
@@ -21218,6 +22088,7 @@ func (o LegacyMicrosoftAccountResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the app registration for the legacy Microsoft Account provider.
 func (o LegacyMicrosoftAccountResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
 }
@@ -21227,6 +22098,7 @@ func (o LegacyMicrosoftAccountResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider token validation flow.
 func (o LegacyMicrosoftAccountResponseOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *AllowedAudiencesValidationResponse { return v.Validation }).(AllowedAudiencesValidationResponsePtrOutput)
 }
@@ -21249,6 +22121,7 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Elem() LegacyMicrosoftAccountRe
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) LegacyMicrosoftAccountResponse { return *v }).(LegacyMicrosoftAccountResponseOutput)
 }
 
+// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o LegacyMicrosoftAccountResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *bool {
 		if v == nil {
@@ -21278,6 +22151,7 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *LoginScopesResponse {
 		if v == nil {
@@ -21297,6 +22171,7 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the legacy Microsoft Account provider.
 func (o LegacyMicrosoftAccountResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *ClientRegistrationResponse {
 		if v == nil {
@@ -21316,6 +22191,7 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the legacy Microsoft Account provider token validation flow.
 func (o LegacyMicrosoftAccountResponsePtrOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *AllowedAudiencesValidationResponse {
 		if v == nil {
@@ -21325,15 +22201,24 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Validation() AllowedAudiencesVa
 	}).(AllowedAudiencesValidationResponsePtrOutput)
 }
 
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
 type Login struct {
-	AllowedExternalRedirectUrls []string          `pulumi:"allowedExternalRedirectUrls"`
-	CookieExpiration            *CookieExpiration `pulumi:"cookieExpiration"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+	// This is an advanced setting typically only needed by Windows Store application backends.
+	// Note that URLs within the current domain are always implicitly allowed.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The configuration settings of the session cookie's expiration.
+	CookieExpiration *CookieExpiration `pulumi:"cookieExpiration"`
 	// Kind of resource.
-	Kind                          *string      `pulumi:"kind"`
-	Nonce                         *Nonce       `pulumi:"nonce"`
-	PreserveUrlFragmentsForLogins *bool        `pulumi:"preserveUrlFragmentsForLogins"`
-	Routes                        *LoginRoutes `pulumi:"routes"`
-	TokenStore                    *TokenStore  `pulumi:"tokenStore"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the nonce used in the login flow.
+	Nonce *Nonce `pulumi:"nonce"`
+	// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+	PreserveUrlFragmentsForLogins *bool `pulumi:"preserveUrlFragmentsForLogins"`
+	// The routes that specify the endpoints used for login and logout requests.
+	Routes *LoginRoutes `pulumi:"routes"`
+	// The configuration settings of the token store.
+	TokenStore *TokenStore `pulumi:"tokenStore"`
 }
 
 // LoginInput is an input type that accepts LoginArgs and LoginOutput values.
@@ -21347,15 +22232,24 @@ type LoginInput interface {
 	ToLoginOutputWithContext(context.Context) LoginOutput
 }
 
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
 type LoginArgs struct {
-	AllowedExternalRedirectUrls pulumi.StringArrayInput  `pulumi:"allowedExternalRedirectUrls"`
-	CookieExpiration            CookieExpirationPtrInput `pulumi:"cookieExpiration"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+	// This is an advanced setting typically only needed by Windows Store application backends.
+	// Note that URLs within the current domain are always implicitly allowed.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The configuration settings of the session cookie's expiration.
+	CookieExpiration CookieExpirationPtrInput `pulumi:"cookieExpiration"`
 	// Kind of resource.
-	Kind                          pulumi.StringPtrInput `pulumi:"kind"`
-	Nonce                         NoncePtrInput         `pulumi:"nonce"`
-	PreserveUrlFragmentsForLogins pulumi.BoolPtrInput   `pulumi:"preserveUrlFragmentsForLogins"`
-	Routes                        LoginRoutesPtrInput   `pulumi:"routes"`
-	TokenStore                    TokenStorePtrInput    `pulumi:"tokenStore"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the nonce used in the login flow.
+	Nonce NoncePtrInput `pulumi:"nonce"`
+	// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+	PreserveUrlFragmentsForLogins pulumi.BoolPtrInput `pulumi:"preserveUrlFragmentsForLogins"`
+	// The routes that specify the endpoints used for login and logout requests.
+	Routes LoginRoutesPtrInput `pulumi:"routes"`
+	// The configuration settings of the token store.
+	TokenStore TokenStorePtrInput `pulumi:"tokenStore"`
 }
 
 func (LoginArgs) ElementType() reflect.Type {
@@ -21411,6 +22305,7 @@ func (i *loginPtrType) ToLoginPtrOutputWithContext(ctx context.Context) LoginPtr
 	return pulumi.ToOutputWithContext(ctx, i).(LoginPtrOutput)
 }
 
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
 type LoginOutput struct{ *pulumi.OutputState }
 
 func (LoginOutput) ElementType() reflect.Type {
@@ -21434,10 +22329,15 @@ func (o LoginOutput) ToLoginPtrOutputWithContext(ctx context.Context) LoginPtrOu
 		return &v
 	}).(LoginPtrOutput)
 }
+
+// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+// This is an advanced setting typically only needed by Windows Store application backends.
+// Note that URLs within the current domain are always implicitly allowed.
 func (o LoginOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Login) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 func (o LoginOutput) CookieExpiration() CookieExpirationPtrOutput {
 	return o.ApplyT(func(v Login) *CookieExpiration { return v.CookieExpiration }).(CookieExpirationPtrOutput)
 }
@@ -21447,18 +22347,22 @@ func (o LoginOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Login) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 func (o LoginOutput) Nonce() NoncePtrOutput {
 	return o.ApplyT(func(v Login) *Nonce { return v.Nonce }).(NoncePtrOutput)
 }
 
+// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
 func (o LoginOutput) PreserveUrlFragmentsForLogins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Login) *bool { return v.PreserveUrlFragmentsForLogins }).(pulumi.BoolPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 func (o LoginOutput) Routes() LoginRoutesPtrOutput {
 	return o.ApplyT(func(v Login) *LoginRoutes { return v.Routes }).(LoginRoutesPtrOutput)
 }
 
+// The configuration settings of the token store.
 func (o LoginOutput) TokenStore() TokenStorePtrOutput {
 	return o.ApplyT(func(v Login) *TokenStore { return v.TokenStore }).(TokenStorePtrOutput)
 }
@@ -21481,6 +22385,9 @@ func (o LoginPtrOutput) Elem() LoginOutput {
 	return o.ApplyT(func(v *Login) Login { return *v }).(LoginOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+// This is an advanced setting typically only needed by Windows Store application backends.
+// Note that URLs within the current domain are always implicitly allowed.
 func (o LoginPtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Login) []string {
 		if v == nil {
@@ -21490,6 +22397,7 @@ func (o LoginPtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 func (o LoginPtrOutput) CookieExpiration() CookieExpirationPtrOutput {
 	return o.ApplyT(func(v *Login) *CookieExpiration {
 		if v == nil {
@@ -21509,6 +22417,7 @@ func (o LoginPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 func (o LoginPtrOutput) Nonce() NoncePtrOutput {
 	return o.ApplyT(func(v *Login) *Nonce {
 		if v == nil {
@@ -21518,6 +22427,7 @@ func (o LoginPtrOutput) Nonce() NoncePtrOutput {
 	}).(NoncePtrOutput)
 }
 
+// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
 func (o LoginPtrOutput) PreserveUrlFragmentsForLogins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Login) *bool {
 		if v == nil {
@@ -21527,6 +22437,7 @@ func (o LoginPtrOutput) PreserveUrlFragmentsForLogins() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 func (o LoginPtrOutput) Routes() LoginRoutesPtrOutput {
 	return o.ApplyT(func(v *Login) *LoginRoutes {
 		if v == nil {
@@ -21536,6 +22447,7 @@ func (o LoginPtrOutput) Routes() LoginRoutesPtrOutput {
 	}).(LoginRoutesPtrOutput)
 }
 
+// The configuration settings of the token store.
 func (o LoginPtrOutput) TokenStore() TokenStorePtrOutput {
 	return o.ApplyT(func(v *Login) *TokenStore {
 		if v == nil {
@@ -21545,19 +22457,28 @@ func (o LoginPtrOutput) TokenStore() TokenStorePtrOutput {
 	}).(TokenStorePtrOutput)
 }
 
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
 type LoginResponse struct {
-	AllowedExternalRedirectUrls []string                  `pulumi:"allowedExternalRedirectUrls"`
-	CookieExpiration            *CookieExpirationResponse `pulumi:"cookieExpiration"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+	// This is an advanced setting typically only needed by Windows Store application backends.
+	// Note that URLs within the current domain are always implicitly allowed.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The configuration settings of the session cookie's expiration.
+	CookieExpiration *CookieExpirationResponse `pulumi:"cookieExpiration"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name                          string               `pulumi:"name"`
-	Nonce                         *NonceResponse       `pulumi:"nonce"`
-	PreserveUrlFragmentsForLogins *bool                `pulumi:"preserveUrlFragmentsForLogins"`
-	Routes                        *LoginRoutesResponse `pulumi:"routes"`
-	TokenStore                    *TokenStoreResponse  `pulumi:"tokenStore"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the nonce used in the login flow.
+	Nonce *NonceResponse `pulumi:"nonce"`
+	// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+	PreserveUrlFragmentsForLogins *bool `pulumi:"preserveUrlFragmentsForLogins"`
+	// The routes that specify the endpoints used for login and logout requests.
+	Routes *LoginRoutesResponse `pulumi:"routes"`
+	// The configuration settings of the token store.
+	TokenStore *TokenStoreResponse `pulumi:"tokenStore"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -21573,19 +22494,28 @@ type LoginResponseInput interface {
 	ToLoginResponseOutputWithContext(context.Context) LoginResponseOutput
 }
 
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
 type LoginResponseArgs struct {
-	AllowedExternalRedirectUrls pulumi.StringArrayInput          `pulumi:"allowedExternalRedirectUrls"`
-	CookieExpiration            CookieExpirationResponsePtrInput `pulumi:"cookieExpiration"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+	// This is an advanced setting typically only needed by Windows Store application backends.
+	// Note that URLs within the current domain are always implicitly allowed.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The configuration settings of the session cookie's expiration.
+	CookieExpiration CookieExpirationResponsePtrInput `pulumi:"cookieExpiration"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name                          pulumi.StringInput          `pulumi:"name"`
-	Nonce                         NonceResponsePtrInput       `pulumi:"nonce"`
-	PreserveUrlFragmentsForLogins pulumi.BoolPtrInput         `pulumi:"preserveUrlFragmentsForLogins"`
-	Routes                        LoginRoutesResponsePtrInput `pulumi:"routes"`
-	TokenStore                    TokenStoreResponsePtrInput  `pulumi:"tokenStore"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the nonce used in the login flow.
+	Nonce NonceResponsePtrInput `pulumi:"nonce"`
+	// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+	PreserveUrlFragmentsForLogins pulumi.BoolPtrInput `pulumi:"preserveUrlFragmentsForLogins"`
+	// The routes that specify the endpoints used for login and logout requests.
+	Routes LoginRoutesResponsePtrInput `pulumi:"routes"`
+	// The configuration settings of the token store.
+	TokenStore TokenStoreResponsePtrInput `pulumi:"tokenStore"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21643,6 +22573,7 @@ func (i *loginResponsePtrType) ToLoginResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LoginResponsePtrOutput)
 }
 
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
 type LoginResponseOutput struct{ *pulumi.OutputState }
 
 func (LoginResponseOutput) ElementType() reflect.Type {
@@ -21666,10 +22597,15 @@ func (o LoginResponseOutput) ToLoginResponsePtrOutputWithContext(ctx context.Con
 		return &v
 	}).(LoginResponsePtrOutput)
 }
+
+// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+// This is an advanced setting typically only needed by Windows Store application backends.
+// Note that URLs within the current domain are always implicitly allowed.
 func (o LoginResponseOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoginResponse) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 func (o LoginResponseOutput) CookieExpiration() CookieExpirationResponsePtrOutput {
 	return o.ApplyT(func(v LoginResponse) *CookieExpirationResponse { return v.CookieExpiration }).(CookieExpirationResponsePtrOutput)
 }
@@ -21689,18 +22625,22 @@ func (o LoginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 func (o LoginResponseOutput) Nonce() NonceResponsePtrOutput {
 	return o.ApplyT(func(v LoginResponse) *NonceResponse { return v.Nonce }).(NonceResponsePtrOutput)
 }
 
+// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
 func (o LoginResponseOutput) PreserveUrlFragmentsForLogins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoginResponse) *bool { return v.PreserveUrlFragmentsForLogins }).(pulumi.BoolPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 func (o LoginResponseOutput) Routes() LoginRoutesResponsePtrOutput {
 	return o.ApplyT(func(v LoginResponse) *LoginRoutesResponse { return v.Routes }).(LoginRoutesResponsePtrOutput)
 }
 
+// The configuration settings of the token store.
 func (o LoginResponseOutput) TokenStore() TokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v LoginResponse) *TokenStoreResponse { return v.TokenStore }).(TokenStoreResponsePtrOutput)
 }
@@ -21728,6 +22668,9 @@ func (o LoginResponsePtrOutput) Elem() LoginResponseOutput {
 	return o.ApplyT(func(v *LoginResponse) LoginResponse { return *v }).(LoginResponseOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+// This is an advanced setting typically only needed by Windows Store application backends.
+// Note that URLs within the current domain are always implicitly allowed.
 func (o LoginResponsePtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoginResponse) []string {
 		if v == nil {
@@ -21737,6 +22680,7 @@ func (o LoginResponsePtrOutput) AllowedExternalRedirectUrls() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the session cookie's expiration.
 func (o LoginResponsePtrOutput) CookieExpiration() CookieExpirationResponsePtrOutput {
 	return o.ApplyT(func(v *LoginResponse) *CookieExpirationResponse {
 		if v == nil {
@@ -21776,6 +22720,7 @@ func (o LoginResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 func (o LoginResponsePtrOutput) Nonce() NonceResponsePtrOutput {
 	return o.ApplyT(func(v *LoginResponse) *NonceResponse {
 		if v == nil {
@@ -21785,6 +22730,7 @@ func (o LoginResponsePtrOutput) Nonce() NonceResponsePtrOutput {
 	}).(NonceResponsePtrOutput)
 }
 
+// <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
 func (o LoginResponsePtrOutput) PreserveUrlFragmentsForLogins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoginResponse) *bool {
 		if v == nil {
@@ -21794,6 +22740,7 @@ func (o LoginResponsePtrOutput) PreserveUrlFragmentsForLogins() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 func (o LoginResponsePtrOutput) Routes() LoginRoutesResponsePtrOutput {
 	return o.ApplyT(func(v *LoginResponse) *LoginRoutesResponse {
 		if v == nil {
@@ -21803,6 +22750,7 @@ func (o LoginResponsePtrOutput) Routes() LoginRoutesResponsePtrOutput {
 	}).(LoginRoutesResponsePtrOutput)
 }
 
+// The configuration settings of the token store.
 func (o LoginResponsePtrOutput) TokenStore() TokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v *LoginResponse) *TokenStoreResponse {
 		if v == nil {
@@ -21822,9 +22770,11 @@ func (o LoginResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 type LoginRoutes struct {
 	// Kind of resource.
-	Kind           *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The endpoint at which a logout request should be made.
 	LogoutEndpoint *string `pulumi:"logoutEndpoint"`
 }
 
@@ -21839,9 +22789,11 @@ type LoginRoutesInput interface {
 	ToLoginRoutesOutputWithContext(context.Context) LoginRoutesOutput
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 type LoginRoutesArgs struct {
 	// Kind of resource.
-	Kind           pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The endpoint at which a logout request should be made.
 	LogoutEndpoint pulumi.StringPtrInput `pulumi:"logoutEndpoint"`
 }
 
@@ -21898,6 +22850,7 @@ func (i *loginRoutesPtrType) ToLoginRoutesPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LoginRoutesPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 type LoginRoutesOutput struct{ *pulumi.OutputState }
 
 func (LoginRoutesOutput) ElementType() reflect.Type {
@@ -21927,6 +22880,7 @@ func (o LoginRoutesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoginRoutes) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint at which a logout request should be made.
 func (o LoginRoutesOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoginRoutes) *string { return v.LogoutEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -21959,6 +22913,7 @@ func (o LoginRoutesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint at which a logout request should be made.
 func (o LoginRoutesPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoginRoutes) *string {
 		if v == nil {
@@ -21968,11 +22923,13 @@ func (o LoginRoutesPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 type LoginRoutesResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind           *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The endpoint at which a logout request should be made.
 	LogoutEndpoint *string `pulumi:"logoutEndpoint"`
 	// Resource Name.
 	Name string `pulumi:"name"`
@@ -21991,11 +22948,13 @@ type LoginRoutesResponseInput interface {
 	ToLoginRoutesResponseOutputWithContext(context.Context) LoginRoutesResponseOutput
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 type LoginRoutesResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind           pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The endpoint at which a logout request should be made.
 	LogoutEndpoint pulumi.StringPtrInput `pulumi:"logoutEndpoint"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -22056,6 +23015,7 @@ func (i *loginRoutesResponsePtrType) ToLoginRoutesResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LoginRoutesResponsePtrOutput)
 }
 
+// The routes that specify the endpoints used for login and logout requests.
 type LoginRoutesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoginRoutesResponseOutput) ElementType() reflect.Type {
@@ -22090,6 +23050,7 @@ func (o LoginRoutesResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoginRoutesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint at which a logout request should be made.
 func (o LoginRoutesResponseOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoginRoutesResponse) *string { return v.LogoutEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -22142,6 +23103,7 @@ func (o LoginRoutesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint at which a logout request should be made.
 func (o LoginRoutesResponsePtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoginRoutesResponse) *string {
 		if v == nil {
@@ -22171,9 +23133,11 @@ func (o LoginRoutesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow, including the scopes that should be requested.
 type LoginScopes struct {
 	// Kind of resource.
-	Kind   *string  `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// A list of the scopes that should be requested while authenticating.
 	Scopes []string `pulumi:"scopes"`
 }
 
@@ -22188,9 +23152,11 @@ type LoginScopesInput interface {
 	ToLoginScopesOutputWithContext(context.Context) LoginScopesOutput
 }
 
+// The configuration settings of the login flow, including the scopes that should be requested.
 type LoginScopesArgs struct {
 	// Kind of resource.
-	Kind   pulumi.StringPtrInput   `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// A list of the scopes that should be requested while authenticating.
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
@@ -22247,6 +23213,7 @@ func (i *loginScopesPtrType) ToLoginScopesPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LoginScopesPtrOutput)
 }
 
+// The configuration settings of the login flow, including the scopes that should be requested.
 type LoginScopesOutput struct{ *pulumi.OutputState }
 
 func (LoginScopesOutput) ElementType() reflect.Type {
@@ -22276,6 +23243,7 @@ func (o LoginScopesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoginScopes) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o LoginScopesOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoginScopes) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -22308,6 +23276,7 @@ func (o LoginScopesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o LoginScopesPtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoginScopes) []string {
 		if v == nil {
@@ -22317,13 +23286,15 @@ func (o LoginScopesPtrOutput) Scopes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the login flow, including the scopes that should be requested.
 type LoginScopesResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name   string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// A list of the scopes that should be requested while authenticating.
 	Scopes []string `pulumi:"scopes"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -22340,13 +23311,15 @@ type LoginScopesResponseInput interface {
 	ToLoginScopesResponseOutputWithContext(context.Context) LoginScopesResponseOutput
 }
 
+// The configuration settings of the login flow, including the scopes that should be requested.
 type LoginScopesResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name   pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of the scopes that should be requested while authenticating.
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -22405,6 +23378,7 @@ func (i *loginScopesResponsePtrType) ToLoginScopesResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LoginScopesResponsePtrOutput)
 }
 
+// The configuration settings of the login flow, including the scopes that should be requested.
 type LoginScopesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoginScopesResponseOutput) ElementType() reflect.Type {
@@ -22444,6 +23418,7 @@ func (o LoginScopesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoginScopesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o LoginScopesResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoginScopesResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -22501,6 +23476,7 @@ func (o LoginScopesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o LoginScopesResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoginScopesResponse) []string {
 		if v == nil {
@@ -23190,11 +24166,14 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 	}).(NameValuePairResponseOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 type Nonce struct {
 	// Kind of resource.
-	Kind                    *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The time after the request is made when the nonce should expire.
 	NonceExpirationInterval *string `pulumi:"nonceExpirationInterval"`
-	ValidateNonce           *bool   `pulumi:"validateNonce"`
+	// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
+	ValidateNonce *bool `pulumi:"validateNonce"`
 }
 
 // NonceInput is an input type that accepts NonceArgs and NonceOutput values.
@@ -23208,11 +24187,14 @@ type NonceInput interface {
 	ToNonceOutputWithContext(context.Context) NonceOutput
 }
 
+// The configuration settings of the nonce used in the login flow.
 type NonceArgs struct {
 	// Kind of resource.
-	Kind                    pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The time after the request is made when the nonce should expire.
 	NonceExpirationInterval pulumi.StringPtrInput `pulumi:"nonceExpirationInterval"`
-	ValidateNonce           pulumi.BoolPtrInput   `pulumi:"validateNonce"`
+	// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
+	ValidateNonce pulumi.BoolPtrInput `pulumi:"validateNonce"`
 }
 
 func (NonceArgs) ElementType() reflect.Type {
@@ -23268,6 +24250,7 @@ func (i *noncePtrType) ToNoncePtrOutputWithContext(ctx context.Context) NoncePtr
 	return pulumi.ToOutputWithContext(ctx, i).(NoncePtrOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 type NonceOutput struct{ *pulumi.OutputState }
 
 func (NonceOutput) ElementType() reflect.Type {
@@ -23297,10 +24280,12 @@ func (o NonceOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nonce) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The time after the request is made when the nonce should expire.
 func (o NonceOutput) NonceExpirationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nonce) *string { return v.NonceExpirationInterval }).(pulumi.StringPtrOutput)
 }
 
+// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
 func (o NonceOutput) ValidateNonce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Nonce) *bool { return v.ValidateNonce }).(pulumi.BoolPtrOutput)
 }
@@ -23333,6 +24318,7 @@ func (o NoncePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time after the request is made when the nonce should expire.
 func (o NoncePtrOutput) NonceExpirationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nonce) *string {
 		if v == nil {
@@ -23342,6 +24328,7 @@ func (o NoncePtrOutput) NonceExpirationInterval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
 func (o NoncePtrOutput) ValidateNonce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Nonce) *bool {
 		if v == nil {
@@ -23351,17 +24338,20 @@ func (o NoncePtrOutput) ValidateNonce() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 type NonceResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name                    string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The time after the request is made when the nonce should expire.
 	NonceExpirationInterval *string `pulumi:"nonceExpirationInterval"`
 	// Resource type.
-	Type          string `pulumi:"type"`
-	ValidateNonce *bool  `pulumi:"validateNonce"`
+	Type string `pulumi:"type"`
+	// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
+	ValidateNonce *bool `pulumi:"validateNonce"`
 }
 
 // NonceResponseInput is an input type that accepts NonceResponseArgs and NonceResponseOutput values.
@@ -23375,16 +24365,19 @@ type NonceResponseInput interface {
 	ToNonceResponseOutputWithContext(context.Context) NonceResponseOutput
 }
 
+// The configuration settings of the nonce used in the login flow.
 type NonceResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name                    pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The time after the request is made when the nonce should expire.
 	NonceExpirationInterval pulumi.StringPtrInput `pulumi:"nonceExpirationInterval"`
 	// Resource type.
-	Type          pulumi.StringInput  `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
 	ValidateNonce pulumi.BoolPtrInput `pulumi:"validateNonce"`
 }
 
@@ -23441,6 +24434,7 @@ func (i *nonceResponsePtrType) ToNonceResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NonceResponsePtrOutput)
 }
 
+// The configuration settings of the nonce used in the login flow.
 type NonceResponseOutput struct{ *pulumi.OutputState }
 
 func (NonceResponseOutput) ElementType() reflect.Type {
@@ -23480,6 +24474,7 @@ func (o NonceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NonceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The time after the request is made when the nonce should expire.
 func (o NonceResponseOutput) NonceExpirationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonceResponse) *string { return v.NonceExpirationInterval }).(pulumi.StringPtrOutput)
 }
@@ -23489,6 +24484,7 @@ func (o NonceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NonceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
 func (o NonceResponseOutput) ValidateNonce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NonceResponse) *bool { return v.ValidateNonce }).(pulumi.BoolPtrOutput)
 }
@@ -23541,6 +24537,7 @@ func (o NonceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time after the request is made when the nonce should expire.
 func (o NonceResponsePtrOutput) NonceExpirationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NonceResponse) *string {
 		if v == nil {
@@ -23560,6 +24557,7 @@ func (o NonceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
 func (o NonceResponsePtrOutput) ValidateNonce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NonceResponse) *bool {
 		if v == nil {
@@ -23569,10 +24567,13 @@ func (o NonceResponsePtrOutput) ValidateNonce() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The authentication client credentials of the custom Open ID Connect provider.
 type OpenIdConnectClientCredential struct {
+	// The app setting that contains the client secret for the custom Open ID Connect provider.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
-	Kind   *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The method that should be used to authenticate the user.
 	Method *string `pulumi:"method"`
 }
 
@@ -23587,10 +24588,13 @@ type OpenIdConnectClientCredentialInput interface {
 	ToOpenIdConnectClientCredentialOutputWithContext(context.Context) OpenIdConnectClientCredentialOutput
 }
 
+// The authentication client credentials of the custom Open ID Connect provider.
 type OpenIdConnectClientCredentialArgs struct {
+	// The app setting that contains the client secret for the custom Open ID Connect provider.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Kind of resource.
-	Kind   pulumi.StringPtrInput   `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The method that should be used to authenticate the user.
 	Method *ClientCredentialMethod `pulumi:"method"`
 }
 
@@ -23647,6 +24651,7 @@ func (i *openIdConnectClientCredentialPtrType) ToOpenIdConnectClientCredentialPt
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectClientCredentialPtrOutput)
 }
 
+// The authentication client credentials of the custom Open ID Connect provider.
 type OpenIdConnectClientCredentialOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectClientCredentialOutput) ElementType() reflect.Type {
@@ -23670,6 +24675,8 @@ func (o OpenIdConnectClientCredentialOutput) ToOpenIdConnectClientCredentialPtrO
 		return &v
 	}).(OpenIdConnectClientCredentialPtrOutput)
 }
+
+// The app setting that contains the client secret for the custom Open ID Connect provider.
 func (o OpenIdConnectClientCredentialOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectClientCredential) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -23679,6 +24686,7 @@ func (o OpenIdConnectClientCredentialOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectClientCredential) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The method that should be used to authenticate the user.
 func (o OpenIdConnectClientCredentialOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectClientCredential) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
@@ -23701,6 +24709,7 @@ func (o OpenIdConnectClientCredentialPtrOutput) Elem() OpenIdConnectClientCreden
 	return o.ApplyT(func(v *OpenIdConnectClientCredential) OpenIdConnectClientCredential { return *v }).(OpenIdConnectClientCredentialOutput)
 }
 
+// The app setting that contains the client secret for the custom Open ID Connect provider.
 func (o OpenIdConnectClientCredentialPtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectClientCredential) *string {
 		if v == nil {
@@ -23720,6 +24729,7 @@ func (o OpenIdConnectClientCredentialPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The method that should be used to authenticate the user.
 func (o OpenIdConnectClientCredentialPtrOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectClientCredential) *string {
 		if v == nil {
@@ -23729,12 +24739,15 @@ func (o OpenIdConnectClientCredentialPtrOutput) Method() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The authentication client credentials of the custom Open ID Connect provider.
 type OpenIdConnectClientCredentialResponse struct {
+	// The app setting that contains the client secret for the custom Open ID Connect provider.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind   *string `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The method that should be used to authenticate the user.
 	Method *string `pulumi:"method"`
 	// Resource Name.
 	Name string `pulumi:"name"`
@@ -23753,12 +24766,15 @@ type OpenIdConnectClientCredentialResponseInput interface {
 	ToOpenIdConnectClientCredentialResponseOutputWithContext(context.Context) OpenIdConnectClientCredentialResponseOutput
 }
 
+// The authentication client credentials of the custom Open ID Connect provider.
 type OpenIdConnectClientCredentialResponseArgs struct {
+	// The app setting that contains the client secret for the custom Open ID Connect provider.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind   pulumi.StringPtrInput `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The method that should be used to authenticate the user.
 	Method pulumi.StringPtrInput `pulumi:"method"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -23819,6 +24835,7 @@ func (i *openIdConnectClientCredentialResponsePtrType) ToOpenIdConnectClientCred
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectClientCredentialResponsePtrOutput)
 }
 
+// The authentication client credentials of the custom Open ID Connect provider.
 type OpenIdConnectClientCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectClientCredentialResponseOutput) ElementType() reflect.Type {
@@ -23842,6 +24859,8 @@ func (o OpenIdConnectClientCredentialResponseOutput) ToOpenIdConnectClientCreden
 		return &v
 	}).(OpenIdConnectClientCredentialResponsePtrOutput)
 }
+
+// The app setting that contains the client secret for the custom Open ID Connect provider.
 func (o OpenIdConnectClientCredentialResponseOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -23856,6 +24875,7 @@ func (o OpenIdConnectClientCredentialResponseOutput) Kind() pulumi.StringPtrOutp
 	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The method that should be used to authenticate the user.
 func (o OpenIdConnectClientCredentialResponseOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
@@ -23888,6 +24908,7 @@ func (o OpenIdConnectClientCredentialResponsePtrOutput) Elem() OpenIdConnectClie
 	return o.ApplyT(func(v *OpenIdConnectClientCredentialResponse) OpenIdConnectClientCredentialResponse { return *v }).(OpenIdConnectClientCredentialResponseOutput)
 }
 
+// The app setting that contains the client secret for the custom Open ID Connect provider.
 func (o OpenIdConnectClientCredentialResponsePtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectClientCredentialResponse) *string {
 		if v == nil {
@@ -23917,6 +24938,7 @@ func (o OpenIdConnectClientCredentialResponsePtrOutput) Kind() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The method that should be used to authenticate the user.
 func (o OpenIdConnectClientCredentialResponsePtrOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectClientCredentialResponse) *string {
 		if v == nil {
@@ -23946,13 +24968,19 @@ func (o OpenIdConnectClientCredentialResponsePtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 type OpenIdConnectConfig struct {
+	// The endpoint to be used to make an authorization request.
 	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
-	CertificationUri      *string `pulumi:"certificationUri"`
-	Issuer                *string `pulumi:"issuer"`
+	// The endpoint that provides the keys necessary to validate the token.
+	CertificationUri *string `pulumi:"certificationUri"`
+	// The endpoint that issues the token.
+	Issuer *string `pulumi:"issuer"`
 	// Kind of resource.
-	Kind                         *string `pulumi:"kind"`
-	TokenEndpoint                *string `pulumi:"tokenEndpoint"`
+	Kind *string `pulumi:"kind"`
+	// The endpoint to be used to request a token.
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
+	// The endpoint that contains all the configuration endpoints for the provider.
 	WellKnownOpenIdConfiguration *string `pulumi:"wellKnownOpenIdConfiguration"`
 }
 
@@ -23967,13 +24995,19 @@ type OpenIdConnectConfigInput interface {
 	ToOpenIdConnectConfigOutputWithContext(context.Context) OpenIdConnectConfigOutput
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 type OpenIdConnectConfigArgs struct {
+	// The endpoint to be used to make an authorization request.
 	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
-	CertificationUri      pulumi.StringPtrInput `pulumi:"certificationUri"`
-	Issuer                pulumi.StringPtrInput `pulumi:"issuer"`
+	// The endpoint that provides the keys necessary to validate the token.
+	CertificationUri pulumi.StringPtrInput `pulumi:"certificationUri"`
+	// The endpoint that issues the token.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 	// Kind of resource.
-	Kind                         pulumi.StringPtrInput `pulumi:"kind"`
-	TokenEndpoint                pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The endpoint to be used to request a token.
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	// The endpoint that contains all the configuration endpoints for the provider.
 	WellKnownOpenIdConfiguration pulumi.StringPtrInput `pulumi:"wellKnownOpenIdConfiguration"`
 }
 
@@ -24030,6 +25064,7 @@ func (i *openIdConnectConfigPtrType) ToOpenIdConnectConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectConfigPtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 type OpenIdConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectConfigOutput) ElementType() reflect.Type {
@@ -24053,14 +25088,18 @@ func (o OpenIdConnectConfigOutput) ToOpenIdConnectConfigPtrOutputWithContext(ctx
 		return &v
 	}).(OpenIdConnectConfigPtrOutput)
 }
+
+// The endpoint to be used to make an authorization request.
 func (o OpenIdConnectConfigOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfig) *string { return v.AuthorizationEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that provides the keys necessary to validate the token.
 func (o OpenIdConnectConfigOutput) CertificationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfig) *string { return v.CertificationUri }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that issues the token.
 func (o OpenIdConnectConfigOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfig) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -24070,10 +25109,12 @@ func (o OpenIdConnectConfigOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfig) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint to be used to request a token.
 func (o OpenIdConnectConfigOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfig) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that contains all the configuration endpoints for the provider.
 func (o OpenIdConnectConfigOutput) WellKnownOpenIdConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfig) *string { return v.WellKnownOpenIdConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -24096,6 +25137,7 @@ func (o OpenIdConnectConfigPtrOutput) Elem() OpenIdConnectConfigOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfig) OpenIdConnectConfig { return *v }).(OpenIdConnectConfigOutput)
 }
 
+// The endpoint to be used to make an authorization request.
 func (o OpenIdConnectConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfig) *string {
 		if v == nil {
@@ -24105,6 +25147,7 @@ func (o OpenIdConnectConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that provides the keys necessary to validate the token.
 func (o OpenIdConnectConfigPtrOutput) CertificationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfig) *string {
 		if v == nil {
@@ -24114,6 +25157,7 @@ func (o OpenIdConnectConfigPtrOutput) CertificationUri() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that issues the token.
 func (o OpenIdConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfig) *string {
 		if v == nil {
@@ -24133,6 +25177,7 @@ func (o OpenIdConnectConfigPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint to be used to request a token.
 func (o OpenIdConnectConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfig) *string {
 		if v == nil {
@@ -24142,6 +25187,7 @@ func (o OpenIdConnectConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that contains all the configuration endpoints for the provider.
 func (o OpenIdConnectConfigPtrOutput) WellKnownOpenIdConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfig) *string {
 		if v == nil {
@@ -24151,19 +25197,25 @@ func (o OpenIdConnectConfigPtrOutput) WellKnownOpenIdConfiguration() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 type OpenIdConnectConfigResponse struct {
+	// The endpoint to be used to make an authorization request.
 	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
-	CertificationUri      *string `pulumi:"certificationUri"`
+	// The endpoint that provides the keys necessary to validate the token.
+	CertificationUri *string `pulumi:"certificationUri"`
 	// Resource Id.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The endpoint that issues the token.
 	Issuer *string `pulumi:"issuer"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name          string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The endpoint to be used to request a token.
 	TokenEndpoint *string `pulumi:"tokenEndpoint"`
 	// Resource type.
-	Type                         string  `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The endpoint that contains all the configuration endpoints for the provider.
 	WellKnownOpenIdConfiguration *string `pulumi:"wellKnownOpenIdConfiguration"`
 }
 
@@ -24178,19 +25230,25 @@ type OpenIdConnectConfigResponseInput interface {
 	ToOpenIdConnectConfigResponseOutputWithContext(context.Context) OpenIdConnectConfigResponseOutput
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 type OpenIdConnectConfigResponseArgs struct {
+	// The endpoint to be used to make an authorization request.
 	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
-	CertificationUri      pulumi.StringPtrInput `pulumi:"certificationUri"`
+	// The endpoint that provides the keys necessary to validate the token.
+	CertificationUri pulumi.StringPtrInput `pulumi:"certificationUri"`
 	// Resource Id.
-	Id     pulumi.StringInput    `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The endpoint that issues the token.
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name          pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The endpoint to be used to request a token.
 	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
 	// Resource type.
-	Type                         pulumi.StringInput    `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The endpoint that contains all the configuration endpoints for the provider.
 	WellKnownOpenIdConfiguration pulumi.StringPtrInput `pulumi:"wellKnownOpenIdConfiguration"`
 }
 
@@ -24247,6 +25305,7 @@ func (i *openIdConnectConfigResponsePtrType) ToOpenIdConnectConfigResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectConfigResponsePtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 type OpenIdConnectConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectConfigResponseOutput) ElementType() reflect.Type {
@@ -24270,10 +25329,13 @@ func (o OpenIdConnectConfigResponseOutput) ToOpenIdConnectConfigResponsePtrOutpu
 		return &v
 	}).(OpenIdConnectConfigResponsePtrOutput)
 }
+
+// The endpoint to be used to make an authorization request.
 func (o OpenIdConnectConfigResponseOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) *string { return v.AuthorizationEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that provides the keys necessary to validate the token.
 func (o OpenIdConnectConfigResponseOutput) CertificationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) *string { return v.CertificationUri }).(pulumi.StringPtrOutput)
 }
@@ -24283,6 +25345,7 @@ func (o OpenIdConnectConfigResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The endpoint that issues the token.
 func (o OpenIdConnectConfigResponseOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -24297,6 +25360,7 @@ func (o OpenIdConnectConfigResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The endpoint to be used to request a token.
 func (o OpenIdConnectConfigResponseOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -24306,6 +25370,7 @@ func (o OpenIdConnectConfigResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The endpoint that contains all the configuration endpoints for the provider.
 func (o OpenIdConnectConfigResponseOutput) WellKnownOpenIdConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) *string { return v.WellKnownOpenIdConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -24328,6 +25393,7 @@ func (o OpenIdConnectConfigResponsePtrOutput) Elem() OpenIdConnectConfigResponse
 	return o.ApplyT(func(v *OpenIdConnectConfigResponse) OpenIdConnectConfigResponse { return *v }).(OpenIdConnectConfigResponseOutput)
 }
 
+// The endpoint to be used to make an authorization request.
 func (o OpenIdConnectConfigResponsePtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfigResponse) *string {
 		if v == nil {
@@ -24337,6 +25403,7 @@ func (o OpenIdConnectConfigResponsePtrOutput) AuthorizationEndpoint() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that provides the keys necessary to validate the token.
 func (o OpenIdConnectConfigResponsePtrOutput) CertificationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfigResponse) *string {
 		if v == nil {
@@ -24356,6 +25423,7 @@ func (o OpenIdConnectConfigResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that issues the token.
 func (o OpenIdConnectConfigResponsePtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfigResponse) *string {
 		if v == nil {
@@ -24385,6 +25453,7 @@ func (o OpenIdConnectConfigResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint to be used to request a token.
 func (o OpenIdConnectConfigResponsePtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfigResponse) *string {
 		if v == nil {
@@ -24404,6 +25473,7 @@ func (o OpenIdConnectConfigResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that contains all the configuration endpoints for the provider.
 func (o OpenIdConnectConfigResponsePtrOutput) WellKnownOpenIdConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectConfigResponse) *string {
 		if v == nil {
@@ -24413,11 +25483,14 @@ func (o OpenIdConnectConfigResponsePtrOutput) WellKnownOpenIdConfiguration() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 type OpenIdConnectLogin struct {
 	// Kind of resource.
-	Kind          *string  `pulumi:"kind"`
-	NameClaimType *string  `pulumi:"nameClaimType"`
-	Scopes        []string `pulumi:"scopes"`
+	Kind *string `pulumi:"kind"`
+	// The name of the claim that contains the users name.
+	NameClaimType *string `pulumi:"nameClaimType"`
+	// A list of the scopes that should be requested while authenticating.
+	Scopes []string `pulumi:"scopes"`
 }
 
 // OpenIdConnectLoginInput is an input type that accepts OpenIdConnectLoginArgs and OpenIdConnectLoginOutput values.
@@ -24431,11 +25504,14 @@ type OpenIdConnectLoginInput interface {
 	ToOpenIdConnectLoginOutputWithContext(context.Context) OpenIdConnectLoginOutput
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 type OpenIdConnectLoginArgs struct {
 	// Kind of resource.
-	Kind          pulumi.StringPtrInput   `pulumi:"kind"`
-	NameClaimType pulumi.StringPtrInput   `pulumi:"nameClaimType"`
-	Scopes        pulumi.StringArrayInput `pulumi:"scopes"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the claim that contains the users name.
+	NameClaimType pulumi.StringPtrInput `pulumi:"nameClaimType"`
+	// A list of the scopes that should be requested while authenticating.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
 func (OpenIdConnectLoginArgs) ElementType() reflect.Type {
@@ -24491,6 +25567,7 @@ func (i *openIdConnectLoginPtrType) ToOpenIdConnectLoginPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectLoginPtrOutput)
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 type OpenIdConnectLoginOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectLoginOutput) ElementType() reflect.Type {
@@ -24520,10 +25597,12 @@ func (o OpenIdConnectLoginOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectLogin) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The name of the claim that contains the users name.
 func (o OpenIdConnectLoginOutput) NameClaimType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectLogin) *string { return v.NameClaimType }).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o OpenIdConnectLoginOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenIdConnectLogin) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -24556,6 +25635,7 @@ func (o OpenIdConnectLoginPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the claim that contains the users name.
 func (o OpenIdConnectLoginPtrOutput) NameClaimType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectLogin) *string {
 		if v == nil {
@@ -24565,6 +25645,7 @@ func (o OpenIdConnectLoginPtrOutput) NameClaimType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o OpenIdConnectLoginPtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenIdConnectLogin) []string {
 		if v == nil {
@@ -24574,15 +25655,18 @@ func (o OpenIdConnectLoginPtrOutput) Scopes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 type OpenIdConnectLoginResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name          string   `pulumi:"name"`
-	NameClaimType *string  `pulumi:"nameClaimType"`
-	Scopes        []string `pulumi:"scopes"`
+	Name string `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType *string `pulumi:"nameClaimType"`
+	// A list of the scopes that should be requested while authenticating.
+	Scopes []string `pulumi:"scopes"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -24598,15 +25682,18 @@ type OpenIdConnectLoginResponseInput interface {
 	ToOpenIdConnectLoginResponseOutputWithContext(context.Context) OpenIdConnectLoginResponseOutput
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 type OpenIdConnectLoginResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name          pulumi.StringInput      `pulumi:"name"`
-	NameClaimType pulumi.StringPtrInput   `pulumi:"nameClaimType"`
-	Scopes        pulumi.StringArrayInput `pulumi:"scopes"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType pulumi.StringPtrInput `pulumi:"nameClaimType"`
+	// A list of the scopes that should be requested while authenticating.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -24664,6 +25751,7 @@ func (i *openIdConnectLoginResponsePtrType) ToOpenIdConnectLoginResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectLoginResponsePtrOutput)
 }
 
+// The configuration settings of the login flow of the custom Open ID Connect provider.
 type OpenIdConnectLoginResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectLoginResponseOutput) ElementType() reflect.Type {
@@ -24703,10 +25791,12 @@ func (o OpenIdConnectLoginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectLoginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name of the claim that contains the users name.
 func (o OpenIdConnectLoginResponseOutput) NameClaimType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectLoginResponse) *string { return v.NameClaimType }).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o OpenIdConnectLoginResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenIdConnectLoginResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -24764,6 +25854,7 @@ func (o OpenIdConnectLoginResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the claim that contains the users name.
 func (o OpenIdConnectLoginResponsePtrOutput) NameClaimType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectLoginResponse) *string {
 		if v == nil {
@@ -24773,6 +25864,7 @@ func (o OpenIdConnectLoginResponsePtrOutput) NameClaimType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of the scopes that should be requested while authenticating.
 func (o OpenIdConnectLoginResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenIdConnectLoginResponse) []string {
 		if v == nil {
@@ -24792,11 +25884,15 @@ func (o OpenIdConnectLoginResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 type OpenIdConnectRegistration struct {
+	// The authentication credentials of the custom Open ID Connect provider.
 	ClientCredential *OpenIdConnectClientCredential `pulumi:"clientCredential"`
-	ClientId         *string                        `pulumi:"clientId"`
+	// The client id of the custom Open ID Connect provider.
+	ClientId *string `pulumi:"clientId"`
 	// Kind of resource.
-	Kind                       *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 	OpenIdConnectConfiguration *OpenIdConnectConfig `pulumi:"openIdConnectConfiguration"`
 }
 
@@ -24811,11 +25907,15 @@ type OpenIdConnectRegistrationInput interface {
 	ToOpenIdConnectRegistrationOutputWithContext(context.Context) OpenIdConnectRegistrationOutput
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 type OpenIdConnectRegistrationArgs struct {
+	// The authentication credentials of the custom Open ID Connect provider.
 	ClientCredential OpenIdConnectClientCredentialPtrInput `pulumi:"clientCredential"`
-	ClientId         pulumi.StringPtrInput                 `pulumi:"clientId"`
+	// The client id of the custom Open ID Connect provider.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Kind of resource.
-	Kind                       pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 	OpenIdConnectConfiguration OpenIdConnectConfigPtrInput `pulumi:"openIdConnectConfiguration"`
 }
 
@@ -24872,6 +25972,7 @@ func (i *openIdConnectRegistrationPtrType) ToOpenIdConnectRegistrationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectRegistrationPtrOutput)
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 type OpenIdConnectRegistrationOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectRegistrationOutput) ElementType() reflect.Type {
@@ -24895,10 +25996,13 @@ func (o OpenIdConnectRegistrationOutput) ToOpenIdConnectRegistrationPtrOutputWit
 		return &v
 	}).(OpenIdConnectRegistrationPtrOutput)
 }
+
+// The authentication credentials of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationOutput) ClientCredential() OpenIdConnectClientCredentialPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistration) *OpenIdConnectClientCredential { return v.ClientCredential }).(OpenIdConnectClientCredentialPtrOutput)
 }
 
+// The client id of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -24908,6 +26012,7 @@ func (o OpenIdConnectRegistrationOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistration) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationOutput) OpenIdConnectConfiguration() OpenIdConnectConfigPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistration) *OpenIdConnectConfig { return v.OpenIdConnectConfiguration }).(OpenIdConnectConfigPtrOutput)
 }
@@ -24930,6 +26035,7 @@ func (o OpenIdConnectRegistrationPtrOutput) Elem() OpenIdConnectRegistrationOutp
 	return o.ApplyT(func(v *OpenIdConnectRegistration) OpenIdConnectRegistration { return *v }).(OpenIdConnectRegistrationOutput)
 }
 
+// The authentication credentials of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationPtrOutput) ClientCredential() OpenIdConnectClientCredentialPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectRegistration) *OpenIdConnectClientCredential {
 		if v == nil {
@@ -24939,6 +26045,7 @@ func (o OpenIdConnectRegistrationPtrOutput) ClientCredential() OpenIdConnectClie
 	}).(OpenIdConnectClientCredentialPtrOutput)
 }
 
+// The client id of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectRegistration) *string {
 		if v == nil {
@@ -24958,6 +26065,7 @@ func (o OpenIdConnectRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationPtrOutput) OpenIdConnectConfiguration() OpenIdConnectConfigPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectRegistration) *OpenIdConnectConfig {
 		if v == nil {
@@ -24967,15 +26075,19 @@ func (o OpenIdConnectRegistrationPtrOutput) OpenIdConnectConfiguration() OpenIdC
 	}).(OpenIdConnectConfigPtrOutput)
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 type OpenIdConnectRegistrationResponse struct {
+	// The authentication credentials of the custom Open ID Connect provider.
 	ClientCredential *OpenIdConnectClientCredentialResponse `pulumi:"clientCredential"`
-	ClientId         *string                                `pulumi:"clientId"`
+	// The client id of the custom Open ID Connect provider.
+	ClientId *string `pulumi:"clientId"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name                       string                       `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 	OpenIdConnectConfiguration *OpenIdConnectConfigResponse `pulumi:"openIdConnectConfiguration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -24992,15 +26104,19 @@ type OpenIdConnectRegistrationResponseInput interface {
 	ToOpenIdConnectRegistrationResponseOutputWithContext(context.Context) OpenIdConnectRegistrationResponseOutput
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 type OpenIdConnectRegistrationResponseArgs struct {
+	// The authentication credentials of the custom Open ID Connect provider.
 	ClientCredential OpenIdConnectClientCredentialResponsePtrInput `pulumi:"clientCredential"`
-	ClientId         pulumi.StringPtrInput                         `pulumi:"clientId"`
+	// The client id of the custom Open ID Connect provider.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name                       pulumi.StringInput                  `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 	OpenIdConnectConfiguration OpenIdConnectConfigResponsePtrInput `pulumi:"openIdConnectConfiguration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -25059,6 +26175,7 @@ func (i *openIdConnectRegistrationResponsePtrType) ToOpenIdConnectRegistrationRe
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the app registration for the custom Open ID Connect provider.
 type OpenIdConnectRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectRegistrationResponseOutput) ElementType() reflect.Type {
@@ -25082,12 +26199,15 @@ func (o OpenIdConnectRegistrationResponseOutput) ToOpenIdConnectRegistrationResp
 		return &v
 	}).(OpenIdConnectRegistrationResponsePtrOutput)
 }
+
+// The authentication credentials of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationResponseOutput) ClientCredential() OpenIdConnectClientCredentialResponsePtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) *OpenIdConnectClientCredentialResponse {
 		return v.ClientCredential
 	}).(OpenIdConnectClientCredentialResponsePtrOutput)
 }
 
+// The client id of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -25107,6 +26227,7 @@ func (o OpenIdConnectRegistrationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationResponseOutput) OpenIdConnectConfiguration() OpenIdConnectConfigResponsePtrOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) *OpenIdConnectConfigResponse {
 		return v.OpenIdConnectConfiguration
@@ -25136,6 +26257,7 @@ func (o OpenIdConnectRegistrationResponsePtrOutput) Elem() OpenIdConnectRegistra
 	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) OpenIdConnectRegistrationResponse { return *v }).(OpenIdConnectRegistrationResponseOutput)
 }
 
+// The authentication credentials of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationResponsePtrOutput) ClientCredential() OpenIdConnectClientCredentialResponsePtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) *OpenIdConnectClientCredentialResponse {
 		if v == nil {
@@ -25145,6 +26267,7 @@ func (o OpenIdConnectRegistrationResponsePtrOutput) ClientCredential() OpenIdCon
 	}).(OpenIdConnectClientCredentialResponsePtrOutput)
 }
 
+// The client id of the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) *string {
 		if v == nil {
@@ -25184,6 +26307,7 @@ func (o OpenIdConnectRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the endpoints used for the custom Open ID Connect provider.
 func (o OpenIdConnectRegistrationResponsePtrOutput) OpenIdConnectConfiguration() OpenIdConnectConfigResponsePtrOutput {
 	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) *OpenIdConnectConfigResponse {
 		if v == nil {
@@ -27269,6 +28393,8 @@ type SiteConfig struct {
 	// Number of preWarmed instances.
 	// This setting only applies to the Consumption and Elastic Plans
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Property to allow or block all public traffic.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Publishing user name.
 	PublishingUsername *string `pulumi:"publishingUsername"`
 	// Push endpoint settings.
@@ -27415,6 +28541,8 @@ type SiteConfigArgs struct {
 	// Number of preWarmed instances.
 	// This setting only applies to the Consumption and Elastic Plans
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Property to allow or block all public traffic.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Publishing user name.
 	PublishingUsername pulumi.StringPtrInput `pulumi:"publishingUsername"`
 	// Push endpoint settings.
@@ -27750,6 +28878,11 @@ func (o SiteConfigOutput) PowerShellVersion() pulumi.StringPtrOutput {
 // This setting only applies to the Consumption and Elastic Plans
 func (o SiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Property to allow or block all public traffic.
+func (o SiteConfigOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Publishing user name.
@@ -28300,6 +29433,16 @@ func (o SiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Property to allow or block all public traffic.
+func (o SiteConfigPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // Publishing user name.
 func (o SiteConfigPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
@@ -28603,6 +29746,8 @@ type SiteConfigResponse struct {
 	// Number of preWarmed instances.
 	// This setting only applies to the Consumption and Elastic Plans
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Property to allow or block all public traffic.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Publishing user name.
 	PublishingUsername *string `pulumi:"publishingUsername"`
 	// Push endpoint settings.
@@ -28751,6 +29896,8 @@ type SiteConfigResponseArgs struct {
 	// Number of preWarmed instances.
 	// This setting only applies to the Consumption and Elastic Plans
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Property to allow or block all public traffic.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Publishing user name.
 	PublishingUsername pulumi.StringPtrInput `pulumi:"publishingUsername"`
 	// Push endpoint settings.
@@ -29091,6 +30238,11 @@ func (o SiteConfigResponseOutput) PowerShellVersion() pulumi.StringPtrOutput {
 // This setting only applies to the Consumption and Elastic Plans
 func (o SiteConfigResponseOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Property to allow or block all public traffic.
+func (o SiteConfigResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Publishing user name.
@@ -29649,6 +30801,16 @@ func (o SiteConfigResponsePtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutpu
 		}
 		return v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Property to allow or block all public traffic.
+func (o SiteConfigResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
 }
 
 // Publishing user name.
@@ -33803,12 +34965,19 @@ func (o StatusCodesRangeBasedTriggerResponseArrayOutput) Index(i pulumi.IntInput
 	}).(StatusCodesRangeBasedTriggerResponseOutput)
 }
 
+// The configuration settings of the token store.
 type TokenStore struct {
+	// The configuration settings of the storage of the tokens if blob storage is used.
 	AzureBlobStorage *BlobStorageTokenStore `pulumi:"azureBlobStorage"`
-	Enabled          *bool                  `pulumi:"enabled"`
-	FileSystem       *FileSystemTokenStore  `pulumi:"fileSystem"`
+	// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+	//  The default is <code>false</code>.
+	Enabled *bool `pulumi:"enabled"`
+	// The configuration settings of the storage of the tokens if a file system is used.
+	FileSystem *FileSystemTokenStore `pulumi:"fileSystem"`
 	// Kind of resource.
-	Kind                       *string  `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The number of hours after session token expiration that a session token can be used to
+	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
 }
 
@@ -33823,12 +34992,19 @@ type TokenStoreInput interface {
 	ToTokenStoreOutputWithContext(context.Context) TokenStoreOutput
 }
 
+// The configuration settings of the token store.
 type TokenStoreArgs struct {
+	// The configuration settings of the storage of the tokens if blob storage is used.
 	AzureBlobStorage BlobStorageTokenStorePtrInput `pulumi:"azureBlobStorage"`
-	Enabled          pulumi.BoolPtrInput           `pulumi:"enabled"`
-	FileSystem       FileSystemTokenStorePtrInput  `pulumi:"fileSystem"`
+	// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+	//  The default is <code>false</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The configuration settings of the storage of the tokens if a file system is used.
+	FileSystem FileSystemTokenStorePtrInput `pulumi:"fileSystem"`
 	// Kind of resource.
-	Kind                       pulumi.StringPtrInput  `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The number of hours after session token expiration that a session token can be used to
+	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
 }
 
@@ -33885,6 +35061,7 @@ func (i *tokenStorePtrType) ToTokenStorePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TokenStorePtrOutput)
 }
 
+// The configuration settings of the token store.
 type TokenStoreOutput struct{ *pulumi.OutputState }
 
 func (TokenStoreOutput) ElementType() reflect.Type {
@@ -33908,14 +35085,19 @@ func (o TokenStoreOutput) ToTokenStorePtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(TokenStorePtrOutput)
 }
+
+// The configuration settings of the storage of the tokens if blob storage is used.
 func (o TokenStoreOutput) AzureBlobStorage() BlobStorageTokenStorePtrOutput {
 	return o.ApplyT(func(v TokenStore) *BlobStorageTokenStore { return v.AzureBlobStorage }).(BlobStorageTokenStorePtrOutput)
 }
 
+// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+//  The default is <code>false</code>.
 func (o TokenStoreOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TokenStore) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 func (o TokenStoreOutput) FileSystem() FileSystemTokenStorePtrOutput {
 	return o.ApplyT(func(v TokenStore) *FileSystemTokenStore { return v.FileSystem }).(FileSystemTokenStorePtrOutput)
 }
@@ -33925,6 +35107,8 @@ func (o TokenStoreOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenStore) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to
+// call the token refresh API. The default is 72 hours.
 func (o TokenStoreOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TokenStore) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
@@ -33947,6 +35131,7 @@ func (o TokenStorePtrOutput) Elem() TokenStoreOutput {
 	return o.ApplyT(func(v *TokenStore) TokenStore { return *v }).(TokenStoreOutput)
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 func (o TokenStorePtrOutput) AzureBlobStorage() BlobStorageTokenStorePtrOutput {
 	return o.ApplyT(func(v *TokenStore) *BlobStorageTokenStore {
 		if v == nil {
@@ -33956,6 +35141,8 @@ func (o TokenStorePtrOutput) AzureBlobStorage() BlobStorageTokenStorePtrOutput {
 	}).(BlobStorageTokenStorePtrOutput)
 }
 
+// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+//  The default is <code>false</code>.
 func (o TokenStorePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TokenStore) *bool {
 		if v == nil {
@@ -33965,6 +35152,7 @@ func (o TokenStorePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 func (o TokenStorePtrOutput) FileSystem() FileSystemTokenStorePtrOutput {
 	return o.ApplyT(func(v *TokenStore) *FileSystemTokenStore {
 		if v == nil {
@@ -33984,6 +35172,8 @@ func (o TokenStorePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to
+// call the token refresh API. The default is 72 hours.
 func (o TokenStorePtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TokenStore) *float64 {
 		if v == nil {
@@ -33993,16 +35183,23 @@ func (o TokenStorePtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The configuration settings of the token store.
 type TokenStoreResponse struct {
+	// The configuration settings of the storage of the tokens if blob storage is used.
 	AzureBlobStorage *BlobStorageTokenStoreResponse `pulumi:"azureBlobStorage"`
-	Enabled          *bool                          `pulumi:"enabled"`
-	FileSystem       *FileSystemTokenStoreResponse  `pulumi:"fileSystem"`
+	// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+	//  The default is <code>false</code>.
+	Enabled *bool `pulumi:"enabled"`
+	// The configuration settings of the storage of the tokens if a file system is used.
+	FileSystem *FileSystemTokenStoreResponse `pulumi:"fileSystem"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name                       string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The number of hours after session token expiration that a session token can be used to
+	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -34019,16 +35216,23 @@ type TokenStoreResponseInput interface {
 	ToTokenStoreResponseOutputWithContext(context.Context) TokenStoreResponseOutput
 }
 
+// The configuration settings of the token store.
 type TokenStoreResponseArgs struct {
+	// The configuration settings of the storage of the tokens if blob storage is used.
 	AzureBlobStorage BlobStorageTokenStoreResponsePtrInput `pulumi:"azureBlobStorage"`
-	Enabled          pulumi.BoolPtrInput                   `pulumi:"enabled"`
-	FileSystem       FileSystemTokenStoreResponsePtrInput  `pulumi:"fileSystem"`
+	// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+	//  The default is <code>false</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The configuration settings of the storage of the tokens if a file system is used.
+	FileSystem FileSystemTokenStoreResponsePtrInput `pulumi:"fileSystem"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name                       pulumi.StringInput     `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of hours after session token expiration that a session token can be used to
+	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -34087,6 +35291,7 @@ func (i *tokenStoreResponsePtrType) ToTokenStoreResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TokenStoreResponsePtrOutput)
 }
 
+// The configuration settings of the token store.
 type TokenStoreResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenStoreResponseOutput) ElementType() reflect.Type {
@@ -34110,14 +35315,19 @@ func (o TokenStoreResponseOutput) ToTokenStoreResponsePtrOutputWithContext(ctx c
 		return &v
 	}).(TokenStoreResponsePtrOutput)
 }
+
+// The configuration settings of the storage of the tokens if blob storage is used.
 func (o TokenStoreResponseOutput) AzureBlobStorage() BlobStorageTokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v TokenStoreResponse) *BlobStorageTokenStoreResponse { return v.AzureBlobStorage }).(BlobStorageTokenStoreResponsePtrOutput)
 }
 
+// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+//  The default is <code>false</code>.
 func (o TokenStoreResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TokenStoreResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 func (o TokenStoreResponseOutput) FileSystem() FileSystemTokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v TokenStoreResponse) *FileSystemTokenStoreResponse { return v.FileSystem }).(FileSystemTokenStoreResponsePtrOutput)
 }
@@ -34137,6 +35347,8 @@ func (o TokenStoreResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenStoreResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to
+// call the token refresh API. The default is 72 hours.
 func (o TokenStoreResponseOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TokenStoreResponse) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
@@ -34164,6 +35376,7 @@ func (o TokenStoreResponsePtrOutput) Elem() TokenStoreResponseOutput {
 	return o.ApplyT(func(v *TokenStoreResponse) TokenStoreResponse { return *v }).(TokenStoreResponseOutput)
 }
 
+// The configuration settings of the storage of the tokens if blob storage is used.
 func (o TokenStoreResponsePtrOutput) AzureBlobStorage() BlobStorageTokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v *TokenStoreResponse) *BlobStorageTokenStoreResponse {
 		if v == nil {
@@ -34173,6 +35386,8 @@ func (o TokenStoreResponsePtrOutput) AzureBlobStorage() BlobStorageTokenStoreRes
 	}).(BlobStorageTokenStoreResponsePtrOutput)
 }
 
+// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+//  The default is <code>false</code>.
 func (o TokenStoreResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TokenStoreResponse) *bool {
 		if v == nil {
@@ -34182,6 +35397,7 @@ func (o TokenStoreResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings of the storage of the tokens if a file system is used.
 func (o TokenStoreResponsePtrOutput) FileSystem() FileSystemTokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v *TokenStoreResponse) *FileSystemTokenStoreResponse {
 		if v == nil {
@@ -34221,6 +35437,8 @@ func (o TokenStoreResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to
+// call the token refresh API. The default is 72 hours.
 func (o TokenStoreResponsePtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TokenStoreResponse) *float64 {
 		if v == nil {
@@ -34240,10 +35458,13 @@ func (o TokenStoreResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 type Twitter struct {
+	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         *string              `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
+	// The configuration settings of the app registration for the Twitter provider.
 	Registration *TwitterRegistration `pulumi:"registration"`
 }
 
@@ -34258,10 +35479,13 @@ type TwitterInput interface {
 	ToTwitterOutputWithContext(context.Context) TwitterOutput
 }
 
+// The configuration settings of the Twitter provider.
 type TwitterArgs struct {
+	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Kind of resource.
-	Kind         pulumi.StringPtrInput       `pulumi:"kind"`
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The configuration settings of the app registration for the Twitter provider.
 	Registration TwitterRegistrationPtrInput `pulumi:"registration"`
 }
 
@@ -34318,6 +35542,7 @@ func (i *twitterPtrType) ToTwitterPtrOutputWithContext(ctx context.Context) Twit
 	return pulumi.ToOutputWithContext(ctx, i).(TwitterPtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 type TwitterOutput struct{ *pulumi.OutputState }
 
 func (TwitterOutput) ElementType() reflect.Type {
@@ -34341,6 +35566,8 @@ func (o TwitterOutput) ToTwitterPtrOutputWithContext(ctx context.Context) Twitte
 		return &v
 	}).(TwitterPtrOutput)
 }
+
+// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o TwitterOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Twitter) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -34350,6 +35577,7 @@ func (o TwitterOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Twitter) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 func (o TwitterOutput) Registration() TwitterRegistrationPtrOutput {
 	return o.ApplyT(func(v Twitter) *TwitterRegistration { return v.Registration }).(TwitterRegistrationPtrOutput)
 }
@@ -34372,6 +35600,7 @@ func (o TwitterPtrOutput) Elem() TwitterOutput {
 	return o.ApplyT(func(v *Twitter) Twitter { return *v }).(TwitterOutput)
 }
 
+// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o TwitterPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Twitter) *bool {
 		if v == nil {
@@ -34391,6 +35620,7 @@ func (o TwitterPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 func (o TwitterPtrOutput) Registration() TwitterRegistrationPtrOutput {
 	return o.ApplyT(func(v *Twitter) *TwitterRegistration {
 		if v == nil {
@@ -34400,8 +35630,14 @@ func (o TwitterPtrOutput) Registration() TwitterRegistrationPtrOutput {
 	}).(TwitterRegistrationPtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 type TwitterRegistration struct {
-	ConsumerKey               *string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	ConsumerKey *string `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+	// application used for sign-in.
 	ConsumerSecretSettingName *string `pulumi:"consumerSecretSettingName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
@@ -34418,8 +35654,14 @@ type TwitterRegistrationInput interface {
 	ToTwitterRegistrationOutputWithContext(context.Context) TwitterRegistrationOutput
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 type TwitterRegistrationArgs struct {
-	ConsumerKey               pulumi.StringPtrInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	ConsumerKey pulumi.StringPtrInput `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+	// application used for sign-in.
 	ConsumerSecretSettingName pulumi.StringPtrInput `pulumi:"consumerSecretSettingName"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
@@ -34478,6 +35720,7 @@ func (i *twitterRegistrationPtrType) ToTwitterRegistrationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TwitterRegistrationPtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 type TwitterRegistrationOutput struct{ *pulumi.OutputState }
 
 func (TwitterRegistrationOutput) ElementType() reflect.Type {
@@ -34501,10 +35744,16 @@ func (o TwitterRegistrationOutput) ToTwitterRegistrationPtrOutputWithContext(ctx
 		return &v
 	}).(TwitterRegistrationPtrOutput)
 }
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+// This setting is required for enabling Twitter Sign-In.
+// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 func (o TwitterRegistrationOutput) ConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TwitterRegistration) *string { return v.ConsumerKey }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+// application used for sign-in.
 func (o TwitterRegistrationOutput) ConsumerSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TwitterRegistration) *string { return v.ConsumerSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -34532,6 +35781,9 @@ func (o TwitterRegistrationPtrOutput) Elem() TwitterRegistrationOutput {
 	return o.ApplyT(func(v *TwitterRegistration) TwitterRegistration { return *v }).(TwitterRegistrationOutput)
 }
 
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+// This setting is required for enabling Twitter Sign-In.
+// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 func (o TwitterRegistrationPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TwitterRegistration) *string {
 		if v == nil {
@@ -34541,6 +35793,8 @@ func (o TwitterRegistrationPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+// application used for sign-in.
 func (o TwitterRegistrationPtrOutput) ConsumerSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TwitterRegistration) *string {
 		if v == nil {
@@ -34560,8 +35814,14 @@ func (o TwitterRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 type TwitterRegistrationResponse struct {
-	ConsumerKey               *string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	ConsumerKey *string `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+	// application used for sign-in.
 	ConsumerSecretSettingName *string `pulumi:"consumerSecretSettingName"`
 	// Resource Id.
 	Id string `pulumi:"id"`
@@ -34584,8 +35844,14 @@ type TwitterRegistrationResponseInput interface {
 	ToTwitterRegistrationResponseOutputWithContext(context.Context) TwitterRegistrationResponseOutput
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 type TwitterRegistrationResponseArgs struct {
-	ConsumerKey               pulumi.StringPtrInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	ConsumerKey pulumi.StringPtrInput `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+	// application used for sign-in.
 	ConsumerSecretSettingName pulumi.StringPtrInput `pulumi:"consumerSecretSettingName"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -34650,6 +35916,7 @@ func (i *twitterRegistrationResponsePtrType) ToTwitterRegistrationResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TwitterRegistrationResponsePtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 type TwitterRegistrationResponseOutput struct{ *pulumi.OutputState }
 
 func (TwitterRegistrationResponseOutput) ElementType() reflect.Type {
@@ -34673,10 +35940,16 @@ func (o TwitterRegistrationResponseOutput) ToTwitterRegistrationResponsePtrOutpu
 		return &v
 	}).(TwitterRegistrationResponsePtrOutput)
 }
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+// This setting is required for enabling Twitter Sign-In.
+// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 func (o TwitterRegistrationResponseOutput) ConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TwitterRegistrationResponse) *string { return v.ConsumerKey }).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+// application used for sign-in.
 func (o TwitterRegistrationResponseOutput) ConsumerSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TwitterRegistrationResponse) *string { return v.ConsumerSecretSettingName }).(pulumi.StringPtrOutput)
 }
@@ -34719,6 +35992,9 @@ func (o TwitterRegistrationResponsePtrOutput) Elem() TwitterRegistrationResponse
 	return o.ApplyT(func(v *TwitterRegistrationResponse) TwitterRegistrationResponse { return *v }).(TwitterRegistrationResponseOutput)
 }
 
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+// This setting is required for enabling Twitter Sign-In.
+// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 func (o TwitterRegistrationResponsePtrOutput) ConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TwitterRegistrationResponse) *string {
 		if v == nil {
@@ -34728,6 +36004,8 @@ func (o TwitterRegistrationResponsePtrOutput) ConsumerKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+// application used for sign-in.
 func (o TwitterRegistrationResponsePtrOutput) ConsumerSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TwitterRegistrationResponse) *string {
 		if v == nil {
@@ -34777,14 +36055,17 @@ func (o TwitterRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 type TwitterResponse struct {
+	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name         string                       `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The configuration settings of the app registration for the Twitter provider.
 	Registration *TwitterRegistrationResponse `pulumi:"registration"`
 	// Resource type.
 	Type string `pulumi:"type"`
@@ -34801,14 +36082,17 @@ type TwitterResponseInput interface {
 	ToTwitterResponseOutputWithContext(context.Context) TwitterResponseOutput
 }
 
+// The configuration settings of the Twitter provider.
 type TwitterResponseArgs struct {
+	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name         pulumi.StringInput                  `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The configuration settings of the app registration for the Twitter provider.
 	Registration TwitterRegistrationResponsePtrInput `pulumi:"registration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -34867,6 +36151,7 @@ func (i *twitterResponsePtrType) ToTwitterResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TwitterResponsePtrOutput)
 }
 
+// The configuration settings of the Twitter provider.
 type TwitterResponseOutput struct{ *pulumi.OutputState }
 
 func (TwitterResponseOutput) ElementType() reflect.Type {
@@ -34890,6 +36175,8 @@ func (o TwitterResponseOutput) ToTwitterResponsePtrOutputWithContext(ctx context
 		return &v
 	}).(TwitterResponsePtrOutput)
 }
+
+// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o TwitterResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TwitterResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -34909,6 +36196,7 @@ func (o TwitterResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TwitterResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 func (o TwitterResponseOutput) Registration() TwitterRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v TwitterResponse) *TwitterRegistrationResponse { return v.Registration }).(TwitterRegistrationResponsePtrOutput)
 }
@@ -34936,6 +36224,7 @@ func (o TwitterResponsePtrOutput) Elem() TwitterResponseOutput {
 	return o.ApplyT(func(v *TwitterResponse) TwitterResponse { return *v }).(TwitterResponseOutput)
 }
 
+// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 func (o TwitterResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TwitterResponse) *bool {
 		if v == nil {
@@ -34975,6 +36264,7 @@ func (o TwitterResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings of the app registration for the Twitter provider.
 func (o TwitterResponsePtrOutput) Registration() TwitterRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *TwitterResponse) *TwitterRegistrationResponse {
 		if v == nil {

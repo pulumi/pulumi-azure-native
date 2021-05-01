@@ -25,11 +25,17 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The time after the request is made when the nonce should expire.
+        /// </summary>
         public readonly string? NonceExpirationInterval;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the nonce should not be validated while completing the login flow; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         public readonly bool? ValidateNonce;
 
         [OutputConstructor]

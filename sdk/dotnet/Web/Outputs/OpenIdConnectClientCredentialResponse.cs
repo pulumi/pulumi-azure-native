@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class OpenIdConnectClientCredentialResponse
     {
+        /// <summary>
+        /// The app setting that contains the client secret for the custom Open ID Connect provider.
+        /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
         /// Resource Id.
@@ -22,6 +25,9 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The method that should be used to authenticate the user.
+        /// </summary>
         public readonly string? Method;
         /// <summary>
         /// Resource Name.

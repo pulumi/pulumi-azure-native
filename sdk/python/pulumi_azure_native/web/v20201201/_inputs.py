@@ -190,6 +190,9 @@ class AppRegistrationArgs:
                  app_secret_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the app registration for providers that have app ids and app secrets
+        :param pulumi.Input[str] app_id: The App ID of the app used for login.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the app secret.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if app_id is not None:
@@ -202,6 +205,9 @@ class AppRegistrationArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App ID of the app used for login.
+        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -211,6 +217,9 @@ class AppRegistrationArgs:
     @property
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the app secret.
+        """
         return pulumi.get(self, "app_secret_setting_name")
 
     @app_secret_setting_name.setter
@@ -238,7 +247,11 @@ class AppleArgs:
                  login: Optional[pulumi.Input['LoginScopesArgs']] = None,
                  registration: Optional[pulumi.Input['AppleRegistrationArgs']] = None):
         """
+        The configuration settings of the Apple provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
+        :param pulumi.Input['AppleRegistrationArgs'] registration: The configuration settings of the Apple registration.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -252,6 +265,9 @@ class AppleArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -273,6 +289,9 @@ class AppleArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -282,6 +301,9 @@ class AppleArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['AppleRegistrationArgs']]:
+        """
+        The configuration settings of the Apple registration.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -296,6 +318,9 @@ class AppleRegistrationArgs:
                  client_secret_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the registration for the Apple provider
+        :param pulumi.Input[str] client_id: The Client ID of the app used for login.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if client_id is not None:
@@ -308,6 +333,9 @@ class AppleRegistrationArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the app used for login.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -317,6 +345,9 @@ class AppleRegistrationArgs:
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the client secret.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
@@ -400,7 +431,13 @@ class AuthPlatformArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the platform of App Service Authentication/Authorization.
+        :param pulumi.Input[str] config_file_path: The path of the config file containing auth settings if they come from a file.
+               If the path is relative, base will the site's root directory.
+        :param pulumi.Input[bool] enabled: <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+               The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
         if config_file_path is not None:
             pulumi.set(__self__, "config_file_path", config_file_path)
@@ -414,6 +451,10 @@ class AuthPlatformArgs:
     @property
     @pulumi.getter(name="configFilePath")
     def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the config file containing auth settings if they come from a file.
+        If the path is relative, base will the site's root directory.
+        """
         return pulumi.get(self, "config_file_path")
 
     @config_file_path.setter
@@ -423,6 +464,9 @@ class AuthPlatformArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -444,6 +488,10 @@ class AuthPlatformArgs:
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+        The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+        """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
@@ -704,7 +752,15 @@ class AzureActiveDirectoryArgs:
                  registration: Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']] = None,
                  validation: Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']] = None):
         """
+        The configuration settings of the Azure Active directory provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        :param pulumi.Input[bool] is_auto_provisioned: Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+               This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+               read or write to this property.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['AzureActiveDirectoryLoginArgs'] login: The configuration settings of the Azure Active Directory login flow.
+        :param pulumi.Input['AzureActiveDirectoryRegistrationArgs'] registration: The configuration settings of the Azure Active Directory app registration.
+        :param pulumi.Input['AzureActiveDirectoryValidationArgs'] validation: The configuration settings of the Azure Active Directory token validation flow.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -722,6 +778,9 @@ class AzureActiveDirectoryArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -731,6 +790,11 @@ class AzureActiveDirectoryArgs:
     @property
     @pulumi.getter(name="isAutoProvisioned")
     def is_auto_provisioned(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+        This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+        read or write to this property.
+        """
         return pulumi.get(self, "is_auto_provisioned")
 
     @is_auto_provisioned.setter
@@ -752,6 +816,9 @@ class AzureActiveDirectoryArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']]:
+        """
+        The configuration settings of the Azure Active Directory login flow.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -761,6 +828,9 @@ class AzureActiveDirectoryArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']]:
+        """
+        The configuration settings of the Azure Active Directory app registration.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -770,6 +840,9 @@ class AzureActiveDirectoryArgs:
     @property
     @pulumi.getter
     def validation(self) -> Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']]:
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
         return pulumi.get(self, "validation")
 
     @validation.setter
@@ -784,7 +857,10 @@ class AzureActiveDirectoryLoginArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  login_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        The configuration settings of the Azure Active Directory login flow.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_parameters: Login parameters to send to the OpenID Connect authorization endpoint when
+               a user logs in. Each parameter must be in the form "key=value".
         """
         if disable_www_authenticate is not None:
             pulumi.set(__self__, "disable_www_authenticate", disable_www_authenticate)
@@ -817,6 +893,10 @@ class AzureActiveDirectoryLoginArgs:
     @property
     @pulumi.getter(name="loginParameters")
     def login_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Login parameters to send to the OpenID Connect authorization endpoint when
+        a user logs in. Each parameter must be in the form "key=value".
+        """
         return pulumi.get(self, "login_parameters")
 
     @login_parameters.setter
@@ -833,7 +913,19 @@ class AzureActiveDirectoryRegistrationArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  open_id_issuer: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the Azure Active Directory app registration.
+        :param pulumi.Input[str] client_id: The Client ID of this relying party application, known as the client_id.
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               other 3rd party OpenID Connect providers.
+               More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+               a replacement for the Client Secret. It is also optional.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+               This URI is a case-sensitive identifier for the token issuer.
+               More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -849,6 +941,12 @@ class AzureActiveDirectoryRegistrationArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of this relying party application, known as the client_id.
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        other 3rd party OpenID Connect providers.
+        More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -858,6 +956,10 @@ class AzureActiveDirectoryRegistrationArgs:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+        a replacement for the Client Secret. It is also optional.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -867,6 +969,9 @@ class AzureActiveDirectoryRegistrationArgs:
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the client secret of the relying party application.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
@@ -888,6 +993,12 @@ class AzureActiveDirectoryRegistrationArgs:
     @property
     @pulumi.getter(name="openIdIssuer")
     def open_id_issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        This URI is a case-sensitive identifier for the token issuer.
+        More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+        """
         return pulumi.get(self, "open_id_issuer")
 
     @open_id_issuer.setter
@@ -902,6 +1013,9 @@ class AzureActiveDirectoryValidationArgs:
                  jwt_claim_checks: Optional[pulumi.Input['JwtClaimChecksArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the Azure Active Directory token validation flow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
+        :param pulumi.Input['JwtClaimChecksArgs'] jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if allowed_audiences is not None:
@@ -914,6 +1028,9 @@ class AzureActiveDirectoryValidationArgs:
     @property
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of audiences that can make successful authentication/authorization requests.
+        """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
@@ -923,6 +1040,9 @@ class AzureActiveDirectoryValidationArgs:
     @property
     @pulumi.getter(name="jwtClaimChecks")
     def jwt_claim_checks(self) -> Optional[pulumi.Input['JwtClaimChecksArgs']]:
+        """
+        The configuration settings of the checks that should be made while validating the JWT Claims.
+        """
         return pulumi.get(self, "jwt_claim_checks")
 
     @jwt_claim_checks.setter
@@ -1069,7 +1189,10 @@ class AzureStaticWebAppsArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  registration: Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']] = None):
         """
+        The configuration settings of the Azure Static Web Apps provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['AzureStaticWebAppsRegistrationArgs'] registration: The configuration settings of the Azure Static Web Apps registration.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1081,6 +1204,9 @@ class AzureStaticWebAppsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1102,6 +1228,9 @@ class AzureStaticWebAppsArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']]:
+        """
+        The configuration settings of the Azure Static Web Apps registration.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -1115,6 +1244,8 @@ class AzureStaticWebAppsRegistrationArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the registration for the Azure Static Web Apps provider
+        :param pulumi.Input[str] client_id: The Client ID of the app used for login.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if client_id is not None:
@@ -1125,6 +1256,9 @@ class AzureStaticWebAppsRegistrationArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the app used for login.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -1461,7 +1595,9 @@ class BlobStorageTokenStoreArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  sas_url_setting_name: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the storage of the tokens if blob storage is used.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] sas_url_setting_name: The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -1483,6 +1619,9 @@ class BlobStorageTokenStoreArgs:
     @property
     @pulumi.getter(name="sasUrlSettingName")
     def sas_url_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app setting containing the SAS URL of the blob storage containing the tokens.
+        """
         return pulumi.get(self, "sas_url_setting_name")
 
     @sas_url_setting_name.setter
@@ -1553,6 +1692,9 @@ class ClientRegistrationArgs:
                  client_secret_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the app registration for providers that have client ids and client secrets
+        :param pulumi.Input[str] client_id: The Client ID of the app used for login.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if client_id is not None:
@@ -1565,6 +1707,9 @@ class ClientRegistrationArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the app used for login.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -1574,6 +1719,9 @@ class ClientRegistrationArgs:
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the client secret.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
@@ -1887,7 +2035,10 @@ class CookieExpirationArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  time_to_expiration: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the session cookie's expiration.
+        :param pulumi.Input['CookieExpirationConvention'] convention: The convention used when determining the session cookie's expiration.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] time_to_expiration: The time after the request is made when the session cookie should expire.
         """
         if convention is not None:
             pulumi.set(__self__, "convention", convention)
@@ -1899,6 +2050,9 @@ class CookieExpirationArgs:
     @property
     @pulumi.getter
     def convention(self) -> Optional[pulumi.Input['CookieExpirationConvention']]:
+        """
+        The convention used when determining the session cookie's expiration.
+        """
         return pulumi.get(self, "convention")
 
     @convention.setter
@@ -1920,6 +2074,9 @@ class CookieExpirationArgs:
     @property
     @pulumi.getter(name="timeToExpiration")
     def time_to_expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the session cookie should expire.
+        """
         return pulumi.get(self, "time_to_expiration")
 
     @time_to_expiration.setter
@@ -1981,7 +2138,11 @@ class CustomOpenIdConnectProviderArgs:
                  login: Optional[pulumi.Input['OpenIdConnectLoginArgs']] = None,
                  registration: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']] = None):
         """
+        The configuration settings of the custom Open ID Connect provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['OpenIdConnectLoginArgs'] login: The configuration settings of the login flow of the custom Open ID Connect provider.
+        :param pulumi.Input['OpenIdConnectRegistrationArgs'] registration: The configuration settings of the app registration for the custom Open ID Connect provider.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1995,6 +2156,9 @@ class CustomOpenIdConnectProviderArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2016,6 +2180,9 @@ class CustomOpenIdConnectProviderArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['OpenIdConnectLoginArgs']]:
+        """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -2025,6 +2192,9 @@ class CustomOpenIdConnectProviderArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['OpenIdConnectRegistrationArgs']]:
+        """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -2227,7 +2397,12 @@ class FacebookArgs:
                  login: Optional[pulumi.Input['LoginScopesArgs']] = None,
                  registration: Optional[pulumi.Input['AppRegistrationArgs']] = None):
         """
+        The configuration settings of the Facebook provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        :param pulumi.Input[str] graph_api_version: The version of the Facebook api to be used while logging in.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
+        :param pulumi.Input['AppRegistrationArgs'] registration: The configuration settings of the app registration for the Facebook provider.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2243,6 +2418,9 @@ class FacebookArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2252,6 +2430,9 @@ class FacebookArgs:
     @property
     @pulumi.getter(name="graphApiVersion")
     def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Facebook api to be used while logging in.
+        """
         return pulumi.get(self, "graph_api_version")
 
     @graph_api_version.setter
@@ -2273,6 +2454,9 @@ class FacebookArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -2282,6 +2466,9 @@ class FacebookArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['AppRegistrationArgs']]:
+        """
+        The configuration settings of the app registration for the Facebook provider.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -2385,6 +2572,8 @@ class FileSystemTokenStoreArgs:
                  directory: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the storage of the tokens if a file system is used.
+        :param pulumi.Input[str] directory: The directory in which the tokens will be stored.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if directory is not None:
@@ -2395,6 +2584,9 @@ class FileSystemTokenStoreArgs:
     @property
     @pulumi.getter
     def directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory in which the tokens will be stored.
+        """
         return pulumi.get(self, "directory")
 
     @directory.setter
@@ -2422,6 +2614,10 @@ class ForwardProxyArgs:
                  custom_proto_header_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of a forward proxy used to make the requests.
+        :param pulumi.Input['ForwardProxyConvention'] convention: The convention used to determine the url of the request made.
+        :param pulumi.Input[str] custom_host_header_name: The name of the header containing the host of the request.
+        :param pulumi.Input[str] custom_proto_header_name: The name of the header containing the scheme of the request.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if convention is not None:
@@ -2436,6 +2632,9 @@ class ForwardProxyArgs:
     @property
     @pulumi.getter
     def convention(self) -> Optional[pulumi.Input['ForwardProxyConvention']]:
+        """
+        The convention used to determine the url of the request made.
+        """
         return pulumi.get(self, "convention")
 
     @convention.setter
@@ -2445,6 +2644,9 @@ class ForwardProxyArgs:
     @property
     @pulumi.getter(name="customHostHeaderName")
     def custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the header containing the host of the request.
+        """
         return pulumi.get(self, "custom_host_header_name")
 
     @custom_host_header_name.setter
@@ -2454,6 +2656,9 @@ class ForwardProxyArgs:
     @property
     @pulumi.getter(name="customProtoHeaderName")
     def custom_proto_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the header containing the scheme of the request.
+        """
         return pulumi.get(self, "custom_proto_header_name")
 
     @custom_proto_header_name.setter
@@ -2481,7 +2686,11 @@ class GitHubArgs:
                  login: Optional[pulumi.Input['LoginScopesArgs']] = None,
                  registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None):
         """
+        The configuration settings of the GitHub provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
+        :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the GitHub provider.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2495,6 +2704,9 @@ class GitHubArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2516,6 +2728,9 @@ class GitHubArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -2525,6 +2740,9 @@ class GitHubArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+        """
+        The configuration settings of the app registration for the GitHub provider.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -2725,7 +2943,14 @@ class GlobalValidationArgs:
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientActionV2']] = None):
         """
+        The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths for which unauthenticated flow would not be redirected to the login page.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] redirect_to_provider: The default authentication provider to use when multiple providers are configured.
+               This setting is only needed if multiple providers are configured and the unauthenticated client
+               action is set to "RedirectToLoginPage".
+        :param pulumi.Input[bool] require_authentication: <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+        :param pulumi.Input['UnauthenticatedClientActionV2'] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         """
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
@@ -2741,6 +2966,9 @@ class GlobalValidationArgs:
     @property
     @pulumi.getter(name="excludedPaths")
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The paths for which unauthenticated flow would not be redirected to the login page.
+        """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
@@ -2762,6 +2990,11 @@ class GlobalValidationArgs:
     @property
     @pulumi.getter(name="redirectToProvider")
     def redirect_to_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured.
+        This setting is only needed if multiple providers are configured and the unauthenticated client
+        action is set to "RedirectToLoginPage".
+        """
         return pulumi.get(self, "redirect_to_provider")
 
     @redirect_to_provider.setter
@@ -2771,6 +3004,9 @@ class GlobalValidationArgs:
     @property
     @pulumi.getter(name="requireAuthentication")
     def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+        """
         return pulumi.get(self, "require_authentication")
 
     @require_authentication.setter
@@ -2780,6 +3016,9 @@ class GlobalValidationArgs:
     @property
     @pulumi.getter(name="unauthenticatedClientAction")
     def unauthenticated_client_action(self) -> Optional[pulumi.Input['UnauthenticatedClientActionV2']]:
+        """
+        The action to take when an unauthenticated client attempts to access the app.
+        """
         return pulumi.get(self, "unauthenticated_client_action")
 
     @unauthenticated_client_action.setter
@@ -2796,7 +3035,12 @@ class GoogleArgs:
                  registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
                  validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
         """
+        The configuration settings of the Google provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
+        :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the Google provider.
+        :param pulumi.Input['AllowedAudiencesValidationArgs'] validation: The configuration settings of the Azure Active Directory token validation flow.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2812,6 +3056,9 @@ class GoogleArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2833,6 +3080,9 @@ class GoogleArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -2842,6 +3092,9 @@ class GoogleArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+        """
+        The configuration settings of the app registration for the Google provider.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -2851,6 +3104,9 @@ class GoogleArgs:
     @property
     @pulumi.getter
     def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
         return pulumi.get(self, "validation")
 
     @validation.setter
@@ -3091,7 +3347,11 @@ class HttpSettingsArgs:
                  require_https: Optional[pulumi.Input[bool]] = None,
                  routes: Optional[pulumi.Input['HttpSettingsRoutesArgs']] = None):
         """
+        The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        :param pulumi.Input['ForwardProxyArgs'] forward_proxy: The configuration settings of a forward proxy used to make the requests.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[bool] require_https: <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+        :param pulumi.Input['HttpSettingsRoutesArgs'] routes: The configuration settings of the paths HTTP requests.
         """
         if forward_proxy is not None:
             pulumi.set(__self__, "forward_proxy", forward_proxy)
@@ -3105,6 +3365,9 @@ class HttpSettingsArgs:
     @property
     @pulumi.getter(name="forwardProxy")
     def forward_proxy(self) -> Optional[pulumi.Input['ForwardProxyArgs']]:
+        """
+        The configuration settings of a forward proxy used to make the requests.
+        """
         return pulumi.get(self, "forward_proxy")
 
     @forward_proxy.setter
@@ -3126,6 +3389,9 @@ class HttpSettingsArgs:
     @property
     @pulumi.getter(name="requireHttps")
     def require_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "require_https")
 
     @require_https.setter
@@ -3135,6 +3401,9 @@ class HttpSettingsArgs:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input['HttpSettingsRoutesArgs']]:
+        """
+        The configuration settings of the paths HTTP requests.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -3148,6 +3417,8 @@ class HttpSettingsRoutesArgs:
                  api_prefix: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the paths HTTP requests.
+        :param pulumi.Input[str] api_prefix: The prefix that should precede all the authentication/authorization paths.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if api_prefix is not None:
@@ -3158,6 +3429,9 @@ class HttpSettingsRoutesArgs:
     @property
     @pulumi.getter(name="apiPrefix")
     def api_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix that should precede all the authentication/authorization paths.
+        """
         return pulumi.get(self, "api_prefix")
 
     @api_prefix.setter
@@ -3191,7 +3465,18 @@ class IdentityProvidersArgs:
                  legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
                  twitter: Optional[pulumi.Input['TwitterArgs']] = None):
         """
+        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        :param pulumi.Input['AppleArgs'] apple: The configuration settings of the Apple provider.
+        :param pulumi.Input['AzureActiveDirectoryArgs'] azure_active_directory: The configuration settings of the Azure Active directory provider.
+        :param pulumi.Input['AzureStaticWebAppsArgs'] azure_static_web_apps: The configuration settings of the Azure Static Web Apps provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]] custom_open_id_connect_providers: The map of the name of the alias of each custom Open ID Connect provider to the
+               configuration settings of the custom Open ID Connect provider.
+        :param pulumi.Input['FacebookArgs'] facebook: The configuration settings of the Facebook provider.
+        :param pulumi.Input['GitHubArgs'] git_hub: The configuration settings of the GitHub provider.
+        :param pulumi.Input['GoogleArgs'] google: The configuration settings of the Google provider.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LegacyMicrosoftAccountArgs'] legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
+        :param pulumi.Input['TwitterArgs'] twitter: The configuration settings of the Twitter provider.
         """
         if apple is not None:
             pulumi.set(__self__, "apple", apple)
@@ -3217,6 +3502,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter
     def apple(self) -> Optional[pulumi.Input['AppleArgs']]:
+        """
+        The configuration settings of the Apple provider.
+        """
         return pulumi.get(self, "apple")
 
     @apple.setter
@@ -3226,6 +3514,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
+        """
+        The configuration settings of the Azure Active directory provider.
+        """
         return pulumi.get(self, "azure_active_directory")
 
     @azure_active_directory.setter
@@ -3235,6 +3526,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter(name="azureStaticWebApps")
     def azure_static_web_apps(self) -> Optional[pulumi.Input['AzureStaticWebAppsArgs']]:
+        """
+        The configuration settings of the Azure Static Web Apps provider.
+        """
         return pulumi.get(self, "azure_static_web_apps")
 
     @azure_static_web_apps.setter
@@ -3244,6 +3538,10 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter(name="customOpenIdConnectProviders")
     def custom_open_id_connect_providers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]]:
+        """
+        The map of the name of the alias of each custom Open ID Connect provider to the
+        configuration settings of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "custom_open_id_connect_providers")
 
     @custom_open_id_connect_providers.setter
@@ -3253,6 +3551,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter
     def facebook(self) -> Optional[pulumi.Input['FacebookArgs']]:
+        """
+        The configuration settings of the Facebook provider.
+        """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
@@ -3262,6 +3563,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter(name="gitHub")
     def git_hub(self) -> Optional[pulumi.Input['GitHubArgs']]:
+        """
+        The configuration settings of the GitHub provider.
+        """
         return pulumi.get(self, "git_hub")
 
     @git_hub.setter
@@ -3271,6 +3575,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter
     def google(self) -> Optional[pulumi.Input['GoogleArgs']]:
+        """
+        The configuration settings of the Google provider.
+        """
         return pulumi.get(self, "google")
 
     @google.setter
@@ -3292,6 +3599,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter(name="legacyMicrosoftAccount")
     def legacy_microsoft_account(self) -> Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]:
+        """
+        The configuration settings of the legacy Microsoft Account provider.
+        """
         return pulumi.get(self, "legacy_microsoft_account")
 
     @legacy_microsoft_account.setter
@@ -3301,6 +3611,9 @@ class IdentityProvidersArgs:
     @property
     @pulumi.getter
     def twitter(self) -> Optional[pulumi.Input['TwitterArgs']]:
+        """
+        The configuration settings of the Twitter provider.
+        """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
@@ -3535,6 +3848,9 @@ class JwtClaimChecksArgs:
                  allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the checks that should be made while validating the JWT Claims.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_client_applications: The list of the allowed client applications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of the allowed groups.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if allowed_client_applications is not None:
@@ -3547,6 +3863,9 @@ class JwtClaimChecksArgs:
     @property
     @pulumi.getter(name="allowedClientApplications")
     def allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the allowed client applications.
+        """
         return pulumi.get(self, "allowed_client_applications")
 
     @allowed_client_applications.setter
@@ -3556,6 +3875,9 @@ class JwtClaimChecksArgs:
     @property
     @pulumi.getter(name="allowedGroups")
     def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the allowed groups.
+        """
         return pulumi.get(self, "allowed_groups")
 
     @allowed_groups.setter
@@ -3608,7 +3930,12 @@ class LegacyMicrosoftAccountArgs:
                  registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
                  validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
         """
+        The configuration settings of the legacy Microsoft Account provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
+        :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
+        :param pulumi.Input['AllowedAudiencesValidationArgs'] validation: The configuration settings of the legacy Microsoft Account provider token validation flow.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3624,6 +3951,9 @@ class LegacyMicrosoftAccountArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -3645,6 +3975,9 @@ class LegacyMicrosoftAccountArgs:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -3654,6 +3987,9 @@ class LegacyMicrosoftAccountArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+        """
+        The configuration settings of the app registration for the legacy Microsoft Account provider.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -3663,6 +3999,9 @@ class LegacyMicrosoftAccountArgs:
     @property
     @pulumi.getter
     def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
+        """
+        The configuration settings of the legacy Microsoft Account provider token validation flow.
+        """
         return pulumi.get(self, "validation")
 
     @validation.setter
@@ -3681,7 +4020,16 @@ class LoginArgs:
                  routes: Optional[pulumi.Input['LoginRoutesArgs']] = None,
                  token_store: Optional[pulumi.Input['TokenStoreArgs']] = None):
         """
+        The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+               This is an advanced setting typically only needed by Windows Store application backends.
+               Note that URLs within the current domain are always implicitly allowed.
+        :param pulumi.Input['CookieExpirationArgs'] cookie_expiration: The configuration settings of the session cookie's expiration.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['NonceArgs'] nonce: The configuration settings of the nonce used in the login flow.
+        :param pulumi.Input[bool] preserve_url_fragments_for_logins: <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+        :param pulumi.Input['LoginRoutesArgs'] routes: The routes that specify the endpoints used for login and logout requests.
+        :param pulumi.Input['TokenStoreArgs'] token_store: The configuration settings of the token store.
         """
         if allowed_external_redirect_urls is not None:
             pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -3701,6 +4049,11 @@ class LoginArgs:
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
     def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+        This is an advanced setting typically only needed by Windows Store application backends.
+        Note that URLs within the current domain are always implicitly allowed.
+        """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
@@ -3710,6 +4063,9 @@ class LoginArgs:
     @property
     @pulumi.getter(name="cookieExpiration")
     def cookie_expiration(self) -> Optional[pulumi.Input['CookieExpirationArgs']]:
+        """
+        The configuration settings of the session cookie's expiration.
+        """
         return pulumi.get(self, "cookie_expiration")
 
     @cookie_expiration.setter
@@ -3731,6 +4087,9 @@ class LoginArgs:
     @property
     @pulumi.getter
     def nonce(self) -> Optional[pulumi.Input['NonceArgs']]:
+        """
+        The configuration settings of the nonce used in the login flow.
+        """
         return pulumi.get(self, "nonce")
 
     @nonce.setter
@@ -3740,6 +4099,9 @@ class LoginArgs:
     @property
     @pulumi.getter(name="preserveUrlFragmentsForLogins")
     def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+        """
         return pulumi.get(self, "preserve_url_fragments_for_logins")
 
     @preserve_url_fragments_for_logins.setter
@@ -3749,6 +4111,9 @@ class LoginArgs:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input['LoginRoutesArgs']]:
+        """
+        The routes that specify the endpoints used for login and logout requests.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -3758,6 +4123,9 @@ class LoginArgs:
     @property
     @pulumi.getter(name="tokenStore")
     def token_store(self) -> Optional[pulumi.Input['TokenStoreArgs']]:
+        """
+        The configuration settings of the token store.
+        """
         return pulumi.get(self, "token_store")
 
     @token_store.setter
@@ -3771,7 +4139,9 @@ class LoginRoutesArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  logout_endpoint: Optional[pulumi.Input[str]] = None):
         """
+        The routes that specify the endpoints used for login and logout requests.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] logout_endpoint: The endpoint at which a logout request should be made.
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -3793,6 +4163,9 @@ class LoginRoutesArgs:
     @property
     @pulumi.getter(name="logoutEndpoint")
     def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint at which a logout request should be made.
+        """
         return pulumi.get(self, "logout_endpoint")
 
     @logout_endpoint.setter
@@ -3806,7 +4179,9 @@ class LoginScopesArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        The configuration settings of the login flow, including the scopes that should be requested.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of the scopes that should be requested while authenticating.
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -3828,6 +4203,9 @@ class LoginScopesArgs:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the scopes that should be requested while authenticating.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -3922,7 +4300,10 @@ class NonceArgs:
                  nonce_expiration_interval: Optional[pulumi.Input[str]] = None,
                  validate_nonce: Optional[pulumi.Input[bool]] = None):
         """
+        The configuration settings of the nonce used in the login flow.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] nonce_expiration_interval: The time after the request is made when the nonce should expire.
+        :param pulumi.Input[bool] validate_nonce: <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -3946,6 +4327,9 @@ class NonceArgs:
     @property
     @pulumi.getter(name="nonceExpirationInterval")
     def nonce_expiration_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the nonce should expire.
+        """
         return pulumi.get(self, "nonce_expiration_interval")
 
     @nonce_expiration_interval.setter
@@ -3955,6 +4339,9 @@ class NonceArgs:
     @property
     @pulumi.getter(name="validateNonce")
     def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "validate_nonce")
 
     @validate_nonce.setter
@@ -3969,7 +4356,10 @@ class OpenIdConnectClientCredentialArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  method: Optional[pulumi.Input['ClientCredentialMethod']] = None):
         """
+        The authentication client credentials of the custom Open ID Connect provider.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting that contains the client secret for the custom Open ID Connect provider.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['ClientCredentialMethod'] method: The method that should be used to authenticate the user.
         """
         if client_secret_setting_name is not None:
             pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -3981,6 +4371,9 @@ class OpenIdConnectClientCredentialArgs:
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting that contains the client secret for the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @client_secret_setting_name.setter
@@ -4002,6 +4395,9 @@ class OpenIdConnectClientCredentialArgs:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input['ClientCredentialMethod']]:
+        """
+        The method that should be used to authenticate the user.
+        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -4019,7 +4415,13 @@ class OpenIdConnectConfigArgs:
                  token_endpoint: Optional[pulumi.Input[str]] = None,
                  well_known_open_id_configuration: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        :param pulumi.Input[str] authorization_endpoint: The endpoint to be used to make an authorization request.
+        :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token.
+        :param pulumi.Input[str] issuer: The endpoint that issues the token.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] token_endpoint: The endpoint to be used to request a token.
+        :param pulumi.Input[str] well_known_open_id_configuration: The endpoint that contains all the configuration endpoints for the provider.
         """
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -4037,6 +4439,9 @@ class OpenIdConnectConfigArgs:
     @property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to be used to make an authorization request.
+        """
         return pulumi.get(self, "authorization_endpoint")
 
     @authorization_endpoint.setter
@@ -4046,6 +4451,9 @@ class OpenIdConnectConfigArgs:
     @property
     @pulumi.getter(name="certificationUri")
     def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that provides the keys necessary to validate the token.
+        """
         return pulumi.get(self, "certification_uri")
 
     @certification_uri.setter
@@ -4055,6 +4463,9 @@ class OpenIdConnectConfigArgs:
     @property
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that issues the token.
+        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -4076,6 +4487,9 @@ class OpenIdConnectConfigArgs:
     @property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to be used to request a token.
+        """
         return pulumi.get(self, "token_endpoint")
 
     @token_endpoint.setter
@@ -4085,6 +4499,9 @@ class OpenIdConnectConfigArgs:
     @property
     @pulumi.getter(name="wellKnownOpenIdConfiguration")
     def well_known_open_id_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that contains all the configuration endpoints for the provider.
+        """
         return pulumi.get(self, "well_known_open_id_configuration")
 
     @well_known_open_id_configuration.setter
@@ -4099,7 +4516,10 @@ class OpenIdConnectLoginArgs:
                  name_claim_type: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of the scopes that should be requested while authenticating.
         """
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -4123,6 +4543,9 @@ class OpenIdConnectLoginArgs:
     @property
     @pulumi.getter(name="nameClaimType")
     def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim that contains the users name.
+        """
         return pulumi.get(self, "name_claim_type")
 
     @name_claim_type.setter
@@ -4132,6 +4555,9 @@ class OpenIdConnectLoginArgs:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the scopes that should be requested while authenticating.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -4147,7 +4573,11 @@ class OpenIdConnectRegistrationArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  open_id_connect_configuration: Optional[pulumi.Input['OpenIdConnectConfigArgs']] = None):
         """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+        :param pulumi.Input['OpenIdConnectClientCredentialArgs'] client_credential: The authentication credentials of the custom Open ID Connect provider.
+        :param pulumi.Input[str] client_id: The client id of the custom Open ID Connect provider.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['OpenIdConnectConfigArgs'] open_id_connect_configuration: The configuration settings of the endpoints used for the custom Open ID Connect provider.
         """
         if client_credential is not None:
             pulumi.set(__self__, "client_credential", client_credential)
@@ -4161,6 +4591,9 @@ class OpenIdConnectRegistrationArgs:
     @property
     @pulumi.getter(name="clientCredential")
     def client_credential(self) -> Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']]:
+        """
+        The authentication credentials of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "client_credential")
 
     @client_credential.setter
@@ -4170,6 +4603,9 @@ class OpenIdConnectRegistrationArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client id of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -4191,6 +4627,9 @@ class OpenIdConnectRegistrationArgs:
     @property
     @pulumi.getter(name="openIdConnectConfiguration")
     def open_id_connect_configuration(self) -> Optional[pulumi.Input['OpenIdConnectConfigArgs']]:
+        """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "open_id_connect_configuration")
 
     @open_id_connect_configuration.setter
@@ -4574,6 +5013,7 @@ class SiteConfigArgs:
                  php_version: Optional[pulumi.Input[str]] = None,
                  power_shell_version: Optional[pulumi.Input[str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  publishing_username: Optional[pulumi.Input[str]] = None,
                  push: Optional[pulumi.Input['PushSettingsArgs']] = None,
                  python_version: Optional[pulumi.Input[str]] = None,
@@ -4644,6 +5084,7 @@ class SiteConfigArgs:
         :param pulumi.Input[str] power_shell_version: Version of PowerShell.
         :param pulumi.Input[int] pre_warmed_instance_count: Number of preWarmed instances.
                This setting only applies to the Consumption and Elastic Plans
+        :param pulumi.Input[str] public_network_access: Property to allow or block all public traffic.
         :param pulumi.Input[str] publishing_username: Publishing user name.
         :param pulumi.Input['PushSettingsArgs'] push: Push endpoint settings.
         :param pulumi.Input[str] python_version: Version of Python.
@@ -4756,6 +5197,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "power_shell_version", power_shell_version)
         if pre_warmed_instance_count is not None:
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if publishing_username is not None:
             pulumi.set(__self__, "publishing_username", publishing_username)
         if push is not None:
@@ -5307,6 +5750,18 @@ class SiteConfigArgs:
     @pre_warmed_instance_count.setter
     def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "pre_warmed_instance_count", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property to allow or block all public traffic.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="publishingUsername")
@@ -6318,7 +6773,14 @@ class TokenStoreArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None):
         """
+        The configuration settings of the token store.
+        :param pulumi.Input['BlobStorageTokenStoreArgs'] azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
+        :param pulumi.Input[bool] enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+                The default is <code>false</code>.
+        :param pulumi.Input['FileSystemTokenStoreArgs'] file_system: The configuration settings of the storage of the tokens if a file system is used.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
+               call the token refresh API. The default is 72 hours.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -6334,6 +6796,9 @@ class TokenStoreArgs:
     @property
     @pulumi.getter(name="azureBlobStorage")
     def azure_blob_storage(self) -> Optional[pulumi.Input['BlobStorageTokenStoreArgs']]:
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
@@ -6343,6 +6808,10 @@ class TokenStoreArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         The default is <code>false</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -6352,6 +6821,9 @@ class TokenStoreArgs:
     @property
     @pulumi.getter(name="fileSystem")
     def file_system(self) -> Optional[pulumi.Input['FileSystemTokenStoreArgs']]:
+        """
+        The configuration settings of the storage of the tokens if a file system is used.
+        """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
@@ -6373,6 +6845,10 @@ class TokenStoreArgs:
     @property
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to
+        call the token refresh API. The default is 72 hours.
+        """
         return pulumi.get(self, "token_refresh_extension_hours")
 
     @token_refresh_extension_hours.setter
@@ -6387,7 +6863,10 @@ class TwitterArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  registration: Optional[pulumi.Input['TwitterRegistrationArgs']] = None):
         """
+        The configuration settings of the Twitter provider.
+        :param pulumi.Input[bool] enabled: <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['TwitterRegistrationArgs'] registration: The configuration settings of the app registration for the Twitter provider.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -6399,6 +6878,9 @@ class TwitterArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -6420,6 +6902,9 @@ class TwitterArgs:
     @property
     @pulumi.getter
     def registration(self) -> Optional[pulumi.Input['TwitterRegistrationArgs']]:
+        """
+        The configuration settings of the app registration for the Twitter provider.
+        """
         return pulumi.get(self, "registration")
 
     @registration.setter
@@ -6434,6 +6919,12 @@ class TwitterRegistrationArgs:
                  consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None):
         """
+        The configuration settings of the app registration for the Twitter provider.
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+               This setting is required for enabling Twitter Sign-In.
+               Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+               application used for sign-in.
         :param pulumi.Input[str] kind: Kind of resource.
         """
         if consumer_key is not None:
@@ -6446,6 +6937,11 @@ class TwitterRegistrationArgs:
     @property
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        This setting is required for enabling Twitter Sign-In.
+        Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+        """
         return pulumi.get(self, "consumer_key")
 
     @consumer_key.setter
@@ -6455,6 +6951,10 @@ class TwitterRegistrationArgs:
     @property
     @pulumi.getter(name="consumerSecretSettingName")
     def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+        application used for sign-in.
+        """
         return pulumi.get(self, "consumer_secret_setting_name")
 
     @consumer_secret_setting_name.setter

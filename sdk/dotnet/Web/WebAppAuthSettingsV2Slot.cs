@@ -10,17 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web
 {
     /// <summary>
+    /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        /// </summary>
         [Output("globalValidation")]
         public Output<Outputs.GlobalValidationResponse?> GlobalValidation { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        /// </summary>
         [Output("httpSettings")]
         public Output<Outputs.HttpSettingsResponse?> HttpSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        /// </summary>
         [Output("identityProviders")]
         public Output<Outputs.IdentityProvidersResponse?> IdentityProviders { get; private set; } = null!;
 
@@ -30,6 +40,9 @@ namespace Pulumi.AzureNative.Web
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        /// </summary>
         [Output("login")]
         public Output<Outputs.LoginResponse?> Login { get; private set; } = null!;
 
@@ -39,6 +52,9 @@ namespace Pulumi.AzureNative.Web
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of the platform of App Service Authentication/Authorization.
+        /// </summary>
         [Output("platform")]
         public Output<Outputs.AuthPlatformResponse?> Platform { get; private set; } = null!;
 
@@ -105,12 +121,21 @@ namespace Pulumi.AzureNative.Web
 
     public sealed class WebAppAuthSettingsV2SlotArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        /// </summary>
         [Input("globalValidation")]
         public Input<Inputs.GlobalValidationArgs>? GlobalValidation { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        /// </summary>
         [Input("httpSettings")]
         public Input<Inputs.HttpSettingsArgs>? HttpSettings { get; set; }
 
+        /// <summary>
+        /// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        /// </summary>
         [Input("identityProviders")]
         public Input<Inputs.IdentityProvidersArgs>? IdentityProviders { get; set; }
 
@@ -120,6 +145,9 @@ namespace Pulumi.AzureNative.Web
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        /// </summary>
         [Input("login")]
         public Input<Inputs.LoginArgs>? Login { get; set; }
 
@@ -129,6 +157,9 @@ namespace Pulumi.AzureNative.Web
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration settings of the platform of App Service Authentication/Authorization.
+        /// </summary>
         [Input("platform")]
         public Input<Inputs.AuthPlatformArgs>? Platform { get; set; }
 

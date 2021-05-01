@@ -20,7 +20,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -159,6 +159,9 @@ class GetWebAppSlotResult:
         if usage_state and not isinstance(usage_state, str):
             raise TypeError("Expected argument 'usage_state' to be a str")
         pulumi.set(__self__, "usage_state", usage_state)
+        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="availabilityState")
@@ -535,6 +538,15 @@ class GetWebAppSlotResult:
         """
         return pulumi.get(self, "usage_state")
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[str]:
+        """
+        Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+        This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
 
 class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
     # pylint: disable=using-constant-test
@@ -587,7 +599,8 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             target_swap_slot=self.target_swap_slot,
             traffic_manager_host_names=self.traffic_manager_host_names,
             type=self.type,
-            usage_state=self.usage_state)
+            usage_state=self.usage_state,
+            virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
 def get_web_app_slot(name: Optional[str] = None,
@@ -659,4 +672,5 @@ def get_web_app_slot(name: Optional[str] = None,
         target_swap_slot=__ret__.target_swap_slot,
         traffic_manager_host_names=__ret__.traffic_manager_host_names,
         type=__ret__.type,
-        usage_state=__ret__.usage_state)
+        usage_state=__ret__.usage_state,
+        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)

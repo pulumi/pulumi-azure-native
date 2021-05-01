@@ -13,7 +13,14 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class AuthPlatformResponse
     {
+        /// <summary>
+        /// The path of the config file containing auth settings if they come from a file.
+        /// If the path is relative, base will the site's root directory.
+        /// </summary>
         public readonly string? ConfigFilePath;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// Resource Id.
@@ -27,6 +34,10 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+        /// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+        /// </summary>
         public readonly string? RuntimeVersion;
         /// <summary>
         /// Resource type.

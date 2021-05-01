@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Azure Active Directory login flow.
+    /// </summary>
     public sealed class AzureActiveDirectoryLoginArgs : Pulumi.ResourceArgs
     {
         [Input("disableWWWAuthenticate")]
@@ -23,6 +26,11 @@ namespace Pulumi.AzureNative.Web.Inputs
 
         [Input("loginParameters")]
         private InputList<string>? _loginParameters;
+
+        /// <summary>
+        /// Login parameters to send to the OpenID Connect authorization endpoint when
+        /// a user logs in. Each parameter must be in the form "key=value".
+        /// </summary>
         public InputList<string> LoginParameters
         {
             get => _loginParameters ?? (_loginParameters = new InputList<string>());

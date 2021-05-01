@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the login flow of the custom Open ID Connect provider.
+    /// </summary>
     public sealed class OpenIdConnectLoginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,11 +21,18 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The name of the claim that contains the users name.
+        /// </summary>
         [Input("nameClaimType")]
         public Input<string>? NameClaimType { get; set; }
 
         [Input("scopes")]
         private InputList<string>? _scopes;
+
+        /// <summary>
+        /// A list of the scopes that should be requested while authenticating.
+        /// </summary>
         public InputList<string> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<string>());

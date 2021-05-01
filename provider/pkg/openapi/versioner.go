@@ -74,7 +74,7 @@ func newVersioner() (*versioner, error) {
 // However, there's no formal way to derive this from Open API specs, so we have to maintain this manual map.
 var deprecatedProviderVersions = map[string][]string{
 	"Authorization": {"v20150701"},
-	"Sql": {"v20140401", "v20150501"},
+	"Sql":           {"v20140401", "v20150501"},
 	// Task API definition is broken in these stable versions but fixed in later previews,
 	// see https://github.com/pulumi/pulumi-azure-native/issues/736.
 	"ContainerRegistry": {"v20180901", "v20190401"},
@@ -85,7 +85,7 @@ var ignoredProviderVersions = map[string][]string{
 	// This preview version introduces new resources but also changes the shape of some items, so merging it with
 	// the previous stable version isn't easy. Ignore this preview for now. We should be able to remove this entry
 	// once the next stable version ships.
-	"EventGrid": {"v20201015preview"},
+	"EventGrid":  {"v20201015preview"},
 	"StorSimple": {"v20161001"},
 }
 
@@ -94,14 +94,16 @@ var ignoredProviderVersions = map[string][]string{
 // We reset this map every time we release a new major version.
 // Currently populated for 1.* series.
 var cutoffProviderVersions = map[string]string{
-	"alertsmanagement": "v20200804preview",
-	"documentdb":       "v20210315",
-	"management":       "v20200501",
-	"maps":             "v20200201preview",
-	"media":            "v20200501",
-	"recoveryservices": "v20210201preview",
+	"alertsmanagement":        "v20200804preview",
+	"documentdb":              "v20210315",
+	"machinelearningservices": "v20210101",
+	"management":              "v20200501",
+	"maps":                    "v20200201preview",
+	"media":                   "v20200501",
+	"recoveryservices":        "v20210201preview",
 }
 var lockedTypeVersions = map[string]string{
+	"web:WebAppSwiftVirtualNetworkConnection": "v20201001",
 }
 
 // A manually-maintained list of resources that were deprecated and have no direct successor. They "pollute"
@@ -259,11 +261,11 @@ func (c *versioner) calculatePathVersions(versionMap ProviderVersions) (pathVers
 }
 
 type prov struct {
-	Namespace string `json:"namespace"`
+	Namespace     string    `json:"namespace"`
 	ResourceTypes []provRes `json:"resourceTypes"`
 }
 
 type provRes struct {
-	ResourceType string `json:"resourceType"`
-	ApiVersions []string `json:"apiVersions"`
+	ResourceType string   `json:"resourceType"`
+	ApiVersions  []string `json:"apiVersions"`
 }

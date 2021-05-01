@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class ForwardProxyResponse
     {
+        /// <summary>
+        /// The convention used to determine the url of the request made.
+        /// </summary>
         public readonly string? Convention;
+        /// <summary>
+        /// The name of the header containing the host of the request.
+        /// </summary>
         public readonly string? CustomHostHeaderName;
+        /// <summary>
+        /// The name of the header containing the scheme of the request.
+        /// </summary>
         public readonly string? CustomProtoHeaderName;
         /// <summary>
         /// Resource Id.

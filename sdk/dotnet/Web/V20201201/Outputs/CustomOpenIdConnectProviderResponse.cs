@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class CustomOpenIdConnectProviderResponse
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the custom Open ID provider provider should not be enabled; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// Resource Id.
@@ -22,11 +25,17 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The configuration settings of the login flow of the custom Open ID Connect provider.
+        /// </summary>
         public readonly Outputs.OpenIdConnectLoginResponse? Login;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The configuration settings of the app registration for the custom Open ID Connect provider.
+        /// </summary>
         public readonly Outputs.OpenIdConnectRegistrationResponse? Registration;
         /// <summary>
         /// Resource type.

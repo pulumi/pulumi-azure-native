@@ -10,11 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the platform of App Service Authentication/Authorization.
+    /// </summary>
     public sealed class AuthPlatformArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path of the config file containing auth settings if they come from a file.
+        /// If the path is relative, base will the site's root directory.
+        /// </summary>
         [Input("configFilePath")]
         public Input<string>? ConfigFilePath { get; set; }
 
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -24,6 +34,10 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+        /// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+        /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }
 

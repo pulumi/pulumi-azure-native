@@ -13919,6 +13919,7 @@ _utilities.register(
    "azure-native:web/v20201201:WebAppSlotConfigurationNames": "WebAppSlotConfigurationNames",
    "azure-native:web/v20201201:WebAppSourceControl": "WebAppSourceControl",
    "azure-native:web/v20201201:WebAppSourceControlSlot": "WebAppSourceControlSlot",
+   "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection": "WebAppSwiftVirtualNetworkConnection",
    "azure-native:web/v20201201:WebAppVnetConnection": "WebAppVnetConnection",
    "azure-native:web/v20201201:WebAppVnetConnectionSlot": "WebAppVnetConnectionSlot"
   }

@@ -44,7 +44,8 @@ class WebAppSlotArgs:
                  site_config: Optional[pulumi.Input['SiteConfigArgs']] = None,
                  slot: Optional[pulumi.Input[str]] = None,
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebAppSlot resource.
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
@@ -81,6 +82,8 @@ class WebAppSlotArgs:
         :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+               This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -146,6 +149,8 @@ class WebAppSlotArgs:
             pulumi.set(__self__, "storage_account_required", storage_account_required)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter
@@ -500,6 +505,19 @@ class WebAppSlotArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+        This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
 
 class WebAppSlot(pulumi.CustomResource):
     @overload
@@ -535,6 +553,7 @@ class WebAppSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A web app, a mobile app backend, or an API app.
@@ -575,6 +594,8 @@ class WebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[bool] storage_account_required: Checks if Customer provided storage account is required
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] virtual_network_subnet_id: Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+               This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
         """
         ...
     @overload
@@ -629,6 +650,7 @@ class WebAppSlot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  storage_account_required: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -682,6 +704,7 @@ class WebAppSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["storage_account_required"] = storage_account_required
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["availability_state"] = None
             __props__.__dict__["default_host_name"] = None
             __props__.__dict__["enabled_host_names"] = None
@@ -770,6 +793,7 @@ class WebAppSlot(pulumi.CustomResource):
         __props__.__dict__["traffic_manager_host_names"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["usage_state"] = None
+        __props__.__dict__["virtual_network_subnet_id"] = None
         return WebAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1138,4 +1162,13 @@ class WebAppSlot(pulumi.CustomResource):
         State indicating whether the app has exceeded its quota usage. Read-only.
         """
         return pulumi.get(self, "usage_state")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+        This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
 

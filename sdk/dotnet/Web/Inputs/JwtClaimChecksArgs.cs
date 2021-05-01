@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the checks that should be made while validating the JWT Claims.
+    /// </summary>
     public sealed class JwtClaimChecksArgs : Pulumi.ResourceArgs
     {
         [Input("allowedClientApplications")]
         private InputList<string>? _allowedClientApplications;
+
+        /// <summary>
+        /// The list of the allowed client applications.
+        /// </summary>
         public InputList<string> AllowedClientApplications
         {
             get => _allowedClientApplications ?? (_allowedClientApplications = new InputList<string>());
@@ -22,6 +29,10 @@ namespace Pulumi.AzureNative.Web.Inputs
 
         [Input("allowedGroups")]
         private InputList<string>? _allowedGroups;
+
+        /// <summary>
+        /// The list of the allowed groups.
+        /// </summary>
         public InputList<string> AllowedGroups
         {
             get => _allowedGroups ?? (_allowedGroups = new InputList<string>());

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the app registration for providers that have client ids and client secrets
+    /// </summary>
     public sealed class ClientRegistrationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Client ID of the app used for login.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// The app setting name that contains the client secret.
+        /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
 

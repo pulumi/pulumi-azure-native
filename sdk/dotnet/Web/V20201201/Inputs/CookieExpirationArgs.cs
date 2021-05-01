@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the session cookie's expiration.
+    /// </summary>
     public sealed class CookieExpirationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The convention used when determining the session cookie's expiration.
+        /// </summary>
         [Input("convention")]
         public Input<Pulumi.AzureNative.Web.V20201201.CookieExpirationConvention>? Convention { get; set; }
 
@@ -21,6 +27,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The time after the request is made when the session cookie should expire.
+        /// </summary>
         [Input("timeToExpiration")]
         public Input<string>? TimeToExpiration { get; set; }
 

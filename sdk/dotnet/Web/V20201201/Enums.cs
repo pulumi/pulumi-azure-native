@@ -173,6 +173,9 @@ namespace Pulumi.AzureNative.Web.V20201201
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The method that should be used to authenticate the user.
+    /// </summary>
     [EnumType]
     public readonly struct ClientCredentialMethod : IEquatable<ClientCredentialMethod>
     {
@@ -240,6 +243,9 @@ namespace Pulumi.AzureNative.Web.V20201201
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The convention used when determining the session cookie's expiration.
+    /// </summary>
     [EnumType]
     public readonly struct CookieExpirationConvention : IEquatable<CookieExpirationConvention>
     {
@@ -332,6 +338,9 @@ namespace Pulumi.AzureNative.Web.V20201201
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The convention used to determine the url of the request made.
+    /// </summary>
     [EnumType]
     public readonly struct ForwardProxyConvention : IEquatable<ForwardProxyConvention>
     {
@@ -956,6 +965,9 @@ namespace Pulumi.AzureNative.Web.V20201201
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action to take when an unauthenticated client attempts to access the app.
+    /// </summary>
     [EnumType]
     public readonly struct UnauthenticatedClientActionV2 : IEquatable<UnauthenticatedClientActionV2>
     {

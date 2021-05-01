@@ -45,6 +45,7 @@ export * from "./getWebAppSlot";
 export * from "./getWebAppSlotConfigurationNames";
 export * from "./getWebAppSourceControl";
 export * from "./getWebAppSourceControlSlot";
+export * from "./getWebAppSwiftVirtualNetworkConnection";
 export * from "./getWebAppVnetConnection";
 export * from "./getWebAppVnetConnectionSlot";
 export * from "./listAppServicePlanHybridConnectionKeys";
@@ -131,6 +132,7 @@ export * from "./webAppSlot";
 export * from "./webAppSlotConfigurationNames";
 export * from "./webAppSourceControl";
 export * from "./webAppSourceControlSlot";
+export * from "./webAppSwiftVirtualNetworkConnection";
 export * from "./webAppVnetConnection";
 export * from "./webAppVnetConnectionSlot";
 
@@ -190,6 +192,7 @@ import { WebAppSlot } from "./webAppSlot";
 import { WebAppSlotConfigurationNames } from "./webAppSlotConfigurationNames";
 import { WebAppSourceControl } from "./webAppSourceControl";
 import { WebAppSourceControlSlot } from "./webAppSourceControlSlot";
+import { WebAppSwiftVirtualNetworkConnection } from "./webAppSwiftVirtualNetworkConnection";
 import { WebAppVnetConnection } from "./webAppVnetConnection";
 import { WebAppVnetConnectionSlot } from "./webAppVnetConnectionSlot";
 
@@ -301,6 +304,8 @@ const _module = {
                 return new WebAppSourceControl(name, <any>undefined, { urn })
             case "azure-native:web/v20201201:WebAppSourceControlSlot":
                 return new WebAppSourceControlSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection":
+                return new WebAppSwiftVirtualNetworkConnection(name, <any>undefined, { urn })
             case "azure-native:web/v20201201:WebAppVnetConnection":
                 return new WebAppVnetConnection(name, <any>undefined, { urn })
             case "azure-native:web/v20201201:WebAppVnetConnectionSlot":

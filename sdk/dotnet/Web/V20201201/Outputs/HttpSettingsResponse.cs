@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class HttpSettingsResponse
     {
+        /// <summary>
+        /// The configuration settings of a forward proxy used to make the requests.
+        /// </summary>
         public readonly Outputs.ForwardProxyResponse? ForwardProxy;
         /// <summary>
         /// Resource Id.
@@ -26,7 +29,13 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         public readonly bool? RequireHttps;
+        /// <summary>
+        /// The configuration settings of the paths HTTP requests.
+        /// </summary>
         public readonly Outputs.HttpSettingsRoutesResponse? Routes;
         /// <summary>
         /// Resource type.

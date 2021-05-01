@@ -13,12 +13,34 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class IdentityProvidersResponse
     {
+        /// <summary>
+        /// The configuration settings of the Apple provider.
+        /// </summary>
         public readonly Outputs.AppleResponse? Apple;
+        /// <summary>
+        /// The configuration settings of the Azure Active directory provider.
+        /// </summary>
         public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
+        /// <summary>
+        /// The configuration settings of the Azure Static Web Apps provider.
+        /// </summary>
         public readonly Outputs.AzureStaticWebAppsResponse? AzureStaticWebApps;
+        /// <summary>
+        /// The map of the name of the alias of each custom Open ID Connect provider to the
+        /// configuration settings of the custom Open ID Connect provider.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.CustomOpenIdConnectProviderResponse>? CustomOpenIdConnectProviders;
+        /// <summary>
+        /// The configuration settings of the Facebook provider.
+        /// </summary>
         public readonly Outputs.FacebookResponse? Facebook;
+        /// <summary>
+        /// The configuration settings of the GitHub provider.
+        /// </summary>
         public readonly Outputs.GitHubResponse? GitHub;
+        /// <summary>
+        /// The configuration settings of the Google provider.
+        /// </summary>
         public readonly Outputs.GoogleResponse? Google;
         /// <summary>
         /// Resource Id.
@@ -28,11 +50,17 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The configuration settings of the legacy Microsoft Account provider.
+        /// </summary>
         public readonly Outputs.LegacyMicrosoftAccountResponse? LegacyMicrosoftAccount;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The configuration settings of the Twitter provider.
+        /// </summary>
         public readonly Outputs.TwitterResponse? Twitter;
         /// <summary>
         /// Resource type.

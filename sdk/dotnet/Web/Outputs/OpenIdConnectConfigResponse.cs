@@ -13,12 +13,21 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class OpenIdConnectConfigResponse
     {
+        /// <summary>
+        /// The endpoint to be used to make an authorization request.
+        /// </summary>
         public readonly string? AuthorizationEndpoint;
+        /// <summary>
+        /// The endpoint that provides the keys necessary to validate the token.
+        /// </summary>
         public readonly string? CertificationUri;
         /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The endpoint that issues the token.
+        /// </summary>
         public readonly string? Issuer;
         /// <summary>
         /// Kind of resource.
@@ -28,11 +37,17 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The endpoint to be used to request a token.
+        /// </summary>
         public readonly string? TokenEndpoint;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The endpoint that contains all the configuration endpoints for the provider.
+        /// </summary>
         public readonly string? WellKnownOpenIdConfiguration;
 
         [OutputConstructor]

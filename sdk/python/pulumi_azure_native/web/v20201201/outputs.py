@@ -236,6 +236,9 @@ class ApiManagementConfigResponse(dict):
 
 @pulumi.output_type
 class AppRegistrationResponse(dict):
+    """
+    The configuration settings of the app registration for providers that have app ids and app secrets
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -263,9 +266,12 @@ class AppRegistrationResponse(dict):
                  app_secret_setting_name: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the app registration for providers that have app ids and app secrets
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str app_id: The App ID of the app used for login.
+        :param str app_secret_setting_name: The app setting name that contains the app secret.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -305,11 +311,17 @@ class AppRegistrationResponse(dict):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[str]:
+        """
+        The App ID of the app used for login.
+        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter(name="appSecretSettingName")
     def app_secret_setting_name(self) -> Optional[str]:
+        """
+        The app setting name that contains the app secret.
+        """
         return pulumi.get(self, "app_secret_setting_name")
 
     @property
@@ -323,6 +335,9 @@ class AppRegistrationResponse(dict):
 
 @pulumi.output_type
 class AppleRegistrationResponse(dict):
+    """
+    The configuration settings of the registration for the Apple provider
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -350,9 +365,12 @@ class AppleRegistrationResponse(dict):
                  client_secret_setting_name: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the registration for the Apple provider
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str client_id: The Client ID of the app used for login.
+        :param str client_secret_setting_name: The app setting name that contains the client secret.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -392,11 +410,17 @@ class AppleRegistrationResponse(dict):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the app used for login.
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
+        """
+        The app setting name that contains the client secret.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @property
@@ -410,6 +434,9 @@ class AppleRegistrationResponse(dict):
 
 @pulumi.output_type
 class AppleResponse(dict):
+    """
+    The configuration settings of the Apple provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -419,10 +446,14 @@ class AppleResponse(dict):
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.AppleRegistrationResponse'] = None):
         """
+        The configuration settings of the Apple provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'LoginScopesResponse' login: The configuration settings of the login flow.
+        :param 'AppleRegistrationResponse' registration: The configuration settings of the Apple registration.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -463,6 +494,9 @@ class AppleResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -476,11 +510,17 @@ class AppleResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.LoginScopesResponse']:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.AppleRegistrationResponse']:
+        """
+        The configuration settings of the Apple registration.
+        """
         return pulumi.get(self, "registration")
 
 
@@ -660,6 +700,9 @@ class ArmPlanResponse(dict):
 
 @pulumi.output_type
 class AuthPlatformResponse(dict):
+    """
+    The configuration settings of the platform of App Service Authentication/Authorization.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -688,10 +731,16 @@ class AuthPlatformResponse(dict):
                  kind: Optional[str] = None,
                  runtime_version: Optional[str] = None):
         """
+        The configuration settings of the platform of App Service Authentication/Authorization.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str config_file_path: The path of the config file containing auth settings if they come from a file.
+               If the path is relative, base will the site's root directory.
+        :param bool enabled: <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
         :param str kind: Kind of resource.
+        :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+               The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -732,11 +781,18 @@ class AuthPlatformResponse(dict):
     @property
     @pulumi.getter(name="configFilePath")
     def config_file_path(self) -> Optional[str]:
+        """
+        The path of the config file containing auth settings if they come from a file.
+        If the path is relative, base will the site's root directory.
+        """
         return pulumi.get(self, "config_file_path")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -750,6 +806,10 @@ class AuthPlatformResponse(dict):
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+        The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+        """
         return pulumi.get(self, "runtime_version")
 
 
@@ -1005,6 +1065,9 @@ class AutoHealTriggersResponse(dict):
 
 @pulumi.output_type
 class AzureActiveDirectoryLoginResponse(dict):
+    """
+    The configuration settings of the Azure Active Directory login flow.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1032,10 +1095,13 @@ class AzureActiveDirectoryLoginResponse(dict):
                  kind: Optional[str] = None,
                  login_parameters: Optional[Sequence[str]] = None):
         """
+        The configuration settings of the Azure Active Directory login flow.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
         :param str kind: Kind of resource.
+        :param Sequence[str] login_parameters: Login parameters to send to the OpenID Connect authorization endpoint when
+               a user logs in. Each parameter must be in the form "key=value".
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1087,11 +1153,18 @@ class AzureActiveDirectoryLoginResponse(dict):
     @property
     @pulumi.getter(name="loginParameters")
     def login_parameters(self) -> Optional[Sequence[str]]:
+        """
+        Login parameters to send to the OpenID Connect authorization endpoint when
+        a user logs in. Each parameter must be in the form "key=value".
+        """
         return pulumi.get(self, "login_parameters")
 
 
 @pulumi.output_type
 class AzureActiveDirectoryRegistrationResponse(dict):
+    """
+    The configuration settings of the Azure Active Directory app registration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1125,10 +1198,22 @@ class AzureActiveDirectoryRegistrationResponse(dict):
                  kind: Optional[str] = None,
                  open_id_issuer: Optional[str] = None):
         """
+        The configuration settings of the Azure Active Directory app registration.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str client_id: The Client ID of this relying party application, known as the client_id.
+               This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+               other 3rd party OpenID Connect providers.
+               More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+        :param str client_secret_certificate_thumbprint: An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+               a replacement for the Client Secret. It is also optional.
+        :param str client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
         :param str kind: Kind of resource.
+        :param str open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+               This URI is a case-sensitive identifier for the token issuer.
+               More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1171,16 +1256,29 @@ class AzureActiveDirectoryRegistrationResponse(dict):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
+        """
+        The Client ID of this relying party application, known as the client_id.
+        This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        other 3rd party OpenID Connect providers.
+        More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+        a replacement for the Client Secret. It is also optional.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
+        """
+        The app setting name that contains the client secret of the relying party application.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @property
@@ -1194,11 +1292,20 @@ class AzureActiveDirectoryRegistrationResponse(dict):
     @property
     @pulumi.getter(name="openIdIssuer")
     def open_id_issuer(self) -> Optional[str]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        This URI is a case-sensitive identifier for the token issuer.
+        More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+        """
         return pulumi.get(self, "open_id_issuer")
 
 
 @pulumi.output_type
 class AzureActiveDirectoryResponse(dict):
+    """
+    The configuration settings of the Azure Active directory provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1227,10 +1334,18 @@ class AzureActiveDirectoryResponse(dict):
                  registration: Optional['outputs.AzureActiveDirectoryRegistrationResponse'] = None,
                  validation: Optional['outputs.AzureActiveDirectoryValidationResponse'] = None):
         """
+        The configuration settings of the Azure Active directory provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        :param bool is_auto_provisioned: Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+               This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+               read or write to this property.
         :param str kind: Kind of resource.
+        :param 'AzureActiveDirectoryLoginResponse' login: The configuration settings of the Azure Active Directory login flow.
+        :param 'AzureActiveDirectoryRegistrationResponse' registration: The configuration settings of the Azure Active Directory app registration.
+        :param 'AzureActiveDirectoryValidationResponse' validation: The configuration settings of the Azure Active Directory token validation flow.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1275,11 +1390,19 @@ class AzureActiveDirectoryResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="isAutoProvisioned")
     def is_auto_provisioned(self) -> Optional[bool]:
+        """
+        Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+        This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+        read or write to this property.
+        """
         return pulumi.get(self, "is_auto_provisioned")
 
     @property
@@ -1293,21 +1416,33 @@ class AzureActiveDirectoryResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.AzureActiveDirectoryLoginResponse']:
+        """
+        The configuration settings of the Azure Active Directory login flow.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.AzureActiveDirectoryRegistrationResponse']:
+        """
+        The configuration settings of the Azure Active Directory app registration.
+        """
         return pulumi.get(self, "registration")
 
     @property
     @pulumi.getter
     def validation(self) -> Optional['outputs.AzureActiveDirectoryValidationResponse']:
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
         return pulumi.get(self, "validation")
 
 
 @pulumi.output_type
 class AzureActiveDirectoryValidationResponse(dict):
+    """
+    The configuration settings of the Azure Active Directory token validation flow.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1335,9 +1470,12 @@ class AzureActiveDirectoryValidationResponse(dict):
                  jwt_claim_checks: Optional['outputs.JwtClaimChecksResponse'] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the Azure Active Directory token validation flow.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param Sequence[str] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
+        :param 'JwtClaimChecksResponse' jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -1377,11 +1515,17 @@ class AzureActiveDirectoryValidationResponse(dict):
     @property
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
+        """
+        The list of audiences that can make successful authentication/authorization requests.
+        """
         return pulumi.get(self, "allowed_audiences")
 
     @property
     @pulumi.getter(name="jwtClaimChecks")
     def jwt_claim_checks(self) -> Optional['outputs.JwtClaimChecksResponse']:
+        """
+        The configuration settings of the checks that should be made while validating the JWT Claims.
+        """
         return pulumi.get(self, "jwt_claim_checks")
 
     @property
@@ -1535,6 +1679,9 @@ class AzureBlobStorageHttpLogsConfigResponse(dict):
 
 @pulumi.output_type
 class AzureStaticWebAppsRegistrationResponse(dict):
+    """
+    The configuration settings of the registration for the Azure Static Web Apps provider
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1559,9 +1706,11 @@ class AzureStaticWebAppsRegistrationResponse(dict):
                  client_id: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the registration for the Azure Static Web Apps provider
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str client_id: The Client ID of the app used for login.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -1599,6 +1748,9 @@ class AzureStaticWebAppsRegistrationResponse(dict):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the app used for login.
+        """
         return pulumi.get(self, "client_id")
 
     @property
@@ -1612,6 +1764,9 @@ class AzureStaticWebAppsRegistrationResponse(dict):
 
 @pulumi.output_type
 class AzureStaticWebAppsResponse(dict):
+    """
+    The configuration settings of the Azure Static Web Apps provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -1620,10 +1775,13 @@ class AzureStaticWebAppsResponse(dict):
                  kind: Optional[str] = None,
                  registration: Optional['outputs.AzureStaticWebAppsRegistrationResponse'] = None):
         """
+        The configuration settings of the Azure Static Web Apps provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'AzureStaticWebAppsRegistrationResponse' registration: The configuration settings of the Azure Static Web Apps registration.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1662,6 +1820,9 @@ class AzureStaticWebAppsResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -1675,6 +1836,9 @@ class AzureStaticWebAppsResponse(dict):
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.AzureStaticWebAppsRegistrationResponse']:
+        """
+        The configuration settings of the Azure Static Web Apps registration.
+        """
         return pulumi.get(self, "registration")
 
 
@@ -2148,6 +2312,9 @@ class BackupScheduleResponse(dict):
 
 @pulumi.output_type
 class BlobStorageTokenStoreResponse(dict):
+    """
+    The configuration settings of the storage of the tokens if blob storage is used.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2172,10 +2339,12 @@ class BlobStorageTokenStoreResponse(dict):
                  kind: Optional[str] = None,
                  sas_url_setting_name: Optional[str] = None):
         """
+        The configuration settings of the storage of the tokens if blob storage is used.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
         :param str kind: Kind of resource.
+        :param str sas_url_setting_name: The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2220,6 +2389,9 @@ class BlobStorageTokenStoreResponse(dict):
     @property
     @pulumi.getter(name="sasUrlSettingName")
     def sas_url_setting_name(self) -> Optional[str]:
+        """
+        The name of the app setting containing the SAS URL of the blob storage containing the tokens.
+        """
         return pulumi.get(self, "sas_url_setting_name")
 
 
@@ -2272,6 +2444,9 @@ class CapabilityResponse(dict):
 
 @pulumi.output_type
 class ClientRegistrationResponse(dict):
+    """
+    The configuration settings of the app registration for providers that have client ids and client secrets
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2299,9 +2474,12 @@ class ClientRegistrationResponse(dict):
                  client_secret_setting_name: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the app registration for providers that have client ids and client secrets
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str client_id: The Client ID of the app used for login.
+        :param str client_secret_setting_name: The app setting name that contains the client secret.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -2341,11 +2519,17 @@ class ClientRegistrationResponse(dict):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
+        """
+        The Client ID of the app used for login.
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
+        """
+        The app setting name that contains the client secret.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @property
@@ -2456,6 +2640,9 @@ class ConnStringValueTypePairResponse(dict):
 
 @pulumi.output_type
 class CookieExpirationResponse(dict):
+    """
+    The configuration settings of the session cookie's expiration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2481,10 +2668,13 @@ class CookieExpirationResponse(dict):
                  kind: Optional[str] = None,
                  time_to_expiration: Optional[str] = None):
         """
+        The configuration settings of the session cookie's expiration.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str convention: The convention used when determining the session cookie's expiration.
         :param str kind: Kind of resource.
+        :param str time_to_expiration: The time after the request is made when the session cookie should expire.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2523,6 +2713,9 @@ class CookieExpirationResponse(dict):
     @property
     @pulumi.getter
     def convention(self) -> Optional[str]:
+        """
+        The convention used when determining the session cookie's expiration.
+        """
         return pulumi.get(self, "convention")
 
     @property
@@ -2536,6 +2729,9 @@ class CookieExpirationResponse(dict):
     @property
     @pulumi.getter(name="timeToExpiration")
     def time_to_expiration(self) -> Optional[str]:
+        """
+        The time after the request is made when the session cookie should expire.
+        """
         return pulumi.get(self, "time_to_expiration")
 
 
@@ -2601,6 +2797,9 @@ class CorsSettingsResponse(dict):
 
 @pulumi.output_type
 class CustomOpenIdConnectProviderResponse(dict):
+    """
+    The configuration settings of the custom Open ID Connect provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -2610,10 +2809,14 @@ class CustomOpenIdConnectProviderResponse(dict):
                  login: Optional['outputs.OpenIdConnectLoginResponse'] = None,
                  registration: Optional['outputs.OpenIdConnectRegistrationResponse'] = None):
         """
+        The configuration settings of the custom Open ID Connect provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'OpenIdConnectLoginResponse' login: The configuration settings of the login flow of the custom Open ID Connect provider.
+        :param 'OpenIdConnectRegistrationResponse' registration: The configuration settings of the app registration for the custom Open ID Connect provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2654,6 +2857,9 @@ class CustomOpenIdConnectProviderResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -2667,11 +2873,17 @@ class CustomOpenIdConnectProviderResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.OpenIdConnectLoginResponse']:
+        """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.OpenIdConnectRegistrationResponse']:
+        """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "registration")
 
 
@@ -2921,6 +3133,9 @@ class ExperimentsResponse(dict):
 
 @pulumi.output_type
 class FacebookResponse(dict):
+    """
+    The configuration settings of the Facebook provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2948,10 +3163,15 @@ class FacebookResponse(dict):
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.AppRegistrationResponse'] = None):
         """
+        The configuration settings of the Facebook provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        :param str graph_api_version: The version of the Facebook api to be used while logging in.
         :param str kind: Kind of resource.
+        :param 'LoginScopesResponse' login: The configuration settings of the login flow.
+        :param 'AppRegistrationResponse' registration: The configuration settings of the app registration for the Facebook provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -2994,11 +3214,17 @@ class FacebookResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="graphApiVersion")
     def graph_api_version(self) -> Optional[str]:
+        """
+        The version of the Facebook api to be used while logging in.
+        """
         return pulumi.get(self, "graph_api_version")
 
     @property
@@ -3012,11 +3238,17 @@ class FacebookResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.LoginScopesResponse']:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.AppRegistrationResponse']:
+        """
+        The configuration settings of the app registration for the Facebook provider.
+        """
         return pulumi.get(self, "registration")
 
 
@@ -3121,6 +3353,9 @@ class FileSystemHttpLogsConfigResponse(dict):
 
 @pulumi.output_type
 class FileSystemTokenStoreResponse(dict):
+    """
+    The configuration settings of the storage of the tokens if a file system is used.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -3128,9 +3363,11 @@ class FileSystemTokenStoreResponse(dict):
                  directory: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the storage of the tokens if a file system is used.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str directory: The directory in which the tokens will be stored.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -3168,6 +3405,9 @@ class FileSystemTokenStoreResponse(dict):
     @property
     @pulumi.getter
     def directory(self) -> Optional[str]:
+        """
+        The directory in which the tokens will be stored.
+        """
         return pulumi.get(self, "directory")
 
     @property
@@ -3181,6 +3421,9 @@ class FileSystemTokenStoreResponse(dict):
 
 @pulumi.output_type
 class ForwardProxyResponse(dict):
+    """
+    The configuration settings of a forward proxy used to make the requests.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3209,9 +3452,13 @@ class ForwardProxyResponse(dict):
                  custom_proto_header_name: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of a forward proxy used to make the requests.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str convention: The convention used to determine the url of the request made.
+        :param str custom_host_header_name: The name of the header containing the host of the request.
+        :param str custom_proto_header_name: The name of the header containing the scheme of the request.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -3253,16 +3500,25 @@ class ForwardProxyResponse(dict):
     @property
     @pulumi.getter
     def convention(self) -> Optional[str]:
+        """
+        The convention used to determine the url of the request made.
+        """
         return pulumi.get(self, "convention")
 
     @property
     @pulumi.getter(name="customHostHeaderName")
     def custom_host_header_name(self) -> Optional[str]:
+        """
+        The name of the header containing the host of the request.
+        """
         return pulumi.get(self, "custom_host_header_name")
 
     @property
     @pulumi.getter(name="customProtoHeaderName")
     def custom_proto_header_name(self) -> Optional[str]:
+        """
+        The name of the header containing the scheme of the request.
+        """
         return pulumi.get(self, "custom_proto_header_name")
 
     @property
@@ -3490,6 +3746,9 @@ class GitHubActionContainerConfigurationResponse(dict):
 
 @pulumi.output_type
 class GitHubResponse(dict):
+    """
+    The configuration settings of the GitHub provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -3499,10 +3758,14 @@ class GitHubResponse(dict):
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.ClientRegistrationResponse'] = None):
         """
+        The configuration settings of the GitHub provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'LoginScopesResponse' login: The configuration settings of the login flow.
+        :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the GitHub provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3543,6 +3806,9 @@ class GitHubResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -3556,16 +3822,25 @@ class GitHubResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.LoginScopesResponse']:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.ClientRegistrationResponse']:
+        """
+        The configuration settings of the app registration for the GitHub provider.
+        """
         return pulumi.get(self, "registration")
 
 
 @pulumi.output_type
 class GlobalValidationResponse(dict):
+    """
+    The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3599,10 +3874,17 @@ class GlobalValidationResponse(dict):
                  require_authentication: Optional[bool] = None,
                  unauthenticated_client_action: Optional[str] = None):
         """
+        The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param Sequence[str] excluded_paths: The paths for which unauthenticated flow would not be redirected to the login page.
         :param str kind: Kind of resource.
+        :param str redirect_to_provider: The default authentication provider to use when multiple providers are configured.
+               This setting is only needed if multiple providers are configured and the unauthenticated client
+               action is set to "RedirectToLoginPage".
+        :param bool require_authentication: <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+        :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3645,6 +3927,9 @@ class GlobalValidationResponse(dict):
     @property
     @pulumi.getter(name="excludedPaths")
     def excluded_paths(self) -> Optional[Sequence[str]]:
+        """
+        The paths for which unauthenticated flow would not be redirected to the login page.
+        """
         return pulumi.get(self, "excluded_paths")
 
     @property
@@ -3658,21 +3943,35 @@ class GlobalValidationResponse(dict):
     @property
     @pulumi.getter(name="redirectToProvider")
     def redirect_to_provider(self) -> Optional[str]:
+        """
+        The default authentication provider to use when multiple providers are configured.
+        This setting is only needed if multiple providers are configured and the unauthenticated client
+        action is set to "RedirectToLoginPage".
+        """
         return pulumi.get(self, "redirect_to_provider")
 
     @property
     @pulumi.getter(name="requireAuthentication")
     def require_authentication(self) -> Optional[bool]:
+        """
+        <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
+        """
         return pulumi.get(self, "require_authentication")
 
     @property
     @pulumi.getter(name="unauthenticatedClientAction")
     def unauthenticated_client_action(self) -> Optional[str]:
+        """
+        The action to take when an unauthenticated client attempts to access the app.
+        """
         return pulumi.get(self, "unauthenticated_client_action")
 
 
 @pulumi.output_type
 class GoogleResponse(dict):
+    """
+    The configuration settings of the Google provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -3683,10 +3982,15 @@ class GoogleResponse(dict):
                  registration: Optional['outputs.ClientRegistrationResponse'] = None,
                  validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
         """
+        The configuration settings of the Google provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'LoginScopesResponse' login: The configuration settings of the login flow.
+        :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the Google provider.
+        :param 'AllowedAudiencesValidationResponse' validation: The configuration settings of the Azure Active Directory token validation flow.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -3729,6 +4033,9 @@ class GoogleResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -3742,16 +4049,25 @@ class GoogleResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.LoginScopesResponse']:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.ClientRegistrationResponse']:
+        """
+        The configuration settings of the app registration for the Google provider.
+        """
         return pulumi.get(self, "registration")
 
     @property
     @pulumi.getter
     def validation(self) -> Optional['outputs.AllowedAudiencesValidationResponse']:
+        """
+        The configuration settings of the Azure Active Directory token validation flow.
+        """
         return pulumi.get(self, "validation")
 
 
@@ -4028,6 +4344,9 @@ class HttpLogsConfigResponse(dict):
 
 @pulumi.output_type
 class HttpSettingsResponse(dict):
+    """
+    The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4056,10 +4375,14 @@ class HttpSettingsResponse(dict):
                  require_https: Optional[bool] = None,
                  routes: Optional['outputs.HttpSettingsRoutesResponse'] = None):
         """
+        The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param 'ForwardProxyResponse' forward_proxy: The configuration settings of a forward proxy used to make the requests.
         :param str kind: Kind of resource.
+        :param bool require_https: <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+        :param 'HttpSettingsRoutesResponse' routes: The configuration settings of the paths HTTP requests.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -4100,6 +4423,9 @@ class HttpSettingsResponse(dict):
     @property
     @pulumi.getter(name="forwardProxy")
     def forward_proxy(self) -> Optional['outputs.ForwardProxyResponse']:
+        """
+        The configuration settings of a forward proxy used to make the requests.
+        """
         return pulumi.get(self, "forward_proxy")
 
     @property
@@ -4113,16 +4439,25 @@ class HttpSettingsResponse(dict):
     @property
     @pulumi.getter(name="requireHttps")
     def require_https(self) -> Optional[bool]:
+        """
+        <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "require_https")
 
     @property
     @pulumi.getter
     def routes(self) -> Optional['outputs.HttpSettingsRoutesResponse']:
+        """
+        The configuration settings of the paths HTTP requests.
+        """
         return pulumi.get(self, "routes")
 
 
 @pulumi.output_type
 class HttpSettingsRoutesResponse(dict):
+    """
+    The configuration settings of the paths HTTP requests.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4147,9 +4482,11 @@ class HttpSettingsRoutesResponse(dict):
                  api_prefix: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the paths HTTP requests.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str api_prefix: The prefix that should precede all the authentication/authorization paths.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -4187,6 +4524,9 @@ class HttpSettingsRoutesResponse(dict):
     @property
     @pulumi.getter(name="apiPrefix")
     def api_prefix(self) -> Optional[str]:
+        """
+        The prefix that should precede all the authentication/authorization paths.
+        """
         return pulumi.get(self, "api_prefix")
 
     @property
@@ -4268,6 +4608,9 @@ class IdentifierResponse(dict):
 
 @pulumi.output_type
 class IdentityProvidersResponse(dict):
+    """
+    The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4308,10 +4651,21 @@ class IdentityProvidersResponse(dict):
                  legacy_microsoft_account: Optional['outputs.LegacyMicrosoftAccountResponse'] = None,
                  twitter: Optional['outputs.TwitterResponse'] = None):
         """
+        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param 'AppleResponse' apple: The configuration settings of the Apple provider.
+        :param 'AzureActiveDirectoryResponse' azure_active_directory: The configuration settings of the Azure Active directory provider.
+        :param 'AzureStaticWebAppsResponse' azure_static_web_apps: The configuration settings of the Azure Static Web Apps provider.
+        :param Mapping[str, 'CustomOpenIdConnectProviderResponse'] custom_open_id_connect_providers: The map of the name of the alias of each custom Open ID Connect provider to the
+               configuration settings of the custom Open ID Connect provider.
+        :param 'FacebookResponse' facebook: The configuration settings of the Facebook provider.
+        :param 'GitHubResponse' git_hub: The configuration settings of the GitHub provider.
+        :param 'GoogleResponse' google: The configuration settings of the Google provider.
         :param str kind: Kind of resource.
+        :param 'LegacyMicrosoftAccountResponse' legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
+        :param 'TwitterResponse' twitter: The configuration settings of the Twitter provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -4364,36 +4718,58 @@ class IdentityProvidersResponse(dict):
     @property
     @pulumi.getter
     def apple(self) -> Optional['outputs.AppleResponse']:
+        """
+        The configuration settings of the Apple provider.
+        """
         return pulumi.get(self, "apple")
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
+        """
+        The configuration settings of the Azure Active directory provider.
+        """
         return pulumi.get(self, "azure_active_directory")
 
     @property
     @pulumi.getter(name="azureStaticWebApps")
     def azure_static_web_apps(self) -> Optional['outputs.AzureStaticWebAppsResponse']:
+        """
+        The configuration settings of the Azure Static Web Apps provider.
+        """
         return pulumi.get(self, "azure_static_web_apps")
 
     @property
     @pulumi.getter(name="customOpenIdConnectProviders")
     def custom_open_id_connect_providers(self) -> Optional[Mapping[str, 'outputs.CustomOpenIdConnectProviderResponse']]:
+        """
+        The map of the name of the alias of each custom Open ID Connect provider to the
+        configuration settings of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "custom_open_id_connect_providers")
 
     @property
     @pulumi.getter
     def facebook(self) -> Optional['outputs.FacebookResponse']:
+        """
+        The configuration settings of the Facebook provider.
+        """
         return pulumi.get(self, "facebook")
 
     @property
     @pulumi.getter(name="gitHub")
     def git_hub(self) -> Optional['outputs.GitHubResponse']:
+        """
+        The configuration settings of the GitHub provider.
+        """
         return pulumi.get(self, "git_hub")
 
     @property
     @pulumi.getter
     def google(self) -> Optional['outputs.GoogleResponse']:
+        """
+        The configuration settings of the Google provider.
+        """
         return pulumi.get(self, "google")
 
     @property
@@ -4407,11 +4783,17 @@ class IdentityProvidersResponse(dict):
     @property
     @pulumi.getter(name="legacyMicrosoftAccount")
     def legacy_microsoft_account(self) -> Optional['outputs.LegacyMicrosoftAccountResponse']:
+        """
+        The configuration settings of the legacy Microsoft Account provider.
+        """
         return pulumi.get(self, "legacy_microsoft_account")
 
     @property
     @pulumi.getter
     def twitter(self) -> Optional['outputs.TwitterResponse']:
+        """
+        The configuration settings of the Twitter provider.
+        """
         return pulumi.get(self, "twitter")
 
 
@@ -4621,6 +5003,9 @@ class IpSecurityRestrictionResponse(dict):
 
 @pulumi.output_type
 class JwtClaimChecksResponse(dict):
+    """
+    The configuration settings of the checks that should be made while validating the JWT Claims.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4648,9 +5033,12 @@ class JwtClaimChecksResponse(dict):
                  allowed_groups: Optional[Sequence[str]] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the checks that should be made while validating the JWT Claims.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param Sequence[str] allowed_client_applications: The list of the allowed client applications.
+        :param Sequence[str] allowed_groups: The list of the allowed groups.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -4690,11 +5078,17 @@ class JwtClaimChecksResponse(dict):
     @property
     @pulumi.getter(name="allowedClientApplications")
     def allowed_client_applications(self) -> Optional[Sequence[str]]:
+        """
+        The list of the allowed client applications.
+        """
         return pulumi.get(self, "allowed_client_applications")
 
     @property
     @pulumi.getter(name="allowedGroups")
     def allowed_groups(self) -> Optional[Sequence[str]]:
+        """
+        The list of the allowed groups.
+        """
         return pulumi.get(self, "allowed_groups")
 
     @property
@@ -4753,6 +5147,9 @@ class KubeEnvironmentProfileResponse(dict):
 
 @pulumi.output_type
 class LegacyMicrosoftAccountResponse(dict):
+    """
+    The configuration settings of the legacy Microsoft Account provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -4763,10 +5160,15 @@ class LegacyMicrosoftAccountResponse(dict):
                  registration: Optional['outputs.ClientRegistrationResponse'] = None,
                  validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
         """
+        The configuration settings of the legacy Microsoft Account provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'LoginScopesResponse' login: The configuration settings of the login flow.
+        :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
+        :param 'AllowedAudiencesValidationResponse' validation: The configuration settings of the legacy Microsoft Account provider token validation flow.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -4809,6 +5211,9 @@ class LegacyMicrosoftAccountResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -4822,21 +5227,33 @@ class LegacyMicrosoftAccountResponse(dict):
     @property
     @pulumi.getter
     def login(self) -> Optional['outputs.LoginScopesResponse']:
+        """
+        The configuration settings of the login flow.
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.ClientRegistrationResponse']:
+        """
+        The configuration settings of the app registration for the legacy Microsoft Account provider.
+        """
         return pulumi.get(self, "registration")
 
     @property
     @pulumi.getter
     def validation(self) -> Optional['outputs.AllowedAudiencesValidationResponse']:
+        """
+        The configuration settings of the legacy Microsoft Account provider token validation flow.
+        """
         return pulumi.get(self, "validation")
 
 
 @pulumi.output_type
 class LoginResponse(dict):
+    """
+    The configuration settings of the login flow of users using App Service Authentication/Authorization.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4872,10 +5289,19 @@ class LoginResponse(dict):
                  routes: Optional['outputs.LoginRoutesResponse'] = None,
                  token_store: Optional['outputs.TokenStoreResponse'] = None):
         """
+        The configuration settings of the login flow of users using App Service Authentication/Authorization.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+               This is an advanced setting typically only needed by Windows Store application backends.
+               Note that URLs within the current domain are always implicitly allowed.
+        :param 'CookieExpirationResponse' cookie_expiration: The configuration settings of the session cookie's expiration.
         :param str kind: Kind of resource.
+        :param 'NonceResponse' nonce: The configuration settings of the nonce used in the login flow.
+        :param bool preserve_url_fragments_for_logins: <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+        :param 'LoginRoutesResponse' routes: The routes that specify the endpoints used for login and logout requests.
+        :param 'TokenStoreResponse' token_store: The configuration settings of the token store.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -4922,11 +5348,19 @@ class LoginResponse(dict):
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
     def allowed_external_redirect_urls(self) -> Optional[Sequence[str]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+        This is an advanced setting typically only needed by Windows Store application backends.
+        Note that URLs within the current domain are always implicitly allowed.
+        """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @property
     @pulumi.getter(name="cookieExpiration")
     def cookie_expiration(self) -> Optional['outputs.CookieExpirationResponse']:
+        """
+        The configuration settings of the session cookie's expiration.
+        """
         return pulumi.get(self, "cookie_expiration")
 
     @property
@@ -4940,26 +5374,41 @@ class LoginResponse(dict):
     @property
     @pulumi.getter
     def nonce(self) -> Optional['outputs.NonceResponse']:
+        """
+        The configuration settings of the nonce used in the login flow.
+        """
         return pulumi.get(self, "nonce")
 
     @property
     @pulumi.getter(name="preserveUrlFragmentsForLogins")
     def preserve_url_fragments_for_logins(self) -> Optional[bool]:
+        """
+        <code>true</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>false</code>.
+        """
         return pulumi.get(self, "preserve_url_fragments_for_logins")
 
     @property
     @pulumi.getter
     def routes(self) -> Optional['outputs.LoginRoutesResponse']:
+        """
+        The routes that specify the endpoints used for login and logout requests.
+        """
         return pulumi.get(self, "routes")
 
     @property
     @pulumi.getter(name="tokenStore")
     def token_store(self) -> Optional['outputs.TokenStoreResponse']:
+        """
+        The configuration settings of the token store.
+        """
         return pulumi.get(self, "token_store")
 
 
 @pulumi.output_type
 class LoginRoutesResponse(dict):
+    """
+    The routes that specify the endpoints used for login and logout requests.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4984,10 +5433,12 @@ class LoginRoutesResponse(dict):
                  kind: Optional[str] = None,
                  logout_endpoint: Optional[str] = None):
         """
+        The routes that specify the endpoints used for login and logout requests.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
         :param str kind: Kind of resource.
+        :param str logout_endpoint: The endpoint at which a logout request should be made.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5032,11 +5483,17 @@ class LoginRoutesResponse(dict):
     @property
     @pulumi.getter(name="logoutEndpoint")
     def logout_endpoint(self) -> Optional[str]:
+        """
+        The endpoint at which a logout request should be made.
+        """
         return pulumi.get(self, "logout_endpoint")
 
 
 @pulumi.output_type
 class LoginScopesResponse(dict):
+    """
+    The configuration settings of the login flow, including the scopes that should be requested.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -5044,10 +5501,12 @@ class LoginScopesResponse(dict):
                  kind: Optional[str] = None,
                  scopes: Optional[Sequence[str]] = None):
         """
+        The configuration settings of the login flow, including the scopes that should be requested.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
         :param str kind: Kind of resource.
+        :param Sequence[str] scopes: A list of the scopes that should be requested while authenticating.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5092,6 +5551,9 @@ class LoginScopesResponse(dict):
     @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence[str]]:
+        """
+        A list of the scopes that should be requested while authenticating.
+        """
         return pulumi.get(self, "scopes")
 
 
@@ -5258,6 +5720,9 @@ class NameValuePairResponse(dict):
 
 @pulumi.output_type
 class NonceResponse(dict):
+    """
+    The configuration settings of the nonce used in the login flow.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5285,10 +5750,13 @@ class NonceResponse(dict):
                  nonce_expiration_interval: Optional[str] = None,
                  validate_nonce: Optional[bool] = None):
         """
+        The configuration settings of the nonce used in the login flow.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
         :param str kind: Kind of resource.
+        :param str nonce_expiration_interval: The time after the request is made when the nonce should expire.
+        :param bool validate_nonce: <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5335,16 +5803,25 @@ class NonceResponse(dict):
     @property
     @pulumi.getter(name="nonceExpirationInterval")
     def nonce_expiration_interval(self) -> Optional[str]:
+        """
+        The time after the request is made when the nonce should expire.
+        """
         return pulumi.get(self, "nonce_expiration_interval")
 
     @property
     @pulumi.getter(name="validateNonce")
     def validate_nonce(self) -> Optional[bool]:
+        """
+        <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "validate_nonce")
 
 
 @pulumi.output_type
 class OpenIdConnectClientCredentialResponse(dict):
+    """
+    The authentication client credentials of the custom Open ID Connect provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5370,10 +5847,13 @@ class OpenIdConnectClientCredentialResponse(dict):
                  kind: Optional[str] = None,
                  method: Optional[str] = None):
         """
+        The authentication client credentials of the custom Open ID Connect provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str client_secret_setting_name: The app setting that contains the client secret for the custom Open ID Connect provider.
         :param str kind: Kind of resource.
+        :param str method: The method that should be used to authenticate the user.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5412,6 +5892,9 @@ class OpenIdConnectClientCredentialResponse(dict):
     @property
     @pulumi.getter(name="clientSecretSettingName")
     def client_secret_setting_name(self) -> Optional[str]:
+        """
+        The app setting that contains the client secret for the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "client_secret_setting_name")
 
     @property
@@ -5425,11 +5908,17 @@ class OpenIdConnectClientCredentialResponse(dict):
     @property
     @pulumi.getter
     def method(self) -> Optional[str]:
+        """
+        The method that should be used to authenticate the user.
+        """
         return pulumi.get(self, "method")
 
 
 @pulumi.output_type
 class OpenIdConnectConfigResponse(dict):
+    """
+    The configuration settings of the endpoints used for the custom Open ID Connect provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5464,10 +5953,16 @@ class OpenIdConnectConfigResponse(dict):
                  token_endpoint: Optional[str] = None,
                  well_known_open_id_configuration: Optional[str] = None):
         """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str authorization_endpoint: The endpoint to be used to make an authorization request.
+        :param str certification_uri: The endpoint that provides the keys necessary to validate the token.
+        :param str issuer: The endpoint that issues the token.
         :param str kind: Kind of resource.
+        :param str token_endpoint: The endpoint to be used to request a token.
+        :param str well_known_open_id_configuration: The endpoint that contains all the configuration endpoints for the provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5512,16 +6007,25 @@ class OpenIdConnectConfigResponse(dict):
     @property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> Optional[str]:
+        """
+        The endpoint to be used to make an authorization request.
+        """
         return pulumi.get(self, "authorization_endpoint")
 
     @property
     @pulumi.getter(name="certificationUri")
     def certification_uri(self) -> Optional[str]:
+        """
+        The endpoint that provides the keys necessary to validate the token.
+        """
         return pulumi.get(self, "certification_uri")
 
     @property
     @pulumi.getter
     def issuer(self) -> Optional[str]:
+        """
+        The endpoint that issues the token.
+        """
         return pulumi.get(self, "issuer")
 
     @property
@@ -5535,16 +6039,25 @@ class OpenIdConnectConfigResponse(dict):
     @property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> Optional[str]:
+        """
+        The endpoint to be used to request a token.
+        """
         return pulumi.get(self, "token_endpoint")
 
     @property
     @pulumi.getter(name="wellKnownOpenIdConfiguration")
     def well_known_open_id_configuration(self) -> Optional[str]:
+        """
+        The endpoint that contains all the configuration endpoints for the provider.
+        """
         return pulumi.get(self, "well_known_open_id_configuration")
 
 
 @pulumi.output_type
 class OpenIdConnectLoginResponse(dict):
+    """
+    The configuration settings of the login flow of the custom Open ID Connect provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5570,10 +6083,13 @@ class OpenIdConnectLoginResponse(dict):
                  name_claim_type: Optional[str] = None,
                  scopes: Optional[Sequence[str]] = None):
         """
+        The configuration settings of the login flow of the custom Open ID Connect provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
         :param str kind: Kind of resource.
+        :param str name_claim_type: The name of the claim that contains the users name.
+        :param Sequence[str] scopes: A list of the scopes that should be requested while authenticating.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5620,16 +6136,25 @@ class OpenIdConnectLoginResponse(dict):
     @property
     @pulumi.getter(name="nameClaimType")
     def name_claim_type(self) -> Optional[str]:
+        """
+        The name of the claim that contains the users name.
+        """
         return pulumi.get(self, "name_claim_type")
 
     @property
     @pulumi.getter
     def scopes(self) -> Optional[Sequence[str]]:
+        """
+        A list of the scopes that should be requested while authenticating.
+        """
         return pulumi.get(self, "scopes")
 
 
 @pulumi.output_type
 class OpenIdConnectRegistrationResponse(dict):
+    """
+    The configuration settings of the app registration for the custom Open ID Connect provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5660,10 +6185,14 @@ class OpenIdConnectRegistrationResponse(dict):
                  kind: Optional[str] = None,
                  open_id_connect_configuration: Optional['outputs.OpenIdConnectConfigResponse'] = None):
         """
+        The configuration settings of the app registration for the custom Open ID Connect provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param 'OpenIdConnectClientCredentialResponse' client_credential: The authentication credentials of the custom Open ID Connect provider.
+        :param str client_id: The client id of the custom Open ID Connect provider.
         :param str kind: Kind of resource.
+        :param 'OpenIdConnectConfigResponse' open_id_connect_configuration: The configuration settings of the endpoints used for the custom Open ID Connect provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -5704,11 +6233,17 @@ class OpenIdConnectRegistrationResponse(dict):
     @property
     @pulumi.getter(name="clientCredential")
     def client_credential(self) -> Optional['outputs.OpenIdConnectClientCredentialResponse']:
+        """
+        The authentication credentials of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "client_credential")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
+        """
+        The client id of the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "client_id")
 
     @property
@@ -5722,6 +6257,9 @@ class OpenIdConnectRegistrationResponse(dict):
     @property
     @pulumi.getter(name="openIdConnectConfiguration")
     def open_id_connect_configuration(self) -> Optional['outputs.OpenIdConnectConfigResponse']:
+        """
+        The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        """
         return pulumi.get(self, "open_id_connect_configuration")
 
 
@@ -6484,6 +7022,8 @@ class SiteConfigResponse(dict):
             suggest = "power_shell_version"
         elif key == "preWarmedInstanceCount":
             suggest = "pre_warmed_instance_count"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
         elif key == "publishingUsername":
             suggest = "publishing_username"
         elif key == "pythonVersion":
@@ -6580,6 +7120,7 @@ class SiteConfigResponse(dict):
                  php_version: Optional[str] = None,
                  power_shell_version: Optional[str] = None,
                  pre_warmed_instance_count: Optional[int] = None,
+                 public_network_access: Optional[str] = None,
                  publishing_username: Optional[str] = None,
                  push: Optional['outputs.PushSettingsResponse'] = None,
                  python_version: Optional[str] = None,
@@ -6651,6 +7192,7 @@ class SiteConfigResponse(dict):
         :param str power_shell_version: Version of PowerShell.
         :param int pre_warmed_instance_count: Number of preWarmed instances.
                This setting only applies to the Consumption and Elastic Plans
+        :param str public_network_access: Property to allow or block all public traffic.
         :param str publishing_username: Publishing user name.
         :param 'PushSettingsResponse' push: Push endpoint settings.
         :param str python_version: Version of Python.
@@ -6764,6 +7306,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "power_shell_version", power_shell_version)
         if pre_warmed_instance_count is not None:
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if publishing_username is not None:
             pulumi.set(__self__, "publishing_username", publishing_username)
         if push is not None:
@@ -7155,6 +7699,14 @@ class SiteConfigResponse(dict):
         This setting only applies to the Consumption and Elastic Plans
         """
         return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Property to allow or block all public traffic.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="publishingUsername")
@@ -8451,6 +9003,9 @@ class StatusCodesRangeBasedTriggerResponse(dict):
 
 @pulumi.output_type
 class TokenStoreResponse(dict):
+    """
+    The configuration settings of the token store.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8482,10 +9037,17 @@ class TokenStoreResponse(dict):
                  kind: Optional[str] = None,
                  token_refresh_extension_hours: Optional[float] = None):
         """
+        The configuration settings of the token store.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param 'BlobStorageTokenStoreResponse' azure_blob_storage: The configuration settings of the storage of the tokens if blob storage is used.
+        :param bool enabled: <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+                The default is <code>false</code>.
+        :param 'FileSystemTokenStoreResponse' file_system: The configuration settings of the storage of the tokens if a file system is used.
         :param str kind: Kind of resource.
+        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
+               call the token refresh API. The default is 72 hours.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8528,16 +9090,26 @@ class TokenStoreResponse(dict):
     @property
     @pulumi.getter(name="azureBlobStorage")
     def azure_blob_storage(self) -> Optional['outputs.BlobStorageTokenStoreResponse']:
+        """
+        The configuration settings of the storage of the tokens if blob storage is used.
+        """
         return pulumi.get(self, "azure_blob_storage")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         The default is <code>false</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="fileSystem")
     def file_system(self) -> Optional['outputs.FileSystemTokenStoreResponse']:
+        """
+        The configuration settings of the storage of the tokens if a file system is used.
+        """
         return pulumi.get(self, "file_system")
 
     @property
@@ -8551,11 +9123,18 @@ class TokenStoreResponse(dict):
     @property
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[float]:
+        """
+        The number of hours after session token expiration that a session token can be used to
+        call the token refresh API. The default is 72 hours.
+        """
         return pulumi.get(self, "token_refresh_extension_hours")
 
 
 @pulumi.output_type
 class TwitterRegistrationResponse(dict):
+    """
+    The configuration settings of the app registration for the Twitter provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8583,9 +9162,15 @@ class TwitterRegistrationResponse(dict):
                  consumer_secret_setting_name: Optional[str] = None,
                  kind: Optional[str] = None):
         """
+        The configuration settings of the app registration for the Twitter provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+               This setting is required for enabling Twitter Sign-In.
+               Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+        :param str consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+               application used for sign-in.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
@@ -8625,11 +9210,20 @@ class TwitterRegistrationResponse(dict):
     @property
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> Optional[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        This setting is required for enabling Twitter Sign-In.
+        Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+        """
         return pulumi.get(self, "consumer_key")
 
     @property
     @pulumi.getter(name="consumerSecretSettingName")
     def consumer_secret_setting_name(self) -> Optional[str]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
+        application used for sign-in.
+        """
         return pulumi.get(self, "consumer_secret_setting_name")
 
     @property
@@ -8643,6 +9237,9 @@ class TwitterRegistrationResponse(dict):
 
 @pulumi.output_type
 class TwitterResponse(dict):
+    """
+    The configuration settings of the Twitter provider.
+    """
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -8651,10 +9248,13 @@ class TwitterResponse(dict):
                  kind: Optional[str] = None,
                  registration: Optional['outputs.TwitterRegistrationResponse'] = None):
         """
+        The configuration settings of the Twitter provider.
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str type: Resource type.
+        :param bool enabled: <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param str kind: Kind of resource.
+        :param 'TwitterRegistrationResponse' registration: The configuration settings of the app registration for the Twitter provider.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -8693,6 +9293,9 @@ class TwitterResponse(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -8706,6 +9309,9 @@ class TwitterResponse(dict):
     @property
     @pulumi.getter
     def registration(self) -> Optional['outputs.TwitterRegistrationResponse']:
+        """
+        The configuration settings of the app registration for the Twitter provider.
+        """
         return pulumi.get(self, "registration")
 
 

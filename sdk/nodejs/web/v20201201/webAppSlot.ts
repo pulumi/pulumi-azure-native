@@ -222,6 +222,11 @@ export class WebAppSlot extends pulumi.CustomResource {
      * State indicating whether the app has exceeded its quota usage. Read-only.
      */
     public /*out*/ readonly usageState!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+     * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+     */
+    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppSlot resource with the given unique name, arguments, and options.
@@ -269,6 +274,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["storageAccountRequired"] = args ? args.storageAccountRequired : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             inputs["availabilityState"] = undefined /*out*/;
             inputs["defaultHostName"] = undefined /*out*/;
             inputs["enabledHostNames"] = undefined /*out*/;
@@ -334,6 +340,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["trafficManagerHostNames"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usageState"] = undefined /*out*/;
+            inputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -469,4 +476,9 @@ export interface WebAppSlotArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+     * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+     */
+    readonly virtualNetworkSubnetId?: pulumi.Input<string>;
 }

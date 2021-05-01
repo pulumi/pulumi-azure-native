@@ -309,6 +309,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<int>? PreWarmedInstanceCount { get; set; }
 
         /// <summary>
+        /// Property to allow or block all public traffic.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Publishing user name.
         /// </summary>
         [Input("publishingUsername")]

@@ -28,7 +28,12 @@ class WebAppAuthSettingsV2Args:
         The set of arguments for constructing a WebAppAuthSettingsV2 resource.
         :param pulumi.Input[str] name: Name of web app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input['AuthPlatformArgs'] platform: The configuration settings of the platform of App Service Authentication/Authorization.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -72,6 +77,9 @@ class WebAppAuthSettingsV2Args:
     @property
     @pulumi.getter(name="globalValidation")
     def global_validation(self) -> Optional[pulumi.Input['GlobalValidationArgs']]:
+        """
+        The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "global_validation")
 
     @global_validation.setter
@@ -81,6 +89,9 @@ class WebAppAuthSettingsV2Args:
     @property
     @pulumi.getter(name="httpSettings")
     def http_settings(self) -> Optional[pulumi.Input['HttpSettingsArgs']]:
+        """
+        The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "http_settings")
 
     @http_settings.setter
@@ -90,6 +101,9 @@ class WebAppAuthSettingsV2Args:
     @property
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersArgs']]:
+        """
+        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
@@ -111,6 +125,9 @@ class WebAppAuthSettingsV2Args:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginArgs']]:
+        """
+        The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -120,6 +137,9 @@ class WebAppAuthSettingsV2Args:
     @property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input['AuthPlatformArgs']]:
+        """
+        The configuration settings of the platform of App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -142,12 +162,18 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
         API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['GlobalValidationArgs']] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        :param pulumi.Input[pulumi.InputType['HttpSettingsArgs']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        :param pulumi.Input[pulumi.InputType['IdentityProvidersArgs']] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using App Service Authentication/Authorization.
         :param pulumi.Input[str] name: Name of web app.
+        :param pulumi.Input[pulumi.InputType['AuthPlatformArgs']] platform: The configuration settings of the platform of App Service Authentication/Authorization.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
         ...
@@ -157,6 +183,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  args: WebAppAuthSettingsV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
         API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
@@ -244,16 +271,25 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     @property
     @pulumi.getter(name="globalValidation")
     def global_validation(self) -> pulumi.Output[Optional['outputs.GlobalValidationResponse']]:
+        """
+        The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "global_validation")
 
     @property
     @pulumi.getter(name="httpSettings")
     def http_settings(self) -> pulumi.Output[Optional['outputs.HttpSettingsResponse']]:
+        """
+        The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "http_settings")
 
     @property
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> pulumi.Output[Optional['outputs.IdentityProvidersResponse']]:
+        """
+        The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "identity_providers")
 
     @property
@@ -267,6 +303,9 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def login(self) -> pulumi.Output[Optional['outputs.LoginResponse']]:
+        """
+        The configuration settings of the login flow of users using App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "login")
 
     @property
@@ -280,6 +319,9 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Output[Optional['outputs.AuthPlatformResponse']]:
+        """
+        The configuration settings of the platform of App Service Authentication/Authorization.
+        """
         return pulumi.get(self, "platform")
 
     @property

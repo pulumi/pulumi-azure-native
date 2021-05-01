@@ -234,4 +234,9 @@ export interface GetWebAppSlotResult {
      * State indicating whether the app has exceeded its quota usage. Read-only.
      */
     readonly usageState: string;
+    /**
+     * Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+     * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+     */
+    readonly virtualNetworkSubnetId?: string;
 }

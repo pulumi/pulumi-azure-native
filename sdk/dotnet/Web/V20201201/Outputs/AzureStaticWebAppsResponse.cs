@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class AzureStaticWebAppsResponse
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// Resource Id.
@@ -26,6 +29,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The configuration settings of the Azure Static Web Apps registration.
+        /// </summary>
         public readonly Outputs.AzureStaticWebAppsRegistrationResponse? Registration;
         /// <summary>
         /// Resource type.

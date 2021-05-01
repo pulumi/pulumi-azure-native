@@ -13,8 +13,21 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class AzureActiveDirectoryRegistrationResponse
     {
+        /// <summary>
+        /// The Client ID of this relying party application, known as the client_id.
+        /// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+        /// other 3rd party OpenID Connect providers.
+        /// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+        /// </summary>
         public readonly string? ClientId;
+        /// <summary>
+        /// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+        /// a replacement for the Client Secret. It is also optional.
+        /// </summary>
         public readonly string? ClientSecretCertificateThumbprint;
+        /// <summary>
+        /// The app setting name that contains the client secret of the relying party application.
+        /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
         /// Resource Id.
@@ -28,6 +41,12 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+        /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        /// This URI is a case-sensitive identifier for the token issuer.
+        /// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+        /// </summary>
         public readonly string? OpenIdIssuer;
         /// <summary>
         /// Resource type.

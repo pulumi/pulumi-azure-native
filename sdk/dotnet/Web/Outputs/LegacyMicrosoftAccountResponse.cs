@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class LegacyMicrosoftAccountResponse
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// Resource Id.
@@ -22,16 +25,25 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The configuration settings of the login flow.
+        /// </summary>
         public readonly Outputs.LoginScopesResponse? Login;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The configuration settings of the app registration for the legacy Microsoft Account provider.
+        /// </summary>
         public readonly Outputs.ClientRegistrationResponse? Registration;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The configuration settings of the legacy Microsoft Account provider token validation flow.
+        /// </summary>
         public readonly Outputs.AllowedAudiencesValidationResponse? Validation;
 
         [OutputConstructor]

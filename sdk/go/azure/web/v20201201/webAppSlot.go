@@ -112,6 +112,9 @@ type WebAppSlot struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// State indicating whether the app has exceeded its quota usage. Read-only.
 	UsageState pulumi.StringOutput `pulumi:"usageState"`
+	// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+	// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
 // NewWebAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -318,6 +321,9 @@ type webAppSlotState struct {
 	Type *string `pulumi:"type"`
 	// State indicating whether the app has exceeded its quota usage. Read-only.
 	UsageState *string `pulumi:"usageState"`
+	// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+	// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type WebAppSlotState struct {
@@ -418,6 +424,9 @@ type WebAppSlotState struct {
 	Type pulumi.StringPtrInput
 	// State indicating whether the app has exceeded its quota usage. Read-only.
 	UsageState pulumi.StringPtrInput
+	// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+	// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (WebAppSlotState) ElementType() reflect.Type {
@@ -488,6 +497,9 @@ type webAppSlotArgs struct {
 	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+	// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a WebAppSlot resource.
@@ -555,6 +567,9 @@ type WebAppSlotArgs struct {
 	StorageAccountRequired pulumi.BoolPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+	// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (WebAppSlotArgs) ElementType() reflect.Type {

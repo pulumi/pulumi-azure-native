@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+    /// </summary>
     public sealed class HttpSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration settings of a forward proxy used to make the requests.
+        /// </summary>
         [Input("forwardProxy")]
         public Input<Inputs.ForwardProxyArgs>? ForwardProxy { get; set; }
 
@@ -21,9 +27,15 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         [Input("requireHttps")]
         public Input<bool>? RequireHttps { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the paths HTTP requests.
+        /// </summary>
         [Input("routes")]
         public Input<Inputs.HttpSettingsRoutesArgs>? Routes { get; set; }
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The routes that specify the endpoints used for login and logout requests.
+    /// </summary>
     public sealed class LoginRoutesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The endpoint at which a logout request should be made.
+        /// </summary>
         [Input("logoutEndpoint")]
         public Input<string>? LogoutEndpoint { get; set; }
 

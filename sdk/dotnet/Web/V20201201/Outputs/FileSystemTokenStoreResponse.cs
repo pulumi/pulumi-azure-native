@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class FileSystemTokenStoreResponse
     {
+        /// <summary>
+        /// The directory in which the tokens will be stored.
+        /// </summary>
         public readonly string? Directory;
         /// <summary>
         /// Resource Id.

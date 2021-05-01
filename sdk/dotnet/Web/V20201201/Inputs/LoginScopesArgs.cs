@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the login flow, including the scopes that should be requested.
+    /// </summary>
     public sealed class LoginScopesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -20,6 +23,10 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
 
         [Input("scopes")]
         private InputList<string>? _scopes;
+
+        /// <summary>
+        /// A list of the scopes that should be requested while authenticating.
+        /// </summary>
         public InputList<string> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<string>());

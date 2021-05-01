@@ -25,6 +25,9 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of the scopes that should be requested while authenticating.
+        /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
         /// Resource type.

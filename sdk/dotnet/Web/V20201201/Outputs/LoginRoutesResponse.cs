@@ -21,6 +21,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The endpoint at which a logout request should be made.
+        /// </summary>
         public readonly string? LogoutEndpoint;
         /// <summary>
         /// Resource Name.

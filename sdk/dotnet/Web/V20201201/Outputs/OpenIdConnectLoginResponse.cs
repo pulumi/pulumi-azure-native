@@ -25,7 +25,13 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The name of the claim that contains the users name.
+        /// </summary>
         public readonly string? NameClaimType;
+        /// <summary>
+        /// A list of the scopes that should be requested while authenticating.
+        /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
         /// Resource type.

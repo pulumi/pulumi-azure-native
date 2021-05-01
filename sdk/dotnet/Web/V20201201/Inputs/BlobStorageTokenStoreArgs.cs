@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the storage of the tokens if blob storage is used.
+    /// </summary>
     public sealed class BlobStorageTokenStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
+        /// </summary>
         [Input("sasUrlSettingName")]
         public Input<string>? SasUrlSettingName { get; set; }
 

@@ -25,6 +25,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
+        /// </summary>
         public readonly string? SasUrlSettingName;
         /// <summary>
         /// Resource type.

@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class AppRegistrationResponse
     {
+        /// <summary>
+        /// The App ID of the app used for login.
+        /// </summary>
         public readonly string? AppId;
+        /// <summary>
+        /// The app setting name that contains the app secret.
+        /// </summary>
         public readonly string? AppSecretSettingName;
         /// <summary>
         /// Resource Id.

@@ -190,6 +190,7 @@ func (e ClientCertMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The method that should be used to authenticate the user.
 type ClientCredentialMethod pulumi.String
 
 const (
@@ -288,6 +289,7 @@ func (e ConnectionStringType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The convention used when determining the session cookie's expiration.
 type CookieExpirationConvention pulumi.String
 
 const (
@@ -373,6 +375,7 @@ func (e DatabaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The convention used to determine the url of the request made.
 type ForwardProxyConvention pulumi.String
 
 const (
@@ -942,6 +945,7 @@ func (e UnauthenticatedClientAction) ToStringPtrOutputWithContext(ctx context.Co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The action to take when an unauthenticated client attempts to access the app.
 type UnauthenticatedClientActionV2 pulumi.String
 
 const (

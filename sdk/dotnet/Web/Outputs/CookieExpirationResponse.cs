@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class CookieExpirationResponse
     {
+        /// <summary>
+        /// The convention used when determining the session cookie's expiration.
+        /// </summary>
         public readonly string? Convention;
         /// <summary>
         /// Resource Id.
@@ -26,6 +29,9 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The time after the request is made when the session cookie should expire.
+        /// </summary>
         public readonly string? TimeToExpiration;
         /// <summary>
         /// Resource type.

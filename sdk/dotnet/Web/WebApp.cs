@@ -293,6 +293,13 @@ namespace Pulumi.AzureNative.Web
         [Output("usageState")]
         public Output<string> UsageState { get; private set; } = null!;
 
+        /// <summary>
+        /// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+        /// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        /// </summary>
+        [Output("virtualNetworkSubnetId")]
+        public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a WebApp resource with the given unique name, arguments, and options.
@@ -544,6 +551,13 @@ namespace Pulumi.AzureNative.Web
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+        /// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         public WebAppArgs()
         {

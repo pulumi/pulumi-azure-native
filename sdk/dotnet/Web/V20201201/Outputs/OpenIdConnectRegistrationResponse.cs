@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     [OutputType]
     public sealed class OpenIdConnectRegistrationResponse
     {
+        /// <summary>
+        /// The authentication credentials of the custom Open ID Connect provider.
+        /// </summary>
         public readonly Outputs.OpenIdConnectClientCredentialResponse? ClientCredential;
+        /// <summary>
+        /// The client id of the custom Open ID Connect provider.
+        /// </summary>
         public readonly string? ClientId;
         /// <summary>
         /// Resource Id.
@@ -27,6 +33,9 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        /// </summary>
         public readonly Outputs.OpenIdConnectConfigResponse? OpenIdConnectConfiguration;
         /// <summary>
         /// Resource type.

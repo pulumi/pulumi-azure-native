@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class JwtClaimChecksResponse
     {
+        /// <summary>
+        /// The list of the allowed client applications.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedClientApplications;
+        /// <summary>
+        /// The list of the allowed groups.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedGroups;
         /// <summary>
         /// Resource Id.

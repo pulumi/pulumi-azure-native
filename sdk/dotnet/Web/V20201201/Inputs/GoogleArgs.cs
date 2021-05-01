@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Google provider.
+    /// </summary>
     public sealed class GoogleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Google provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -21,12 +27,21 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the login flow.
+        /// </summary>
         [Input("login")]
         public Input<Inputs.LoginScopesArgs>? Login { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the app registration for the Google provider.
+        /// </summary>
         [Input("registration")]
         public Input<Inputs.ClientRegistrationArgs>? Registration { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the Azure Active Directory token validation flow.
+        /// </summary>
         [Input("validation")]
         public Input<Inputs.AllowedAudiencesValidationArgs>? Validation { get; set; }
 

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the app registration for the custom Open ID Connect provider.
+    /// </summary>
     public sealed class OpenIdConnectRegistrationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication credentials of the custom Open ID Connect provider.
+        /// </summary>
         [Input("clientCredential")]
         public Input<Inputs.OpenIdConnectClientCredentialArgs>? ClientCredential { get; set; }
 
+        /// <summary>
+        /// The client id of the custom Open ID Connect provider.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
@@ -24,6 +33,9 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
+        /// </summary>
         [Input("openIdConnectConfiguration")]
         public Input<Inputs.OpenIdConnectConfigArgs>? OpenIdConnectConfiguration { get; set; }
 

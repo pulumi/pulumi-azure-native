@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
+    /// </summary>
     public sealed class OpenIdConnectConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The endpoint to be used to make an authorization request.
+        /// </summary>
         [Input("authorizationEndpoint")]
         public Input<string>? AuthorizationEndpoint { get; set; }
 
+        /// <summary>
+        /// The endpoint that provides the keys necessary to validate the token.
+        /// </summary>
         [Input("certificationUri")]
         public Input<string>? CertificationUri { get; set; }
 
+        /// <summary>
+        /// The endpoint that issues the token.
+        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
@@ -27,9 +39,15 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The endpoint to be used to request a token.
+        /// </summary>
         [Input("tokenEndpoint")]
         public Input<string>? TokenEndpoint { get; set; }
 
+        /// <summary>
+        /// The endpoint that contains all the configuration endpoints for the provider.
+        /// </summary>
         [Input("wellKnownOpenIdConfiguration")]
         public Input<string>? WellKnownOpenIdConfiguration { get; set; }
 

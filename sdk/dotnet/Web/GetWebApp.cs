@@ -234,6 +234,11 @@ namespace Pulumi.AzureNative.Web
         /// State indicating whether the app has exceeded its quota usage. Read-only.
         /// </summary>
         public readonly string UsageState;
+        /// <summary>
+        /// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+        /// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+        /// </summary>
+        public readonly string? VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetWebAppResult(
@@ -327,7 +332,9 @@ namespace Pulumi.AzureNative.Web
 
             string type,
 
-            string usageState)
+            string usageState,
+
+            string? virtualNetworkSubnetId)
         {
             AvailabilityState = availabilityState;
             ClientAffinityEnabled = clientAffinityEnabled;
@@ -375,6 +382,7 @@ namespace Pulumi.AzureNative.Web
             TrafficManagerHostNames = trafficManagerHostNames;
             Type = type;
             UsageState = usageState;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

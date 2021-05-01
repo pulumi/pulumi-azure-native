@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class HttpSettingsRoutesResponse
     {
+        /// <summary>
+        /// The prefix that should precede all the authentication/authorization paths.
+        /// </summary>
         public readonly string? ApiPrefix;
         /// <summary>
         /// Resource Id.

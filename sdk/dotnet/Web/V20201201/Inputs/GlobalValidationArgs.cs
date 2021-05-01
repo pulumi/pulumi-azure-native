@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+    /// </summary>
     public sealed class GlobalValidationArgs : Pulumi.ResourceArgs
     {
         [Input("excludedPaths")]
         private InputList<string>? _excludedPaths;
+
+        /// <summary>
+        /// The paths for which unauthenticated flow would not be redirected to the login page.
+        /// </summary>
         public InputList<string> ExcludedPaths
         {
             get => _excludedPaths ?? (_excludedPaths = new InputList<string>());
@@ -26,12 +33,23 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
+        /// <summary>
+        /// The default authentication provider to use when multiple providers are configured.
+        /// This setting is only needed if multiple providers are configured and the unauthenticated client
+        /// action is set to "RedirectToLoginPage".
+        /// </summary>
         [Input("redirectToProvider")]
         public Input<string>? RedirectToProvider { get; set; }
 
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the authentication flow is required any request is made; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
         [Input("requireAuthentication")]
         public Input<bool>? RequireAuthentication { get; set; }
 
+        /// <summary>
+        /// The action to take when an unauthenticated client attempts to access the app.
+        /// </summary>
         [Input("unauthenticatedClientAction")]
         public Input<Pulumi.AzureNative.Web.V20201201.UnauthenticatedClientActionV2>? UnauthenticatedClientAction { get; set; }
 

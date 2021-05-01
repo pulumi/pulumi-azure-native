@@ -127,4 +127,7 @@ type LookupWebAppSlotResult struct {
 	Type string `pulumi:"type"`
 	// State indicating whether the app has exceeded its quota usage. Read-only.
 	UsageState string `pulumi:"usageState"`
+	// Azure Resource Manager ID of the Virtual network and subnet to be joined by Regional VNET Integration.
+	// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
