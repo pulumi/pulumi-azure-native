@@ -157,7 +157,7 @@ def get_template_spec(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecResult:
     """
     Template Spec object.
-    API Version: 2021-03-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.

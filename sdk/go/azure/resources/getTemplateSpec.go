@@ -8,7 +8,7 @@ import (
 )
 
 // Template Spec object.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-05-01.
 func LookupTemplateSpec(ctx *pulumi.Context, args *LookupTemplateSpecArgs, opts ...pulumi.InvokeOption) (*LookupTemplateSpecResult, error) {
 	var rv LookupTemplateSpecResult
 	err := ctx.Invoke("azure-native:resources:getTemplateSpec", args, &rv, opts...)

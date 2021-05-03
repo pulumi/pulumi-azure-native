@@ -47810,6 +47810,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-10",
           "2021-02-01-preview",
           "2021-02-01",
@@ -47892,6 +47893,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-10",
           "2021-02-01-preview",
           "2021-02-01",
@@ -62574,7 +62576,7 @@
           "2017-01-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2018-05-01",
+        "defaultApiVersion": "2021-02-01",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -76523,45 +76525,6 @@
         "locations": [],
         "properties": null,
         "resourceType": "checkNameAvailability"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-07-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "monitors/vmCollectionUpdate"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-07-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "monitors/vmIngestionDetails"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-07-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "monitors/listVMHost"
       }
     ]
   },
@@ -79690,6 +79653,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-02-01",
           "2020-12-01",
           "2020-11-01",
           "2020-10-01",
@@ -80896,6 +80860,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80913,6 +80878,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-11-20",
           "2020-06-01-preview",
           "2019-10-01",
@@ -80929,6 +80895,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80946,6 +80913,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80963,6 +80931,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80980,6 +80949,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01-preview",
           "2020-06-01-preview",
           "2019-02-01-preview",
           "2018-11-01-preview"
@@ -82793,6 +82763,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01-preview",
           "2019-06-01-preview"
         ],
@@ -82842,6 +82813,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-03-01-preview",
           "2019-06-01-preview"
         ],

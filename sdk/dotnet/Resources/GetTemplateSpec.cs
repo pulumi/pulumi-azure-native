@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Template Spec object.
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithVersion());

@@ -12,7 +12,7 @@ import (
 )
 
 // Template Spec object.
-// API Version: 2021-03-01-preview.
+// API Version: 2021-05-01.
 type TemplateSpec struct {
 	pulumi.CustomResourceState
 

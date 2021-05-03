@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec object.
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getTemplateSpec(args: GetTemplateSpecArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecResult> {
     if (!opts) {

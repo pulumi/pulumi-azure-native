@@ -145,7 +145,7 @@ class TemplateSpec(pulumi.CustomResource):
                  __props__=None):
         """
         Template Spec object.
-        API Version: 2021-03-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class TemplateSpec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Template Spec object.
-        API Version: 2021-03-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecArgs args: The arguments to use to populate this resource's properties.
