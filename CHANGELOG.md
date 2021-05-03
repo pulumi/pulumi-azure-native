@@ -8,6 +8,11 @@ CHANGELOG
 - Load Python modules lazily to speed up program execution
   [#738](https://github.com/pulumi/pulumi-azure-native/issues/738)
 
+#### Bug fixes
+
+- Allow 204 as a valid response for a non-existing resource
+  [#808](https://github.com/pulumi/pulumi-azure-native/issues/808)
+
 ---
 
 ## 1.3.0 (2020-04-30)
