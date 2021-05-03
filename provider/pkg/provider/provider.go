@@ -1348,7 +1348,12 @@ func (k *azureNativeProvider) azureCanCreate(ctx context.Context, id string, res
 		}
 		return nil
 	case http.StatusNoContent == resp.StatusCode:
-		return fmt.Errorf("cannot create already existing resource '%s'", id)
+		if res.ReadMethod == "HEAD" {
+			return fmt.Errorf("cannot create already existing resource '%s'", id)
+		}
+		// A few "linking" resources, like private endpoint connections, return 204 as "does not exist" status code.
+		// Treat them as such unless it's a HEAD method treated above.
+		return nil
 	case http.StatusOK == resp.StatusCode:
 		// Usually, 200 means that the resource already exists and we shouldn't try to create it.
 		// However, unfortunately, some APIs return 200 with an empty body for non-existing resources.
