@@ -106,6 +106,7 @@ export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[k
 export const SkuName = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**
@@ -116,6 +117,7 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const SkuTier = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**

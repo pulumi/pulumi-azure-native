@@ -47810,7 +47810,6 @@
           }
         ],
         "apiVersions": [
-          "2021-03-01",
           "2021-02-10",
           "2021-02-01-preview",
           "2021-02-01",
@@ -47893,7 +47892,6 @@
           }
         ],
         "apiVersions": [
-          "2021-03-01",
           "2021-02-10",
           "2021-02-01-preview",
           "2021-02-01",
@@ -62608,6 +62606,26 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-02-01-preview"
+        ],
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2020-02-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "North Europe",
+          "West Europe",
+          "East US 2",
+          "West US 2",
+          "Europe",
+          "United States"
+        ],
+        "properties": null,
+        "resourceType": "accounts/creators"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2021-02-01",
           "2020-02-01-preview",
           "2018-05-01"
@@ -76525,6 +76543,45 @@
         "locations": [],
         "properties": null,
         "resourceType": "checkNameAvailability"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "monitors/vmCollectionUpdate"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "monitors/vmIngestionDetails"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "monitors/listVMHost"
       }
     ]
   },
@@ -79581,61 +79638,6 @@
   {
     "authorizations": [
       {
-        "applicationId": "b8ed041c-aa91-418e-8f47-20c70abc2de1",
-        "roleDefinitionId": "b27fa4bc-5127-4625-b3e5-5fc5eddbc24e"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MobileNetwork",
-    "namespace": "Microsoft.MobileNetwork",
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "East US 2 EUAP"
-        ],
-        "properties": null,
-        "resourceType": "Locations/OperationStatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Operations"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
         "applicationId": "12fb057d-b751-47cd-857c-f2934bb677b4",
         "roleDefinitionId": "e4796bef-6b6d-4cbc-ba1e-27f1a308d860"
       },
@@ -80860,7 +80862,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80878,7 +80879,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
           "2020-11-20",
           "2020-06-01-preview",
           "2019-10-01",
@@ -80895,7 +80895,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80913,7 +80912,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80931,7 +80929,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
           "2020-09-01-preview",
@@ -80949,7 +80946,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-05-01-preview",
           "2020-06-01-preview",
           "2019-02-01-preview",
           "2018-11-01-preview"

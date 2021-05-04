@@ -312,6 +312,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
 
         public static SkuName Basic { get; } = new SkuName("Basic");
         public static SkuName Standard { get; } = new SkuName("Standard");
+        public static SkuName Premium { get; } = new SkuName("Premium");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
@@ -343,6 +344,7 @@ namespace Pulumi.AzureNative.EventHub.V20210101Preview
 
         public static SkuTier Basic { get; } = new SkuTier("Basic");
         public static SkuTier Standard { get; } = new SkuTier("Standard");
+        public static SkuTier Premium { get; } = new SkuTier("Premium");
 
         public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
         public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);

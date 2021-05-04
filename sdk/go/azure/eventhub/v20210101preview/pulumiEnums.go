@@ -281,6 +281,7 @@ type SkuName pulumi.String
 const (
 	SkuNameBasic    = SkuName("Basic")
 	SkuNameStandard = SkuName("Standard")
+	SkuNamePremium  = SkuName("Premium")
 )
 
 func (SkuName) ElementType() reflect.Type {
@@ -309,6 +310,7 @@ type SkuTier pulumi.String
 const (
 	SkuTierBasic    = SkuTier("Basic")
 	SkuTierStandard = SkuTier("Standard")
+	SkuTierPremium  = SkuTier("Premium")
 )
 
 func (SkuTier) ElementType() reflect.Type {

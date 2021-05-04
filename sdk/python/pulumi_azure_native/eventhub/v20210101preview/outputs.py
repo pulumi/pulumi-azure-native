@@ -772,7 +772,7 @@ class SkuResponse(dict):
         """
         SKU parameters supplied to the create namespace operation
         :param str name: Name of this SKU.
-        :param int capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param int capacity: The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         :param str tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -793,7 +793,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         """
         return pulumi.get(self, "capacity")
 

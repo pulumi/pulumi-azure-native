@@ -108,6 +108,7 @@ class SkuName(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class SkuTier(str, Enum):
@@ -116,3 +117,4 @@ class SkuTier(str, Enum):
     """
     BASIC = "Basic"
     STANDARD = "Standard"
+    PREMIUM = "Premium"

@@ -3180,7 +3180,7 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 
 // SKU parameters supplied to the create namespace operation
 type Sku struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity *int `pulumi:"capacity"`
 	// Name of this SKU.
 	Name string `pulumi:"name"`
@@ -3201,7 +3201,7 @@ type SkuInput interface {
 
 // SKU parameters supplied to the create namespace operation
 type SkuArgs struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of this SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3287,7 +3287,7 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -3320,7 +3320,7 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -3352,7 +3352,7 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 
 // SKU parameters supplied to the create namespace operation
 type SkuResponse struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity *int `pulumi:"capacity"`
 	// Name of this SKU.
 	Name string `pulumi:"name"`
@@ -3373,7 +3373,7 @@ type SkuResponseInput interface {
 
 // SKU parameters supplied to the create namespace operation
 type SkuResponseArgs struct {
-	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of this SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3459,7 +3459,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -3492,7 +3492,7 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
-// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+// The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
