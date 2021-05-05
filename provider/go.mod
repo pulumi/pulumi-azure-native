@@ -17,7 +17,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.1.1-0.20210429230905-93d7057f80f1
+	github.com/pulumi/pulumi/pkg/v3 v3.1.1-0.20210505095427-20bf4c8b677c
 	github.com/pulumi/pulumi/sdk/v3 v3.1.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
