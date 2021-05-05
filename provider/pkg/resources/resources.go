@@ -231,6 +231,13 @@ func ResourceName(operationID string) string {
 	return name + subName
 }
 
+var referenceNameReplacer = strings.NewReplacer("CreateOrUpdateParameters", "", "Create", "", "Request", "")
+
+// DiscriminatedResourceName returns the name of a resource variant based on the variant's schema name.
+func DiscriminatedResourceName(referenceName string) string {
+	return referenceNameReplacer.Replace(referenceName)
+}
+
 // AutoNamer decides on the per-property auto-naming property for a given API path.
 type AutoNamer struct {
 	path string

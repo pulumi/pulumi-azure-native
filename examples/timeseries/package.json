@@ -1,0 +1,10 @@
+{
+    "name": "azure-native-timeseries",
+    "version": "0.1.0",
+    "devDependencies": {
+        "@types/node": "latest"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^2.0.0"
+    }
+}
