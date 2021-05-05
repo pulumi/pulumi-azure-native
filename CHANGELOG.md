@@ -3,6 +3,14 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `securityinsights.SentinelOnboardingState`
+
+#### New Functions
+
+- `securityinsights.getSentinelOnboardingState`
+
 #### Improvements
 
 - Load Python modules lazily to speed up program execution
