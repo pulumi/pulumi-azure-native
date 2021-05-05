@@ -9,9 +9,11 @@ from ._enums import *
 from .data_connector import *
 from .get_data_connector import *
 from .get_product_setting import *
+from .get_sentinel_onboarding_state import *
 from .get_watchlist import *
 from .get_watchlist_item import *
 from .product_setting import *
+from .sentinel_onboarding_state import *
 from .watchlist import *
 from .watchlist_item import *
 from ._inputs import *

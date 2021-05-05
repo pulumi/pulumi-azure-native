@@ -702,9 +702,9 @@ type UserDetail struct {
 	// Email address
 	EmailAddress string `pulumi:"emailAddress"`
 	// First name
-	FirstName string `pulumi:"firstName"`
+	FirstName *string `pulumi:"firstName"`
 	// Last name
-	LastName string `pulumi:"lastName"`
+	LastName *string `pulumi:"lastName"`
 }
 
 // UserDetailInput is an input type that accepts UserDetailArgs and UserDetailOutput values.
@@ -723,9 +723,9 @@ type UserDetailArgs struct {
 	// Email address
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
 	// First name
-	FirstName pulumi.StringInput `pulumi:"firstName"`
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
 	// Last name
-	LastName pulumi.StringInput `pulumi:"lastName"`
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (UserDetailArgs) ElementType() reflect.Type {
@@ -812,13 +812,13 @@ func (o UserDetailOutput) EmailAddress() pulumi.StringOutput {
 }
 
 // First name
-func (o UserDetailOutput) FirstName() pulumi.StringOutput {
-	return o.ApplyT(func(v UserDetail) string { return v.FirstName }).(pulumi.StringOutput)
+func (o UserDetailOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserDetail) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
 // Last name
-func (o UserDetailOutput) LastName() pulumi.StringOutput {
-	return o.ApplyT(func(v UserDetail) string { return v.LastName }).(pulumi.StringOutput)
+func (o UserDetailOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserDetail) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
 type UserDetailPtrOutput struct{ *pulumi.OutputState }
@@ -855,7 +855,7 @@ func (o UserDetailPtrOutput) FirstName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.FirstName
+		return v.FirstName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -865,7 +865,7 @@ func (o UserDetailPtrOutput) LastName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.LastName
+		return v.LastName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -874,9 +874,9 @@ type UserDetailResponse struct {
 	// Email address
 	EmailAddress string `pulumi:"emailAddress"`
 	// First name
-	FirstName string `pulumi:"firstName"`
+	FirstName *string `pulumi:"firstName"`
 	// Last name
-	LastName string `pulumi:"lastName"`
+	LastName *string `pulumi:"lastName"`
 }
 
 // UserDetailResponseInput is an input type that accepts UserDetailResponseArgs and UserDetailResponseOutput values.
@@ -895,9 +895,9 @@ type UserDetailResponseArgs struct {
 	// Email address
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
 	// First name
-	FirstName pulumi.StringInput `pulumi:"firstName"`
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
 	// Last name
-	LastName pulumi.StringInput `pulumi:"lastName"`
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (UserDetailResponseArgs) ElementType() reflect.Type {
@@ -984,13 +984,13 @@ func (o UserDetailResponseOutput) EmailAddress() pulumi.StringOutput {
 }
 
 // First name
-func (o UserDetailResponseOutput) FirstName() pulumi.StringOutput {
-	return o.ApplyT(func(v UserDetailResponse) string { return v.FirstName }).(pulumi.StringOutput)
+func (o UserDetailResponseOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserDetailResponse) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
 // Last name
-func (o UserDetailResponseOutput) LastName() pulumi.StringOutput {
-	return o.ApplyT(func(v UserDetailResponse) string { return v.LastName }).(pulumi.StringOutput)
+func (o UserDetailResponseOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserDetailResponse) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
 type UserDetailResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1027,7 +1027,7 @@ func (o UserDetailResponsePtrOutput) FirstName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.FirstName
+		return v.FirstName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1037,7 +1037,7 @@ func (o UserDetailResponsePtrOutput) LastName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.LastName
+		return v.LastName
 	}).(pulumi.StringPtrOutput)
 }
 

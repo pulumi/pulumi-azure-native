@@ -24,14 +24,14 @@ namespace Pulumi.AzureNative.Confluent.V20210301Preview.Inputs
         /// <summary>
         /// First name
         /// </summary>
-        [Input("firstName", required: true)]
-        public Input<string> FirstName { get; set; } = null!;
+        [Input("firstName")]
+        public Input<string>? FirstName { get; set; }
 
         /// <summary>
         /// Last name
         /// </summary>
-        [Input("lastName", required: true)]
-        public Input<string> LastName { get; set; } = null!;
+        [Input("lastName")]
+        public Input<string>? LastName { get; set; }
 
         public UserDetailArgs()
         {

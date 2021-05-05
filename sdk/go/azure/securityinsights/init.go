@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentRelation{}
 	case "azure-native:securityinsights:ProductSetting":
 		r = &ProductSetting{}
+	case "azure-native:securityinsights:SentinelOnboardingState":
+		r = &SentinelOnboardingState{}
 	case "azure-native:securityinsights:ThreatIntelligenceIndicator":
 		r = &ThreatIntelligenceIndicator{}
 	case "azure-native:securityinsights:Watchlist":

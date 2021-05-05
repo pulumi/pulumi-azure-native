@@ -11662,6 +11662,7 @@ _utilities.register(
    "azure-native:securityinsights:IncidentComment": "IncidentComment",
    "azure-native:securityinsights:IncidentRelation": "IncidentRelation",
    "azure-native:securityinsights:ProductSetting": "ProductSetting",
+   "azure-native:securityinsights:SentinelOnboardingState": "SentinelOnboardingState",
    "azure-native:securityinsights:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
    "azure-native:securityinsights:Watchlist": "Watchlist",
    "azure-native:securityinsights:WatchlistItem": "WatchlistItem"
@@ -11706,6 +11707,7 @@ _utilities.register(
   "classes": {
    "azure-native:securityinsights/v20210301preview:DataConnector": "DataConnector",
    "azure-native:securityinsights/v20210301preview:ProductSetting": "ProductSetting",
+   "azure-native:securityinsights/v20210301preview:SentinelOnboardingState": "SentinelOnboardingState",
    "azure-native:securityinsights/v20210301preview:Watchlist": "Watchlist",
    "azure-native:securityinsights/v20210301preview:WatchlistItem": "WatchlistItem"
   }

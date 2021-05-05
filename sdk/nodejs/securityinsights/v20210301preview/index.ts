@@ -8,9 +8,11 @@ import * as utilities from "../../utilities";
 export * from "./dataConnector";
 export * from "./getDataConnector";
 export * from "./getProductSetting";
+export * from "./getSentinelOnboardingState";
 export * from "./getWatchlist";
 export * from "./getWatchlistItem";
 export * from "./productSetting";
+export * from "./sentinelOnboardingState";
 export * from "./watchlist";
 export * from "./watchlistItem";
 
@@ -20,6 +22,7 @@ export * from "../../types/enums/securityinsights/v20210301preview";
 // Import resources to register:
 import { DataConnector } from "./dataConnector";
 import { ProductSetting } from "./productSetting";
+import { SentinelOnboardingState } from "./sentinelOnboardingState";
 import { Watchlist } from "./watchlist";
 import { WatchlistItem } from "./watchlistItem";
 
@@ -31,6 +34,8 @@ const _module = {
                 return new DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:SentinelOnboardingState":
+                return new SentinelOnboardingState(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:WatchlistItem":

@@ -23,6 +23,7 @@ export * from "./getIncident";
 export * from "./getIncidentComment";
 export * from "./getIncidentRelation";
 export * from "./getProductSetting";
+export * from "./getSentinelOnboardingState";
 export * from "./getThreatIntelligenceIndicator";
 export * from "./getWatchlist";
 export * from "./getWatchlistItem";
@@ -30,6 +31,7 @@ export * from "./incident";
 export * from "./incidentComment";
 export * from "./incidentRelation";
 export * from "./productSetting";
+export * from "./sentinelOnboardingState";
 export * from "./threatIntelligenceIndicator";
 export * from "./watchlist";
 export * from "./watchlistItem";
@@ -59,6 +61,7 @@ import { Incident } from "./incident";
 import { IncidentComment } from "./incidentComment";
 import { IncidentRelation } from "./incidentRelation";
 import { ProductSetting } from "./productSetting";
+import { SentinelOnboardingState } from "./sentinelOnboardingState";
 import { ThreatIntelligenceIndicator } from "./threatIntelligenceIndicator";
 import { Watchlist } from "./watchlist";
 import { WatchlistItem } from "./watchlistItem";
@@ -87,6 +90,8 @@ const _module = {
                 return new IncidentRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ProductSetting":
                 return new ProductSetting(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:SentinelOnboardingState":
+                return new SentinelOnboardingState(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ThreatIntelligenceIndicator":
                 return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Watchlist":

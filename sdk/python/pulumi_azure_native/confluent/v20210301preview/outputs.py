@@ -254,8 +254,8 @@ class UserDetailResponse(dict):
 
     def __init__(__self__, *,
                  email_address: str,
-                 first_name: str,
-                 last_name: str):
+                 first_name: Optional[str] = None,
+                 last_name: Optional[str] = None):
         """
         Subscriber detail
         :param str email_address: Email address
@@ -263,8 +263,10 @@ class UserDetailResponse(dict):
         :param str last_name: Last name
         """
         pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -276,7 +278,7 @@ class UserDetailResponse(dict):
 
     @property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> str:
+    def first_name(self) -> Optional[str]:
         """
         First name
         """
@@ -284,7 +286,7 @@ class UserDetailResponse(dict):
 
     @property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> str:
+    def last_name(self) -> Optional[str]:
         """
         Last name
         """

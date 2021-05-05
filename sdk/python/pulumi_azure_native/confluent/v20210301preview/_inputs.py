@@ -117,8 +117,8 @@ class OfferDetailArgs:
 class UserDetailArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[str],
-                 first_name: pulumi.Input[str],
-                 last_name: pulumi.Input[str]):
+                 first_name: Optional[pulumi.Input[str]] = None,
+                 last_name: Optional[pulumi.Input[str]] = None):
         """
         Subscriber detail
         :param pulumi.Input[str] email_address: Email address
@@ -126,8 +126,10 @@ class UserDetailArgs:
         :param pulumi.Input[str] last_name: Last name
         """
         pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -143,26 +145,26 @@ class UserDetailArgs:
 
     @property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> pulumi.Input[str]:
+    def first_name(self) -> Optional[pulumi.Input[str]]:
         """
         First name
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: pulumi.Input[str]):
+    def first_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "first_name", value)
 
     @property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> pulumi.Input[str]:
+    def last_name(self) -> Optional[pulumi.Input[str]]:
         """
         Last name
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: pulumi.Input[str]):
+    def last_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_name", value)
 
 
