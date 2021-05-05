@@ -430,6 +430,7 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 const (
 	extensionClientFlatten      = "x-ms-client-flatten"
 	extensionClientName         = "x-ms-client-name"
+	extensionDiscriminatorValue = "x-ms-discriminator-value"
 	extensionEnum               = "x-ms-enum"
 	extensionLongRunning        = "x-ms-long-running-operation"
 	extensionLongRunningDefault = "azure-async-operation"
@@ -514,9 +515,9 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
 		},
-		InputProperties:    resourceRequest.specs,
-		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            aliases,
+		InputProperties: resourceRequest.specs,
+		RequiredInputs:  resourceRequest.requiredSpecs.SortedValues(),
+		Aliases:         aliases,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
@@ -549,7 +550,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 
 	if path.Get != nil && responseFunction != nil {
 		functionSpec := pschema.FunctionSpec{
-			Description:        g.formatDescription(resourceResponse, swagger.Info),
+			Description: g.formatDescription(resourceResponse, swagger.Info),
 			Inputs: &pschema.ObjectTypeSpec{
 				Description: requestFunction.description,
 				Type:        "object",
@@ -697,7 +698,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	}
 
 	functionSpec := pschema.FunctionSpec{
-		Description:        g.formatDescription(response, swagger.Info),
+		Description: g.formatDescription(response, swagger.Info),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
@@ -1094,10 +1095,8 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 
 			propSpec := allOfProperties.specs[sdkDiscriminator]
-			discriminatorValue := resolvedSchema.ReferenceContext.ReferenceName
-			if v, ok := resolvedSchema.Extensions.GetString("x-ms-discriminator-value"); ok {
-				discriminatorValue = v
-			}
+
+			discriminatorValue := getDiscriminatorValue(resolvedSchema)
 			propSpec.Const = discriminatorValue
 			propSpec.Type = "string"
 			propSpec.Ref = ""
@@ -1152,6 +1151,13 @@ func (m *moduleGenerator) getDiscriminator(resolvedSchema *openapi.Schema) (stri
 		}
 	}
 	return "", "", false, nil
+}
+
+func getDiscriminatorValue(resolvedSchema *openapi.Schema) string {
+	if v, ok := resolvedSchema.Extensions.GetString(extensionDiscriminatorValue); ok {
+		return v
+	}
+	return resolvedSchema.ReferenceContext.ReferenceName
 }
 
 // isWriteOnly return true for properties which are annotated with mutability extension that contain no 'read' value.
@@ -1399,7 +1405,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 					// TODO: this was needed to unblock nightly generation: generalize this case.
 					v = spec
 				}
-				err := 	compatibleTypes(spec, v, isOutput)
+				err := compatibleTypes(spec, v, isOutput)
 				if err != nil {
 					return nil, errors.Wrapf(err, "incompatible type %q for resource %q", tok, m.resourceName)
 				}
@@ -1607,6 +1613,7 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 	}
 
 	var oneOf []pschema.TypeSpec
+	mapping := map[string]string{}
 	subtypes, err := resolvedSchema.FindSubtypes()
 	if err != nil {
 		return nil, false, err
@@ -1617,6 +1624,12 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 			return nil, false, err
 		}
 		oneOf = append(oneOf, *typ)
+		subtypeSchema, err := resolvedSchema.ResolveSchema(subtype)
+		if err != nil {
+			return nil, false, err
+		}
+		discriminatorValue := getDiscriminatorValue(subtypeSchema)
+		mapping[discriminatorValue] = typ.Ref
 	}
 
 	switch len(oneOf) {
@@ -1627,8 +1640,20 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 		// There is just one subtype specified: use it as a definite type.
 		return &oneOf[0], true, nil
 	default:
+		sdkDiscriminator := discriminator
+		if clientName, ok := prop.Extensions.GetString(extensionClientName); ok {
+			sdkDiscriminator = clientName
+		}
+		sdkDiscriminator = ToLowerCamel(sdkDiscriminator)
+
 		// Union type for two or more types.
-		return &pschema.TypeSpec{OneOf: oneOf}, true, nil
+		return &pschema.TypeSpec{
+			OneOf: oneOf,
+			Discriminator: &pschema.DiscriminatorSpec{
+				PropertyName: sdkDiscriminator,
+				Mapping:      mapping,
+			},
+		}, true, nil
 	}
 }
 
@@ -1646,24 +1671,24 @@ var typeNameOverrides = map[string]string{
 	// In particular, the IP Filter Rule has more properties in the DPS version.
 	"Devices.IotDpsResource.IpFilterRule": "TargetIpFilterRule",
 	// Workbook vs. MyWorkbook types are slightly different. Probably, a bug in the spec, but we have to disambiguate.
-	"Insights.MyWorkbook.ManagedIdentity": "MyManagedIdentity",
+	"Insights.MyWorkbook.ManagedIdentity":        "MyManagedIdentity",
 	"Insights.MyWorkbook.UserAssignedIdentities": "MyUserAssignedIdentities",
 	// Experiment's endpoint is a much narrower type compared to endpoints in other network resources.
 	"Network.Experiment.Endpoint": "ExperimentEndpoint",
 	// These are all FrontDoor types. FrontDoor shares a bunch of type names with generate Network provider,
 	// but defines them in its own way.
 	"Network.Policy.ManagedRuleGroupOverride": "FrontDoorManagedRuleGroupOverride",
-	"Network.Policy.ManagedRuleOverride": "FrontDoorManagedRuleOverride",
-	"Network.Policy.ManagedRuleSet": "FrontDoorManagedRuleSet",
-	"Network.Policy.MatchCondition": "FrontDoorMatchCondition",
-	"Network.Policy.MatchVariable": "FrontDoorMatchVariable",
-	"Network.Policy.PolicySettings": "FrontDoorPolicySettings",
+	"Network.Policy.ManagedRuleOverride":      "FrontDoorManagedRuleOverride",
+	"Network.Policy.ManagedRuleSet":           "FrontDoorManagedRuleSet",
+	"Network.Policy.MatchCondition":           "FrontDoorMatchCondition",
+	"Network.Policy.MatchVariable":            "FrontDoorMatchVariable",
+	"Network.Policy.PolicySettings":           "FrontDoorPolicySettings",
 	// The following two types are read-only, while the same types in another spec are writable.
-	"RecoveryServices.Vault.PrivateEndpointConnection": "VaultPrivateEndpointConnection",
+	"RecoveryServices.Vault.PrivateEndpointConnection":         "VaultPrivateEndpointConnection",
 	"RecoveryServices.Vault.PrivateLinkServiceConnectionState": "VaultPrivateLinkServiceConnectionState",
 	// Watchlist resources only appear in a preview spec and not in stable specs. Anyway, the shapes of their
 	// types are slightly different from later specs, so we have to disambiguate for top-level resources.
-	"SecurityInsights.Watchlist.UserInfo": "WatchlistUserInfo",
+	"SecurityInsights.Watchlist.UserInfo":     "WatchlistUserInfo",
 	"SecurityInsights.WatchlistItem.UserInfo": "WatchlistUserInfo",
 }
 
