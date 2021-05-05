@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.4.0 (2020-05-05)
+
 #### New Resources
 
 - `securityinsights.SentinelOnboardingState`
@@ -20,8 +26,6 @@ CHANGELOG
 
 - Allow 204 as a valid response for a non-existing resource
   [#808](https://github.com/pulumi/pulumi-azure-native/issues/808)
-
----
 
 ## 1.3.0 (2020-04-30)
 
