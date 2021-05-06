@@ -33710,7 +33710,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus"
@@ -33804,7 +33805,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "redisEnterprise",
@@ -33888,6 +33890,10 @@
               "3",
               "1"
             ]
+          },
+          {
+            "location": "Central India",
+            "zones": []
           }
         ]
       },
@@ -33914,7 +33920,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies"
@@ -33942,7 +33949,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/validate"
@@ -33970,7 +33978,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/operationresults"
@@ -33998,7 +34007,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnections"
@@ -34026,7 +34036,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateEndpointConnections/operationresults"
@@ -34054,7 +34065,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "RedisEnterprise/privateLinkResources"
@@ -34082,7 +34094,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "redisEnterprise/databases"
@@ -34110,7 +34123,8 @@
           "Southeast Asia",
           "Australia East",
           "North Europe",
-          "Central US"
+          "Central US",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability"
@@ -52338,6 +52352,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
         ],
@@ -52345,12 +52360,39 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "managedclusters"
@@ -52359,6 +52401,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
         ],
@@ -52366,12 +52409,39 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "managedclusters/nodetypes"
@@ -52380,18 +52450,46 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "managedclusters/applicationTypes"
@@ -52400,18 +52498,46 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "managedclusters/applicationTypes/versions"
@@ -52420,18 +52546,46 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview"
         ],
         "capabilities": "SystemAssignedResourceIdentity",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "managedclusters/applications"
@@ -52440,18 +52594,46 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "managedclusters/applications/services"
@@ -52460,6 +52642,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
         ],
@@ -52467,12 +52650,39 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "locations/managedClusterOperations"
@@ -52481,6 +52691,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
         ],
@@ -52488,12 +52699,39 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "locations/managedClusterOperationResults"
@@ -52502,6 +52740,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
         ],
@@ -52509,12 +52748,39 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "locations/managedClusterVersions"
@@ -52523,6 +52789,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
         ],
@@ -52530,12 +52797,39 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "East Asia",
-          "North Europe",
+          "West US",
+          "West US 2",
           "West Central US",
+          "East US",
           "East US 2",
+          "Central US",
+          "West Europe",
+          "North Europe",
+          "UK West",
+          "UK South",
+          "Australia East",
+          "Australia Southeast",
+          "North Central US",
+          "East Asia",
           "Southeast Asia",
-          "West Europe"
+          "Japan West",
+          "Japan East",
+          "South India",
+          "West India",
+          "Central India",
+          "Brazil South",
+          "South Central US",
+          "Korea Central",
+          "Korea South",
+          "Canada Central",
+          "Canada East",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East"
         ],
         "properties": null,
         "resourceType": "locations/environments/managedClusterVersions"
@@ -63762,6 +64056,68 @@
         "apiProfiles": null,
         "apiVersions": [
           "2016-08-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "updateCommunicationPreference"
+      }
+    ]
+  },
+  {
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Crypteron.DataSecurity",
+    "namespace": "Crypteron.DataSecurity",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2016-08-12"
+        ],
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US"
+        ],
+        "properties": null,
+        "resourceType": "apps"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2016-08-12"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2016-08-12"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "listCommunicationPreference"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2016-08-12"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
