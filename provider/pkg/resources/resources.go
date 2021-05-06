@@ -277,6 +277,9 @@ func AutoLocationDisabled(path string) bool {
 	case "/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.resources/deployments/{deploymentname}":
 		// Template deployment.
 		return true
+	case "/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.network/loadbalancers/{loadbalancername}/backendaddresspools/{backendaddresspoolname}":
+		// Load balancer backend address pool, see https://github.com/pulumi/pulumi-azure-native/issues/819.
+		return true
 	case "/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/cassandrakeyspaces/{keyspacename}",
 		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/cassandrakeyspaces/{keyspacename}/tables/{tablename}",
 		"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/gremlindatabases/{databasename}",

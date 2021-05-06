@@ -3,7 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Bug fixes
+
+- Don't set auto-location of LoadBalancerBackendAddressPool as the service doesn't expect it
+  [#819](https://github.com/pulumi/pulumi-azure-native/issues/819)
+
 
 ---
 
