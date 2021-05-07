@@ -34201,6 +34201,10 @@
       {
         "applicationId": "3af5a1e8-2459-45cb-8683-bcd6cccbcc13",
         "roleDefinitionId": "b1309299-720d-4159-9897-6158a61aee41"
+      },
+      {
+        "applicationId": "161a339d-b9f5-41c5-8856-6a6669acac64",
+        "roleDefinitionId": "b61a6c11-d848-4eec-8c37-fb13ab7d5729"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AlertsManagement",
@@ -58232,6 +58236,30 @@
         ],
         "properties": null,
         "resourceType": "watchlists"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Europe",
+          "North Europe",
+          "France Central",
+          "UK South",
+          "UK West",
+          "France South",
+          "Switzerland North",
+          "Switzerland West",
+          "Norway East",
+          "Germany West Central"
+        ],
+        "properties": null,
+        "resourceType": "onboardingStates"
       }
     ]
   },
@@ -60800,7 +60828,7 @@
           "2020-07-17-preview",
           "2020-03-20"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
