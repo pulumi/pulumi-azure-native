@@ -10,12 +10,13 @@ export {
     v20210401preview,
 };
 
-export const IscsiTargetAclMode = {
-    Dynamic: "Dynamic",
-    Static: "Static",
+export const DiskPoolTier = {
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**
- * Mode for Target connectivity.
+ * Determines the SKU of VM deployed for Disk pool
  */
-export type IscsiTargetAclMode = (typeof IscsiTargetAclMode)[keyof typeof IscsiTargetAclMode];
+export type DiskPoolTier = (typeof DiskPoolTier)[keyof typeof DiskPoolTier];

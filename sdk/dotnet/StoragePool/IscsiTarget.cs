@@ -10,41 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool
 {
     /// <summary>
-    /// Response for iSCSI Target requests.
-    /// API Version: 2021-04-01-preview.
+    /// Response for iSCSI target requests.
+    /// API Version: 2020-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool:IscsiTarget")]
     public partial class IscsiTarget : Pulumi.CustomResource
     {
         /// <summary>
-        /// Mode for Target connectivity.
-        /// </summary>
-        [Output("aclMode")]
-        public Output<string> AclMode { get; private set; } = null!;
-
-        /// <summary>
-        /// List of private IPv4 addresses to connect to the iSCSI Target.
-        /// </summary>
-        [Output("endpoints")]
-        public Output<ImmutableArray<string>> Endpoints { get; private set; } = null!;
-
-        /// <summary>
-        /// List of LUNs to be exposed through iSCSI Target.
-        /// </summary>
-        [Output("luns")]
-        public Output<ImmutableArray<Outputs.IscsiLunResponse>> Luns { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The port used by iSCSI Target portal group.
-        /// </summary>
-        [Output("port")]
-        public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
         /// State of the operation on the resource.
@@ -53,28 +29,22 @@ namespace Pulumi.AzureNative.StoragePool
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        /// </summary>
-        [Output("staticAcls")]
-        public Output<ImmutableArray<Outputs.AclResponse>> StaticAcls { get; private set; } = null!;
-
-        /// <summary>
-        /// Operational status of the iSCSI Target.
+        /// Operational status of the iSCSI target.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Resource metadata required by ARM RPC
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemMetadataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         /// </summary>
         [Output("targetIqn")]
         public Output<string> TargetIqn { get; private set; } = null!;
+
+        /// <summary>
+        /// List of iSCSI target portal groups. Can have 1 portal group at most.
+        /// </summary>
+        [Output("tpgs")]
+        public Output<ImmutableArray<Outputs.TargetPortalGroupResponse>> Tpgs { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -136,34 +106,16 @@ namespace Pulumi.AzureNative.StoragePool
     public sealed class IscsiTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Mode for Target connectivity.
-        /// </summary>
-        [Input("aclMode", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.StoragePool.IscsiTargetAclMode> AclMode { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Disk Pool.
+        /// The name of the Disk pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public Input<string> DiskPoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the iSCSI Target.
+        /// The name of the iSCSI target.
         /// </summary>
         [Input("iscsiTargetName")]
         public Input<string>? IscsiTargetName { get; set; }
-
-        [Input("luns")]
-        private InputList<Inputs.IscsiLunArgs>? _luns;
-
-        /// <summary>
-        /// List of LUNs to be exposed through iSCSI Target.
-        /// </summary>
-        public InputList<Inputs.IscsiLunArgs> Luns
-        {
-            get => _luns ?? (_luns = new InputList<Inputs.IscsiLunArgs>());
-            set => _luns = value;
-        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -171,23 +123,23 @@ namespace Pulumi.AzureNative.StoragePool
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("staticAcls")]
-        private InputList<Inputs.AclArgs>? _staticAcls;
-
         /// <summary>
-        /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        /// </summary>
-        public InputList<Inputs.AclArgs> StaticAcls
-        {
-            get => _staticAcls ?? (_staticAcls = new InputList<Inputs.AclArgs>());
-            set => _staticAcls = value;
-        }
-
-        /// <summary>
-        /// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         /// </summary>
         [Input("targetIqn")]
         public Input<string>? TargetIqn { get; set; }
+
+        [Input("tpgs", required: true)]
+        private InputList<Inputs.TargetPortalGroupCreateArgs>? _tpgs;
+
+        /// <summary>
+        /// List of iSCSI target portal groups. Can have 1 portal group at most.
+        /// </summary>
+        public InputList<Inputs.TargetPortalGroupCreateArgs> Tpgs
+        {
+            get => _tpgs ?? (_tpgs = new InputList<Inputs.TargetPortalGroupCreateArgs>());
+            set => _tpgs = value;
+        }
 
         public IscsiTargetArgs()
         {

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Application Insights workbook definition.
-    /// API Version: 2021-03-08.
+    /// API Version: 2020-10-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Workbook")]
     public partial class Workbook : Pulumi.CustomResource
@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
-
-        /// <summary>
-        /// The description of the workbook.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// The user-defined name (display name) of the workbook.
@@ -65,12 +59,6 @@ namespace Pulumi.AzureNative.Insights
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The unique revision id for this workbook definition
-        /// </summary>
-        [Output("revision")]
-        public Output<string?> Revision { get; private set; } = null!;
-
-        /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
         /// </summary>
         [Output("serializedData")]
@@ -87,12 +75,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("storageUri")]
         public Output<string?> StorageUri { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -188,12 +170,6 @@ namespace Pulumi.AzureNative.Insights
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
-        /// The description of the workbook.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
         /// The user-defined name (display name) of the workbook.
         /// </summary>
         [Input("displayName", required: true)]
@@ -252,12 +228,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
-
-        /// <summary>
-        /// The unique revision id for this workbook definition
-        /// </summary>
-        [Input("revision")]
-        public Input<string>? Revision { get; set; }
 
         /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON

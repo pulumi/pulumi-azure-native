@@ -10,26 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool
 {
     /// <summary>
-    /// Response for Disk Pool request.
-    /// API Version: 2021-04-01-preview.
+    /// Response for Disk pool request.
+    /// API Version: 2020-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool:DiskPool")]
     public partial class DiskPool : Pulumi.CustomResource
     {
         /// <summary>
-        /// List of additional capabilities for Disk Pool.
+        /// List of additional capabilities for Disk pool.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<ImmutableArray<string>> AdditionalCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// Logical zone for Disk Pool resource; example: ["1"].
+        /// Logical zone for Disk pool resource; example: ["1"].
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// List of Azure Managed Disks to attach to a Disk Pool.
+        /// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         /// </summary>
         [Output("disks")]
         public Output<ImmutableArray<Outputs.DiskResponse>> Disks { get; private set; } = null!;
@@ -53,13 +53,13 @@ namespace Pulumi.AzureNative.StoragePool
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Operational status of the Disk Pool.
+        /// Operational status of the Disk pool.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource ID of a Subnet for the Disk Pool.
+        /// Azure Resource ID of a Subnet for the Disk pool.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -77,10 +77,10 @@ namespace Pulumi.AzureNative.StoragePool
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Sku tier
+        /// Determines the SKU of VM deployed for Disk pool
         /// </summary>
         [Output("tier")]
-        public Output<string?> Tier { get; private set; } = null!;
+        public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.StoragePool
         private InputList<string>? _additionalCapabilities;
 
         /// <summary>
-        /// List of additional capabilities for a Disk Pool.
+        /// List of additional capabilities for a Disk pool.
         /// </summary>
         public InputList<string> AdditionalCapabilities
         {
@@ -153,11 +153,11 @@ namespace Pulumi.AzureNative.StoragePool
             set => _additionalCapabilities = value;
         }
 
-        [Input("availabilityZones")]
+        [Input("availabilityZones", required: true)]
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// Logical zone for Disk Pool resource; example: ["1"].
+        /// Logical zone for Disk pool resource; example: ["1"].
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.StoragePool
         }
 
         /// <summary>
-        /// The name of the Disk Pool.
+        /// The name of the Disk pool.
         /// </summary>
         [Input("diskPoolName")]
         public Input<string>? DiskPoolName { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNative.StoragePool
         private InputList<Inputs.DiskArgs>? _disks;
 
         /// <summary>
-        /// List of Azure Managed Disks to attach to a Disk Pool.
+        /// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         /// </summary>
         public InputList<Inputs.DiskArgs> Disks
         {
@@ -196,13 +196,7 @@ namespace Pulumi.AzureNative.StoragePool
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Determines the SKU of the Disk Pool
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// Azure Resource ID of a Subnet for the Disk Pool.
+        /// Azure Resource ID of a Subnet for the Disk pool.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -218,6 +212,12 @@ namespace Pulumi.AzureNative.StoragePool
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Determines the SKU of VM deployed for Disk pool
+        /// </summary>
+        [Input("tier", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.StoragePool.DiskPoolTier> Tier { get; set; } = null!;
 
         public DiskPoolArgs()
         {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights private workbook definition.
- * API Version: 2021-03-08.
+ * API Version: 2020-10-20.
  */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
     if (!opts) {
@@ -82,10 +82,6 @@ export interface GetMyWorkbookResult {
      * BYOS Storage Account URI
      */
     readonly storageUri?: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.insights.SystemDataResponse;
     /**
      * Resource tags
      */

@@ -10,30 +10,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Mode for Target connectivity.
-type IscsiTargetAclMode pulumi.String
+// Determines the SKU of VM deployed for Disk pool
+type DiskPoolTier pulumi.String
 
 const (
-	IscsiTargetAclModeDynamic = IscsiTargetAclMode("Dynamic")
-	IscsiTargetAclModeStatic  = IscsiTargetAclMode("Static")
+	DiskPoolTierBasic    = DiskPoolTier("Basic")
+	DiskPoolTierStandard = DiskPoolTier("Standard")
+	DiskPoolTierPremium  = DiskPoolTier("Premium")
 )
 
-func (IscsiTargetAclMode) ElementType() reflect.Type {
+func (DiskPoolTier) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e IscsiTargetAclMode) ToStringOutput() pulumi.StringOutput {
+func (e DiskPoolTier) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e IscsiTargetAclMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DiskPoolTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e IscsiTargetAclMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DiskPoolTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e IscsiTargetAclMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DiskPoolTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

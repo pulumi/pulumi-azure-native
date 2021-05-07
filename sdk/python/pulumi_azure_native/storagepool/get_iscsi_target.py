@@ -18,61 +18,30 @@ __all__ = [
 @pulumi.output_type
 class GetIscsiTargetResult:
     """
-    Response for iSCSI Target requests.
+    Response for iSCSI target requests.
     """
-    def __init__(__self__, acl_mode=None, endpoints=None, id=None, luns=None, name=None, port=None, provisioning_state=None, static_acls=None, status=None, system_data=None, target_iqn=None, type=None):
-        if acl_mode and not isinstance(acl_mode, str):
-            raise TypeError("Expected argument 'acl_mode' to be a str")
-        pulumi.set(__self__, "acl_mode", acl_mode)
-        if endpoints and not isinstance(endpoints, list):
-            raise TypeError("Expected argument 'endpoints' to be a list")
-        pulumi.set(__self__, "endpoints", endpoints)
+    def __init__(__self__, id=None, name=None, provisioning_state=None, status=None, target_iqn=None, tpgs=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if luns and not isinstance(luns, list):
-            raise TypeError("Expected argument 'luns' to be a list")
-        pulumi.set(__self__, "luns", luns)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if port and not isinstance(port, int):
-            raise TypeError("Expected argument 'port' to be a int")
-        pulumi.set(__self__, "port", port)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if static_acls and not isinstance(static_acls, list):
-            raise TypeError("Expected argument 'static_acls' to be a list")
-        pulumi.set(__self__, "static_acls", static_acls)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if target_iqn and not isinstance(target_iqn, str):
             raise TypeError("Expected argument 'target_iqn' to be a str")
         pulumi.set(__self__, "target_iqn", target_iqn)
+        if tpgs and not isinstance(tpgs, list):
+            raise TypeError("Expected argument 'tpgs' to be a list")
+        pulumi.set(__self__, "tpgs", tpgs)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="aclMode")
-    def acl_mode(self) -> str:
-        """
-        Mode for Target connectivity.
-        """
-        return pulumi.get(self, "acl_mode")
-
-    @property
-    @pulumi.getter
-    def endpoints(self) -> Optional[Sequence[str]]:
-        """
-        List of private IPv4 addresses to connect to the iSCSI Target.
-        """
-        return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter
@@ -84,27 +53,11 @@ class GetIscsiTargetResult:
 
     @property
     @pulumi.getter
-    def luns(self) -> Optional[Sequence['outputs.IscsiLunResponse']]:
-        """
-        List of LUNs to be exposed through iSCSI Target.
-        """
-        return pulumi.get(self, "luns")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        """
-        The port used by iSCSI Target portal group.
-        """
-        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -115,36 +68,28 @@ class GetIscsiTargetResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="staticAcls")
-    def static_acls(self) -> Optional[Sequence['outputs.AclResponse']]:
-        """
-        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-        """
-        return pulumi.get(self, "static_acls")
-
-    @property
     @pulumi.getter
     def status(self) -> str:
         """
-        Operational status of the iSCSI Target.
+        Operational status of the iSCSI target.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemMetadataResponse':
-        """
-        Resource metadata required by ARM RPC
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="targetIqn")
     def target_iqn(self) -> str:
         """
-        iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         """
         return pulumi.get(self, "target_iqn")
+
+    @property
+    @pulumi.getter
+    def tpgs(self) -> Sequence['outputs.TargetPortalGroupResponse']:
+        """
+        List of iSCSI target portal groups. Can have 1 portal group at most.
+        """
+        return pulumi.get(self, "tpgs")
 
     @property
     @pulumi.getter
@@ -161,17 +106,12 @@ class AwaitableGetIscsiTargetResult(GetIscsiTargetResult):
         if False:
             yield self
         return GetIscsiTargetResult(
-            acl_mode=self.acl_mode,
-            endpoints=self.endpoints,
             id=self.id,
-            luns=self.luns,
             name=self.name,
-            port=self.port,
             provisioning_state=self.provisioning_state,
-            static_acls=self.static_acls,
             status=self.status,
-            system_data=self.system_data,
             target_iqn=self.target_iqn,
+            tpgs=self.tpgs,
             type=self.type)
 
 
@@ -180,12 +120,12 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIscsiTargetResult:
     """
-    Response for iSCSI Target requests.
-    API Version: 2021-04-01-preview.
+    Response for iSCSI target requests.
+    API Version: 2020-03-15-preview.
 
 
-    :param str disk_pool_name: The name of the Disk Pool.
-    :param str iscsi_target_name: The name of the iSCSI Target.
+    :param str disk_pool_name: The name of the Disk pool.
+    :param str iscsi_target_name: The name of the iSCSI target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -199,15 +139,10 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagepool:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult).value
 
     return AwaitableGetIscsiTargetResult(
-        acl_mode=__ret__.acl_mode,
-        endpoints=__ret__.endpoints,
         id=__ret__.id,
-        luns=__ret__.luns,
         name=__ret__.name,
-        port=__ret__.port,
         provisioning_state=__ret__.provisioning_state,
-        static_acls=__ret__.static_acls,
         status=__ret__.status,
-        system_data=__ret__.system_data,
         target_iqn=__ret__.target_iqn,
+        tpgs=__ret__.tpgs,
         type=__ret__.type)

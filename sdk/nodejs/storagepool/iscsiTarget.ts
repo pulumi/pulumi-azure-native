@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Response for iSCSI Target requests.
- * API Version: 2021-04-01-preview.
+ * Response for iSCSI target requests.
+ * API Version: 2020-03-15-preview.
  */
 export class IscsiTarget extends pulumi.CustomResource {
     /**
@@ -37,45 +37,25 @@ export class IscsiTarget extends pulumi.CustomResource {
     }
 
     /**
-     * Mode for Target connectivity.
-     */
-    public readonly aclMode!: pulumi.Output<string>;
-    /**
-     * List of private IPv4 addresses to connect to the iSCSI Target.
-     */
-    public /*out*/ readonly endpoints!: pulumi.Output<string[] | undefined>;
-    /**
-     * List of LUNs to be exposed through iSCSI Target.
-     */
-    public readonly luns!: pulumi.Output<outputs.storagepool.IscsiLunResponse[] | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The port used by iSCSI Target portal group.
-     */
-    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
     /**
      * State of the operation on the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-     */
-    public readonly staticAcls!: pulumi.Output<outputs.storagepool.AclResponse[] | undefined>;
-    /**
-     * Operational status of the iSCSI Target.
+     * Operational status of the iSCSI target.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Resource metadata required by ARM RPC
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagepool.SystemMetadataResponse>;
-    /**
-     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
     public readonly targetIqn!: pulumi.Output<string>;
+    /**
+     * List of iSCSI target portal groups. Can have 1 portal group at most.
+     */
+    public readonly tpgs!: pulumi.Output<outputs.storagepool.TargetPortalGroupResponse[]>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -92,40 +72,30 @@ export class IscsiTarget extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aclMode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aclMode'");
-            }
             if ((!args || args.diskPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aclMode"] = args ? args.aclMode : undefined;
+            if ((!args || args.tpgs === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'tpgs'");
+            }
             inputs["diskPoolName"] = args ? args.diskPoolName : undefined;
             inputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
-            inputs["luns"] = args ? args.luns : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["staticAcls"] = args ? args.staticAcls : undefined;
             inputs["targetIqn"] = args ? args.targetIqn : undefined;
-            inputs["endpoints"] = undefined /*out*/;
+            inputs["tpgs"] = args ? args.tpgs : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["aclMode"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["luns"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["staticAcls"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["targetIqn"] = undefined /*out*/;
+            inputs["tpgs"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -142,31 +112,23 @@ export class IscsiTarget extends pulumi.CustomResource {
  */
 export interface IscsiTargetArgs {
     /**
-     * Mode for Target connectivity.
-     */
-    readonly aclMode: pulumi.Input<string | enums.storagepool.IscsiTargetAclMode>;
-    /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName: pulumi.Input<string>;
     /**
-     * The name of the iSCSI Target.
+     * The name of the iSCSI target.
      */
     readonly iscsiTargetName?: pulumi.Input<string>;
-    /**
-     * List of LUNs to be exposed through iSCSI Target.
-     */
-    readonly luns?: pulumi.Input<pulumi.Input<inputs.storagepool.IscsiLunArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-     */
-    readonly staticAcls?: pulumi.Input<pulumi.Input<inputs.storagepool.AclArgs>[]>;
-    /**
-     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
     readonly targetIqn?: pulumi.Input<string>;
+    /**
+     * List of iSCSI target portal groups. Can have 1 portal group at most.
+     */
+    readonly tpgs: pulumi.Input<pulumi.Input<inputs.storagepool.TargetPortalGroupCreateArgs>[]>;
 }

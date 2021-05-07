@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// An Application Insights private workbook definition.
-        /// API Version: 2021-03-08.
+        /// API Version: 2020-10-20.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithVersion());
@@ -88,10 +88,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? StorageUri;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -136,8 +132,6 @@ namespace Pulumi.AzureNative.Insights
 
             string? storageUri,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string timeModified,
@@ -159,7 +153,6 @@ namespace Pulumi.AzureNative.Insights
             SerializedData = serializedData;
             SourceId = sourceId;
             StorageUri = storageUri;
-            SystemData = systemData;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;

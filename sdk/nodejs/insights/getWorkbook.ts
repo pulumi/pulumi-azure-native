@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights workbook definition.
- * API Version: 2021-03-08.
+ * API Version: 2020-10-20.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
     if (!opts) {
@@ -43,10 +43,6 @@ export interface GetWorkbookResult {
      */
     readonly category: string;
     /**
-     * The description of the workbook.
-     */
-    readonly description?: string;
-    /**
      * The user-defined name (display name) of the workbook.
      */
     readonly displayName: string;
@@ -75,10 +71,6 @@ export interface GetWorkbookResult {
      */
     readonly name?: string;
     /**
-     * The unique revision id for this workbook definition
-     */
-    readonly revision?: string;
-    /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
     readonly serializedData: string;
@@ -90,10 +82,6 @@ export interface GetWorkbookResult {
      * BYOS Storage Account URI
      */
     readonly storageUri?: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.insights.SystemDataResponse;
     /**
      * Resource tags
      */

@@ -21,15 +21,29 @@ namespace Pulumi.AzureNative.StoragePool.Outputs
         /// List of LUN names mapped to the ACL.
         /// </summary>
         public readonly ImmutableArray<string> MappedLuns;
+        /// <summary>
+        /// Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        /// </summary>
+        public readonly string Password;
+        /// <summary>
+        /// Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        /// </summary>
+        public readonly string Username;
 
         [OutputConstructor]
         private AclResponse(
             string initiatorIqn,
 
-            ImmutableArray<string> mappedLuns)
+            ImmutableArray<string> mappedLuns,
+
+            string password,
+
+            string username)
         {
             InitiatorIqn = initiatorIqn;
             MappedLuns = mappedLuns;
+            Password = password;
+            Username = username;
         }
     }
 }

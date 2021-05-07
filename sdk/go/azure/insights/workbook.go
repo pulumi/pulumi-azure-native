@@ -12,14 +12,12 @@ import (
 )
 
 // An Application Insights workbook definition.
-// API Version: 2021-03-08.
+// API Version: 2020-10-20.
 type Workbook struct {
 	pulumi.CustomResourceState
 
 	// Workbook category, as defined by the user at creation time.
 	Category pulumi.StringOutput `pulumi:"category"`
-	// The description of the workbook.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Resource etag
@@ -32,16 +30,12 @@ type Workbook struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The unique revision id for this workbook definition
-	Revision pulumi.StringPtrOutput `pulumi:"revision"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
 	// ResourceId for a source resource.
 	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
 	// BYOS Storage Account URI
 	StorageUri pulumi.StringPtrOutput `pulumi:"storageUri"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -127,8 +121,6 @@ func GetWorkbook(ctx *pulumi.Context,
 type workbookState struct {
 	// Workbook category, as defined by the user at creation time.
 	Category *string `pulumi:"category"`
-	// The description of the workbook.
-	Description *string `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName *string `pulumi:"displayName"`
 	// Resource etag
@@ -141,16 +133,12 @@ type workbookState struct {
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The unique revision id for this workbook definition
-	Revision *string `pulumi:"revision"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData *string `pulumi:"serializedData"`
 	// ResourceId for a source resource.
 	SourceId *string `pulumi:"sourceId"`
 	// BYOS Storage Account URI
 	StorageUri *string `pulumi:"storageUri"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -166,8 +154,6 @@ type workbookState struct {
 type WorkbookState struct {
 	// Workbook category, as defined by the user at creation time.
 	Category pulumi.StringPtrInput
-	// The description of the workbook.
-	Description pulumi.StringPtrInput
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringPtrInput
 	// Resource etag
@@ -180,16 +166,12 @@ type WorkbookState struct {
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The unique revision id for this workbook definition
-	Revision pulumi.StringPtrInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringPtrInput
 	// ResourceId for a source resource.
 	SourceId pulumi.StringPtrInput
 	// BYOS Storage Account URI
 	StorageUri pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Date and time in UTC of the last modification that was made to this workbook definition.
@@ -209,8 +191,6 @@ func (WorkbookState) ElementType() reflect.Type {
 type workbookArgs struct {
 	// Workbook category, as defined by the user at creation time.
 	Category string `pulumi:"category"`
-	// The description of the workbook.
-	Description *string `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName string `pulumi:"displayName"`
 	// Resource etag
@@ -229,8 +209,6 @@ type workbookArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
 	ResourceName *string `pulumi:"resourceName"`
-	// The unique revision id for this workbook definition
-	Revision *string `pulumi:"revision"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// ResourceId for a source resource.
@@ -249,8 +227,6 @@ type workbookArgs struct {
 type WorkbookArgs struct {
 	// Workbook category, as defined by the user at creation time.
 	Category pulumi.StringInput
-	// The description of the workbook.
-	Description pulumi.StringPtrInput
 	// The user-defined name (display name) of the workbook.
 	DisplayName pulumi.StringInput
 	// Resource etag
@@ -269,8 +245,6 @@ type WorkbookArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the Application Insights component resource.
 	ResourceName pulumi.StringPtrInput
-	// The unique revision id for this workbook definition
-	Revision pulumi.StringPtrInput
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput
 	// ResourceId for a source resource.

@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetDiskPoolResult:
     """
-    Response for Disk Pool request.
+    Response for Disk pool request.
     """
     def __init__(__self__, additional_capabilities=None, availability_zones=None, disks=None, id=None, location=None, name=None, provisioning_state=None, status=None, subnet_id=None, system_data=None, tags=None, tier=None, type=None):
         if additional_capabilities and not isinstance(additional_capabilities, list):
@@ -65,7 +65,7 @@ class GetDiskPoolResult:
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> Optional[Sequence[str]]:
         """
-        List of additional capabilities for Disk Pool.
+        List of additional capabilities for Disk pool.
         """
         return pulumi.get(self, "additional_capabilities")
 
@@ -73,7 +73,7 @@ class GetDiskPoolResult:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
         """
-        Logical zone for Disk Pool resource; example: ["1"].
+        Logical zone for Disk pool resource; example: ["1"].
         """
         return pulumi.get(self, "availability_zones")
 
@@ -81,7 +81,7 @@ class GetDiskPoolResult:
     @pulumi.getter
     def disks(self) -> Optional[Sequence['outputs.DiskResponse']]:
         """
-        List of Azure Managed Disks to attach to a Disk Pool.
+        List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
         """
         return pulumi.get(self, "disks")
 
@@ -121,7 +121,7 @@ class GetDiskPoolResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Operational status of the Disk Pool.
+        Operational status of the Disk pool.
         """
         return pulumi.get(self, "status")
 
@@ -129,7 +129,7 @@ class GetDiskPoolResult:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        Azure Resource ID of a Subnet for the Disk Pool.
+        Azure Resource ID of a Subnet for the Disk pool.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -151,9 +151,9 @@ class GetDiskPoolResult:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def tier(self) -> str:
         """
-        Sku tier
+        Determines the SKU of VM deployed for Disk pool
         """
         return pulumi.get(self, "tier")
 
@@ -191,11 +191,11 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskPoolResult:
     """
-    Response for Disk Pool request.
-    API Version: 2021-04-01-preview.
+    Response for Disk pool request.
+    API Version: 2020-03-15-preview.
 
 
-    :param str disk_pool_name: The name of the Disk Pool.
+    :param str disk_pool_name: The name of the Disk pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

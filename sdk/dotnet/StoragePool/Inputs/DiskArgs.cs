@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StoragePool.Inputs
 {
 
     /// <summary>
-    /// Azure Managed Disk to attach to the Disk Pool.
+    /// Azure Managed Disk to attach to the Disk pool.
     /// </summary>
     public sealed class DiskArgs : Pulumi.ResourceArgs
     {

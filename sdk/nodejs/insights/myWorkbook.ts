@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights private workbook definition.
- * API Version: 2021-03-08.
+ * API Version: 2020-10-20.
  */
 export class MyWorkbook extends pulumi.CustomResource {
     /**
@@ -77,10 +77,6 @@ export class MyWorkbook extends pulumi.CustomResource {
      */
     public readonly storageUri!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
-    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -140,7 +136,6 @@ export class MyWorkbook extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
         } else {
@@ -154,7 +149,6 @@ export class MyWorkbook extends pulumi.CustomResource {
             inputs["serializedData"] = undefined /*out*/;
             inputs["sourceId"] = undefined /*out*/;
             inputs["storageUri"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

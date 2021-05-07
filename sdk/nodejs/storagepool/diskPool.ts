@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Response for Disk Pool request.
- * API Version: 2021-04-01-preview.
+ * Response for Disk pool request.
+ * API Version: 2020-03-15-preview.
  */
 export class DiskPool extends pulumi.CustomResource {
     /**
@@ -37,15 +37,15 @@ export class DiskPool extends pulumi.CustomResource {
     }
 
     /**
-     * List of additional capabilities for Disk Pool.
+     * List of additional capabilities for Disk pool.
      */
     public readonly additionalCapabilities!: pulumi.Output<string[] | undefined>;
     /**
-     * Logical zone for Disk Pool resource; example: ["1"].
+     * Logical zone for Disk pool resource; example: ["1"].
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
-     * List of Azure Managed Disks to attach to a Disk Pool.
+     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
      */
     public readonly disks!: pulumi.Output<outputs.storagepool.DiskResponse[] | undefined>;
     /**
@@ -61,11 +61,11 @@ export class DiskPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Operational status of the Disk Pool.
+     * Operational status of the Disk pool.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Azure Resource ID of a Subnet for the Disk Pool.
+     * Azure Resource ID of a Subnet for the Disk pool.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -77,9 +77,9 @@ export class DiskPool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Sku tier
+     * Determines the SKU of VM deployed for Disk pool
      */
-    public /*out*/ readonly tier!: pulumi.Output<string | undefined>;
+    public readonly tier!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -96,14 +96,17 @@ export class DiskPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.availabilityZones === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'availabilityZones'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sku'");
-            }
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
+            }
+            if ((!args || args.tier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'tier'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
@@ -111,14 +114,13 @@ export class DiskPool extends pulumi.CustomResource {
             inputs["disks"] = args ? args.disks : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tier"] = args ? args.tier : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
-            inputs["tier"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["additionalCapabilities"] = undefined /*out*/;
@@ -148,19 +150,19 @@ export class DiskPool extends pulumi.CustomResource {
  */
 export interface DiskPoolArgs {
     /**
-     * List of additional capabilities for a Disk Pool.
+     * List of additional capabilities for a Disk pool.
      */
     readonly additionalCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Logical zone for Disk Pool resource; example: ["1"].
+     * Logical zone for Disk pool resource; example: ["1"].
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName?: pulumi.Input<string>;
     /**
-     * List of Azure Managed Disks to attach to a Disk Pool.
+     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
      */
     readonly disks?: pulumi.Input<pulumi.Input<inputs.storagepool.DiskArgs>[]>;
     /**
@@ -172,15 +174,15 @@ export interface DiskPoolArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Determines the SKU of the Disk Pool
-     */
-    readonly sku: pulumi.Input<inputs.storagepool.SkuArgs>;
-    /**
-     * Azure Resource ID of a Subnet for the Disk Pool.
+     * Azure Resource ID of a Subnet for the Disk pool.
      */
     readonly subnetId: pulumi.Input<string>;
     /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Determines the SKU of VM deployed for Disk pool
+     */
+    readonly tier: pulumi.Input<string | enums.storagepool.DiskPoolTier>;
 }

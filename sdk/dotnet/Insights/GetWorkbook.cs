@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// An Application Insights workbook definition.
-        /// API Version: 2021-03-08.
+        /// API Version: 2020-10-20.
         /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookArgs(), options.WithVersion());
@@ -48,10 +48,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Category;
         /// <summary>
-        /// The description of the workbook.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
         /// The user-defined name (display name) of the workbook.
         /// </summary>
         public readonly string DisplayName;
@@ -80,10 +76,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The unique revision id for this workbook definition
-        /// </summary>
-        public readonly string? Revision;
-        /// <summary>
         /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
         /// </summary>
         public readonly string SerializedData;
@@ -95,10 +87,6 @@ namespace Pulumi.AzureNative.Insights
         /// BYOS Storage Account URI
         /// </summary>
         public readonly string? StorageUri;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -124,8 +112,6 @@ namespace Pulumi.AzureNative.Insights
         private GetWorkbookResult(
             string category,
 
-            string? description,
-
             string displayName,
 
             ImmutableDictionary<string, string>? etag,
@@ -140,15 +126,11 @@ namespace Pulumi.AzureNative.Insights
 
             string? name,
 
-            string? revision,
-
             string serializedData,
 
             string? sourceId,
 
             string? storageUri,
-
-            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -161,7 +143,6 @@ namespace Pulumi.AzureNative.Insights
             string? version)
         {
             Category = category;
-            Description = description;
             DisplayName = displayName;
             Etag = etag;
             Id = id;
@@ -169,11 +150,9 @@ namespace Pulumi.AzureNative.Insights
             Kind = kind;
             Location = location;
             Name = name;
-            Revision = revision;
             SerializedData = serializedData;
             SourceId = sourceId;
             StorageUri = storageUri;
-            SystemData = systemData;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;

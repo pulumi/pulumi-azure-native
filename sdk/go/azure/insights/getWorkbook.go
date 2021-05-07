@@ -8,7 +8,7 @@ import (
 )
 
 // An Application Insights workbook definition.
-// API Version: 2021-03-08.
+// API Version: 2020-10-20.
 func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulumi.InvokeOption) (*LookupWorkbookResult, error) {
 	var rv LookupWorkbookResult
 	err := ctx.Invoke("azure-native:insights:getWorkbook", args, &rv, opts...)
@@ -29,8 +29,6 @@ type LookupWorkbookArgs struct {
 type LookupWorkbookResult struct {
 	// Workbook category, as defined by the user at creation time.
 	Category string `pulumi:"category"`
-	// The description of the workbook.
-	Description *string `pulumi:"description"`
 	// The user-defined name (display name) of the workbook.
 	DisplayName string `pulumi:"displayName"`
 	// Resource etag
@@ -45,16 +43,12 @@ type LookupWorkbookResult struct {
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The unique revision id for this workbook definition
-	Revision *string `pulumi:"revision"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
 	// ResourceId for a source resource.
 	SourceId *string `pulumi:"sourceId"`
 	// BYOS Storage Account URI
 	StorageUri *string `pulumi:"storageUri"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this workbook definition.

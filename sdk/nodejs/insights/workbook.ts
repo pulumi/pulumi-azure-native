@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights workbook definition.
- * API Version: 2021-03-08.
+ * API Version: 2020-10-20.
  */
 export class Workbook extends pulumi.CustomResource {
     /**
@@ -41,10 +41,6 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly category!: pulumi.Output<string>;
     /**
-     * The description of the workbook.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
      * The user-defined name (display name) of the workbook.
      */
     public readonly displayName!: pulumi.Output<string>;
@@ -69,10 +65,6 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The unique revision id for this workbook definition
-     */
-    public readonly revision!: pulumi.Output<string | undefined>;
-    /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
     public readonly serializedData!: pulumi.Output<string>;
@@ -84,10 +76,6 @@ export class Workbook extends pulumi.CustomResource {
      * BYOS Storage Account URI
      */
     public readonly storageUri!: pulumi.Output<string | undefined>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
     /**
      * Resource tags
      */
@@ -133,7 +121,6 @@ export class Workbook extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serializedData'");
             }
             inputs["category"] = args ? args.category : undefined;
-            inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -143,30 +130,25 @@ export class Workbook extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["revision"] = args ? args.revision : undefined;
             inputs["serializedData"] = args ? args.serializedData : undefined;
             inputs["sourceId"] = args ? args.sourceId : undefined;
             inputs["storageUri"] = args ? args.storageUri : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
         } else {
             inputs["category"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
             inputs["serializedData"] = undefined /*out*/;
             inputs["sourceId"] = undefined /*out*/;
             inputs["storageUri"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -190,10 +172,6 @@ export interface WorkbookArgs {
      * Workbook category, as defined by the user at creation time.
      */
     readonly category: pulumi.Input<string>;
-    /**
-     * The description of the workbook.
-     */
-    readonly description?: pulumi.Input<string>;
     /**
      * The user-defined name (display name) of the workbook.
      */
@@ -230,10 +208,6 @@ export interface WorkbookArgs {
      * The name of the Application Insights component resource.
      */
     readonly resourceName?: pulumi.Input<string>;
-    /**
-     * The unique revision id for this workbook definition
-     */
-    readonly revision?: pulumi.Input<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */

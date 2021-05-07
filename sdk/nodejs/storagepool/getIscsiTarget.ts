@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Response for iSCSI Target requests.
- * API Version: 2021-04-01-preview.
+ * Response for iSCSI target requests.
+ * API Version: 2020-03-15-preview.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
     if (!opts) {
@@ -26,11 +26,11 @@ export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOpt
 
 export interface GetIscsiTargetArgs {
     /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName: string;
     /**
-     * The name of the iSCSI Target.
+     * The name of the iSCSI target.
      */
     readonly iscsiTargetName: string;
     /**
@@ -40,53 +40,33 @@ export interface GetIscsiTargetArgs {
 }
 
 /**
- * Response for iSCSI Target requests.
+ * Response for iSCSI target requests.
  */
 export interface GetIscsiTargetResult {
-    /**
-     * Mode for Target connectivity.
-     */
-    readonly aclMode: string;
-    /**
-     * List of private IPv4 addresses to connect to the iSCSI Target.
-     */
-    readonly endpoints?: string[];
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * List of LUNs to be exposed through iSCSI Target.
-     */
-    readonly luns?: outputs.storagepool.IscsiLunResponse[];
-    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * The port used by iSCSI Target portal group.
-     */
-    readonly port?: number;
     /**
      * State of the operation on the resource.
      */
     readonly provisioningState: string;
     /**
-     * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-     */
-    readonly staticAcls?: outputs.storagepool.AclResponse[];
-    /**
-     * Operational status of the iSCSI Target.
+     * Operational status of the iSCSI target.
      */
     readonly status: string;
     /**
-     * Resource metadata required by ARM RPC
-     */
-    readonly systemData: outputs.storagepool.SystemMetadataResponse;
-    /**
-     * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+     * iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
     readonly targetIqn: string;
+    /**
+     * List of iSCSI target portal groups. Can have 1 portal group at most.
+     */
+    readonly tpgs: outputs.storagepool.TargetPortalGroupResponse[];
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

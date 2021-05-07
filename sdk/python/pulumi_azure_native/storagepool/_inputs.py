@@ -11,23 +11,30 @@ from ._enums import *
 
 __all__ = [
     'AclArgs',
+    'AttributesArgs',
     'DiskArgs',
     'IscsiLunArgs',
-    'SkuArgs',
+    'TargetPortalGroupCreateArgs',
 ]
 
 @pulumi.input_type
 class AclArgs:
     def __init__(__self__, *,
                  initiator_iqn: pulumi.Input[str],
-                 mapped_luns: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 mapped_luns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
         """
-        Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        Access Control List (ACL) for an iSCSI target portal group
         :param pulumi.Input[str] initiator_iqn: iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mapped_luns: List of LUN names mapped to the ACL.
+        :param pulumi.Input[str] password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        :param pulumi.Input[str] username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
         pulumi.set(__self__, "initiator_iqn", initiator_iqn)
         pulumi.set(__self__, "mapped_luns", mapped_luns)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="initiatorIqn")
@@ -53,13 +60,75 @@ class AclArgs:
     def mapped_luns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "mapped_luns", value)
 
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class AttributesArgs:
+    def __init__(__self__, *,
+                 authentication: pulumi.Input[bool],
+                 prod_mode_write_protect: pulumi.Input[bool]):
+        """
+        Attributes of a iSCSI target portal group.
+        :param pulumi.Input[bool] authentication: Indicates whether or not authentication is enabled on the ACL.
+        :param pulumi.Input[bool] prod_mode_write_protect: Indicates whether or not write protect is enabled on the LUNs.
+        """
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "prod_mode_write_protect", prod_mode_write_protect)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether or not authentication is enabled on the ACL.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="prodModeWriteProtect")
+    def prod_mode_write_protect(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether or not write protect is enabled on the LUNs.
+        """
+        return pulumi.get(self, "prod_mode_write_protect")
+
+    @prod_mode_write_protect.setter
+    def prod_mode_write_protect(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "prod_mode_write_protect", value)
+
 
 @pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Azure Managed Disk to attach to the Disk Pool.
+        Azure Managed Disk to attach to the Disk pool.
         :param pulumi.Input[str] id: Unique Azure Resource ID of the Managed Disk.
         """
         pulumi.set(__self__, "id", id)
@@ -116,41 +185,55 @@ class IscsiLunArgs:
 
 
 @pulumi.input_type
-class SkuArgs:
+class TargetPortalGroupCreateArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
+                 acls: pulumi.Input[Sequence[pulumi.Input['AclArgs']]],
+                 attributes: pulumi.Input['AttributesArgs'],
+                 luns: pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]):
         """
-        Sku for ARM resource
-        :param pulumi.Input[str] name: Sku name
-        :param pulumi.Input[str] tier: Sku tier
+        Target portal group properties for create or update iSCSI target request.
+        :param pulumi.Input[Sequence[pulumi.Input['AclArgs']]] acls: Access Control List (ACL) for an iSCSI target portal group.
+        :param pulumi.Input['AttributesArgs'] attributes: Attributes of an iSCSI target portal group.
+        :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through the iSCSI target portal group.
         """
-        pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "acls", acls)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "luns", luns)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def acls(self) -> pulumi.Input[Sequence[pulumi.Input['AclArgs']]]:
         """
-        Sku name
+        Access Control List (ACL) for an iSCSI target portal group.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "acls")
 
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+    @acls.setter
+    def acls(self, value: pulumi.Input[Sequence[pulumi.Input['AclArgs']]]):
+        pulumi.set(self, "acls", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def attributes(self) -> pulumi.Input['AttributesArgs']:
         """
-        Sku tier
+        Attributes of an iSCSI target portal group.
         """
-        return pulumi.get(self, "tier")
+        return pulumi.get(self, "attributes")
 
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tier", value)
+    @attributes.setter
+    def attributes(self, value: pulumi.Input['AttributesArgs']):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter
+    def luns(self) -> pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]:
+        """
+        List of LUNs to be exposed through the iSCSI target portal group.
+        """
+        return pulumi.get(self, "luns")
+
+    @luns.setter
+    def luns(self, value: pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]):
+        pulumi.set(self, "luns", value)
 
 

@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Response for Disk Pool request.
- * API Version: 2021-04-01-preview.
+ * Response for Disk pool request.
+ * API Version: 2020-03-15-preview.
  */
 export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskPoolResult> {
     if (!opts) {
@@ -25,7 +25,7 @@ export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDiskPoolArgs {
     /**
-     * The name of the Disk Pool.
+     * The name of the Disk pool.
      */
     readonly diskPoolName: string;
     /**
@@ -35,19 +35,19 @@ export interface GetDiskPoolArgs {
 }
 
 /**
- * Response for Disk Pool request.
+ * Response for Disk pool request.
  */
 export interface GetDiskPoolResult {
     /**
-     * List of additional capabilities for Disk Pool.
+     * List of additional capabilities for Disk pool.
      */
     readonly additionalCapabilities?: string[];
     /**
-     * Logical zone for Disk Pool resource; example: ["1"].
+     * Logical zone for Disk pool resource; example: ["1"].
      */
     readonly availabilityZones: string[];
     /**
-     * List of Azure Managed Disks to attach to a Disk Pool.
+     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
      */
     readonly disks?: outputs.storagepool.DiskResponse[];
     /**
@@ -67,11 +67,11 @@ export interface GetDiskPoolResult {
      */
     readonly provisioningState: string;
     /**
-     * Operational status of the Disk Pool.
+     * Operational status of the Disk pool.
      */
     readonly status: string;
     /**
-     * Azure Resource ID of a Subnet for the Disk Pool.
+     * Azure Resource ID of a Subnet for the Disk pool.
      */
     readonly subnetId: string;
     /**
@@ -83,9 +83,9 @@ export interface GetDiskPoolResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Sku tier
+     * Determines the SKU of VM deployed for Disk pool
      */
-    readonly tier?: string;
+    readonly tier: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

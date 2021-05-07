@@ -20,13 +20,10 @@ class GetWorkbookResult:
     """
     An Application Insights workbook definition.
     """
-    def __init__(__self__, category=None, description=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, revision=None, serialized_data=None, source_id=None, storage_uri=None, system_data=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -48,9 +45,6 @@ class GetWorkbookResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if revision and not isinstance(revision, str):
-            raise TypeError("Expected argument 'revision' to be a str")
-        pulumi.set(__self__, "revision", revision)
         if serialized_data and not isinstance(serialized_data, str):
             raise TypeError("Expected argument 'serialized_data' to be a str")
         pulumi.set(__self__, "serialized_data", serialized_data)
@@ -60,9 +54,6 @@ class GetWorkbookResult:
         if storage_uri and not isinstance(storage_uri, str):
             raise TypeError("Expected argument 'storage_uri' to be a str")
         pulumi.set(__self__, "storage_uri", storage_uri)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -86,14 +77,6 @@ class GetWorkbookResult:
         Workbook category, as defined by the user at creation time.
         """
         return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the workbook.
-        """
-        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
@@ -152,14 +135,6 @@ class GetWorkbookResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def revision(self) -> Optional[str]:
-        """
-        The unique revision id for this workbook definition
-        """
-        return pulumi.get(self, "revision")
-
-    @property
     @pulumi.getter(name="serializedData")
     def serialized_data(self) -> str:
         """
@@ -182,14 +157,6 @@ class GetWorkbookResult:
         BYOS Storage Account URI
         """
         return pulumi.get(self, "storage_uri")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -239,7 +206,6 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             yield self
         return GetWorkbookResult(
             category=self.category,
-            description=self.description,
             display_name=self.display_name,
             etag=self.etag,
             id=self.id,
@@ -247,11 +213,9 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            revision=self.revision,
             serialized_data=self.serialized_data,
             source_id=self.source_id,
             storage_uri=self.storage_uri,
-            system_data=self.system_data,
             tags=self.tags,
             time_modified=self.time_modified,
             type=self.type,
@@ -264,7 +228,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
     An Application Insights workbook definition.
-    API Version: 2021-03-08.
+    API Version: 2020-10-20.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -281,7 +245,6 @@ def get_workbook(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkbookResult(
         category=__ret__.category,
-        description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
@@ -289,11 +252,9 @@ def get_workbook(resource_group_name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        revision=__ret__.revision,
         serialized_data=__ret__.serialized_data,
         source_id=__ret__.source_id,
         storage_uri=__ret__.storage_uri,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         time_modified=__ret__.time_modified,
         type=__ret__.type,
