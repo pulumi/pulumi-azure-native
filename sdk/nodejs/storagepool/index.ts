@@ -15,9 +15,11 @@ export * from "../types/enums/storagepool";
 
 // Export sub-modules:
 import * as v20200315preview from "./v20200315preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     v20200315preview,
+    v20210401preview,
 };
 
 // Import resources to register:

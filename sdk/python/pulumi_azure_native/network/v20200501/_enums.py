@@ -453,8 +453,8 @@ class ExpressRouteLinkMacSecCipher(str, Enum):
     """
     Mac security cipher.
     """
-    GCM_AES_128 = "gcm-aes-128"
-    GCM_AES_256 = "gcm-aes-256"
+    GCM_AES256 = "GcmAes256"
+    GCM_AES128 = "GcmAes128"
 
 
 class ExpressRoutePeeringState(str, Enum):

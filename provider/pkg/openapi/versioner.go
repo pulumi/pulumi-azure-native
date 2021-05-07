@@ -96,11 +96,13 @@ var ignoredProviderVersions = map[string][]string{
 var cutoffProviderVersions = map[string]string{
 	"alertsmanagement":        "v20200804preview",
 	"documentdb":              "v20210315",
+	"insights":                "v20201020",
 	"machinelearningservices": "v20210101",
 	"management":              "v20200501",
 	"maps":                    "v20200201preview",
 	"media":                   "v20200501",
 	"recoveryservices":        "v20210201preview",
+	"storagepool":             "v20200315preview",
 }
 var lockedTypeVersions = map[string]string{
 	"web:WebAppSwiftVirtualNetworkConnection": "v20201001",

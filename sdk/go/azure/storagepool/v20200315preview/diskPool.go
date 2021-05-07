@@ -70,6 +70,12 @@ func NewDiskPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagepool:DiskPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:storagepool/v20210401preview:DiskPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storagepool/v20210401preview:DiskPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DiskPool

@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.Consumption.V20190101
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20191001:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20191101:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20191101:Budget"},
+                    new Pulumi.Alias { Type = "azure-native:consumption/v20210501:Budget"},
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20210501:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

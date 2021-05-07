@@ -404,8 +404,8 @@ export const ExpressRouteLinkAdminState = {
 export type ExpressRouteLinkAdminState = (typeof ExpressRouteLinkAdminState)[keyof typeof ExpressRouteLinkAdminState];
 
 export const ExpressRouteLinkMacSecCipher = {
-    Gcm_aes_128: "gcm-aes-128",
-    Gcm_aes_256: "gcm-aes-256",
+    GcmAes256: "GcmAes256",
+    GcmAes128: "GcmAes128",
 } as const;
 
 /**

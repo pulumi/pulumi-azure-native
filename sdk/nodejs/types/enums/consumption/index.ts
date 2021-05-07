@@ -15,6 +15,7 @@ import * as v20190501preview from "./v20190501preview";
 import * as v20190601 from "./v20190601";
 import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
+import * as v20210501 from "./v20210501";
 
 export {
     v20171230preview,
@@ -30,6 +31,7 @@ export {
     v20190601,
     v20191001,
     v20191101,
+    v20210501,
 };
 
 export const BudgetOperatorType = {

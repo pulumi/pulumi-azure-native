@@ -1045,8 +1045,8 @@ func (e ExpressRouteLinkAdminState) ToStringPtrOutputWithContext(ctx context.Con
 type ExpressRouteLinkMacSecCipher pulumi.String
 
 const (
-	ExpressRouteLinkMacSecCipher_Gcm_aes_128 = ExpressRouteLinkMacSecCipher("gcm-aes-128")
-	ExpressRouteLinkMacSecCipher_Gcm_aes_256 = ExpressRouteLinkMacSecCipher("gcm-aes-256")
+	ExpressRouteLinkMacSecCipherGcmAes256 = ExpressRouteLinkMacSecCipher("GcmAes256")
+	ExpressRouteLinkMacSecCipherGcmAes128 = ExpressRouteLinkMacSecCipher("GcmAes128")
 )
 
 func (ExpressRouteLinkMacSecCipher) ElementType() reflect.Type {

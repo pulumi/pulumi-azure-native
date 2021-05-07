@@ -3082,6 +3082,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "consumption/v20210501",
+  "fqn": "pulumi_azure_native.consumption.v20210501",
+  "classes": {
+   "azure-native:consumption/v20210501:Budget": "Budget"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerinstance",
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
@@ -6621,6 +6629,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.insights.v20210201preview",
   "classes": {
    "azure-native:insights/v20210201preview:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20210308",
+  "fqn": "pulumi_azure_native.insights.v20210308",
+  "classes": {
+   "azure-native:insights/v20210308:MyWorkbook": "MyWorkbook",
+   "azure-native:insights/v20210308:Workbook": "Workbook"
   }
  },
  {
@@ -12771,6 +12788,15 @@ _utilities.register(
   "classes": {
    "azure-native:storagepool/v20200315preview:DiskPool": "DiskPool",
    "azure-native:storagepool/v20200315preview:IscsiTarget": "IscsiTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagepool/v20210401preview",
+  "fqn": "pulumi_azure_native.storagepool.v20210401preview",
+  "classes": {
+   "azure-native:storagepool/v20210401preview:DiskPool": "DiskPool",
+   "azure-native:storagepool/v20210401preview:IscsiTarget": "IscsiTarget"
   }
  },
  {

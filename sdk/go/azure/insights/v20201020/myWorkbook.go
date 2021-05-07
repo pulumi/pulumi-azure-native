@@ -82,6 +82,12 @@ func NewMyWorkbook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights/v20150501:MyWorkbook"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20210308:MyWorkbook"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:insights/v20210308:MyWorkbook"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MyWorkbook

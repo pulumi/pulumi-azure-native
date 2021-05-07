@@ -1156,8 +1156,8 @@ namespace Pulumi.AzureNative.Network.V20200501
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ExpressRouteLinkMacSecCipher Gcm_aes_128 { get; } = new ExpressRouteLinkMacSecCipher("gcm-aes-128");
-        public static ExpressRouteLinkMacSecCipher Gcm_aes_256 { get; } = new ExpressRouteLinkMacSecCipher("gcm-aes-256");
+        public static ExpressRouteLinkMacSecCipher GcmAes256 { get; } = new ExpressRouteLinkMacSecCipher("GcmAes256");
+        public static ExpressRouteLinkMacSecCipher GcmAes128 { get; } = new ExpressRouteLinkMacSecCipher("GcmAes128");
 
         public static bool operator ==(ExpressRouteLinkMacSecCipher left, ExpressRouteLinkMacSecCipher right) => left.Equals(right);
         public static bool operator !=(ExpressRouteLinkMacSecCipher left, ExpressRouteLinkMacSecCipher right) => !left.Equals(right);
