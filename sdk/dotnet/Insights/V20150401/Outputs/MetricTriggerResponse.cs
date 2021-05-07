@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Insights.V20150401.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleRuleMetricDimensionResponse> Dimensions;
         /// <summary>
+        /// a value indicating whether metric should divide per instance.
+        /// </summary>
+        public readonly bool? DividePerInstance;
+        /// <summary>
         /// the name of the metric that defines what the rule monitors.
         /// </summary>
         public readonly string MetricName;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNative.Insights.V20150401.Outputs
         private MetricTriggerResponse(
             ImmutableArray<Outputs.ScaleRuleMetricDimensionResponse> dimensions,
 
+            bool? dividePerInstance,
+
             string metricName,
 
             string? metricNamespace,
@@ -77,6 +83,7 @@ namespace Pulumi.AzureNative.Insights.V20150401.Outputs
             string timeWindow)
         {
             Dimensions = dimensions;
+            DividePerInstance = dividePerInstance;
             MetricName = metricName;
             MetricNamespace = metricNamespace;
             MetricResourceUri = metricResourceUri;

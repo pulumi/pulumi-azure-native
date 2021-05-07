@@ -12318,6 +12318,8 @@ func (o MetricSettingsResponseArrayOutput) Index(i pulumi.IntInput) MetricSettin
 type MetricTrigger struct {
 	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 	Dimensions []ScaleRuleMetricDimension `pulumi:"dimensions"`
+	// a value indicating whether metric should divide per instance.
+	DividePerInstance *bool `pulumi:"dividePerInstance"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName string `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
@@ -12353,6 +12355,8 @@ type MetricTriggerInput interface {
 type MetricTriggerArgs struct {
 	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 	Dimensions ScaleRuleMetricDimensionArrayInput `pulumi:"dimensions"`
+	// a value indicating whether metric should divide per instance.
+	DividePerInstance pulumi.BoolPtrInput `pulumi:"dividePerInstance"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
@@ -12405,6 +12409,11 @@ func (o MetricTriggerOutput) Dimensions() ScaleRuleMetricDimensionArrayOutput {
 	return o.ApplyT(func(v MetricTrigger) []ScaleRuleMetricDimension { return v.Dimensions }).(ScaleRuleMetricDimensionArrayOutput)
 }
 
+// a value indicating whether metric should divide per instance.
+func (o MetricTriggerOutput) DividePerInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricTrigger) *bool { return v.DividePerInstance }).(pulumi.BoolPtrOutput)
+}
+
 // the name of the metric that defines what the rule monitors.
 func (o MetricTriggerOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
@@ -12454,6 +12463,8 @@ func (o MetricTriggerOutput) TimeWindow() pulumi.StringOutput {
 type MetricTriggerResponse struct {
 	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 	Dimensions []ScaleRuleMetricDimensionResponse `pulumi:"dimensions"`
+	// a value indicating whether metric should divide per instance.
+	DividePerInstance *bool `pulumi:"dividePerInstance"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName string `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
@@ -12489,6 +12500,8 @@ type MetricTriggerResponseInput interface {
 type MetricTriggerResponseArgs struct {
 	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 	Dimensions ScaleRuleMetricDimensionResponseArrayInput `pulumi:"dimensions"`
+	// a value indicating whether metric should divide per instance.
+	DividePerInstance pulumi.BoolPtrInput `pulumi:"dividePerInstance"`
 	// the name of the metric that defines what the rule monitors.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// the namespace of the metric that defines what the rule monitors.
@@ -12539,6 +12552,11 @@ func (o MetricTriggerResponseOutput) ToMetricTriggerResponseOutputWithContext(ct
 // List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 func (o MetricTriggerResponseOutput) Dimensions() ScaleRuleMetricDimensionResponseArrayOutput {
 	return o.ApplyT(func(v MetricTriggerResponse) []ScaleRuleMetricDimensionResponse { return v.Dimensions }).(ScaleRuleMetricDimensionResponseArrayOutput)
+}
+
+// a value indicating whether metric should divide per instance.
+func (o MetricTriggerResponseOutput) DividePerInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricTriggerResponse) *bool { return v.DividePerInstance }).(pulumi.BoolPtrOutput)
 }
 
 // the name of the metric that defines what the rule monitors.

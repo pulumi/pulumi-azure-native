@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Insights.V20150401.Inputs
         }
 
         /// <summary>
+        /// a value indicating whether metric should divide per instance.
+        /// </summary>
+        [Input("dividePerInstance")]
+        public Input<bool>? DividePerInstance { get; set; }
+
+        /// <summary>
         /// the name of the metric that defines what the rule monitors.
         /// </summary>
         [Input("metricName", required: true)]

@@ -12,6 +12,7 @@ import * as aad from "./aad";
 import * as aadiam from "./aadiam";
 import * as addons from "./addons";
 import * as advisor from "./advisor";
+import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
@@ -182,6 +183,7 @@ export {
     aadiam,
     addons,
     advisor,
+    agfoodplatform,
     alertsmanagement,
     analysisservices,
     apimanagement,

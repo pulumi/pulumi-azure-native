@@ -3,11 +3,20 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New Resources
+
+- `agfoodplatform.Extension`
+- `agfoodplatform.FarmBeatsModel`
+
+#### New Functions
+
+- `agfoodplatform.getExtension`
+- `agfoodplatform.getFarmBeatsModel`
+
 #### Bug fixes
 
 - Don't set auto-location of LoadBalancerBackendAddressPool as the service doesn't expect it
   [#819](https://github.com/pulumi/pulumi-azure-native/issues/819)
-
 
 ---
 

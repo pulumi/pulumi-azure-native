@@ -232,6 +232,7 @@ class MetricTriggerArgs:
                  time_grain: pulumi.Input[str],
                  time_window: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
+                 divide_per_instance: Optional[pulumi.Input[bool]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None):
         """
         The trigger that results in a scaling action.
@@ -244,6 +245,7 @@ class MetricTriggerArgs:
         :param pulumi.Input[str] time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param pulumi.Input[str] time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param pulumi.Input[bool] divide_per_instance: a value indicating whether metric should divide per instance.
         :param pulumi.Input[str] metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -256,6 +258,8 @@ class MetricTriggerArgs:
         pulumi.set(__self__, "time_window", time_window)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if divide_per_instance is not None:
+            pulumi.set(__self__, "divide_per_instance", divide_per_instance)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
 
@@ -366,6 +370,18 @@ class MetricTriggerArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="dividePerInstance")
+    def divide_per_instance(self) -> Optional[pulumi.Input[bool]]:
+        """
+        a value indicating whether metric should divide per instance.
+        """
+        return pulumi.get(self, "divide_per_instance")
+
+    @divide_per_instance.setter
+    def divide_per_instance(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "divide_per_instance", value)
 
     @property
     @pulumi.getter(name="metricNamespace")

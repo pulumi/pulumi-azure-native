@@ -242,6 +242,8 @@ class MetricTriggerResponse(dict):
             suggest = "time_grain"
         elif key == "timeWindow":
             suggest = "time_window"
+        elif key == "dividePerInstance":
+            suggest = "divide_per_instance"
         elif key == "metricNamespace":
             suggest = "metric_namespace"
 
@@ -266,6 +268,7 @@ class MetricTriggerResponse(dict):
                  time_grain: str,
                  time_window: str,
                  dimensions: Optional[Sequence['outputs.ScaleRuleMetricDimensionResponse']] = None,
+                 divide_per_instance: Optional[bool] = None,
                  metric_namespace: Optional[str] = None):
         """
         The trigger that results in a scaling action.
@@ -278,6 +281,7 @@ class MetricTriggerResponse(dict):
         :param str time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param str time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
         :param Sequence['ScaleRuleMetricDimensionResponse'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param bool divide_per_instance: a value indicating whether metric should divide per instance.
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -290,6 +294,8 @@ class MetricTriggerResponse(dict):
         pulumi.set(__self__, "time_window", time_window)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if divide_per_instance is not None:
+            pulumi.set(__self__, "divide_per_instance", divide_per_instance)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
 
@@ -364,6 +370,14 @@ class MetricTriggerResponse(dict):
         List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="dividePerInstance")
+    def divide_per_instance(self) -> Optional[bool]:
+        """
+        a value indicating whether metric should divide per instance.
+        """
+        return pulumi.get(self, "divide_per_instance")
 
     @property
     @pulumi.getter(name="metricNamespace")

@@ -13,6 +13,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.aadiam as aadiam
     import pulumi_azure_native.addons as addons
     import pulumi_azure_native.advisor as advisor
+    import pulumi_azure_native.agfoodplatform as agfoodplatform
     import pulumi_azure_native.alertsmanagement as alertsmanagement
     import pulumi_azure_native.analysisservices as analysisservices
     import pulumi_azure_native.apimanagement as apimanagement
@@ -181,6 +182,7 @@ else:
     aadiam = _utilities.lazy_import('pulumi_azure_native.aadiam')
     addons = _utilities.lazy_import('pulumi_azure_native.addons')
     advisor = _utilities.lazy_import('pulumi_azure_native.advisor')
+    agfoodplatform = _utilities.lazy_import('pulumi_azure_native.agfoodplatform')
     alertsmanagement = _utilities.lazy_import('pulumi_azure_native.alertsmanagement')
     analysisservices = _utilities.lazy_import('pulumi_azure_native.analysisservices')
     apimanagement = _utilities.lazy_import('pulumi_azure_native.apimanagement')
@@ -488,6 +490,24 @@ _utilities.register(
   "fqn": "pulumi_azure_native.advisor.v20200101",
   "classes": {
    "azure-native:advisor/v20200101:Suppression": "Suppression"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "agfoodplatform",
+  "fqn": "pulumi_azure_native.agfoodplatform",
+  "classes": {
+   "azure-native:agfoodplatform:Extension": "Extension",
+   "azure-native:agfoodplatform:FarmBeatsModel": "FarmBeatsModel"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "agfoodplatform/v20200512preview",
+  "fqn": "pulumi_azure_native.agfoodplatform.v20200512preview",
+  "classes": {
+   "azure-native:agfoodplatform/v20200512preview:Extension": "Extension",
+   "azure-native:agfoodplatform/v20200512preview:FarmBeatsModel": "FarmBeatsModel"
   }
  },
  {
