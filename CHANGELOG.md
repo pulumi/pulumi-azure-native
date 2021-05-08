@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.5.0 (2020-05-08)
+
 #### New Resources
 
 - `agfoodplatform.Extension`
@@ -17,8 +23,6 @@ CHANGELOG
 
 - Don't set auto-location of LoadBalancerBackendAddressPool as the service doesn't expect it
   [#819](https://github.com/pulumi/pulumi-azure-native/issues/819)
-
----
 
 ## 1.4.0 (2020-05-05)
 
