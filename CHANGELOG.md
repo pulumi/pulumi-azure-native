@@ -3,7 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+- Add support for authentication agianst private and hybrid cloud environments.
 
 ---
 
