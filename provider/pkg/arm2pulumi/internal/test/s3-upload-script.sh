@@ -7,7 +7,7 @@ newSummaryName="summary_${currDateTime}.json"
 echo "New file to be uploaded: ${newSummaryName}"
 
 # URI of S3 bucket and location to upload to
-s3KeyName="s3://arm2pulumi-coverage-results-236fe75/summaries/${newSummaryName}"
+s3KeyName="s3://arm2pulumi-coverage-results-d8adb2a/summaries/${newSummaryName}"
 
 cd test-results
 # Edit JSON summary file to be copiable into Redshift
