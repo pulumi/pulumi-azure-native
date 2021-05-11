@@ -3,7 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-- Add support for authentication agianst private and hybrid cloud environments.
+- Add support for authentication agianst private and hybrid cloud environments. [#831](https://github.com/pulumi/pulumi-azure-native/pull/831/)
 
 ---
 
