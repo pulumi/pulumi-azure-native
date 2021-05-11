@@ -1604,7 +1604,7 @@ func (k *azureNativeProvider) getAuthorizers(authConfig *authentication.Config) 
 		return nil, nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
 	}
 
-	tokenAuth, err = authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.ResourceManagerEndpoint)
+	tokenAuth, err = authConfig.GetAuthorizationToken(buildSender, oauthConfig, k.environment.TokenAudience)
 	if err != nil {
 		return nil, nil, err
 	}
