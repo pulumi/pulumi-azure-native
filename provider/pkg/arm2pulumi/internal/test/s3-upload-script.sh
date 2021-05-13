@@ -13,7 +13,7 @@ s3BucketName="arm2pulumi-coverage-results-d8adb2a"
 s3KeyName="summaries/${newSummaryName}"
 s3FullURI="s3://${s3BucketName}/${s3KeyName}"
 
-cd test-results
+cd test-resultsy
 # Edit JSON summary file to be copiable into Redshift
 # Changing file from a list of JSON objects to group of JSON objects. Done by 
 # removing first ("[") and last line ("]") and replacing all "}," with "}".

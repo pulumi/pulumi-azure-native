@@ -40,7 +40,7 @@ var excluded = map[string]bool{
 func TestQuickstartTemplateCoverage(t *testing.T) {
 	matches, err := filepath.Glob("../testdata/azure-quickstart-templates/10[01]*/azuredeploy.json")
 	require.NoError(t, err)
-	
+
 	require.NoError(t, os.MkdirAll(*testOutputDir, 0700))
 
 	t.Logf("Test outputs will be logged to: %s", *testOutputDir)
@@ -82,17 +82,6 @@ func TestQuickstartTemplateCoverage(t *testing.T) {
 		})
 	}
 	summarize(t, diagList)
-    // construct `go version` command
-    cmd := exec.Command( "pulumi", "version" )
-
-    // configure `Stdout` and `Stderr`
-    cmd.Stdout = os.Stdout
-    cmd.Stderr = os.Stdout
-
-    // run command
-    if err := cmd.Run(); err != nil {
-        fmt.Println( "Error:", err )
-    }
 }
 
 type Diag struct {

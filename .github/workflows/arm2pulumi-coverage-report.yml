@@ -40,12 +40,12 @@ jobs:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
       - name: Cleanup SDK folder
         run: make clean
-      # - name: Update submodules
-      #   run: make update_submodules
-      # - name: Build codegen binaries
-      #   run: make codegen
-      # - name: Build Schema + SDKs
-      #   run: make local_generate
+      - name: Update submodules
+        run: make update_submodules
+      - name: Build codegen binaries
+        run: make codegen
+      - name: Build Schema + SDKs
+        run: make local_generate
       - name: Build provider binary
         run: make provider
       - name: Generate coverage report
