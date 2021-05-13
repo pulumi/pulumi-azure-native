@@ -1,8 +1,11 @@
 name: arm2pulumi-coverage-report
 "on":
-  schedule:
-    - cron: 35 17 * * *
-  workflow_dispatch: {}
+  # schedule:
+  #   - cron: 35 17 * * *
+  # workflow_dispatch: {}
+  pull_request:
+    branches:
+      - master
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -37,14 +40,14 @@ jobs:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
       - name: Cleanup SDK folder
         run: make clean
-      - name: Update submodules
-        run: make update_submodules
-      - name: Build codegen binaries
-        run: make codegen
-      - name: Build Schema + SDKs
-        run: make local_generate
-      - name: Build provider binary
-        run: make provider
+      # - name: Update submodules
+      #   run: make update_submodules
+      # - name: Build codegen binaries
+      #   run: make codegen
+      # - name: Build Schema + SDKs
+      #   run: make local_generate
+      # - name: Build provider binary
+      #   run: make provider
       - name: Generate coverage report
         run: make arm2pulumi_coverage_report
       - name: test usage of results.json
