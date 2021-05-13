@@ -14,7 +14,6 @@ import (
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"testing"
 
