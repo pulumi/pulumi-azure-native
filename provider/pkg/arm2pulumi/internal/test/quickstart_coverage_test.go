@@ -20,7 +20,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-var testOutputDir = flag.String("testOutputDir", "", "location to write raw test output to. Defaults to random dir in $TMPDIR")
+var testOutputDir = flag.String("testOutputDir", "test-results", "location to write raw test output to. Defaults to ./test-results. Creates the folder if it does not exist.")
 var retainConverted = flag.Bool("retainConverted", false, "When set to true retains the converted files in 'testOutputDir'")
 
 // These templates currently cause panics.
@@ -40,17 +40,7 @@ func TestQuickstartTemplateCoverage(t *testing.T) {
 	matches, err := filepath.Glob("../testdata/azure-quickstart-templates/10[01]*/azuredeploy.json")
 	require.NoError(t, err)
 
-	if *testOutputDir == "" {
-		dir, err := os.MkdirTemp("", "quick-start-output*")
-		require.NoError(t, err)
-		testOutputDir = &dir
-		// Delete output dir only if its a temp directory we created.
-		defer func() {
-			require.NoError(t, os.RemoveAll(dir))
-		}()
-	} else {
-		require.NoError(t, os.MkdirAll(*testOutputDir, 0700))
-	}
+	require.NoError(t, os.MkdirAll(*testOutputDir, 0700))
 
 	t.Logf("Test outputs will be logged to: %s", *testOutputDir)
 	renderer := arm2pulumi.NewRenderer(loadSchema(t), loadMetadata(t))
