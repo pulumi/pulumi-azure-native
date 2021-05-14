@@ -8,8 +8,8 @@ newSummaryName="summary_${currDateTime}.json"
 echo "New file to be uploaded: ${newSummaryName}"
 
 # Sets up URI of S3 bucket and location to upload to
-# Example URI: s3://arm2pulumi-coverage-results-d8adb2a/summaries/summary_2021-05-11_19-44-12.json
-s3BucketName="arm2pulumi-coverage-results-d8adb2a"
+# Example URI: s3://arm2pulumi-coverage-results-c9610a2/summaries/summary_2021-05-11_19-44-12.json
+s3BucketName="arm2pulumi-coverage-results-c9610a2"
 s3KeyName="summaries/${newSummaryName}"
 s3FullURI="s3://${s3BucketName}/${s3KeyName}"
 
